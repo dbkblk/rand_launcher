@@ -1,35 +1,95 @@
 #include <iostream>
 #include <windows.h>
 #include <string>
+#include <shlobj.h>
 
 using namespace std;
 
+// Prototypes
 bool dirExists(const string &dirName_in);
+bool clearCache();
 
 int main()
 {
-    cout << "Checking for existing installation..." << endl;
+    cout << "Civilization IV: Rise of Mankind - A New Dawn 2" << endl << "-----------------------------------------------" << endl << endl << "Checking for existing installation..." << endl;
     bool check = dirExists(".svn");
-
-    if(check == 0)
+	
+	if(check == 0)
     {
-         cout << "The mod is not installed. Press a key to download. It might take a while..." << endl;
-         system("PAUSE");
+         cout << "The mod is not installed." << endl << "Do you want to download and install it (Y/N) ?" << endl;
+		 string answer;
+		 cin >> answer;
+         if(answer == "Y")
+    	{
          system("\"\"bin\\svn.exe\" checkout \"http://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\"\" .");
          cout << "The mod has been installed" << endl;
          system("PAUSE");
+		 }
+		 else
+		 {
+		 	cout << "Aborting the installation." << endl;
+            Sleep(3000);
+		 }
     }
-    else
-    {
-        cout << "A mod installation has been detected. Now checking for update..." << endl;
-        system("PAUSE");
-        system("bin\\svn.exe update");
-        system("PAUSE");
-    }
+	else
+	{
+        cout << "The mod is installed." << endl;
+        int menu;
 
+        do
+        {
+            cout << endl << "What do you want to do ?" << endl;
+            cout << "1) Check for update" << endl << "2) Revert to the previous version" << endl << "3) Clean up the installation (fix installation problems)" << endl << "4) Exit program" << endl;
+
+            cin >> menu;
+			switch(menu)
+			{
+				// Check for update
+				case 1:
+                    cout << "Checking for update..." << endl;
+                    Sleep(1500);
+                    system("bin\\svn.exe update");
+                    clearCache();
+                    cout << "The mod is now up-to-date !" << endl;
+                    system("PAUSE");
+                    break;
+				
+				// Rollback to head-1
+				case 2:
+                    cout << "Rolling back to the previous version..." << endl;
+                    Sleep(1500);
+                    system("bin\\svn.exe update -r PREV --accept theirs-full");
+                    Sleep(1500);
+                    clearCache();
+                    cout << "Done." << endl;
+                    Sleep(2000);
+                    break;
+				
+				// Clean up the folder
+				case 3:
+                    cout << "Cleaning up..." << endl;
+                    Sleep(2000);
+                    system("bin\\svn.exe cleanup");
+                    clearCache();
+                    cout << "The mod is reverted to the last working version." << endl;
+                    break;
+				
+                case 4:
+                    {
+                    cout << "Exiting..." << endl;
+                    break;
+                    }
+			}
+        } while(menu !=4);
+	}
+	
+	/* TODO:
+	 	- Add the ability to make the mod start by default.
+	*/
     return 0;
 }
 
+// Check for a directory
 
 bool dirExists(const std::string& dirName_in)
 {
@@ -41,4 +101,24 @@ bool dirExists(const std::string& dirName_in)
     return true;   // Correct path
 
   return false;    // There is no directory
+}
+
+bool clearCache()
+{
+    cout << "Clearing cache folder..." << endl;
+    Sleep(1500);
+
+    // Getting the cache path
+    string cacheDir;
+    string delCmd = "DEL /Q ";
+    string quote = "\"";
+    string finalDir = "\\My Games\\Beyond the Sword\\cache\\";
+    string dat = "*";
+    char* Appdata = getenv("LOCALAPPDATA");
+    cacheDir = delCmd + quote + Appdata + finalDir + dat + quote;
+    // cout << cacheDir << endl;
+
+    // Remove .dat files
+    system(cacheDir.c_str());
+    return 0;
 }
