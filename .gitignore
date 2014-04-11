@@ -1,3 +1,10 @@
+# Avoid some files
+Makefile
+Makefile.Debug
+Makefile.Release
+*.pro
+
+
 #################
 ## Eclipse
 #################
