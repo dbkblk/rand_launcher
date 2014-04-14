@@ -26,7 +26,7 @@ int main()
         if(answer == "Y")
         {
             cout << "The mod will be downloaded. It might take a while !" << endl;
-            system("\"\"bin\\svn.exe\" checkout \"http://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\"\" .");
+            system("\"\"bin\\svn.exe\" checkout \"svn://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\"\" .");
             cout << "The mod has been installed" << endl;
             system("PAUSE");
 		 }

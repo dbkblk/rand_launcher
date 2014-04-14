@@ -11,6 +11,7 @@ QT       -= gui
 TARGET = and2_checker
 CONFIG   += console
 CONFIG   -= app_bundle
+QMAKE_LFLAGS += -static
 
 TEMPLATE = app
 
