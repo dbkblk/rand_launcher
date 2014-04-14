@@ -159,13 +159,10 @@ bool setStartup()
 
        output_file << inbuf << endl;
 
-       // Config file path
-       TCHAR szPath[MAX_PATH];
-       if(SUCCEEDED(SHGetFolderPath(NULL, CSIDL_COMMON_DOCUMENTS, NULL, 0, szPath)))
-       {
-           szPath += "\\My Games\\Beyond the Sword\\";
-           MovefileA(szPath += "temp.txt", szPath += "CivilizationIV.ini");
-       }
+       // Change working path and rename
+       	chdir("../../");
+	rename("temp.txt", "CivilizationIV.ini")
+
 
     }
 }
