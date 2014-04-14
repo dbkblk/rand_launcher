@@ -6,6 +6,7 @@ Features:
 - If the mod is detected, it can update to the current version or get back to the previous version.
 - If there is a problem in your installation, it can cleanup the directory, then you can update it again easily.
 - It automatically clear the cache on update.
+- Can set the mod to autostart when Civ 4 is launched
 
 ## Installation instructions
 - Download the installation pack: Here
@@ -23,6 +24,9 @@ The idea is pretty basic, but i will improve it. The nice part is that we can in
 The next step is to implement an option the make the mod auto-start when launching Civilization. Then i'll try to make a GUI, but that is much harder to me at the moment.
 
 ## Changelog
+v0.4
+Added an option to autostart the mod
+
 v0.3
 Auto-detection of installation
 A menu to update, revert to the last version or cleanup the

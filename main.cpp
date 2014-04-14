@@ -17,17 +17,18 @@ int main()
 {
     cout << "Civilization IV: Rise of Mankind - A New Dawn 2" << endl << "-----------------------------------------------" << endl << endl << "Checking for existing installation..." << endl;
     bool check = dirExists(".svn");
-	
-	if(check == 0)
+
+    if(check == 0)
     {
-         cout << "The mod is not installed." << endl << "Do you want to download and install it (Y/N) ?" << endl;
-		 string answer;
-		 cin >> answer;
-         if(answer == "Y")
-    	{
-         system("\"\"bin\\svn.exe\" checkout \"http://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\"\" .");
-         cout << "The mod has been installed" << endl;
-         system("PAUSE");
+        cout << "The mod is not installed." << endl << "Do you want to download and install it (Y/N) ?" << endl;
+        string answer;
+        cin >> answer;
+        if(answer == "Y")
+        {
+            cout << "The mod will be downloaded. It might take a while !" << endl;
+            system("\"\"bin\\svn.exe\" checkout \"http://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\"\" .");
+            cout << "The mod has been installed" << endl;
+            system("PAUSE");
 		 }
 		 else
 		 {
@@ -169,9 +170,10 @@ bool setStartup()
     output_file.close();
     input_file.close();
 
-    // Change working path and rename
+    // Replace config file
      DeleteFile(L"..//..//CivilizationIV.ini");
      MoveFileW(L"..//..//temp.txt", L"..//..//CivilizationIV.ini");
+     return 0;
 }
 
 // Replace a string by another
