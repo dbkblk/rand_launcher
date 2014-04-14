@@ -1,0 +1,5 @@
+Idées:
+- DL un 7z et décompression par script
+- Faire un bloc console dans un programme executable
+- Intégrer la mise a jour en faisant un exe de substitution
+- Amorcer le svn et envoyer le dossier sur un site distant

@@ -1,13 +1,17 @@
 #include <iostream>
+#include <fstream>
 #include <windows.h>
 #include <string>
 #include <shlobj.h>
+#include <wchar.h>
 
 using namespace std;
 
 // Prototypes
 bool dirExists(const string &dirName_in);
 bool clearCache();
+bool setStartup();
+void replaceAll(std::string& str, const std::string& from, const std::string& to);
 
 int main()
 {
@@ -79,6 +83,12 @@ int main()
                     cout << "Exiting..." << endl;
                     break;
                     }
+
+            case 5:
+                {
+                setStartup();
+                break;
+                }
 			}
         } while(menu !=4);
 	}
@@ -122,3 +132,57 @@ bool clearCache()
     system(cacheDir.c_str());
     return 0;
 }
+
+/* -- Draft --
+bool setStartup()
+{
+    string search_string = "Mod = 0";
+    string replace_string = "Mod = Mods\\Rise of Mankind - A New Dawn";
+    string inbuf;
+    // Help : https://stackoverflow.com/questions/4499095/replace-line-in-a-file-c
+    fstream input_file("..//..//CivilizationIV.ini", ios::in);
+    ofstream output_file("..//..//temp.txt");
+
+    // Look line by line the file
+    while (!input_file.eof())
+    {
+       getline(input_file, inbuf);
+
+       // Register the number of the line where "search string" is found
+       size_t foundpos = inbuf.find(search_string);
+
+       // While the eof is not reached, try to replace the string when search_string is found
+       if(foundpos != std::string::npos)
+       {
+          replaceAll(inbuf, search_string, replace_string);
+       }
+
+       output_file << inbuf << endl;
+
+       // Config file path
+       TCHAR szPath[MAX_PATH];
+       if(SUCCEEDED(SHGetFolderPath(NULL, CSIDL_COMMON_DOCUMENTS, NULL, 0, szPath)))
+       {
+           szPath += "\\My Games\\Beyond the Sword\\";
+           MovefileA(szPath += "temp.txt", szPath += "CivilizationIV.ini");
+       }
+
+    }
+}
+*/
+
+void replaceAll(std::string& str, const std::string& from, const std::string& to)
+{
+    size_t start_pos = 0;
+    while((start_pos = str.find(from, start_pos)) != std::string::npos)
+    {
+        size_t end_pos = start_pos + from.length();
+        str.replace(start_pos, end_pos, to);
+        start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
+    }
+}
+
+//bool in_quote(const Container& cont, const std::string& s)
+//{
+//    return std::search(cont.begin(), cont.end(), s.begin(), s.end()) != cont.end();
+//}

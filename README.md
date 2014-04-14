@@ -13,6 +13,8 @@ Features:
 - Now, go into the newly created Rise of Mankind - A New Dawn folder and execute and2_checker.exe
 - Follow the instructions
 
+Just execute and2_checker.exe again when you want to update, or clean, etc...
+
 ## Comments
 While thinking about git, i came to an idea and TADAM ! This executable is pretty basic, but it get the job done on my PC. Please test it and give me some feedback.
 With these scripts, no need for TortoiseSVN or whatever. No need for nightly builds neither . You just unzip and launch.
