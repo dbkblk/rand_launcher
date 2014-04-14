@@ -43,7 +43,7 @@ int main()
         do
         {
             cout << endl << "What do you want to do ?" << endl;
-            cout << "1) Check for update" << endl << "2) Revert to the previous version" << endl << "3) Clean up the installation (fix installation problems)" << endl << "4) Exit program" << endl;
+            cout << "1) Check for update" << endl << "2) Revert to the previous version" << endl << "3) Clean up the installation (fix installation problems)" << endl << "4) Set the mod to autostart with Civ. IV" << endl << "5) Exit program" << endl;
 
             cin >> menu;
 			switch(menu)
@@ -66,36 +66,38 @@ int main()
                     Sleep(1500);
                     clearCache();
                     cout << "Done." << endl;
-                    Sleep(2000);
+                    Sleep(1500);
                     break;
 				
 				// Clean up the folder
 				case 3:
                     cout << "Cleaning up..." << endl;
-                    Sleep(2000);
+                    Sleep(1500);
                     system("bin\\svn.exe cleanup");
                     clearCache();
                     cout << "The mod is reverted to the last working version." << endl;
                     break;
 				
+                // Set the mod at startup
                 case 4:
+                    {
+                    cout << "Setting the mod to autostart..." << endl;
+                    Sleep(1500);
+                    setStartup();
+                    cout << "Done." << endl;
+                    break;
+                    }
+
+                // Exit the launcher
+                case 5:
                     {
                     cout << "Exiting..." << endl;
                     break;
                     }
-
-            case 5:
-                {
-                setStartup();
-                break;
-                }
 			}
-        } while(menu !=4);
+        } while(menu !=5);
 	}
 	
-	/* TODO:
-	 	- Add the ability to make the mod start by default.
-	*/
     return 0;
 }
 
@@ -112,6 +114,8 @@ bool dirExists(const std::string& dirName_in)
 
   return false;    // There is no directory
 }
+
+// Clear the cache folder
 
 bool clearCache()
 {
@@ -133,13 +137,15 @@ bool clearCache()
     return 0;
 }
 
-/* -- Draft --
+// Set the mod to start by default
 bool setStartup()
 {
+    /* Look for the file and replace the string
+     * Help : https://stackoverflow.com/questions/4499095/replace-line-in-a-file-c */
     string search_string = "Mod = 0";
     string replace_string = "Mod = Mods\\Rise of Mankind - A New Dawn";
     string inbuf;
-    // Help : https://stackoverflow.com/questions/4499095/replace-line-in-a-file-c
+
     fstream input_file("..//..//CivilizationIV.ini", ios::in);
     ofstream output_file("..//..//temp.txt");
 
@@ -156,18 +162,19 @@ bool setStartup()
        {
           replaceAll(inbuf, search_string, replace_string);
        }
-
        output_file << inbuf << endl;
-
-       // Change working path and rename
-       	chdir("../../");
-	rename("temp.txt", "CivilizationIV.ini")
-
-
     }
-}
-*/
 
+    // Close the files
+    output_file.close();
+    input_file.close();
+
+    // Change working path and rename
+     DeleteFile(L"..//..//CivilizationIV.ini");
+     MoveFileW(L"..//..//temp.txt", L"..//..//CivilizationIV.ini");
+}
+
+// Replace a string by another
 void replaceAll(std::string& str, const std::string& from, const std::string& to)
 {
     size_t start_pos = 0;
@@ -178,8 +185,3 @@ void replaceAll(std::string& str, const std::string& from, const std::string& to
         start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
     }
 }
-
-//bool in_quote(const Container& cont, const std::string& s)
-//{
-//    return std::search(cont.begin(), cont.end(), s.begin(), s.end()) != cont.end();
-//}
