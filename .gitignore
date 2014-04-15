@@ -1,5 +1,6 @@
 # Avoid some files
 release/
 debug/
+materials/
 *.pro.user
 Makefile*
