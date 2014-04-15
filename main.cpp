@@ -4,6 +4,7 @@
 #include <string>
 #include <shlobj.h>
 #include <wchar.h>
+#include <lib\tinyxml2.h>
 
 using namespace std;
 
@@ -12,6 +13,7 @@ bool dirExists(const string &dirName_in);
 bool clearCache();
 bool setStartup();
 void replaceAll(std::string& str, const std::string& from, const std::string& to);
+bool currentVersion();
 
 int main()
 {
@@ -93,7 +95,12 @@ int main()
                     cout << "Exiting..." << endl;
                     break;
                     }
-			}
+
+                case 6:
+                    {
+                    currentVersion();
+                    }
+            }
         } while(menu !=5);
 	}
 	
@@ -184,4 +191,15 @@ void replaceAll(std::string& str, const std::string& from, const std::string& to
         str.replace(start_pos, end_pos, to);
         start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
     }
+}
+
+bool currentVersion()
+{
+    // Reading version XML
+    tinyxml2::XMLDocument doc;
+    doc.LoadFile( "version.xml" );
+
+    // Read the base version
+    const char* title = doc.FirstChildElement("versions")->FirstChildElement("baselink")->GetText();
+    cout << "The base version is : " << title << endl;
 }

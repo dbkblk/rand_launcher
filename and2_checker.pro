@@ -16,4 +16,9 @@ QMAKE_LFLAGS += -static
 TEMPLATE = app
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    lib/tinyxml2.cpp
+
+HEADERS += \
+    tinyxml2.h \
+    lib/tinyxml2.h
