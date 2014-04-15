@@ -4,21 +4,28 @@
 #
 #-------------------------------------------------
 
-QT       += core
+QT       += core gui
 
-QT       -= gui
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = and2_checker
-CONFIG   += console
-CONFIG   -= app_bundle
+
+
 QMAKE_LFLAGS += -static
 
 TEMPLATE = app
 
 
-SOURCES += main.cpp \
-    lib/tinyxml2.cpp
+SOURCES += \
+    lib/tinyxml2.cpp \
+    main.cpp \
+    mainwindow.cpp \
+    civ_functions.cpp
 
 HEADERS += \
     tinyxml2.h \
-    lib/tinyxml2.h
+    lib/tinyxml2.h \
+    mainwindow.h \
+    civ_functions.h
+
+FORMS    += mainwindow.ui
