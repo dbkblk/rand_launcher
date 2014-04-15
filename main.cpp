@@ -17,17 +17,16 @@ int main()
 {
     cout << "Civilization IV: Rise of Mankind - A New Dawn 2" << endl << "-----------------------------------------------" << endl << endl << "Checking for existing installation..." << endl;
     bool check = dirExists(".svn");
-	
-	if(check == 0)
-    {
-         cout << "The mod is not installed." << endl << "Do you want to download and install it (Y/N) ?" << endl;
-		 string answer;
-		 cin >> answer;
-         if(answer == "Y")
-    	{
-         system("\"\"bin\\svn.exe\" checkout \"http://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\"\" .");
-         cout << "The mod has been installed" << endl;
-         system("PAUSE");
+
+    if(check == 0) {
+        cout << "The mod is not installed." << endl << "Do you want to download and install it (Y/N) ?" << endl;
+        string answer;
+        cin >> answer;
+        if(answer == "Y") {
+            cout << "The mod will be downloaded. It might take a while !" << endl;
+            system("\"\"bin\\svn.exe\" checkout \"svn://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\"\" .");
+            cout << "The mod has been installed" << endl;
+            system("PAUSE");
 		 }
 		 else
 		 {
@@ -43,7 +42,7 @@ int main()
         do
         {
             cout << endl << "What do you want to do ?" << endl;
-            cout << "1) Check for update" << endl << "2) Revert to the previous version" << endl << "3) Clean up the installation (fix installation problems)" << endl << "4) Exit program" << endl;
+            cout << "1) Check for update" << endl << "2) Revert to the previous version" << endl << "3) Clean up the installation (fix installation problems)" << endl << "4) Set the mod to autostart with Civ. IV" << endl << "5) Exit program" << endl;
 
             cin >> menu;
 			switch(menu)
@@ -66,36 +65,38 @@ int main()
                     Sleep(1500);
                     clearCache();
                     cout << "Done." << endl;
-                    Sleep(2000);
+                    Sleep(1500);
                     break;
 				
 				// Clean up the folder
 				case 3:
                     cout << "Cleaning up..." << endl;
-                    Sleep(2000);
+                    Sleep(1500);
                     system("bin\\svn.exe cleanup");
                     clearCache();
                     cout << "The mod is reverted to the last working version." << endl;
                     break;
 				
+                // Set the mod at startup
                 case 4:
+                    {
+                    cout << "Setting the mod to autostart..." << endl;
+                    Sleep(1500);
+                    setStartup();
+                    cout << "Done." << endl;
+                    break;
+                    }
+
+                // Exit the launcher
+                case 5:
                     {
                     cout << "Exiting..." << endl;
                     break;
                     }
-
-            case 5:
-                {
-                setStartup();
-                break;
-                }
 			}
-        } while(menu !=4);
+        } while(menu !=5);
 	}
 	
-	/* TODO:
-	 	- Add the ability to make the mod start by default.
-	*/
     return 0;
 }
 
@@ -112,6 +113,8 @@ bool dirExists(const std::string& dirName_in)
 
   return false;    // There is no directory
 }
+
+// Clear the cache folder
 
 bool clearCache()
 {
@@ -133,13 +136,15 @@ bool clearCache()
     return 0;
 }
 
-/* -- Draft --
+// Set the mod to start by default
 bool setStartup()
 {
+    /* Look for the file and replace the string
+     * Help : https://stackoverflow.com/questions/4499095/replace-line-in-a-file-c */
     string search_string = "Mod = 0";
     string replace_string = "Mod = Mods\\Rise of Mankind - A New Dawn";
     string inbuf;
-    // Help : https://stackoverflow.com/questions/4499095/replace-line-in-a-file-c
+
     fstream input_file("..//..//CivilizationIV.ini", ios::in);
     ofstream output_file("..//..//temp.txt");
 
@@ -156,21 +161,20 @@ bool setStartup()
        {
           replaceAll(inbuf, search_string, replace_string);
        }
-
        output_file << inbuf << endl;
-
-       // Config file path
-       TCHAR szPath[MAX_PATH];
-       if(SUCCEEDED(SHGetFolderPath(NULL, CSIDL_COMMON_DOCUMENTS, NULL, 0, szPath)))
-       {
-           szPath += "\\My Games\\Beyond the Sword\\";
-           MovefileA(szPath += "temp.txt", szPath += "CivilizationIV.ini");
-       }
-
     }
-}
-*/
 
+    // Close the files
+    output_file.close();
+    input_file.close();
+
+    // Replace config file
+     DeleteFile(L"..//..//CivilizationIV.ini");
+     MoveFileW(L"..//..//temp.txt", L"..//..//CivilizationIV.ini");
+     return 0;
+}
+
+// Replace a string by another
 void replaceAll(std::string& str, const std::string& from, const std::string& to)
 {
     size_t start_pos = 0;
@@ -181,8 +185,3 @@ void replaceAll(std::string& str, const std::string& from, const std::string& to
         start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
     }
 }
-
-//bool in_quote(const Container& cont, const std::string& s)
-//{
-//    return std::search(cont.begin(), cont.end(), s.begin(), s.end()) != cont.end();
-//}
