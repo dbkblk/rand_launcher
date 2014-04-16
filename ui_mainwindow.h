@@ -14,7 +14,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
@@ -37,19 +37,20 @@ public:
     QAction *actionAbout_AND_Resurrection_team_forum;
     QWidget *centralWidget;
     QLabel *label;
-    QPushButton *pushButton_7;
-    QWidget *horizontalLayoutWidget;
-    QHBoxLayout *horizontalLayout;
-    QVBoxLayout *verticalLayout;
-    QLabel *label_3;
-    QPushButton *autostartButton;
-    QPushButton *pushButton_4;
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *verticalLayout_2;
     QLabel *label_2;
     QPushButton *cleanupButton;
     QPushButton *updateButton;
     QPushButton *revertButton;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
+    QLabel *label_3;
+    QLabel *label_4;
+    QComboBox *colorBox;
+    QLabel *label_5;
+    QPushButton *autostartButton;
+    QPushButton *pushButton_4;
     QMenuBar *menuBar;
     QMenu *menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher;
     QMenu *menuCommunity;
@@ -84,39 +85,6 @@ public:
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(0, 20, 601, 21));
         label->setAlignment(Qt::AlignCenter);
-        pushButton_7 = new QPushButton(centralWidget);
-        pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
-        pushButton_7->setGeometry(QRect(150, 50, 291, 23));
-        horizontalLayoutWidget = new QWidget(centralWidget);
-        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(430, 100, 151, 151));
-        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(6);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        label_3 = new QLabel(horizontalLayoutWidget);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setAlignment(Qt::AlignCenter);
-
-        verticalLayout->addWidget(label_3);
-
-        autostartButton = new QPushButton(horizontalLayoutWidget);
-        autostartButton->setObjectName(QStringLiteral("autostartButton"));
-
-        verticalLayout->addWidget(autostartButton);
-
-        pushButton_4 = new QPushButton(horizontalLayoutWidget);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-
-        verticalLayout->addWidget(pushButton_4);
-
-
-        horizontalLayout->addLayout(verticalLayout);
-
         verticalLayoutWidget_2 = new QWidget(centralWidget);
         verticalLayoutWidget_2->setObjectName(QStringLiteral("verticalLayoutWidget_2"));
         verticalLayoutWidget_2->setGeometry(QRect(20, 100, 161, 151));
@@ -127,7 +95,7 @@ public:
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         label_2 = new QLabel(verticalLayoutWidget_2);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setAlignment(Qt::AlignCenter);
+        label_2->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
 
         verticalLayout_2->addWidget(label_2);
 
@@ -145,6 +113,46 @@ public:
         revertButton->setObjectName(QStringLiteral("revertButton"));
 
         verticalLayout_2->addWidget(revertButton);
+
+        widget = new QWidget(centralWidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(190, 100, 149, 149));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        label_3 = new QLabel(widget);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
+
+        verticalLayout->addWidget(label_3);
+
+        label_4 = new QLabel(widget);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        verticalLayout->addWidget(label_4);
+
+        colorBox = new QComboBox(widget);
+        colorBox->setObjectName(QStringLiteral("colorBox"));
+        colorBox->setEditable(false);
+
+        verticalLayout->addWidget(colorBox);
+
+        label_5 = new QLabel(widget);
+        label_5->setObjectName(QStringLiteral("label_5"));
+
+        verticalLayout->addWidget(label_5);
+
+        autostartButton = new QPushButton(widget);
+        autostartButton->setObjectName(QStringLiteral("autostartButton"));
+
+        verticalLayout->addWidget(autostartButton);
+
+        pushButton_4 = new QPushButton(widget);
+        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+
+        verticalLayout->addWidget(pushButton_4);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -184,14 +192,26 @@ public:
         actionAbout_AND_Resurrection_team_forum->setToolTip(QApplication::translate("MainWindow", "About AND Resurrection team (forum)", 0));
 #endif // QT_NO_TOOLTIP
         label->setText(QApplication::translate("MainWindow", "Civilization 4 - Rise of Mankind : A New Dawn 2 - Launcher", 0));
-        pushButton_7->setText(QApplication::translate("MainWindow", "Launch Civilization IV : Beyond the sword", 0));
-        label_3->setText(QApplication::translate("MainWindow", "Mod configuration", 0));
-        autostartButton->setText(QApplication::translate("MainWindow", "Launch the mod by default", 0));
-        pushButton_4->setText(QApplication::translate("MainWindow", "Restore default config.", 0));
-        label_2->setText(QApplication::translate("MainWindow", "Update process", 0));
+        label_2->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">Update process</span></p></body></html>", 0));
         cleanupButton->setText(QApplication::translate("MainWindow", "Clean up the installation", 0));
         updateButton->setText(QApplication::translate("MainWindow", "Check for update", 0));
         revertButton->setText(QApplication::translate("MainWindow", "Revert to previous version", 0));
+        label_3->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Mod configuration</span></p></body></html>", 0));
+        label_4->setText(QApplication::translate("MainWindow", "Change interface color :", 0));
+        colorBox->clear();
+        colorBox->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "Black", 0)
+         << QApplication::translate("MainWindow", "Coal", 0)
+         << QApplication::translate("MainWindow", "Dark Red", 0)
+         << QApplication::translate("MainWindow", "Forest", 0)
+         << QApplication::translate("MainWindow", "Purple", 0)
+         << QApplication::translate("MainWindow", "Red", 0)
+         << QApplication::translate("MainWindow", "Silver", 0)
+         << QApplication::translate("MainWindow", "Cerulean", 0)
+        );
+        label_5->setText(QApplication::translate("MainWindow", "Change startup settings :", 0));
+        autostartButton->setText(QApplication::translate("MainWindow", "Launch the mod by default", 0));
+        pushButton_4->setText(QApplication::translate("MainWindow", "Restore default config.", 0));
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setTitle(QApplication::translate("MainWindow", "Menu", 0));
         menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
     } // retranslateUi

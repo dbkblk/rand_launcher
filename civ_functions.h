@@ -11,6 +11,9 @@ bool checkInstall();
 bool cleanUp();
 bool rollBack();
 bool checkUpdate();
+const char* readColors();
+int readColorsCounter();
+bool setColors(const char* color);
 //bool readXML(const char* file, const char* tag);
 //bool writeXML(const char* file, const char* tag, const char* newValue);
 

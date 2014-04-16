@@ -157,14 +157,6 @@ bool checkInstall()
     return 1;
 }
 
-//const char* getInterfaceColor()
-//{
-//    tinyxml2::XMLDocument read;
-//    read.LoadFile("test.xml");
-//    colors = read.FirstChildElement("Civ4ModularLoadControls")->FirstChildElement("ConfigurationInfos")->FirstChildElement("ConfigurationInfo")->FirstChildElement("Modules")->
-//    for ()
-//}
-
 //bool readXML(const char* file, const char* tag)
 //{
 //    tinyxml2::XMLDocument read;
@@ -192,3 +184,92 @@ bool checkInstall()
 
 //system("bin\\wget -c --no-check-certificate -O devel.zip https://github.com/dbkblk/and2_checker/archive/devel.zip");
 //system("bin\\7za.exe e devel.zip");
+
+const char* readColors()
+{
+    // Open the file
+    tinyxml2::XMLDocument read;
+    const char* file = "Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml";
+    read.LoadFile(file);
+    if (!read.ErrorID() == 0){
+        cout << "The file couldn't be read : " << read.ErrorID()<< endl;
+        return 0;
+    }
+
+    // Go to color level
+    tinyxml2::XMLElement* value_el = read.FirstChildElement("Civ4ModularLoadControls")->FirstChildElement("ConfigurationInfos")->FirstChildElement("ConfigurationInfo")->FirstChildElement("Modules")->FirstChildElement("Module")->ToElement();
+
+    // Loop
+    for(;; value_el=value_el->NextSiblingElement() ) {
+        const char* value = value_el->FirstChildElement("Directory")->GetText();
+        const char* bLoad = value_el->FirstChildElement("bLoad")->GetText();
+
+        if (!strcmp(bLoad, "1")) {
+            return value;
+        }
+
+    }
+    return 0;
+}
+
+int readColorsCounter()
+{
+    // Open the file
+    tinyxml2::XMLDocument read;
+    const char* file = "Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml";
+    read.LoadFile(file);
+    if (!read.ErrorID() == 0){
+        cout << "The file couldn't be read : " << read.ErrorID()<< endl;
+        return 0;
+    }
+
+    // Go to color level
+    tinyxml2::XMLElement* value_el = read.FirstChildElement("Civ4ModularLoadControls")->FirstChildElement("ConfigurationInfos")->FirstChildElement("ConfigurationInfo")->FirstChildElement("Modules")->FirstChildElement("Module")->ToElement();
+
+    // Loop
+    int counter = -1;
+    for(;; value_el=value_el->NextSiblingElement() ) {
+
+        const char* value = value_el->FirstChildElement("Directory")->GetText();
+        const char* bLoad = value_el->FirstChildElement("bLoad")->GetText();
+        counter++;
+        if (!strcmp(bLoad, "1")) {
+            return counter;
+        }
+
+    }
+    return 0;
+}
+
+bool setColors(const char* color)
+{
+    // Open the file
+    tinyxml2::XMLDocument read;
+    const char* file = "Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml";
+    read.LoadFile(file);
+    const char* resetValue = "0";
+    if (!read.ErrorID() == 0){
+        cout << "The file couldn't be read : " << read.ErrorID()<< endl;
+        return 1;
+    }
+
+
+    // Go to color level
+    tinyxml2::XMLElement* value_el = read.FirstChildElement("Civ4ModularLoadControls")->FirstChildElement("ConfigurationInfos")->FirstChildElement("ConfigurationInfo")->FirstChildElement("Modules")->FirstChildElement("Module")->ToElement();
+
+    // Reset all values
+    for(value_el; value_el; value_el=value_el->NextSiblingElement() ) {
+        value_el->FirstChildElement("bLoad")->SetText(resetValue);
+    }
+
+    tinyxml2::XMLElement* valueSet_el = read.FirstChildElement("Civ4ModularLoadControls")->FirstChildElement("ConfigurationInfos")->FirstChildElement("ConfigurationInfo")->FirstChildElement("Modules")->FirstChildElement("Module")->ToElement();
+
+    for(valueSet_el; valueSet_el; valueSet_el=valueSet_el->NextSiblingElement() ) {
+        const char* txtValue = valueSet_el->FirstChildElement("Directory")->GetText();
+        if (strcmp(txtValue ,color) == 0) {
+            valueSet_el->FirstChildElement("bLoad")->SetText("1");
+        }
+    }
+    read.SaveFile(file);
+    return 0;
+}

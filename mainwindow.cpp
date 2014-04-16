@@ -12,6 +12,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    // Setting the correct colorBox value
+    ui->colorBox->setCurrentIndex(readColorsCounter());
 }
 
 MainWindow::~MainWindow()
@@ -77,4 +80,28 @@ void MainWindow::on_cleanupButton_clicked()
 {
     cleanUp();
     QMessageBox::information(this, "Information", "The mod has been cleaned up. You can update the game now (it can grab the missing files).");
+}
+
+void MainWindow::on_colorBox_currentIndexChanged(const QString &colorName)
+{
+    QString colorUI = colorName + " UI";
+    setColors(colorUI.toStdString().c_str());
+    QMessageBox::information(this, "Information", colorUI);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+//    QString fileName = QFileDialog::getOpenFileName(this, tr("Locate Civ4BeyondSword.exe"), QString(),
+//            tr("Civ. IV executable (Civ4BeyondSword.exe)"));
+
+//    if (!fileName.isEmpty()) {
+//        QFile file(fileName);
+//        if (!file.open(QIODevice::ReadOnly)) {
+//            QMessageBox::critical(this, tr("Error"), tr("Could not open file"));
+//            return;
+//        }
+//        QTextStream in(&file);
+//        ui->textEdit->setText(in.readAll());
+//        file.close();
+//    }
 }

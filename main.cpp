@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
+#include <QComboBox>
 #include <iostream>
 #include <fstream>
 #include <windows.h>
@@ -16,11 +17,14 @@ int main(int argc, char *argv[])
     // Start the GUI
     QApplication a(argc, argv);
     MainWindow w;
-    w.show();
 
-    // Check for mod presence
+    // Initial parameters
+    // Check for installation
     checkInstall();
 
+    w.show();
 
     return a.exec();
 }
+
+
