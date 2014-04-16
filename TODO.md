@@ -4,8 +4,7 @@ Todo
 
 GUI todo:
 - Compile static libraries
-- Find a nice layout
-- Fix the popup on start / color change
+- Find a nicer layout
 - Find the executable path
 - Save a config file
 - Integrate the console in the GUI

@@ -41,8 +41,6 @@ private slots:
 
     void on_colorBox_currentIndexChanged(const QString &arg1);
 
-    void on_pushButton_clicked();
-
 private:
     Ui::MainWindow *ui;
 };

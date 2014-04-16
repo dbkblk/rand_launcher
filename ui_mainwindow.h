@@ -15,12 +15,14 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -37,13 +39,14 @@ public:
     QAction *actionAbout_AND_Resurrection_team_forum;
     QWidget *centralWidget;
     QLabel *label;
-    QWidget *verticalLayoutWidget_2;
+    QWidget *layoutWidget;
+    QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout_2;
     QLabel *label_2;
-    QPushButton *cleanupButton;
     QPushButton *updateButton;
+    QPushButton *cleanupButton;
     QPushButton *revertButton;
-    QWidget *widget;
+    QSpacerItem *horizontalSpacer;
     QVBoxLayout *verticalLayout;
     QLabel *label_3;
     QLabel *label_4;
@@ -83,76 +86,85 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(0, 20, 601, 21));
+        label->setGeometry(QRect(0, 15, 601, 71));
         label->setAlignment(Qt::AlignCenter);
-        verticalLayoutWidget_2 = new QWidget(centralWidget);
-        verticalLayoutWidget_2->setObjectName(QStringLiteral("verticalLayoutWidget_2"));
-        verticalLayoutWidget_2->setGeometry(QRect(20, 100, 161, 151));
-        verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget_2);
+        layoutWidget = new QWidget(centralWidget);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(60, 110, 481, 142));
+        horizontalLayout = new QHBoxLayout(layoutWidget);
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        label_2 = new QLabel(verticalLayoutWidget_2);
+        label_2 = new QLabel(layoutWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
 
         verticalLayout_2->addWidget(label_2);
 
-        cleanupButton = new QPushButton(verticalLayoutWidget_2);
-        cleanupButton->setObjectName(QStringLiteral("cleanupButton"));
-
-        verticalLayout_2->addWidget(cleanupButton);
-
-        updateButton = new QPushButton(verticalLayoutWidget_2);
+        updateButton = new QPushButton(layoutWidget);
         updateButton->setObjectName(QStringLiteral("updateButton"));
 
         verticalLayout_2->addWidget(updateButton);
 
-        revertButton = new QPushButton(verticalLayoutWidget_2);
+        cleanupButton = new QPushButton(layoutWidget);
+        cleanupButton->setObjectName(QStringLiteral("cleanupButton"));
+
+        verticalLayout_2->addWidget(cleanupButton);
+
+        revertButton = new QPushButton(layoutWidget);
         revertButton->setObjectName(QStringLiteral("revertButton"));
 
         verticalLayout_2->addWidget(revertButton);
 
-        widget = new QWidget(centralWidget);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(190, 100, 149, 149));
-        verticalLayout = new QVBoxLayout(widget);
+
+        horizontalLayout->addLayout(verticalLayout_2);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(6);
-        verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        label_3 = new QLabel(widget);
+        label_3 = new QLabel(layoutWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
 
         verticalLayout->addWidget(label_3);
 
-        label_4 = new QLabel(widget);
+        label_4 = new QLabel(layoutWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
 
         verticalLayout->addWidget(label_4);
 
-        colorBox = new QComboBox(widget);
+        colorBox = new QComboBox(layoutWidget);
         colorBox->setObjectName(QStringLiteral("colorBox"));
         colorBox->setEditable(false);
 
         verticalLayout->addWidget(colorBox);
 
-        label_5 = new QLabel(widget);
+        label_5 = new QLabel(layoutWidget);
         label_5->setObjectName(QStringLiteral("label_5"));
 
         verticalLayout->addWidget(label_5);
 
-        autostartButton = new QPushButton(widget);
+        autostartButton = new QPushButton(layoutWidget);
         autostartButton->setObjectName(QStringLiteral("autostartButton"));
 
         verticalLayout->addWidget(autostartButton);
 
-        pushButton_4 = new QPushButton(widget);
+        pushButton_4 = new QPushButton(layoutWidget);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
 
         verticalLayout->addWidget(pushButton_4);
+
+
+        horizontalLayout->addLayout(verticalLayout);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -166,6 +178,10 @@ public:
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
+        QWidget::setTabOrder(colorBox, revertButton);
+        QWidget::setTabOrder(revertButton, cleanupButton);
+        QWidget::setTabOrder(cleanupButton, autostartButton);
+        QWidget::setTabOrder(autostartButton, pushButton_4);
 
         menuBar->addAction(menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->menuAction());
         menuBar->addAction(menuCommunity->menuAction());
@@ -191,10 +207,10 @@ public:
 #ifndef QT_NO_TOOLTIP
         actionAbout_AND_Resurrection_team_forum->setToolTip(QApplication::translate("MainWindow", "About AND Resurrection team (forum)", 0));
 #endif // QT_NO_TOOLTIP
-        label->setText(QApplication::translate("MainWindow", "Civilization 4 - Rise of Mankind : A New Dawn 2 - Launcher", 0));
+        label->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600;\">Civilization 4 - Rise of Mankind : </span></p><p align=\"center\"><span style=\" font-size:16pt; font-weight:600; text-decoration: underline;\">A New Dawn 2</span></p></body></html>", 0));
         label_2->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">Update process</span></p></body></html>", 0));
-        cleanupButton->setText(QApplication::translate("MainWindow", "Clean up the installation", 0));
         updateButton->setText(QApplication::translate("MainWindow", "Check for update", 0));
+        cleanupButton->setText(QApplication::translate("MainWindow", "Clean up the installation", 0));
         revertButton->setText(QApplication::translate("MainWindow", "Revert to previous version", 0));
         label_3->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Mod configuration</span></p></body></html>", 0));
         label_4->setText(QApplication::translate("MainWindow", "Change interface color :", 0));

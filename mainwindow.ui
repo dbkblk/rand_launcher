@@ -39,155 +39,167 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>20</y>
+      <y>15</y>
       <width>601</width>
-      <height>21</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="text">
-     <string>Civilization 4 - Rise of Mankind : A New Dawn 2 - Launcher</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Civilization 4 - Rise of Mankind : &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; text-decoration: underline;&quot;&gt;A New Dawn 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_2">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>100</y>
-      <width>161</width>
-      <height>151</height>
+      <x>60</x>
+      <y>110</y>
+      <width>481</width>
+      <height>142</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
      <item>
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Update process&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignHCenter|Qt::AlignTop</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="cleanupButton">
-       <property name="text">
-        <string>Clean up the installation</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="updateButton">
-       <property name="text">
-        <string>Check for update</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="revertButton">
-       <property name="text">
-        <string>Revert to previous version</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>100</y>
-      <width>149</width>
-      <height>149</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mod configuration&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignHCenter|Qt::AlignTop</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string>Change interface color :</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QComboBox" name="colorBox">
-       <property name="editable">
-        <bool>false</bool>
-       </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <property name="text">
-         <string>Black</string>
-        </property>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Update process&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignHCenter|Qt::AlignTop</set>
+         </property>
+        </widget>
        </item>
        <item>
-        <property name="text">
-         <string>Coal</string>
-        </property>
+        <widget class="QPushButton" name="updateButton">
+         <property name="text">
+          <string>Check for update</string>
+         </property>
+        </widget>
        </item>
        <item>
-        <property name="text">
-         <string>Dark Red</string>
-        </property>
+        <widget class="QPushButton" name="cleanupButton">
+         <property name="text">
+          <string>Clean up the installation</string>
+         </property>
+        </widget>
        </item>
        <item>
-        <property name="text">
-         <string>Forest</string>
-        </property>
+        <widget class="QPushButton" name="revertButton">
+         <property name="text">
+          <string>Revert to previous version</string>
+         </property>
+        </widget>
        </item>
-       <item>
-        <property name="text">
-         <string>Purple</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Red</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Silver</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Cerulean</string>
-        </property>
-       </item>
-      </widget>
+      </layout>
      </item>
      <item>
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string>Change startup settings :</string>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
-      </widget>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="autostartButton">
-       <property name="text">
-        <string>Launch the mod by default</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_4">
-       <property name="text">
-        <string>Restore default config.</string>
-       </property>
-      </widget>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mod configuration&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignHCenter|Qt::AlignTop</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Change interface color :</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="colorBox">
+         <property name="editable">
+          <bool>false</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>Black</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Coal</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Dark Red</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Forest</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Purple</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Red</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Silver</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Cerulean</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Change startup settings :</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="autostartButton">
+         <property name="text">
+          <string>Launch the mod by default</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_4">
+         <property name="text">
+          <string>Restore default config.</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>
@@ -250,6 +262,13 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>colorBox</tabstop>
+  <tabstop>revertButton</tabstop>
+  <tabstop>cleanupButton</tabstop>
+  <tabstop>autostartButton</tabstop>
+  <tabstop>pushButton_4</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

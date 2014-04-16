@@ -10,11 +10,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = and2_checker
 
-
-QMAKE_LFLAGS += -static
-
 TEMPLATE = app
 
+CONFIG += static
 
 SOURCES += \
     lib/tinyxml2.cpp \
@@ -29,3 +27,5 @@ HEADERS += \
     civ_functions.h
 
 FORMS    += mainwindow.ui
+
+RC_FILE = icon.rc

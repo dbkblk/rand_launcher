@@ -3,6 +3,7 @@
 #include <QtCore>
 #include <QDesktopServices>
 #include <QMessageBox>
+#include <QWidget>
 #include <iostream>
 #include <string>
 #include <civ_functions.h>
@@ -15,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Setting the correct colorBox value
     ui->colorBox->setCurrentIndex(readColorsCounter());
+    this->setWindowTitle("Civilization IV: A New Dawn 2");
 }
 
 MainWindow::~MainWindow()
@@ -67,7 +69,7 @@ void MainWindow::on_pushButton_4_clicked()
 void MainWindow::on_updateButton_clicked()
 {
     checkUpdate();
-    QMessageBox::information(this, "Information", "The mod is now up-to-date.");
+    QMessageBox::information(this, "Information", "The mod is up-to-date.");
 }
 
 void MainWindow::on_revertButton_clicked()
@@ -86,22 +88,4 @@ void MainWindow::on_colorBox_currentIndexChanged(const QString &colorName)
 {
     QString colorUI = colorName + " UI";
     setColors(colorUI.toStdString().c_str());
-    QMessageBox::information(this, "Information", colorUI);
-}
-
-void MainWindow::on_pushButton_clicked()
-{
-//    QString fileName = QFileDialog::getOpenFileName(this, tr("Locate Civ4BeyondSword.exe"), QString(),
-//            tr("Civ. IV executable (Civ4BeyondSword.exe)"));
-
-//    if (!fileName.isEmpty()) {
-//        QFile file(fileName);
-//        if (!file.open(QIODevice::ReadOnly)) {
-//            QMessageBox::critical(this, tr("Error"), tr("Could not open file"));
-//            return;
-//        }
-//        QTextStream in(&file);
-//        ui->textEdit->setText(in.readAll());
-//        file.close();
-//    }
 }

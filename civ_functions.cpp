@@ -111,14 +111,14 @@ bool checkUpdate()
 {
     cout << "Checking for update..." << endl;
     Sleep(1500);
-    system("bin\\svn.exe update && echo The cache will now be cleared && TIMEOUT 5");
+    system("bin\\svn.exe update && echo The cache will now be cleared && TIMEOUT 3");
     clearCache();
     return 0;
 }
 
 bool rollBack()
 {
-    system("bin\\svn.exe update -r PREV --accept theirs-full && echo The cache will now be cleared && TIMEOUT 5");
+    system("bin\\svn.exe update -r PREV --accept theirs-full && echo The cache will now be cleared && TIMEOUT 3");
     clearCache();
     return 0;
 }
