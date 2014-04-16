@@ -51,77 +51,6 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="updateButton">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>170</y>
-      <width>141</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Check for update</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="autostartButton">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>190</y>
-      <width>141</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Launch the mod by default</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>140</y>
-      <width>141</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Update process</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>160</y>
-      <width>141</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Mod configuration</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_4">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>220</y>
-      <width>141</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Restore default config.</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_7">
     <property name="geometry">
      <rect>
@@ -135,72 +64,88 @@
      <string>Launch Civilization IV : Beyond the sword</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>220</y>
-      <width>141</width>
-      <height>22</height>
+      <x>430</x>
+      <y>100</y>
+      <width>151</width>
+      <height>151</height>
      </rect>
     </property>
-    <item>
-     <property name="text">
-      <string>Color 1</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Color 2</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Color 3</string>
-     </property>
-    </item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Mod configuration</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="autostartButton">
+         <property name="text">
+          <string>Launch the mod by default</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_4">
+         <property name="text">
+          <string>Restore default config.</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>190</y>
-      <width>141</width>
-      <height>21</height>
+      <x>20</x>
+      <y>100</y>
+      <width>161</width>
+      <height>151</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Interface color</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="revertButton">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>200</y>
-      <width>141</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Revert to previous version</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="cleanupButton">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>230</y>
-      <width>141</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Clean up the installation</string>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Update process</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="cleanupButton">
+       <property name="text">
+        <string>Clean up the installation</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="updateButton">
+       <property name="text">
+        <string>Check for update</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="revertButton">
+       <property name="text">
+        <string>Revert to previous version</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

@@ -157,6 +157,14 @@ bool checkInstall()
     return 1;
 }
 
+//const char* getInterfaceColor()
+//{
+//    tinyxml2::XMLDocument read;
+//    read.LoadFile("test.xml");
+//    colors = read.FirstChildElement("Civ4ModularLoadControls")->FirstChildElement("ConfigurationInfos")->FirstChildElement("ConfigurationInfo")->FirstChildElement("Modules")->
+//    for ()
+//}
+
 //bool readXML(const char* file, const char* tag)
 //{
 //    tinyxml2::XMLDocument read;
@@ -174,3 +182,13 @@ bool checkInstall()
 //    read.SaveFile(file);
 //    return 0;
 //}
+
+//bool download(string link, string outputfile)
+//{
+//    getLink = "bin\\wget -c --no-check-certificate -O ";
+//    getLink += outputfile + " " + link;
+//    system(getlink);
+//}
+
+//system("bin\\wget -c --no-check-certificate -O devel.zip https://github.com/dbkblk/and2_checker/archive/devel.zip");
+//system("bin\\7za.exe e devel.zip");
