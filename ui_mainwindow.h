@@ -37,6 +37,7 @@ public:
     QAction *actionAddon_Mega_Civ_Pack;
     QAction *actionBugreport;
     QAction *actionAbout_AND_Resurrection_team_forum;
+    QAction *actionAddon_More_music_forum;
     QWidget *centralWidget;
     QLabel *label;
     QWidget *layoutWidget;
@@ -82,6 +83,8 @@ public:
         actionBugreport->setObjectName(QStringLiteral("actionBugreport"));
         actionAbout_AND_Resurrection_team_forum = new QAction(MainWindow);
         actionAbout_AND_Resurrection_team_forum->setObjectName(QStringLiteral("actionAbout_AND_Resurrection_team_forum"));
+        actionAddon_More_music_forum = new QAction(MainWindow);
+        actionAddon_More_music_forum->setObjectName(QStringLiteral("actionAddon_More_music_forum"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         label = new QLabel(centralWidget);
@@ -189,6 +192,7 @@ public:
         menuCommunity->addAction(actionForum);
         menuCommunity->addAction(actionBugreport);
         menuCommunity->addAction(actionAddon_Mega_Civ_Pack);
+        menuCommunity->addAction(actionAddon_More_music_forum);
         menuCommunity->addAction(actionAbout_AND_Resurrection_team_forum);
 
         retranslateUi(MainWindow);
@@ -207,6 +211,7 @@ public:
 #ifndef QT_NO_TOOLTIP
         actionAbout_AND_Resurrection_team_forum->setToolTip(QApplication::translate("MainWindow", "About AND Resurrection team (forum)", 0));
 #endif // QT_NO_TOOLTIP
+        actionAddon_More_music_forum->setText(QApplication::translate("MainWindow", "Addon \"More music\" (forum)", 0));
         label->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600;\">Civilization 4 - Rise of Mankind : </span></p><p align=\"center\"><span style=\" font-size:16pt; font-weight:600; text-decoration: underline;\">A New Dawn 2</span></p></body></html>", 0));
         label_2->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">Update process</span></p></body></html>", 0));
         updateButton->setText(QApplication::translate("MainWindow", "Check for update", 0));
