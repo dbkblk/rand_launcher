@@ -7,7 +7,7 @@ bool setStartup();
 bool restoreBackup();
 void replaceAll(std::string& str, const std::string& from, const std::string& to);
 bool currentVersion();
-bool checkInstall();
+bool installMod();
 bool cleanUp();
 bool rollBack();
 bool checkUpdate();

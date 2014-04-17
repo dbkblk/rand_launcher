@@ -1,9 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "ui_installBox.h"
 #include <QtCore>
 #include <QDesktopServices>
 #include <QMessageBox>
-#include <QWidget>
+#include <QDialog>
 #include <iostream>
 #include <string>
 #include <civ_functions.h>
@@ -15,13 +16,22 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     // Setting the correct colorBox value
-    ui->colorBox->setCurrentIndex(readColorsCounter());
+    //ui->colorBox->setCurrentIndex(readColorsCounter());
     this->setWindowTitle("Civilization IV: A New Dawn 2");
+
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+installBox::installBox(QDialog *parent) :
+  QDialog(parent),
+  ui(new Ui::installBox)
+{
+    ui->setupUi(this);
 }
 
 void MainWindow::on_pushButton_5_clicked()

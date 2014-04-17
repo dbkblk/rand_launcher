@@ -2,9 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QDialog>
 
 namespace Ui {
 class MainWindow;
+class installBox;
 }
 
 class MainWindow : public QMainWindow
@@ -45,6 +47,16 @@ private:
     Ui::MainWindow *ui;
 };
 
+class installBox : public QDialog {
 
+    Q_OBJECT
+
+public :
+    explicit installBox(QDialog *parent = 0);
+
+private:
+    Ui::installBox *ui;
+
+};
 
 #endif // MAINWINDOW_H

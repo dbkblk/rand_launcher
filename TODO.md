@@ -8,3 +8,4 @@ GUI todo:
 - Find the executable path
 - Save a config file
 - Integrate the console in the GUI
+- Gather option to a new windows

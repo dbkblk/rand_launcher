@@ -27,10 +27,7 @@ bool dirExists(const std::string& dirName_in)
 
 bool clearCache()
 {
-    cout << "Clearing cache folder..." << endl;
-    Sleep(1500);
-
-    // Getting the cache path
+	// Getting the cache path
     string cacheDir;
     string delCmd = "DEL /Q ";
     string quote = "\"";
@@ -41,8 +38,12 @@ bool clearCache()
     // cout << cacheDir << endl;
 
     // Remove .dat files
-    system(cacheDir.c_str());
-    return 0;
+	if (QDir::remove(cacheDir.c_str())) {
+		return 0;
+	}
+	else {
+		return 1;
+	}		
 }
 
 // Set the mod to start by default
@@ -85,13 +86,6 @@ bool setStartup()
     // Replace config file
     DeleteFile(L"..//..//CivilizationIV.ini");
     MoveFileW(L"..//..//temp.txt", L"..//..//CivilizationIV.ini");
-     return 0;
-}
-
-bool restoreBackup()
-{
-    DeleteFile(L"..//..//CivilizationIV.ini");
-    CopyFileW(L"..//..//CivilizationIV.bak", L"..//..//CivilizationIV.ini",0);
     return 0;
 }
 
@@ -105,6 +99,13 @@ void replaceAll(std::string& str, const std::string& from, const std::string& to
         str.replace(start_pos, end_pos, to);
         start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
     }
+}
+
+bool restoreBackup()
+{
+	DeleteFile(L"..//..//CivilizationIV.ini");
+	CopyFileW(L"..//..//CivilizationIV.bak", L"..//..//CivilizationIV.ini", 0);
+	return 0;
 }
 
 bool checkUpdate()
@@ -133,28 +134,10 @@ bool cleanUp()
     return 0;
 }
 
-bool checkInstall()
+bool installMod()
 {
-    cout << "Civilization IV: Rise of Mankind - A New Dawn 2" << endl << "-----------------------------------------------" << endl << endl << "Checking for existing installation..." << endl;
-    bool check = dirExists(".svn");
-
-    if(check == 0) {
-        cout << "The mod is not installed." << endl << "Do you want to download and install it (Y/N) ?" << endl;
-        string answer;
-        cin >> answer;
-        if(answer == "Y") {
-            cout << "The mod will be downloaded. It might take a while !" << endl;
-            system("\"\"bin\\svn.exe\" checkout \"svn://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\"\" .");
-            cout << "The mod has been installed" << endl;
-            system("PAUSE");
-            return 0;
-         }
-    }
-    else {
-        cout << "The mod have been detected" << endl;
-        return 1;
-    }
-    return 1;
+    system("\"\"bin\\svn.exe\" checkout \"svn://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\"\" .");
+    return 0;
 }
 
 //bool readXML(const char* file, const char* tag)

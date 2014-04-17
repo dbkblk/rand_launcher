@@ -6,13 +6,9 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
 TARGET = and2_checker
 
 TEMPLATE = app
-
-CONFIG += static
 
 SOURCES += \
     lib/tinyxml2.cpp \
@@ -26,6 +22,8 @@ HEADERS += \
     mainwindow.h \
     civ_functions.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    option.ui \
+    installBox.ui
 
 RC_FILE = icon.rc
