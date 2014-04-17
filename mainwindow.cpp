@@ -14,12 +14,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+	this->setWindowTitle("Civilization IV: A New Dawn 2");
 
     // Setting the correct colorBox value
-    //ui->colorBox->setCurrentIndex(readColorsCounter());
-    this->setWindowTitle("Civilization IV: A New Dawn 2");
-
-
+    ui->colorBox->setCurrentIndex(readColorsCounter());
 }
 
 MainWindow::~MainWindow()
@@ -98,4 +96,19 @@ void MainWindow::on_colorBox_currentIndexChanged(const QString &colorName)
 {
     QString colorUI = colorName + " UI";
     setColors(colorUI.toStdString().c_str());
+}
+
+void installBox::on_buttonBox_accepted()
+{
+    installMod();
+}
+
+void installBox::on_buttonBox_rejected()
+{
+    qApp->exit();
+}
+
+void MainWindow::on_actionAddon_More_music_forum_triggered()
+{
+    QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=523763"));
 }

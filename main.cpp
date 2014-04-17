@@ -13,7 +13,6 @@ int main(int argc, char *argv[])
     MainWindow w;
     installBox install;
 
-    // Initial parameters
     // Check for installation -> Remember to connect the two signals.
 
     if (!dirExists(".svn")) {

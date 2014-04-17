@@ -43,6 +43,8 @@ private slots:
 
     void on_colorBox_currentIndexChanged(const QString &arg1);
 
+    void on_actionAddon_More_music_forum_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
@@ -53,6 +55,11 @@ class installBox : public QDialog {
 
 public :
     explicit installBox(QDialog *parent = 0);
+
+private slots:
+    void on_buttonBox_accepted();
+
+    void on_buttonBox_rejected();
 
 private:
     Ui::installBox *ui;

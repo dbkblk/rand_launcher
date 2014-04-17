@@ -226,6 +226,7 @@
     <addaction name="actionForum"/>
     <addaction name="actionBugreport"/>
     <addaction name="actionAddon_Mega_Civ_Pack"/>
+    <addaction name="actionAddon_More_music_forum"/>
     <addaction name="actionAbout_AND_Resurrection_team_forum"/>
    </widget>
    <addaction name="menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher"/>
@@ -258,6 +259,11 @@
    </property>
    <property name="toolTip">
     <string>About AND Resurrection team (forum)</string>
+   </property>
+  </action>
+  <action name="actionAddon_More_music_forum">
+   <property name="text">
+    <string>Addon &quot;More music&quot; (forum)</string>
    </property>
   </action>
  </widget>

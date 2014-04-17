@@ -6,6 +6,7 @@
 #include <wchar.h>
 #include <civ_functions.h>
 #include <lib\tinyxml2.h>
+#include <QDir>
 
 using namespace std;
 
@@ -38,12 +39,13 @@ bool clearCache()
     // cout << cacheDir << endl;
 
     // Remove .dat files
-	if (QDir::remove(cacheDir.c_str())) {
-		return 0;
-	}
-	else {
-		return 1;
-	}		
+//	if (QDir::remove(cacheDir.c_str())) {
+//		return 0;
+//	}
+//	else {
+//		return 1;
+//	}
+    return 0;
 }
 
 // Set the mod to start by default

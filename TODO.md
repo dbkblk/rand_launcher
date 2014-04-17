@@ -6,6 +6,7 @@ GUI todo:
 - Compile static libraries
 - Find a nicer layout
 - Find the executable path
+- Need to reconnect the end of installation with the GUI
 - Save a config file
 - Integrate the console in the GUI
 - Gather option to a new windows
