@@ -7,6 +7,7 @@
 #include <civ_functions.h>
 #include <lib\tinyxml2.h>
 #include <QDir>
+#include <QDebug>
 
 using namespace std;
 
@@ -142,23 +143,23 @@ bool installMod()
     return 0;
 }
 
-//bool readXML(const char* file, const char* tag)
-//{
-//    tinyxml2::XMLDocument read;
-//    read.LoadFile(file);
-//    const char* value = read.FirstChildElement(tag)->GetText();
-//    cout << "The value is : " << value << endl;
-//    return 0;
-//}
+const char* readXML(const char* file, const char* tag)
+{
+    tinyxml2::XMLDocument read;
+    read.LoadFile(file);
+    const char* value = read.FirstChildElement("versions")->FirstChildElement(tag)->GetText();
+    qDebug() << "The value is " << value;
+    return value;
+}
 
-//bool writeXML(const char* file, const char* tag, const char* newValue)
-//{
-//    tinyxml2::XMLDocument read;
-//    read.LoadFile(file);
-//    read.FirstChildElement(tag)->SetText(newValue);
-//    read.SaveFile(file);
-//    return 0;
-//}
+bool writeXML(const char* file, const char* tag, const char* newValue)
+{
+    tinyxml2::XMLDocument read;
+    read.LoadFile(file);
+    read.FirstChildElement("versions")->FirstChildElement(tag)->SetText(newValue);
+    read.SaveFile(file);
+    return 0;
+}
 
 //bool download(string link, string outputfile)
 //{
