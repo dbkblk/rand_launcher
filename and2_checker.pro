@@ -10,8 +10,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = and2_checker
 
-CONFIG += -static-gcc
-
 TEMPLATE = app
 
 SOURCES += \
