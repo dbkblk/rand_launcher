@@ -45,6 +45,8 @@ private slots:
 
     void on_actionAddon_More_music_forum_triggered();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -148,7 +148,7 @@ const char* readXML(const char* file, const char* tag)
     tinyxml2::XMLDocument read;
     read.LoadFile(file);
     const char* value = read.FirstChildElement("versions")->FirstChildElement(tag)->GetText();
-    qDebug() << "The value is " << value;
+    qDebug() << "readXML : " << value;
     return value;
 }
 
@@ -160,16 +160,6 @@ bool writeXML(const char* file, const char* tag, const char* newValue)
     read.SaveFile(file);
     return 0;
 }
-
-//bool download(string link, string outputfile)
-//{
-//    getLink = "bin\\wget -c --no-check-certificate -O ";
-//    getLink += outputfile + " " + link;
-//    system(getlink);
-//}
-
-//system("bin\\wget -c --no-check-certificate -O devel.zip https://github.com/dbkblk/and2_checker/archive/devel.zip");
-//system("bin\\7za.exe e devel.zip");
 
 const char* readColors()
 {

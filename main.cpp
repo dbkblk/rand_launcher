@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QString>
 #include <QFileDialog>
+#include <QMessageBox>
 
 using namespace std;
 
@@ -24,14 +25,15 @@ int main(int argc, char *argv[])
 
     else {
         qDebug() << "Else passed";
-        const char* exelocation = readXML("version.xml","exelocation");
-        qDebug() << exelocation;
-        if(exelocation = "0") {
-            QWidget
+        if(readXML("version.xml","exelocation") == NULL) {
             qDebug() << "Pas d'exe";
-            exelocation = QFileDialog::getOpenFileName(install);
-
+            QMessageBox::information(0, "Information", "To be able to launch the game from the launcher, it need to know where the executable is located. The next window will ask you to select your Civ. IV Beyond the Sword executable");
+            QString exeloc = QFileDialog::getOpenFileName(0, "Find Civ. IV executable", QString(), "Executable (*.exe)");
+            qDebug() << exeloc;
+            writeXML("version.xml","exelocation",exeloc.toStdString().c_str());
+            w.show();
         }
+        else
         w.show();
     }
 

@@ -5,6 +5,7 @@
 #include <QDesktopServices>
 #include <QMessageBox>
 #include <QDialog>
+#include <QProcess>
 #include <iostream>
 #include <string>
 #include <civ_functions.h>
@@ -111,4 +112,12 @@ void installBox::on_buttonBox_rejected()
 void MainWindow::on_actionAddon_More_music_forum_triggered()
 {
     QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=523763"));
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    //QString bt_exe = readXML("version.xml","exelocation");
+    //qDebug() << bt_exe;
+    QProcess *start_civ = new QProcess(0);
+    start_civ->start("S:\Downloads\La motivation chez les réservistes.pdf");
 }

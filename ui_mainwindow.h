@@ -55,6 +55,7 @@ public:
     QLabel *label_5;
     QPushButton *autostartButton;
     QPushButton *pushButton_4;
+    QPushButton *pushButton;
     QMenuBar *menuBar;
     QMenu *menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher;
     QMenu *menuCommunity;
@@ -89,7 +90,7 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(0, 15, 601, 71));
+        label->setGeometry(QRect(0, 0, 601, 71));
         label->setAlignment(Qt::AlignCenter);
         layoutWidget = new QWidget(centralWidget);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
@@ -169,6 +170,9 @@ public:
 
         horizontalLayout->addLayout(verticalLayout);
 
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(224, 90, 151, 23));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -233,6 +237,7 @@ public:
         label_5->setText(QApplication::translate("MainWindow", "Change startup settings :", 0));
         autostartButton->setText(QApplication::translate("MainWindow", "Launch the mod by default", 0));
         pushButton_4->setText(QApplication::translate("MainWindow", "Restore default config.", 0));
+        pushButton->setText(QApplication::translate("MainWindow", "Launch the game", 0));
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setTitle(QApplication::translate("MainWindow", "Menu", 0));
         menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
     } // retranslateUi
