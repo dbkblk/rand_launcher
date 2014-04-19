@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 #include <civ_functions.h>
+#include <QDir>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -116,8 +117,9 @@ void MainWindow::on_actionAddon_More_music_forum_triggered()
 
 void MainWindow::on_pushButton_clicked()
 {
-    //QString bt_exe = readXML("version.xml","exelocation");
-    //qDebug() << bt_exe;
-    QProcess *start_civ = new QProcess(0);
-    start_civ->start("S:\Downloads\La motivation chez les réservistes.pdf");
+    QString bt_exe = readXML("version.xml","exelocation");
+    QString exec = QDir::toNativeSeparators(bt_exe);
+    QUrl u = QUrl::fromLocalFile(exec);
+    QDesktopServices::openUrl(QUrl(u));
+    qApp->exit();
 }
