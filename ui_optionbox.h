@@ -14,6 +14,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -36,6 +37,7 @@ public:
     QPushButton *opt_bt_cleanup;
     QPushButton *opt_bt_restore;
     QPushButton *opt_bt_chooserev;
+    QCheckBox *checkBox;
 
     void setupUi(QWidget *optionBox)
     {
@@ -52,10 +54,10 @@ public:
         label_3->setGeometry(QRect(180, 70, 91, 21));
         label_4 = new QLabel(optionBox);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(180, 100, 91, 21));
+        label_4->setGeometry(QRect(180, 130, 91, 21));
         colorBox = new QComboBox(optionBox);
         colorBox->setObjectName(QStringLiteral("colorBox"));
-        colorBox->setGeometry(QRect(180, 130, 141, 23));
+        colorBox->setGeometry(QRect(180, 160, 141, 23));
         colorBox->setEditable(false);
         verticalLayoutWidget = new QWidget(optionBox);
         verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
@@ -83,6 +85,9 @@ public:
 
         verticalLayout->addWidget(opt_bt_chooserev);
 
+        checkBox = new QCheckBox(optionBox);
+        checkBox->setObjectName(QStringLiteral("checkBox"));
+        checkBox->setGeometry(QRect(180, 190, 191, 21));
 
         retranslateUi(optionBox);
 
@@ -110,6 +115,7 @@ public:
         opt_bt_cleanup->setText(QApplication::translate("optionBox", "Clean up installation", 0));
         opt_bt_restore->setText(QApplication::translate("optionBox", "Restore previous version", 0));
         opt_bt_chooserev->setText(QApplication::translate("optionBox", "Choose a previous revision", 0));
+        checkBox->setText(QApplication::translate("optionBox", "Autostart the mod with the game", 0));
     } // retranslateUi
 
 };

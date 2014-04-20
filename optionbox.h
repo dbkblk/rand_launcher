@@ -24,6 +24,10 @@ private slots:
 
     void on_opt_bt_chooserev_clicked();
 
+    void on_colorBox_currentIndexChanged(const QString &colorName);
+
+    void on_checkBox_clicked();
+
 private:
     Ui::optionBox *ui;
 };

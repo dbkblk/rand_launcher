@@ -51,11 +51,10 @@ bool clearCache()
 bool setStartup()
 {
     // Make a backup
-    DeleteFile(L"..//..//CivilizationIV.bak");
-    CopyFileW(L"..//..//CivilizationIV.ini", L"..//..//CivilizationIV.bak",0);
+    QFile::remove("../../CivilizationIV.bak");
+    QFile::copy("../../CivilizationIV.ini", "../../CivilizationIV.bak");
 
-    /* Look for the file and replace the string
-     * Help : https://stackoverflow.com/questions/4499095/replace-line-in-a-file-c */
+    // Look for the file and replace the string
 
     string search_string = "Mod = 0";
     string replace_string = "Mod = Mods\\Rise of Mankind - A New Dawn";
