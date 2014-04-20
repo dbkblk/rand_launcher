@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "ui_installBox.h"
+#include "ui_optionBox.h"
+#include "optionbox.h"
 #include <QtCore>
 #include <QDesktopServices>
 #include <QMessageBox>
@@ -18,9 +20,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 	this->setWindowTitle("Civilization IV: A New Dawn 2");
     setStyleSheet("MainWindow { background-image: url(checker/and2_background.jpg) }");
-
-    // Setting the correct colorBox value
-    //ui->colorBox->setCurrentIndex(readColorsCounter());
 }
 
 MainWindow::~MainWindow()
@@ -35,10 +34,7 @@ installBox::installBox(QDialog *parent) :
     ui->setupUi(this);
 }
 
-void MainWindow::on_pushButton_5_clicked()
-{
-    QDesktopServices::openUrl(QUrl("http://tortoisesvn.net/downloads.html"));
-}
+// Menu actions
 
 void MainWindow::on_actionForum_triggered()
 {
@@ -60,45 +56,22 @@ void MainWindow::on_actionAbout_AND_Resurrection_team_forum_triggered()
     QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=471460"));
 }
 
+void MainWindow::on_actionAddon_More_music_forum_triggered()
+{
+    QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=523763"));
+}
+
 void MainWindow::on_actionExit_triggered()
 {
     QApplication::quit();
 }
 
-void MainWindow::on_autostartButton_clicked()
-{
-    setStartup();
-    QMessageBox::information(this, "Information", "The mod has been set to autostart with the game.");
-}
-
-void MainWindow::on_pushButton_4_clicked()
-{
-    restoreBackup();
-    QMessageBox::information(this, "Information", "The config file has been reverted to the previous configuration.");
-}
+// Menu buttons
 
 void MainWindow::on_bt_update_clicked()
 {
     checkUpdate();
     QMessageBox::information(this, "Information", "The mod is up-to-date.");
-}
-
-void MainWindow::on_revertButton_clicked()
-{
-    rollBack();
-    QMessageBox::information(this, "Information", "The mod has been reverted to the previous version.");
-}
-
-void MainWindow::on_cleanupButton_clicked()
-{
-    cleanUp();
-    QMessageBox::information(this, "Information", "The mod has been cleaned up. You can update the game now (it can grab the missing files).");
-}
-
-void MainWindow::on_colorBox_currentIndexChanged(const QString &colorName)
-{
-    QString colorUI = colorName + " UI";
-    setColors(colorUI.toStdString().c_str());
 }
 
 void installBox::on_buttonBox_accepted()
@@ -111,13 +84,14 @@ void installBox::on_buttonBox_rejected()
     qApp->exit();
 }
 
-void MainWindow::on_actionAddon_More_music_forum_triggered()
-{
-    QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=523763"));
-}
-
 void MainWindow::on_bt_launch_clicked()
 {
     launchGame();
     qApp->exit();
+}
+
+void MainWindow::on_bt_option_clicked()
+{
+    optionBox *optBox = new optionBox;
+    optBox->show();
 }

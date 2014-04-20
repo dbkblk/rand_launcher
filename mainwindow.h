@@ -19,8 +19,6 @@ public:
 
 private slots:
 
-    void on_pushButton_5_clicked();
-
     void on_actionForum_triggered();
 
     void on_actionAddon_Mega_Civ_Pack_triggered();
@@ -31,21 +29,13 @@ private slots:
 
     void on_actionExit_triggered();
 
-    void on_autostartButton_clicked();
-
-    void on_pushButton_4_clicked();
-
-    void on_bt_update_clicked();
-
-    void on_revertButton_clicked();
-
-    void on_cleanupButton_clicked();
-
-    void on_colorBox_currentIndexChanged(const QString &arg1);
-
     void on_actionAddon_More_music_forum_triggered();
 
     void on_bt_launch_clicked();
+
+    void on_bt_update_clicked();
+
+    void on_bt_option_clicked();
 
 private:
     Ui::MainWindow *ui;

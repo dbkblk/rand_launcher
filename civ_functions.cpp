@@ -10,6 +10,9 @@
 #include <QDebug>
 #include <QUrl>
 #include <QDesktopServices>
+#include <QProcess>
+#include <QEventLoop>
+#include <QObject>
 
 using namespace std;
 
@@ -41,13 +44,6 @@ bool clearCache()
     cacheDir = delCmd + quote + Appdata + finalDir + dat + quote;
     // cout << cacheDir << endl;
 
-    // Remove .dat files
-//	if (QDir::remove(cacheDir.c_str())) {
-//		return 0;
-//	}
-//	else {
-//		return 1;
-//	}
     return 0;
 }
 
@@ -115,25 +111,26 @@ bool restoreBackup()
 
 bool checkUpdate()
 {
-    cout << "Checking for update..." << endl;
-    Sleep(1500);
-    system("bin\\svn.exe update && echo The cache will now be cleared && TIMEOUT 3");
+    qDebug() << "Checking for update..." << endl;
+    system("checker\\svn.exe update && echo The cache will now be cleared && TIMEOUT 3");
     clearCache();
     return 0;
+    /*QProcess pr_update;
+    pr_update.startDetached("checker/svn.exe update");
+    qDebug() << pr_update.pid();*/
+
 }
 
 bool rollBack()
 {
-    system("bin\\svn.exe update -r PREV --accept theirs-full && echo The cache will now be cleared && TIMEOUT 3");
+    system("checker\\svn.exe update -r PREV --accept theirs-full && echo The cache will now be cleared && TIMEOUT 3");
     clearCache();
     return 0;
 }
 
 bool cleanUp()
 {
-    cout << "Cleaning up..." << endl;
-    Sleep(1500);
-    system("bin\\svn.exe cleanup");
+    system("checker\\svn.exe cleanup");
     clearCache();
     cout << "The mod is reverted to the last working version." << endl;
     return 0;
@@ -141,7 +138,7 @@ bool cleanUp()
 
 bool installMod()
 {
-    system("\"\"bin\\svn.exe\" checkout \"svn://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\"\" .");
+    system("\"\"checker\\svn.exe\" checkout \"svn://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\"\" .");
     return 0;
 }
 

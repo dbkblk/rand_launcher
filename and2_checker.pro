@@ -16,17 +16,19 @@ SOURCES += \
     lib/tinyxml2.cpp \
     main.cpp \
     mainwindow.cpp \
-    civ_functions.cpp
+    civ_functions.cpp \
+    optionbox.cpp
 
 HEADERS += \
     tinyxml2.h \
     lib/tinyxml2.h \
     mainwindow.h \
-    civ_functions.h
+    civ_functions.h \
+    optionbox.h
 
 FORMS    += mainwindow.ui \
-    option.ui \
-    installBox.ui
+    installBox.ui \
+    optionbox.ui
 
 RC_FILE = icon.rc
 
