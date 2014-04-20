@@ -29,3 +29,6 @@ FORMS    += mainwindow.ui \
     installBox.ui
 
 RC_FILE = icon.rc
+
+OTHER_FILES += \
+    checker/and2_background.jpg

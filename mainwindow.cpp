@@ -17,9 +17,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 	this->setWindowTitle("Civilization IV: A New Dawn 2");
+    setStyleSheet("MainWindow { background-image: url(checker/and2_background.jpg) }");
 
     // Setting the correct colorBox value
-    ui->colorBox->setCurrentIndex(readColorsCounter());
+    //ui->colorBox->setCurrentIndex(readColorsCounter());
 }
 
 MainWindow::~MainWindow()
@@ -76,7 +77,7 @@ void MainWindow::on_pushButton_4_clicked()
     QMessageBox::information(this, "Information", "The config file has been reverted to the previous configuration.");
 }
 
-void MainWindow::on_updateButton_clicked()
+void MainWindow::on_bt_update_clicked()
 {
     checkUpdate();
     QMessageBox::information(this, "Information", "The mod is up-to-date.");
@@ -115,11 +116,8 @@ void MainWindow::on_actionAddon_More_music_forum_triggered()
     QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=523763"));
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_bt_launch_clicked()
 {
-    QString bt_exe = readXML("version.xml","exelocation");
-    QString exec = QDir::toNativeSeparators(bt_exe);
-    QUrl u = QUrl::fromLocalFile(exec);
-    QDesktopServices::openUrl(QUrl(u));
+    launchGame();
     qApp->exit();
 }

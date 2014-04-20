@@ -24,7 +24,6 @@ int main(int argc, char *argv[])
     }
 
     else {
-        qDebug() << "Else passed";
         if(readXML("version.xml","exelocation") == NULL) {
             qDebug() << "Pas d'exe";
             QMessageBox::information(0, "Information", "To be able to launch the game from the launcher, it need to know where the executable is located. The next window will ask you to select your Civ. IV Beyond the Sword executable");

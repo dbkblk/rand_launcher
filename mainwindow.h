@@ -35,7 +35,7 @@ private slots:
 
     void on_pushButton_4_clicked();
 
-    void on_updateButton_clicked();
+    void on_bt_update_clicked();
 
     void on_revertButton_clicked();
 
@@ -45,7 +45,7 @@ private slots:
 
     void on_actionAddon_More_music_forum_triggered();
 
-    void on_pushButton_clicked();
+    void on_bt_launch_clicked();
 
 private:
     Ui::MainWindow *ui;

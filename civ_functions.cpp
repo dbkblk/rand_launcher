@@ -8,6 +8,8 @@
 #include <lib\tinyxml2.h>
 #include <QDir>
 #include <QDebug>
+#include <QUrl>
+#include <QDesktopServices>
 
 using namespace std;
 
@@ -248,4 +250,11 @@ bool setColors(const char* color)
     }
     read.SaveFile(file);
     return 0;
+}
+
+void launchGame(){
+    QString bt_exe = readXML("version.xml","exelocation");
+    QString exec = QDir::toNativeSeparators(bt_exe);
+    QUrl u = QUrl::fromLocalFile(exec);
+    QDesktopServices::openUrl(QUrl(u));
 }

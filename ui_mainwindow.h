@@ -14,17 +14,12 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QComboBox>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QStatusBar>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -39,27 +34,13 @@ public:
     QAction *actionAbout_AND_Resurrection_team_forum;
     QAction *actionAddon_More_music_forum;
     QWidget *centralWidget;
-    QLabel *label;
-    QWidget *layoutWidget;
-    QHBoxLayout *horizontalLayout;
-    QVBoxLayout *verticalLayout_2;
-    QLabel *label_2;
-    QPushButton *updateButton;
-    QPushButton *cleanupButton;
-    QPushButton *revertButton;
-    QSpacerItem *horizontalSpacer;
-    QVBoxLayout *verticalLayout;
-    QLabel *label_3;
-    QLabel *label_4;
-    QComboBox *colorBox;
-    QLabel *label_5;
-    QPushButton *autostartButton;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton;
+    QLabel *lb_title;
+    QPushButton *bt_launch;
+    QPushButton *bt_update;
+    QPushButton *bt_option;
     QMenuBar *menuBar;
     QMenu *menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher;
     QMenu *menuCommunity;
-    QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -73,7 +54,9 @@ public:
         MainWindow->setSizePolicy(sizePolicy);
         MainWindow->setMinimumSize(QSize(600, 300));
         MainWindow->setMaximumSize(QSize(600, 300));
+        MainWindow->setStyleSheet(QStringLiteral(""));
         MainWindow->setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom));
+        MainWindow->setDocumentMode(false);
         actionExit = new QAction(MainWindow);
         actionExit->setObjectName(QStringLiteral("actionExit"));
         actionForum = new QAction(MainWindow);
@@ -88,91 +71,26 @@ public:
         actionAddon_More_music_forum->setObjectName(QStringLiteral("actionAddon_More_music_forum"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        label = new QLabel(centralWidget);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(0, 0, 601, 71));
-        label->setAlignment(Qt::AlignCenter);
-        layoutWidget = new QWidget(centralWidget);
-        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(60, 110, 481, 142));
-        horizontalLayout = new QHBoxLayout(layoutWidget);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        label_2 = new QLabel(layoutWidget);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
-
-        verticalLayout_2->addWidget(label_2);
-
-        updateButton = new QPushButton(layoutWidget);
-        updateButton->setObjectName(QStringLiteral("updateButton"));
-
-        verticalLayout_2->addWidget(updateButton);
-
-        cleanupButton = new QPushButton(layoutWidget);
-        cleanupButton->setObjectName(QStringLiteral("cleanupButton"));
-
-        verticalLayout_2->addWidget(cleanupButton);
-
-        revertButton = new QPushButton(layoutWidget);
-        revertButton->setObjectName(QStringLiteral("revertButton"));
-
-        verticalLayout_2->addWidget(revertButton);
-
-
-        horizontalLayout->addLayout(verticalLayout_2);
-
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer);
-
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(6);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        label_3 = new QLabel(layoutWidget);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
-
-        verticalLayout->addWidget(label_3);
-
-        label_4 = new QLabel(layoutWidget);
-        label_4->setObjectName(QStringLiteral("label_4"));
-
-        verticalLayout->addWidget(label_4);
-
-        colorBox = new QComboBox(layoutWidget);
-        colorBox->setObjectName(QStringLiteral("colorBox"));
-        colorBox->setEditable(false);
-
-        verticalLayout->addWidget(colorBox);
-
-        label_5 = new QLabel(layoutWidget);
-        label_5->setObjectName(QStringLiteral("label_5"));
-
-        verticalLayout->addWidget(label_5);
-
-        autostartButton = new QPushButton(layoutWidget);
-        autostartButton->setObjectName(QStringLiteral("autostartButton"));
-
-        verticalLayout->addWidget(autostartButton);
-
-        pushButton_4 = new QPushButton(layoutWidget);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-
-        verticalLayout->addWidget(pushButton_4);
-
-
-        horizontalLayout->addLayout(verticalLayout);
-
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(224, 90, 151, 23));
+        centralWidget->setStyleSheet(QStringLiteral(""));
+        lb_title = new QLabel(centralWidget);
+        lb_title->setObjectName(QStringLiteral("lb_title"));
+        lb_title->setGeometry(QRect(0, 0, 601, 71));
+        lb_title->setAlignment(Qt::AlignCenter);
+        bt_launch = new QPushButton(centralWidget);
+        bt_launch->setObjectName(QStringLiteral("bt_launch"));
+        bt_launch->setGeometry(QRect(10, 230, 151, 23));
+        bt_launch->setAutoFillBackground(false);
+        bt_launch->setStyleSheet(QStringLiteral("background-image: none"));
+        bt_launch->setAutoDefault(false);
+        bt_launch->setFlat(false);
+        bt_update = new QPushButton(centralWidget);
+        bt_update->setObjectName(QStringLiteral("bt_update"));
+        bt_update->setGeometry(QRect(170, 230, 136, 23));
+        bt_option = new QPushButton(centralWidget);
+        bt_option->setObjectName(QStringLiteral("bt_option"));
+        bt_option->setGeometry(QRect(450, 230, 136, 23));
+        bt_option->setStyleSheet(QStringLiteral("border-image: none"));
+        bt_option->setFlat(false);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -182,13 +100,6 @@ public:
         menuCommunity = new QMenu(menuBar);
         menuCommunity->setObjectName(QStringLiteral("menuCommunity"));
         MainWindow->setMenuBar(menuBar);
-        statusBar = new QStatusBar(MainWindow);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
-        MainWindow->setStatusBar(statusBar);
-        QWidget::setTabOrder(colorBox, revertButton);
-        QWidget::setTabOrder(revertButton, cleanupButton);
-        QWidget::setTabOrder(cleanupButton, autostartButton);
-        QWidget::setTabOrder(autostartButton, pushButton_4);
 
         menuBar->addAction(menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->menuAction());
         menuBar->addAction(menuCommunity->menuAction());
@@ -216,28 +127,10 @@ public:
         actionAbout_AND_Resurrection_team_forum->setToolTip(QApplication::translate("MainWindow", "About AND Resurrection team (forum)", 0));
 #endif // QT_NO_TOOLTIP
         actionAddon_More_music_forum->setText(QApplication::translate("MainWindow", "Addon \"More music\" (forum)", 0));
-        label->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600;\">Civilization 4 - Rise of Mankind : </span></p><p align=\"center\"><span style=\" font-size:16pt; font-weight:600; text-decoration: underline;\">A New Dawn 2</span></p></body></html>", 0));
-        label_2->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">Update process</span></p></body></html>", 0));
-        updateButton->setText(QApplication::translate("MainWindow", "Check for update", 0));
-        cleanupButton->setText(QApplication::translate("MainWindow", "Clean up the installation", 0));
-        revertButton->setText(QApplication::translate("MainWindow", "Revert to previous version", 0));
-        label_3->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Mod configuration</span></p></body></html>", 0));
-        label_4->setText(QApplication::translate("MainWindow", "Change interface color :", 0));
-        colorBox->clear();
-        colorBox->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "Black", 0)
-         << QApplication::translate("MainWindow", "Coal", 0)
-         << QApplication::translate("MainWindow", "Dark Red", 0)
-         << QApplication::translate("MainWindow", "Forest", 0)
-         << QApplication::translate("MainWindow", "Purple", 0)
-         << QApplication::translate("MainWindow", "Red", 0)
-         << QApplication::translate("MainWindow", "Silver", 0)
-         << QApplication::translate("MainWindow", "Cerulean", 0)
-        );
-        label_5->setText(QApplication::translate("MainWindow", "Change startup settings :", 0));
-        autostartButton->setText(QApplication::translate("MainWindow", "Launch the mod by default", 0));
-        pushButton_4->setText(QApplication::translate("MainWindow", "Restore default config.", 0));
-        pushButton->setText(QApplication::translate("MainWindow", "Launch the game", 0));
+        lb_title->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:24pt; font-weight:600; color:#ffffff;\">Civilization IV - A New Dawn 2</span></p></body></html>", 0));
+        bt_launch->setText(QApplication::translate("MainWindow", "Launch Civilization IV", 0));
+        bt_update->setText(QApplication::translate("MainWindow", "Check for update", 0));
+        bt_option->setText(QApplication::translate("MainWindow", "Options", 0));
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setTitle(QApplication::translate("MainWindow", "Menu", 0));
         menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
     } // retranslateUi
