@@ -5,7 +5,9 @@
 # GUI todo:
 /*- Compile static libraries*/
 - Need to reconnect the end of installation with the GUI
-- Save a config file
 - Integrate the console in the GUI
-- Check if the game is in the correct path
 - Enhance the QT integration
+- Create an update routine
+
+# Addons integration
+- Add easy installation of addons

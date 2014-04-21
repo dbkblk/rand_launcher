@@ -17,20 +17,6 @@
 
 using namespace std;
 
-// Check for a directory
-
-bool dirExists(const std::string& dirName_in)
-{
-  DWORD ftyp = GetFileAttributesA(dirName_in.c_str());
-  if (ftyp == INVALID_FILE_ATTRIBUTES)
-    return false;  // Wrong path
-
-  if (ftyp & FILE_ATTRIBUTE_DIRECTORY)
-    return true;   // Correct path
-
-  return false;    // There is no directory
-}
-
 // Clear the cache folder
 
 bool clearCache()
@@ -98,8 +84,8 @@ bool setCheckerParam(QString param, QString newValue)
 
 bool restoreBackup()
 {
-	DeleteFile(L"..//..//CivilizationIV.ini");
-	CopyFileW(L"..//..//CivilizationIV.bak", L"..//..//CivilizationIV.ini", 0);
+    QFile::remove("..//..//CivilizationIV.ini");
+    QFile::copy("..//..//CivilizationIV.bak", "..//..//CivilizationIV.ini");
 	return 0;
 }
 
@@ -130,13 +116,7 @@ bool cleanUp()
     return 0;
 }
 
-bool installMod()
-{
-    system("\"\"checker\\svn.exe\" checkout \"svn://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\"\" .");
-    return 0;
-}
-
-const char* readXML(const char* file, const char* tag)
+/*const char* readXML(const char* file, const char* tag)
 {
     tinyxml2::XMLDocument read;
     read.LoadFile(file);
@@ -152,7 +132,7 @@ bool writeXML(const char* file, const char* tag, const char* newValue)
     read.FirstChildElement("versions")->FirstChildElement(tag)->SetText(newValue);
     read.SaveFile(file);
     return 0;
-}
+}*/
 
 const char* readColors()
 {

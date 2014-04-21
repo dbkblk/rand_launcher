@@ -76,7 +76,7 @@ void MainWindow::on_bt_update_clicked()
 
 void installBox::on_buttonBox_accepted()
 {
-    installMod();
+    system("checker\\svn.exe checkout svn://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn .  && taskkill /f /im and2_checker.exe >NUL 2>NUL && echo The mod has been installed. && TIMEOUT 3 && start and2_checker.exe");
 }
 
 void installBox::on_buttonBox_rejected()

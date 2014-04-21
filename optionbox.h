@@ -35,9 +35,9 @@ private slots:
     void on_opt_bt_path_clicked();
 
 private:
-    QCheckBox *startBox = new QCheckBox;
-    QCheckBox *checkerBox = new QCheckBox;
-    QLineEdit *opt_text_path = new QLineEdit;
+    QCheckBox *startBox;
+    QCheckBox *checkerBox;
+    QLineEdit *opt_text_path;
     Ui::optionBox *ui;
 };
 
