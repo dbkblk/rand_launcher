@@ -60,7 +60,7 @@ bool setConfigParam(QString param, QString newValue)
     settings.setValue(param, newValue);
 
     qDebug() << "Parameter set to " << settings.value(param);
-
+    return 0;
 }
 
 QString readConfigParam(QString param)
@@ -71,19 +71,26 @@ QString readConfigParam(QString param)
     return value;
 }
 
-/*const char* readCheckerParam(QString param)
+QString readCheckerParam(QString param)
 {
     QSettings settings("checker/checker_config.ini", QSettings::IniFormat);
-    const char* value = settings.value(param);
+    qDebug() << settings.status();
+    QString value = settings.value(param).toString();
     qDebug() << "Checker parameter set to " << settings.value(param);
-    return;
-}*/
+    return value;
+}
 
-const char* setCheckerParam(QString param, QString newValue)
+bool setCheckerParam(QString param, QString newValue)
 {
+    if(!QFile::exists("checker/checker_config.ini")) {
+        QFile ch_conf;
+        ch_conf.open(QIODevice::WriteOnly);
+    }
     QSettings settings("checker/checker_config.ini", QSettings::IniFormat);
+    qDebug() << settings.status();
     settings.setValue(param, newValue);
-    qDebug() << "Checker parameter set to" << settings.value(param);
+    qDebug() << "Checker parameter set to" <<       settings.value(param);
+    return 0;
 }
 
 bool restoreBackup()

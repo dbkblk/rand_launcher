@@ -87,7 +87,12 @@ void installBox::on_buttonBox_rejected()
 void MainWindow::on_bt_launch_clicked()
 {
     launchGame();
-    qApp->exit();
+    if(readCheckerParam("MAIN/QuitLauncher") == "1") {
+        qApp->exit();
+    }
+    else {
+        this->setWindowState(Qt::WindowMinimized);
+    }
 }
 
 void MainWindow::on_bt_option_clicked()

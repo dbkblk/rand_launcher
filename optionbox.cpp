@@ -20,8 +20,16 @@ optionBox::optionBox(QWidget *parent) :
     if(readConfigParam("CONFIG/Mod") == "Mods/Rise of Mankind - A New Dawn") {
         ui->startBox->setChecked(1);
     }
-    else
+    else {
         ui->startBox->setChecked(0);
+    }
+    // Set default checkerBox state
+    if(readCheckerParam("MAIN/QuitLauncher") == "1") {
+        ui->checkerBox->setChecked(1);
+    }
+    else {
+        ui->checkerBox->setChecked(0);
+    }
 }
 
 optionBox::~optionBox()
@@ -75,5 +83,17 @@ void optionBox::on_startBox_toggled(bool checked)
     }
     if(checked) {
         setConfigParam("CONFIG/Mod", "Mods/Rise of Mankind - A New Dawn");
+    }
+}
+
+
+
+void optionBox::on_checkerBox_toggled(bool checked)
+{
+    if(checked) {
+        setCheckerParam("MAIN/QuitLauncher", "1");
+    }
+    if(!checked) {
+        setCheckerParam("MAIN/QuitLauncher", "0");
     }
 }

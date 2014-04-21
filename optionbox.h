@@ -29,8 +29,11 @@ private slots:
 
     void on_startBox_toggled(bool checked);
 
+    void on_checkerBox_toggled(bool checked);
+
 private:
     QCheckBox *startBox = new QCheckBox;
+    QCheckBox *checkerBox = new QCheckBox;
     Ui::optionBox *ui;
 };
 
