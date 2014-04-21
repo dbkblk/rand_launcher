@@ -2,6 +2,7 @@
 #define OPTIONBOX_H
 
 #include <QWidget>
+#include <QCheckBox>
 
 namespace Ui {
 class optionBox;
@@ -26,9 +27,10 @@ private slots:
 
     void on_colorBox_currentIndexChanged(const QString &colorName);
 
-    void on_checkBox_clicked();
+    void on_startBox_toggled(bool checked);
 
 private:
+    QCheckBox *startBox = new QCheckBox;
     Ui::optionBox *ui;
 };
 

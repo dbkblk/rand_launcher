@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QProcess>
+#include <QSettings>
 
 optionBox::optionBox(QWidget *parent) :
     QWidget(parent),
@@ -14,6 +15,13 @@ optionBox::optionBox(QWidget *parent) :
 
     // Set the detected color
     ui->colorBox->setCurrentIndex(readColorsCounter());
+
+    // Set default startBox state
+    if(readConfigParam("CONFIG/Mod") == "Mods/Rise of Mankind - A New Dawn") {
+        ui->startBox->setChecked(1);
+    }
+    else
+        ui->startBox->setChecked(0);
 }
 
 optionBox::~optionBox()
@@ -60,7 +68,12 @@ void optionBox::on_colorBox_currentIndexChanged(const QString &colorName)
     setColors(colorUI.toStdString().c_str());
 }
 
-void optionBox::on_checkBox_clicked()
+void optionBox::on_startBox_toggled(bool checked)
 {
-    setStartup();
+    if(!checked) {
+        setConfigParam("CONFIG/Mod", "0");
+    }
+    if(checked) {
+        setConfigParam("CONFIG/Mod", "Mods/Rise of Mankind - A New Dawn");
+    }
 }

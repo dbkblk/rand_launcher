@@ -151,7 +151,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QCheckBox" name="checkBox">
+  <widget class="QCheckBox" name="startBox">
    <property name="geometry">
     <rect>
      <x>180</x>

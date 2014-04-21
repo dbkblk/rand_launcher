@@ -1,9 +1,14 @@
 #ifndef civ_function
+
+#include <QString>
 #define civ_function
 
 bool dirExists(const std::string &dirName_in);
 bool clearCache();
-bool setStartup();
+bool setConfigParam(QString param, QString newValue);
+QString readConfigParam(QString param);
+const char* readCheckerParam(QString param);
+const char* setCheckerParam(QString param, QString newValue);
 bool restoreBackup();
 void replaceAll(std::string& str, const std::string& from, const std::string& to);
 bool currentVersion();

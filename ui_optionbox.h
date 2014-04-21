@@ -37,7 +37,7 @@ public:
     QPushButton *opt_bt_cleanup;
     QPushButton *opt_bt_restore;
     QPushButton *opt_bt_chooserev;
-    QCheckBox *checkBox;
+    QCheckBox *startBox;
 
     void setupUi(QWidget *optionBox)
     {
@@ -85,9 +85,9 @@ public:
 
         verticalLayout->addWidget(opt_bt_chooserev);
 
-        checkBox = new QCheckBox(optionBox);
-        checkBox->setObjectName(QStringLiteral("checkBox"));
-        checkBox->setGeometry(QRect(180, 190, 191, 21));
+        startBox = new QCheckBox(optionBox);
+        startBox->setObjectName(QStringLiteral("startBox"));
+        startBox->setGeometry(QRect(180, 190, 191, 21));
 
         retranslateUi(optionBox);
 
@@ -115,7 +115,7 @@ public:
         opt_bt_cleanup->setText(QApplication::translate("optionBox", "Clean up installation", 0));
         opt_bt_restore->setText(QApplication::translate("optionBox", "Restore previous version", 0));
         opt_bt_chooserev->setText(QApplication::translate("optionBox", "Choose a previous revision", 0));
-        checkBox->setText(QApplication::translate("optionBox", "Autostart the mod with the game", 0));
+        startBox->setText(QApplication::translate("optionBox", "Autostart the mod with the game", 0));
     } // retranslateUi
 
 };

@@ -13,6 +13,7 @@
 #include <QProcess>
 #include <QEventLoop>
 #include <QObject>
+#include <QSettings>
 
 using namespace std;
 
@@ -48,57 +49,41 @@ bool clearCache()
 }
 
 // Set the mod to start by default
-bool setStartup()
+bool setConfigParam(QString param, QString newValue)
 {
     // Make a backup
     QFile::remove("../../CivilizationIV.bak");
     QFile::copy("../../CivilizationIV.ini", "../../CivilizationIV.bak");
 
-    // Look for the file and replace the string
+    // Set value
+    QSettings settings("../../CivilizationIV.ini", QSettings::IniFormat);
+    settings.setValue(param, newValue);
 
-    string search_string = "Mod = 0";
-    string replace_string = "Mod = Mods\\Rise of Mankind - A New Dawn";
-    string inbuf;
+    qDebug() << "Parameter set to " << settings.value(param);
 
-    fstream input_file("..//..//CivilizationIV.ini", ios::in);
-    ofstream output_file("..//..//temp.txt");
-
-    // Look line by line the file
-    while (!input_file.eof())
-    {
-       getline(input_file, inbuf);
-
-       // Register the number of the line where "search string" is found
-       size_t foundpos = inbuf.find(search_string);
-
-       // While the eof is not reached, try to replace the string when search_string is found
-       if(foundpos != std::string::npos)
-       {
-          replaceAll(inbuf, search_string, replace_string);
-       }
-       output_file << inbuf << endl;
-    }
-
-    // Close the files
-    output_file.close();
-    input_file.close();
-
-    // Replace config file
-    DeleteFile(L"..//..//CivilizationIV.ini");
-    MoveFileW(L"..//..//temp.txt", L"..//..//CivilizationIV.ini");
-    return 0;
 }
 
-// Replace a string by another
-void replaceAll(std::string& str, const std::string& from, const std::string& to)
+QString readConfigParam(QString param)
 {
-    size_t start_pos = 0;
-    while((start_pos = str.find(from, start_pos)) != std::string::npos)
-    {
-        size_t end_pos = start_pos + from.length();
-        str.replace(start_pos, end_pos, to);
-        start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
-    }
+    QSettings settings("../../CivilizationIV.ini", QSettings::IniFormat);
+    QString value = settings.value(param).toString();
+    qDebug() << value;
+    return value;
+}
+
+/*const char* readCheckerParam(QString param)
+{
+    QSettings settings("checker/checker_config.ini", QSettings::IniFormat);
+    const char* value = settings.value(param);
+    qDebug() << "Checker parameter set to " << settings.value(param);
+    return;
+}*/
+
+const char* setCheckerParam(QString param, QString newValue)
+{
+    QSettings settings("checker/checker_config.ini", QSettings::IniFormat);
+    settings.setValue(param, newValue);
+    qDebug() << "Checker parameter set to" << settings.value(param);
 }
 
 bool restoreBackup()
