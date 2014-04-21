@@ -7,7 +7,7 @@
 - Need to reconnect the end of installation with the GUI
 - Integrate the console in the GUI
 - Enhance the QT integration
-- Create an update routine
+- Create an update routine. OK >> Add a dialog box.
 
 # Addons integration
 - Add easy installation of addons

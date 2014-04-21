@@ -114,3 +114,14 @@ void optionBox::on_opt_bt_path_clicked()
     QMessageBox::information(0, "Information", "The game path has been changed");
 }
 
+
+void optionBox::on_opt_bt_chklauncher_clicked()
+{
+    if(launcherCheck()) {
+        qDebug () << launcherCheck();
+        // Add dialog box and fire launcherUpdate
+        launcherUpdate();
+    }
+    else
+        qDebug () << launcherCheck();
+}

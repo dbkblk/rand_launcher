@@ -5,6 +5,7 @@
 #include <shlobj.h>
 #include <wchar.h>
 #include <civ_functions.h>
+#include <mainwindow.h>
 #include <lib\tinyxml2.h>
 #include <QDir>
 #include <QDebug>
@@ -82,10 +83,40 @@ bool setCheckerParam(QString param, QString newValue)
     return 0;
 }
 
+bool launcherCheck()
+{
+    Downloader d;
+    d.download("https://dl.dropboxusercontent.com/u/369241/update.ini","checker/update.ini");
+    QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
+    QString loc_version = readCheckerParam("MAIN/CheckerVersion");
+    QString dist_version = upd_ini.value("VERSION/CheckerVersion").toString();
+    if(loc_version == dist_version) {
+        qDebug() << "No update is required";
+        QFile::remove("checker/update.ini");
+        return 0;
+    }
+    else
+        qDebug() << "An update is available";
+        return 1;
+}
+
+bool launcherUpdate()
+{
+    QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
+    QString downloadlink = upd_ini.value("VERSION/DownloadLink").toString();
+    QString downloadfile = upd_ini.value("VERSION/DownloadFile").toString();
+    qDebug() << "Link : " << downloadlink << endl << "File : " << downloadfile;
+    char cmd[512];
+    QFile::copy("checker/7za.exe","7za.exe");
+    sprintf(cmd, "echo Downloading launcher update... && TIMEOUT 3 && checker\\wget.exe -c --no-check-certificate %s && taskkill /f /im and2_checker.exe >NUL 2>NUL && echo Extracting update... && 7za.exe x -y %s && echo Update done && del 7za.exe && TIMEOUT 3 && start and2_checker.exe", downloadlink.toStdString().c_str(), downloadfile.toStdString().c_str());
+    qDebug() << "Update command : " << cmd;
+    system((char *)cmd);
+}
+
 bool restoreBackup()
 {
-    QFile::remove("..//..//CivilizationIV.ini");
-    QFile::copy("..//..//CivilizationIV.bak", "..//..//CivilizationIV.ini");
+    QFile::remove("../../CivilizationIV.ini");
+    QFile::copy("../../CivilizationIV.bak", "../../CivilizationIV.ini");
 	return 0;
 }
 

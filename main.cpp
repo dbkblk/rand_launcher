@@ -18,6 +18,10 @@ int main(int argc, char *argv[])
     MainWindow w;
     installBox install;
 
+    // Set version in ini file
+    QString checker_version = "0.5";
+    setCheckerParam("MAIN/CheckerVersion",checker_version);
+
     // Check for correct path
     QDir BTS_dir("../../../Beyond the sword");
     if(!BTS_dir.exists()){

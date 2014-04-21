@@ -12,6 +12,10 @@
 #include <string>
 #include <civ_functions.h>
 #include <QDir>
+#include <QUrl>
+#include <QDateTime>
+#include <QFile>
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -20,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 	this->setWindowTitle("Civilization IV: A New Dawn 2");
     setStyleSheet("MainWindow { background-image: url(checker/and2_background.jpg) }");
+
 }
 
 MainWindow::~MainWindow()
@@ -107,4 +112,42 @@ void MainWindow::on_bt_option_clicked()
 {
     optionBox *optBox = new optionBox;
     optBox->show();
+}
+
+Downloader::Downloader(void)
+{
+    manager = new QNetworkAccessManager;
+}
+
+Downloader::~Downloader(void)
+{
+}
+
+QString Downloader::download(QString in_url, QString in_output)
+{
+    QUrl url(in_url);
+    QNetworkReply *reply = manager->get(QNetworkRequest(QUrl(url)));
+
+    // Event loop to wait for the download to finish
+    QEventLoop loop;
+    connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
+    loop.exec();
+    if(reply->error() == QNetworkReply::NoError)
+    {
+        replyFinished(reply, in_output);
+        return "ok";
+    }
+    else
+    {
+        return reply->errorString();
+    }
+}
+
+void Downloader::replyFinished(QNetworkReply* r, QString in_output)
+{
+    QFile url_file(in_output);
+    url_file.open(QIODevice::WriteOnly);
+    url_file.write(r->readAll());
+    url_file.close();
+    qDebug() << "Downloader replied";
 }

@@ -3,6 +3,14 @@
 
 #include <QMainWindow>
 #include <QDialog>
+#include <QObject>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QUrl>
+#include <QDateTime>
+#include <QFile>
+#include <QDebug>
 
 namespace Ui {
 class MainWindow;
@@ -57,5 +65,42 @@ private:
     Ui::installBox *ui;
 
 };
+
+class Downloader : public QObject
+{
+    Q_OBJECT
+
+public:
+    Downloader(void);
+    ~Downloader(void);
+
+    QString download(QString in_url, QString in_output);
+
+public slots:
+    void replyFinished(QNetworkReply *r, QString in_output);
+
+private:
+    QNetworkAccessManager   *manager;
+};
+
+/*
+// Class borrowed from http://www.bogotobogo.com/Qt/Qt5_Downloading_Files_QNetworkAccessManager_QNetworkRequest.php
+class Downloader : public QObject
+{
+    Q_OBJECT
+public:
+    explicit Downloader(QObject *parent = 0);
+
+    void doDownload();
+
+signals:
+
+public slots:
+    void replyFinished (QNetworkReply *reply);
+
+private:
+   QNetworkAccessManager *manager;
+
+};*/
 
 #endif // MAINWINDOW_H

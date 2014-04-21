@@ -79,6 +79,13 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QPushButton" name="opt_bt_chklauncher">
+        <property name="text">
+         <string>Check for launcher update</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
     <item>

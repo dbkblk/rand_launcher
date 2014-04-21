@@ -34,6 +34,8 @@ private slots:
 
     void on_opt_bt_path_clicked();
 
+    void on_opt_bt_chklauncher_clicked();
+
 private:
     QCheckBox *startBox;
     QCheckBox *checkerBox;
