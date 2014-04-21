@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QCheckBox>
+#include <QLineEdit>
 
 namespace Ui {
 class optionBox;
@@ -31,9 +32,12 @@ private slots:
 
     void on_checkerBox_toggled(bool checked);
 
+    void on_opt_bt_path_clicked();
+
 private:
     QCheckBox *startBox = new QCheckBox;
     QCheckBox *checkerBox = new QCheckBox;
+    QLineEdit *opt_text_path = new QLineEdit;
     Ui::optionBox *ui;
 };
 

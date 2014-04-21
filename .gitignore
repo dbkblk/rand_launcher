@@ -2,5 +2,6 @@
 release/
 debug/
 materials/
+release_files/
 *.pro.user
 Makefile*

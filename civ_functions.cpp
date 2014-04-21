@@ -75,6 +75,9 @@ QString readCheckerParam(QString param)
 {
     QSettings settings("checker/checker_config.ini", QSettings::IniFormat);
     qDebug() << settings.status();
+    if(!settings.contains(param)) {
+        return "error";
+    }
     QString value = settings.value(param).toString();
     qDebug() << "Checker parameter set to " << settings.value(param);
     return value;
@@ -241,7 +244,7 @@ bool setColors(const char* color)
 }
 
 void launchGame(){
-    QString bt_exe = readXML("version.xml","exelocation");
+    QString bt_exe = readCheckerParam("MAIN/ExecutablePath");
     QString exec = QDir::toNativeSeparators(bt_exe);
     QUrl u = QUrl::fromLocalFile(exec);
     QDesktopServices::openUrl(QUrl(u));

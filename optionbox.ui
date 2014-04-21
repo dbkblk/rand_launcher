@@ -22,10 +22,10 @@
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>19</x>
-     <y>17</y>
+     <x>20</x>
+     <y>9</y>
      <width>461</width>
-     <height>211</height>
+     <height>231</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -84,7 +84,7 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLabel" name="label_3">
+       <widget class="QLabel" name="lb_modconf">
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mod configuration :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
@@ -104,7 +104,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QLabel" name="label_4">
+       <widget class="QLabel" name="lb_intcolor">
         <property name="text">
          <string>Interface color :</string>
         </property>
@@ -168,6 +168,43 @@
        <widget class="QCheckBox" name="checkerBox">
         <property name="text">
          <string>Close the checker on game launch</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Game path :</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="opt_bt_path">
+          <property name="text">
+           <string>Select game path</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="opt_text_path">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>224</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
         </property>
        </widget>
       </item>

@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QProcess>
 #include <QSettings>
+#include <QFileDialog>
 
 optionBox::optionBox(QWidget *parent) :
     QWidget(parent),
@@ -29,6 +30,13 @@ optionBox::optionBox(QWidget *parent) :
     }
     else {
         ui->checkerBox->setChecked(0);
+    }
+    // Set default opt_text_path
+    if(readCheckerParam("MAIN/ExecutablePath") == "error") {
+        ui->opt_text_path->setText("No path specified");
+    }
+    else {
+        ui->opt_text_path->setText(readCheckerParam("MAIN/ExecutablePath"));
     }
 }
 
@@ -97,3 +105,12 @@ void optionBox::on_checkerBox_toggled(bool checked)
         setCheckerParam("MAIN/QuitLauncher", "0");
     }
 }
+
+void optionBox::on_opt_bt_path_clicked()
+{
+    QString exeloc = QFileDialog::getOpenFileName(0, "Find Civ. IV executable", QString(), "(Civ4BeyondSword.exe)");
+    setCheckerParam("MAIN/ExecutablePath",exeloc);
+    ui->opt_text_path->setText(exeloc);
+    QMessageBox::information(0, "Information", "The game path has been changed");
+}
+
