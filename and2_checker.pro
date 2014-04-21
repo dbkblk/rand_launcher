@@ -4,16 +4,33 @@
 #
 #-------------------------------------------------
 
-QT       += core
+QT       += core gui
 
-QT       -= gui
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = and2_checker
-CONFIG   += console
-CONFIG   -= app_bundle
-QMAKE_LFLAGS += -static
 
 TEMPLATE = app
 
+SOURCES += \
+    lib/tinyxml2.cpp \
+    main.cpp \
+    mainwindow.cpp \
+    civ_functions.cpp \
+    optionbox.cpp
 
-SOURCES += main.cpp
+HEADERS += \
+    tinyxml2.h \
+    lib/tinyxml2.h \
+    mainwindow.h \
+    civ_functions.h \
+    optionbox.h
+
+FORMS    += mainwindow.ui \
+    installBox.ui \
+    optionbox.ui
+
+RC_FILE = icon.rc
+
+OTHER_FILES += \
+    checker/and2_background.jpg
