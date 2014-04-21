@@ -7,6 +7,7 @@
 #include <QString>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QDir>
 
 using namespace std;
 
@@ -17,14 +18,22 @@ int main(int argc, char *argv[])
     MainWindow w;
     installBox install;
 
-    // Check for installation -> Remember to connect the two signals.
+    // Check for correct path
+    QDir BTS_dir("../../../Beyond the sword");
+    if(!BTS_dir.exists()){
+        qDebug() << "Launcher is in a wrong path";
+        QMessageBox::critical(0, "Error", "The launcher isn't in the right directory. Please unzip the file to ""My Documents/My Games/Beyond the Sword/Mods/"" and launch it again");
+        return 1;
+    }
 
-    if (!dirExists(".svn")) {
+    // Check for installation -> Remember to connect the two signals.
+    QDir svn_dir(".svn");
+    if(!svn_dir.exists()){
         qDebug() << "Directory .svn not found";
         install.show();
     }
-
     else {
+        qDebug() << "SVN directory detected";
         w.show();
     }
 

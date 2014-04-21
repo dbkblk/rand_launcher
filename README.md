@@ -22,19 +22,3 @@ With these scripts, no need for TortoiseSVN or whatever. No need for nightly bui
 The idea is pretty basic, but i will improve it. The nice part is that we can include it later directly into the repo.
 
 The next step is to implement an option the make the mod auto-start when launching Civilization. Then i'll try to make a GUI, but that is much harder to me at the moment.
-
-## Changelog
-v0.4
-Added an option to autostart the mod
-
-v0.3
-Auto-detection of installation
-A menu to update, revert to the last version or cleanup the
-installation
-Auto-clear the cache
-
-v0.2
-Executable in C++. Basic functions: Check for installation. If yes > update, if no > install.
-DO NOT CANCEL THE INSTALLATION IF THE MOD IS NOT INSTALLED AT THE MOMENT
-v0.1
-Basic idea with script

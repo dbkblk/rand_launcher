@@ -33,4 +33,6 @@ FORMS    += mainwindow.ui \
 RC_FILE = icon.rc
 
 OTHER_FILES += \
-    checker/and2_background.jpg
+    checker/and2_background.jpg \
+    README.md \
+    TODO.md
