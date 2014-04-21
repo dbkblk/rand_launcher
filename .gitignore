@@ -5,3 +5,4 @@ materials/
 release_files/
 *.pro.user
 Makefile*
+update.ini
