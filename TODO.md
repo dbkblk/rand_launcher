@@ -4,10 +4,11 @@
 
 # GUI todo:
 /*- Compile static libraries*/
-- Need to reconnect the end of installation with the GUI
+//- Need to reconnect the end of installation with the GUI
 - Integrate the console in the GUI
-- Enhance the QT integration
-- Create an update routine. OK >> Add a dialog box.
+//- Enhance the QT integration
+//- Create an update routine. OK >> Add a dialog box.
 
 # Addons integration
-- Add easy installation of addons
+- Add easy installation of Civ Mega Pack (Git + sourceforge repo)
+- Add easy installation of More music (only direct download)

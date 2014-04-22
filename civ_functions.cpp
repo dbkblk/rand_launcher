@@ -1,20 +1,11 @@
-#include <iostream>
-#include <fstream>
-#include <windows.h>
-#include <string>
-#include <shlobj.h>
-#include <wchar.h>
 #include <civ_functions.h>
 #include <mainwindow.h>
 #include <lib\tinyxml2.h>
-#include <QDir>
-#include <QDebug>
-#include <QUrl>
-#include <QDesktopServices>
-#include <QProcess>
-#include <QEventLoop>
-#include <QObject>
-#include <QSettings>
+#include <QtCore>
+#include <QtNetwork>
+#include <QtGui>
+#include <QtWidgets>
+
 
 using namespace std;
 
@@ -86,18 +77,35 @@ bool setCheckerParam(QString param, QString newValue)
 bool launcherCheck()
 {
     Downloader d;
-    d.download("https://dl.dropboxusercontent.com/u/369241/update.ini","checker/update.ini");
+    d.download("https://raw.githubusercontent.com/dbkblk/and2_checker/master/update.ini","checker/update.ini");
     QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
     QString loc_version = readCheckerParam("MAIN/CheckerVersion");
     QString dist_version = upd_ini.value("VERSION/CheckerVersion").toString();
-    if(loc_version == dist_version) {
-        qDebug() << "No update is required";
-        QFile::remove("checker/update.ini");
-        return 0;
+    qDebug() << "Local version : " << loc_version;
+    qDebug() << "Distant version : " << dist_version;
+    if(loc_version < dist_version) {
+        qDebug() << "An update is available";
+        QMessageBox askUpdate;
+        askUpdate.setWindowTitle("Launcher update available");
+        askUpdate.setText("An update of the launcher is available.");
+        askUpdate.setInformativeText("Do you want to update the launcher ?");
+        askUpdate.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+        int ret = askUpdate.exec();
+        switch (ret) {
+            case QMessageBox::Ok :
+                launcherUpdate();
+                break;
+
+            case QMessageBox::Cancel :
+                return 1;
+                break;
+        }
     }
     else
-        qDebug() << "An update is available";
-        return 1;
+        qDebug() << "No update is required";
+        QFile::remove("checker/update.ini");
+
+        return 0;
 }
 
 bool launcherUpdate()
@@ -108,7 +116,7 @@ bool launcherUpdate()
     qDebug() << "Link : " << downloadlink << endl << "File : " << downloadfile;
     char cmd[512];
     QFile::copy("checker/7za.exe","7za.exe");
-    sprintf(cmd, "echo Downloading launcher update... && TIMEOUT 3 && checker\\wget.exe -c --no-check-certificate %s && taskkill /f /im and2_checker.exe >NUL 2>NUL && echo Extracting update... && 7za.exe x -y %s && echo Update done && del 7za.exe && TIMEOUT 3 && start and2_checker.exe", downloadlink.toStdString().c_str(), downloadfile.toStdString().c_str());
+    sprintf(cmd, "echo Downloading launcher update... && TIMEOUT 3 && checker\\wget.exe -c --no-check-certificate %s && taskkill /f /im and2_checker.exe >NUL 2>NUL && echo Extracting update... && 7za.exe x -y %s && echo Update done && del 7za.exe && del checker\\update.ini && del %s && TIMEOUT 3 && start and2_checker.exe", downloadlink.toStdString().c_str(), downloadfile.toStdString().c_str(), downloadfile.toStdString().c_str());
     qDebug() << "Update command : " << cmd;
     system((char *)cmd);
 }
@@ -143,7 +151,7 @@ bool cleanUp()
 {
     system("checker\\svn.exe cleanup");
     clearCache();
-    cout << "The mod is reverted to the last working version." << endl;
+    qDebug() << "The mod is reverted to the last working version.";
     return 0;
 }
 
@@ -172,7 +180,7 @@ const char* readColors()
     const char* file = "Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml";
     read.LoadFile(file);
     if (!read.ErrorID() == 0){
-        cout << "The file couldn't be read : " << read.ErrorID()<< endl;
+        qDebug() << "The file couldn't be read : " << read.ErrorID();
         return 0;
     }
 
@@ -199,7 +207,7 @@ int readColorsCounter()
     const char* file = "Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml";
     read.LoadFile(file);
     if (!read.ErrorID() == 0){
-        cout << "The file couldn't be read : " << read.ErrorID()<< endl;
+        qDebug() << "The file couldn't be read : " << read.ErrorID();
         return 0;
     }
 
@@ -229,7 +237,7 @@ bool setColors(const char* color)
     read.LoadFile(file);
     const char* resetValue = "0";
     if (!read.ErrorID() == 0){
-        cout << "The file couldn't be read : " << read.ErrorID()<< endl;
+        qDebug() << "The file couldn't be read : " << read.ErrorID();
         return 1;
     }
 

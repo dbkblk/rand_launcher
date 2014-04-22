@@ -2,12 +2,10 @@
 #include "optionbox.h"
 #include <civ_functions.h>
 #include <lib\tinyxml2.h>
-#include <QApplication>
-#include <QDebug>
-#include <QString>
-#include <QFileDialog>
-#include <QMessageBox>
-#include <QDir>
+#include <QtCore>
+#include <QtNetwork>
+#include <QtGui>
+#include <QtWidgets>
 
 using namespace std;
 
@@ -39,6 +37,7 @@ int main(int argc, char *argv[])
     else {
         qDebug() << "SVN directory detected";
         w.show();
+        launcherCheck();
     }
 
     return a.exec();

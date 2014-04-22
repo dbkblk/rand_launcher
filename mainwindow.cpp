@@ -1,21 +1,16 @@
 #include "mainwindow.h"
+#include "civ_functions.h"
+#include "optionbox.h"
 #include "ui_mainwindow.h"
 #include "ui_installBox.h"
 #include "ui_optionBox.h"
-#include "optionbox.h"
+
 #include <QtCore>
-#include <QDesktopServices>
-#include <QMessageBox>
-#include <QDialog>
-#include <QProcess>
-#include <iostream>
-#include <string>
-#include <civ_functions.h>
-#include <QDir>
-#include <QUrl>
-#include <QDateTime>
-#include <QFile>
-#include <QDebug>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QtGui>
+#include <QtWidgets>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

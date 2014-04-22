@@ -1,12 +1,10 @@
 #include "optionbox.h"
 #include "ui_optionbox.h"
 #include "civ_functions.h"
-#include <QInputDialog>
-#include <QMessageBox>
-#include <QDebug>
-#include <QProcess>
-#include <QSettings>
-#include <QFileDialog>
+#include <QtCore>
+#include <QtNetwork>
+#include <QtGui>
+#include <QtWidgets>
 
 optionBox::optionBox(QWidget *parent) :
     QWidget(parent),
@@ -117,11 +115,5 @@ void optionBox::on_opt_bt_path_clicked()
 
 void optionBox::on_opt_bt_chklauncher_clicked()
 {
-    if(launcherCheck()) {
-        qDebug () << launcherCheck();
-        // Add dialog box and fire launcherUpdate
-        launcherUpdate();
-    }
-    else
-        qDebug () << launcherCheck();
+    launcherCheck();
 }

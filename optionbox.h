@@ -1,9 +1,10 @@
 #ifndef OPTIONBOX_H
 #define OPTIONBOX_H
 
-#include <QWidget>
-#include <QCheckBox>
-#include <QLineEdit>
+#include <QtCore>
+#include <QtNetwork>
+#include <QtGui>
+#include <QtWidgets>
 
 namespace Ui {
 class optionBox;

@@ -1,16 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
-#include <QDialog>
-#include <QObject>
-#include <QNetworkAccessManager>
-#include <QNetworkRequest>
-#include <QNetworkReply>
-#include <QUrl>
-#include <QDateTime>
-#include <QFile>
-#include <QDebug>
+#include <QtCore>
+#include <QtNetwork>
+#include <QtGui>
+#include <QtWidgets>
 
 namespace Ui {
 class MainWindow;
@@ -82,25 +76,5 @@ public slots:
 private:
     QNetworkAccessManager   *manager;
 };
-
-/*
-// Class borrowed from http://www.bogotobogo.com/Qt/Qt5_Downloading_Files_QNetworkAccessManager_QNetworkRequest.php
-class Downloader : public QObject
-{
-    Q_OBJECT
-public:
-    explicit Downloader(QObject *parent = 0);
-
-    void doDownload();
-
-signals:
-
-public slots:
-    void replyFinished (QNetworkReply *reply);
-
-private:
-   QNetworkAccessManager *manager;
-
-};*/
 
 #endif // MAINWINDOW_H
