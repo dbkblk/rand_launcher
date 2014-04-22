@@ -74,10 +74,14 @@ bool setCheckerParam(QString param, QString newValue)
     return 0;
 }
 
-bool launcherCheck()
+int launcherCheck()
 {
     Downloader d;
-    d.download("https://raw.githubusercontent.com/dbkblk/and2_checker/master/update.ini","checker/update.ini");
+    QString update = d.download("https://raw.githubusercontent.com/dbkblk/and2_checker/master/update.ini","checker/update.ini");
+    if(update != "ok") {
+        qDebug() << "Error while downloading the update file";
+        return 2;
+    }
     QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
     QString loc_version = readCheckerParam("MAIN/CheckerVersion");
     QString dist_version = upd_ini.value("VERSION/CheckerVersion").toString();
@@ -88,7 +92,7 @@ bool launcherCheck()
         QMessageBox askUpdate;
         askUpdate.setWindowTitle("Launcher update available");
         askUpdate.setText("An update of the launcher is available.");
-        askUpdate.setInformativeText("Do you want to update the launcher ?");
+        askUpdate.setInformativeText("Do you want to update ?");
         askUpdate.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
         int ret = askUpdate.exec();
         switch (ret) {
@@ -268,3 +272,9 @@ void launchGame(){
     QUrl u = QUrl::fromLocalFile(exec);
     QDesktopServices::openUrl(QUrl(u));
 }
+/*
+int getSvnInfo(){
+    QProcess svnInfo;
+    svnInfo.setStandardOutputFile("svn.txt");
+    svnInfo.start("checker/svn.exe info");
+}*/

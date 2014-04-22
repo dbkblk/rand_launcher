@@ -17,7 +17,7 @@ bool setColors(const char* color);
 const char* readXML(const char* file, const char* tag);
 bool writeXML(const char* file, const char* tag, const char* newValue);
 void launchGame();
-bool launcherCheck();
+int launcherCheck();
 bool launcherUpdate();
 
 #endif

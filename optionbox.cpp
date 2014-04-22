@@ -30,7 +30,7 @@ optionBox::optionBox(QWidget *parent) :
         ui->checkerBox->setChecked(0);
     }
     // Set default opt_text_path
-    if(readCheckerParam("MAIN/ExecutablePath") == "error") {
+    if(readCheckerParam("MAIN/ExecutablePath") == NULL) {
         ui->opt_text_path->setText("No path specified");
     }
     else {
@@ -108,12 +108,31 @@ void optionBox::on_opt_bt_path_clicked()
 {
     QString exeloc = QFileDialog::getOpenFileName(0, "Find Civ. IV executable", QString(), "(Civ4BeyondSword.exe)");
     setCheckerParam("MAIN/ExecutablePath",exeloc);
-    ui->opt_text_path->setText(exeloc);
-    QMessageBox::information(0, "Information", "The game path has been changed");
+    if(exeloc != NULL) {
+        ui->opt_text_path->setText(exeloc);
+        QMessageBox::information(0, "Information", "The game path has been changed");
+        return;
+    }
+    if(exeloc == NULL) {
+        ui->opt_text_path->setText("No game path specified.");
+        return;
+    }
 }
 
 
 void optionBox::on_opt_bt_chklauncher_clicked()
 {
-    launcherCheck();
+    switch(launcherCheck()){
+        case 0 :
+            QMessageBox::information(0, "Information", "No update is available !");
+            break;
+
+        case 1 :
+            QMessageBox::information(0, "Information", "The update has been canceled.");
+            break;
+
+        case 2 :
+            QMessageBox::information(0, "Information", "Can't contact the update server.");
+            break;
+    }
 }

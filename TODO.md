@@ -8,6 +8,7 @@
 - Integrate the console in the GUI
 //- Enhance the QT integration
 //- Create an update routine. OK >> Add a dialog box.
+- Show version changelog
 
 # Addons integration
 - Add easy installation of Civ Mega Pack (Git + sourceforge repo)

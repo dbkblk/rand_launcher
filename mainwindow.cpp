@@ -87,8 +87,9 @@ void installBox::on_buttonBox_rejected()
 void MainWindow::on_bt_launch_clicked()
 {
     // Check if the game path is known
-    if(readCheckerParam("MAIN/ExecutablePath") == "error") {
+    if(readCheckerParam("MAIN/ExecutablePath") == NULL) {
         QMessageBox::information(0, "Information", "To be able to launch the game from the launcher, you need to set the game path in the options window. (Options > Select game path)");
+        return;
     }
     else {
         launchGame();
