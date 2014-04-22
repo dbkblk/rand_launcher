@@ -20,6 +20,12 @@ MainWindow::MainWindow(QWidget *parent) :
 	this->setWindowTitle("Civilization IV: A New Dawn 2");
     setStyleSheet("MainWindow { background-image: url(checker/and2_background.jpg) }");
 
+    // Check SVN update in background
+    if(svnLocalInfo() < svnDistantInfo()) {
+        ui->bt_update->setStyleSheet("background-color: yellow");
+        ui->bt_update->setText("Update available !");
+    }
+
 }
 
 MainWindow::~MainWindow()

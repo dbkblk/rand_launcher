@@ -19,5 +19,7 @@ bool writeXML(const char* file, const char* tag, const char* newValue);
 void launchGame();
 int launcherCheck();
 bool launcherUpdate();
+int svnLocalInfo();
+int svnDistantInfo();
 
 #endif

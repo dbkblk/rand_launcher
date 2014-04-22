@@ -4,11 +4,12 @@
 
 # GUI todo:
 /*- Compile static libraries*/
-//- Need to reconnect the end of installation with the GUI
+-> Need to reconnect the end of installation with the GUI
 - Integrate the console in the GUI
-//- Enhance the QT integration
-//- Create an update routine. OK >> Add a dialog box.
+-> Enhance the QT integration
+-> Detect new version.
 - Show version changelog
+- Enhance the GUI responsivity by passing update routines to a new thread
 
 # Addons integration
 - Add easy installation of Civ Mega Pack (Git + sourceforge repo)
