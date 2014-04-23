@@ -57,6 +57,11 @@ public:
         if (optionBox->objectName().isEmpty())
             optionBox->setObjectName(QStringLiteral("optionBox"));
         optionBox->resize(500, 250);
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(optionBox->sizePolicy().hasHeightForWidth());
+        optionBox->setSizePolicy(sizePolicy);
         optionBox->setFocusPolicy(Qt::StrongFocus);
         optionBox->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         horizontalLayoutWidget = new QWidget(optionBox);
@@ -153,9 +158,6 @@ public:
 
         opt_text_path = new QLineEdit(horizontalLayoutWidget);
         opt_text_path->setObjectName(QStringLiteral("opt_text_path"));
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(opt_text_path->sizePolicy().hasHeightForWidth());
         opt_text_path->setSizePolicy(sizePolicy);
         opt_text_path->setMinimumSize(QSize(224, 0));

@@ -4,7 +4,6 @@
 #include "ui_mainwindow.h"
 #include "ui_installBox.h"
 #include "ui_optionBox.h"
-
 #include <QtCore>
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>

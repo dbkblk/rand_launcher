@@ -33,4 +33,5 @@ RC_FILE = icon.rc
 OTHER_FILES += \
     checker/and2_background.jpg \
     README.md \
-    TODO.md
+    TODO.md \
+    installer/installer_script.nsi

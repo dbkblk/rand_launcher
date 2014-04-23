@@ -77,4 +77,6 @@ private:
     QNetworkAccessManager   *manager;
 };
 
+
+
 #endif // MAINWINDOW_H
