@@ -58,6 +58,13 @@
        </spacer>
       </item>
       <item>
+       <widget class="QPushButton" name="opt_bt_update_2">
+        <property name="text">
+         <string>See changelog</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="opt_bt_update">
         <property name="text">
          <string>Check for update</string>

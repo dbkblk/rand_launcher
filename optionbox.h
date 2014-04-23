@@ -5,12 +5,13 @@
 #include <QtNetwork>
 #include <QtGui>
 #include <QtWidgets>
+#include <updatebox.h>
 
 namespace Ui {
 class optionBox;
 }
 
-class optionBox : public QWidget
+class optionBox : public QMainWindow
 {
     Q_OBJECT
 
@@ -37,11 +38,14 @@ private slots:
 
     void on_opt_bt_chklauncher_clicked();
 
+    void on_opt_bt_update_2_clicked();
+
 private:
     QCheckBox *startBox;
     QCheckBox *checkerBox;
     QLineEdit *opt_text_path;
     Ui::optionBox *ui;
+    updatebox *chglog;
 };
 
 #endif // OPTIONBOX_H

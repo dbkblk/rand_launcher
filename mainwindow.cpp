@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "civ_functions.h"
 #include "optionbox.h"
+#include "updatebox.h"
 #include "ui_mainwindow.h"
 #include "ui_installBox.h"
 #include "ui_optionBox.h"
@@ -16,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ubox = new updatebox(this);
+    optbox = new optionBox(this);
 	this->setWindowTitle("Civilization IV: A New Dawn 2");
     setStyleSheet("MainWindow { background-image: url(checker/and2_background.jpg) }");
 
@@ -24,6 +27,14 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->bt_update->setStyleSheet("background-color: yellow");
         ui->bt_update->setText("Update available !");
     }
+
+    // Versions label
+    QString vers = "Launcher rev. " + readCheckerParam("MAIN/CheckerVersion") + " - Mod rev. " + readCheckerParam("MAIN/LocalRev");
+    QPalette lb_palette;
+    lb_palette.setColor(QPalette::WindowText, Qt::white);
+    //ui->lb_versions->setAutoFillBackground(true);
+    ui->lb_versions->setPalette(lb_palette);
+    ui->lb_versions->setText(vers);
 
 }
 
@@ -75,8 +86,14 @@ void MainWindow::on_actionExit_triggered()
 
 void MainWindow::on_bt_update_clicked()
 {
+    ubox->show();
+    bool value = false;
+    ubox->execute("checker/svn.exe log -l 5", value);
+    //
+    //ubox->execute("checker/svn.exe update");
+    /* Old behavior
     checkUpdate();
-    QMessageBox::information(this, "Information", "The mod is up-to-date.");
+    QMessageBox::information(this, "Information", "The mod is up-to-date."); */
 }
 
 void installBox::on_buttonBox_accepted()
@@ -111,8 +128,7 @@ void MainWindow::on_bt_launch_clicked()
 
 void MainWindow::on_bt_option_clicked()
 {
-    optionBox *optBox = new optionBox;
-    optBox->show();
+    optbox->show();
 }
 
 Downloader::Downloader(void)
@@ -151,4 +167,9 @@ void Downloader::replyFinished(QNetworkReply* r, QString in_output)
     url_file.write(r->readAll());
     url_file.close();
     qDebug() << "Downloader replied";
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+
 }

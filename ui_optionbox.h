@@ -35,6 +35,7 @@ public:
     QVBoxLayout *verticalLayout;
     QLabel *label_2;
     QSpacerItem *verticalSpacer;
+    QPushButton *opt_bt_update_2;
     QPushButton *opt_bt_update;
     QPushButton *opt_bt_cleanup;
     QPushButton *opt_bt_restore;
@@ -80,6 +81,11 @@ public:
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout->addItem(verticalSpacer);
+
+        opt_bt_update_2 = new QPushButton(horizontalLayoutWidget);
+        opt_bt_update_2->setObjectName(QStringLiteral("opt_bt_update_2"));
+
+        verticalLayout->addWidget(opt_bt_update_2);
 
         opt_bt_update = new QPushButton(horizontalLayoutWidget);
         opt_bt_update->setObjectName(QStringLiteral("opt_bt_update"));
@@ -178,6 +184,7 @@ public:
     {
         optionBox->setWindowTitle(QApplication::translate("optionBox", "Options", 0));
         label_2->setText(QApplication::translate("optionBox", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Update settings :</span></p></body></html>", 0));
+        opt_bt_update_2->setText(QApplication::translate("optionBox", "See changelog", 0));
         opt_bt_update->setText(QApplication::translate("optionBox", "Check for update", 0));
         opt_bt_cleanup->setText(QApplication::translate("optionBox", "Clean up installation", 0));
         opt_bt_restore->setText(QApplication::translate("optionBox", "Restore previous version", 0));

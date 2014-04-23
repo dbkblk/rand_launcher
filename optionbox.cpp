@@ -1,16 +1,18 @@
 #include "optionbox.h"
 #include "ui_optionbox.h"
 #include "civ_functions.h"
+#include "updatebox.h"
 #include <QtCore>
 #include <QtNetwork>
 #include <QtGui>
 #include <QtWidgets>
 
 optionBox::optionBox(QWidget *parent) :
-    QWidget(parent),
+    QMainWindow(parent),
     ui(new Ui::optionBox)
 {
     ui->setupUi(this);
+    chglog = new updatebox(this);
 
     // Set the detected color
     ui->colorBox->setCurrentIndex(readColorsCounter());
@@ -135,4 +137,12 @@ void optionBox::on_opt_bt_chklauncher_clicked()
             QMessageBox::information(0, "Information", "Can't contact the update server.");
             break;
     }
+}
+
+void optionBox::on_opt_bt_update_2_clicked()
+{
+    chglog->show();
+    chglog->changelogMode();
+    bool value = true;
+    chglog->execute("checker/svn.exe log -l 10", value);
 }

@@ -5,6 +5,8 @@
 #include <QtNetwork>
 #include <QtGui>
 #include <QtWidgets>
+#include <updatebox.h>
+#include <optionbox.h>
 
 namespace Ui {
 class MainWindow;
@@ -39,8 +41,12 @@ private slots:
 
     void on_bt_option_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
+    updatebox *ubox;
+    optionBox *optbox;
 };
 
 class installBox : public QDialog {
