@@ -2,11 +2,10 @@
 #include "optionbox.h"
 #include <civ_functions.h>
 #include <lib\tinyxml2.h>
-#include <QApplication>
-#include <QDebug>
-#include <QString>
-#include <QFileDialog>
-#include <QMessageBox>
+#include <QtCore>
+#include <QtNetwork>
+#include <QtGui>
+#include <QtWidgets>
 
 using namespace std;
 
@@ -17,15 +16,29 @@ int main(int argc, char *argv[])
     MainWindow w;
     installBox install;
 
-    // Check for installation -> Remember to connect the two signals.
+    // Set version in ini file
+    QString checker_version = "0.7";
+    setCheckerParam("MAIN/CheckerVersion",checker_version);
 
-    if (!dirExists(".svn")) {
-        qDebug() << "Directory .svn not found";
-        install.show();
+    // Check for correct path
+    QDir BTS_dir("../../../Beyond the sword");
+    if(!BTS_dir.exists()){
+        qDebug() << "Launcher is in a wrong path";
+        QMessageBox::critical(0, "Error", "The launcher isn't in the right directory. Please reinstall the application and launch it again");
+        return 1;
     }
 
+    // Check for installation -> Remember to connect the two signals.
+    QDir svn_dir(".svn");
+    if(!svn_dir.exists()){
+        qDebug() << "Directory .svn not found";
+        install.show();
+
+    }
     else {
+        qDebug() << "SVN directory detected";
         w.show();
+        launcherCheck();
     }
 
     return a.exec();

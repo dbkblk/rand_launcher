@@ -35,10 +35,12 @@ public:
     QVBoxLayout *verticalLayout;
     QLabel *label_2;
     QSpacerItem *verticalSpacer;
+    QPushButton *opt_bt_changelog;
     QPushButton *opt_bt_update;
     QPushButton *opt_bt_cleanup;
     QPushButton *opt_bt_restore;
     QPushButton *opt_bt_chooserev;
+    QPushButton *opt_bt_chklauncher;
     QVBoxLayout *verticalLayout_2;
     QLabel *lb_modconf;
     QSpacerItem *verticalSpacer_2;
@@ -56,6 +58,11 @@ public:
         if (optionBox->objectName().isEmpty())
             optionBox->setObjectName(QStringLiteral("optionBox"));
         optionBox->resize(500, 250);
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(optionBox->sizePolicy().hasHeightForWidth());
+        optionBox->setSizePolicy(sizePolicy);
         optionBox->setFocusPolicy(Qt::StrongFocus);
         optionBox->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         horizontalLayoutWidget = new QWidget(optionBox);
@@ -74,6 +81,11 @@ public:
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout->addItem(verticalSpacer);
+
+        opt_bt_changelog = new QPushButton(horizontalLayoutWidget);
+        opt_bt_changelog->setObjectName(QStringLiteral("opt_bt_changelog"));
+
+        verticalLayout->addWidget(opt_bt_changelog);
 
         opt_bt_update = new QPushButton(horizontalLayoutWidget);
         opt_bt_update->setObjectName(QStringLiteral("opt_bt_update"));
@@ -94,6 +106,11 @@ public:
         opt_bt_chooserev->setObjectName(QStringLiteral("opt_bt_chooserev"));
 
         verticalLayout->addWidget(opt_bt_chooserev);
+
+        opt_bt_chklauncher = new QPushButton(horizontalLayoutWidget);
+        opt_bt_chklauncher->setObjectName(QStringLiteral("opt_bt_chklauncher"));
+
+        verticalLayout->addWidget(opt_bt_chklauncher);
 
 
         horizontalLayout->addLayout(verticalLayout);
@@ -147,9 +164,6 @@ public:
 
         opt_text_path = new QLineEdit(horizontalLayoutWidget);
         opt_text_path->setObjectName(QStringLiteral("opt_text_path"));
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(opt_text_path->sizePolicy().hasHeightForWidth());
         opt_text_path->setSizePolicy(sizePolicy);
         opt_text_path->setMinimumSize(QSize(224, 0));
@@ -170,10 +184,12 @@ public:
     {
         optionBox->setWindowTitle(QApplication::translate("optionBox", "Options", 0));
         label_2->setText(QApplication::translate("optionBox", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Update settings :</span></p></body></html>", 0));
+        opt_bt_changelog->setText(QApplication::translate("optionBox", "See changelog", 0));
         opt_bt_update->setText(QApplication::translate("optionBox", "Check for update", 0));
         opt_bt_cleanup->setText(QApplication::translate("optionBox", "Clean up installation", 0));
         opt_bt_restore->setText(QApplication::translate("optionBox", "Restore previous version", 0));
         opt_bt_chooserev->setText(QApplication::translate("optionBox", "Choose a previous revision", 0));
+        opt_bt_chklauncher->setText(QApplication::translate("optionBox", "Check for launcher update", 0));
         lb_modconf->setText(QApplication::translate("optionBox", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Mod configuration :</span></p></body></html>", 0));
         lb_intcolor->setText(QApplication::translate("optionBox", "Interface color :", 0));
         colorBox->clear();

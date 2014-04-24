@@ -1,25 +1,42 @@
 #include "mainwindow.h"
+#include "civ_functions.h"
+#include "optionbox.h"
+#include "updatebox.h"
 #include "ui_mainwindow.h"
 #include "ui_installBox.h"
 #include "ui_optionBox.h"
-#include "optionbox.h"
 #include <QtCore>
-#include <QDesktopServices>
-#include <QMessageBox>
-#include <QDialog>
-#include <QProcess>
-#include <iostream>
-#include <string>
-#include <civ_functions.h>
-#include <QDir>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QtGui>
+#include <QtWidgets>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ubox = new updatebox(this);
+    optbox = new optionBox(this);
+    updateGUI = new QWidget (this);
 	this->setWindowTitle("Civilization IV: A New Dawn 2");
     setStyleSheet("MainWindow { background-image: url(checker/and2_background.jpg) }");
+
+    // Check SVN update in background
+    if(svnLocalInfo() < svnDistantInfo()) {
+        ui->bt_update->setStyleSheet("background-color: yellow");
+        ui->bt_update->setText("Update available !");
+    }
+
+    // Versions label
+    QString vers = "Mod rev. " + readCheckerParam("MAIN/LocalRev") + " - Launcher rev. " + readCheckerParam("MAIN/CheckerVersion");
+    QPalette lb_palette;
+    lb_palette.setColor(QPalette::WindowText, Qt::white);
+    //ui->lb_versions->setAutoFillBackground(true);
+    ui->lb_versions->setPalette(lb_palette);
+    ui->lb_versions->setText(vers);
+
 }
 
 MainWindow::~MainWindow()
@@ -32,6 +49,7 @@ installBox::installBox(QDialog *parent) :
   ui(new Ui::installBox)
 {
     ui->setupUi(this);
+    inst_view = new updatebox(this);
 }
 
 // Menu actions
@@ -70,13 +88,34 @@ void MainWindow::on_actionExit_triggered()
 
 void MainWindow::on_bt_update_clicked()
 {
-    checkUpdate();
-    QMessageBox::information(this, "Information", "The mod is up-to-date.");
+    // Calculate changelog difference
+    int chglog_diff = readCheckerParam("MAIN/DistantRev").toInt() - readCheckerParam("MAIN/LocalRev").toInt();
+    qDebug() << "The changelog diff is equal to " << chglog_diff;
+
+    if(chglog_diff == 0) {
+        QMessageBox::information(this, "Information", "There is no update at the moment.");
+    }
+    else if(chglog_diff >= 1) {
+        bool value = true;
+        char command[30];
+        sprintf(command,"checker/svn.exe log -l %d -r HEAD:BASE",chglog_diff);
+        ubox->show();
+        ubox->setWindowTitle("Update tool");
+        ubox->execute(command,value);
+    }
+    else
+        QMessageBox::critical(this, "Error", "An error has occured while checking for updates.");
 }
 
 void installBox::on_buttonBox_accepted()
 {
-    installMod();
+    inst_view->show();
+    inst_view->updateMode();
+    inst_view->setWindowTitle("Downloading mod...");
+    bool cursor = false;
+    inst_view->execute("checker/svn.exe checkout \"svn://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\" .", cursor);
+    inst_view->bt_chglog_close->show();
+    connect(inst_view->bt_chglog_close,SIGNAL(clicked()),inst_view,SLOT(close()));
 }
 
 void installBox::on_buttonBox_rejected()
@@ -87,8 +126,9 @@ void installBox::on_buttonBox_rejected()
 void MainWindow::on_bt_launch_clicked()
 {
     // Check if the game path is known
-    if(readCheckerParam("MAIN/ExecutablePath") == "error") {
+    if(readCheckerParam("MAIN/ExecutablePath") == NULL) {
         QMessageBox::information(0, "Information", "To be able to launch the game from the launcher, you need to set the game path in the options window. (Options > Select game path)");
+        return;
     }
     else {
         launchGame();
@@ -105,6 +145,43 @@ void MainWindow::on_bt_launch_clicked()
 
 void MainWindow::on_bt_option_clicked()
 {
-    optionBox *optBox = new optionBox;
-    optBox->show();
+    optbox->show();
+}
+
+Downloader::Downloader(void)
+{
+    manager = new QNetworkAccessManager;
+}
+
+Downloader::~Downloader(void)
+{
+}
+
+QString Downloader::download(QString in_url, QString in_output)
+{
+    QUrl url(in_url);
+    QNetworkReply *reply = manager->get(QNetworkRequest(QUrl(url)));
+
+    // Event loop to wait for the download to finish
+    QEventLoop loop;
+    connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
+    loop.exec();
+    if(reply->error() == QNetworkReply::NoError)
+    {
+        replyFinished(reply, in_output);
+        return "ok";
+    }
+    else
+    {
+        return reply->errorString();
+    }
+}
+
+void Downloader::replyFinished(QNetworkReply* r, QString in_output)
+{
+    QFile url_file(in_output);
+    url_file.open(QIODevice::WriteOnly);
+    url_file.write(r->readAll());
+    url_file.close();
+    qDebug() << "Downloader replied";
 }

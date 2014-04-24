@@ -1,18 +1,21 @@
 #include "optionbox.h"
 #include "ui_optionbox.h"
 #include "civ_functions.h"
-#include <QInputDialog>
-#include <QMessageBox>
-#include <QDebug>
-#include <QProcess>
-#include <QSettings>
-#include <QFileDialog>
+#include "updatebox.h"
+#include <QtCore>
+#include <QtNetwork>
+#include <QtGui>
+#include <QtWidgets>
 
 optionBox::optionBox(QWidget *parent) :
-    QWidget(parent),
+    QMainWindow(parent),
     ui(new Ui::optionBox)
 {
     ui->setupUi(this);
+    chglog = new updatebox(this);
+
+    // Link the close update button to a bool message
+    connect(chglog->bt_chglog_close,SIGNAL(clicked()),this,SLOT(chglog_msg_info()));
 
     // Set the detected color
     ui->colorBox->setCurrentIndex(readColorsCounter());
@@ -32,7 +35,7 @@ optionBox::optionBox(QWidget *parent) :
         ui->checkerBox->setChecked(0);
     }
     // Set default opt_text_path
-    if(readCheckerParam("MAIN/ExecutablePath") == "error") {
+    if(readCheckerParam("MAIN/ExecutablePath") == NULL) {
         ui->opt_text_path->setText("No path specified");
     }
     else {
@@ -49,33 +52,61 @@ optionBox::~optionBox()
 
 void optionBox::on_opt_bt_update_clicked()
 {
-    checkUpdate();
-    QMessageBox::information(this, "Information", "The mod is up-to-date.");
+    chglog->show();
+    chglog->updateMode();
+    bool value = false;
+    chglog->execute("checker/svn.exe update",value);
+    clearCache();
+
+    chglog->bt_chglog_close->show();
+    msg_show = true;
+    chglog->message = "The mod has been updated.";
 }
 
 void optionBox::on_opt_bt_cleanup_clicked()
 {
-    cleanUp();
-    QMessageBox::information(this, "Information", "The mod has been cleaned up. You can update the game now (it can grab the missing files).");
+    chglog->show();
+    chglog->updateMode();
+    chglog->setWindowTitle("Cleaning up...");
+    bool value = false;
+    chglog->execute("checker/svn.exe cleanup",value);
+    clearCache();
+    int msg_box = 0;
+
+    chglog->bt_chglog_close->show();
+    msg_show = true;
+    chglog->message = "The mod has been cleaned up. You can update the game now (it can grab the missing files).";
 }
 
 void optionBox::on_opt_bt_restore_clicked()
 {
-    rollBack();
-    QMessageBox::information(this, "Information", "The mod has been reverted to the previous version.");
+    chglog->show();
+    chglog->updateMode();
+    chglog->setWindowTitle("Reverting version...");
+    bool value = false;
+    chglog->execute("checker/svn.exe update -r PREV --accept theirs-full",value);
+    clearCache();
+
+    chglog->bt_chglog_close->show();
+    msg_show = true;
+    chglog->message = "The mod has been reverted to the previous version.";
 }
 
 void optionBox::on_opt_bt_chooserev_clicked()
 {
     QString dial_rev = QInputDialog::getText(this, "Revision selector", "Please enter the revision you want to revert to :", QLineEdit::Normal);
     qDebug() << dial_rev;
+    QString cmd = "checker/svn.exe update -r " + dial_rev + " --accept theirs-full";
+    bool value = false;
+    chglog->show();
+    chglog->updateMode();
+    chglog->setWindowTitle("Reverting version...");
+    chglog->execute(cmd,value);
+    clearCache();
 
-    char cmd[100];
-    sprintf(cmd, "checker\\svn.exe update -r %s --accept theirs-full && echo The cache will now be cleared && TIMEOUT 3", dial_rev.toStdString().c_str());
-    qDebug() << cmd;
-    system(cmd);
-    QString message = "The mod has been reverted to the revision " + dial_rev;
-    QMessageBox::information(this, "Information", message);
+    chglog->bt_chglog_close->show();
+    msg_show = true;
+    chglog->message = "The mod has been reverted to the revision " + dial_rev;
 }
 
 void optionBox::on_colorBox_currentIndexChanged(const QString &colorName)
@@ -94,8 +125,6 @@ void optionBox::on_startBox_toggled(bool checked)
     }
 }
 
-
-
 void optionBox::on_checkerBox_toggled(bool checked)
 {
     if(checked) {
@@ -110,7 +139,53 @@ void optionBox::on_opt_bt_path_clicked()
 {
     QString exeloc = QFileDialog::getOpenFileName(0, "Find Civ. IV executable", QString(), "(Civ4BeyondSword.exe)");
     setCheckerParam("MAIN/ExecutablePath",exeloc);
-    ui->opt_text_path->setText(exeloc);
-    QMessageBox::information(0, "Information", "The game path has been changed");
+    if(exeloc != NULL) {
+        ui->opt_text_path->setText(exeloc);
+        QMessageBox::information(0, "Information", "The game path has been changed");
+        return;
+    }
+    if(exeloc == NULL) {
+        ui->opt_text_path->setText("No game path specified.");
+        return;
+    }
+}
+
+
+void optionBox::on_opt_bt_chklauncher_clicked()
+{
+    switch(launcherCheck()){
+        case 0 :
+            QMessageBox::information(0, "Information", "No update is available !");
+            break;
+
+        case 1 :
+            QMessageBox::information(0, "Information", "The update has been canceled.");
+            break;
+
+        case 2 :
+            QMessageBox::information(0, "Information", "Can't contact the update server.");
+            break;
+    }
+}
+
+void optionBox::on_opt_bt_changelog_clicked()
+{
+    chglog->show();
+    chglog->changelogMode();
+    bool value = true;
+    chglog->execute("checker/svn.exe log -l 10 ", value);
+    msg_show = false;
+}
+
+void optionBox::chglog_msg_info()
+{
+    if(msg_show) {
+        QMessageBox::information(this, "Information", chglog->message);
+        chglog->close();
+    }
+    else {
+        chglog->close();
+    }
+
 }
 

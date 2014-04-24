@@ -1,8 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
-#include <QDialog>
+#include <QtCore>
+#include <QtNetwork>
+#include <QtGui>
+#include <QtWidgets>
+#include <updatebox.h>
+#include <optionbox.h>
 
 namespace Ui {
 class MainWindow;
@@ -16,6 +20,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    QWidget *updateGUI;
 
 private slots:
 
@@ -39,6 +44,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    updatebox *ubox;
+    optionBox *optbox;
 };
 
 class installBox : public QDialog {
@@ -55,7 +62,27 @@ private slots:
 
 private:
     Ui::installBox *ui;
+    updatebox *inst_view;
 
 };
+
+class Downloader : public QObject
+{
+    Q_OBJECT
+
+public:
+    Downloader(void);
+    ~Downloader(void);
+
+    QString download(QString in_url, QString in_output);
+
+public slots:
+    void replyFinished(QNetworkReply *r, QString in_output);
+
+private:
+    QNetworkAccessManager   *manager;
+};
+
+
 
 #endif // MAINWINDOW_H

@@ -4,9 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       += core gui network widgets
 
 TARGET = and2_checker
 
@@ -17,20 +15,26 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     civ_functions.cpp \
-    optionbox.cpp
+    optionbox.cpp \
+    updatebox.cpp
 
 HEADERS += \
     tinyxml2.h \
     lib/tinyxml2.h \
     mainwindow.h \
     civ_functions.h \
-    optionbox.h
+    optionbox.h \
+    updatebox.h
 
 FORMS    += mainwindow.ui \
     installBox.ui \
-    optionbox.ui
+    optionbox.ui \
+    updatebox.ui
 
 RC_FILE = icon.rc
 
 OTHER_FILES += \
-    checker/and2_background.jpg
+    checker/and2_background.jpg \
+    README.md \
+    TODO.md \
+    installer/installer_script.nsi

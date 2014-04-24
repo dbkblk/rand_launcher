@@ -38,6 +38,7 @@ public:
     QPushButton *bt_launch;
     QPushButton *bt_update;
     QPushButton *bt_option;
+    QLabel *lb_versions;
     QMenuBar *menuBar;
     QMenu *menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher;
     QMenu *menuCommunity;
@@ -91,6 +92,16 @@ public:
         bt_option->setGeometry(QRect(450, 230, 136, 23));
         bt_option->setStyleSheet(QStringLiteral("border-image: none"));
         bt_option->setFlat(false);
+        lb_versions = new QLabel(centralWidget);
+        lb_versions->setObjectName(QStringLiteral("lb_versions"));
+        lb_versions->setGeometry(QRect(365, 249, 221, 31));
+        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(lb_versions->sizePolicy().hasHeightForWidth());
+        lb_versions->setSizePolicy(sizePolicy1);
+        lb_versions->setStyleSheet(QStringLiteral(""));
+        lb_versions->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -131,6 +142,7 @@ public:
         bt_launch->setText(QApplication::translate("MainWindow", "Launch Civilization IV", 0));
         bt_update->setText(QApplication::translate("MainWindow", "Check for update", 0));
         bt_option->setText(QApplication::translate("MainWindow", "Options", 0));
+        lb_versions->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" color:#000000;\">TextLabel</span></p></body></html>", 0));
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setTitle(QApplication::translate("MainWindow", "Menu", 0));
         menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
     } // retranslateUi
