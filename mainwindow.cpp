@@ -185,3 +185,23 @@ void Downloader::replyFinished(QNetworkReply* r, QString in_output)
     url_file.close();
     qDebug() << "Downloader replied";
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+    // Preparing for update
+    QDir temp;
+    temp.mkdir("temp");
+    QFile::copy("checker/upd_proc.exe","temp/upd_proc.exe");
+    QFile::copy("checker/7za.exe","temp/7za.exe");
+    QFile::copy("checker/wget.exe","temp/wget.exe");
+    QFile::copy("icudt51.dll","temp/icudt51.dll");
+    QFile::copy("icuin51.dll","temp/icuin51.dll");
+    QFile::copy("icuuc51.dll","temp/icuuc51.dll");
+    QFile::copy("libgcc_s_dw2-1.dll","temp/libgcc_s_dw2-1.dll");
+    QFile::copy("libstdc++-6.dll","temp/libstdc++-6.dll");
+    QFile::copy("libwinpthread-1.dll","temp/libwinpthread-1.dll");
+    QFile::copy("Qt5Core.dll","temp/Qt5Core.dll");
+    QFile::copy("Qt5Gui.dll","temp/Qt5Gui.dll");
+    QFile::copy("Qt5Widgets.dll","temp/Qt5Widgets.dll");
+    QProcess::startDetached("temp/upd_proc.exe");
+}

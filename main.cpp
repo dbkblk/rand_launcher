@@ -6,6 +6,7 @@
 #include <QtNetwork>
 #include <QtGui>
 #include <QtWidgets>
+#include <QDir>
 
 using namespace std;
 
@@ -19,6 +20,15 @@ int main(int argc, char *argv[])
     // Set version in ini file
     QString checker_version = "0.7";
     setCheckerParam("MAIN/CheckerVersion",checker_version);
+
+    // Cleanup update output
+    QFile update_output("update_out.ini");
+    if(update_output.exists()) {
+        QProcess::startDetached("taskkill /f /im upd_proc.exe");
+        update_output.remove();
+        QDir temp("temp");
+        temp.rmdir("temp");
+    }
 
     // Check for correct path
     QDir BTS_dir("../../../Beyond the sword");

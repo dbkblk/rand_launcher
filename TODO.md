@@ -8,14 +8,14 @@ DONE -> Create an installer and a desktop shortcut
 DONE -> Need to reconnect the end of installation with the GUI
 DONE -> Enhance the QT integration
 DONE -> Detect new version.
-- Create a window for updating, restoring, etc... with a label, a pushbutton and a console output:
- -> When opened, show the changelog with a question "Would you like to update ? Y/N"
- -> When Y is pressed, show the console output
 
 - Recheck after update
 - Clean up useless functions
+- Hide the close button while update is still pending
 - Enhance the GUI responsivity by passing update routines to a new thread
 - Option to autoupdate the launcher, and the mod
+- Make an update manager which have checkboxes, rows with name type (mod, launcher, addon update), your version and the newest version. Choose which one to update, them let's have an update party !
+- Create a graphical launcher updater
 
 # Addons integration
 - Add easy installation of Civ Mega Pack (Git + sourceforge repo)
@@ -23,3 +23,4 @@ DONE -> Detect new version.
 
 # Bug :
 setText on installation box label crash the window !
+Fix incorrect version just after update.

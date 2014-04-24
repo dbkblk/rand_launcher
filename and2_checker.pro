@@ -16,7 +16,8 @@ SOURCES += \
     mainwindow.cpp \
     civ_functions.cpp \
     optionbox.cpp \
-    updatebox.cpp
+    updatebox.cpp \
+    updatemanager.cpp
 
 HEADERS += \
     tinyxml2.h \
@@ -24,12 +25,14 @@ HEADERS += \
     mainwindow.h \
     civ_functions.h \
     optionbox.h \
-    updatebox.h
+    updatebox.h \
+    updatemanager.h
 
 FORMS    += mainwindow.ui \
     installBox.ui \
     optionbox.ui \
-    updatebox.ui
+    updatebox.ui \
+    updatemanager.ui
 
 RC_FILE = icon.rc
 
