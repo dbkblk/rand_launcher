@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ubox = new updatebox(this);
     optbox = new optionBox(this);
+    updateGUI = new QWidget (this);
 	this->setWindowTitle("Civilization IV: A New Dawn 2");
     setStyleSheet("MainWindow { background-image: url(checker/and2_background.jpg) }");
 
@@ -29,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     // Versions label
-    QString vers = "Launcher rev. " + readCheckerParam("MAIN/CheckerVersion") + " - Mod rev. " + readCheckerParam("MAIN/LocalRev");
+    QString vers = "Mod rev. " + readCheckerParam("MAIN/LocalRev") + " - Launcher rev. " + readCheckerParam("MAIN/CheckerVersion");
     QPalette lb_palette;
     lb_palette.setColor(QPalette::WindowText, Qt::white);
     //ui->lb_versions->setAutoFillBackground(true);

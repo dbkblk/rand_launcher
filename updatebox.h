@@ -10,6 +10,7 @@
 #include <QProcess>
 #include <QPushButton>
 #include <QLabel>
+#include <QDialogButtonBox>
 
 namespace Ui {
 class updatebox;
@@ -25,9 +26,11 @@ public:
     void execute(QString command, bool &cursorUp);
     void changelogMode();
     void updateMode();
+    bool updateLauncherGUI();
     QPushButton* bt_chglog_close;
     QLabel* lb_changelog;
     QString message;
+    QTextEdit* consoleOutput;
 
 
 private slots:
@@ -39,7 +42,6 @@ private slots:
 
 private:
     Ui::updatebox *ui;
-    QTextEdit* consoleOutput;
     bool* cursorUp;
     QProcess process;
     QTimer process_timer;

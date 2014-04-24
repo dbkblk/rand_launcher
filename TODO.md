@@ -12,7 +12,6 @@ DONE -> Detect new version.
  -> When opened, show the changelog with a question "Would you like to update ? Y/N"
  -> When Y is pressed, show the console output
 
-- Add a progress bar on the main installation
 - Recheck after update
 - Clean up useless functions
 - Enhance the GUI responsivity by passing update routines to a new thread

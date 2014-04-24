@@ -78,6 +78,7 @@ int launcherCheck()
 {
     Downloader d;
     QString update = d.download("https://raw.githubusercontent.com/dbkblk/and2_checker/master/update.ini","checker/update.ini");
+    //QString update = d.download("https://dl.dropboxusercontent.com/u/369241/update.ini","checker/update.ini");
     if(update != "ok") {
         qDebug() << "Error while downloading the update file";
         return 2;
@@ -85,6 +86,7 @@ int launcherCheck()
     QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
     QString loc_version = readCheckerParam("MAIN/CheckerVersion");
     QString dist_version = upd_ini.value("VERSION/CheckerVersion").toString();
+    setCheckerParam("MAIN/Changelog",upd_ini.value("VERSION/Changelog").toString());
     qDebug() << "Local version : " << loc_version;
     qDebug() << "Distant version : " << dist_version;
     if(loc_version < dist_version) {
@@ -120,9 +122,10 @@ bool launcherUpdate()
     qDebug() << "Link : " << downloadlink << endl << "File : " << downloadfile;
     char cmd[512];
     QFile::copy("checker/7za.exe","7za.exe");
-    sprintf(cmd, "echo Downloading launcher update... && TIMEOUT 3 && checker\\wget.exe -c --no-check-certificate %s && taskkill /f /im and2_checker.exe >NUL 2>NUL && echo Extracting update... && 7za.exe x -y %s && echo Update done && del 7za.exe && del checker\\update.ini && del %s && TIMEOUT 3 && start and2_checker.exe", downloadlink.toStdString().c_str(), downloadfile.toStdString().c_str(), downloadfile.toStdString().c_str());
+    sprintf(cmd, "taskkill /f /im and2_checker.exe >NUL 2>NUL && checker\\wget.exe -c --no-check-certificate %s && 7za.exe x -y %s && echo Update done && del 7za.exe && del checker\\update.ini && del %s && start and2_checker.exe", downloadlink.toStdString().c_str(), downloadfile.toStdString().c_str(), downloadfile.toStdString().c_str());
     qDebug() << "Update command : " << cmd;
-    system((char *)cmd);
+    system(cmd);
+    return 0;
 }
 
 bool restoreBackup()
@@ -225,7 +228,6 @@ int readColorsCounter()
     int counter = -1;
     for(;; value_el=value_el->NextSiblingElement() ) {
 
-        const char* value = value_el->FirstChildElement("Directory")->GetText();
         const char* bLoad = value_el->FirstChildElement("bLoad")->GetText();
         counter++;
         if (!strcmp(bLoad, "1")) {
@@ -306,6 +308,8 @@ int svnLocalInfo(){
     QFile::remove("svn.txt");
     return rev.toInt();
     }
+
+    return 0;
 }
 
 int svnDistantInfo()

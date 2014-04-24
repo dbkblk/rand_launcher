@@ -99,7 +99,6 @@ void updatebox::changelogMode()
 
 void updatebox::updateMode()
 {
-
     // Layout update
     this->setWindowTitle("Updating mod ...");
     ui->consoleOutput->clear();
@@ -127,5 +126,4 @@ void updatebox::on_bt_update_rejected()
     ui->consoleOutput->clear();
     this->close();
 }
-
 
