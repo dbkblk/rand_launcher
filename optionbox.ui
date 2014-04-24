@@ -58,7 +58,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="opt_bt_update_2">
+       <widget class="QPushButton" name="opt_bt_changelog">
         <property name="text">
          <string>See changelog</string>
         </property>

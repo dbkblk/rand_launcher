@@ -86,9 +86,22 @@ void MainWindow::on_actionExit_triggered()
 
 void MainWindow::on_bt_update_clicked()
 {
-    ubox->show();
-    bool value = false;
-    ubox->execute("checker/svn.exe log -l 5", value);
+    // Calculate changelog difference
+    int chglog_diff = readCheckerParam("MAIN/DistantRev").toInt() - readCheckerParam("MAIN/LocalRev").toInt();
+    qDebug() << "The changelog diff is equal to " << chglog_diff;
+
+    if(chglog_diff == 0) {
+        QMessageBox::information(this, "Information", "There is no update at the moment.");
+    }
+    else if(chglog_diff >= 1) {
+        bool value = true;
+        char command[30];
+        sprintf(command,"checker/svn.exe log -l %d -r HEAD",chglog_diff);
+        ubox->show();
+        ubox->execute(command,value);
+    }
+    else
+        QMessageBox::critical(this, "Error", "An error has occured while checking for updates.");
     //
     //ubox->execute("checker/svn.exe update");
     /* Old behavior
@@ -167,9 +180,4 @@ void Downloader::replyFinished(QNetworkReply* r, QString in_output)
     url_file.write(r->readAll());
     url_file.close();
     qDebug() << "Downloader replied";
-}
-
-void MainWindow::on_pushButton_clicked()
-{
-
 }

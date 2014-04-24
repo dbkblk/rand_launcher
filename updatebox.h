@@ -23,18 +23,20 @@ public:
     ~updatebox();
     void execute(QString command, bool &cursorUp);
     void changelogMode();
+    void updateMode();
+    QPushButton* bt_chglog_close;
 
 private slots:
     void executeFinished();
     void executeError(QProcess::ProcessError);
     void appendOutput();
-
+    void on_bt_update_accepted();
+    void on_bt_update_rejected();
 
 private:
     Ui::updatebox *ui;
     QTextEdit* consoleOutput;
     bool* cursorUp;
-    QPushButton* bt_chglog_close;
     QProcess process;
     QTimer process_timer;
     QString process_file;

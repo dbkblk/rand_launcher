@@ -41,8 +41,6 @@ private slots:
 
     void on_bt_option_clicked();
 
-    void on_pushButton_clicked();
-
 private:
     Ui::MainWindow *ui;
     updatebox *ubox;

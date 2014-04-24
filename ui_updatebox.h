@@ -9,6 +9,7 @@
 #ifndef UI_UPDATEBOX_H
 #define UI_UPDATEBOX_H
 
+#include <QtCore/QLocale>
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
@@ -42,7 +43,8 @@ public:
         bt_update = new QDialogButtonBox(updatebox);
         bt_update->setObjectName(QStringLiteral("bt_update"));
         bt_update->setGeometry(QRect(280, 60, 156, 23));
-        bt_update->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        bt_update->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
+        bt_update->setStandardButtons(QDialogButtonBox::No|QDialogButtonBox::Yes);
         consoleOutput = new QTextEdit(updatebox);
         consoleOutput->setObjectName(QStringLiteral("consoleOutput"));
         consoleOutput->setGeometry(QRect(20, 100, 461, 281));

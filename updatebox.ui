@@ -28,8 +28,11 @@
      <height>23</height>
     </rect>
    </property>
+   <property name="locale">
+    <locale language="English" country="UnitedStates"/>
+   </property>
    <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+    <set>QDialogButtonBox::No|QDialogButtonBox::Yes</set>
    </property>
   </widget>
   <widget class="QTextEdit" name="consoleOutput">

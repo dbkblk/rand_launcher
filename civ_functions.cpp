@@ -137,6 +137,7 @@ bool checkUpdate()
     qDebug() << "Checking for update..." << endl;
     system("checker\\svn.exe update && echo The cache will now be cleared && TIMEOUT 3");
     clearCache();
+    svnLocalInfo();
     return 0;
     /*QProcess pr_update;
     pr_update.startDetached("checker/svn.exe update");
@@ -148,6 +149,7 @@ bool rollBack()
 {
     system("checker\\svn.exe update -r PREV --accept theirs-full && echo The cache will now be cleared && TIMEOUT 3");
     clearCache();
+    svnLocalInfo();
     return 0;
 }
 
@@ -156,6 +158,7 @@ bool cleanUp()
     system("checker\\svn.exe cleanup");
     clearCache();
     qDebug() << "The mod is reverted to the last working version.";
+    svnLocalInfo();
     return 0;
 }
 

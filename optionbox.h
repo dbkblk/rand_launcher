@@ -38,7 +38,7 @@ private slots:
 
     void on_opt_bt_chklauncher_clicked();
 
-    void on_opt_bt_update_2_clicked();
+    void on_opt_bt_changelog_clicked();
 
 private:
     QCheckBox *startBox;

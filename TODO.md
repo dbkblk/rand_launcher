@@ -12,7 +12,7 @@ DONE -> Detect new version.
  -> When opened, show the changelog with a question "Would you like to update ? Y/N"
  -> When Y is pressed, show the console output
 
-
+- Improve initial installation
 - Enhance the GUI responsivity by passing update routines to a new thread
 - Option to autoupdate the launcher, and the mod
 

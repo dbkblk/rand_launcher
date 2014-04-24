@@ -49,19 +49,43 @@ optionBox::~optionBox()
 
 void optionBox::on_opt_bt_update_clicked()
 {
-    checkUpdate();
-    QMessageBox::information(this, "Information", "The mod is up-to-date.");
+    chglog->show();
+    chglog->updateMode();
+    bool value = false;
+    chglog->execute("checker/svn.exe update",value);
+    clearCache();
+
+    chglog->bt_chglog_close->show();
+    connect(chglog->bt_chglog_close,SIGNAL(clicked()),this,SLOT(close()));
+    connect(chglog->bt_chglog_close,SIGNAL(clicked()),this,SLOT(svnLocalInfo()));
+
 }
 
 void optionBox::on_opt_bt_cleanup_clicked()
 {
-    cleanUp();
+    chglog->show();
+    chglog->updateMode();
+    bool value = false;
+    chglog->execute("checker/svn.exe cleanup",value);
+    clearCache();
+
+    chglog->bt_chglog_close->show();
+    connect(chglog->bt_chglog_close,SIGNAL(clicked()),this,SLOT(close()));
+    connect(chglog->bt_chglog_close,SIGNAL(clicked()),this,SLOT(svnLocalInfo()));
     QMessageBox::information(this, "Information", "The mod has been cleaned up. You can update the game now (it can grab the missing files).");
 }
 
 void optionBox::on_opt_bt_restore_clicked()
 {
-    rollBack();
+    chglog->show();
+    chglog->updateMode();
+    bool value = false;
+    chglog->execute("checker/svn.exe update -r PREV --accept theirs-full",value);
+    clearCache();
+
+    chglog->bt_chglog_close->show();
+    connect(chglog->bt_chglog_close,SIGNAL(clicked()),this,SLOT(close()));
+    connect(chglog->bt_chglog_close,SIGNAL(clicked()),this,SLOT(svnLocalInfo()));
     QMessageBox::information(this, "Information", "The mod has been reverted to the previous version.");
 }
 
@@ -139,7 +163,7 @@ void optionBox::on_opt_bt_chklauncher_clicked()
     }
 }
 
-void optionBox::on_opt_bt_update_2_clicked()
+void optionBox::on_opt_bt_changelog_clicked()
 {
     chglog->show();
     chglog->changelogMode();
