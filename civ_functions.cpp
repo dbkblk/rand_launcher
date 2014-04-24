@@ -303,7 +303,7 @@ int svnLocalInfo(){
         qDebug() << "Local revision : " << rev;
     setCheckerParam("MAIN/LocalRev",rev);
     svn_out_loc.close();
-    //QFile::remove("svn.txt");
+    QFile::remove("svn.txt");
     return rev.toInt();
     }
 }
@@ -336,7 +336,7 @@ int svnDistantInfo()
             qDebug() << "Distant revision : " << rev_dist;
         setCheckerParam("MAIN/DistantRev",rev_dist);
         svn_out_dist.close();
-        //QFile::remove("svn_dist.txt");
+        QFile::remove("svn_dist.txt");
         }
         return rev_dist.toInt();
 }

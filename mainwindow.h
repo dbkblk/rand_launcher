@@ -61,6 +61,7 @@ private slots:
 
 private:
     Ui::installBox *ui;
+    updatebox *inst_view;
 
 };
 

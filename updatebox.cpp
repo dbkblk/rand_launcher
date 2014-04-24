@@ -71,18 +71,20 @@ void updatebox::executeFinished()
       ui->consoleOutput->moveCursor(QTextCursor::Start);
       cursorUp = NULL;
   }
+  QFile::remove(process_file);
 }
 
 void updatebox::executeError(QProcess::ProcessError)
 {
     process_timer.stop();
     appendOutput();
+    QFile::remove(process_file);
 }
 
 void updatebox::changelogMode()
 {
     // Layout update
-    this->setWindowTitle("AND2 Changelog");
+    ui->consoleOutput->setWindowTitle("AND2 Changelog");
     ui->consoleOutput->clear();
     ui->consoleOutput->setReadOnly(1);
     ui->consoleOutput->setGeometry(20,40,460,340);
@@ -92,11 +94,12 @@ void updatebox::changelogMode()
     ui->lb_changelog->setGeometry(20,10,230,20);
     ui->lb_changelog->setText("Changelog (last 10 revisions) :");
     bt_chglog_close->show();
-    connect(bt_chglog_close,SIGNAL(released()),this,SLOT(close()));
+    connect(bt_chglog_close,SIGNAL(clicked()),this,SLOT(close()));
 }
 
 void updatebox::updateMode()
 {
+
     // Layout update
     this->setWindowTitle("Updating mod ...");
     ui->consoleOutput->clear();
@@ -116,7 +119,7 @@ void updatebox::on_bt_update_accepted()
     execute("checker/svn.exe update", cursor);
     clearCache();
     bt_chglog_close->show();
-    connect(bt_chglog_close,SIGNAL(clicker()),this,SLOT(close()));
+    connect(bt_chglog_close,SIGNAL(clicked()),this,SLOT(close()));
 }
 
 void updatebox::on_bt_update_rejected()
@@ -124,3 +127,5 @@ void updatebox::on_bt_update_rejected()
     ui->consoleOutput->clear();
     this->close();
 }
+
+

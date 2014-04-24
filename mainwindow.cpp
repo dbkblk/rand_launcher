@@ -48,6 +48,7 @@ installBox::installBox(QDialog *parent) :
   ui(new Ui::installBox)
 {
     ui->setupUi(this);
+    inst_view = new updatebox(this);
 }
 
 // Menu actions
@@ -96,22 +97,24 @@ void MainWindow::on_bt_update_clicked()
     else if(chglog_diff >= 1) {
         bool value = true;
         char command[30];
-        sprintf(command,"checker/svn.exe log -l %d -r HEAD",chglog_diff);
+        sprintf(command,"checker/svn.exe log -l %d -r HEAD:BASE",chglog_diff);
         ubox->show();
+        ubox->setWindowTitle("Update tool");
         ubox->execute(command,value);
     }
     else
         QMessageBox::critical(this, "Error", "An error has occured while checking for updates.");
-    //
-    //ubox->execute("checker/svn.exe update");
-    /* Old behavior
-    checkUpdate();
-    QMessageBox::information(this, "Information", "The mod is up-to-date."); */
 }
 
 void installBox::on_buttonBox_accepted()
 {
-    system("checker\\svn.exe checkout svn://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn .  && taskkill /f /im and2_checker.exe >NUL 2>NUL && echo The mod has been installed. && TIMEOUT 3 && start and2_checker.exe");
+    inst_view->show();
+    inst_view->updateMode();
+    inst_view->setWindowTitle("Downloading mod...");
+    bool cursor = false;
+    inst_view->execute("checker/svn.exe checkout \"svn://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\" .", cursor);
+    inst_view->bt_chglog_close->show();
+    connect(inst_view->bt_chglog_close,SIGNAL(clicked()),inst_view,SLOT(close()));
 }
 
 void installBox::on_buttonBox_rejected()

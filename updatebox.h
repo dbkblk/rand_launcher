@@ -9,6 +9,7 @@
 #include <QTimer>
 #include <QProcess>
 #include <QPushButton>
+#include <QLabel>
 
 namespace Ui {
 class updatebox;
@@ -25,6 +26,9 @@ public:
     void changelogMode();
     void updateMode();
     QPushButton* bt_chglog_close;
+    QLabel* lb_changelog;
+    QString message;
+
 
 private slots:
     void executeFinished();

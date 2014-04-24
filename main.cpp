@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     QDir BTS_dir("../../../Beyond the sword");
     if(!BTS_dir.exists()){
         qDebug() << "Launcher is in a wrong path";
-        QMessageBox::critical(0, "Error", "The launcher isn't in the right directory. Please unzip the file to ""My Documents/My Games/Beyond the Sword/Mods/"" and launch it again");
+        QMessageBox::critical(0, "Error", "The launcher isn't in the right directory. Please reinstall the application and launch it again");
         return 1;
     }
 
@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
     if(!svn_dir.exists()){
         qDebug() << "Directory .svn not found";
         install.show();
+
     }
     else {
         qDebug() << "SVN directory detected";
