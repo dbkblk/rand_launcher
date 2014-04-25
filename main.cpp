@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     installBox install;
 
     // Set version in ini file
-    QString checker_version = "0.7";
+    QString checker_version = "0.5";
     setCheckerParam("MAIN/CheckerVersion",checker_version);
 
     // Cleanup update output
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // Check for installation -> Remember to connect the two signals.
+    // Check for installation
     QDir svn_dir(".svn");
     if(!svn_dir.exists()){
         qDebug() << "Directory .svn not found";
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
     else {
         qDebug() << "SVN directory detected";
         w.show();
-        launcherCheck();
+        //launcherCheck();
     }
 
     return a.exec();

@@ -2,6 +2,7 @@
 #include "civ_functions.h"
 #include "optionbox.h"
 #include "updatebox.h"
+#include "updatemanager.h"
 #include "ui_mainwindow.h"
 #include "ui_installBox.h"
 #include "ui_optionBox.h"
@@ -11,6 +12,7 @@
 #include <QNetworkReply>
 #include <QtGui>
 #include <QtWidgets>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -20,8 +22,26 @@ MainWindow::MainWindow(QWidget *parent) :
     ubox = new updatebox(this);
     optbox = new optionBox(this);
     updateGUI = new QWidget (this);
+    ask_update = new QMessageBox(this);
+
 	this->setWindowTitle("Civilization IV: A New Dawn 2");
     setStyleSheet("MainWindow { background-image: url(checker/and2_background.jpg) }");
+
+    /*  Thread code, imported from https://github.com/fabienpn/simple-qt-thread-example */
+    thread = new QThread();
+    worker = new Worker();
+
+    worker->moveToThread(thread);
+    connect(worker, SIGNAL(workRequested()), thread, SLOT(start()));
+    connect(thread, SIGNAL(started()), worker, SLOT(UMCheckLauncherUpdate()));
+    connect(worker, SIGNAL(finished(bool)), thread, SLOT(quit()), Qt::DirectConnection);
+    connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateAvailable(bool)), Qt::DirectConnection);
+
+    // Check launcher update in background (to avoid having two threads running simultaneously, the previous thread is aborted).
+    worker->abort();
+    thread->wait(); // If the thread is not running, this will immediately return.
+
+    worker->requestWork();
 
     // Check SVN update in background
     if(svnLocalInfo() < svnDistantInfo()) {
@@ -41,7 +61,34 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    worker->abort();
+    thread->wait();
+    qDebug()<<"Deleting thread and worker in Thread "<<this->QObject::thread()->currentThreadId();
+    delete thread;
+    delete worker;
     delete ui;
+}
+
+void MainWindow::UpdateAvailable(bool update)
+{
+    qDebug() << "Update argument is" << update;
+    if(update)
+    {
+        qDebug() << "Entering update loop";
+        ask_update->setWindowTitle("Launcher update available");
+        ask_update->setText("An update of the launcher is available.");
+        ask_update->setInformativeText("Do you want to update ?");
+        ask_update->setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+        int ret = ask_update->exec();
+        switch (ret) {
+            case QMessageBox::Ok :
+                launcherUpdate();
+                break;
+
+            case QMessageBox::Cancel :
+                break;
+        }
+    }
 }
 
 installBox::installBox(QDialog *parent) :

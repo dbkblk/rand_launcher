@@ -84,7 +84,7 @@ void updatebox::executeError(QProcess::ProcessError)
 void updatebox::changelogMode()
 {
     // Layout update
-    ui->consoleOutput->setWindowTitle("AND2 Changelog");
+    this->setWindowTitle("AND2 Changelog");
     ui->consoleOutput->clear();
     ui->consoleOutput->setReadOnly(1);
     ui->consoleOutput->setGeometry(20,40,460,340);

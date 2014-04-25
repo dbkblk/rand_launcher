@@ -153,7 +153,7 @@ void optionBox::on_opt_bt_path_clicked()
 
 void optionBox::on_opt_bt_chklauncher_clicked()
 {
-    switch(launcherCheck()){
+    /*switch(launcherCheck()){
         case 0 :
             QMessageBox::information(0, "Information", "No update is available !");
             break;
@@ -165,7 +165,7 @@ void optionBox::on_opt_bt_chklauncher_clicked()
         case 2 :
             QMessageBox::information(0, "Information", "Can't contact the update server.");
             break;
-    }
+    }*/
 }
 
 void optionBox::on_opt_bt_changelog_clicked()

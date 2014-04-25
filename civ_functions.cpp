@@ -73,46 +73,46 @@ bool setCheckerParam(QString param, QString newValue)
     qDebug() << "Checker parameter set to" <<       settings.value(param);
     return 0;
 }
-
+/*
 int launcherCheck()
 {
-    Downloader d;
-    QString update = d.download("https://raw.githubusercontent.com/dbkblk/and2_checker/master/update.ini","checker/update.ini");
-    //QString update = d.download("https://dl.dropboxusercontent.com/u/369241/update.ini","checker/update.ini");
-    if(update != "ok") {
-        qDebug() << "Error while downloading the update file";
-        return 2;
-    }
-    QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
-    QString loc_version = readCheckerParam("MAIN/CheckerVersion");
-    QString dist_version = upd_ini.value("VERSION/CheckerVersion").toString();
-    setCheckerParam("MAIN/Changelog",upd_ini.value("VERSION/Changelog").toString());
-    qDebug() << "Local version : " << loc_version;
-    qDebug() << "Distant version : " << dist_version;
-    if(loc_version < dist_version) {
-        qDebug() << "An update is available";
-        QMessageBox askUpdate;
-        askUpdate.setWindowTitle("Launcher update available");
-        askUpdate.setText("An update of the launcher is available.");
-        askUpdate.setInformativeText("Do you want to update ?");
-        askUpdate.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
-        int ret = askUpdate.exec();
-        switch (ret) {
-            case QMessageBox::Ok :
-                launcherUpdate();
-                break;
+    QProcess download;
+    download.start("checker/wget.exe -c -t 10 --retry-connrefused --no-check-certificate --waitretry=10 https://raw.githubusercontent.com/dbkblk/and2_checker/master/update.ini");
 
-            case QMessageBox::Cancel :
-                return 1;
-                break;
+    if (download.waitForFinished(60000))
+    {
+        QSettings upd_ini("update.ini", QSettings::IniFormat);
+        QString loc_version = readCheckerParam("MAIN/CheckerVersion");
+        QString dist_version = upd_ini.value("VERSION/CheckerVersion").toString();
+        setCheckerParam("MAIN/Changelog",upd_ini.value("VERSION/Changelog").toString());
+        qDebug() << "Local version : " << loc_version;
+        qDebug() << "Distant version : " << dist_version;
+        if(loc_version < dist_version) {
+            qDebug() << "An update is available";
+            QMessageBox askUpdate;
+            askUpdate.setWindowTitle("Launcher update available");
+            askUpdate.setText("An update of the launcher is available.");
+            askUpdate.setInformativeText("Do you want to update ?");
+            askUpdate.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+            int ret = askUpdate.exec();
+            switch (ret) {
+                case QMessageBox::Ok :
+                    launcherUpdate();
+                    break;
+
+                case QMessageBox::Cancel :
+                    return 1;
+                    break;
+            }
         }
-    }
-    else
-        qDebug() << "No update is required";
-        QFile::remove("checker/update.ini");
+        else
+            qDebug() << "No update is required";
+            QFile::remove("update.ini");
 
-        return 0;
-}
+            return 0;
+    }
+    return 1;
+}*/
 
 bool launcherUpdate()
 {

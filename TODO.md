@@ -24,3 +24,4 @@ DONE -> Detect new version.
 # Bug :
 setText on installation box label crash the window !
 Fix incorrect version just after update.
+Remove the "Waiting for data..." when the text is updated on the changelog window.
