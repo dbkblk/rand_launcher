@@ -18,13 +18,17 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    // Creation of widgets
+
     ui->setupUi(this);
     ubox = new updatebox(this);
     optbox = new optionBox(this);
     updateGUI = new QWidget (this);
     ask_update = new QMessageBox(this);
 
-	this->setWindowTitle("Civilization IV: A New Dawn 2");
+    // Main window shape
+
+    this->setWindowTitle("Civilization IV: A New Dawn 2");
     setStyleSheet("MainWindow { background-image: url(checker/and2_background.jpg) }");
 
     /*  Thread code, imported from https://github.com/fabienpn/simple-qt-thread-example */
@@ -40,16 +44,17 @@ MainWindow::MainWindow(QWidget *parent) :
     // Check launcher update in background (to avoid having two threads running simultaneously, the previous thread is aborted).
     worker->abort();
     thread->wait(); // If the thread is not running, this will immediately return.
-
     worker->requestWork();
 
     // Check SVN update in background
+
     if(svnLocalInfo() < svnDistantInfo()) {
         ui->bt_update->setStyleSheet("background-color: yellow");
         ui->bt_update->setText("Update available !");
     }
 
-    // Versions label
+    // Versions label on the main Window
+
     QString vers = "Mod rev. " + readCheckerParam("MAIN/LocalRev") + " - Launcher rev. " + readCheckerParam("MAIN/CheckerVersion");
     QPalette lb_palette;
     lb_palette.setColor(QPalette::WindowText, Qt::white);
@@ -61,6 +66,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    // Abort threads and close the ui
     worker->abort();
     thread->wait();
     qDebug()<<"Deleting thread and worker in Thread "<<this->QObject::thread()->currentThreadId();
@@ -71,6 +77,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::UpdateAvailable(bool update)
 {
+    // If check for update is positive, popup a window
+
     qDebug() << "Update argument is" << update;
     if(update)
     {
@@ -95,9 +103,12 @@ installBox::installBox(QDialog *parent) :
   QDialog(parent),
   ui(new Ui::installBox)
 {
+    // Installation window objects
+
     ui->setupUi(this);
     inst_view = new updatebox(this);
 }
+
 
 // Menu actions
 
@@ -136,8 +147,11 @@ void MainWindow::on_actionExit_triggered()
 void MainWindow::on_bt_update_clicked()
 {
     // Calculate changelog difference
+
     int chglog_diff = readCheckerParam("MAIN/DistantRev").toInt() - readCheckerParam("MAIN/LocalRev").toInt();
     qDebug() << "The changelog diff is equal to " << chglog_diff;
+
+    // If there are update, show the changelog in a window
 
     if(chglog_diff == 0) {
         QMessageBox::information(this, "Information", "There is no update at the moment.");
@@ -156,6 +170,8 @@ void MainWindow::on_bt_update_clicked()
 
 void installBox::on_buttonBox_accepted()
 {
+    // Setup the initial window and launch checkout command in a box
+
     inst_view->show();
     inst_view->updateMode();
     inst_view->setWindowTitle("Downloading mod...");
@@ -173,6 +189,7 @@ void installBox::on_buttonBox_rejected()
 void MainWindow::on_bt_launch_clicked()
 {
     // Check if the game path is known
+
     if(readCheckerParam("MAIN/ExecutablePath") == NULL) {
         QMessageBox::information(0, "Information", "To be able to launch the game from the launcher, you need to set the game path in the options window. (Options > Select game path)");
         return;
@@ -182,6 +199,7 @@ void MainWindow::on_bt_launch_clicked()
     }
 
     // Check if the launcher should quit
+
     if(readCheckerParam("MAIN/QuitLauncher") == "1") {
         qApp->exit();
     }
@@ -192,63 +210,7 @@ void MainWindow::on_bt_launch_clicked()
 
 void MainWindow::on_bt_option_clicked()
 {
+    // Invoke the option window
+
     optbox->show();
-}
-
-Downloader::Downloader(void)
-{
-    manager = new QNetworkAccessManager;
-}
-
-Downloader::~Downloader(void)
-{
-}
-
-QString Downloader::download(QString in_url, QString in_output)
-{
-    QUrl url(in_url);
-    QNetworkReply *reply = manager->get(QNetworkRequest(QUrl(url)));
-
-    // Event loop to wait for the download to finish
-    QEventLoop loop;
-    connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
-    loop.exec();
-    if(reply->error() == QNetworkReply::NoError)
-    {
-        replyFinished(reply, in_output);
-        return "ok";
-    }
-    else
-    {
-        return reply->errorString();
-    }
-}
-
-void Downloader::replyFinished(QNetworkReply* r, QString in_output)
-{
-    QFile url_file(in_output);
-    url_file.open(QIODevice::WriteOnly);
-    url_file.write(r->readAll());
-    url_file.close();
-    qDebug() << "Downloader replied";
-}
-
-void MainWindow::on_pushButton_clicked()
-{
-    // Preparing for update
-    QDir temp;
-    temp.mkdir("temp");
-    QFile::copy("checker/upd_proc.exe","temp/upd_proc.exe");
-    QFile::copy("checker/7za.exe","temp/7za.exe");
-    QFile::copy("checker/wget.exe","temp/wget.exe");
-    QFile::copy("icudt51.dll","temp/icudt51.dll");
-    QFile::copy("icuin51.dll","temp/icuin51.dll");
-    QFile::copy("icuuc51.dll","temp/icuuc51.dll");
-    QFile::copy("libgcc_s_dw2-1.dll","temp/libgcc_s_dw2-1.dll");
-    QFile::copy("libstdc++-6.dll","temp/libstdc++-6.dll");
-    QFile::copy("libwinpthread-1.dll","temp/libwinpthread-1.dll");
-    QFile::copy("Qt5Core.dll","temp/Qt5Core.dll");
-    QFile::copy("Qt5Gui.dll","temp/Qt5Gui.dll");
-    QFile::copy("Qt5Widgets.dll","temp/Qt5Widgets.dll");
-    QProcess::startDetached("temp/upd_proc.exe");
 }

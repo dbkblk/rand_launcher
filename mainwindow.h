@@ -36,7 +36,6 @@ private slots:
     void on_bt_launch_clicked();
     void on_bt_update_clicked();
     void on_bt_option_clicked();
-    void on_pushButton_clicked();
     void UpdateAvailable(bool update);
 
 
@@ -65,24 +64,5 @@ private:
     updatebox *inst_view;
 
 };
-
-class Downloader : public QObject
-{
-    Q_OBJECT
-
-public:
-    Downloader(void);
-    ~Downloader(void);
-
-    QString download(QString in_url, QString in_output);
-
-public slots:
-    void replyFinished(QNetworkReply *r, QString in_output);
-
-private:
-    QNetworkAccessManager   *manager;
-};
-
-
 
 #endif // MAINWINDOW_H

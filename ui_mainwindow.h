@@ -39,7 +39,6 @@ public:
     QPushButton *bt_update;
     QPushButton *bt_option;
     QLabel *lb_versions;
-    QPushButton *pushButton;
     QMenuBar *menuBar;
     QMenu *menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher;
     QMenu *menuCommunity;
@@ -103,9 +102,6 @@ public:
         lb_versions->setSizePolicy(sizePolicy1);
         lb_versions->setStyleSheet(QStringLiteral(""));
         lb_versions->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(470, 180, 75, 23));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -147,7 +143,6 @@ public:
         bt_update->setText(QApplication::translate("MainWindow", "Check for update", 0));
         bt_option->setText(QApplication::translate("MainWindow", "Options", 0));
         lb_versions->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" color:#000000;\">TextLabel</span></p></body></html>", 0));
-        pushButton->setText(QApplication::translate("MainWindow", "PushButton", 0));
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setTitle(QApplication::translate("MainWindow", "Menu", 0));
         menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
     } // retranslateUi

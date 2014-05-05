@@ -1,6 +1,7 @@
 #include "optionbox.h"
 #include "ui_optionbox.h"
 #include "civ_functions.h"
+#include "updatemanager.h"
 #include "updatebox.h"
 #include <QtCore>
 #include <QtNetwork>

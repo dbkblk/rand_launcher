@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     installBox install;
 
     // Set version in ini file
-    QString checker_version = "0.5";
+    QString checker_version = "0.8";
     setCheckerParam("MAIN/CheckerVersion",checker_version);
 
     // Cleanup update output

@@ -25,3 +25,11 @@ DONE -> Detect new version.
 setText on installation box label crash the window !
 Fix incorrect version just after update.
 Remove the "Waiting for data..." when the text is updated on the changelog window.
+
+# Git Workflow
+- Make a "Base pack" with all the fpk, sounds, art hosted on sourceforge
+- Put all the code and small binaries on github (it will be under 800mb)
+- Put a ini file in which we write the base package version and a download link
+- Use my launcher to grab the new files from github and a incremential base package update when the ini file specifiy there is a new version
+- We can work with a master branch where we put the new revision on and a devel branch where we just update and experiment.
+- When a fpk need to be updated, just pack it, upload it on sourceforge, then update the ini file with a new version number and a download link, so the launcher will know there's an update. If the file is named, for example, "BASE_PACK_UPDATE_694.7z", it will be easy to know that it correspond to the 694 version. This way, the version control process, still works !

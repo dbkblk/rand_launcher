@@ -9,6 +9,11 @@ namespace Ui {
 class updateManager;
 }
 
+bool clearCache();
+bool launcherUpdate();
+int svnLocalInfo();
+int svnDistantInfo();
+
 class updateManager : public QWidget
 {
     Q_OBJECT
