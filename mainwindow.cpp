@@ -18,6 +18,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    // Checker version
+    QString checker_version = "0.8";
+    setCheckerParam("MAIN/CheckerVersion",checker_version);
     // Creation of widgets
 
     ui->setupUi(this);
@@ -53,15 +56,8 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->bt_update->setText("Update available !");
     }
 
-    // Versions label on the main Window
-
-    QString vers = "Mod rev. " + readCheckerParam("MAIN/LocalRev") + " - Launcher rev. " + readCheckerParam("MAIN/CheckerVersion");
-    QPalette lb_palette;
-    lb_palette.setColor(QPalette::WindowText, Qt::white);
-    //ui->lb_versions->setAutoFillBackground(true);
-    ui->lb_versions->setPalette(lb_palette);
-    ui->lb_versions->setText(vers);
-
+    // Update labels
+    lb_version_update();
 }
 
 MainWindow::~MainWindow()
@@ -73,6 +69,17 @@ MainWindow::~MainWindow()
     delete thread;
     delete worker;
     delete ui;
+}
+
+void MainWindow::lb_version_update()
+{
+    // Versions label on the main Window
+    QString vers = "Mod rev. " + readCheckerParam("MAIN/LocalRev") + " - Launcher rev. " + readCheckerParam("MAIN/CheckerVersion");
+    QPalette lb_palette;
+    lb_palette.setColor(QPalette::WindowText, Qt::white);
+    //ui->lb_versions->setAutoFillBackground(true);
+    ui->lb_versions->setPalette(lb_palette);
+    ui->lb_versions->setText(vers);
 }
 
 void MainWindow::UpdateAvailable(bool update)

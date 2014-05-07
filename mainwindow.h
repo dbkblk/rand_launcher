@@ -24,6 +24,7 @@ public:
     ~MainWindow();
     QWidget *updateGUI;
     QMessageBox *ask_update;
+    void lb_version_update();
 
 private slots:
 
@@ -37,7 +38,6 @@ private slots:
     void on_bt_update_clicked();
     void on_bt_option_clicked();
     void UpdateAvailable(bool update);
-
 
 private:
     Ui::MainWindow *ui;

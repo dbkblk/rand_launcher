@@ -1,4 +1,5 @@
 #include "optionbox.h"
+#include "mainwindow.h"
 #include "ui_optionbox.h"
 #include "civ_functions.h"
 #include "updatemanager.h"
