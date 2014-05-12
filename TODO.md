@@ -3,15 +3,15 @@
 ### Features
 
 DONE -> Update label after mod update
-- Hide the close button while update is still pending
+DONE -> Hide the close button while update is still pending
 DONE -> Add a menu to navigate to the mod folder
 
 ### Bugfix
 
 DONE -> Restore launcher update check from options
-- setText on installation box label crash the window !
+DONE -> setText on installation box label crash the window !
 DONE -> Fix incorrect version just after update.
-- Remove the "Waiting for data..." when the text is updated on the changelog window.
+DONE -> Remove the "Waiting for data..." when the text is updated on the changelog window.
 - Do not invoke a window to cleanup the mod but show a confirmation message
 
 ## 0.9

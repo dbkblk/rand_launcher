@@ -25,8 +25,6 @@ public:
     QWidget *updateGUI;
     QMessageBox *ask_update;
 
-
-
 private slots:
 
     void on_actionForum_triggered();

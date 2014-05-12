@@ -118,17 +118,6 @@ void MainWindow::UpdateAvailable(bool update)
     }
 }
 
-installBox::installBox(QDialog *parent) :
-  QDialog(parent),
-  ui(new Ui::installBox)
-{
-    // Installation window objects
-
-    ui->setupUi(this);
-    inst_view = new updatebox(this);
-}
-
-
 // Menu actions
 
 void MainWindow::on_actionForum_triggered()
@@ -193,24 +182,6 @@ void MainWindow::on_bt_update_clicked()
         QMessageBox::critical(this, "Error", "An error has occured while checking for updates.");
 }
 
-void installBox::on_buttonBox_accepted()
-{
-    // Setup the initial window and launch checkout command in a box
-
-    inst_view->show();
-    inst_view->updateMode();
-    inst_view->setWindowTitle("Downloading mod...");
-    bool cursor = false;
-    inst_view->execute("checker/svn.exe checkout \"svn://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\" .", cursor);
-    inst_view->bt_chglog_close->show();
-    connect(inst_view->bt_chglog_close,SIGNAL(clicked()),inst_view,SLOT(close()));
-}
-
-void installBox::on_buttonBox_rejected()
-{
-    qApp->exit();
-}
-
 void MainWindow::on_bt_launch_clicked()
 {
     // Check if the game path is known
@@ -240,4 +211,30 @@ void MainWindow::on_bt_option_clicked()
     optbox->show();
 }
 
+// Installation process
 
+installBox::installBox(QDialog *parent) :
+  QDialog(parent),
+  ui(new Ui::installBox)
+{
+    // Installation window objects
+
+    ui->setupUi(this);
+    inst_view = new updatebox(this);
+}
+
+void installBox::on_buttonBox_accepted()
+{
+    // Setup the initial window and launch checkout command in a box
+
+    inst_view->show();
+    inst_view->installMode();
+    bool cursor = false;
+    inst_view->execute("checker/svn.exe checkout \"svn://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\" .", cursor);
+    connect(inst_view->bt_chglog_close,SIGNAL(clicked()),inst_view,SLOT(close()));
+}
+
+void installBox::on_buttonBox_rejected()
+{
+    qApp->exit();
+}

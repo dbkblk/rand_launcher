@@ -18,8 +18,9 @@ optionBox::optionBox(QWidget *parent) :
 
     // Link the close update button to a bool message
 
-    connect(chglog,SIGNAL(finished()),this,SLOT(chglog->bt_chglog_close->show()));
     connect(chglog->bt_chglog_close,SIGNAL(clicked()),this,SLOT(chglog_msg_info()));
+
+    connect(chglog,SIGNAL(finished()),chglog->bt_chglog_close,SLOT(show()));
 
     // Link the svn signal to the main window labels
 
@@ -75,7 +76,6 @@ void optionBox::on_opt_bt_update_clicked()
 
     msg_show = true;
     chglog->message = "The mod has been updated.";
-
 }
 
 void optionBox::on_opt_bt_cleanup_clicked()
@@ -89,7 +89,6 @@ void optionBox::on_opt_bt_cleanup_clicked()
     clearCache();
     int msg_box = 0;
 
-    chglog->bt_chglog_close->show();
     msg_show = true;
     chglog->message = "The mod has been cleaned up. You can update the game now (it can grab the missing files).";
 }
@@ -104,7 +103,6 @@ void optionBox::on_opt_bt_restore_clicked()
     chglog->execute("checker/svn.exe update -r PREV --accept theirs-full",value);
     clearCache();
 
-    chglog->bt_chglog_close->show();
     msg_show = true;
     chglog->message = "The mod has been reverted to the previous version.";
 }
@@ -122,7 +120,6 @@ void optionBox::on_opt_bt_chooserev_clicked()
     chglog->execute(cmd,value);
     clearCache();
 
-    chglog->bt_chglog_close->show();
     msg_show = true;
     chglog->message = "The mod has been reverted to the revision " + dial_rev;
 }

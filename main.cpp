@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     installBox install;
 
     // Cleanup update output
+
     QFile update_output("update_out.ini");
     if(update_output.exists()) {
         QProcess::startDetached("taskkill /f /im upd_proc.exe");
@@ -27,6 +28,7 @@ int main(int argc, char *argv[])
     }
 
     // Check for correct path
+
     QDir BTS_dir("../../../Beyond the sword");
     if(!BTS_dir.exists()){
         qDebug() << "Launcher is in a wrong path";
@@ -35,6 +37,7 @@ int main(int argc, char *argv[])
     }
 
     // Check for installation
+
     QDir svn_dir(".svn");
     if(!svn_dir.exists()){
         qDebug() << "Directory .svn not found";
@@ -44,7 +47,6 @@ int main(int argc, char *argv[])
     else {
         qDebug() << "SVN directory detected";
         w.show();
-        //launcherCheck();
     }
 
     return a.exec();

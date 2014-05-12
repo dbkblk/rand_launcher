@@ -16,6 +16,8 @@ updatebox::updatebox(QWidget *parent) :
     ui->setupUi(this);
     ui->consoleOutput->clear();
 
+    lb_changelog = new QLabel(this);
+
     // Add the close button
     bt_chglog_close = new QPushButton(this);
     bt_chglog_close->setGeometry(405,10,75,25);
@@ -91,7 +93,6 @@ void updatebox::changelogMode()
     ui->consoleOutput->clear();
     ui->consoleOutput->setReadOnly(1);
     ui->consoleOutput->setGeometry(20,40,460,340);
-    ui->consoleOutput->setText("Waiting for data...");
     ui->lb_askupdate->hide();
     ui->bt_update->hide();
     ui->lb_changelog->setGeometry(20,10,230,20);
@@ -112,6 +113,20 @@ void updatebox::updateMode()
     bt_chglog_close->hide();
     ui->lb_changelog->setGeometry(20,10,230,20);
     ui->lb_changelog->setText("Updating process :");
+}
+
+void updatebox::installMode()
+{
+    // Layout update
+    this->setWindowTitle("Installation");
+    ui->consoleOutput->clear();
+    ui->consoleOutput->setReadOnly(1);
+    ui->consoleOutput->setGeometry(20,40,460,340);
+    ui->lb_askupdate->hide();
+    ui->bt_update->hide();
+    bt_chglog_close->show();
+    ui->lb_changelog->setGeometry(20,10,230,20);
+    ui->lb_changelog->setText("Download mod files. Please be patient...");
 }
 
 void updatebox::on_bt_update_accepted()
