@@ -72,6 +72,9 @@ void updatebox::executeFinished()
       cursorUp = NULL;
   }
   QFile::remove(process_file);
+  svnLocalInfo();
+
+  emit finished();
 }
 
 void updatebox::executeError(QProcess::ProcessError)

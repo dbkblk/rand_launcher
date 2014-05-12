@@ -168,8 +168,15 @@
     <addaction name="actionAddon_More_music_forum"/>
     <addaction name="actionAbout_AND_Resurrection_team_forum"/>
    </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionOpen_mod_folder"/>
+   </widget>
    <addaction name="menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher"/>
    <addaction name="menuCommunity"/>
+   <addaction name="menuTools"/>
   </widget>
   <action name="actionExit">
    <property name="text">
@@ -202,6 +209,11 @@
   <action name="actionAddon_More_music_forum">
    <property name="text">
     <string>Addon &quot;More music&quot; (forum)</string>
+   </property>
+  </action>
+  <action name="actionOpen_mod_folder">
+   <property name="text">
+    <string>Open mod folder</string>
    </property>
   </action>
  </widget>

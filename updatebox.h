@@ -40,6 +40,9 @@ private slots:
     void on_bt_update_accepted();
     void on_bt_update_rejected();
 
+signals:
+    void finished();
+
 private:
     Ui::updatebox *ui;
     bool* cursorUp;

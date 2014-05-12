@@ -2,15 +2,17 @@
 ## 0.8
 ### Features
 
-- Update label after mod update
+DONE -> Update label after mod update
 - Hide the close button while update is still pending
+DONE -> Add a menu to navigate to the mod folder
 
 ### Bugfix
 
-- Restore launcher update check from options
+DONE -> Restore launcher update check from options
 - setText on installation box label crash the window !
-- Fix incorrect version just after update.
+DONE -> Fix incorrect version just after update.
 - Remove the "Waiting for data..." when the text is updated on the changelog window.
+- Do not invoke a window to cleanup the mod but show a confirmation message
 
 ## 0.9
 ### Features
@@ -22,6 +24,7 @@
 
 ### Bugfix
 
+- Confirm that the mod has been updated to popup "the mod has been updated"
 
 ## 1.0
 ### Features
@@ -29,6 +32,7 @@
 - Create a graphical launcher updater
 
 ### Bugfix
+
 
 ## 1.1
 ### Features

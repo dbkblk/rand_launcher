@@ -71,6 +71,7 @@ void Worker::UMCheckLauncherUpdate()
         float loc_version = readCheckerParam("MAIN/CheckerVersion").toFloat();
         float dist_version = upd_ini.value("VERSION/CheckerVersion").toFloat();
         setCheckerParam("MAIN/Changelog",upd_ini.value("VERSION/Changelog").toString());
+        setCheckerParam("MAIN/DistantCheckerVersion",upd_ini.value("VERSION/CheckerVersion").toString());
         qDebug() << "Local version : " << loc_version;
         qDebug() << "Distant version : " << dist_version;
         if(loc_version < dist_version) {
@@ -81,7 +82,7 @@ void Worker::UMCheckLauncherUpdate()
         else
         {
             qDebug() << "No update is required";
-            QFile::remove("update.ini");
+            //QFile::remove("update.ini");
             update = false;
         }
     }
@@ -99,13 +100,13 @@ void Worker::UMCheckLauncherUpdate()
 
 bool launcherUpdate()
 {
-    QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
+    QSettings upd_ini("update.ini", QSettings::IniFormat);
     QString downloadlink = upd_ini.value("VERSION/DownloadLink").toString();
     QString downloadfile = upd_ini.value("VERSION/DownloadFile").toString();
     qDebug() << "Link : " << downloadlink << endl << "File : " << downloadfile;
     char cmd[512];
     QFile::copy("checker/7za.exe","7za.exe");
-    sprintf(cmd, "taskkill /f /im and2_checker.exe >NUL 2>NUL && checker\\wget.exe -c --no-check-certificate %s && 7za.exe x -y %s && echo Update done && del 7za.exe && del checker\\update.ini && del %s && start and2_checker.exe", downloadlink.toStdString().c_str(), downloadfile.toStdString().c_str(), downloadfile.toStdString().c_str());
+    sprintf(cmd, "taskkill /f /im and2_checker.exe >NUL 2>NUL && checker\\wget.exe -c --no-check-certificate %s && 7za.exe x -y %s && echo Update done && del 7za.exe && del update.ini && del %s && start and2_checker.exe", downloadlink.toStdString().c_str(), downloadfile.toStdString().c_str(), downloadfile.toStdString().c_str());
     qDebug() << "Update command : " << cmd;
     system(cmd);
     return 0;

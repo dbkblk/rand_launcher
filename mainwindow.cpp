@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // Checker version
     QString checker_version = "0.8";
     setCheckerParam("MAIN/CheckerVersion",checker_version);
+
     // Creation of widgets
 
     ui->setupUi(this);
@@ -43,21 +44,16 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(thread, SIGNAL(started()), worker, SLOT(UMCheckLauncherUpdate()));
     connect(worker, SIGNAL(finished(bool)), thread, SLOT(quit()), Qt::DirectConnection);
     connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateAvailable(bool)), Qt::DirectConnection);
+    connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateWindowInfos()), Qt::DirectConnection);
 
     // Check launcher update in background (to avoid having two threads running simultaneously, the previous thread is aborted).
     worker->abort();
     thread->wait(); // If the thread is not running, this will immediately return.
     worker->requestWork();
 
-    // Check SVN update in background
+    // Update labels and buttons
+    UpdateWindowInfos();
 
-    if(svnLocalInfo() < svnDistantInfo()) {
-        ui->bt_update->setStyleSheet("background-color: yellow");
-        ui->bt_update->setText("Update available !");
-    }
-
-    // Update labels
-    lb_version_update();
 }
 
 MainWindow::~MainWindow()
@@ -71,15 +67,31 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::lb_version_update()
+void MainWindow::UpdateWindowInfos()
 {
     // Versions label on the main Window
+
     QString vers = "Mod rev. " + readCheckerParam("MAIN/LocalRev") + " - Launcher rev. " + readCheckerParam("MAIN/CheckerVersion");
     QPalette lb_palette;
     lb_palette.setColor(QPalette::WindowText, Qt::white);
     //ui->lb_versions->setAutoFillBackground(true);
     ui->lb_versions->setPalette(lb_palette);
     ui->lb_versions->setText(vers);
+
+    // Update button
+
+    if(svnLocalInfo() < svnDistantInfo())
+    {
+        ui->bt_update->setStyleSheet("background-color: yellow");
+        ui->bt_update->setText("Update available !");
+        return;
+    }
+    else
+    {
+        ui->bt_update->setStyleSheet("");
+        ui->bt_update->setText("Check for update");
+        return;
+    }
 }
 
 void MainWindow::UpdateAvailable(bool update)
@@ -149,6 +161,11 @@ void MainWindow::on_actionExit_triggered()
     QApplication::quit();
 }
 
+void MainWindow::on_actionOpen_mod_folder_triggered()
+{
+    QDesktopServices::openUrl(QUrl::fromLocalFile(QDir::currentPath()));
+}
+
 // Menu buttons
 
 void MainWindow::on_bt_update_clicked()
@@ -170,6 +187,7 @@ void MainWindow::on_bt_update_clicked()
         ubox->show();
         ubox->setWindowTitle("Update tool");
         ubox->execute(command,value);
+        connect(ubox,SIGNAL(finished()),this,SLOT(UpdateWindowInfos()));
     }
     else
         QMessageBox::critical(this, "Error", "An error has occured while checking for updates.");
@@ -221,3 +239,5 @@ void MainWindow::on_bt_option_clicked()
 
     optbox->show();
 }
+
+
