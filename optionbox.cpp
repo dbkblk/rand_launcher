@@ -80,17 +80,10 @@ void optionBox::on_opt_bt_update_clicked()
 
 void optionBox::on_opt_bt_cleanup_clicked()
 {
-    chglog->bt_chglog_close->hide();
-    chglog->show();
-    chglog->updateMode();
-    chglog->setWindowTitle("Cleaning up...");
     bool value = false;
     chglog->execute("checker/svn.exe cleanup",value);
     clearCache();
-    int msg_box = 0;
-
-    msg_show = true;
-    chglog->message = "The mod has been cleaned up. You can update the game now (it can grab the missing files).";
+    QMessageBox::information(chglog, "Mod cleaned up", "The mod has been cleaned up. You can update the game now (it can grab the missing files).");
 }
 
 void optionBox::on_opt_bt_restore_clicked()

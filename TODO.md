@@ -12,7 +12,7 @@ DONE -> Restore launcher update check from options
 DONE -> setText on installation box label crash the window !
 DONE -> Fix incorrect version just after update.
 DONE -> Remove the "Waiting for data..." when the text is updated on the changelog window.
-- Do not invoke a window to cleanup the mod but show a confirmation message
+DONE -> Do not invoke a window to cleanup the mod but show a confirmation message
 
 ## 0.9
 ### Features
