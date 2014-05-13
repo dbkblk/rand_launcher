@@ -6,6 +6,7 @@
 #include <QtNetwork>
 #include <QtGui>
 #include <QtWidgets>
+#include <QDir>
 
 using namespace std;
 
@@ -16,11 +17,18 @@ int main(int argc, char *argv[])
     MainWindow w;
     installBox install;
 
-    // Set version in ini file
-    QString checker_version = "0.7";
-    setCheckerParam("MAIN/CheckerVersion",checker_version);
+/*    // Cleanup update output
 
+    QFile update_output("update_out.ini");
+    if(update_output.exists()) {
+        QProcess::startDetached("taskkill /f /im upd_proc.exe");
+        update_output.remove();
+        QDir temp("temp");
+        temp.rmdir("temp");
+    }
+*/
     // Check for correct path
+
     QDir BTS_dir("../../../Beyond the sword");
     if(!BTS_dir.exists()){
         qDebug() << "Launcher is in a wrong path";
@@ -28,7 +36,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // Check for installation -> Remember to connect the two signals.
+    // Check for installation
+
     QDir svn_dir(".svn");
     if(!svn_dir.exists()){
         qDebug() << "Directory .svn not found";
@@ -38,7 +47,6 @@ int main(int argc, char *argv[])
     else {
         qDebug() << "SVN directory detected";
         w.show();
-        launcherCheck();
     }
 
     return a.exec();

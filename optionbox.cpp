@@ -1,6 +1,8 @@
 #include "optionbox.h"
+#include "mainwindow.h"
 #include "ui_optionbox.h"
 #include "civ_functions.h"
+#include "updatemanager.h"
 #include "updatebox.h"
 #include <QtCore>
 #include <QtNetwork>
@@ -15,26 +17,39 @@ optionBox::optionBox(QWidget *parent) :
     chglog = new updatebox(this);
 
     // Link the close update button to a bool message
+
     connect(chglog->bt_chglog_close,SIGNAL(clicked()),this,SLOT(chglog_msg_info()));
 
+    connect(chglog,SIGNAL(finished()),chglog->bt_chglog_close,SLOT(show()));
+
+    // Link the svn signal to the main window labels
+
+    connect(chglog,SIGNAL(finished()),parent,SLOT(UpdateWindowInfos()));
+
     // Set the detected color
+
     ui->colorBox->setCurrentIndex(readColorsCounter());
 
     // Set default startBox state
+
     if(readConfigParam("CONFIG/Mod") == "Mods/Rise of Mankind - A New Dawn") {
         ui->startBox->setChecked(1);
     }
     else {
         ui->startBox->setChecked(0);
     }
+
     // Set default checkerBox state
+
     if(readCheckerParam("MAIN/QuitLauncher") == "1") {
         ui->checkerBox->setChecked(1);
     }
     else {
         ui->checkerBox->setChecked(0);
     }
+
     // Set default opt_text_path
+
     if(readCheckerParam("MAIN/ExecutablePath") == NULL) {
         ui->opt_text_path->setText("No path specified");
     }
@@ -52,34 +67,28 @@ optionBox::~optionBox()
 
 void optionBox::on_opt_bt_update_clicked()
 {
+    chglog->bt_chglog_close->hide();
     chglog->show();
     chglog->updateMode();
     bool value = false;
     chglog->execute("checker/svn.exe update",value);
     clearCache();
 
-    chglog->bt_chglog_close->show();
     msg_show = true;
     chglog->message = "The mod has been updated.";
 }
 
 void optionBox::on_opt_bt_cleanup_clicked()
 {
-    chglog->show();
-    chglog->updateMode();
-    chglog->setWindowTitle("Cleaning up...");
     bool value = false;
     chglog->execute("checker/svn.exe cleanup",value);
     clearCache();
-    int msg_box = 0;
-
-    chglog->bt_chglog_close->show();
-    msg_show = true;
-    chglog->message = "The mod has been cleaned up. You can update the game now (it can grab the missing files).";
+    QMessageBox::information(chglog, "Mod cleaned up", "The mod has been cleaned up. You can update the game now (it can grab the missing files).");
 }
 
 void optionBox::on_opt_bt_restore_clicked()
 {
+    chglog->bt_chglog_close->hide();
     chglog->show();
     chglog->updateMode();
     chglog->setWindowTitle("Reverting version...");
@@ -87,7 +96,6 @@ void optionBox::on_opt_bt_restore_clicked()
     chglog->execute("checker/svn.exe update -r PREV --accept theirs-full",value);
     clearCache();
 
-    chglog->bt_chglog_close->show();
     msg_show = true;
     chglog->message = "The mod has been reverted to the previous version.";
 }
@@ -98,13 +106,13 @@ void optionBox::on_opt_bt_chooserev_clicked()
     qDebug() << dial_rev;
     QString cmd = "checker/svn.exe update -r " + dial_rev + " --accept theirs-full";
     bool value = false;
+    chglog->bt_chglog_close->hide();
     chglog->show();
     chglog->updateMode();
     chglog->setWindowTitle("Reverting version...");
     chglog->execute(cmd,value);
     clearCache();
 
-    chglog->bt_chglog_close->show();
     msg_show = true;
     chglog->message = "The mod has been reverted to the revision " + dial_rev;
 }
@@ -153,19 +161,28 @@ void optionBox::on_opt_bt_path_clicked()
 
 void optionBox::on_opt_bt_chklauncher_clicked()
 {
-    switch(launcherCheck()){
-        case 0 :
-            QMessageBox::information(0, "Information", "No update is available !");
-            break;
+     if(readCheckerParam("MAIN/CheckerVersion") < readCheckerParam("MAIN/DistantCheckerVersion"))
+     {
+         QMessageBox upd_box;
+         upd_box.setWindowTitle("Launcher update available");
+         upd_box.setText("An update of the launcher is available.");
+         upd_box.setInformativeText("Do you want to update ?");
+         upd_box.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+         int ret = upd_box.exec();
+         switch (ret) {
+             case QMessageBox::Ok :
+                 launcherUpdate();
+                 break;
 
-        case 1 :
-            QMessageBox::information(0, "Information", "The update has been canceled.");
-            break;
+             case QMessageBox::Cancel :
+                 break;
+         }
 
-        case 2 :
-            QMessageBox::information(0, "Information", "Can't contact the update server.");
-            break;
-    }
+     }
+     else
+     {
+         QMessageBox::information(0, "Information", "No update is available !");
+     }
 }
 
 void optionBox::on_opt_bt_changelog_clicked()

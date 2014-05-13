@@ -3,7 +3,7 @@
 #include <QString>
 #define civ_function
 
-bool clearCache();
+
 bool setConfigParam(QString param, QString newValue);
 QString readConfigParam(QString param);
 QString readCheckerParam(QString param);
@@ -18,8 +18,5 @@ const char* readXML(const char* file, const char* tag);
 bool writeXML(const char* file, const char* tag, const char* newValue);
 void launchGame();
 int launcherCheck();
-bool launcherUpdate();
-int svnLocalInfo();
-int svnDistantInfo();
 
 #endif

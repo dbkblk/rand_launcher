@@ -5,3 +5,5 @@ materials/
 release_files/
 *.pro.user
 Makefile*
+*.debug
+*.release

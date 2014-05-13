@@ -7,6 +7,8 @@
 #include <QtWidgets>
 #include <updatebox.h>
 #include <optionbox.h>
+#include <QThread>
+#include "updatemanager.h"
 
 namespace Ui {
 class MainWindow;
@@ -25,27 +27,25 @@ public:
 private slots:
 
     void on_actionForum_triggered();
-
     void on_actionAddon_Mega_Civ_Pack_triggered();
-
     void on_actionBugreport_triggered();
-
     void on_actionAbout_AND_Resurrection_team_forum_triggered();
-
     void on_actionExit_triggered();
-
     void on_actionAddon_More_music_forum_triggered();
-
     void on_bt_launch_clicked();
-
     void on_bt_update_clicked();
-
     void on_bt_option_clicked();
+    void UpdateWindowInfos();
+    void on_actionOpen_mod_folder_triggered();
+    void UpdateAvailable(bool update);
 
 private:
     Ui::MainWindow *ui;
     updatebox *ubox;
     optionBox *optbox;
+    QThread *thread;
+    Worker *worker;
+    QMessageBox askUpdate;
 };
 
 class installBox : public QDialog {
@@ -65,24 +65,5 @@ private:
     updatebox *inst_view;
 
 };
-
-class Downloader : public QObject
-{
-    Q_OBJECT
-
-public:
-    Downloader(void);
-    ~Downloader(void);
-
-    QString download(QString in_url, QString in_output);
-
-public slots:
-    void replyFinished(QNetworkReply *r, QString in_output);
-
-private:
-    QNetworkAccessManager   *manager;
-};
-
-
 
 #endif // MAINWINDOW_H

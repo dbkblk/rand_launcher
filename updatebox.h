@@ -26,6 +26,7 @@ public:
     void execute(QString command, bool &cursorUp);
     void changelogMode();
     void updateMode();
+    void installMode();
     bool updateLauncherGUI();
     QPushButton* bt_chglog_close;
     QLabel* lb_changelog;
@@ -39,6 +40,9 @@ private slots:
     void appendOutput();
     void on_bt_update_accepted();
     void on_bt_update_rejected();
+
+signals:
+    void finished();
 
 private:
     Ui::updatebox *ui;

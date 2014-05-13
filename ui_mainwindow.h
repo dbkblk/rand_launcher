@@ -33,6 +33,7 @@ public:
     QAction *actionBugreport;
     QAction *actionAbout_AND_Resurrection_team_forum;
     QAction *actionAddon_More_music_forum;
+    QAction *actionOpen_mod_folder;
     QWidget *centralWidget;
     QLabel *lb_title;
     QPushButton *bt_launch;
@@ -42,6 +43,7 @@ public:
     QMenuBar *menuBar;
     QMenu *menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher;
     QMenu *menuCommunity;
+    QMenu *menuTools;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -70,6 +72,8 @@ public:
         actionAbout_AND_Resurrection_team_forum->setObjectName(QStringLiteral("actionAbout_AND_Resurrection_team_forum"));
         actionAddon_More_music_forum = new QAction(MainWindow);
         actionAddon_More_music_forum->setObjectName(QStringLiteral("actionAddon_More_music_forum"));
+        actionOpen_mod_folder = new QAction(MainWindow);
+        actionOpen_mod_folder->setObjectName(QStringLiteral("actionOpen_mod_folder"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setStyleSheet(QStringLiteral(""));
@@ -110,16 +114,20 @@ public:
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setObjectName(QStringLiteral("menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher"));
         menuCommunity = new QMenu(menuBar);
         menuCommunity->setObjectName(QStringLiteral("menuCommunity"));
+        menuTools = new QMenu(menuBar);
+        menuTools->setObjectName(QStringLiteral("menuTools"));
         MainWindow->setMenuBar(menuBar);
 
         menuBar->addAction(menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->menuAction());
         menuBar->addAction(menuCommunity->menuAction());
+        menuBar->addAction(menuTools->menuAction());
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->addAction(actionExit);
         menuCommunity->addAction(actionForum);
         menuCommunity->addAction(actionBugreport);
         menuCommunity->addAction(actionAddon_Mega_Civ_Pack);
         menuCommunity->addAction(actionAddon_More_music_forum);
         menuCommunity->addAction(actionAbout_AND_Resurrection_team_forum);
+        menuTools->addAction(actionOpen_mod_folder);
 
         retranslateUi(MainWindow);
 
@@ -138,6 +146,7 @@ public:
         actionAbout_AND_Resurrection_team_forum->setToolTip(QApplication::translate("MainWindow", "About AND Resurrection team (forum)", 0));
 #endif // QT_NO_TOOLTIP
         actionAddon_More_music_forum->setText(QApplication::translate("MainWindow", "Addon \"More music\" (forum)", 0));
+        actionOpen_mod_folder->setText(QApplication::translate("MainWindow", "Open mod folder", 0));
         lb_title->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:24pt; font-weight:600; color:#ffffff;\">Civilization IV - A New Dawn 2</span></p></body></html>", 0));
         bt_launch->setText(QApplication::translate("MainWindow", "Launch Civilization IV", 0));
         bt_update->setText(QApplication::translate("MainWindow", "Check for update", 0));
@@ -145,6 +154,7 @@ public:
         lb_versions->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" color:#000000;\">TextLabel</span></p></body></html>", 0));
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setTitle(QApplication::translate("MainWindow", "Menu", 0));
         menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
+        menuTools->setTitle(QApplication::translate("MainWindow", "Tools", 0));
     } // retranslateUi
 
 };
