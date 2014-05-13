@@ -64,6 +64,7 @@ void Worker::UMCheckLauncherUpdate()
     bool update;
     QProcess download;
     download.start("checker/wget.exe -c -t 10 --retry-connrefused --no-check-certificate --waitretry=10 https://raw.githubusercontent.com/dbkblk/and2_checker/master/update.ini");
+    //download.start("checker/wget.exe -c -t 10 --retry-connrefused --no-check-certificate --waitretry=10 https://dl.dropboxusercontent.com/u/369241/update.ini");
 
     if (download.waitForFinished(60000))
     {
@@ -82,7 +83,7 @@ void Worker::UMCheckLauncherUpdate()
         else
         {
             qDebug() << "No update is required";
-            //QFile::remove("update.ini");
+            QFile::remove("update.ini");
             update = false;
         }
     }
@@ -106,7 +107,7 @@ bool launcherUpdate()
     qDebug() << "Link : " << downloadlink << endl << "File : " << downloadfile;
     char cmd[512];
     QFile::copy("checker/7za.exe","7za.exe");
-    sprintf(cmd, "taskkill /f /im and2_checker.exe >NUL 2>NUL && checker\\wget.exe -c --no-check-certificate %s && 7za.exe x -y %s && echo Update done && del 7za.exe && del update.ini && del %s && start and2_checker.exe", downloadlink.toStdString().c_str(), downloadfile.toStdString().c_str(), downloadfile.toStdString().c_str());
+    sprintf(cmd, "taskkill /f /im and2_checker.exe && SLEEP 1 && checker\\wget.exe -c --no-check-certificate %s && SLEEP 1 && 7za.exe x -y %s && SLEEP 1 && del 7za.exe && SLEEP 1 && del update.ini && SLEEP 1 && del %s && SLEEP 1 && start and2_checker.exe", downloadlink.toStdString().c_str(), downloadfile.toStdString().c_str(), downloadfile.toStdString().c_str());
     qDebug() << "Update command : " << cmd;
     system(cmd);
     return 0;
@@ -195,3 +196,5 @@ int svnDistantInfo()
         }
         return rev_dist.toInt();
 }
+
+

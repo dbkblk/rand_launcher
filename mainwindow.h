@@ -23,7 +23,6 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     QWidget *updateGUI;
-    QMessageBox *ask_update;
 
 private slots:
 
@@ -36,10 +35,9 @@ private slots:
     void on_bt_launch_clicked();
     void on_bt_update_clicked();
     void on_bt_option_clicked();
-    void UpdateAvailable(bool update);
     void UpdateWindowInfos();
-
     void on_actionOpen_mod_folder_triggered();
+    void UpdateAvailable(bool update);
 
 private:
     Ui::MainWindow *ui;
@@ -47,6 +45,7 @@ private:
     optionBox *optbox;
     QThread *thread;
     Worker *worker;
+    QMessageBox askUpdate;
 };
 
 class installBox : public QDialog {

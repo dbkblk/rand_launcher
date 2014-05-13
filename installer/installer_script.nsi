@@ -38,7 +38,9 @@ FunctionEnd
 ; Pages
 ;--------------------------------
 
+!define MUI_WELCOMEPAGE_TEXT "This wizard will guide you through the installation of Civilization IV: A New Dawn 2.\n\nThe mod will be installed in 'My Documents\My Games\Beyond the Sword\Mods\' \nIt will create a shortcut (optional) to the mod launcher, which will be used to easily download, update or configure the mod installation\n\nWARNING : Any existing mod installation is compatible. However, if you have modded files, it could be overwritten on mod update."
 !insertmacro MUI_PAGE_WELCOME
+
 ;!insertmacro MUI_PAGE_LICENSE "License.txt"
 ;!insertmacro MUI_PAGE_DIRECTORY
 

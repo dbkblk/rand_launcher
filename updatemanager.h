@@ -62,6 +62,7 @@ private:
 signals:
     void workRequested();
     void finished(bool update);
+    bool work_update_check(bool update);
 
 public slots:
 

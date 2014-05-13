@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     installBox install;
 
-    // Cleanup update output
+/*    // Cleanup update output
 
     QFile update_output("update_out.ini");
     if(update_output.exists()) {
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
         QDir temp("temp");
         temp.rmdir("temp");
     }
-
+*/
     // Check for correct path
 
     QDir BTS_dir("../../../Beyond the sword");

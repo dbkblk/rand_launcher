@@ -28,7 +28,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ubox = new updatebox(this);
     optbox = new optionBox(this);
     updateGUI = new QWidget (this);
-    ask_update = new QMessageBox(this);
 
     // Main window shape
 
@@ -43,8 +42,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(worker, SIGNAL(workRequested()), thread, SLOT(start()));
     connect(thread, SIGNAL(started()), worker, SLOT(UMCheckLauncherUpdate()));
     connect(worker, SIGNAL(finished(bool)), thread, SLOT(quit()), Qt::DirectConnection);
-    connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateAvailable(bool)), Qt::DirectConnection);
     connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateWindowInfos()), Qt::DirectConnection);
+    connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateAvailable(bool)));
+
 
     // Check launcher update in background (to avoid having two threads running simultaneously, the previous thread is aborted).
     worker->abort();
@@ -78,6 +78,7 @@ void MainWindow::UpdateWindowInfos()
     ui->lb_versions->setPalette(lb_palette);
     ui->lb_versions->setText(vers);
 
+
     // Update button
 
     if(svnLocalInfo() < svnDistantInfo())
@@ -97,22 +98,25 @@ void MainWindow::UpdateWindowInfos()
 void MainWindow::UpdateAvailable(bool update)
 {
     // If check for update is positive, popup a window
-
     qDebug() << "Update argument is" << update;
     if(update)
     {
-        qDebug() << "Entering update loop";
-        ask_update->setWindowTitle("Launcher update available");
-        ask_update->setText("An update of the launcher is available.");
-        ask_update->setInformativeText("Do you want to update ?");
-        ask_update->setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
-        int ret = ask_update->exec();
+        qDebug() << "Entering loop";
+        askUpdate.setWindowTitle("Launcher update available");
+        qDebug() << "Step 1";
+        askUpdate.setText("An update of the launcher is available.");
+        qDebug() << "Step 2";
+        askUpdate.setInformativeText("Do you want to update ?");
+        qDebug() << "Step 3";
+        askUpdate.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+        int ret = askUpdate.exec();
         switch (ret) {
             case QMessageBox::Ok :
                 launcherUpdate();
                 break;
 
             case QMessageBox::Cancel :
+                return;
                 break;
         }
     }
