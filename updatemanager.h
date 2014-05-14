@@ -2,6 +2,7 @@
 #define UPDATEMANAGER_H
 
 #include <QWidget>
+#include <QCheckBox>
 #include <QObject>
 #include <QMutex>
 
@@ -67,6 +68,17 @@ signals:
 public slots:
 
     void UMCheckLauncherUpdate();
+};
+
+class Addons : public QWidget
+{
+public:
+    explicit Addons(QWidget *parent = 0);
+    ~Addons();
+    void WindowInstaller();
+
+private:
+    QCheckBox *checkbox;
 };
 
 #endif // UPDATEMANAGER_H

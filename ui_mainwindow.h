@@ -40,6 +40,7 @@ public:
     QPushButton *bt_update;
     QPushButton *bt_option;
     QLabel *lb_versions;
+    QPushButton *bt_addons;
     QMenuBar *menuBar;
     QMenu *menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher;
     QMenu *menuCommunity;
@@ -90,10 +91,10 @@ public:
         bt_launch->setFlat(false);
         bt_update = new QPushButton(centralWidget);
         bt_update->setObjectName(QStringLiteral("bt_update"));
-        bt_update->setGeometry(QRect(170, 230, 136, 23));
+        bt_update->setGeometry(QRect(170, 230, 131, 23));
         bt_option = new QPushButton(centralWidget);
         bt_option->setObjectName(QStringLiteral("bt_option"));
-        bt_option->setGeometry(QRect(450, 230, 136, 23));
+        bt_option->setGeometry(QRect(450, 230, 131, 23));
         bt_option->setStyleSheet(QStringLiteral("border-image: none"));
         bt_option->setFlat(false);
         lb_versions = new QLabel(centralWidget);
@@ -106,6 +107,9 @@ public:
         lb_versions->setSizePolicy(sizePolicy1);
         lb_versions->setStyleSheet(QStringLiteral(""));
         lb_versions->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        bt_addons = new QPushButton(centralWidget);
+        bt_addons->setObjectName(QStringLiteral("bt_addons"));
+        bt_addons->setGeometry(QRect(450, 200, 131, 23));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -152,6 +156,7 @@ public:
         bt_update->setText(QApplication::translate("MainWindow", "Check for update", 0));
         bt_option->setText(QApplication::translate("MainWindow", "Options", 0));
         lb_versions->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" color:#000000;\">TextLabel</span></p></body></html>", 0));
+        bt_addons->setText(QApplication::translate("MainWindow", "Manage Addons", 0));
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setTitle(QApplication::translate("MainWindow", "Menu", 0));
         menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
         menuTools->setTitle(QApplication::translate("MainWindow", "Tools", 0));

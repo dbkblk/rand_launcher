@@ -39,6 +39,8 @@ private slots:
     void on_actionOpen_mod_folder_triggered();
     void UpdateAvailable(bool update);
 
+    void on_bt_addons_clicked();
+
 private:
     Ui::MainWindow *ui;
     updatebox *ubox;
@@ -46,6 +48,7 @@ private:
     QThread *thread;
     Worker *worker;
     QMessageBox askUpdate;
+    Addons *window_installer;
 };
 
 class installBox : public QDialog {

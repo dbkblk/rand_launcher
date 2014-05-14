@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     // Checker version
-    QString checker_version = "0.8";
+    QString checker_version = "0.9";
     setCheckerParam("MAIN/CheckerVersion",checker_version);
 
     // Creation of widgets
@@ -241,4 +241,10 @@ void installBox::on_buttonBox_accepted()
 void installBox::on_buttonBox_rejected()
 {
     qApp->exit();
+}
+
+void MainWindow::on_bt_addons_clicked()
+{
+    window_installer = new Addons(this);
+    window_installer->show();
 }

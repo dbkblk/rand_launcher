@@ -197,4 +197,18 @@ int svnDistantInfo()
         return rev_dist.toInt();
 }
 
+Addons::Addons(QWidget *)
+{
+    checkbox = new QCheckBox();
+}
+
+Addons::~Addons()
+{
+
+}
+
+void Addons::WindowInstaller()
+{
+
+}
 
