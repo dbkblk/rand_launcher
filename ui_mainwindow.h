@@ -35,7 +35,6 @@ public:
     QAction *actionAddon_More_music_forum;
     QAction *actionOpen_mod_folder;
     QWidget *centralWidget;
-    QLabel *lb_title;
     QPushButton *bt_launch;
     QPushButton *bt_update;
     QPushButton *bt_option;
@@ -78,10 +77,6 @@ public:
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setStyleSheet(QStringLiteral(""));
-        lb_title = new QLabel(centralWidget);
-        lb_title->setObjectName(QStringLiteral("lb_title"));
-        lb_title->setGeometry(QRect(0, 0, 601, 71));
-        lb_title->setAlignment(Qt::AlignCenter);
         bt_launch = new QPushButton(centralWidget);
         bt_launch->setObjectName(QStringLiteral("bt_launch"));
         bt_launch->setGeometry(QRect(10, 230, 151, 23));
@@ -99,7 +94,7 @@ public:
         bt_option->setFlat(false);
         lb_versions = new QLabel(centralWidget);
         lb_versions->setObjectName(QStringLiteral("lb_versions"));
-        lb_versions->setGeometry(QRect(365, 249, 221, 31));
+        lb_versions->setGeometry(QRect(480, 0, 111, 31));
         QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
@@ -151,7 +146,6 @@ public:
 #endif // QT_NO_TOOLTIP
         actionAddon_More_music_forum->setText(QApplication::translate("MainWindow", "Addon \"More music\" (forum)", 0));
         actionOpen_mod_folder->setText(QApplication::translate("MainWindow", "Open mod folder", 0));
-        lb_title->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:24pt; font-weight:600; color:#ffffff;\">Civilization IV - A New Dawn 2</span></p></body></html>", 0));
         bt_launch->setText(QApplication::translate("MainWindow", "Launch Civilization IV", 0));
         bt_update->setText(QApplication::translate("MainWindow", "Check for update", 0));
         bt_option->setText(QApplication::translate("MainWindow", "Options", 0));

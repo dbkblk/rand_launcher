@@ -22,6 +22,7 @@ DONE -> Fix update process (the signal don't create a window)
 - Add easy installation of Civ Mega Pack (Git + sourceforge repo)
 - Add easy installation of More music (only direct download)
 - Option to autoupdate the launcher, and the mod
+DONE -> Update graphics
 
 ### Bugfix
 

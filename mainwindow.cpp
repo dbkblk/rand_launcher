@@ -31,8 +31,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Main window shape
 
-    this->setWindowTitle("Civilization IV: A New Dawn 2");
-    setStyleSheet("MainWindow { background-image: url(checker/and2_background.jpg) }");
+    this->setWindowTitle("Civilization IV: A New Dawn");
+    setStyleSheet("MainWindow { background-image: url(checker/and2_background.jpg); background-position: bottom }");
 
     /*  Thread code, imported from https://github.com/fabienpn/simple-qt-thread-example */
     thread = new QThread();
@@ -71,10 +71,9 @@ void MainWindow::UpdateWindowInfos()
 {
     // Versions label on the main Window
 
-    QString vers = "Mod rev. " + readCheckerParam("MAIN/LocalRev") + " - Launcher rev. " + readCheckerParam("MAIN/CheckerVersion");
+    QString vers = "Launcher rev. " + readCheckerParam("MAIN/CheckerVersion") + "\nMod rev. " + readCheckerParam("MAIN/LocalRev");
     QPalette lb_palette;
-    lb_palette.setColor(QPalette::WindowText, Qt::white);
-    //ui->lb_versions->setAutoFillBackground(true);
+    lb_palette.setColor(QPalette::WindowText, Qt::black);
     ui->lb_versions->setPalette(lb_palette);
     ui->lb_versions->setText(vers);
 
