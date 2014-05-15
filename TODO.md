@@ -23,6 +23,7 @@ DONE -> Fix update process (the signal don't create a window)
 - Add easy installation of More music (only direct download)
 - Option to autoupdate the launcher, and the mod
 DONE -> Update graphics
+- Add an option to setup "formations"
 
 ### Bugfix
 

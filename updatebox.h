@@ -27,9 +27,11 @@ public:
     void changelogMode();
     void updateMode();
     void installMode();
+    void addonsMode();
     bool updateLauncherGUI();
     QPushButton* bt_chglog_close;
     QLabel* lb_changelog;
+    QLabel* lb_addons;
     QString message;
     QTextEdit* consoleOutput;
 

@@ -1,6 +1,7 @@
 #include "updatemanager.h"
 #include "ui_updatemanager.h"
 #include "civ_functions.h"
+#include "updatebox.h"
 
 #include "QObject"
 #include <QTimer>
@@ -11,6 +12,8 @@
 #include <QSettings>
 #include <QMessageBox>
 #include <QFile>
+#include <QDesktopWidget>
+#include <QVBoxLayout>
 
 updateManager::updateManager(QWidget *parent) :
     QWidget(parent),
@@ -199,7 +202,38 @@ int svnDistantInfo()
 
 Addons::Addons(QWidget *)
 {
-    checkbox = new QCheckBox();
+    // Layout
+    QVBoxLayout *layout = new QVBoxLayout(this);
+    QHBoxLayout *buttons = new QHBoxLayout(this);
+
+    this->setWindowTitle("Addon manager");
+    const QRect screen = QApplication::desktop()->screenGeometry();
+    this->setGeometry(0,0,300,100);
+    this->setFixedSize(size());
+    this->move(screen.center() - this->rect().center() );
+
+    // Add widgets
+    QCheckBox *addon_civ_mega_pack = new QCheckBox("Civ Mega Pack");
+    layout->addWidget(addon_civ_mega_pack);
+    addon_civ_mega_pack->setStyleSheet("QCheckBox:unchecked{color: grey;}");
+    // Temp disable the checking
+    addon_civ_mega_pack->setCheckable(false);
+
+    QCheckBox *addon_more_music = new QCheckBox("More music");
+    layout->addWidget(addon_more_music);
+
+    buttons->addStretch();
+    QPushButton *addon_close = new QPushButton ("Close");
+    buttons->addWidget(addon_close);
+
+    QPushButton *addon_apply = new QPushButton ("Apply changes");
+    buttons->addWidget(addon_apply);
+
+    layout->addLayout(buttons);
+
+    // Signals
+    connect(addon_close,SIGNAL(clicked()),this,SLOT(close()));
+    connect(addon_apply,SIGNAL(clicked()),this,SLOT(addons_installation()));
 }
 
 Addons::~Addons()
@@ -207,8 +241,17 @@ Addons::~Addons()
 
 }
 
-void Addons::WindowInstaller()
+void Addons::addons_installation()
 {
+    //qDebug() << "Install Civ Mega Pack is" << addon_civ_mega_pack->isChecked();
+    //qDebug() << "Install More music is" << addon_more_music->isChecked();
+    addon_setup = new updatebox(this);
+    addon_setup->addonsMode();
+    addon_setup->show();
 
+    // Check for checkbox state
+
+
+    // Addon more music
+    //download_addon_music("checker/wget.exe -c -t 10 --retry-connrefused --no-check-certificate --waitretry=10 https://dl.dropboxusercontent.com/u/369241/AND2_MUSIC_ADDON.7z")
 }
-

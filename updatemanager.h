@@ -1,6 +1,7 @@
 #ifndef UPDATEMANAGER_H
 #define UPDATEMANAGER_H
 
+#include "updatebox.h"
 #include <QWidget>
 #include <QCheckBox>
 #include <QObject>
@@ -72,13 +73,20 @@ public slots:
 
 class Addons : public QWidget
 {
+        Q_OBJECT
+
 public:
     explicit Addons(QWidget *parent = 0);
     ~Addons();
     void WindowInstaller();
 
+public slots:
+    void addons_installation();
+
 private:
-    QCheckBox *checkbox;
+    updatebox *addon_setup;
+    QCheckBox *addon_civ_mega_pack;
+    QCheckBox *addon_more_music;
 };
 
 #endif // UPDATEMANAGER_H

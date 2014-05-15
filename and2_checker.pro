@@ -32,7 +32,8 @@ FORMS    += mainwindow.ui \
     installBox.ui \
     optionbox.ui \
     updatebox.ui \
-    updatemanager.ui
+    updatemanager.ui \
+    Test_window.ui
 
 RC_FILE = icon.rc
 
