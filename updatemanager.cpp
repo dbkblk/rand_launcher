@@ -202,7 +202,7 @@ int svnDistantInfo()
 
 Addons::Addons(QWidget *)
 {
-    // Layout
+     // Layout
     QVBoxLayout *layout = new QVBoxLayout(this);
     QHBoxLayout *buttons = new QHBoxLayout(this);
 
@@ -213,20 +213,24 @@ Addons::Addons(QWidget *)
     this->move(screen.center() - this->rect().center() );
 
     // Add widgets
-    QCheckBox *addon_civ_mega_pack = new QCheckBox("Civ Mega Pack");
+    addon_civ_mega_pack = new QCheckBox(this);
+    addon_civ_mega_pack->setText("Civ Mega Pack");
     layout->addWidget(addon_civ_mega_pack);
     addon_civ_mega_pack->setStyleSheet("QCheckBox:unchecked{color: grey;}");
     // Temp disable the checking
-    addon_civ_mega_pack->setCheckable(false);
+    //addon_civ_mega_pack->setCheckable(false);
 
-    QCheckBox *addon_more_music = new QCheckBox("More music");
+    addon_more_music = new QCheckBox(this);
+    addon_more_music->setText("More music");
     layout->addWidget(addon_more_music);
 
     buttons->addStretch();
-    QPushButton *addon_close = new QPushButton ("Close");
+    addon_close = new QPushButton(this) ;
+    addon_close->setText("Close");
     buttons->addWidget(addon_close);
 
-    QPushButton *addon_apply = new QPushButton ("Apply changes");
+    addon_apply = new QPushButton(this) ;
+    addon_apply->setText("Apply changes");
     buttons->addWidget(addon_apply);
 
     layout->addLayout(buttons);
@@ -243,15 +247,99 @@ Addons::~Addons()
 
 void Addons::addons_installation()
 {
-    //qDebug() << "Install Civ Mega Pack is" << addon_civ_mega_pack->isChecked();
-    //qDebug() << "Install More music is" << addon_more_music->isChecked();
     addon_setup = new updatebox(this);
     addon_setup->addonsMode();
     addon_setup->show();
 
     // Check for checkbox state
+    qDebug() << "Install Civ Mega Pack is" << addon_civ_mega_pack->isChecked();
+    qDebug() << "Install More music is" << addon_more_music->isChecked();
 
+    // Create a loop to wait for process execution
+    QEventLoop wait_install;
+    QTimer wait_timer;
+    wait_timer.setInterval(2000);
+    wait_timer.setSingleShot(true);
+    connect(addon_setup,SIGNAL(finished()),&wait_install,SLOT(quit()));
+    connect(&wait_timer, SIGNAL(timeout()), &wait_install, SLOT(quit()));
 
-    // Addon more music
-    //download_addon_music("checker/wget.exe -c -t 10 --retry-connrefused --no-check-certificate --waitretry=10 https://dl.dropboxusercontent.com/u/369241/AND2_MUSIC_ADDON.7z")
+    if(addon_civ_mega_pack->isChecked())
+    {
+        // Write text and wait 2s
+        addon_setup->appendText("\n\n****************************************\n\n");
+        addon_setup->appendText("Downloading Civ Mega Pack addon (835MB)\n\n");
+        addon_setup->appendText("****************************************\n\n");
+        wait_timer.start();
+        wait_install.exec();
+
+        // Download addon
+        QString download_addon_cmp = "checker/wget.exe -c -t 10 --retry-connrefused --no-check-certificate --waitretry=10 https://dl.dropboxusercontent.com/u/369241/AND2_CMP_BASE_V1.7z";
+        bool cursor = false;
+        addon_setup->execute(download_addon_cmp,cursor);
+        wait_install.exec();
+        QString download_addon_cmp2 = "checker/wget.exe -c -t 10 --retry-connrefused --no-check-certificate --waitretry=10 https://dl.dropboxusercontent.com/u/369241/AND2_CMP_FILES_V1.2.1.7z";
+        addon_setup->execute(download_addon_cmp2,cursor);
+        wait_install.exec();
+
+        // Write text and wait 2s
+        addon_setup->appendText("\n\n****************************************\n\n");
+        addon_setup->appendText("Extracting Civ Mega Pack Addon\n\n");
+        addon_setup->appendText("****************************************\n\n");
+        wait_timer.start();
+        wait_install.exec();
+
+        QString extract_addon_cmp1 = "checker/7za.exe x -y AND2_CMP_BASE_V1.7z";
+        addon_setup->execute(extract_addon_cmp1,cursor);
+        wait_install.exec();
+
+        QString extract_addon_cmp2 = "checker/7za.exe x -y AND2_CMP_FILES_V1.2.1.7z";
+        addon_setup->execute(extract_addon_cmp2,cursor);
+        wait_install.exec();
+
+        // Write text and wait 2s
+        addon_setup->appendText("\n\n****************************************\n\n");
+        addon_setup->appendText("Civ Mega Pack addon installation finished !\n\n");
+        addon_setup->appendText("****************************************\n\n");
+        wait_timer.start();
+        wait_install.exec();
+
+        QFile::remove("AND2_CMP_BASE_V1.7z");
+        QFile::remove("AND2_CMP_FILES_V1.2.1.7z");
+    }
+
+    if(addon_more_music->isChecked())
+    {
+        // Write text and wait 2s
+        addon_setup->appendText("\n\n****************************************\n\n");
+        addon_setup->appendText("Downloading Music Addon (500MB)\n\n");
+        addon_setup->appendText("****************************************\n\n");
+        wait_timer.start();
+        wait_install.exec();
+
+        // Download addon
+        QString download_addon_music = "checker/wget.exe -c -t 10 --retry-connrefused --no-check-certificate --waitretry=10 https://dl.dropboxusercontent.com/u/369241/AND2_MUSIC_ADDON.7z";
+        bool cursor = false;
+        addon_setup->execute(download_addon_music,cursor);
+        wait_install.exec();
+
+        // Write text and wait 2s
+        addon_setup->appendText("\n\n****************************************\n\n");
+        addon_setup->appendText("Extracting Music Addon\n\n");
+        addon_setup->appendText("****************************************\n\n");
+        wait_timer.start();
+        wait_install.exec();
+
+        QString extract_addon_music = "checker/7za.exe x -y AND2_MUSIC_ADDON.7z";
+        addon_setup->execute(extract_addon_music,cursor);
+        wait_install.exec();
+
+        // Write text and wait 2s
+        addon_setup->appendText("\n\n****************************************\n\n");
+        addon_setup->appendText("More music addon installation finished !\n\n");
+        addon_setup->appendText("****************************************\n\n");
+        wait_timer.start();
+        wait_install.exec();
+        QFile::remove("AND2_MUSIC_ADDON.7z");
+    }
+
 }

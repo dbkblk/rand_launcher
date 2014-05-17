@@ -6,6 +6,9 @@
 #include <QCheckBox>
 #include <QObject>
 #include <QMutex>
+#include <QSettings>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 
 namespace Ui {
 class updateManager;
@@ -87,6 +90,9 @@ private:
     updatebox *addon_setup;
     QCheckBox *addon_civ_mega_pack;
     QCheckBox *addon_more_music;
+    QSettings *box_state;
+    QPushButton *addon_close;
+    QPushButton *addon_apply;
 };
 
 #endif // UPDATEMANAGER_H

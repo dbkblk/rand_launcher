@@ -31,7 +31,7 @@ updatebox::updatebox(QWidget *parent) :
     connect(&process, SIGNAL(finished(int,QProcess::ExitStatus)), this, SLOT(executeFinished()));
     connect(&process, SIGNAL(error(QProcess::ProcessError)), this, SLOT(executeError(QProcess::ProcessError)));
 
-    process_timer.setInterval(100);
+    process_timer.setInterval(500);
     process_timer.setSingleShot(false);
     connect(&process_timer, SIGNAL(timeout()), this, SLOT(appendOutput()));
 }
@@ -58,8 +58,8 @@ void updatebox::appendOutput()
   if (file.size()>process_file_pos)
   {
     file.seek(process_file_pos);
-    ui->consoleOutput->moveCursor(QTextCursor::End);
     ui->consoleOutput->insertPlainText(file.readAll());
+    ui->consoleOutput->moveCursor(QTextCursor::End);
     process_file_pos = file.pos();
   }
   file.close();
@@ -84,6 +84,12 @@ void updatebox::executeError(QProcess::ProcessError)
     process_timer.stop();
     appendOutput();
     QFile::remove(process_file);
+}
+
+void updatebox::appendText(QString text)
+{
+    ui->consoleOutput->append(text);
+    ui->consoleOutput->moveCursor(QTextCursor::End);
 }
 
 void updatebox::changelogMode()

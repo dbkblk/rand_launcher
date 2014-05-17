@@ -24,6 +24,7 @@ public:
     explicit updatebox(QWidget *parent = 0);
     ~updatebox();
     void execute(QString command, bool &cursorUp);
+    void appendText(QString text);
     void changelogMode();
     void updateMode();
     void installMode();
