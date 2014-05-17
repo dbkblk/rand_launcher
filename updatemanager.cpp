@@ -14,6 +14,7 @@
 #include <QFile>
 #include <QDesktopWidget>
 #include <QVBoxLayout>
+#include <QDir>
 
 updateManager::updateManager(QWidget *parent) :
     QWidget(parent),
@@ -216,9 +217,6 @@ Addons::Addons(QWidget *)
     addon_civ_mega_pack = new QCheckBox(this);
     addon_civ_mega_pack->setText("Civ Mega Pack");
     layout->addWidget(addon_civ_mega_pack);
-    addon_civ_mega_pack->setStyleSheet("QCheckBox:unchecked{color: grey;}");
-    // Temp disable the checking
-    //addon_civ_mega_pack->setCheckable(false);
 
     addon_more_music = new QCheckBox(this);
     addon_more_music->setText("More music");
@@ -235,6 +233,11 @@ Addons::Addons(QWidget *)
 
     layout->addLayout(buttons);
 
+    // Check for addons
+    addon_civ_mega_pack->setText("Civ Mega Pack (already installed)");
+    addon_civ_mega_pack->setCheckable(false);
+    addon_more_music->setText("More music (already installed)");
+    addon_more_music->setCheckable(false);
     // Signals
     connect(addon_close,SIGNAL(clicked()),this,SLOT(close()));
     connect(addon_apply,SIGNAL(clicked()),this,SLOT(addons_installation()));

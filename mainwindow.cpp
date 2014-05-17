@@ -54,6 +54,35 @@ MainWindow::MainWindow(QWidget *parent) :
     // Update labels and buttons
     UpdateWindowInfos();
 
+
+    // Check for addons
+    QFile addon_MCP_file("Assets/MCP0.FPK");
+    QDir addon_MCP_dir("Assets/Modules/Custom_Civilizations_MCP");
+    if(addon_MCP_file.exists() == true && addon_MCP_dir.exists() == true)
+    {
+        qDebug() << "Civ Mega Pack detected";
+        setCheckerParam("Addons/CMPVersion","1");
+
+    }
+    else
+    {
+        qDebug() << "Civ Mega Pack not detected";
+        setCheckerParam("Addons/CMPVersion","0");
+    }
+
+    QDir addon_audio_new("Assets/Sounds/Addon_audio");
+    QDir addon_audio_old("Assets/Sounds/NEW");
+
+    if (addon_audio_new.exists() == true || addon_audio_old.exists() == true)
+    {
+        qDebug() << "More music detected";
+        setCheckerParam("Addons/MoreMusicVersion","1");
+    }
+    else
+    {
+        qDebug() << "More music not detected";
+        setCheckerParam("Addons/MoreMusicVersion","0");
+    }
 }
 
 MainWindow::~MainWindow()
