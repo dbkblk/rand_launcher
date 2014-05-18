@@ -15,38 +15,26 @@
    id="svg4400"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="background.svg"
-   inkscape:export-filename="S:\Documents\Projets\and2_checker\background\background.png"
+   sodipodi:docname="and2_background.svg"
+   inkscape:export-filename="S:\Documents\Projets\and2_checker\background\and2_background.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
      id="defs4402">
     <linearGradient
-       inkscape:collect="always"
-       id="linearGradient3813">
-      <stop
-         style="stop-color:#ffffff;stop-opacity:1;"
-         offset="0"
-         id="stop3815" />
-      <stop
-         style="stop-color:#ffffff;stop-opacity:0;"
-         offset="1"
-         id="stop3817" />
-    </linearGradient>
-    <linearGradient
        id="linearGradient3803">
       <stop
-         style="stop-color:#593c0b;stop-opacity:1;"
+         style="stop-color:#6e4900;stop-opacity:1;"
          offset="0"
          id="stop3809" />
       <stop
          id="stop3825"
          offset="0.5"
-         style="stop-color:#b28916;stop-opacity:1;" />
+         style="stop-color:#cf990d;stop-opacity:1;" />
       <stop
          id="stop3807"
          offset="1"
-         style="stop-color:#593c0b;stop-opacity:1;" />
+         style="stop-color:#6e4900;stop-opacity:1;" />
     </linearGradient>
     <filter
        id="filter4388"
@@ -118,20 +106,11 @@
     </filter>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient3813"
-       id="linearGradient3819"
-       x1="-44.559692"
-       y1="960.62994"
-       x2="-45.183807"
-       y2="893.78076"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       inkscape:collect="always"
        xlink:href="#linearGradient3803"
-       id="linearGradient3821"
-       x1="-44.559692"
-       y1="960.62994"
-       x2="-45.183807"
+       id="linearGradient3791"
+       x1="-70.173546"
+       y1="965.04126"
+       x2="-70.042442"
        y2="893.78076"
        gradientUnits="userSpaceOnUse" />
   </defs>
@@ -142,9 +121,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="295.54266"
-     inkscape:cy="120.8165"
+     inkscape:zoom="1.979899"
+     inkscape:cx="272.00721"
+     inkscape:cy="191.51378"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -186,7 +165,7 @@
        width="400" />
     <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient3821);fill-opacity:1.0;stroke:url(#linearGradient3819);filter:url(#filter4388);font-family:Sans"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient3791);fill-opacity:1;stroke:none;filter:url(#filter4388);font-family:Sans"
        x="-379.28268"
        y="959.92548"
        id="text2996"
@@ -196,6 +175,6 @@
          id="tspan2998"
          x="-379.28268"
          y="959.92548"
-         style="font-size:90px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:url(#linearGradient3821);fill-opacity:1.0;stroke:none;stroke-opacity:1;font-family:Sylfaen;-inkscape-font-specification:Sylfaen Bold">A NEW DAWN</tspan></text>
+         style="font-size:90px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:url(#linearGradient3791);fill-opacity:1;stroke:none;stroke-opacity:1;font-family:Sylfaen;-inkscape-font-specification:Sylfaen Bold">A NEW DAWN</tspan></text>
   </g>
 </svg>

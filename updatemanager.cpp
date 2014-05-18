@@ -209,18 +209,25 @@ Addons::Addons(QWidget *)
 
     this->setWindowTitle("Addon manager");
     const QRect screen = QApplication::desktop()->screenGeometry();
-    this->setGeometry(0,0,300,100);
+    this->setGeometry(0,0,300,120);
     this->setFixedSize(size());
     this->move(screen.center() - this->rect().center() );
 
     // Add widgets
-    addon_civ_mega_pack = new QCheckBox(this);
-    addon_civ_mega_pack->setText("Civ Mega Pack");
-    layout->addWidget(addon_civ_mega_pack);
+    addon_mega_civ_pack = new QCheckBox(this);
+    addon_mega_civ_pack->setText("Mega Civ Pack");
+    addon_mega_civ_pack->setCheckable(true);
+    layout->addWidget(addon_mega_civ_pack);
 
     addon_more_music = new QCheckBox(this);
     addon_more_music->setText("More music");
+    addon_more_music->setCheckable(true);
     layout->addWidget(addon_more_music);
+
+    addon_more_handicaps = new QCheckBox(this);
+    addon_more_handicaps->setText("More handicaps");
+    addon_more_handicaps->setCheckable(true);
+    layout->addWidget(addon_more_handicaps);
 
     buttons->addStretch();
     addon_close = new QPushButton(this) ;
@@ -233,11 +240,45 @@ Addons::Addons(QWidget *)
 
     layout->addLayout(buttons);
 
-    // Check for addons
-    addon_civ_mega_pack->setText("Civ Mega Pack (already installed)");
-    addon_civ_mega_pack->setCheckable(false);
-    addon_more_music->setText("More music (already installed)");
-    addon_more_music->setCheckable(false);
+    // Check for unknown versions
+    if(readCheckerParam("Addons/MCPVersion").toInt() == 0)
+    {
+        addon_mega_civ_pack->setText("Mega Civ Pack detected (Unknown version)");
+        addon_mega_civ_pack->setCheckable(true);
+    }
+    if(readCheckerParam("Addons/MoreMusicVersion").toInt() == 0)
+    {
+        addon_more_music->setText("More music detected (Unknown version)");
+        addon_more_music->setCheckable(true);
+    }
+
+    if(readCheckerParam("Addons/MoreHandicapsVersion").toInt() == 0)
+    {
+        addon_more_handicaps->setText("More handicaps detected (Unknown version)");
+        addon_more_handicaps->setCheckable(true);
+    }
+
+    // Check for known versions
+    if(readCheckerParam("Addons/MCPVersion").toFloat() > 0)
+    {
+        QString megacivpack_version = "Mega Civ Pack detected, version : " + readCheckerParam("Addons/MCPVersion");
+        addon_mega_civ_pack->setText(megacivpack_version);
+        addon_mega_civ_pack->setCheckable(false);
+    }
+    if(readCheckerParam("Addons/MoreMusicVersion").toFloat() > 0)
+    {
+        QString moremusic_version = "More music detected, version : " + readCheckerParam("Addons/MoreMusicVersion");
+        addon_more_music->setText(moremusic_version);
+        addon_more_music->setCheckable(false);
+    }
+
+    if(readCheckerParam("Addons/MoreHandicapsVersion").toFloat() > 0)
+    {
+        QString morehandicaps_version = "More handicaps detected, version : " + readCheckerParam("Addons/MoreHandicapsVersion");
+        addon_more_handicaps->setText(morehandicaps_version);
+        addon_more_handicaps->setCheckable(false);
+    }
+
     // Signals
     connect(addon_close,SIGNAL(clicked()),this,SLOT(close()));
     connect(addon_apply,SIGNAL(clicked()),this,SLOT(addons_installation()));
@@ -255,7 +296,7 @@ void Addons::addons_installation()
     addon_setup->show();
 
     // Check for checkbox state
-    qDebug() << "Install Civ Mega Pack is" << addon_civ_mega_pack->isChecked();
+    qDebug() << "Install Mega Civ Pack is" << addon_mega_civ_pack->isChecked();
     qDebug() << "Install More music is" << addon_more_music->isChecked();
 
     // Create a loop to wait for process execution
@@ -266,12 +307,10 @@ void Addons::addons_installation()
     connect(addon_setup,SIGNAL(finished()),&wait_install,SLOT(quit()));
     connect(&wait_timer, SIGNAL(timeout()), &wait_install, SLOT(quit()));
 
-    if(addon_civ_mega_pack->isChecked())
+    if(addon_mega_civ_pack->isChecked())
     {
         // Write text and wait 2s
-        addon_setup->appendText("\n\n****************************************\n\n");
-        addon_setup->appendText("Downloading Civ Mega Pack addon (835MB)\n\n");
-        addon_setup->appendText("****************************************\n\n");
+        addon_setup->appendText("\n\n****************************************\nDownloading Mega Civ Pack addon (835MB)\n****************************************\n\n");
         wait_timer.start();
         wait_install.exec();
 
@@ -285,9 +324,7 @@ void Addons::addons_installation()
         wait_install.exec();
 
         // Write text and wait 2s
-        addon_setup->appendText("\n\n****************************************\n\n");
-        addon_setup->appendText("Extracting Civ Mega Pack Addon\n\n");
-        addon_setup->appendText("****************************************\n\n");
+        addon_setup->appendText("\n\n****************************************\nExtracting Mega Civ Pack Addon\n****************************************\n\n");
         wait_timer.start();
         wait_install.exec();
 
@@ -300,22 +337,26 @@ void Addons::addons_installation()
         wait_install.exec();
 
         // Write text and wait 2s
-        addon_setup->appendText("\n\n****************************************\n\n");
-        addon_setup->appendText("Civ Mega Pack addon installation finished !\n\n");
-        addon_setup->appendText("****************************************\n\n");
+        addon_setup->appendText("\n\n****************************************\nMega Civ Pack addon installation finished !\n****************************************\n\n");
         wait_timer.start();
         wait_install.exec();
 
         QFile::remove("AND2_CMP_BASE_V1.7z");
         QFile::remove("AND2_CMP_FILES_V1.2.1.7z");
+        check_addon_mcp();
+
+        if(readCheckerParam("Addons/MCPVersion").toFloat() > 0)
+        {
+            QString megacivpack_version = "Mega Civ Pack detected, version : " + readCheckerParam("Addons/MCPVersion");
+            addon_mega_civ_pack->setText(megacivpack_version);
+            addon_mega_civ_pack->setCheckable(false);
+        }
     }
 
     if(addon_more_music->isChecked())
     {
         // Write text and wait 2s
-        addon_setup->appendText("\n\n****************************************\n\n");
-        addon_setup->appendText("Downloading Music Addon (500MB)\n\n");
-        addon_setup->appendText("****************************************\n\n");
+        addon_setup->appendText("\n\n****************************************\nDownloading Music Addon (500MB)\n****************************************\n\n");
         wait_timer.start();
         wait_install.exec();
 
@@ -326,9 +367,7 @@ void Addons::addons_installation()
         wait_install.exec();
 
         // Write text and wait 2s
-        addon_setup->appendText("\n\n****************************************\n\n");
-        addon_setup->appendText("Extracting Music Addon\n\n");
-        addon_setup->appendText("****************************************\n\n");
+        addon_setup->appendText("\n\n****************************************\nExtracting Music Addon\n****************************************\n");
         wait_timer.start();
         wait_install.exec();
 
@@ -337,12 +376,53 @@ void Addons::addons_installation()
         wait_install.exec();
 
         // Write text and wait 2s
-        addon_setup->appendText("\n\n****************************************\n\n");
-        addon_setup->appendText("More music addon installation finished !\n\n");
-        addon_setup->appendText("****************************************\n\n");
+        addon_setup->appendText("\n\n****************************************\nMore music addon installation finished !\n****************************************\n\n");
         wait_timer.start();
         wait_install.exec();
         QFile::remove("AND2_MUSIC_ADDON.7z");
+        check_addon_more_music();
+
+        if(readCheckerParam("Addons/MoreMusicVersion").toFloat() > 0)
+        {
+            QString moremusic_version = "More music detected, version : " + readCheckerParam("Addons/MoreMusicVersion");
+            addon_more_music->setText(moremusic_version);
+            addon_more_music->setCheckable(false);
+        }
     }
 
+    if(addon_more_handicaps->isChecked())
+    {
+        // Write text and wait 2s
+        addon_setup->appendText("\n\n****************************************\nDownloading Handicaps Addon (0.02MB)\n****************************************\n\n");
+        wait_timer.start();
+        wait_install.exec();
+
+        // Download addon
+        QString download_addon_handicaps = "checker/wget.exe -c -t 10 --retry-connrefused --no-check-certificate --waitretry=10 https://dl.dropboxusercontent.com/u/369241/AND2_HANDICAP_ADDON_V1.2.7z";
+        bool cursor = false;
+        addon_setup->execute(download_addon_handicaps,cursor);
+        wait_install.exec();
+
+        // Write text and wait 2s
+        addon_setup->appendText("\n\n****************************************\nExtracting Handicaps Addon\n****************************************\n");
+        wait_timer.start();
+        wait_install.exec();
+
+        QString extract_addon_music = "checker/7za.exe x -y AND2_HANDICAP_ADDON_V1.2.7z";
+        addon_setup->execute(extract_addon_music,cursor);
+        wait_install.exec();
+
+        // Write text and wait 2s
+        addon_setup->appendText("\n\n****************************************\nMore handicaps addon installation finished !\n****************************************\n\n");
+        wait_timer.start();
+        wait_install.exec();
+        QFile::remove("AND2_HANDICAP_ADDON_V1.2.7z");
+        check_addon_more_handicaps();
+        if(readCheckerParam("Addons/MoreHandicapsVersion").toFloat() > 0)
+        {
+            QString morehandicaps_version = "More handicaps detected, version : " + readCheckerParam("Addons/MoreHandicapsVersion");
+            addon_more_handicaps->setText(morehandicaps_version);
+            addon_more_handicaps->setCheckable(false);
+        }
+    }
 }

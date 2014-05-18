@@ -18,5 +18,8 @@ const char* readXML(const char* file, const char* tag);
 bool writeXML(const char* file, const char* tag, const char* newValue);
 void launchGame();
 int launcherCheck();
+QString check_addon_mcp();
+QString check_addon_more_music();
+QString check_addon_more_handicaps();
 
 #endif

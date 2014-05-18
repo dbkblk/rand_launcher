@@ -41,6 +41,8 @@ private slots:
 
     void on_bt_addons_clicked();
 
+    void on_actionPack_binaries_for_git_triggered();
+
 private:
     Ui::MainWindow *ui;
     updatebox *ubox;

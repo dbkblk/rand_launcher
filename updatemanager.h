@@ -88,8 +88,9 @@ public slots:
 
 private:
     updatebox *addon_setup;
-    QCheckBox *addon_civ_mega_pack;
+    QCheckBox *addon_mega_civ_pack;
     QCheckBox *addon_more_music;
+    QCheckBox *addon_more_handicaps;
     QSettings *box_state;
     QPushButton *addon_close;
     QPushButton *addon_apply;

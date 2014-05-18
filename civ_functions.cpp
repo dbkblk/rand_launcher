@@ -174,3 +174,87 @@ void launchGame(){
     QUrl u = QUrl::fromLocalFile(exec);
     QDesktopServices::openUrl(QUrl(u));
 }
+
+QString check_addon_mcp()
+{
+    QFile addon_MCP_file("Assets/Addon_MCP.ini");
+    QFile addon_MCP_file2("Assets/MCP0.FPK");
+    if(addon_MCP_file2.exists() == true)
+    {
+        if(addon_MCP_file.exists() == true)
+        {
+            qDebug() << "Civ Mega Pack detected";
+            QSettings addon_MCP_settings("Assets/Addon_MCP.ini", QSettings::IniFormat);
+            QString MCP_version = addon_MCP_settings.value("MAIN/Version").toString();
+
+            setCheckerParam("Addons/MCPVersion",MCP_version);
+            return MCP_version;
+        }
+        else
+        {
+            setCheckerParam("Addons/MCPVersion","Unknown");
+            return "Unknown";
+        }
+
+    }
+    else
+    {
+        qDebug() << "Civ Mega Pack not detected";
+        setCheckerParam("Addons/MCPVersion","Not installed");
+        return "Not installed";
+    }
+}
+
+QString check_addon_more_music()
+{
+    QFile addon_audio_file("Assets/Addon_audio.ini");
+    QDir addon_audio_new("Assets/Sounds/Addon_audio");
+    QDir addon_audio_old("Assets/Sounds/NEW");
+
+    if (addon_audio_new.exists() == true || addon_audio_old.exists() == true)
+    {
+        qDebug() << "More music detected";
+        if(addon_audio_file.exists() == true)
+        {
+            QSettings addon_audio_settings("Assets/Addon_audio.ini", QSettings::IniFormat);
+            QString audio_version = addon_audio_settings.value("MAIN/Version").toString();
+
+            setCheckerParam("Addons/MoreMusicVersion",audio_version);
+            return audio_version;
+        }
+        else
+        {
+            setCheckerParam("Addons/MoreMusicVersion","Unknown");
+            return "Unknown";
+        }
+
+    }
+    else
+    {
+        qDebug() << "More music not detected";
+        setCheckerParam("Addons/MoreMusicVersion","Not installed");
+        return "Not installed";
+    }
+}
+
+QString check_addon_more_handicaps()
+{
+    QFile addon_handicaps_file("Assets/Addon_handicap.ini");
+    if(addon_handicaps_file.exists() == true)
+    {
+        qDebug() << "More handicaps detected";
+        QSettings addon_handicaps_settings("Assets/Addon_handicap.ini", QSettings::IniFormat);
+        QString handicaps_version = addon_handicaps_settings.value("MAIN/Version").toString();
+
+        setCheckerParam("Addons/MoreHandicapsVersion",handicaps_version);
+
+        return handicaps_version;
+    }
+    else
+    {
+        qDebug() << "More handicaps not detected";
+        setCheckerParam("Addons/MoreHandicapsVersion","Not installed");
+        return "Not installed";
+    }
+}
+

@@ -170,6 +170,7 @@
      <string>Tools</string>
     </property>
     <addaction name="actionOpen_mod_folder"/>
+    <addaction name="actionPack_binaries_for_git"/>
    </widget>
    <addaction name="menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher"/>
    <addaction name="menuCommunity"/>
@@ -211,6 +212,11 @@
   <action name="actionOpen_mod_folder">
    <property name="text">
     <string>Open mod folder</string>
+   </property>
+  </action>
+  <action name="actionPack_binaries_for_git">
+   <property name="text">
+    <string>Pack binaries (for git)</string>
    </property>
   </action>
  </widget>

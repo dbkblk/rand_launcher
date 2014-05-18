@@ -19,13 +19,11 @@ DONE -> Fix update process (the signal don't create a window)
 ### Features
 
 - Autodetect the game path from registry
-- Add easy installation of Civ Mega Pack (Git + sourceforge repo)
-    -> Check for existing installation
-- Add easy installation of More music (only direct download)
-    -> Check for existing installation
+DONE -> Add easy installation of addons
 - Option to autoupdate the launcher, and the mod
 DONE -> Update graphics
 - Add an option to setup "formations"
+- Allow to install the mod from the Civ 4 folder
 
 ### Bugfix
 
@@ -35,18 +33,15 @@ DONE -> Update graphics
 ### Features
 
 - Create a graphical launcher updater
-- Allow to install the mod from the Civ 4 folder
 - Show a changelog before update
+- Make an update manager which have checkboxes, rows with name type (mod, launcher, addon update), your version and the newest version. Choose which one to update, them let's have an update party !
 
 ### Bugfix
 
 
 ## 1.1
 ### Features
-
-- Make an update manager which have checkboxes, rows with name type (mod, launcher, addon update), your version and the newest version. Choose which one to update, them let's have an update party !
-
-
+- Integrate git into the launcher
 
 # Features pending
 

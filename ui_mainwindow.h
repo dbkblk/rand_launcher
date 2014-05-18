@@ -34,6 +34,7 @@ public:
     QAction *actionAbout_AND_Resurrection_team_forum;
     QAction *actionAddon_More_music_forum;
     QAction *actionOpen_mod_folder;
+    QAction *actionPack_binaries_for_git;
     QWidget *centralWidget;
     QPushButton *bt_launch;
     QPushButton *bt_update;
@@ -74,6 +75,8 @@ public:
         actionAddon_More_music_forum->setObjectName(QStringLiteral("actionAddon_More_music_forum"));
         actionOpen_mod_folder = new QAction(MainWindow);
         actionOpen_mod_folder->setObjectName(QStringLiteral("actionOpen_mod_folder"));
+        actionPack_binaries_for_git = new QAction(MainWindow);
+        actionPack_binaries_for_git->setObjectName(QStringLiteral("actionPack_binaries_for_git"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setStyleSheet(QStringLiteral(""));
@@ -127,6 +130,7 @@ public:
         menuCommunity->addAction(actionAddon_More_music_forum);
         menuCommunity->addAction(actionAbout_AND_Resurrection_team_forum);
         menuTools->addAction(actionOpen_mod_folder);
+        menuTools->addAction(actionPack_binaries_for_git);
 
         retranslateUi(MainWindow);
 
@@ -146,6 +150,7 @@ public:
 #endif // QT_NO_TOOLTIP
         actionAddon_More_music_forum->setText(QApplication::translate("MainWindow", "Addon \"More music\" (forum)", 0));
         actionOpen_mod_folder->setText(QApplication::translate("MainWindow", "Open mod folder", 0));
+        actionPack_binaries_for_git->setText(QApplication::translate("MainWindow", "Pack binaries (for git)", 0));
         bt_launch->setText(QApplication::translate("MainWindow", "Launch Civilization IV", 0));
         bt_update->setText(QApplication::translate("MainWindow", "Check for update", 0));
         bt_option->setText(QApplication::translate("MainWindow", "Options", 0));
