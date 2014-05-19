@@ -30,7 +30,7 @@ optionBox::optionBox(QWidget *parent) :
 
     ui->colorBox->setCurrentIndex(readColorsCounter());
 
-    // Set default startBox state
+    // Check default states
 
     if(readConfigParam("CONFIG/Mod") == "Mods/Rise of Mankind - A New Dawn") {
         ui->startBox->setChecked(1);
@@ -39,23 +39,31 @@ optionBox::optionBox(QWidget *parent) :
         ui->startBox->setChecked(0);
     }
 
-    // Set default checkerBox state
-
-    if(readCheckerParam("MAIN/QuitLauncher") == "1") {
+    if(readCheckerParam("Main/QuitLauncher") == "1") {
         ui->checkerBox->setChecked(1);
     }
+
     else {
         ui->checkerBox->setChecked(0);
     }
 
+    if(readCheckerParam("Main/CheckerAutoUpdate") == "1")
+    {
+        ui->opt_checkbox_autoupdate->setChecked(1);
+    }
+    else
+    {
+        ui->opt_checkbox_autoupdate->setChecked(0);
+    }
+
     // Set default opt_text_path
-    qDebug() << "Check reading : " << readCheckerParam("MAIN/ExecutablePath");
-    if(readCheckerParam("MAIN/ExecutablePath") == "error")
+    qDebug() << "Check reading : " << readCheckerParam("Main/ExecutablePath");
+    if(readCheckerParam("Main/ExecutablePath") == "error")
     {
         ui->opt_text_path->setText("No path specified");
     }
     else {
-        ui->opt_text_path->setText(readCheckerParam("MAIN/ExecutablePath"));
+        ui->opt_text_path->setText(readCheckerParam("Main/ExecutablePath"));
     }
 }
 
@@ -137,17 +145,17 @@ void optionBox::on_startBox_toggled(bool checked)
 void optionBox::on_checkerBox_toggled(bool checked)
 {
     if(checked) {
-        setCheckerParam("MAIN/QuitLauncher", "1");
+        setCheckerParam("Main/QuitLauncher", "1");
     }
     if(!checked) {
-        setCheckerParam("MAIN/QuitLauncher", "0");
+        setCheckerParam("Main/QuitLauncher", "0");
     }
 }
 
 void optionBox::on_opt_bt_path_clicked()
 {
     QString exeloc = QFileDialog::getOpenFileName(0, "Find Civ. IV executable", QString(), "(Civ4BeyondSword.exe)");
-    setCheckerParam("MAIN/ExecutablePath",exeloc);
+    setCheckerParam("Main/ExecutablePath",exeloc);
     if(exeloc != NULL) {
         ui->opt_text_path->setText(exeloc);
         QMessageBox::information(0, "Information", "The game path has been changed");
@@ -162,7 +170,7 @@ void optionBox::on_opt_bt_path_clicked()
 
 void optionBox::on_opt_bt_chklauncher_clicked()
 {
-     if(readCheckerParam("MAIN/CheckerVersion") < readCheckerParam("MAIN/DistantCheckerVersion"))
+     if(readCheckerParam("Main/CheckerVersion") < readCheckerParam("Update/DistantCheckerVersion"))
      {
          QMessageBox upd_box;
          upd_box.setWindowTitle("Launcher update available");
@@ -224,11 +232,11 @@ void optionBox::on_opt_checkbox_autoupdate_toggled(bool checked)
 {
     if(checked)
     {
-        setCheckerParam("MAIN/CheckerAutoUpdate","1");
+        setCheckerParam("Main/CheckerAutoUpdate","1");
     }
     else
     {
-        setCheckerParam("MAIN/CheckerAutoUpdate","0");
+        setCheckerParam("Main/CheckerAutoUpdate","0");
     }
 
 }

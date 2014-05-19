@@ -62,14 +62,14 @@ public:
         if (optionBox->objectName().isEmpty())
             optionBox->setObjectName(QStringLiteral("optionBox"));
         optionBox->setWindowModality(Qt::WindowModal);
-        optionBox->resize(500, 280);
+        optionBox->resize(500, 290);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(optionBox->sizePolicy().hasHeightForWidth());
         optionBox->setSizePolicy(sizePolicy);
-        optionBox->setMinimumSize(QSize(500, 280));
-        optionBox->setMaximumSize(QSize(500, 280));
+        optionBox->setMinimumSize(QSize(500, 290));
+        optionBox->setMaximumSize(QSize(500, 290));
         optionBox->setFocusPolicy(Qt::StrongFocus);
         optionBox->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         horizontalLayoutWidget = new QWidget(optionBox);

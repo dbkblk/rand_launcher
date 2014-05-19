@@ -24,7 +24,8 @@ DONE -> Option to autoupdate the launcher, and the mod
 DONE -> Update graphics
 DONE -> Add an option to setup "formations"
 DONE -> Allow to install the mod from the Civ 4 folder
-- Reset gameoptions on update
+- Reset gameoptions on update (may need to change the way it read/write into the ini file to avoid mess when deleting options).
+- Show a changelog after update
 
 ### Bugfix
 
@@ -34,7 +35,6 @@ DONE -> Allow to install the mod from the Civ 4 folder
 ### Features
 
 - Create a graphical launcher updater
-- Show a changelog before update
 - Make an update manager which have checkboxes, rows with name type (mod, launcher, addon update), your version and the newest version. Choose which one to update, them let's have an update party !
 - Menu dropdown for revision modification in option box
 

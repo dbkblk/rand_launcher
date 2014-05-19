@@ -178,7 +178,7 @@ bool setColors(const char* color)
 }
 
 void launchGame(){
-    QString bt_exe = readCheckerParam("MAIN/ExecutablePath");
+    QString bt_exe = readCheckerParam("Main/ExecutablePath");
     QUrl u = QUrl::fromLocalFile(bt_exe);
     QDesktopServices::openUrl(QUrl(u));
 }
@@ -193,7 +193,7 @@ QString check_addon_mcp()
         {
             qDebug() << "Civ Mega Pack detected";
             QSettings addon_MCP_settings("Assets/Addon_MCP.ini", QSettings::IniFormat);
-            QString MCP_version = addon_MCP_settings.value("MAIN/Version").toString();
+            QString MCP_version = addon_MCP_settings.value("Main/Version").toString();
 
             setCheckerParam("Addons/MCPVersion",MCP_version);
             return MCP_version;
@@ -225,7 +225,7 @@ QString check_addon_more_music()
         if(addon_audio_file.exists() == true)
         {
             QSettings addon_audio_settings("Assets/Addon_audio.ini", QSettings::IniFormat);
-            QString audio_version = addon_audio_settings.value("MAIN/Version").toString();
+            QString audio_version = addon_audio_settings.value("Main/Version").toString();
 
             setCheckerParam("Addons/MoreMusicVersion",audio_version);
             return audio_version;
@@ -252,7 +252,7 @@ QString check_addon_more_handicaps()
     {
         qDebug() << "More handicaps detected";
         QSettings addon_handicaps_settings("Assets/Addon_handicap.ini", QSettings::IniFormat);
-        QString handicaps_version = addon_handicaps_settings.value("MAIN/Version").toString();
+        QString handicaps_version = addon_handicaps_settings.value("Main/Version").toString();
 
         setCheckerParam("Addons/MoreHandicapsVersion",handicaps_version);
 

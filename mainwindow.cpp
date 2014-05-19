@@ -19,8 +19,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     // Checker version
-    QString checker_version = "0.7";
-    setCheckerParam("MAIN/CheckerVersion",checker_version);
+    QString checker_version = "0.9";
+    setCheckerParam("Main/CheckerVersion",checker_version);
 
     // Creation of widgets
 
@@ -63,6 +63,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    QProcess::execute("taskkill /f /im curl.exe");
     // Abort threads and close the ui
     worker->abort();
     thread->wait();
@@ -70,13 +71,14 @@ MainWindow::~MainWindow()
     delete thread;
     delete worker;
     delete ui;
+
 }
 
 void MainWindow::UpdateWindowInfos()
 {
     // Versions label on the main Window
 
-    QString vers = "Launcher rev. " + readCheckerParam("MAIN/CheckerVersion") + "\nMod rev. " + readCheckerParam("MAIN/LocalRev");
+    QString vers = "Launcher rev. " + readCheckerParam("Main/CheckerVersion") + "\nMod rev. " + readCheckerParam("Main/LocalRev");
     QPalette lb_palette;
     lb_palette.setColor(QPalette::WindowText, Qt::black);
     ui->lb_versions->setPalette(lb_palette);
@@ -105,7 +107,7 @@ void MainWindow::UpdateAvailable(bool update)
     qDebug() << "Update argument is" << update;
     if(update)
     {
-        if(readCheckerParam("MAIN/CheckerAutoUpdate") == "1")
+        if(readCheckerParam("Main/CheckerAutoUpdate") == "1")
         {
             launcherUpdate();
         }
@@ -173,7 +175,7 @@ void MainWindow::on_bt_update_clicked()
 {
     // Calculate changelog difference
 
-    int chglog_diff = readCheckerParam("MAIN/DistantRev").toInt() - readCheckerParam("MAIN/LocalRev").toInt();
+    int chglog_diff = readCheckerParam("Update/DistantRev").toInt() - readCheckerParam("Main/LocalRev").toInt();
     qDebug() << "The changelog diff is equal to " << chglog_diff;
 
     // If there are update, show the changelog in a window
@@ -198,7 +200,7 @@ void MainWindow::on_bt_launch_clicked()
 {
     // Check if the game path is known
 
-    if(readCheckerParam("MAIN/ExecutablePath") == NULL) {
+    if(readCheckerParam("Main/ExecutablePath") == "error") {
         QMessageBox::information(0, "Information", "To be able to launch the game from the launcher, you need to set the game path in the options window. (Options > Select game path)");
         return;
     }
@@ -208,7 +210,7 @@ void MainWindow::on_bt_launch_clicked()
 
     // Check if the launcher should quit
 
-    if(readCheckerParam("MAIN/QuitLauncher") == "1") {
+    if(readCheckerParam("Main/QuitLauncher") == "1") {
         qApp->exit();
     }
     else {

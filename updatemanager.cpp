@@ -67,16 +67,16 @@ void Worker::UMCheckLauncherUpdate()
     qDebug()<<"Starting worker process in Thread "<<thread()->currentThreadId();
     bool update;
     QProcess download;
-    download.start("checker/wget.exe -c -t 10 --retry-connrefused --no-check-certificate --waitretry=10 https://raw.githubusercontent.com/dbkblk/and2_checker/master/update.ini");
-    //download.start("checker/wget.exe -c -t 10 --retry-connrefused --no-check-certificate --waitretry=10 https://dl.dropboxusercontent.com/u/369241/update.ini");
+    //download.start("checker/curl.exe -O -J -L -C - -# --retry 10 --insecure https://raw.githubusercontent.com/dbkblk/and2_checker/master/update.ini");
+    download.start("checker/curl.exe -O -J -L -C - -# --retry 10 --insecure https://dl.dropboxusercontent.com/u/369241/update.ini");
 
     if (download.waitForFinished(60000))
     {
         QSettings upd_ini("update.ini", QSettings::IniFormat);
-        float loc_version = readCheckerParam("MAIN/CheckerVersion").toFloat();
+        float loc_version = readCheckerParam("Main/CheckerVersion").toFloat();
         float dist_version = upd_ini.value("VERSION/CheckerVersion").toFloat();
-        setCheckerParam("MAIN/Changelog",upd_ini.value("VERSION/Changelog").toString());
-        setCheckerParam("MAIN/DistantCheckerVersion",upd_ini.value("VERSION/CheckerVersion").toString());
+        setCheckerParam("Update/Changelog",upd_ini.value("VERSION/Changelog").toString());
+        setCheckerParam("Update/DistantCheckerVersion",upd_ini.value("VERSION/CheckerVersion").toString());
         qDebug() << "Local version : " << loc_version;
         qDebug() << "Distant version : " << dist_version;
         if(loc_version < dist_version) {
@@ -105,13 +105,12 @@ void Worker::UMCheckLauncherUpdate()
 
 bool launcherUpdate()
 {
+    QFile::remove("7za.exe");
     QSettings upd_ini("update.ini", QSettings::IniFormat);
     QString downloadlink = upd_ini.value("VERSION/DownloadLink").toString();
-    QString downloadfile = upd_ini.value("VERSION/DownloadFile").toString();
-    qDebug() << "Link : " << downloadlink << endl << "File : " << downloadfile;
     char cmd[512];
     QFile::copy("checker/7za.exe","7za.exe");
-    sprintf(cmd, "taskkill /f /im and2_checker.exe && SLEEP 1 && checker\\wget.exe -c --no-check-certificate %s && SLEEP 1 && 7za.exe x -y %s && SLEEP 1 && del 7za.exe && SLEEP 1 && del update.ini && SLEEP 1 && del %s && SLEEP 1 && start and2_checker.exe", downloadlink.toStdString().c_str(), downloadfile.toStdString().c_str(), downloadfile.toStdString().c_str());
+    sprintf(cmd, "taskkill /f /im and2_checker.exe && SLEEP 1 && checker\\curl.exe -o AND2_CHECKER_UPDATE.7z -J -L -C - -# --retry 10 --insecure  %s && SLEEP 1 && 7za.exe x -y AND2_CHECKER_UPDATE.7z && SLEEP 1 && del 7za.exe && SLEEP 1 && del update.ini && SLEEP 1 && del AND2_CHECKER_UPDATE.7z && SLEEP 1 && start and2_checker.exe", downloadlink.toStdString().c_str());
     qDebug() << "Update command : " << cmd;
     system(cmd);
     return 0;
@@ -159,7 +158,7 @@ int svnLocalInfo(){
              ++j;
          }
         qDebug() << "Local revision : " << rev;
-    setCheckerParam("MAIN/LocalRev",rev);
+    setCheckerParam("Main/LocalRev",rev);
     svn_out_loc.close();
     QFile::remove("svn.txt");
     return rev.toInt();
@@ -194,7 +193,7 @@ int svnDistantInfo()
                  ++j;
              }
             qDebug() << "Distant revision : " << rev_dist;
-        setCheckerParam("MAIN/DistantRev",rev_dist);
+        setCheckerParam("Update/DistantRev",rev_dist);
         svn_out_dist.close();
         QFile::remove("svn_dist.txt");
         }
@@ -315,11 +314,11 @@ void Addons::addons_installation()
         wait_install.exec();
 
         // Download addon
-        QString download_addon_cmp = "checker/wget.exe -c -t 10 --retry-connrefused --no-check-certificate --waitretry=10 https://dl.dropboxusercontent.com/u/369241/AND2_CMP_BASE_V1.7z";
+        QString download_addon_cmp = "checker/curl.exe -o AND2_MCP_BASE.7z -J -L -C - -# --retry 10 --insecure https://dl.dropboxusercontent.com/u/369241/AND2_MCP_BASE_V1.0.7z";
         bool cursor = false;
         addon_setup->execute(download_addon_cmp,cursor);
         wait_install.exec();
-        QString download_addon_cmp2 = "checker/wget.exe -c -t 10 --retry-connrefused --no-check-certificate --waitretry=10 https://dl.dropboxusercontent.com/u/369241/AND2_CMP_FILES_V1.2.1.7z";
+        QString download_addon_cmp2 = "checker/curl.exe -o AND2_MCP_FILES.7z -J -L -C - -# --retry 10 --insecure https://dl.dropboxusercontent.com/u/369241/AND2_MCP_FILES_V1.2.1.7z";
         addon_setup->execute(download_addon_cmp2,cursor);
         wait_install.exec();
 
@@ -328,11 +327,11 @@ void Addons::addons_installation()
         wait_timer.start();
         wait_install.exec();
 
-        QString extract_addon_cmp1 = "checker/7za.exe x -y AND2_CMP_BASE_V1.7z";
+        QString extract_addon_cmp1 = "checker/7za.exe x -y AND2_MCP_BASE.7z";
         addon_setup->execute(extract_addon_cmp1,cursor);
         wait_install.exec();
 
-        QString extract_addon_cmp2 = "checker/7za.exe x -y AND2_CMP_FILES_V1.2.1.7z";
+        QString extract_addon_cmp2 = "checker/7za.exe x -y AND2_MCP_FILES.7z";
         addon_setup->execute(extract_addon_cmp2,cursor);
         wait_install.exec();
 
@@ -341,8 +340,8 @@ void Addons::addons_installation()
         wait_timer.start();
         wait_install.exec();
 
-        QFile::remove("AND2_CMP_BASE_V1.7z");
-        QFile::remove("AND2_CMP_FILES_V1.2.1.7z");
+        QFile::remove("AND2_MCP_BASE.7z");
+        QFile::remove("AND2_MCP_FILES.7z");
         check_addon_mcp();
 
         if(readCheckerParam("Addons/MCPVersion").toFloat() > 0)
@@ -361,7 +360,7 @@ void Addons::addons_installation()
         wait_install.exec();
 
         // Download addon
-        QString download_addon_music = "checker/wget.exe -c -t 10 --retry-connrefused --no-check-certificate --waitretry=10 https://dl.dropboxusercontent.com/u/369241/AND2_MUSIC_ADDON.7z";
+        QString download_addon_music = "checker/curl.exe -o AND2_MUSIC_ADDON.7z -J -L -C - --retry 10 --insecure https://dl.dropboxusercontent.com/u/369241/AND2_MUSIC_ADDON_V1.0.7z";
         bool cursor = false;
         addon_setup->execute(download_addon_music,cursor);
         wait_install.exec();
@@ -398,7 +397,7 @@ void Addons::addons_installation()
         wait_install.exec();
 
         // Download addon
-        QString download_addon_handicaps = "checker/wget.exe -c -t 10 --retry-connrefused --no-check-certificate --waitretry=10 https://dl.dropboxusercontent.com/u/369241/AND2_HANDICAP_ADDON_V1.2.7z";
+        QString download_addon_handicaps = "checker/curl.exe -o AND2_HANDICAP_ADDON.7z -J -L -C - -# --retry 10 --insecure https://dl.dropboxusercontent.com/u/369241/AND2_HANDICAP_ADDON_V1.2.7z";
         bool cursor = false;
         addon_setup->execute(download_addon_handicaps,cursor);
         wait_install.exec();
@@ -408,7 +407,7 @@ void Addons::addons_installation()
         wait_timer.start();
         wait_install.exec();
 
-        QString extract_addon_music = "checker/7za.exe x -y AND2_HANDICAP_ADDON_V1.2.7z";
+        QString extract_addon_music = "checker/7za.exe x -y AND2_HANDICAP_ADDON.7z";
         addon_setup->execute(extract_addon_music,cursor);
         wait_install.exec();
 
@@ -416,7 +415,7 @@ void Addons::addons_installation()
         addon_setup->appendText("\n\n****************************************\nMore handicaps addon installation finished !\n****************************************\n\n");
         wait_timer.start();
         wait_install.exec();
-        QFile::remove("AND2_HANDICAP_ADDON_V1.2.7z");
+        QFile::remove("AND2_HANDICAP_ADDON.7z");
         check_addon_more_handicaps();
         if(readCheckerParam("Addons/MoreHandicapsVersion").toFloat() > 0)
         {

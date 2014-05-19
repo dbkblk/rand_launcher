@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
     // Check directory from registry
     QSettings CivRegistry;
-    if(readCheckerParam("MAIN/ExecutablePath") == "error")
+    if(readCheckerParam("Main/ExecutablePath") == "error")
     {
         if (b_64BitOpSys == 1)
         {
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
             QSettings CivRegistry("HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Firaxis Games\\Sid Meier's Civilization 4 - Beyond the Sword", QSettings::NativeFormat);
             QString Civ4Path = CivRegistry.value("installdir").toString().replace("\\","/") + "/Civ4BeyondSword.exe";
             qDebug() << "Auto-detected Civ Path : " << Civ4Path;
-            setCheckerParam("MAIN/ExecutablePath",Civ4Path);
+            setCheckerParam("Main/ExecutablePath",Civ4Path);
         }
         else
         {
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
             QSettings CivRegistry("HKEY_LOCAL_MACHINE\\SOFTWARE\\Firaxis Games\\Sid Meier's Civilization 4 - Beyond the Sword", QSettings::NativeFormat);
             QString Civ4Path = CivRegistry.value("installdir").toString().replace("\\","/") + "\\Civ4BeyondSword.exe";
             qDebug() << "Auto-detected Civ Path : " << Civ4Path;
-            setCheckerParam("MAIN/ExecutablePath",Civ4Path);
+            setCheckerParam("Main/ExecutablePath",Civ4Path);
         }
 
     }
@@ -51,6 +51,13 @@ int main(int argc, char *argv[])
         qDebug() << "Launcher is in a wrong path";
         QMessageBox::critical(0, "Error", "The launcher isn't in the right directory. It should be either in 'My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn' or in 'Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn'");
         return 1;
+    }
+
+    // Default settings
+    if(readCheckerParam("Main/CheckerAutoUpdate") == "error")
+    {
+        qDebug() << "Default behavior : Launcher auto-update enabled";
+        setCheckerParam("Main/CheckerAutoUpdate","1");
     }
 
     // Start the GUI
