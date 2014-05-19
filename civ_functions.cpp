@@ -195,12 +195,12 @@ QString check_addon_mcp()
             QSettings addon_MCP_settings("Assets/Addon_MCP.ini", QSettings::IniFormat);
             QString MCP_version = addon_MCP_settings.value("Main/Version").toString();
 
-            setCheckerParam("Addons/MCPVersion",MCP_version);
+            setCheckerParam("ADDON_MEGACIVPACK/FilesVersion",MCP_version);
             return MCP_version;
         }
         else
         {
-            setCheckerParam("Addons/MCPVersion","Unknown");
+            setCheckerParam("ADDON_MEGACIVPACK/FilesVersion","Unknown");
             return "Unknown";
         }
 
@@ -208,7 +208,7 @@ QString check_addon_mcp()
     else
     {
         qDebug() << "Civ Mega Pack not detected";
-        setCheckerParam("Addons/MCPVersion","Not installed");
+        setCheckerParam("ADDON_MEGACIVPACK/FilesVersion","Not installed");
         return "Not installed";
     }
 }
@@ -227,12 +227,12 @@ QString check_addon_more_music()
             QSettings addon_audio_settings("Assets/Addon_audio.ini", QSettings::IniFormat);
             QString audio_version = addon_audio_settings.value("Main/Version").toString();
 
-            setCheckerParam("Addons/MoreMusicVersion",audio_version);
+            setCheckerParam("ADDON_MOREMUSIC/Version",audio_version);
             return audio_version;
         }
         else
         {
-            setCheckerParam("Addons/MoreMusicVersion","Unknown");
+            setCheckerParam("ADDON_MOREMUSIC/Version","Unknown");
             return "Unknown";
         }
 
@@ -240,7 +240,7 @@ QString check_addon_more_music()
     else
     {
         qDebug() << "More music not detected";
-        setCheckerParam("Addons/MoreMusicVersion","Not installed");
+        setCheckerParam("ADDON_MOREMUSIC/Version","Not installed");
         return "Not installed";
     }
 }
@@ -254,14 +254,14 @@ QString check_addon_more_handicaps()
         QSettings addon_handicaps_settings("Assets/Addon_handicap.ini", QSettings::IniFormat);
         QString handicaps_version = addon_handicaps_settings.value("Main/Version").toString();
 
-        setCheckerParam("Addons/MoreHandicapsVersion",handicaps_version);
+        setCheckerParam("ADDON_MOREHANDICAPS/Version",handicaps_version);
 
         return handicaps_version;
     }
     else
     {
         qDebug() << "More handicaps not detected";
-        setCheckerParam("Addons/MoreHandicapsVersion","Not installed");
+        setCheckerParam("ADDON_MOREHANDICAPS/Version","Not installed");
         return "Not installed";
     }
 }

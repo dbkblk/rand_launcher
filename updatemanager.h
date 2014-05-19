@@ -9,6 +9,7 @@
 #include <QSettings>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QTableWidget>
 
 namespace Ui {
 class updateManager;
@@ -28,7 +29,7 @@ public:
     ~updateManager();
 
 private:
-    Ui::updateManager *ui;
+    QTableWidget *tab_updates;
 };
 
 class Worker : public QObject

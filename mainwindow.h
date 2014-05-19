@@ -43,6 +43,8 @@ private slots:
 
     void on_actionPack_binaries_for_git_triggered();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     updatebox *ubox;
@@ -51,6 +53,7 @@ private:
     Worker *worker;
     QMessageBox askUpdate;
     Addons *window_installer;
+    updateManager *w;
 };
 
 class installBox : public QDialog {

@@ -16,16 +16,70 @@
 #include <QVBoxLayout>
 #include <QDir>
 
-updateManager::updateManager(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::updateManager)
+updateManager::updateManager(QWidget *parent)
 {
-    ui->setupUi(this);
+    QVBoxLayout *vert_layout;
+    QHBoxLayout *button_layout;
+
+    // Layout
+    this->setGeometry(0,0,550,300);
+    this->setWindowTitle("Components manager");
+    const QRect screen = QApplication::desktop()->screenGeometry();
+    this->setFixedSize(size());
+    this->move(screen.center() - this->rect().center() );
+
+    // Table definition
+    tab_updates = new QTableWidget(this);
+    tab_updates->setRowCount(5);
+    tab_updates->setColumnCount(3);
+    tab_updates->setGeometry(10,10,530,280);
+    tab_updates->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    QStringList tab_updates_header;
+    tab_updates_header << "Local vers." << "Distant vers." << "Update ?";
+    tab_updates->setHorizontalHeaderLabels(tab_updates_header);
+    QStringList tab_updates_columns;
+    tab_updates_columns << "Core mod" << "Launcher" << "Addon: Mega civ pack" << "Addon: More music" << "Addon: More handicaps";
+    tab_updates->setVerticalHeaderLabels(tab_updates_columns);
+
+
+
+    /* Local revisions */
+    // Core mod
+
+    QTableWidgetItem *item_local_vers = new QTableWidgetItem;
+    QString local_version = QString::number(svnLocalInfo());
+    item_local_vers->setText(local_version);
+    tab_updates->setItem(0,0,item_local_vers);
+
+    // Launcher
+    QTableWidgetItem *item_local_launcher = new QTableWidgetItem;
+    item_local_launcher->setText(readCheckerParam("Main/CheckerVersion"));
+    tab_updates->setItem(1,0,item_local_launcher);
+
+    // Addon MCP
+    QTableWidgetItem *item_local_addon_MCP = new QTableWidgetItem;
+    item_local_addon_MCP->setText(readCheckerParam("ADDON_MEGACIVPACK/FilesVersion"));
+    tab_updates->setItem(2,0,item_local_addon_MCP);
+
+    // Addon More music
+    QTableWidgetItem *item_local_addon_MoreMusic = new QTableWidgetItem;
+    item_local_addon_MoreMusic->setText(readCheckerParam("ADDON_MOREMUSIC/Version"));
+    tab_updates->setItem(3,0,item_local_addon_MoreMusic);
+
+    // Addon More handicaps
+    QTableWidgetItem *item_local_addon_MoreHandicaps = new QTableWidgetItem;
+    item_local_addon_MoreHandicaps->setText(readCheckerParam("ADDON_MOREHANDICAPS/Version"));
+    tab_updates->setItem(4,0,item_local_addon_MoreHandicaps);
+
+/*
+    vert_layout->addWidget(tab_updates);
+    vert_layout->addLayout(button_layout);*/
+    this->show();
 }
 
 updateManager::~updateManager()
 {
-    delete ui;
 }
 
 Worker::Worker(QObject *parent) :
@@ -240,40 +294,40 @@ Addons::Addons(QWidget *)
     layout->addLayout(buttons);
 
     // Check for unknown versions
-    if(readCheckerParam("Addons/MCPVersion").toInt() == 0)
+    if(readCheckerParam("ADDON_MEGACIVPACK/FilesVersion").toInt() == 0)
     {
         addon_mega_civ_pack->setText("Mega Civ Pack detected (Unknown version)");
         addon_mega_civ_pack->setCheckable(true);
     }
-    if(readCheckerParam("Addons/MoreMusicVersion").toInt() == 0)
+    if(readCheckerParam("ADDON_MOREMUSIC/Version").toInt() == 0)
     {
         addon_more_music->setText("More music detected (Unknown version)");
         addon_more_music->setCheckable(true);
     }
 
-    if(readCheckerParam("Addons/MoreHandicapsVersion").toInt() == 0)
+    if(readCheckerParam("ADDON_MOREHANDICAPS/Version").toInt() == 0)
     {
         addon_more_handicaps->setText("More handicaps detected (Unknown version)");
         addon_more_handicaps->setCheckable(true);
     }
 
     // Check for known versions
-    if(readCheckerParam("Addons/MCPVersion").toFloat() > 0)
+    if(readCheckerParam("ADDON_MEGACIVPACK/FilesVersion").toFloat() > 0)
     {
-        QString megacivpack_version = "Mega Civ Pack detected, version : " + readCheckerParam("Addons/MCPVersion");
+        QString megacivpack_version = "Mega Civ Pack detected, version : " + readCheckerParam("ADDON_MEGACIVPACK/FilesVersion");
         addon_mega_civ_pack->setText(megacivpack_version);
         addon_mega_civ_pack->setCheckable(false);
     }
-    if(readCheckerParam("Addons/MoreMusicVersion").toFloat() > 0)
+    if(readCheckerParam("ADDON_MOREMUSIC/Version").toFloat() > 0)
     {
-        QString moremusic_version = "More music detected, version : " + readCheckerParam("Addons/MoreMusicVersion");
+        QString moremusic_version = "More music detected, version : " + readCheckerParam("ADDON_MOREMUSIC/Version");
         addon_more_music->setText(moremusic_version);
         addon_more_music->setCheckable(false);
     }
 
-    if(readCheckerParam("Addons/MoreHandicapsVersion").toFloat() > 0)
+    if(readCheckerParam("ADDON_MOREHANDICAPS/Version").toFloat() > 0)
     {
-        QString morehandicaps_version = "More handicaps detected, version : " + readCheckerParam("Addons/MoreHandicapsVersion");
+        QString morehandicaps_version = "More handicaps detected, version : " + readCheckerParam("ADDON_MOREHANDICAPS/Version");
         addon_more_handicaps->setText(morehandicaps_version);
         addon_more_handicaps->setCheckable(false);
     }

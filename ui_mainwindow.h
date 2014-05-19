@@ -41,6 +41,7 @@ public:
     QPushButton *bt_option;
     QLabel *lb_versions;
     QPushButton *bt_addons;
+    QPushButton *pushButton;
     QMenuBar *menuBar;
     QMenu *menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher;
     QMenu *menuCommunity;
@@ -108,6 +109,9 @@ public:
         bt_addons = new QPushButton(centralWidget);
         bt_addons->setObjectName(QStringLiteral("bt_addons"));
         bt_addons->setGeometry(QRect(450, 200, 131, 23));
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(170, 200, 131, 23));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -156,6 +160,7 @@ public:
         bt_option->setText(QApplication::translate("MainWindow", "Options", 0));
         lb_versions->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" color:#000000;\">TextLabel</span></p></body></html>", 0));
         bt_addons->setText(QApplication::translate("MainWindow", "Manage Addons", 0));
+        pushButton->setText(QApplication::translate("MainWindow", "Install / update modules", 0));
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setTitle(QApplication::translate("MainWindow", "Menu", 0));
         menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
         menuTools->setTitle(QApplication::translate("MainWindow", "Tools", 0));

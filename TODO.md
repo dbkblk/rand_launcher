@@ -26,6 +26,8 @@ DONE -> Add an option to setup "formations"
 DONE -> Allow to install the mod from the Civ 4 folder
 - Reset gameoptions on update (may need to change the way it read/write into the ini file to avoid mess when deleting options).
 - Show a changelog after update
+- Make a configuration cleaner
+- Make an update manager which have checkboxes, rows with name type (mod, launcher, addon update), your version and the newest version. Choose which one to update, them let's have an update party !
 
 ### Bugfix
 
@@ -34,8 +36,8 @@ DONE -> Allow to install the mod from the Civ 4 folder
 ## 1.0
 ### Features
 
+- Create a borderless window with metro style
 - Create a graphical launcher updater
-- Make an update manager which have checkboxes, rows with name type (mod, launcher, addon update), your version and the newest version. Choose which one to update, them let's have an update party !
 - Menu dropdown for revision modification in option box
 
 ### Bugfix

@@ -263,3 +263,9 @@ void MainWindow::on_actionPack_binaries_for_git_triggered()
 {
     system("checker\\PackBaseFile.bat");
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+    w = new updateManager(this);
+    w->show();
+}

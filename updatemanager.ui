@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>480</height>
+    <width>550</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,12 +16,18 @@
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>50</y>
-     <width>521</width>
-     <height>241</height>
+     <x>10</x>
+     <y>10</y>
+     <width>531</width>
+     <height>281</height>
     </rect>
    </property>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>125</number>
+   </attribute>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>100</number>
+   </attribute>
    <row>
     <property name="text">
      <string>Mod</string>
@@ -39,7 +45,7 @@
    </row>
    <column>
     <property name="text">
-     <string>Update ?</string>
+     <string>Installed</string>
     </property>
    </column>
    <column>

@@ -31,7 +31,7 @@ public:
     {
         if (updateManager->objectName().isEmpty())
             updateManager->setObjectName(QStringLiteral("updateManager"));
-        updateManager->resize(640, 480);
+        updateManager->resize(550, 300);
         tableWidget = new QTableWidget(updateManager);
         if (tableWidget->columnCount() < 3)
             tableWidget->setColumnCount(3);
@@ -52,7 +52,9 @@ public:
         QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
         tableWidget->setItem(0, 0, __qtablewidgetitem6);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(60, 50, 521, 241));
+        tableWidget->setGeometry(QRect(10, 10, 531, 281));
+        tableWidget->horizontalHeader()->setDefaultSectionSize(125);
+        tableWidget->horizontalHeader()->setMinimumSectionSize(100);
         pushButton = new QPushButton(updateManager);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(314, 410, 171, 23));
@@ -69,7 +71,7 @@ public:
     {
         updateManager->setWindowTitle(QApplication::translate("updateManager", "Form", 0));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QApplication::translate("updateManager", "Update ?", 0));
+        ___qtablewidgetitem->setText(QApplication::translate("updateManager", "Installed", 0));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
         ___qtablewidgetitem1->setText(QApplication::translate("updateManager", "Local version", 0));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
