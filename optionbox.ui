@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>275</height>
+    <height>280</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -22,13 +22,13 @@
   <property name="minimumSize">
    <size>
     <width>500</width>
-    <height>275</height>
+    <height>280</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>500</width>
-    <height>275</height>
+    <height>280</height>
    </size>
   </property>
   <property name="focusPolicy">
@@ -46,7 +46,7 @@
      <x>10</x>
      <y>10</y>
      <width>481</width>
-     <height>261</height>
+     <height>273</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -179,7 +179,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QCheckBox" name="checkBox">
+       <widget class="QCheckBox" name="opt_checkbox_formations">
         <property name="text">
          <string>Enable formations (more graphical units)</string>
         </property>
@@ -257,6 +257,13 @@
        <widget class="QCheckBox" name="startBox">
         <property name="text">
          <string>Autostart the mod with the game</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="opt_checkbox_autoupdate">
+        <property name="text">
+         <string>Automatically update the launcher</string>
         </property>
        </widget>
       </item>

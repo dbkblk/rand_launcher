@@ -208,7 +208,7 @@ void optionBox::chglog_msg_info()
 }
 
 
-void optionBox::on_checkBox_toggled(bool checked)
+void optionBox::on_opt_checkbox_formations_toggled(bool checked)
 {
     if(checked)
     {
@@ -218,4 +218,17 @@ void optionBox::on_checkBox_toggled(bool checked)
     {
         setOptionFormations(false);
     }
+}
+
+void optionBox::on_opt_checkbox_autoupdate_toggled(bool checked)
+{
+    if(checked)
+    {
+        setCheckerParam("MAIN/CheckerAutoUpdate","1");
+    }
+    else
+    {
+        setCheckerParam("MAIN/CheckerAutoUpdate","0");
+    }
+
 }

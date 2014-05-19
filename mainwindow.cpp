@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     // Checker version
-    QString checker_version = "0.9";
+    QString checker_version = "0.7";
     setCheckerParam("MAIN/CheckerVersion",checker_version);
 
     // Creation of widgets
@@ -105,24 +105,28 @@ void MainWindow::UpdateAvailable(bool update)
     qDebug() << "Update argument is" << update;
     if(update)
     {
-        qDebug() << "Entering loop";
-        askUpdate.setWindowTitle("Launcher update available");
-        qDebug() << "Step 1";
-        askUpdate.setText("An update of the launcher is available.");
-        qDebug() << "Step 2";
-        askUpdate.setInformativeText("Do you want to update ?");
-        qDebug() << "Step 3";
-        askUpdate.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
-        int ret = askUpdate.exec();
-        switch (ret) {
-            case QMessageBox::Ok :
-                launcherUpdate();
-                break;
-
-            case QMessageBox::Cancel :
-                return;
-                break;
+        if(readCheckerParam("MAIN/CheckerAutoUpdate") == "1")
+        {
+            launcherUpdate();
         }
+        else
+        {
+            askUpdate.setWindowTitle("Launcher update available");
+            askUpdate.setText("An update of the launcher is available.");
+            askUpdate.setInformativeText("Do you want to update ?");
+            askUpdate.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+            int ret = askUpdate.exec();
+            switch (ret) {
+                case QMessageBox::Ok :
+                    launcherUpdate();
+                    break;
+
+                case QMessageBox::Cancel :
+                    return;
+                    break;
+            }
+        }
+
     }
 }
 

@@ -44,7 +44,7 @@ public:
     QLabel *lb_modconf;
     QLabel *lb_intcolor;
     QComboBox *colorBox;
-    QCheckBox *checkBox;
+    QCheckBox *opt_checkbox_formations;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label;
     QPushButton *opt_bt_path;
@@ -54,6 +54,7 @@ public:
     QLabel *lb_modconf_2;
     QCheckBox *checkerBox;
     QCheckBox *startBox;
+    QCheckBox *opt_checkbox_autoupdate;
     QPushButton *opt_bt_chklauncher;
 
     void setupUi(QWidget *optionBox)
@@ -61,19 +62,19 @@ public:
         if (optionBox->objectName().isEmpty())
             optionBox->setObjectName(QStringLiteral("optionBox"));
         optionBox->setWindowModality(Qt::WindowModal);
-        optionBox->resize(500, 275);
+        optionBox->resize(500, 280);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(optionBox->sizePolicy().hasHeightForWidth());
         optionBox->setSizePolicy(sizePolicy);
-        optionBox->setMinimumSize(QSize(500, 275));
-        optionBox->setMaximumSize(QSize(500, 275));
+        optionBox->setMinimumSize(QSize(500, 280));
+        optionBox->setMaximumSize(QSize(500, 280));
         optionBox->setFocusPolicy(Qt::StrongFocus);
         optionBox->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         horizontalLayoutWidget = new QWidget(optionBox);
         horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(10, 10, 481, 261));
+        horizontalLayoutWidget->setGeometry(QRect(10, 10, 481, 273));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
@@ -136,10 +137,10 @@ public:
 
         verticalLayout_2->addWidget(colorBox);
 
-        checkBox = new QCheckBox(horizontalLayoutWidget);
-        checkBox->setObjectName(QStringLiteral("checkBox"));
+        opt_checkbox_formations = new QCheckBox(horizontalLayoutWidget);
+        opt_checkbox_formations->setObjectName(QStringLiteral("opt_checkbox_formations"));
 
-        verticalLayout_2->addWidget(checkBox);
+        verticalLayout_2->addWidget(opt_checkbox_formations);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
@@ -189,6 +190,11 @@ public:
 
         verticalLayout_2->addWidget(startBox);
 
+        opt_checkbox_autoupdate = new QCheckBox(horizontalLayoutWidget);
+        opt_checkbox_autoupdate->setObjectName(QStringLiteral("opt_checkbox_autoupdate"));
+
+        verticalLayout_2->addWidget(opt_checkbox_autoupdate);
+
         opt_bt_chklauncher = new QPushButton(horizontalLayoutWidget);
         opt_bt_chklauncher->setObjectName(QStringLiteral("opt_bt_chklauncher"));
 
@@ -225,12 +231,13 @@ public:
          << QApplication::translate("optionBox", "Silver", 0)
          << QApplication::translate("optionBox", "Cerulean", 0)
         );
-        checkBox->setText(QApplication::translate("optionBox", "Enable formations (more graphical units)", 0));
+        opt_checkbox_formations->setText(QApplication::translate("optionBox", "Enable formations (more graphical units)", 0));
         label->setText(QApplication::translate("optionBox", "Game path :", 0));
         opt_bt_path->setText(QApplication::translate("optionBox", "Select game path", 0));
         lb_modconf_2->setText(QApplication::translate("optionBox", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Launcher configuration :</span></p></body></html>", 0));
         checkerBox->setText(QApplication::translate("optionBox", "Close the launcher when game start", 0));
         startBox->setText(QApplication::translate("optionBox", "Autostart the mod with the game", 0));
+        opt_checkbox_autoupdate->setText(QApplication::translate("optionBox", "Automatically update the launcher", 0));
         opt_bt_chklauncher->setText(QApplication::translate("optionBox", "Check for launcher update", 0));
     } // retranslateUi
 

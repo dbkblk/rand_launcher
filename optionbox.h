@@ -32,7 +32,8 @@ private slots:
     void on_opt_bt_changelog_clicked();
     void chglog_msg_info();
 
-    void on_checkBox_toggled(bool checked);
+    void on_opt_checkbox_formations_toggled(bool checked);
+    void on_opt_checkbox_autoupdate_toggled(bool checked);
 
 private:
     QCheckBox *startBox;

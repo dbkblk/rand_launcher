@@ -20,10 +20,11 @@ DONE -> Fix update process (the signal don't create a window)
 
 DONE -> Autodetect the game path from registry
 DONE -> Add easy installation of addons
-- Option to autoupdate the launcher, and the mod
+DONE -> Option to autoupdate the launcher, and the mod
 DONE -> Update graphics
 DONE -> Add an option to setup "formations"
 DONE -> Allow to install the mod from the Civ 4 folder
+- Reset gameoptions on update
 
 ### Bugfix
 
