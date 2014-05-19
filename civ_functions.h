@@ -21,5 +21,7 @@ int launcherCheck();
 QString check_addon_mcp();
 QString check_addon_more_music();
 QString check_addon_more_handicaps();
+bool readOptionFormations();
+bool setOptionFormations(bool value);
 
 #endif

@@ -32,6 +32,8 @@ private slots:
     void on_opt_bt_changelog_clicked();
     void chglog_msg_info();
 
+    void on_checkBox_toggled(bool checked);
+
 private:
     QCheckBox *startBox;
     QCheckBox *checkerBox;

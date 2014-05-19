@@ -34,42 +34,50 @@ public:
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout;
     QLabel *label_2;
-    QSpacerItem *verticalSpacer;
     QPushButton *opt_bt_changelog;
     QPushButton *opt_bt_update;
     QPushButton *opt_bt_cleanup;
     QPushButton *opt_bt_restore;
     QPushButton *opt_bt_chooserev;
-    QPushButton *opt_bt_chklauncher;
+    QSpacerItem *verticalSpacer;
     QVBoxLayout *verticalLayout_2;
     QLabel *lb_modconf;
-    QSpacerItem *verticalSpacer_2;
     QLabel *lb_intcolor;
     QComboBox *colorBox;
-    QCheckBox *startBox;
-    QCheckBox *checkerBox;
+    QCheckBox *checkBox;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label;
     QPushButton *opt_bt_path;
     QLineEdit *opt_text_path;
+    QVBoxLayout *verticalLayout_3;
+    QSpacerItem *verticalSpacer_2;
+    QLabel *lb_modconf_2;
+    QCheckBox *checkerBox;
+    QCheckBox *startBox;
+    QPushButton *opt_bt_chklauncher;
 
     void setupUi(QWidget *optionBox)
     {
         if (optionBox->objectName().isEmpty())
             optionBox->setObjectName(QStringLiteral("optionBox"));
-        optionBox->resize(500, 250);
+        optionBox->setWindowModality(Qt::WindowModal);
+        optionBox->resize(500, 275);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(optionBox->sizePolicy().hasHeightForWidth());
         optionBox->setSizePolicy(sizePolicy);
+        optionBox->setMinimumSize(QSize(500, 275));
+        optionBox->setMaximumSize(QSize(500, 275));
         optionBox->setFocusPolicy(Qt::StrongFocus);
         optionBox->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         horizontalLayoutWidget = new QWidget(optionBox);
         horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(20, 9, 461, 231));
+        horizontalLayoutWidget->setGeometry(QRect(10, 10, 481, 261));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
@@ -77,10 +85,6 @@ public:
         label_2->setObjectName(QStringLiteral("label_2"));
 
         verticalLayout->addWidget(label_2);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer);
 
         opt_bt_changelog = new QPushButton(horizontalLayoutWidget);
         opt_bt_changelog->setObjectName(QStringLiteral("opt_bt_changelog"));
@@ -107,10 +111,9 @@ public:
 
         verticalLayout->addWidget(opt_bt_chooserev);
 
-        opt_bt_chklauncher = new QPushButton(horizontalLayoutWidget);
-        opt_bt_chklauncher->setObjectName(QStringLiteral("opt_bt_chklauncher"));
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout->addWidget(opt_bt_chklauncher);
+        verticalLayout->addItem(verticalSpacer);
 
 
         horizontalLayout->addLayout(verticalLayout);
@@ -121,10 +124,6 @@ public:
         lb_modconf->setObjectName(QStringLiteral("lb_modconf"));
 
         verticalLayout_2->addWidget(lb_modconf);
-
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_2->addItem(verticalSpacer_2);
 
         lb_intcolor = new QLabel(horizontalLayoutWidget);
         lb_intcolor->setObjectName(QStringLiteral("lb_intcolor"));
@@ -137,15 +136,10 @@ public:
 
         verticalLayout_2->addWidget(colorBox);
 
-        startBox = new QCheckBox(horizontalLayoutWidget);
-        startBox->setObjectName(QStringLiteral("startBox"));
+        checkBox = new QCheckBox(horizontalLayoutWidget);
+        checkBox->setObjectName(QStringLiteral("checkBox"));
 
-        verticalLayout_2->addWidget(startBox);
-
-        checkerBox = new QCheckBox(horizontalLayoutWidget);
-        checkerBox->setObjectName(QStringLiteral("checkerBox"));
-
-        verticalLayout_2->addWidget(checkerBox);
+        verticalLayout_2->addWidget(checkBox);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
@@ -171,6 +165,35 @@ public:
 
         verticalLayout_2->addWidget(opt_text_path);
 
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_3->addItem(verticalSpacer_2);
+
+
+        verticalLayout_2->addLayout(verticalLayout_3);
+
+        lb_modconf_2 = new QLabel(horizontalLayoutWidget);
+        lb_modconf_2->setObjectName(QStringLiteral("lb_modconf_2"));
+
+        verticalLayout_2->addWidget(lb_modconf_2);
+
+        checkerBox = new QCheckBox(horizontalLayoutWidget);
+        checkerBox->setObjectName(QStringLiteral("checkerBox"));
+
+        verticalLayout_2->addWidget(checkerBox);
+
+        startBox = new QCheckBox(horizontalLayoutWidget);
+        startBox->setObjectName(QStringLiteral("startBox"));
+
+        verticalLayout_2->addWidget(startBox);
+
+        opt_bt_chklauncher = new QPushButton(horizontalLayoutWidget);
+        opt_bt_chklauncher->setObjectName(QStringLiteral("opt_bt_chklauncher"));
+
+        verticalLayout_2->addWidget(opt_bt_chklauncher);
+
 
         horizontalLayout->addLayout(verticalLayout_2);
 
@@ -189,7 +212,6 @@ public:
         opt_bt_cleanup->setText(QApplication::translate("optionBox", "Clean up installation", 0));
         opt_bt_restore->setText(QApplication::translate("optionBox", "Restore previous version", 0));
         opt_bt_chooserev->setText(QApplication::translate("optionBox", "Choose a previous revision", 0));
-        opt_bt_chklauncher->setText(QApplication::translate("optionBox", "Check for launcher update", 0));
         lb_modconf->setText(QApplication::translate("optionBox", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Mod configuration :</span></p></body></html>", 0));
         lb_intcolor->setText(QApplication::translate("optionBox", "Interface color :", 0));
         colorBox->clear();
@@ -203,10 +225,13 @@ public:
          << QApplication::translate("optionBox", "Silver", 0)
          << QApplication::translate("optionBox", "Cerulean", 0)
         );
-        startBox->setText(QApplication::translate("optionBox", "Autostart the mod with the game", 0));
-        checkerBox->setText(QApplication::translate("optionBox", "Close the checker on game launch", 0));
+        checkBox->setText(QApplication::translate("optionBox", "Enable formations (more graphical units)", 0));
         label->setText(QApplication::translate("optionBox", "Game path :", 0));
         opt_bt_path->setText(QApplication::translate("optionBox", "Select game path", 0));
+        lb_modconf_2->setText(QApplication::translate("optionBox", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Launcher configuration :</span></p></body></html>", 0));
+        checkerBox->setText(QApplication::translate("optionBox", "Close the launcher when game start", 0));
+        startBox->setText(QApplication::translate("optionBox", "Autostart the mod with the game", 0));
+        opt_bt_chklauncher->setText(QApplication::translate("optionBox", "Check for launcher update", 0));
     } // retranslateUi
 
 };

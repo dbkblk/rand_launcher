@@ -14,12 +14,17 @@ using namespace std;
 // Set the mod to start by default
 bool setConfigParam(QString param, QString newValue)
 {
+    // Get config paths
+    QDir config_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/My Games/Beyond the sword/";
+    QString ini_orig = config_path.filePath("CivilizationIV.ini");
+    QString ini_backup = config_path.filePath("CivilizationIV.bak");
+
     // Make a backup
-    QFile::remove("../../CivilizationIV.bak");
-    QFile::copy("../../CivilizationIV.ini", "../../CivilizationIV.bak");
+    QFile::remove(ini_backup);
+    QFile::copy(ini_orig, ini_backup);
 
     // Set value
-    QSettings settings("../../CivilizationIV.ini", QSettings::IniFormat);
+    QSettings settings(ini_orig, QSettings::IniFormat);
     settings.setValue(param, newValue);
 
     qDebug() << "Parameter set to " << settings.value(param);
@@ -28,7 +33,11 @@ bool setConfigParam(QString param, QString newValue)
 
 QString readConfigParam(QString param)
 {
-    QSettings settings("../../CivilizationIV.ini", QSettings::IniFormat);
+    // Get config paths
+    QDir config_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/My Games/Beyond the sword/";
+    QString ini_orig = config_path.filePath("CivilizationIV.ini");
+
+    QSettings settings(ini_orig, QSettings::IniFormat);
     QString value = settings.value(param).toString();
     qDebug() << value;
     return value;
@@ -170,8 +179,7 @@ bool setColors(const char* color)
 
 void launchGame(){
     QString bt_exe = readCheckerParam("MAIN/ExecutablePath");
-    QString exec = QDir::toNativeSeparators(bt_exe);
-    QUrl u = QUrl::fromLocalFile(exec);
+    QUrl u = QUrl::fromLocalFile(bt_exe);
     QDesktopServices::openUrl(QUrl(u));
 }
 
@@ -258,3 +266,50 @@ QString check_addon_more_handicaps()
     }
 }
 
+bool readOptionFormations()
+{
+    // Open the file
+    tinyxml2::XMLDocument read;
+    const char* file = "Assets/Modules/Formations/MLF_CIV4ModularLoadingControls.xml";
+    read.LoadFile(file);
+    if (!read.ErrorID() == 0){
+        qDebug() << "The file couldn't be read : " << read.ErrorID();
+        return 0;
+    }
+
+    // Go to color level
+    tinyxml2::XMLElement* value_el = read.FirstChildElement("Civ4ModularLoadControls")->FirstChildElement("ConfigurationInfos")->FirstChildElement("ConfigurationInfo")->FirstChildElement("Modules")->FirstChildElement("Module")->ToElement();
+
+    const char* bLoad = value_el->FirstChildElement("bLoad")->GetText();
+    if (!strcmp(bLoad, "1")) {
+        return true;
+    }
+    return false;
+}
+
+bool setOptionFormations(bool value)
+{
+    // Open the file
+    tinyxml2::XMLDocument read;
+    const char* file = "Assets/Modules/Formations/MLF_CIV4ModularLoadingControls.xml";
+    read.LoadFile(file);
+    if (!read.ErrorID() == 0){
+        qDebug() << "The file couldn't be read : " << read.ErrorID();
+        return 1;
+    }
+
+    // Go to color level
+    tinyxml2::XMLElement* value_el = read.FirstChildElement("Civ4ModularLoadControls")->FirstChildElement("ConfigurationInfos")->FirstChildElement("ConfigurationInfo")->FirstChildElement("Modules")->FirstChildElement("Module")->ToElement();
+
+    // Set values
+    if (value)
+    {
+        value_el->FirstChildElement("bLoad")->SetText("1");
+    }
+    else
+    {
+        value_el->FirstChildElement("bLoad")->SetText("0");
+    }
+    read.SaveFile(file);
+    return 0;
+}

@@ -18,12 +18,12 @@ DONE -> Fix update process (the signal don't create a window)
 ## 0.9
 ### Features
 
-- Autodetect the game path from registry
+DONE -> Autodetect the game path from registry
 DONE -> Add easy installation of addons
 - Option to autoupdate the launcher, and the mod
 DONE -> Update graphics
-- Add an option to setup "formations"
-- Allow to install the mod from the Civ 4 folder
+DONE -> Add an option to setup "formations"
+DONE -> Allow to install the mod from the Civ 4 folder
 
 ### Bugfix
 
@@ -35,6 +35,7 @@ DONE -> Update graphics
 - Create a graphical launcher updater
 - Show a changelog before update
 - Make an update manager which have checkboxes, rows with name type (mod, launcher, addon update), your version and the newest version. Choose which one to update, them let's have an update party !
+- Menu dropdown for revision modification in option box
 
 ### Bugfix
 

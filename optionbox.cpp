@@ -49,8 +49,9 @@ optionBox::optionBox(QWidget *parent) :
     }
 
     // Set default opt_text_path
-
-    if(readCheckerParam("MAIN/ExecutablePath") == NULL) {
+    qDebug() << "Check reading : " << readCheckerParam("MAIN/ExecutablePath");
+    if(readCheckerParam("MAIN/ExecutablePath") == "error")
+    {
         ui->opt_text_path->setText("No path specified");
     }
     else {
@@ -206,3 +207,15 @@ void optionBox::chglog_msg_info()
 
 }
 
+
+void optionBox::on_checkBox_toggled(bool checked)
+{
+    if(checked)
+    {
+        setOptionFormations(true);
+    }
+    else
+    {
+        setOptionFormations(false);
+    }
+}
