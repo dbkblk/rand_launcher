@@ -72,14 +72,52 @@ updateManager::updateManager(QWidget *parent)
     item_local_addon_MoreHandicaps->setText(readCheckerParam("ADDON_MOREHANDICAPS/Version"));
     tab_updates->setItem(4,0,item_local_addon_MoreHandicaps);
 
+    /* Distant revisions */
+    // Core
+    item_distant_vers = new QTableWidgetItem;
+    tab_updates->setItem(0,1,item_distant_vers);
+    item_distant_vers->setText(readCheckerParam("Update/DistantRev"));
+
+    // Launcher
+    item_distant_launcher = new QTableWidgetItem;
+    tab_updates->setItem(1,1,item_distant_launcher);
+    item_distant_launcher->setText(readCheckerParam("Update/DistantCheckerVersion"));
+
+    // Addon MCP
+    item_distant_addon_MCP = new QTableWidgetItem;
+    tab_updates->setItem(2,1,item_distant_addon_MCP);
+    item_distant_addon_MCP->setText(readCheckerParam("ADDON_MEGACIVPACK/DistantBaseVersion"));
+
+    // Addon More music
+    item_distant_addon_MoreMusic = new QTableWidgetItem;
+    tab_updates->setItem(3,1,item_distant_addon_MoreMusic);
+    item_distant_addon_MoreMusic->setText(readCheckerParam("ADDON_MOREMUSIC/DistantVersion"));
+
+    // Addon More handicaps
+    item_distant_addon_MoreHandicaps = new QTableWidgetItem;
+    tab_updates->setItem(4,1,item_distant_addon_MoreHandicaps);
+    item_distant_addon_MoreHandicaps->setText(readCheckerParam("ADDON_MOREHANDICAPS/DistantVersion"));
+
+    //updateDistantInfos();
 /*
     vert_layout->addWidget(tab_updates);
     vert_layout->addLayout(button_layout);*/
-    this->show();
+    //this->show();
 }
 
 updateManager::~updateManager()
 {
+}
+
+void updateManager::updateDistantInfos()
+{
+    /* Update revisions */
+    QString distant_version = QString::number(svnDistantInfo());
+    this->item_distant_vers->setText(distant_version);
+    this->item_distant_launcher->setText(readCheckerParam("Update/DistantCheckerVersion"));
+    this->item_distant_launcher->setText(readCheckerParam("ADDON_MEGACIVPACK/DistantBaseVersion"));
+    this->item_distant_launcher->setText(readCheckerParam("ADDON_MOREMUSIC/DistantVersion"));
+    this->item_distant_launcher->setText(readCheckerParam("ADDON_MOREMUSIC/DistantVersion"));
 }
 
 Worker::Worker(QObject *parent) :
@@ -110,7 +148,7 @@ void Worker::abort()
     mutex.unlock();
 }
 
-void Worker::UMCheckLauncherUpdate()
+void Worker::UMCheckUpdate()
 {
     // Wait 5s before to check for update
     QEventLoop loop;
@@ -127,17 +165,20 @@ void Worker::UMCheckLauncherUpdate()
     if (download.waitForFinished(60000))
     {
         QSettings upd_ini("update.ini", QSettings::IniFormat);
-        float loc_version = readCheckerParam("Main/CheckerVersion").toFloat();
-        float dist_version = upd_ini.value("VERSION/CheckerVersion").toFloat();
+
+        // Reading update info
         setCheckerParam("Update/Changelog",upd_ini.value("VERSION/Changelog").toString());
         setCheckerParam("Update/DistantCheckerVersion",upd_ini.value("VERSION/CheckerVersion").toString());
-        qDebug() << "Local version : " << loc_version;
-        qDebug() << "Distant version : " << dist_version;
-        if(loc_version < dist_version) {
-            qDebug() << "An update is available";
+        setCheckerParam("ADDON_MOREMUSIC/DistantVersion",upd_ini.value("ADDON_MOREMUSIC/Version").toString());
+        setCheckerParam("ADDON_MOREHANDICAPS/DistantVersion",upd_ini.value("ADDON_MOREHANDICAPS/Version").toString());
+        setCheckerParam("ADDON_MEGACIVPACK/DistantBaseVersion",upd_ini.value("ADDON_MEGACIVPACK/BaseVersion").toString());
+        setCheckerParam("ADDON_MEGACIVPACK/DistantBaseVersion",upd_ini.value("ADDON_MEGACIVPACK/FilesVersion").toString());
+
+        if(readCheckerParam("Main/CheckerVersion").toFloat() < readCheckerParam("Update/DistantCheckerVersion").toFloat() || readCheckerParam("ADDON_MEGACIVPACK/FilesVersion").toFloat() < readCheckerParam("ADDON_MEGACIVPACK/DistantVersion").toFloat() || readCheckerParam("ADDON_MOREHANDICAPS/Version").toFloat() < readCheckerParam("ADDON_MOREHANDICAPS/DistantBaseVersion").toFloat() || readCheckerParam("ADDON_MOREMUSIC/Version").toFloat() < readCheckerParam("ADDON_MOREMUSIC/DistantVersion").toFloat() || svnLocalInfo() < svnDistantInfo()){
             update = true;
             qDebug() << "Update is " << update;
         }
+
         else
         {
             qDebug() << "No update is required";

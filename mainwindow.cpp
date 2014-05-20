@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ubox = new updatebox(this);
     optbox = new optionBox(this);
     updateGUI = new QWidget (this);
+    update_manager = new updateManager(this);
 
     // Main window shape
 
@@ -40,10 +41,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     worker->moveToThread(thread);
     connect(worker, SIGNAL(workRequested()), thread, SLOT(start()));
-    connect(thread, SIGNAL(started()), worker, SLOT(UMCheckLauncherUpdate()));
+    connect(thread, SIGNAL(started()), worker, SLOT(UMCheckUpdate()));
     connect(worker, SIGNAL(finished(bool)), thread, SLOT(quit()), Qt::DirectConnection);
     connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateWindowInfos()), Qt::DirectConnection);
     connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateAvailable(bool)));
+    connect(worker, SIGNAL(finished(bool)), update_manager, SLOT(updateDistantInfos()));
 
 
     // Check launcher update in background (to avoid having two threads running simultaneously, the previous thread is aborted).
@@ -53,7 +55,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Update labels and buttons
     UpdateWindowInfos();
-
 
     // Check for addons
     check_addon_mcp();
@@ -83,53 +84,55 @@ void MainWindow::UpdateWindowInfos()
     lb_palette.setColor(QPalette::WindowText, Qt::black);
     ui->lb_versions->setPalette(lb_palette);
     ui->lb_versions->setText(vers);
+}
 
-
-    // Update button
-
-    if(svnLocalInfo() < svnDistantInfo())
-    {
-        ui->bt_update->setStyleSheet("background-color: yellow");
-        ui->bt_update->setText("Update available !");
-        return;
-    }
-    else
-    {
-        ui->bt_update->setStyleSheet("");
-        ui->bt_update->setText("Check for update");
-        return;
-    }
+void MainWindow::RestoreButtonState()
+{
+    ui->bt_update->setStyleSheet("");
+    ui->bt_update->setText("Check for update");
+    return;
 }
 
 void MainWindow::UpdateAvailable(bool update)
 {
-    // If check for update is positive, popup a window
-    qDebug() << "Update argument is" << update;
+    // Detect if it's a launcher update or another type
+
     if(update)
     {
-        if(readCheckerParam("Main/CheckerAutoUpdate") == "1")
+        if(readCheckerParam("Main/CheckerVersion") < readCheckerParam("Update/DistantCheckerVersion"))
         {
-            launcherUpdate();
-        }
-        else
-        {
-            askUpdate.setWindowTitle("Launcher update available");
-            askUpdate.setText("An update of the launcher is available.");
-            askUpdate.setInformativeText("Do you want to update ?");
-            askUpdate.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
-            int ret = askUpdate.exec();
-            switch (ret) {
-                case QMessageBox::Ok :
-                    launcherUpdate();
-                    break;
+            if(readCheckerParam("Main/CheckerAutoUpdate") == "1")
+            {
+                launcherUpdate();
+            }
+            else
+            {
+                askUpdate.setWindowTitle("Launcher update available");
+                askUpdate.setText("An update of the launcher is available.");
+                askUpdate.setInformativeText("Do you want to update ?");
+                askUpdate.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+                int ret = askUpdate.exec();
+                switch (ret) {
+                    case QMessageBox::Ok :
+                        launcherUpdate();
+                        break;
 
-                case QMessageBox::Cancel :
-                    return;
-                    break;
+                    case QMessageBox::Cancel :
+                        return;
+                        break;
+                }
             }
         }
 
+        else
+        {
+            ui->bt_update->setStyleSheet("background-color: yellow");
+            ui->bt_update->setText("Update available !");
+            return;
+        }
     }
+
+    return;
 }
 
 // Menu actions
@@ -266,6 +269,5 @@ void MainWindow::on_actionPack_binaries_for_git_triggered()
 
 void MainWindow::on_pushButton_clicked()
 {
-    w = new updateManager(this);
-    w->show();
+    update_manager->show();
 }

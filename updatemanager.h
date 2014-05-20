@@ -28,8 +28,16 @@ public:
     explicit updateManager(QWidget *parent = 0);
     ~updateManager();
 
+public slots:
+    void updateDistantInfos();
+
 private:
     QTableWidget *tab_updates;
+    QTableWidgetItem *item_distant_vers;
+    QTableWidgetItem *item_distant_launcher;
+    QTableWidgetItem *item_distant_addon_MCP;
+    QTableWidgetItem *item_distant_addon_MoreMusic;
+    QTableWidgetItem *item_distant_addon_MoreHandicaps;
 };
 
 class Worker : public QObject
@@ -72,7 +80,7 @@ signals:
 
 public slots:
 
-    void UMCheckLauncherUpdate();
+    void UMCheckUpdate();
 };
 
 class Addons : public QWidget

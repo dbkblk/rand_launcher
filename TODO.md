@@ -28,6 +28,10 @@ DONE -> Allow to install the mod from the Civ 4 folder
 - Show a changelog after update
 - Make a configuration cleaner
 - Make an update manager which have checkboxes, rows with name type (mod, launcher, addon update), your version and the newest version. Choose which one to update, them let's have an update party !
+    -> Implement display update
+    -> Implement checkbox to choose what comp to update
+    -> Add buttons to close or apply (greyed if nothing)
+    -> Make a link to a small window to see changelog
 
 ### Bugfix
 

@@ -38,6 +38,7 @@ private slots:
     void UpdateWindowInfos();
     void on_actionOpen_mod_folder_triggered();
     void UpdateAvailable(bool update);
+    void RestoreButtonState();
 
     void on_bt_addons_clicked();
 
@@ -53,7 +54,7 @@ private:
     Worker *worker;
     QMessageBox askUpdate;
     Addons *window_installer;
-    updateManager *w;
+    updateManager *update_manager;
 };
 
 class installBox : public QDialog {
