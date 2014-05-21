@@ -18,13 +18,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    ui->setupUi(this);
+
     // Checker version
-    QString checker_version = "0.9";
-    setCheckerParam("Main/CheckerVersion",checker_version);
+    setCheckerParam("Main/CheckerVersion",QString::number(constants::GLOBAL_CHECKER_VERSION));
 
     // Creation of widgets
-
-    ui->setupUi(this);
     ubox = new updatebox(this);
     optbox = new optionBox(this);
     updateGUI = new QWidget (this);

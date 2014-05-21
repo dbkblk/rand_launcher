@@ -124,12 +124,10 @@ int readColorsCounter()
     read.LoadFile(file);
     if (!read.ErrorID() == 0){
         qDebug() << "The file couldn't be read : " << read.ErrorID();
-        return 0;
+        return 99;
     }
-
     // Go to color level
     tinyxml2::XMLElement* value_el = read.FirstChildElement("Civ4ModularLoadControls")->FirstChildElement("ConfigurationInfos")->FirstChildElement("ConfigurationInfo")->FirstChildElement("Modules")->FirstChildElement("Module")->ToElement();
-
     // Loop
     int counter = -1;
     for(;; value_el=value_el->NextSiblingElement() ) {
@@ -139,9 +137,12 @@ int readColorsCounter()
         if (!strcmp(bLoad, "1")) {
             return counter;
         }
-
+        if (counter == 7)
+        {
+            return 0;
+        }
     }
-    return 0;
+    return 99;
 }
 
 bool setColors(const char* color)

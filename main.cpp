@@ -13,6 +13,8 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+    QApplication a(argc, argv);
+
     // Check architecture
     BOOL b_64BitOpSys;
     #ifdef _WIN64
@@ -61,7 +63,6 @@ int main(int argc, char *argv[])
     }
 
     // Start the GUI
-    QApplication a(argc, argv);
     MainWindow w;
     installBox install;
 

@@ -4,6 +4,8 @@
 #
 #-------------------------------------------------
 
+INCLUDEPATH += .
+
 QT       += core gui network widgets
 
 TARGET = and2_checker

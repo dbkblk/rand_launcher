@@ -15,6 +15,14 @@ class MainWindow;
 class installBox;
 }
 
+namespace constants {
+const double GLOBAL_CHECKER_VERSION = 0.9;
+
+// Define the update url (the second is for testing purpose)
+//const QString GLOBAL_UPDATE_URL = "checker/curl.exe -O -J -L -C - -# --retry 10 --insecure https://raw.githubusercontent.com/dbkblk/and2_checker/master/update.ini";
+const QString GLOBAL_UPDATE_URL = "checker/curl.exe -O -J -L -C - -# --retry 10 --insecure https://dl.dropboxusercontent.com/u/369241/update.ini";
+}
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT

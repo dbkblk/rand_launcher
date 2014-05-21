@@ -2,6 +2,7 @@
 #include "ui_updatemanager.h"
 #include "civ_functions.h"
 #include "updatebox.h"
+#include "mainwindow.h"
 
 #include "QObject"
 #include <QTimer>
@@ -18,8 +19,9 @@
 
 updateManager::updateManager(QWidget *parent)
 {
-    QVBoxLayout *vert_layout;
-    QHBoxLayout *button_layout;
+    QVBoxLayout *vert_layout = new QVBoxLayout(this);
+    QHBoxLayout *button_layout = new QHBoxLayout(this);
+    changelog_box = new updatebox(this);
 
     // Layout
     this->setGeometry(0,0,550,300);
@@ -31,18 +33,33 @@ updateManager::updateManager(QWidget *parent)
     // Table definition
     tab_updates = new QTableWidget(this);
     tab_updates->setRowCount(5);
-    tab_updates->setColumnCount(3);
+    tab_updates->setColumnCount(4);
     tab_updates->setGeometry(10,10,530,280);
     tab_updates->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    tab_updates->setSortingEnabled(false);
+    tab_updates->setSelectionMode(QAbstractItemView::NoSelection);
+    tab_updates->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+    tab_updates->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    tab_updates->setColumnWidth(0,105);
+    tab_updates->setColumnWidth(1,105);
+    tab_updates->setColumnWidth(2,75);
+    tab_updates->setColumnWidth(3,105);
 
     QStringList tab_updates_header;
-    tab_updates_header << "Local vers." << "Distant vers." << "Update ?";
+    tab_updates_header << "Local vers." << "Distant vers." << "Update ?" << "Changelog";
     tab_updates->setHorizontalHeaderLabels(tab_updates_header);
     QStringList tab_updates_columns;
     tab_updates_columns << "Core mod" << "Launcher" << "Addon: Mega civ pack" << "Addon: More music" << "Addon: More handicaps";
     tab_updates->setVerticalHeaderLabels(tab_updates_columns);
-
-
+    tab_updates->horizontalHeader()->setSectionResizeMode(0,QHeaderView::Fixed);
+    tab_updates->horizontalHeader()->setSectionResizeMode(1,QHeaderView::Fixed);
+    tab_updates->horizontalHeader()->setSectionResizeMode(2,QHeaderView::Fixed);
+    tab_updates->horizontalHeader()->setSectionResizeMode(3,QHeaderView::Fixed);
+    tab_updates->verticalHeader()->setSectionResizeMode(0,QHeaderView::Fixed);
+    tab_updates->verticalHeader()->setSectionResizeMode(1,QHeaderView::Fixed);
+    tab_updates->verticalHeader()->setSectionResizeMode(2,QHeaderView::Fixed);
+    tab_updates->verticalHeader()->setSectionResizeMode(3,QHeaderView::Fixed);
+    tab_updates->verticalHeader()->setSectionResizeMode(4,QHeaderView::Fixed);
 
     /* Local revisions */
     // Core mod
@@ -50,26 +67,31 @@ updateManager::updateManager(QWidget *parent)
     QTableWidgetItem *item_local_vers = new QTableWidgetItem;
     QString local_version = QString::number(svnLocalInfo());
     item_local_vers->setText(local_version);
+    item_local_vers->setTextAlignment(Qt::AlignCenter);
     tab_updates->setItem(0,0,item_local_vers);
 
     // Launcher
     QTableWidgetItem *item_local_launcher = new QTableWidgetItem;
     item_local_launcher->setText(readCheckerParam("Main/CheckerVersion"));
+    item_local_launcher->setTextAlignment(Qt::AlignCenter);
     tab_updates->setItem(1,0,item_local_launcher);
 
     // Addon MCP
     QTableWidgetItem *item_local_addon_MCP = new QTableWidgetItem;
     item_local_addon_MCP->setText(readCheckerParam("ADDON_MEGACIVPACK/FilesVersion"));
+    item_local_addon_MCP->setTextAlignment(Qt::AlignCenter);
     tab_updates->setItem(2,0,item_local_addon_MCP);
 
     // Addon More music
     QTableWidgetItem *item_local_addon_MoreMusic = new QTableWidgetItem;
     item_local_addon_MoreMusic->setText(readCheckerParam("ADDON_MOREMUSIC/Version"));
+    item_local_addon_MoreMusic->setTextAlignment(Qt::AlignCenter);
     tab_updates->setItem(3,0,item_local_addon_MoreMusic);
 
     // Addon More handicaps
     QTableWidgetItem *item_local_addon_MoreHandicaps = new QTableWidgetItem;
     item_local_addon_MoreHandicaps->setText(readCheckerParam("ADDON_MOREHANDICAPS/Version"));
+    item_local_addon_MoreHandicaps->setTextAlignment(Qt::AlignCenter);
     tab_updates->setItem(4,0,item_local_addon_MoreHandicaps);
 
     /* Distant revisions */
@@ -77,32 +99,150 @@ updateManager::updateManager(QWidget *parent)
     item_distant_vers = new QTableWidgetItem;
     tab_updates->setItem(0,1,item_distant_vers);
     item_distant_vers->setText(readCheckerParam("Update/DistantRev"));
+    item_distant_vers->setTextAlignment(Qt::AlignCenter);
 
     // Launcher
     item_distant_launcher = new QTableWidgetItem;
     tab_updates->setItem(1,1,item_distant_launcher);
     item_distant_launcher->setText(readCheckerParam("Update/DistantCheckerVersion"));
+    item_distant_launcher->setTextAlignment(Qt::AlignCenter);
 
     // Addon MCP
     item_distant_addon_MCP = new QTableWidgetItem;
     tab_updates->setItem(2,1,item_distant_addon_MCP);
     item_distant_addon_MCP->setText(readCheckerParam("ADDON_MEGACIVPACK/DistantBaseVersion"));
+    item_distant_addon_MCP->setTextAlignment(Qt::AlignCenter);
 
     // Addon More music
     item_distant_addon_MoreMusic = new QTableWidgetItem;
     tab_updates->setItem(3,1,item_distant_addon_MoreMusic);
     item_distant_addon_MoreMusic->setText(readCheckerParam("ADDON_MOREMUSIC/DistantVersion"));
+    item_distant_addon_MoreMusic->setTextAlignment(Qt::AlignCenter);
 
     // Addon More handicaps
     item_distant_addon_MoreHandicaps = new QTableWidgetItem;
     tab_updates->setItem(4,1,item_distant_addon_MoreHandicaps);
     item_distant_addon_MoreHandicaps->setText(readCheckerParam("ADDON_MOREHANDICAPS/DistantVersion"));
+    item_distant_addon_MoreHandicaps->setTextAlignment(Qt::AlignCenter);
 
-    //updateDistantInfos();
-/*
+    /* Checkboxes */
+    QWidget *update_core_widget = new QWidget();
+    QCheckBox *update_core_checkbox = new QCheckBox();
+    QHBoxLayout *update_core_layout = new QHBoxLayout(update_core_widget);
+    update_core_layout->addWidget(update_core_checkbox);
+    update_core_layout->setAlignment(Qt::AlignCenter);
+    update_core_layout->setContentsMargins(0,0,0,0);
+    update_core_widget->setLayout(update_core_layout);
+    tab_updates->setCellWidget(0,2,update_core_widget);
+
+    QWidget *update_launcher_widget = new QWidget();
+    QCheckBox *update_launcher_checkbox = new QCheckBox();
+    QHBoxLayout *update_launcher_layout = new QHBoxLayout(update_launcher_widget);
+    update_launcher_layout->addWidget(update_launcher_checkbox);
+    update_launcher_layout->setAlignment(Qt::AlignCenter);
+    update_launcher_layout->setContentsMargins(0,0,0,0);
+    update_launcher_widget->setLayout(update_launcher_layout);
+    tab_updates->setCellWidget(1,2,update_launcher_widget);
+
+    QWidget *update_addon_MCP_widget = new QWidget();
+    QCheckBox *update_addon_MCP_checkbox = new QCheckBox();
+    QHBoxLayout *update_addon_MCP_layout = new QHBoxLayout(update_addon_MCP_widget);
+    update_addon_MCP_layout->addWidget(update_addon_MCP_checkbox);
+    update_addon_MCP_layout->setAlignment(Qt::AlignCenter);
+    update_addon_MCP_layout->setContentsMargins(0,0,0,0);
+    update_addon_MCP_widget->setLayout(update_addon_MCP_layout);
+    tab_updates->setCellWidget(2,2,update_addon_MCP_widget);
+
+    QWidget *update_addon_moremusic_widget = new QWidget();
+    QCheckBox *update_addon_moremusic_checkbox = new QCheckBox();
+    QHBoxLayout *update_addon_moremusic_layout = new QHBoxLayout(update_addon_moremusic_widget);
+    update_addon_moremusic_layout->addWidget(update_addon_moremusic_checkbox);
+    update_addon_moremusic_layout->setAlignment(Qt::AlignCenter);
+    update_addon_moremusic_layout->setContentsMargins(0,0,0,0);
+    update_addon_moremusic_widget->setLayout(update_addon_moremusic_layout);
+    tab_updates->setCellWidget(3,2,update_addon_moremusic_widget);
+
+    QWidget *update_addon_morehandicaps_widget = new QWidget();
+    QCheckBox *update_addon_morehandicaps_checkbox = new QCheckBox();
+    QHBoxLayout *update_addon_morehandicaps_layout = new QHBoxLayout(update_addon_morehandicaps_widget);
+    update_addon_morehandicaps_layout->addWidget(update_addon_morehandicaps_checkbox);
+    update_addon_morehandicaps_layout->setAlignment(Qt::AlignCenter);
+    update_addon_morehandicaps_layout->setContentsMargins(0,0,0,0);
+    update_addon_morehandicaps_widget->setLayout(update_addon_morehandicaps_layout);
+    tab_updates->setCellWidget(4,2,update_addon_morehandicaps_widget);
+
+    /* Changelog buttons */
+    QWidget *button_core_widget = new QWidget();
+    QPushButton *button_core_checkbox = new QPushButton(this);
+    button_core_checkbox->setText("View");
+    button_core_checkbox->setEnabled(true);
+    QHBoxLayout *button_core_layout = new QHBoxLayout(button_core_widget);
+    button_core_layout->addWidget(button_core_checkbox);
+    button_core_layout->setAlignment(Qt::AlignCenter);
+    button_core_layout->setContentsMargins(0,0,0,0);
+    button_core_widget->setLayout(button_core_layout);
+    tab_updates->setCellWidget(0,3,button_core_widget);
+
+    QWidget *button_launcher_widget = new QWidget();
+    QPushButton *button_launcher_checkbox = new QPushButton();
+    button_launcher_checkbox->setText("View");
+    QHBoxLayout *button_launcher_layout = new QHBoxLayout(button_launcher_widget);
+    button_launcher_layout->addWidget(button_launcher_checkbox);
+    button_launcher_layout->setAlignment(Qt::AlignCenter);
+    button_launcher_layout->setContentsMargins(0,0,0,0);
+    button_launcher_widget->setLayout(button_launcher_layout);
+    tab_updates->setCellWidget(1,3,button_launcher_widget);
+
+    QWidget *button_addon_MCP_widget = new QWidget();
+    QPushButton *button_addon_MCP_checkbox = new QPushButton();
+    button_addon_MCP_checkbox->setText("View");
+    QHBoxLayout *button_addon_MCP_layout = new QHBoxLayout(button_addon_MCP_widget);
+    button_addon_MCP_layout->addWidget(button_addon_MCP_checkbox);
+    button_addon_MCP_layout->setAlignment(Qt::AlignCenter);
+    button_addon_MCP_layout->setContentsMargins(0,0,0,0);
+    button_addon_MCP_widget->setLayout(button_addon_MCP_layout);
+    tab_updates->setCellWidget(2,3,button_addon_MCP_widget);
+
+    QWidget *button_addon_moremusic_widget = new QWidget();
+    QPushButton *button_addon_moremusic_checkbox = new QPushButton();
+    button_addon_moremusic_checkbox->setText("View");
+    QHBoxLayout *button_addon_moremusic_layout = new QHBoxLayout(button_addon_moremusic_widget);
+    button_addon_moremusic_layout->addWidget(button_addon_moremusic_checkbox);
+    button_addon_moremusic_layout->setAlignment(Qt::AlignCenter);
+    button_addon_moremusic_layout->setContentsMargins(0,0,0,0);
+    button_addon_moremusic_widget->setLayout(button_addon_moremusic_layout);
+    tab_updates->setCellWidget(3,3,button_addon_moremusic_widget);
+
+    QWidget *button_addon_morehandicaps_widget = new QWidget();
+    QPushButton *button_addon_morehandicaps_checkbox = new QPushButton();
+    button_addon_morehandicaps_checkbox->setText("View");
+    QHBoxLayout *button_addon_morehandicaps_layout = new QHBoxLayout(button_addon_morehandicaps_widget);
+    button_addon_morehandicaps_layout->addWidget(button_addon_morehandicaps_checkbox);
+    button_addon_morehandicaps_layout->setAlignment(Qt::AlignCenter);
+    button_addon_morehandicaps_layout->setContentsMargins(0,0,0,0);
+    button_addon_morehandicaps_widget->setLayout(button_addon_morehandicaps_layout);
+    tab_updates->setCellWidget(4,3,button_addon_morehandicaps_widget);
+
+    // Buttons
     vert_layout->addWidget(tab_updates);
-    vert_layout->addLayout(button_layout);*/
-    //this->show();
+    QWidget *buttons = new QWidget();
+    QPushButton *apply = new QPushButton();
+    QPushButton *cancel = new QPushButton();
+    apply->setText("Apply changes");
+    cancel->setText("Cancel");
+    button_layout->addStretch();
+    button_layout->addWidget(cancel);
+    button_layout->addWidget(apply);
+    vert_layout->addLayout(button_layout);
+
+    // Actions
+    connect(button_core_checkbox,SIGNAL(clicked()),this,SLOT(changelogCore()));
+    connect(button_launcher_checkbox,SIGNAL(clicked()),this,SLOT(on_launcher_changelog_clicked()));
+    connect(button_addon_MCP_checkbox,SIGNAL(clicked()),this,SLOT(on_addon_megacivpack_clicked()));
+    connect(button_addon_morehandicaps_checkbox,SIGNAL(clicked()),this,SLOT(on_addon_sogroon_clicked()));
+    connect(button_addon_moremusic_checkbox,SIGNAL(clicked()),this,SLOT(on_addon_sogroon_clicked()));
+    connect(cancel,SIGNAL(clicked()),this,SLOT(close()));
+
 }
 
 updateManager::~updateManager()
@@ -111,13 +251,45 @@ updateManager::~updateManager()
 
 void updateManager::updateDistantInfos()
 {
+    qDebug() << "Update infos";
     /* Update revisions */
     QString distant_version = QString::number(svnDistantInfo());
     this->item_distant_vers->setText(distant_version);
     this->item_distant_launcher->setText(readCheckerParam("Update/DistantCheckerVersion"));
-    this->item_distant_launcher->setText(readCheckerParam("ADDON_MEGACIVPACK/DistantBaseVersion"));
-    this->item_distant_launcher->setText(readCheckerParam("ADDON_MOREMUSIC/DistantVersion"));
-    this->item_distant_launcher->setText(readCheckerParam("ADDON_MOREMUSIC/DistantVersion"));
+    this->item_distant_addon_MCP->setText(readCheckerParam("ADDON_MEGACIVPACK/DistantBaseVersion"));
+    this->item_distant_addon_MoreMusic->setText(readCheckerParam("ADDON_MOREMUSIC/DistantVersion"));
+    this->item_distant_addon_MoreHandicaps->setText(readCheckerParam("ADDON_MOREMUSIC/DistantVersion"));
+}
+
+void updateManager::changelogCore()
+{
+    // Calculate changelog difference
+    int chglog_diff = readCheckerParam("Update/DistantRev").toInt() - readCheckerParam("Main/LocalRev").toInt();
+    qDebug() << "The changelog diff is equal to " << chglog_diff;
+
+    bool value = true;
+    char command[30];
+    sprintf(command,"checker/svn.exe log -l %d -r HEAD:BASE",chglog_diff);
+    //changelog_box->changelogMode();
+    changelog_box->show();
+    //changelog_box->setWindowTitle("Update tool");
+    //changelog_box->execute(command,value);
+    //connect(changelog_box,SIGNAL(finished()),this,SLOT(close()));
+}
+
+void updateManager::on_launcher_changelog_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://github.com/dbkblk/and2_checker/releases"));
+}
+
+void updateManager::on_addon_sogroon_clicked()
+{
+    QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=523763"));
+}
+
+void updateManager::on_addon_megacivpack_clicked()
+{
+    QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=521289"));
 }
 
 Worker::Worker(QObject *parent) :
@@ -159,8 +331,7 @@ void Worker::UMCheckUpdate()
     qDebug()<<"Starting worker process in Thread "<<thread()->currentThreadId();
     bool update;
     QProcess download;
-    //download.start("checker/curl.exe -O -J -L -C - -# --retry 10 --insecure https://raw.githubusercontent.com/dbkblk/and2_checker/master/update.ini");
-    download.start("checker/curl.exe -O -J -L -C - -# --retry 10 --insecure https://dl.dropboxusercontent.com/u/369241/update.ini");
+    download.start(constants::GLOBAL_UPDATE_URL);
 
     if (download.waitForFinished(60000))
     {

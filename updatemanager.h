@@ -30,6 +30,10 @@ public:
 
 public slots:
     void updateDistantInfos();
+    void changelogCore();
+    void on_launcher_changelog_clicked();
+    void on_addon_sogroon_clicked();
+    void on_addon_megacivpack_clicked();
 
 private:
     QTableWidget *tab_updates;
@@ -38,6 +42,9 @@ private:
     QTableWidgetItem *item_distant_addon_MCP;
     QTableWidgetItem *item_distant_addon_MoreMusic;
     QTableWidgetItem *item_distant_addon_MoreHandicaps;
+    QPushButton apply;
+    QPushButton cancel;
+    updatebox *changelog_box;
 };
 
 class Worker : public QObject

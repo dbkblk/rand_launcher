@@ -27,7 +27,6 @@ optionBox::optionBox(QWidget *parent) :
     connect(chglog,SIGNAL(finished()),parent,SLOT(UpdateWindowInfos()));
 
     // Set the detected color
-
     ui->colorBox->setCurrentIndex(readColorsCounter());
 
     // Check default states
