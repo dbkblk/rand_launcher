@@ -87,8 +87,8 @@ void MainWindow::UpdateWindowInfos()
 
 void MainWindow::RestoreButtonState()
 {
-    ui->bt_update->setStyleSheet("");
-    ui->bt_update->setText("Check for update");
+    ui->bt_components->setStyleSheet("");
+    ui->bt_components->setText("Check for update");
     return;
 }
 
@@ -125,8 +125,8 @@ void MainWindow::UpdateAvailable(bool update)
 
         else
         {
-            ui->bt_update->setStyleSheet("background-color: yellow");
-            ui->bt_update->setText("Update available !");
+            ui->bt_components->setStyleSheet("background-color: yellow");
+            ui->bt_components->setText("Update available !");
             return;
         }
     }
@@ -255,18 +255,12 @@ void installBox::on_buttonBox_rejected()
     qApp->exit();
 }
 
-void MainWindow::on_bt_addons_clicked()
-{
-    window_installer = new Addons(this);
-    window_installer->show();
-}
-
 void MainWindow::on_actionPack_binaries_for_git_triggered()
 {
     system("checker\\PackBaseFile.bat");
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_bt_components_clicked()
 {
     update_manager->show();
 }

@@ -47,12 +47,8 @@ private slots:
     void on_actionOpen_mod_folder_triggered();
     void UpdateAvailable(bool update);
     void RestoreButtonState();
-
-    void on_bt_addons_clicked();
-
     void on_actionPack_binaries_for_git_triggered();
-
-    void on_pushButton_clicked();
+    void on_bt_components_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -61,7 +57,6 @@ private:
     QThread *thread;
     Worker *worker;
     QMessageBox askUpdate;
-    Addons *window_installer;
     updateManager *update_manager;
 };
 

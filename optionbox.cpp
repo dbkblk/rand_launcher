@@ -81,6 +81,7 @@ void optionBox::on_opt_bt_update_clicked()
     bool value = false;
     chglog->execute("checker/svn.exe update",value);
     clearCache();
+    clearGameOptions();
 
     msg_show = true;
     chglog->message = "The mod has been updated.";
@@ -91,6 +92,7 @@ void optionBox::on_opt_bt_cleanup_clicked()
     bool value = false;
     chglog->execute("checker/svn.exe cleanup",value);
     clearCache();
+    clearGameOptions();
     QMessageBox::information(chglog, "Mod cleaned up", "The mod has been cleaned up. You can update the game now (it can grab the missing files).");
 }
 
@@ -103,6 +105,7 @@ void optionBox::on_opt_bt_restore_clicked()
     bool value = false;
     chglog->execute("checker/svn.exe update -r PREV --accept theirs-full",value);
     clearCache();
+    clearGameOptions();
 
     msg_show = true;
     chglog->message = "The mod has been reverted to the previous version.";
@@ -120,6 +123,7 @@ void optionBox::on_opt_bt_chooserev_clicked()
     chglog->setWindowTitle("Reverting version...");
     chglog->execute(cmd,value);
     clearCache();
+    clearGameOptions();
 
     msg_show = true;
     chglog->message = "The mod has been reverted to the revision " + dial_rev;

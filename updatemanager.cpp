@@ -227,8 +227,7 @@ updateManager::updateManager(QWidget *parent)
     // Buttons
     vert_layout->addWidget(tab_updates);
     QWidget *buttons = new QWidget();
-    QPushButton *apply = new QPushButton();
-    QPushButton *cancel = new QPushButton();
+    apply->setEnabled(false);
     apply->setText("Apply changes");
     cancel->setText("Cancel");
     button_layout->addStretch();
@@ -240,6 +239,11 @@ updateManager::updateManager(QWidget *parent)
 
 
     // Actions
+    connect(update_core_checkbox,SIGNAL(clicked()),this,SLOT(on_checkbox_clicked()));
+    connect(update_launcher_checkbox,SIGNAL(clicked()),this,SLOT(on_checkbox_clicked()));
+    connect(update_addon_MCP_checkbox,SIGNAL(clicked()),this,SLOT(on_checkbox_clicked()));
+    connect(update_addon_morehandicaps_checkbox,SIGNAL(clicked()),this,SLOT(on_checkbox_clicked()));
+    connect(update_addon_moremusic_checkbox,SIGNAL(clicked()),this,SLOT(on_checkbox_clicked()));
     connect(button_core_checkbox,SIGNAL(clicked()),this,SLOT(changelogCore()));
     connect(button_launcher_checkbox,SIGNAL(clicked()),this,SLOT(on_launcher_changelog_clicked()));
     connect(button_addon_MCP_checkbox,SIGNAL(clicked()),this,SLOT(on_addon_megacivpack_clicked()));
@@ -312,6 +316,7 @@ void updateManager::addons_installation()
         bool cursor = false;
         addon_setup->execute("checker/svn.exe update", cursor);
         clearCache();
+        clearGameOptions();
     }
 
     if(update_addon_MCP_checkbox->isChecked())
@@ -458,6 +463,18 @@ void updateManager::on_addon_megacivpack_clicked()
     QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=521289"));
 }
 
+void updateManager::on_checkbox_clicked()
+{
+    if (update_core_checkbox->isChecked() == true || update_launcher_checkbox->isChecked() == true  || update_addon_MCP_checkbox->isChecked() == true  || update_addon_moremusic_checkbox->isChecked() == true  || update_addon_morehandicaps_checkbox->isChecked() == true )
+    {
+        this->apply->setEnabled(true);
+    }
+    else
+    {
+        this->apply->setEnabled(false);
+    }
+}
+
 Worker::Worker(QObject *parent) :
     QObject(parent)
 {
@@ -566,7 +583,9 @@ bool clearCache()
 
 bool clearGameOptions()
 {
-    setConfigParam(GameOptions,"");
+    setConfigParam("GameOptions","");
+    qDebug() << "Cleared parameters";
+    return 0;
 }
 
 int svnLocalInfo(){
@@ -635,93 +654,4 @@ int svnDistantInfo()
         }
         return rev_dist.toInt();
 }
-
-Addons::Addons(QWidget *)
-{
-     // Layout
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    QHBoxLayout *buttons = new QHBoxLayout(this);
-
-    this->setWindowTitle("Addon manager");
-    const QRect screen = QApplication::desktop()->screenGeometry();
-    this->setGeometry(0,0,300,120);
-    this->setFixedSize(size());
-    this->move(screen.center() - this->rect().center() );
-
-    // Add widgets
-    addon_mega_civ_pack = new QCheckBox(this);
-    addon_mega_civ_pack->setText("Mega Civ Pack");
-    addon_mega_civ_pack->setCheckable(true);
-    layout->addWidget(addon_mega_civ_pack);
-
-    addon_more_music = new QCheckBox(this);
-    addon_more_music->setText("More music");
-    addon_more_music->setCheckable(true);
-    layout->addWidget(addon_more_music);
-
-    addon_more_handicaps = new QCheckBox(this);
-    addon_more_handicaps->setText("More handicaps");
-    addon_more_handicaps->setCheckable(true);
-    layout->addWidget(addon_more_handicaps);
-
-    buttons->addStretch();
-    addon_close = new QPushButton(this) ;
-    addon_close->setText("Close");
-    buttons->addWidget(addon_close);
-
-    addon_apply = new QPushButton(this) ;
-    addon_apply->setText("Apply changes");
-    buttons->addWidget(addon_apply);
-
-    layout->addLayout(buttons);
-
-    // Check for unknown versions
-    if(readCheckerParam("ADDON_MEGACIVPACK/FilesVersion").toInt() == 0)
-    {
-        addon_mega_civ_pack->setText("Mega Civ Pack detected (Unknown version)");
-        addon_mega_civ_pack->setCheckable(true);
-    }
-    if(readCheckerParam("ADDON_MOREMUSIC/Version").toInt() == 0)
-    {
-        addon_more_music->setText("More music detected (Unknown version)");
-        addon_more_music->setCheckable(true);
-    }
-
-    if(readCheckerParam("ADDON_MOREHANDICAPS/Version").toInt() == 0)
-    {
-        addon_more_handicaps->setText("More handicaps detected (Unknown version)");
-        addon_more_handicaps->setCheckable(true);
-    }
-
-    // Check for known versions
-    if(readCheckerParam("ADDON_MEGACIVPACK/FilesVersion").toFloat() > 0)
-    {
-        QString megacivpack_version = "Mega Civ Pack detected, version : " + readCheckerParam("ADDON_MEGACIVPACK/FilesVersion");
-        addon_mega_civ_pack->setText(megacivpack_version);
-        addon_mega_civ_pack->setCheckable(false);
-    }
-    if(readCheckerParam("ADDON_MOREMUSIC/Version").toFloat() > 0)
-    {
-        QString moremusic_version = "More music detected, version : " + readCheckerParam("ADDON_MOREMUSIC/Version");
-        addon_more_music->setText(moremusic_version);
-        addon_more_music->setCheckable(false);
-    }
-
-    if(readCheckerParam("ADDON_MOREHANDICAPS/Version").toFloat() > 0)
-    {
-        QString morehandicaps_version = "More handicaps detected, version : " + readCheckerParam("ADDON_MOREHANDICAPS/Version");
-        addon_more_handicaps->setText(morehandicaps_version);
-        addon_more_handicaps->setCheckable(false);
-    }
-
-    // Signals
-    connect(addon_close,SIGNAL(clicked()),this,SLOT(close()));
-    connect(addon_apply,SIGNAL(clicked()),this,SLOT(addons_installation()));
-}
-
-Addons::~Addons()
-{
-
-}
-
 

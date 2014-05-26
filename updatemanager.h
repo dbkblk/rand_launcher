@@ -36,6 +36,7 @@ public slots:
     void on_addon_sogroon_clicked();
     void on_addon_megacivpack_clicked();
     void addons_installation();
+    void on_checkbox_clicked();
 
 private:
     QTableWidget *tab_updates;
@@ -44,8 +45,8 @@ private:
     QTableWidgetItem *item_distant_addon_MCP;
     QTableWidgetItem *item_distant_addon_MoreMusic;
     QTableWidgetItem *item_distant_addon_MoreHandicaps;
-    QPushButton apply;
-    QPushButton cancel;
+    QPushButton *apply = new QPushButton(this);
+    QPushButton *cancel = new QPushButton(this);
     updatebox *changelog_box;
     updatebox *addon_setup;
     QCheckBox *update_core_checkbox;
@@ -96,28 +97,6 @@ signals:
 public slots:
 
     void UMCheckUpdate();
-};
-
-class Addons : public QWidget
-{
-        Q_OBJECT
-
-public:
-    explicit Addons(QWidget *parent = 0);
-    ~Addons();
-    void WindowInstaller();
-
-public slots:
-
-
-private:
-    updatebox *addon_setup;
-    QCheckBox *addon_mega_civ_pack;
-    QCheckBox *addon_more_music;
-    QCheckBox *addon_more_handicaps;
-    QSettings *box_state;
-    QPushButton *addon_close;
-    QPushButton *addon_apply;
 };
 
 #endif // UPDATEMANAGER_H

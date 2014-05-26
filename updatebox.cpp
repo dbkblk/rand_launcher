@@ -157,6 +157,7 @@ void updatebox::on_bt_update_accepted()
     bool cursor = false;
     execute("checker/svn.exe update", cursor);
     clearCache();
+    clearGameOptions();
     bt_chglog_close->show();
     connect(bt_chglog_close,SIGNAL(clicked()),this,SLOT(close()));
 }
