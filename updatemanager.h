@@ -16,6 +16,7 @@ class updateManager;
 }
 
 bool clearCache();
+bool clearGameOptions();
 bool launcherUpdate();
 int svnLocalInfo();
 int svnDistantInfo();
@@ -34,6 +35,7 @@ public slots:
     void on_launcher_changelog_clicked();
     void on_addon_sogroon_clicked();
     void on_addon_megacivpack_clicked();
+    void addons_installation();
 
 private:
     QTableWidget *tab_updates;
@@ -45,6 +47,12 @@ private:
     QPushButton apply;
     QPushButton cancel;
     updatebox *changelog_box;
+    updatebox *addon_setup;
+    QCheckBox *update_core_checkbox;
+    QCheckBox *update_launcher_checkbox;
+    QCheckBox *update_addon_MCP_checkbox;
+    QCheckBox *update_addon_moremusic_checkbox;
+    QCheckBox *update_addon_morehandicaps_checkbox;
 };
 
 class Worker : public QObject
@@ -100,7 +108,7 @@ public:
     void WindowInstaller();
 
 public slots:
-    void addons_installation();
+
 
 private:
     updatebox *addon_setup;

@@ -63,11 +63,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    QProcess::execute("taskkill /f /im curl.exe");
     // Abort threads and close the ui
     worker->abort();
     thread->wait();
     qDebug()<<"Deleting thread and worker in Thread "<<this->QObject::thread()->currentThreadId();
+    QFile::remove("checker/update.ini");
     delete thread;
     delete worker;
     delete ui;

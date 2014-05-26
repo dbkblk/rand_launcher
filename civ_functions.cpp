@@ -17,6 +17,7 @@ bool setConfigParam(QString param, QString newValue)
     // Get config paths
     QDir config_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/My Games/Beyond the sword/";
     QString ini_orig = config_path.filePath("CivilizationIV.ini");
+    QString ini_temp = config_path.filePath("CivlizationIV.ini.temp");
     QString ini_backup = config_path.filePath("CivilizationIV.bak");
 
     // Make a backup
@@ -24,10 +25,27 @@ bool setConfigParam(QString param, QString newValue)
     QFile::copy(ini_orig, ini_backup);
 
     // Set value
-    QSettings settings(ini_orig, QSettings::IniFormat);
-    settings.setValue(param, newValue);
+    QFile file_in(ini_orig);
+    QFile file_out(ini_temp);
+    file_in.open(QIODevice::ReadOnly | QIODevice::Text);
+    file_out.open(QIODevice::WriteOnly | QIODevice::Truncate);
+    QTextStream in_enc(&file_in);
+    QTextStream out_enc(&file_out);
+    while(!in_enc.atEnd())
+    {
+        QString line = in_enc.readLine();
+        if(line.contains(param + " ="))
+        {
+            line = param + " = " + newValue;
+        }
+        out_enc << line << "\n";
+    }
+    file_in.close();
+    file_out.close();
+    QFile::remove(ini_orig);
+    QFile::rename(ini_temp,ini_orig);
 
-    qDebug() << "Parameter set to " << settings.value(param);
+    qDebug() << "Parameter set to " << newValue;
     return 0;
 }
 
@@ -37,8 +55,22 @@ QString readConfigParam(QString param)
     QDir config_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/My Games/Beyond the sword/";
     QString ini_orig = config_path.filePath("CivilizationIV.ini");
 
-    QSettings settings(ini_orig, QSettings::IniFormat);
-    QString value = settings.value(param).toString();
+    // Read value
+    QFile file_in(ini_orig);
+    QString value;
+    file_in.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream in_enc(&file_in);
+    while(!in_enc.atEnd())
+    {
+        QString line = in_enc.readLine();
+        if(line.contains(param + " ="))
+        {
+            line.replace(param + " = ","");
+            value = line;
+        }
+    }
+    file_in.close();
+
     qDebug() << value;
     return value;
 }

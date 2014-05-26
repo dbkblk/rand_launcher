@@ -31,7 +31,7 @@ optionBox::optionBox(QWidget *parent) :
 
     // Check default states
 
-    if(readConfigParam("CONFIG/Mod") == "Mods/Rise of Mankind - A New Dawn") {
+    if(readConfigParam("Mod") == "Rise of Mankind - A New Dawn") {
         ui->startBox->setChecked(1);
     }
     else {
@@ -134,10 +134,10 @@ void optionBox::on_colorBox_currentIndexChanged(const QString &colorName)
 void optionBox::on_startBox_toggled(bool checked)
 {
     if(!checked) {
-        setConfigParam("CONFIG/Mod", "0");
+        setConfigParam("Mod", "0");
     }
     if(checked) {
-        setConfigParam("CONFIG/Mod", "Mods/Rise of Mankind - A New Dawn");
+        setConfigParam("Mod", "Rise of Mankind - A New Dawn");
     }
 }
 

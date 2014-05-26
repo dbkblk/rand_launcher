@@ -138,14 +138,14 @@ void updatebox::installMode()
 void updatebox::addonsMode()
 {
     // Layout update
-    this->setWindowTitle("Addons setup");
+    this->setWindowTitle("Components setup");
     ui->consoleOutput->clear();
     ui->consoleOutput->setReadOnly(1);
     ui->consoleOutput->setGeometry(20,40,460,340);
     ui->lb_askupdate->hide();
     ui->bt_update->hide();
     ui->lb_changelog->setGeometry(20,10,230,20);
-    ui->lb_changelog->setText("Downloading and installing selected addons :");
+    ui->lb_changelog->setText("Installing / updating selected components :");
     bt_chglog_close->show();
     bt_chglog_close->setText("Cancel");
     connect(bt_chglog_close,SIGNAL(clicked()),this,SLOT(close()));
