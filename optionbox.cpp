@@ -173,7 +173,7 @@ void optionBox::on_opt_bt_path_clicked()
 
 void optionBox::on_opt_bt_chklauncher_clicked()
 {
-     if(readCheckerParam("Main/CheckerVersion") < readCheckerParam("Update/DistantCheckerVersion"))
+     if(LauncherVersionCalculation())
      {
          QMessageBox upd_box;
          upd_box.setWindowTitle("Launcher update available");

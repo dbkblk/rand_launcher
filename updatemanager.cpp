@@ -73,7 +73,7 @@ updateManager::updateManager(QWidget *parent)
 
     // Launcher
     QTableWidgetItem *item_local_launcher = new QTableWidgetItem;
-    item_local_launcher->setText(readCheckerParam("Main/CheckerVersion"));
+    item_local_launcher->setText(readCheckerParam("Main/CheckerMajorVersion") + "." + readCheckerParam("Main/CheckerMinorVersion"));
     item_local_launcher->setTextAlignment(Qt::AlignCenter);
     tab_updates->setItem(1,0,item_local_launcher);
 
@@ -105,7 +105,7 @@ updateManager::updateManager(QWidget *parent)
     // Launcher
     item_distant_launcher = new QTableWidgetItem;
     tab_updates->setItem(1,1,item_distant_launcher);
-    item_distant_launcher->setText(readCheckerParam("Update/DistantCheckerVersion"));
+    item_distant_launcher->setText(readCheckerParam("Update/DistantCheckerMajorVersion") + "." + readCheckerParam("Update/DistantCheckerMinorVersion"));
     item_distant_launcher->setTextAlignment(Qt::AlignCenter);
 
     // Addon MCP
@@ -265,7 +265,7 @@ void updateManager::updateDistantInfos()
     /* Update revisions */
     QString distant_version = QString::number(svnDistantInfo());
     this->item_distant_vers->setText(distant_version);
-    this->item_distant_launcher->setText(readCheckerParam("Update/DistantCheckerVersion"));
+    this->item_distant_launcher->setText(readCheckerParam("Update/DistantCheckerMajorVersion") + "." + readCheckerParam("Update/DistantCheckerMinorVersion"));
     this->item_distant_addon_MCP->setText(readCheckerParam("ADDON_MEGACIVPACK/DistantBaseVersion"));
     this->item_distant_addon_MoreMusic->setText(readCheckerParam("ADDON_MOREMUSIC/DistantVersion"));
     this->item_distant_addon_MoreHandicaps->setText(readCheckerParam("ADDON_MOREMUSIC/DistantVersion"));
@@ -632,13 +632,14 @@ void Worker::UMCheckUpdate()
 
         // Reading update info
         setCheckerParam("Update/Changelog",upd_ini.value("VERSION/Changelog").toString());
-        setCheckerParam("Update/DistantCheckerVersion",upd_ini.value("VERSION/CheckerVersion").toString());
+        setCheckerParam("Update/DistantCheckerMajorVersion",upd_ini.value("VERSION/CheckerMajorVersion").toString());
+        setCheckerParam("Update/DistantCheckerMinorVersion",upd_ini.value("VERSION/CheckerMinorVersion").toString());
         setCheckerParam("ADDON_MOREMUSIC/DistantVersion",upd_ini.value("ADDON_MOREMUSIC/Version").toString());
         setCheckerParam("ADDON_MOREHANDICAPS/DistantVersion",upd_ini.value("ADDON_MOREHANDICAPS/Version").toString());
         setCheckerParam("ADDON_MEGACIVPACK/DistantBaseVersion",upd_ini.value("ADDON_MEGACIVPACK/BaseVersion").toString());
         setCheckerParam("ADDON_MEGACIVPACK/DistantBaseVersion",upd_ini.value("ADDON_MEGACIVPACK/FilesVersion").toString());
 
-        if(readCheckerParam("Main/CheckerVersion").toFloat() < readCheckerParam("Update/DistantCheckerVersion").toFloat() || readCheckerParam("ADDON_MEGACIVPACK/FilesVersion").toFloat() < readCheckerParam("ADDON_MEGACIVPACK/DistantVersion").toFloat() || readCheckerParam("ADDON_MOREHANDICAPS/Version").toFloat() < readCheckerParam("ADDON_MOREHANDICAPS/DistantBaseVersion").toFloat() || readCheckerParam("ADDON_MOREMUSIC/Version").toFloat() < readCheckerParam("ADDON_MOREMUSIC/DistantVersion").toFloat() || svnLocalInfo() < svnDistantInfo()){
+        if(LauncherVersionCalculation() == true || readCheckerParam("ADDON_MEGACIVPACK/FilesVersion").toFloat() < readCheckerParam("ADDON_MEGACIVPACK/DistantVersion").toFloat() || readCheckerParam("ADDON_MOREHANDICAPS/Version").toFloat() < readCheckerParam("ADDON_MOREHANDICAPS/DistantBaseVersion").toFloat() || readCheckerParam("ADDON_MOREMUSIC/Version").toFloat() < readCheckerParam("ADDON_MOREMUSIC/DistantVersion").toFloat() || svnLocalInfo() < svnDistantInfo()){
             update = true;
             qDebug() << "Update is " << update;
         }
@@ -672,6 +673,22 @@ bool launcherUpdate()
     qDebug() << "Update command : " << cmd;
     system(cmd);
     return 0;
+}
+
+bool LauncherVersionCalculation()
+{
+    if (readCheckerParam("Main/CheckerMajorVersion").toInt() < readCheckerParam("Update/DistantCheckerMajorVersion").toInt())
+    {
+        return true;
+    }
+    else if (readCheckerParam("Main/CheckerMajorVersion").toInt() == readCheckerParam("Update/DistantCheckerMajorVersion").toInt() && readCheckerParam("Main/CheckerMinorVersion").toInt() < readCheckerParam("Update/DistantCheckerMinorVersion").toInt())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 void restartLauncher()

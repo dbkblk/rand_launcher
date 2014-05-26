@@ -19,6 +19,7 @@ bool clearCache();
 bool clearGameOptions();
 bool launcherUpdate();
 void restartLauncher();
+bool LauncherVersionCalculation();
 int svnLocalInfo();
 int svnDistantInfo();
 

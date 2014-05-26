@@ -21,7 +21,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     // Checker version
-    setCheckerParam("Main/CheckerVersion",QString::number(constants::GLOBAL_CHECKER_VERSION));
+    setCheckerParam("Main/CheckerMajorVersion",QString::number(constants::MAJOR_CHECKER_VERSION));
+    setCheckerParam("Main/CheckerMinorVersion",QString::number(constants::MINOR_CHECKER_VERSION));
 
     // Creation of widgets
     ubox = new updatebox(this);
@@ -78,7 +79,7 @@ void MainWindow::UpdateWindowInfos()
 {
     // Versions label on the main Window
 
-    QString vers = "Launcher rev. " + readCheckerParam("Main/CheckerVersion") + "\nMod rev. " + readCheckerParam("Main/LocalRev");
+    QString vers = "Launcher rev. " + readCheckerParam("Main/CheckerMajorVersion") + "." + readCheckerParam("Main/CheckerMinorVersion") + "\nMod rev. " + readCheckerParam("Main/LocalRev");
     QPalette lb_palette;
     lb_palette.setColor(QPalette::WindowText, Qt::black);
     ui->lb_versions->setPalette(lb_palette);
@@ -98,7 +99,7 @@ void MainWindow::UpdateAvailable(bool update)
 
     if(update)
     {
-        if(readCheckerParam("Main/CheckerVersion") < readCheckerParam("Update/DistantCheckerVersion"))
+        if(LauncherVersionCalculation())
         {
             if(readCheckerParam("Main/CheckerAutoUpdate") == "1")
             {
