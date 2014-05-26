@@ -243,21 +243,20 @@ void installBox::on_buttonBox_accepted()
 {
     // Setup the initial window and launch checkout command in a box
 
+    QEventLoop wait_install;
+    connect(inst_view,SIGNAL(updated()),&wait_install,SLOT(quit()));
     inst_view->show();
     inst_view->installMode();
     bool cursor = false;
+    inst_view->bt_chglog_close->hide();
     inst_view->execute("checker/svn.exe checkout \"svn://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\" .", cursor);
-    connect(inst_view->bt_chglog_close,SIGNAL(clicked()),inst_view,SLOT(close()));
+    wait_install.exec();
+    restartLauncher();
 }
 
 void installBox::on_buttonBox_rejected()
 {
     qApp->exit();
-}
-
-void MainWindow::on_actionPack_binaries_for_git_triggered()
-{
-    system("checker\\PackBaseFile.bat");
 }
 
 void MainWindow::on_bt_components_clicked()

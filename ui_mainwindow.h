@@ -126,7 +126,6 @@ public:
         menuCommunity->addAction(actionAddon_More_music_forum);
         menuCommunity->addAction(actionAbout_AND_Resurrection_team_forum);
         menuTools->addAction(actionOpen_mod_folder);
-        menuTools->addAction(actionPack_binaries_for_git);
 
         retranslateUi(MainWindow);
 

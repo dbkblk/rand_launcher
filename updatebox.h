@@ -46,6 +46,7 @@ private slots:
 
 signals:
     void finished();
+    void updated();
 
 private:
     Ui::updatebox *ui;

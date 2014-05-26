@@ -55,6 +55,19 @@ void updatebox::appendOutput()
   QTextStream read(&file);
 
   if (!file.open(QIODevice::ReadOnly)) return;
+
+  // Check for finished
+  while(!read.atEnd())
+  {
+      QString line = read.readLine();
+      if(line.contains("At revision") || line.contains("Updated to revision") || line.contains("Checked out revision"))
+      {
+          emit updated();
+      }
+  }
+
+
+  // Move cursor
   if (file.size()>process_file_pos)
   {
     file.seek(process_file_pos);

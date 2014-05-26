@@ -18,6 +18,7 @@ class updateManager;
 bool clearCache();
 bool clearGameOptions();
 bool launcherUpdate();
+void restartLauncher();
 int svnLocalInfo();
 int svnDistantInfo();
 

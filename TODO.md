@@ -26,17 +26,10 @@ DONE -> Add an option to setup "formations"
 DONE -> Allow to install the mod from the Civ 4 folder
 DONE -> Reset gameoptions on update (may need to change the way it read/write into the ini file to avoid mess when deleting options).
 DONE -> Make a configuration cleaner
-- Make an update manager which have checkboxes, rows with name type (mod, launcher, addon update), your version and the newest version. Choose which one to update, them let's have an update party !
-    DONE -> Implement display update
-    DONE -> Implement checkbox to choose what comp to update
-    DONE -> Add buttons to close or apply (greyed if nothing)
-    DONE -> Make a link to a small window to see changelog
-    - Unpack the mod in temp dir and make a list of the files, then copy it to the checker dir. Make a uninstallation.
-- Fix binaries packaging launching from launcher
+DONE -> Make an update manager which have checkboxes, rows with name type (mod, launcher, addon update), your version and the newest version. Choose which one to update, them let's have an update party !
+- Change version to MAJOR / MINOR numbers instead of float
 
 ### Bugfix
-
-- Confirm that the mod has been updated to popup "the mod has been updated"
 DONE -> Fixed a mighty segfault when colors are all defined to zero.
 
 ## 1.0
@@ -45,11 +38,13 @@ DONE -> Fixed a mighty segfault when colors are all defined to zero.
 - Create a graphical launcher updater
 - Menu dropdown for revision modification in option box
 - Dev tools : XML translation export / import (changes only)
+- Make a uninstallation for addons (compare with the file list from the repo "svn list --recursive")
+- Fix binaries packaging launching from launcher
 
 ### Bugfix
+- Confirm that the mod has been updated to popup "the mod has been updated"
 
-
-## 1.1
+## 2.0
 ### Features
 - Integrate git into the launcher
 - Create a borderless window with metro style

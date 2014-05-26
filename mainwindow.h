@@ -19,8 +19,8 @@ namespace constants {
 const double GLOBAL_CHECKER_VERSION = 0.9;
 
 // Define the update url (the second is for testing purpose)
-//const QString GLOBAL_UPDATE_URL = "checker/curl.exe -o checker/update.ini -J -L -C - -# --retry 10 --insecure https://raw.githubusercontent.com/dbkblk/and2_checker/master/update.ini";
-const QString GLOBAL_UPDATE_URL = "checker/curl.exe -o checker/update.ini -J -L -C - -# --retry 10 --insecure https://dl.dropboxusercontent.com/u/369241/update.ini";
+const QString GLOBAL_UPDATE_URL = "checker/curl.exe -o checker/update.ini -J -L -C - -# --retry 10 --insecure https://raw.githubusercontent.com/dbkblk/and2_checker/master/update.ini";
+//const QString GLOBAL_UPDATE_URL = "checker/curl.exe -o checker/update.ini -J -L -C - -# --retry 10 --insecure https://dl.dropboxusercontent.com/u/369241/update.ini";
 }
 
 class MainWindow : public QMainWindow
@@ -47,7 +47,6 @@ private slots:
     void on_actionOpen_mod_folder_triggered();
     void UpdateAvailable(bool update);
     void RestoreButtonState();
-    void on_actionPack_binaries_for_git_triggered();
     void on_bt_components_clicked();
 
 private:
