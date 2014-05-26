@@ -24,12 +24,15 @@ public:
     explicit updatebox(QWidget *parent = 0);
     ~updatebox();
     void execute(QString command, bool &cursorUp);
+    void appendText(QString text);
     void changelogMode();
     void updateMode();
     void installMode();
+    void addonsMode();
     bool updateLauncherGUI();
     QPushButton* bt_chglog_close;
     QLabel* lb_changelog;
+    QLabel* lb_addons;
     QString message;
     QTextEdit* consoleOutput;
 
@@ -43,6 +46,7 @@ private slots:
 
 signals:
     void finished();
+    void updated();
 
 private:
     Ui::updatebox *ui;

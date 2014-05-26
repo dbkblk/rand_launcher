@@ -44,22 +44,6 @@
    <property name="styleSheet">
     <string notr="true"/>
    </property>
-   <widget class="QLabel" name="lb_title">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>601</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; color:#ffffff;&quot;&gt;Civilization IV - A New Dawn 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
    <widget class="QPushButton" name="bt_launch">
     <property name="geometry">
      <rect>
@@ -85,25 +69,12 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="bt_update">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>230</y>
-      <width>136</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Check for update</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="bt_option">
     <property name="geometry">
      <rect>
       <x>450</x>
       <y>230</y>
-      <width>136</width>
+      <width>131</width>
       <height>23</height>
      </rect>
     </property>
@@ -120,9 +91,9 @@
    <widget class="QLabel" name="lb_versions">
     <property name="geometry">
      <rect>
-      <x>365</x>
-      <y>249</y>
-      <width>221</width>
+      <x>480</x>
+      <y>0</y>
+      <width>111</width>
       <height>31</height>
      </rect>
     </property>
@@ -140,6 +111,19 @@
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bt_components">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>230</y>
+      <width>131</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Install / update modules</string>
     </property>
    </widget>
   </widget>
@@ -214,6 +198,11 @@
   <action name="actionOpen_mod_folder">
    <property name="text">
     <string>Open mod folder</string>
+   </property>
+  </action>
+  <action name="actionPack_binaries_for_git">
+   <property name="text">
+    <string>Pack binaries (for git)</string>
    </property>
   </action>
  </widget>

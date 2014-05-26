@@ -18,29 +18,36 @@ DONE -> Fix update process (the signal don't create a window)
 ## 0.9
 ### Features
 
-- Autodetect the game path from registry
-- Add easy installation of Civ Mega Pack (Git + sourceforge repo)
-- Add easy installation of More music (only direct download)
-- Option to autoupdate the launcher, and the mod
+DONE -> Autodetect the game path from registry
+DONE -> Add easy installation of addons
+DONE -> Option to autoupdate the launcher, and the mod
+DONE -> Update graphics
+DONE -> Add an option to setup "formations"
+DONE -> Allow to install the mod from the Civ 4 folder
+DONE -> Reset gameoptions on update (may need to change the way it read/write into the ini file to avoid mess when deleting options).
+DONE -> Make a configuration cleaner
+DONE -> Make an update manager which have checkboxes, rows with name type (mod, launcher, addon update), your version and the newest version. Choose which one to update, them let's have an update party !
+- Change version to MAJOR / MINOR numbers instead of float
 
 ### Bugfix
-
-- Confirm that the mod has been updated to popup "the mod has been updated"
+DONE -> Fixed a mighty segfault when colors are all defined to zero.
 
 ## 1.0
 ### Features
 
 - Create a graphical launcher updater
+- Menu dropdown for revision modification in option box
+- Dev tools : XML translation export / import (changes only)
+- Make a uninstallation for addons (compare with the file list from the repo "svn list --recursive")
+- Fix binaries packaging launching from launcher
 
 ### Bugfix
+- Confirm that the mod has been updated to popup "the mod has been updated"
 
-
-## 1.1
+## 2.0
 ### Features
-
-- Make an update manager which have checkboxes, rows with name type (mod, launcher, addon update), your version and the newest version. Choose which one to update, them let's have an update party !
-
-
+- Integrate git into the launcher
+- Create a borderless window with metro style
 
 # Features pending
 

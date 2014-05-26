@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.3.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -34,12 +34,12 @@ public:
     QAction *actionAbout_AND_Resurrection_team_forum;
     QAction *actionAddon_More_music_forum;
     QAction *actionOpen_mod_folder;
+    QAction *actionPack_binaries_for_git;
     QWidget *centralWidget;
-    QLabel *lb_title;
     QPushButton *bt_launch;
-    QPushButton *bt_update;
     QPushButton *bt_option;
     QLabel *lb_versions;
+    QPushButton *bt_components;
     QMenuBar *menuBar;
     QMenu *menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher;
     QMenu *menuCommunity;
@@ -74,13 +74,11 @@ public:
         actionAddon_More_music_forum->setObjectName(QStringLiteral("actionAddon_More_music_forum"));
         actionOpen_mod_folder = new QAction(MainWindow);
         actionOpen_mod_folder->setObjectName(QStringLiteral("actionOpen_mod_folder"));
+        actionPack_binaries_for_git = new QAction(MainWindow);
+        actionPack_binaries_for_git->setObjectName(QStringLiteral("actionPack_binaries_for_git"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setStyleSheet(QStringLiteral(""));
-        lb_title = new QLabel(centralWidget);
-        lb_title->setObjectName(QStringLiteral("lb_title"));
-        lb_title->setGeometry(QRect(0, 0, 601, 71));
-        lb_title->setAlignment(Qt::AlignCenter);
         bt_launch = new QPushButton(centralWidget);
         bt_launch->setObjectName(QStringLiteral("bt_launch"));
         bt_launch->setGeometry(QRect(10, 230, 151, 23));
@@ -88,17 +86,14 @@ public:
         bt_launch->setStyleSheet(QStringLiteral("background-image: none"));
         bt_launch->setAutoDefault(false);
         bt_launch->setFlat(false);
-        bt_update = new QPushButton(centralWidget);
-        bt_update->setObjectName(QStringLiteral("bt_update"));
-        bt_update->setGeometry(QRect(170, 230, 136, 23));
         bt_option = new QPushButton(centralWidget);
         bt_option->setObjectName(QStringLiteral("bt_option"));
-        bt_option->setGeometry(QRect(450, 230, 136, 23));
+        bt_option->setGeometry(QRect(450, 230, 131, 23));
         bt_option->setStyleSheet(QStringLiteral("border-image: none"));
         bt_option->setFlat(false);
         lb_versions = new QLabel(centralWidget);
         lb_versions->setObjectName(QStringLiteral("lb_versions"));
-        lb_versions->setGeometry(QRect(365, 249, 221, 31));
+        lb_versions->setGeometry(QRect(480, 0, 111, 31));
         QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
@@ -106,6 +101,9 @@ public:
         lb_versions->setSizePolicy(sizePolicy1);
         lb_versions->setStyleSheet(QStringLiteral(""));
         lb_versions->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        bt_components = new QPushButton(centralWidget);
+        bt_components->setObjectName(QStringLiteral("bt_components"));
+        bt_components->setGeometry(QRect(170, 230, 131, 23));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -147,11 +145,11 @@ public:
 #endif // QT_NO_TOOLTIP
         actionAddon_More_music_forum->setText(QApplication::translate("MainWindow", "Addon \"More music\" (forum)", 0));
         actionOpen_mod_folder->setText(QApplication::translate("MainWindow", "Open mod folder", 0));
-        lb_title->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:24pt; font-weight:600; color:#ffffff;\">Civilization IV - A New Dawn 2</span></p></body></html>", 0));
+        actionPack_binaries_for_git->setText(QApplication::translate("MainWindow", "Pack binaries (for git)", 0));
         bt_launch->setText(QApplication::translate("MainWindow", "Launch Civilization IV", 0));
-        bt_update->setText(QApplication::translate("MainWindow", "Check for update", 0));
         bt_option->setText(QApplication::translate("MainWindow", "Options", 0));
         lb_versions->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" color:#000000;\">TextLabel</span></p></body></html>", 0));
+        bt_components->setText(QApplication::translate("MainWindow", "Install / update modules", 0));
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setTitle(QApplication::translate("MainWindow", "Menu", 0));
         menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
         menuTools->setTitle(QApplication::translate("MainWindow", "Tools", 0));

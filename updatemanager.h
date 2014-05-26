@@ -1,16 +1,25 @@
 #ifndef UPDATEMANAGER_H
 #define UPDATEMANAGER_H
 
+#include "updatebox.h"
 #include <QWidget>
+#include <QCheckBox>
 #include <QObject>
 #include <QMutex>
+#include <QSettings>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QTableWidget>
 
 namespace Ui {
 class updateManager;
 }
 
 bool clearCache();
+bool clearGameOptions();
 bool launcherUpdate();
+void restartLauncher();
+bool LauncherVersionCalculation();
 int svnLocalInfo();
 int svnDistantInfo();
 
@@ -22,8 +31,31 @@ public:
     explicit updateManager(QWidget *parent = 0);
     ~updateManager();
 
+public slots:
+    void updateDistantInfos();
+    void changelogCore();
+    void on_launcher_changelog_clicked();
+    void on_addon_sogroon_clicked();
+    void on_addon_megacivpack_clicked();
+    void addons_installation();
+    void on_checkbox_clicked();
+
 private:
-    Ui::updateManager *ui;
+    QTableWidget *tab_updates;
+    QTableWidgetItem *item_distant_vers;
+    QTableWidgetItem *item_distant_launcher;
+    QTableWidgetItem *item_distant_addon_MCP;
+    QTableWidgetItem *item_distant_addon_MoreMusic;
+    QTableWidgetItem *item_distant_addon_MoreHandicaps;
+    QPushButton *apply = new QPushButton(this);
+    QPushButton *cancel = new QPushButton(this);
+    updatebox *changelog_box;
+    updatebox *addon_setup;
+    QCheckBox *update_core_checkbox;
+    QCheckBox *update_launcher_checkbox;
+    QCheckBox *update_addon_MCP_checkbox;
+    QCheckBox *update_addon_moremusic_checkbox;
+    QCheckBox *update_addon_morehandicaps_checkbox;
 };
 
 class Worker : public QObject
@@ -66,7 +98,7 @@ signals:
 
 public slots:
 
-    void UMCheckLauncherUpdate();
+    void UMCheckUpdate();
 };
 
 #endif // UPDATEMANAGER_H
