@@ -50,6 +50,8 @@ FunctionEnd
 !define MUI_FINISHPAGE_TEXT "The launcher is now installed. On the first launch, it will detect if the mod is present in the directory. If it's not, just follow the installation procedure."
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 
+!define MUI_PAGE_CUSTOMFUNCTION_PRE Done
+
 !define MUI_FINISHPAGE_RUN_CHECKED
 !define MUI_FINISHPAGE_RUN "$INSTDIR\and2_checker.exe"
 !define MUI_FINISHPAGE_RUN_TEXT "Start the mod launcher"
@@ -131,4 +133,21 @@ Delete "$SMPROGRAMS\$StartMenuFolder\Civilization IV - A New Dawn 2.lnk"
   RMDir "$SMPROGRAMS\$StartMenuFolder"
 
 SectionEnd
+
+Function Done
+
+IfFileExists "$SYSDIR\msvcp120.dll" not_install_msvc install_msvc
+
+install_msvc:
+MessageBox MB_OK "Microsoft Visual C++ 2012 Redist is not installed. Downloading now"
+NSISdl::download https://dl.dropboxusercontent.com/u/369241/vcredist_x86_2013.exe vcredist_x86_2013.exe
+Pop $R0 ;Get the return value
+  StrCmp $R0 "success" +3
+    MessageBox MB_OK "Download failed: $R0"
+    Quit   
+Exec vcredist_x86_2013.exe
+
+not_install_msvc:
+
+FunctionEnd
 

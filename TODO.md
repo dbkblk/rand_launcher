@@ -27,7 +27,7 @@ DONE -> Allow to install the mod from the Civ 4 folder
 DONE -> Reset gameoptions on update (may need to change the way it read/write into the ini file to avoid mess when deleting options).
 DONE -> Make a configuration cleaner
 DONE -> Make an update manager which have checkboxes, rows with name type (mod, launcher, addon update), your version and the newest version. Choose which one to update, them let's have an update party !
-- Change version to MAJOR / MINOR numbers instead of float
+DONE -> Change version to MAJOR / MINOR numbers instead of float
 
 ### Bugfix
 DONE -> Fixed a mighty segfault when colors are all defined to zero.
