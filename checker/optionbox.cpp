@@ -18,7 +18,7 @@ optionBox::optionBox(QWidget *parent) :
 
     // Link the close update button to a bool message
 
-    connect(chglog->bt_chglog_close,SIGNAL(clicked()),this,SLOT(chglog_msg_info()));
+    connect(chglog,SIGNAL(updated()),this,SLOT(chglog_msg_info()));
 
     connect(chglog,SIGNAL(finished()),chglog->bt_chglog_close,SLOT(show()));
 
@@ -93,6 +93,7 @@ void optionBox::on_opt_bt_update_clicked()
     clearGameOptions();
 
     msg_show = true;
+
     chglog->message = "The mod has been updated.";
 }
 
@@ -211,7 +212,7 @@ void optionBox::on_opt_bt_changelog_clicked()
     chglog->show();
     chglog->changelogMode();
     bool value = true;
-    chglog->execute("checker/svn.exe log -l 10 ", value);
+    chglog->execute("checker/svn.exe log -l 10 -r HEAD:0", value);
     msg_show = false;
 }
 

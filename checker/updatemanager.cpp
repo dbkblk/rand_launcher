@@ -269,12 +269,10 @@ void updateManager::changelogCore()
     qDebug() << "The changelog diff is equal to " << chglog_diff;
 
     bool value = true;
-    QString command("checker/svn.exe log -l 10");
-    //sprintf(command,"checker/svn.exe log -l %d -r HEAD:BASE",chglog_diff);
+    QString command("checker/svn.exe log -l 10 -r HEAD:0");
     changelog_box->changelogMode();
     changelog_box->show();
     changelog_box->execute(command,value);
-    //connect(changelog_box,SIGNAL(finished()),this,SLOT(close()));
 }
 
 void updateManager::addons_installation()
