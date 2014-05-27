@@ -31,6 +31,15 @@ optionBox::optionBox(QWidget *parent) :
 
     // Check default states
 
+    if(readOptionFormations() == true)
+    {
+        ui->opt_checkbox_formations->setChecked(1);
+    }
+    else
+    {
+        ui->opt_checkbox_formations->setChecked(0);
+    }
+
     if(readConfigParam("Mod") == "Rise of Mankind - A New Dawn") {
         ui->startBox->setChecked(1);
     }

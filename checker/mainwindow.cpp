@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(worker, SIGNAL(finished(bool)), thread, SLOT(quit()), Qt::DirectConnection);
     connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateWindowInfos()), Qt::DirectConnection);
     connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateAvailable(bool)));
-    connect(worker, SIGNAL(finished(bool)), update_manager, SLOT(updateDistantInfos()));
+    connect(worker, SIGNAL(finished(bool)), update_manager, SLOT(updateInfos()));
 
 
     // Check launcher update in background (to avoid having two threads running simultaneously, the previous thread is aborted).

@@ -32,7 +32,7 @@ public:
     ~updateManager();
 
 public slots:
-    void updateDistantInfos();
+    void updateInfos();
     void changelogCore();
     void on_launcher_changelog_clicked();
     void on_addon_sogroon_clicked();
@@ -42,11 +42,16 @@ public slots:
 
 private:
     QTableWidget *tab_updates;
-    QTableWidgetItem *item_distant_vers;
-    QTableWidgetItem *item_distant_launcher;
-    QTableWidgetItem *item_distant_addon_MCP;
-    QTableWidgetItem *item_distant_addon_MoreMusic;
-    QTableWidgetItem *item_distant_addon_MoreHandicaps;
+    QTableWidgetItem *item_local_vers = new QTableWidgetItem;
+    QTableWidgetItem *item_local_launcher = new QTableWidgetItem;
+    QTableWidgetItem *item_local_addon_MCP = new QTableWidgetItem;
+    QTableWidgetItem *item_local_addon_MoreMusic = new QTableWidgetItem;
+    QTableWidgetItem *item_local_addon_MoreHandicaps = new QTableWidgetItem;
+    QTableWidgetItem *item_distant_vers = new QTableWidgetItem;
+    QTableWidgetItem *item_distant_launcher = new QTableWidgetItem;
+    QTableWidgetItem *item_distant_addon_MCP = new QTableWidgetItem;
+    QTableWidgetItem *item_distant_addon_MoreMusic = new QTableWidgetItem;
+    QTableWidgetItem *item_distant_addon_MoreHandicaps = new QTableWidgetItem;
     QPushButton *apply = new QPushButton(this);
     QPushButton *cancel = new QPushButton(this);
     updatebox *changelog_box;
@@ -56,6 +61,12 @@ private:
     QCheckBox *update_addon_MCP_checkbox;
     QCheckBox *update_addon_moremusic_checkbox;
     QCheckBox *update_addon_morehandicaps_checkbox;
+    QWidget *update_core_widget = new QWidget;
+    QWidget *update_launcher_widget = new QWidget;
+    QWidget *update_addon_MCP_widget = new QWidget;
+    QWidget *update_addon_moremusic_widget = new QWidget;
+    QWidget *update_addon_morehandicaps_widget = new QWidget;
+
 };
 
 class Worker : public QObject

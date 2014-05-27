@@ -314,7 +314,8 @@ bool readOptionFormations()
     tinyxml2::XMLElement* value_el = read.FirstChildElement("Civ4ModularLoadControls")->FirstChildElement("ConfigurationInfos")->FirstChildElement("ConfigurationInfo")->FirstChildElement("Modules")->FirstChildElement("Module")->ToElement();
 
     const char* bLoad = value_el->FirstChildElement("bLoad")->GetText();
-    if (!strcmp(bLoad, "1")) {
+
+    if (bLoad = "1") {
         return true;
     }
     return false;

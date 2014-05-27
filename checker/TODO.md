@@ -34,14 +34,19 @@ DONE -> Fixed a mighty segfault when colors are all defined to zero.
 
 ## 0.10
 ### Features
-- Make a uninstallation for addons (compare with the file list from the repo "svn list --recursive")
 DONE -> Create a graphical launcher updater
-- Autocheck svn state from error message.
-- Recheck addon state after installation
+DONE -> Recheck addon state after installation
 
 ### Bugfix
-- The launcher don't recheck if addon is here after the installation. Need to restart the launcher at the moment.
+- Option: Formations don't keep parameters
 - Confirm that the mod has been updated to popup "the mod has been updated"
+- Do not tell update is available if addons aren't installed
+
+## 0.11
+### Features
+- Make a uninstallation for addons (compare with the file list from the repo "svn list --recursive")
+- Autocheck svn state from error message.
+- Option: Default update behavior: Replace all files by more recent / Keep local files.
 
 ## 1.0
 ### Features
@@ -64,6 +69,11 @@ DONE -> Create a graphical launcher updater
 - Integrate a git workflow
 
 # Notes
+## Dev tools
+- XML Parser
+- Pack binaries: Make a list + checksum of each binary file
+- Pack binaries: Compare each modified file with the checksum list
+
 ## Git Workflow
 - Make a "Base pack" with all the fpk, sounds, art hosted on sourceforge
 - Put all the code and small binaries on github (it will be under 800mb)

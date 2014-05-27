@@ -64,70 +64,57 @@ updateManager::updateManager(QWidget *parent)
 
     /* Local revisions */
     // Core mod
-
-    QTableWidgetItem *item_local_vers = new QTableWidgetItem;
-    QString local_version = QString::number(svnLocalInfo());
-    item_local_vers->setText(local_version);
+    item_local_vers->setText(QString::number(svnLocalInfo()));
     item_local_vers->setTextAlignment(Qt::AlignCenter);
     tab_updates->setItem(0,0,item_local_vers);
 
     // Launcher
-    QTableWidgetItem *item_local_launcher = new QTableWidgetItem;
     item_local_launcher->setText(readCheckerParam("Main/CheckerMajorVersion") + "." + readCheckerParam("Main/CheckerMinorVersion"));
     item_local_launcher->setTextAlignment(Qt::AlignCenter);
     tab_updates->setItem(1,0,item_local_launcher);
 
     // Addon MCP
-    QTableWidgetItem *item_local_addon_MCP = new QTableWidgetItem;
     item_local_addon_MCP->setText(readCheckerParam("ADDON_MEGACIVPACK/FilesVersion"));
     item_local_addon_MCP->setTextAlignment(Qt::AlignCenter);
     tab_updates->setItem(2,0,item_local_addon_MCP);
 
     // Addon More music
-    QTableWidgetItem *item_local_addon_MoreMusic = new QTableWidgetItem;
     item_local_addon_MoreMusic->setText(readCheckerParam("ADDON_MOREMUSIC/Version"));
     item_local_addon_MoreMusic->setTextAlignment(Qt::AlignCenter);
     tab_updates->setItem(3,0,item_local_addon_MoreMusic);
 
     // Addon More handicaps
-    QTableWidgetItem *item_local_addon_MoreHandicaps = new QTableWidgetItem;
     item_local_addon_MoreHandicaps->setText(readCheckerParam("ADDON_MOREHANDICAPS/Version"));
     item_local_addon_MoreHandicaps->setTextAlignment(Qt::AlignCenter);
     tab_updates->setItem(4,0,item_local_addon_MoreHandicaps);
 
     /* Distant revisions */
     // Core
-    item_distant_vers = new QTableWidgetItem;
     tab_updates->setItem(0,1,item_distant_vers);
     item_distant_vers->setText(readCheckerParam("Update/DistantRev"));
     item_distant_vers->setTextAlignment(Qt::AlignCenter);
 
     // Launcher
-    item_distant_launcher = new QTableWidgetItem;
     tab_updates->setItem(1,1,item_distant_launcher);
     item_distant_launcher->setText(readCheckerParam("Update/DistantCheckerMajorVersion") + "." + readCheckerParam("Update/DistantCheckerMinorVersion"));
     item_distant_launcher->setTextAlignment(Qt::AlignCenter);
 
     // Addon MCP
-    item_distant_addon_MCP = new QTableWidgetItem;
     tab_updates->setItem(2,1,item_distant_addon_MCP);
     item_distant_addon_MCP->setText(readCheckerParam("ADDON_MEGACIVPACK/DistantBaseVersion"));
     item_distant_addon_MCP->setTextAlignment(Qt::AlignCenter);
 
     // Addon More music
-    item_distant_addon_MoreMusic = new QTableWidgetItem;
     tab_updates->setItem(3,1,item_distant_addon_MoreMusic);
     item_distant_addon_MoreMusic->setText(readCheckerParam("ADDON_MOREMUSIC/DistantVersion"));
     item_distant_addon_MoreMusic->setTextAlignment(Qt::AlignCenter);
 
     // Addon More handicaps
-    item_distant_addon_MoreHandicaps = new QTableWidgetItem;
     tab_updates->setItem(4,1,item_distant_addon_MoreHandicaps);
     item_distant_addon_MoreHandicaps->setText(readCheckerParam("ADDON_MOREHANDICAPS/DistantVersion"));
     item_distant_addon_MoreHandicaps->setTextAlignment(Qt::AlignCenter);
 
     /* Checkboxes */
-    QWidget *update_core_widget = new QWidget();
     update_core_checkbox = new QCheckBox(this);
     QHBoxLayout *update_core_layout = new QHBoxLayout(update_core_widget);
     update_core_layout->addWidget(update_core_checkbox);
@@ -136,7 +123,6 @@ updateManager::updateManager(QWidget *parent)
     update_core_widget->setLayout(update_core_layout);
     tab_updates->setCellWidget(0,2,update_core_widget);
 
-    QWidget *update_launcher_widget = new QWidget();
     update_launcher_checkbox = new QCheckBox(this);
     QHBoxLayout *update_launcher_layout = new QHBoxLayout(update_launcher_widget);
     update_launcher_layout->addWidget(update_launcher_checkbox);
@@ -145,7 +131,6 @@ updateManager::updateManager(QWidget *parent)
     update_launcher_widget->setLayout(update_launcher_layout);
     tab_updates->setCellWidget(1,2,update_launcher_widget);
 
-    QWidget *update_addon_MCP_widget = new QWidget();
     update_addon_MCP_checkbox = new QCheckBox(this);
     QHBoxLayout *update_addon_MCP_layout = new QHBoxLayout(update_addon_MCP_widget);
     update_addon_MCP_layout->addWidget(update_addon_MCP_checkbox);
@@ -154,7 +139,6 @@ updateManager::updateManager(QWidget *parent)
     update_addon_MCP_widget->setLayout(update_addon_MCP_layout);
     tab_updates->setCellWidget(2,2,update_addon_MCP_widget);
 
-    QWidget *update_addon_moremusic_widget = new QWidget();
     update_addon_moremusic_checkbox = new QCheckBox(this);
     QHBoxLayout *update_addon_moremusic_layout = new QHBoxLayout(update_addon_moremusic_widget);
     update_addon_moremusic_layout->addWidget(update_addon_moremusic_checkbox);
@@ -163,7 +147,6 @@ updateManager::updateManager(QWidget *parent)
     update_addon_moremusic_widget->setLayout(update_addon_moremusic_layout);
     tab_updates->setCellWidget(3,2,update_addon_moremusic_widget);
 
-    QWidget *update_addon_morehandicaps_widget = new QWidget();
     update_addon_morehandicaps_checkbox = new QCheckBox(this);
     QHBoxLayout *update_addon_morehandicaps_layout = new QHBoxLayout(update_addon_morehandicaps_widget);
     update_addon_morehandicaps_layout->addWidget(update_addon_morehandicaps_checkbox);
@@ -229,7 +212,7 @@ updateManager::updateManager(QWidget *parent)
     QWidget *buttons = new QWidget();
     apply->setEnabled(false);
     apply->setText("Apply changes");
-    cancel->setText("Cancel");
+    cancel->setText("Close");
     button_layout->addStretch();
     button_layout->addWidget(cancel);
     button_layout->addWidget(apply);
@@ -259,10 +242,18 @@ updateManager::~updateManager()
     QProcess::execute("taskkill /f /im curl.exe");
 }
 
-void updateManager::updateDistantInfos()
+void updateManager::updateInfos()
 {
     qDebug() << "Update infos";
-    /* Update revisions */
+    /* Update local */
+
+    this->item_local_vers->setText(QString::number(svnLocalInfo()));
+    this->item_local_launcher->setText(readCheckerParam("Main/CheckerMajorVersion") + "." + readCheckerParam("Main/CheckerMinorVersion"));
+    this->item_local_addon_MCP->setText(readCheckerParam("ADDON_MEGACIVPACK/FilesVersion"));
+    this->item_local_addon_MoreMusic->setText(readCheckerParam("ADDON_MOREMUSIC/Version"));
+    this->item_local_addon_MoreHandicaps->setText(readCheckerParam("ADDON_MOREHANDICAPS/Version"));
+
+    /* Update distant */
     QString distant_version = QString::number(svnDistantInfo());
     this->item_distant_vers->setText(distant_version);
     this->item_distant_launcher->setText(readCheckerParam("Update/DistantCheckerMajorVersion") + "." + readCheckerParam("Update/DistantCheckerMinorVersion"));
@@ -544,6 +535,8 @@ void updateManager::addons_installation()
         QFile::remove("AND2_HANDICAP_ADDON.7z");
         check_addon_more_handicaps();
     }
+
+    updateInfos();
 
     if(update_launcher_checkbox->isChecked())
     {
