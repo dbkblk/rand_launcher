@@ -32,17 +32,26 @@ DONE -> Change version to MAJOR / MINOR numbers instead of float
 ### Bugfix
 DONE -> Fixed a mighty segfault when colors are all defined to zero.
 
+## 0.10
+### Features
+- Make a uninstallation for addons (compare with the file list from the repo "svn list --recursive")
+- Create a graphical launcher updater
+- Autocheck svn state from error message.
+- Recheck addon state after installation
+
+### Bugfix
+- The launcher don't recheck if addon is here after the installation. Need to restart the launcher at the moment.
+- Confirm that the mod has been updated to popup "the mod has been updated"
+
 ## 1.0
 ### Features
-
-- Create a graphical launcher updater
 - Menu dropdown for revision modification in option box
 - Dev tools : XML translation export / import (changes only)
-- Make a uninstallation for addons (compare with the file list from the repo "svn list --recursive")
+
 - Fix binaries packaging launching from launcher
 
 ### Bugfix
-- Confirm that the mod has been updated to popup "the mod has been updated"
+
 
 ## 2.0
 ### Features

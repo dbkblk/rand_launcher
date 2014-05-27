@@ -1,6 +1,5 @@
 # Avoid some files
-release/
-debug/
+compilation/
 materials/
 release_files/
 *.pro.user
