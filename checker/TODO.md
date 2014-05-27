@@ -38,7 +38,7 @@ DONE -> Create a graphical launcher updater
 DONE -> Recheck addon state after installation
 
 ### Bugfix
-- Option: Formations don't keep parameters
+DONE -> Option: Formations don't keep parameters
 - Confirm that the mod has been updated to popup "the mod has been updated"
 - Do not tell update is available if addons aren't installed
 
