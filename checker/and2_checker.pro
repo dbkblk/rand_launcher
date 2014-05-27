@@ -41,4 +41,6 @@ RC_FILE = icon.rc
 OTHER_FILES += \
     README.md \
     TODO.md \
-    installer/installer_script.nsi
+    installer/installer_script.nsi \
+    README.md \
+    TODO.md

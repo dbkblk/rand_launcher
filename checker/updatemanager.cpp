@@ -664,14 +664,21 @@ void Worker::UMCheckUpdate()
 
 bool launcherUpdate()
 {
-    QFile::remove("7za.exe");
+    QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
+    QStringList downloadlink;
+    downloadlink << upd_ini.value("VERSION/DownloadLink").toString();
+    QFile::copy("checker/upd_proc.exe","upd_proc.exe");
+    QProcess update;
+    update.startDetached("upd_proc.exe",downloadlink);
+
+    /*QFile::remove("7za.exe");
     QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
     QString downloadlink = upd_ini.value("VERSION/DownloadLink").toString();
     char cmd[512];
     QFile::copy("checker/7za.exe","7za.exe");
     sprintf(cmd, "taskkill /f /im and2_checker.exe && SLEEP 1 && checker\\curl.exe -o AND2_CHECKER_UPDATE.7z -J -L -C - -# --retry 10 --insecure  %s && SLEEP 1 && 7za.exe x -y AND2_CHECKER_UPDATE.7z && SLEEP 1 && del 7za.exe && SLEEP 1 && del checker\\update.ini && SLEEP 1 && del AND2_CHECKER_UPDATE.7z && SLEEP 1 && start and2_checker.exe", downloadlink.toStdString().c_str());
     qDebug() << "Update command : " << cmd;
-    system(cmd);
+    system(cmd);*/
     return 0;
 }
 

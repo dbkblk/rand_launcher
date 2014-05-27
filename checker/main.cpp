@@ -59,6 +59,7 @@ int main(int argc, char *argv[])
             QFile::remove(files);
         }
     }
+    QFile::remove("upd_proc.exe");
 
     // Check for correct path
 

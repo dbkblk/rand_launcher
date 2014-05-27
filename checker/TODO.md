@@ -35,7 +35,7 @@ DONE -> Fixed a mighty segfault when colors are all defined to zero.
 ## 0.10
 ### Features
 - Make a uninstallation for addons (compare with the file list from the repo "svn list --recursive")
-- Create a graphical launcher updater
+DONE -> Create a graphical launcher updater
 - Autocheck svn state from error message.
 - Recheck addon state after installation
 
