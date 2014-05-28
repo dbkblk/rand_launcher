@@ -268,10 +268,10 @@ void MainWindow::on_bt_components_clicked()
 
 void MainWindow::on_actionGit_Make_a_binary_pack_triggered()
 {
-    QWidget box;
+    /*QWidget box;
     QLabel label;
     box.show();
-    /*PackBinaries base;
+    PackBinaries base;
     QStringList base_files;
     base_files = base.ListBinaries();
     base.GenerateHashFile(base_file, "AND2_BASE_FILES.xml");
