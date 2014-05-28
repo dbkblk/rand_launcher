@@ -42,6 +42,7 @@ DONE -> Option: Formations don't keep parameters
 DONE -> Confirm that the mod has been updated to popup "the mod has been updated"
 - Do not tell update is available if addons aren't installed
 DONE -> Show changelog from the head version
+- Update main window infos after update;
 
 ## 0.11
 ### Features

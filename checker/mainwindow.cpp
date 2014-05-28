@@ -13,6 +13,7 @@
 #include <QtGui>
 #include <QtWidgets>
 #include <QMessageBox>
+#include <packbinaries.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -263,4 +264,17 @@ void installBox::on_buttonBox_rejected()
 void MainWindow::on_bt_components_clicked()
 {
     update_manager->show();
+}
+
+void MainWindow::on_actionGit_Make_a_binary_pack_triggered()
+{
+    QWidget box;
+    QLabel label;
+    box.show();
+    /*PackBinaries base;
+    QStringList base_files;
+    base_files = base.ListBinaries();
+    base.GenerateHashFile(base_file, "AND2_BASE_FILES.xml");
+    base.CopyToTempFolder(base_files);
+    base.CompressTempFolder("AND2_BASE_FILES.7z");*/
 }
