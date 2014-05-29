@@ -142,7 +142,7 @@ void optionBox::on_opt_bt_chooserev_clicked()
 void optionBox::on_colorBox_currentIndexChanged(const QString &colorName)
 {
     QString colorUI = colorName + " UI";
-    setColors(colorUI.toStdString().c_str());
+    setColors(colorUI);
 }
 
 void optionBox::on_startBox_toggled(bool checked)

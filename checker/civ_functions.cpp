@@ -1,11 +1,11 @@
 #include <civ_functions.h>
 #include <mainwindow.h>
-#include <lib\tinyxml2.h>
 #include <QtCore>
 #include <QtNetwork>
 #include <QtGui>
 #include <QtWidgets>
-
+#include <QDebug>
+#include <QtXml/QtXml>
 
 using namespace std;
 
@@ -100,113 +100,110 @@ bool setCheckerParam(QString param, QString newValue)
     return 0;
 }
 
-
-
-
-/*const char* readXML(const char* file, const char* tag)
-{
-    tinyxml2::XMLDocument read;
-    read.LoadFile(file);
-    const char* value = read.FirstChildElement("versions")->FirstChildElement(tag)->GetText();
-    qDebug() << "readXML : " << value;
-    return value;
-}
-
-bool writeXML(const char* file, const char* tag, const char* newValue)
-{
-    tinyxml2::XMLDocument read;
-    read.LoadFile(file);
-    read.FirstChildElement("versions")->FirstChildElement(tag)->SetText(newValue);
-    read.SaveFile(file);
-    return 0;
-}*/
-
-const char* readColors()
+int readColors()
 {
     // Open the file
-    tinyxml2::XMLDocument read;
-    const char* file = "Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml";
-    read.LoadFile(file);
-    if (!read.ErrorID() == 0){
-        qDebug() << "The file couldn't be read : " << read.ErrorID();
-        return 0;
-    }
+    QDomDocument read;
+    QFile file("Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml");
+    if(!file.open(QIODevice::ReadOnly))
+     {
+         qDebug() << "Error opening Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml";
+         return 0;
+     }
+    read.setContent(&file);
 
     // Go to color level
-    tinyxml2::XMLElement* value_el = read.FirstChildElement("Civ4ModularLoadControls")->FirstChildElement("ConfigurationInfos")->FirstChildElement("ConfigurationInfo")->FirstChildElement("Modules")->FirstChildElement("Module")->ToElement();
+    QDomElement value_el = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
 
     // Loop
-    for(;; value_el=value_el->NextSiblingElement() ) {
-        const char* value = value_el->FirstChildElement("Directory")->GetText();
-        const char* bLoad = value_el->FirstChildElement("bLoad")->GetText();
+    for(;; value_el=value_el.nextSiblingElement() ) {
+        QString value = value_el.firstChildElement("Directory").text();
+        QString bLoad = value_el.firstChildElement("bLoad").text();
 
-        if (!strcmp(bLoad, "1")) {
-            return value;
+        if (bLoad == "1") {
+            file.close();
+            return value.toInt();
         }
 
     }
+    file.close();
     return 0;
 }
 
 int readColorsCounter()
 {
     // Open the file
-    tinyxml2::XMLDocument read;
-    const char* file = "Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml";
-    read.LoadFile(file);
-    if (!read.ErrorID() == 0){
-        qDebug() << "The file couldn't be read : " << read.ErrorID();
-        return 99;
-    }
+    QDomDocument read;
+    QFile file("Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml");
+    if(!file.open(QIODevice::ReadOnly))
+     {
+         qDebug() << "Error opening Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml";
+         return 0;
+     }
+    read.setContent(&file);
+
     // Go to color level
-    tinyxml2::XMLElement* value_el = read.FirstChildElement("Civ4ModularLoadControls")->FirstChildElement("ConfigurationInfos")->FirstChildElement("ConfigurationInfo")->FirstChildElement("Modules")->FirstChildElement("Module")->ToElement();
+    QDomElement value_el = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
+
     // Loop
     int counter = -1;
-    for(;; value_el=value_el->NextSiblingElement() ) {
+    for(;; value_el=value_el.nextSiblingElement() ) {
 
-        const char* bLoad = value_el->FirstChildElement("bLoad")->GetText();
+        QString bLoad = value_el.firstChildElement("bLoad").text();
         counter++;
-        if (!strcmp(bLoad, "1")) {
+
+        if (bLoad == "1") {
+            file.close();
             return counter;
         }
         if (counter == 7)
         {
+            file.close();
             return 0;
         }
     }
+    file.close();
     return 99;
 }
 
-bool setColors(const char* color)
+bool setColors(QString color)
 {
     // Open the file
-    tinyxml2::XMLDocument read;
-    const char* file = "Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml";
-    read.LoadFile(file);
-    const char* resetValue = "0";
-    if (!read.ErrorID() == 0){
-        qDebug() << "The file couldn't be read : " << read.ErrorID();
-        return 1;
-    }
-
+    QDomDocument read;
+    QFile file("Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml");
+    if(!file.open(QIODevice::ReadOnly))
+     {
+         qDebug() << "Error opening Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml";
+         return 0;
+     }
+    read.setContent(&file);
+    file.close();
 
     // Go to color level
-    tinyxml2::XMLElement* value_el = read.FirstChildElement("Civ4ModularLoadControls")->FirstChildElement("ConfigurationInfos")->FirstChildElement("ConfigurationInfo")->FirstChildElement("Modules")->FirstChildElement("Module")->ToElement();
+    QDomElement color_element = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
 
     // Reset all values
-    for(value_el; value_el; value_el=value_el->NextSiblingElement() ) {
-        value_el->FirstChildElement("bLoad")->SetText(resetValue);
+    for(color_element ; !color_element.isNull(); color_element=color_element.nextSiblingElement() ) {
+        color_element.firstChildElement("bLoad").firstChild().setNodeValue("0");
     }
 
-    tinyxml2::XMLElement* valueSet_el = read.FirstChildElement("Civ4ModularLoadControls")->FirstChildElement("ConfigurationInfos")->FirstChildElement("ConfigurationInfo")->FirstChildElement("Modules")->FirstChildElement("Module")->ToElement();
+    color_element = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
 
-    for(valueSet_el; valueSet_el; valueSet_el=valueSet_el->NextSiblingElement() ) {
-        const char* txtValue = valueSet_el->FirstChildElement("Directory")->GetText();
-        if (strcmp(txtValue ,color) == 0) {
-            valueSet_el->FirstChildElement("bLoad")->SetText("1");
+    for(color_element ; !color_element.isNull(); color_element=color_element.nextSiblingElement() ) {
+        QString txtValue = color_element.firstChildElement("Directory").firstChild().nodeValue();
+        if (txtValue == color) {
+            color_element.firstChildElement("bLoad").firstChild().setNodeValue("1");
         }
     }
-    read.SaveFile(file);
+
+
+    // Save content back to the file
+    if (!file.open(QIODevice::Truncate | QIODevice::WriteOnly)) {
+        qDebug("Basically, now we lost content of a file");
+        return 0;
+    }
+    file.write(read.toByteArray());
+    file.close();
     return 0;
 }
 
@@ -302,22 +299,22 @@ QString check_addon_more_handicaps()
 bool readOptionFormations()
 {
     // Open the file
-    tinyxml2::XMLDocument read;
-    const char* file = "Assets/Modules/Formations/MLF_CIV4ModularLoadingControls.xml";
-    read.LoadFile(file);
-    if (!read.ErrorID() == 0){
-        qDebug() << "The file couldn't be read : " << read.ErrorID();
-        return 0;
-    }
+    QDomDocument read;
+    QFile file("Assets/Modules/Formations/MLF_CIV4ModularLoadingControls.xml");
+    if(!file.open(QIODevice::ReadOnly))
+     {
+         qDebug() << "Error opening file";
+         return 0;
+     }
+    read.setContent(&file);
+    file.close();
 
     // Go to color level
-    tinyxml2::XMLElement* value_el = read.FirstChildElement("Civ4ModularLoadControls")->FirstChildElement("ConfigurationInfos")->FirstChildElement("ConfigurationInfo")->FirstChildElement("Modules")->FirstChildElement("Module")->ToElement();
+    QDomElement value_el = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
 
-    const char* bLoad = value_el->FirstChildElement("bLoad")->GetText();
-    QString temp;
-    temp = bLoad;
+    QString bLoad = value_el.firstChildElement("bLoad").firstChild().nodeValue();
 
-    if (temp.toInt() == 1) {
+    if (bLoad.toInt() == 1) {
         return true;
     }
     return false;
@@ -326,26 +323,34 @@ bool readOptionFormations()
 bool setOptionFormations(bool value)
 {
     // Open the file
-    tinyxml2::XMLDocument read;
-    const char* file = "Assets/Modules/Formations/MLF_CIV4ModularLoadingControls.xml";
-    read.LoadFile(file);
-    if (!read.ErrorID() == 0){
-        qDebug() << "The file couldn't be read : " << read.ErrorID();
-        return 1;
-    }
+    QDomDocument read;
+    QFile file("Assets/Modules/Formations/MLF_CIV4ModularLoadingControls.xml");
+
+    if(!file.open(QIODevice::ReadOnly))
+     {
+         qDebug() << "Error opening file";
+         return 0;
+     }
+    read.setContent(&file);
+    file.close();
 
     // Go to color level
-    tinyxml2::XMLElement* value_el = read.FirstChildElement("Civ4ModularLoadControls")->FirstChildElement("ConfigurationInfos")->FirstChildElement("ConfigurationInfo")->FirstChildElement("Modules")->FirstChildElement("Module")->ToElement();
+    QDomElement value_el = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
 
     // Set values
     if (value)
     {
-        value_el->FirstChildElement("bLoad")->SetText("1");
+        value_el.firstChildElement("bLoad").firstChild().setNodeValue("1");
     }
     else
     {
-        value_el->FirstChildElement("bLoad")->SetText("0");
+        value_el.firstChildElement("bLoad").firstChild().setNodeValue("0");
     }
-    read.SaveFile(file);
+
+    // Save content back to the file
+    file.open(QIODevice::Truncate | QIODevice::WriteOnly);
+    file.write(read.toByteArray());
+    file.close();
+
     return 0;
 }

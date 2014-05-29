@@ -6,14 +6,13 @@
 
 INCLUDEPATH += .
 
-QT       += core gui network widgets
+QT       += core gui network widgets xml
 
 TARGET = and2_checker
 
 TEMPLATE = app
 
 SOURCES += \
-    lib/tinyxml2.cpp \
     main.cpp \
     mainwindow.cpp \
     civ_functions.cpp \
@@ -23,7 +22,6 @@ SOURCES += \
 
 HEADERS += \
     tinyxml2.h \
-    lib/tinyxml2.h \
     mainwindow.h \
     civ_functions.h \
     optionbox.h \

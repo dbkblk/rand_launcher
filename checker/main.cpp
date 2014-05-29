@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "optionbox.h"
 #include <civ_functions.h>
-#include <lib\tinyxml2.h>
 #include <QtCore>
 #include <QtNetwork>
 #include <QtGui>
