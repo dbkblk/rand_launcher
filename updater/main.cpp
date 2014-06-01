@@ -4,6 +4,7 @@
 #include <QDesktopWidget>
 #include <QTimer>
 #include <QEventLoop>
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -15,8 +16,9 @@ int main(int argc, char *argv[])
     if (argc == 2)
     {
         link = argv[2];
+        qDebug() << link;
     }
-    w->Execute("https://dl.dropboxusercontent.com/u/369241/AND2_CHECKER_V0.9.7z");
+    w->Execute(link);
     w->show();
 
     return a.exec();
