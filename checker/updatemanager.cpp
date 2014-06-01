@@ -22,10 +22,12 @@ updateManager::updateManager(QWidget *parent)
     QVBoxLayout *vert_layout = new QVBoxLayout(this);
     QHBoxLayout *button_layout = new QHBoxLayout(this);
     changelog_box = new updatebox(this);
-    addon_setup = new updatebox(this);
+    apply_setup = new updatebox(this);
+    apply_setup->addonsMode();
+    apply_setup->bt_chglog_close->setText("Close");
 
     // Layout
-    this->setGeometry(0,0,550,300);
+    this->setGeometry(0,0,580,300);
     this->setWindowTitle("Components manager");
     const QRect screen = QApplication::desktop()->screenGeometry();
     this->setFixedSize(size());
@@ -35,7 +37,7 @@ updateManager::updateManager(QWidget *parent)
     tab_updates = new QTableWidget(this);
     tab_updates->setRowCount(5);
     tab_updates->setColumnCount(4);
-    tab_updates->setGeometry(10,10,530,280);
+    tab_updates->setGeometry(10,10,560,280);
     tab_updates->setEditTriggers(QAbstractItemView::NoEditTriggers);
     tab_updates->setSortingEnabled(false);
     tab_updates->setSelectionMode(QAbstractItemView::NoSelection);
@@ -43,11 +45,11 @@ updateManager::updateManager(QWidget *parent)
     tab_updates->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     tab_updates->setColumnWidth(0,100);
     tab_updates->setColumnWidth(1,100);
-    tab_updates->setColumnWidth(2,90);
+    tab_updates->setColumnWidth(2,120);
     tab_updates->setColumnWidth(3,100);
 
     QStringList tab_updates_header;
-    tab_updates_header << "Local version" << "Distant version" << "Install / update" << "Changelog";
+    tab_updates_header << "Local version" << "Distant version" << "Action" << "Changelog";
     tab_updates->setHorizontalHeaderLabels(tab_updates_header);
     QStringList tab_updates_columns;
     tab_updates_columns << "Core mod" << "Launcher" << "Addon: Mega civ pack" << "Addon: More music" << "Addon: More handicaps";
@@ -114,42 +116,60 @@ updateManager::updateManager(QWidget *parent)
     item_distant_addon_MoreHandicaps->setText(readCheckerParam("ADDON_MOREHANDICAPS/DistantVersion"));
     item_distant_addon_MoreHandicaps->setTextAlignment(Qt::AlignCenter);
 
-    /* Checkboxes */
-    update_core_checkbox = new QCheckBox(this);
+    /* Combobox */
+    update_core_combobox = new QComboBox(this);
+    update_core_combobox->addItem("Choose action:");
+    update_core_combobox->addItem("Update");
+    update_core_combobox->addItem("Revert to rev. x");
+    update_core_combobox->addItem("Clean up setup");
     QHBoxLayout *update_core_layout = new QHBoxLayout(update_core_widget);
-    update_core_layout->addWidget(update_core_checkbox);
+    update_core_layout->addWidget(update_core_combobox);
     update_core_layout->setAlignment(Qt::AlignCenter);
     update_core_layout->setContentsMargins(0,0,0,0);
     update_core_widget->setLayout(update_core_layout);
     tab_updates->setCellWidget(0,2,update_core_widget);
 
-    update_launcher_checkbox = new QCheckBox(this);
+    update_launcher_combobox = new QComboBox(this);
+    update_launcher_combobox->addItem("Choose action:");
+    update_launcher_combobox->addItem("Update");
     QHBoxLayout *update_launcher_layout = new QHBoxLayout(update_launcher_widget);
-    update_launcher_layout->addWidget(update_launcher_checkbox);
+    update_launcher_layout->addWidget(update_launcher_combobox);
     update_launcher_layout->setAlignment(Qt::AlignCenter);
     update_launcher_layout->setContentsMargins(0,0,0,0);
     update_launcher_widget->setLayout(update_launcher_layout);
     tab_updates->setCellWidget(1,2,update_launcher_widget);
 
-    update_addon_MCP_checkbox = new QCheckBox(this);
+    update_addon_MCP_combobox = new QComboBox(this);
+    update_addon_MCP_combobox->addItem("Choose action:");
+    update_addon_MCP_combobox->addItem("Install");
+    update_addon_MCP_combobox->addItem("Update");
+    update_addon_MCP_combobox->addItem("Remove");
     QHBoxLayout *update_addon_MCP_layout = new QHBoxLayout(update_addon_MCP_widget);
-    update_addon_MCP_layout->addWidget(update_addon_MCP_checkbox);
+    update_addon_MCP_layout->addWidget(update_addon_MCP_combobox);
     update_addon_MCP_layout->setAlignment(Qt::AlignCenter);
     update_addon_MCP_layout->setContentsMargins(0,0,0,0);
     update_addon_MCP_widget->setLayout(update_addon_MCP_layout);
     tab_updates->setCellWidget(2,2,update_addon_MCP_widget);
 
-    update_addon_moremusic_checkbox = new QCheckBox(this);
+    update_addon_moremusic_combobox = new QComboBox(this);
+    update_addon_moremusic_combobox->addItem("Choose action:");
+    update_addon_moremusic_combobox->addItem("Install");
+    update_addon_moremusic_combobox->addItem("Update");
+    update_addon_moremusic_combobox->addItem("Remove");
     QHBoxLayout *update_addon_moremusic_layout = new QHBoxLayout(update_addon_moremusic_widget);
-    update_addon_moremusic_layout->addWidget(update_addon_moremusic_checkbox);
+    update_addon_moremusic_layout->addWidget(update_addon_moremusic_combobox);
     update_addon_moremusic_layout->setAlignment(Qt::AlignCenter);
     update_addon_moremusic_layout->setContentsMargins(0,0,0,0);
     update_addon_moremusic_widget->setLayout(update_addon_moremusic_layout);
     tab_updates->setCellWidget(3,2,update_addon_moremusic_widget);
 
-    update_addon_morehandicaps_checkbox = new QCheckBox(this);
+    update_addon_morehandicaps_combobox = new QComboBox(this);
+    update_addon_morehandicaps_combobox->addItem("Choose action:");
+    update_addon_morehandicaps_combobox->addItem("Install");
+    update_addon_morehandicaps_combobox->addItem("Update");
+    update_addon_morehandicaps_combobox->addItem("Remove");
     QHBoxLayout *update_addon_morehandicaps_layout = new QHBoxLayout(update_addon_morehandicaps_widget);
-    update_addon_morehandicaps_layout->addWidget(update_addon_morehandicaps_checkbox);
+    update_addon_morehandicaps_layout->addWidget(update_addon_morehandicaps_combobox);
     update_addon_morehandicaps_layout->setAlignment(Qt::AlignCenter);
     update_addon_morehandicaps_layout->setContentsMargins(0,0,0,0);
     update_addon_morehandicaps_widget->setLayout(update_addon_morehandicaps_layout);
@@ -218,28 +238,321 @@ updateManager::updateManager(QWidget *parent)
     button_layout->addWidget(apply);
     vert_layout->addLayout(button_layout);
 
-    // Setting initial state
+    // Creating UI
 
 
     // Actions
-    connect(update_core_checkbox,SIGNAL(clicked()),this,SLOT(on_checkbox_clicked()));
-    connect(update_launcher_checkbox,SIGNAL(clicked()),this,SLOT(on_checkbox_clicked()));
-    connect(update_addon_MCP_checkbox,SIGNAL(clicked()),this,SLOT(on_checkbox_clicked()));
-    connect(update_addon_morehandicaps_checkbox,SIGNAL(clicked()),this,SLOT(on_checkbox_clicked()));
-    connect(update_addon_moremusic_checkbox,SIGNAL(clicked()),this,SLOT(on_checkbox_clicked()));
+    connect(update_core_combobox,SIGNAL(currentIndexChanged(int)),this,SLOT(CheckComboBoxState()));
+    connect(update_launcher_combobox,SIGNAL(currentIndexChanged(int)),this,SLOT(CheckComboBoxState()));
+    connect(update_addon_MCP_combobox,SIGNAL(currentIndexChanged(int)),this,SLOT(CheckComboBoxState()));
+    connect(update_addon_moremusic_combobox,SIGNAL(currentIndexChanged(int)),this,SLOT(CheckComboBoxState()));
+    connect(update_addon_morehandicaps_combobox,SIGNAL(currentIndexChanged(int)),this,SLOT(CheckComboBoxState()));
+
     connect(button_core_checkbox,SIGNAL(clicked()),this,SLOT(changelogCore()));
     connect(button_launcher_checkbox,SIGNAL(clicked()),this,SLOT(on_launcher_changelog_clicked()));
     connect(button_addon_MCP_checkbox,SIGNAL(clicked()),this,SLOT(on_addon_megacivpack_clicked()));
     connect(button_addon_morehandicaps_checkbox,SIGNAL(clicked()),this,SLOT(on_addon_sogroon_clicked()));
     connect(button_addon_moremusic_checkbox,SIGNAL(clicked()),this,SLOT(on_addon_sogroon_clicked()));
     connect(cancel,SIGNAL(clicked()),this,SLOT(close()));
-    connect(apply,SIGNAL(clicked()),this,SLOT(addons_installation()));
+    connect(apply,SIGNAL(clicked()),this,SLOT(ProcessActions()));
+    connect(this, SIGNAL(components_installed()), this, SLOT(updateInfos()));
 
+    // Create links for installation process
+    wait_timer.setInterval(2000);
+    wait_timer.setSingleShot(true);
+    connect(apply_setup,SIGNAL(finished()),&wait_install,SLOT(quit()));
+    connect(&wait_timer, SIGNAL(timeout()), &wait_install, SLOT(quit()));
+    connect(apply_setup,SIGNAL(updated()), &wait_svn,SLOT(quit()));
 }
 
 updateManager::~updateManager()
 {
-    QProcess::execute("taskkill /f /im curl.exe");
+}
+
+void updateManager::ActionCoreUpdate()
+{
+    // Actions
+    apply_setup->appendText("Updating core mod\n-----------------------\n");
+    wait_timer.start();
+    wait_install.exec();
+    bool cursor = false;
+    apply_setup->execute("checker/svn.exe update", cursor);
+    wait_svn.exec();
+    clearCache();
+    clearGameOptions();
+    apply_setup->appendText("\n\n");
+}
+
+void updateManager::ActionCoreRevert()
+{
+    QTimer wait_timer;
+    wait_timer.setSingleShot(true);
+    wait_timer.setInterval(1500);
+
+    QString dial_rev = QInputDialog::getText(this, "Revision selector", "Please enter the revision you want to revert to :", QLineEdit::Normal);
+    qDebug() << dial_rev;
+    QString cmd = "checker/svn.exe update -r " + dial_rev + " --accept theirs-full";
+    apply_setup->appendText(QString("Reverting to revision %1\n-----------------------\n").arg(dial_rev));
+    bool value = false;
+    apply_setup->execute(cmd,value);
+    wait_svn.exec();
+    clearCache();
+    clearGameOptions();
+    apply_setup->appendText("\n\n");
+}
+
+void updateManager::ActionCoreClean()
+{
+    QTimer wait_timer;
+    wait_timer.setSingleShot(true);
+    wait_timer.setInterval(1500);
+
+    apply_setup->appendText("Cleaning up installation\n-----------------------\n");
+    wait_timer.start();
+    bool value = false;
+    apply_setup->execute("checker/svn.exe cleanup",value);
+    wait_install.exec();
+    clearCache();
+    clearGameOptions();
+    apply_setup->appendText("\n\n");
+}
+
+void updateManager::ActionAddonMCPUpdate()
+{
+    QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
+    apply_setup->appendText("Downloading Mega Civ Pack addon (835MB)\n-----------------------\n");
+    wait_timer.start();
+    wait_install.exec();
+
+    QString download_addon_mcp = "checker/curl.exe -o AND2_MCP_BASE.7z -J -L -C - --retry 10 --insecure " + upd_ini.value("ADDON_MEGACIVPACK/BaseLink").toString();
+    bool cursor = false;
+    apply_setup->execute(download_addon_mcp,cursor);
+    wait_install.exec();
+    QString download_addon_mcp2 = "checker/curl.exe -o AND2_MCP_FILES.7z -J -L -C - -# --retry 10 --insecure " + upd_ini.value("ADDON_MEGACIVPACK/FilesLink").toString();
+    apply_setup->execute(download_addon_mcp2,cursor);
+    wait_install.exec();
+
+    // Write text and wait 2s
+    apply_setup->appendText("\n\nExtracting Mega Civ Pack Addon\n-----------------------\n");
+    wait_timer.start();
+    wait_install.exec();
+
+    QString extract_addon_mcp1 = "checker/7za.exe x -y -otemp/ AND2_MCP_BASE.7z";
+    apply_setup->execute(extract_addon_mcp1,cursor);
+    wait_install.exec();
+
+    QString extract_addon_mcp2 = "checker/7za.exe x -y -otemp/ AND2_MCP_FILES.7z";
+    apply_setup->execute(extract_addon_mcp2,cursor);
+    wait_install.exec();
+
+    // Scan temp directory and generate a list of files
+    QStringList addon_list;
+    QDirIterator iterator("temp/", QDir::Files | QDir::NoDotAndDotDot,  QDirIterator::Subdirectories);
+    while (iterator.hasNext())
+    {
+        iterator.next();
+        QString filepath;
+        filepath = iterator.filePath();
+        if (filepath.endsWith(".")){iterator.next();};
+        filepath.replace("temp/","");
+        addon_list << filepath;
+    }
+    QFile output_list("uninstall_addon_MCP.txt");
+    QString file;
+    output_list.open(QIODevice::WriteOnly | QIODevice::Truncate);
+    QTextStream out_enc(&output_list);
+    addon_list.sort();
+    foreach (file, addon_list) {
+        out_enc << file << endl;
+    }
+    output_list.close();
+    QFile::remove("checker/uninstall_addon_MCP.txt");
+    output_list.rename("checker/uninstall_addon_MCP.txt");
+
+    // Copy files to mod folder
+    QDirIterator iterator2("temp/", QDir::Files | QDir::NoDotAndDotDot,  QDirIterator::Subdirectories);
+    while (iterator2.hasNext())
+    {
+        QString filepath;
+        iterator2.next();
+        filepath = iterator2.filePath();
+        //qDebug() << filepath;
+        filepath.replace("temp/","");
+        QFile::remove(filepath);
+        QFile::rename(iterator2.filePath(),filepath);
+    }
+
+    QDir temp_dir("temp/");
+    temp_dir.removeRecursively();
+
+    // Write text and wait 2s
+    apply_setup->appendText("\n\nMega Civ Pack addon installation finished \n-----------------------\n");
+    wait_timer.start();
+    wait_install.exec();
+
+    QFile::remove("AND2_MCP_BASE.7z");
+    QFile::remove("AND2_MCP_FILES.7z");
+    check_addon_mcp();
+    apply_setup->appendText("\n\n");
+}
+
+void updateManager::ActionAddonMCPRemove()
+{
+
+}
+
+void updateManager::ActionAddonMoreMusicUpdate()
+{
+    QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
+    // Write text and wait 2s
+    apply_setup->appendText("Downloading Music Addon (500MB)\n-----------------------\n");
+    wait_timer.start();
+    wait_install.exec();
+
+    // Download addon
+    bool cursor = false;
+    QString download_addon_music = "checker/curl.exe -o AND2_MUSIC_ADDON.7z -J -L -C - --retry 10 --insecure " + upd_ini.value("ADDON_MOREMUSIC/Link").toString();
+    apply_setup->execute(download_addon_music,cursor);
+    wait_install.exec();
+
+    // Write text and wait 2s
+    apply_setup->appendText("\n\nExtracting Music Addon\n-----------------------\n");
+    wait_timer.start();
+    wait_install.exec();
+
+    QString extract_addon_music = "checker/7za.exe x -y -otemp/ AND2_MUSIC_ADDON.7z";
+    apply_setup->execute(extract_addon_music,cursor);
+    wait_install.exec();
+
+    // Scan temp directory and generate a list of files
+    QStringList addon_list;
+    QDirIterator iterator("temp/", QDir::Files | QDir::NoDotAndDotDot,  QDirIterator::Subdirectories);
+    while (iterator.hasNext())
+    {
+        iterator.next();
+        QString filepath;
+        filepath = iterator.filePath();
+        if (filepath.endsWith(".")){iterator.next();};
+        filepath.replace("temp/","");
+        addon_list << filepath;
+    }
+    QFile output_list("uninstall_addon_moremusic.txt");
+    QString file;
+    output_list.open(QIODevice::WriteOnly | QIODevice::Truncate);
+    QTextStream out_enc(&output_list);
+    addon_list.sort();
+    foreach (file, addon_list) {
+        out_enc << file << endl;
+    }
+    output_list.close();
+    QFile::remove("checker/uninstall_addon_moremusic.txt");
+    output_list.rename("checker/uninstall_addon_moremusic.txt");
+
+    // Copy files to mod folder
+    QDirIterator iterator2("temp/", QDir::Files | QDir::NoDotAndDotDot,  QDirIterator::Subdirectories);
+    while (iterator2.hasNext())
+    {
+        QString filepath;
+        iterator2.next();
+        filepath = iterator2.filePath();
+        //qDebug() << filepath;
+        filepath.replace("temp/","");
+        QFile::remove(filepath);
+        QFile::rename(iterator2.filePath(),filepath);
+    }
+
+    QDir temp_dir("temp/");
+    temp_dir.removeRecursively();
+
+    // Write text and wait 2s
+    apply_setup->appendText("\n\nMore music addon installation finished !\n-----------------------\n");
+    wait_timer.start();
+    wait_install.exec();
+    QFile::remove("AND2_MUSIC_ADDON.7z");
+    check_addon_more_music();
+    apply_setup->appendText("\n\n");
+}
+
+void updateManager::ActionAddonMoreMusicRemove()
+{
+
+}
+
+void updateManager::ActionAddonMoreHandicapsUpdate()
+{
+    QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
+    // Write text and wait 2s
+    apply_setup->appendText("Downloading Handicaps Addon (0.02MB\n-----------------------\n");
+    wait_timer.start();
+    wait_install.exec();
+
+    // Download addon
+    QString download_addon_handicaps = "checker/curl.exe -o AND2_HANDICAP_ADDON.7z -J -L -C - -# --retry 10 --insecure " + upd_ini.value("ADDON_MOREHANDICAPS/Link").toString();
+    bool cursor = false;
+    apply_setup->execute(download_addon_handicaps,cursor);
+    wait_install.exec();
+
+    // Write text and wait 2s
+    apply_setup->appendText("\n\nExtracting Handicaps Addon\n-----------------------\n");
+    wait_timer.start();
+    wait_install.exec();
+
+    QString extract_addon_music = "checker/7za.exe x -y -otemp/ AND2_HANDICAP_ADDON.7z";
+    apply_setup->execute(extract_addon_music,cursor);
+    wait_install.exec();
+
+    // Scan temp directory and generate a list of files
+    QStringList addon_list;
+    QDirIterator iterator("temp/", QDir::Files | QDir::NoDotAndDotDot,  QDirIterator::Subdirectories);
+    while (iterator.hasNext())
+    {
+        iterator.next();
+        QString filepath;
+        filepath = iterator.filePath();
+        if (filepath.endsWith(".")){iterator.next();};
+        filepath.replace("temp/","");
+        addon_list << filepath;
+    }
+    QFile output_list("uninstall_addon_morehandicaps.txt");
+    QString file;
+    output_list.open(QIODevice::WriteOnly | QIODevice::Truncate);
+    QTextStream out_enc(&output_list);
+    addon_list.sort();
+    foreach (file, addon_list) {
+        out_enc << file << endl;
+    }
+    output_list.close();
+    QFile::remove("checker/uninstall_addon_morehandicaps.txt");
+    output_list.rename("checker/uninstall_addon_morehandicaps.txt");
+
+    // Copy files to mod folder
+    QDirIterator iterator2("temp/", QDir::Files | QDir::NoDotAndDotDot,  QDirIterator::Subdirectories);
+    while (iterator2.hasNext())
+    {
+        QString filepath;
+        iterator2.next();
+        filepath = iterator2.filePath();
+        //qDebug() << filepath;
+        filepath.replace("temp/","");
+        QFile::remove(filepath);
+        QFile::rename(iterator2.filePath(),filepath);
+    }
+
+    QDir temp_dir("temp/");
+    temp_dir.removeRecursively();
+
+    // Write text and wait 2s
+    apply_setup->appendText("\n\nHandicaps Addon installation finished !\n-----------------------\n");
+    wait_timer.start();
+    wait_install.exec();
+    QFile::remove("AND2_HANDICAP_ADDON.7z");
+    check_addon_more_handicaps();
+    apply_setup->appendText("\n\n");
+}
+
+void updateManager::ActionAddonMoreHandicapsRemove()
+{
+
 }
 
 void updateManager::updateInfos()
@@ -257,9 +570,9 @@ void updateManager::updateInfos()
     QString distant_version = QString::number(svnDistantInfo());
     this->item_distant_vers->setText(distant_version);
     this->item_distant_launcher->setText(readCheckerParam("Update/DistantCheckerMajorVersion") + "." + readCheckerParam("Update/DistantCheckerMinorVersion"));
-    this->item_distant_addon_MCP->setText(readCheckerParam("ADDON_MEGACIVPACK/DistantBaseVersion"));
+    this->item_distant_addon_MCP->setText(readCheckerParam("ADDON_MEGACIVPACK/DistantFilesVersion"));
     this->item_distant_addon_MoreMusic->setText(readCheckerParam("ADDON_MOREMUSIC/DistantVersion"));
-    this->item_distant_addon_MoreHandicaps->setText(readCheckerParam("ADDON_MOREMUSIC/DistantVersion"));
+    this->item_distant_addon_MoreHandicaps->setText(readCheckerParam("ADDON_MOREHANDICAPS/DistantVersion"));
 }
 
 void updateManager::changelogCore()
@@ -275,274 +588,63 @@ void updateManager::changelogCore()
     changelog_box->execute(command,value);
 }
 
-void updateManager::addons_installation()
+void updateManager::ProcessActions()
 {
-    addon_setup->addonsMode();
-    addon_setup->show();
-    addon_setup->bt_chglog_close->setText("Close");
+    apply_setup->show();
 
-    // Check for checkbox state
-    qDebug() << "Update core mod is" << update_core_checkbox->isChecked();
-    qDebug() << "Update launcher is" << update_launcher_checkbox->isChecked();
-    qDebug() << "Install Mega Civ Pack is" << update_addon_MCP_checkbox->isChecked();
-    qDebug() << "Install More music is" << update_addon_moremusic_checkbox->isChecked();
-    qDebug() << "Install More handicaps is" << update_addon_morehandicaps_checkbox->isChecked();
-
-    // Create a loop to wait for process execution
-    QEventLoop wait_install;
-    QEventLoop wait_svn;
-    QTimer wait_timer;
-    wait_timer.setInterval(2000);
-    wait_timer.setSingleShot(true);
-    connect(addon_setup,SIGNAL(finished()),&wait_install,SLOT(quit()));
-    connect(&wait_timer, SIGNAL(timeout()), &wait_install, SLOT(quit()));
-    connect(addon_setup,SIGNAL(updated()), &wait_svn,SLOT(quit()));
-
-    QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
-
-    // Core mod update
-    if(update_core_checkbox->isChecked())
+    // Check Core actions
+    if(update_core_combobox->currentText() == "Update")
     {
-        addon_setup->appendText("\n\n****************************************\nUpdating core mod\n****************************************\n");
-        wait_timer.start();
-        wait_install.exec();
-        bool cursor = false;
-        addon_setup->execute("checker/svn.exe update", cursor);
-        wait_svn.exec();
-        clearCache();
-        clearGameOptions();
+        ActionCoreUpdate();
+    }
+    else if(update_core_combobox->currentText() == "Revert to rev. x")
+    {
+        ActionCoreRevert();
+    }
+    else if(update_core_combobox->currentText() == "Clean up setup")
+    {
+        ActionCoreClean();
     }
 
-    if(update_addon_MCP_checkbox->isChecked())
+    // Check addon MCP actions
+    if(update_addon_MCP_combobox->currentText() == "Install" || update_addon_MCP_combobox->currentText() == "Update")
     {
-        // Write text and wait 2s
-        addon_setup->appendText("\n\n****************************************\nDownloading Mega Civ Pack addon (835MB)\n****************************************\n");
-        wait_timer.start();
-        wait_install.exec();
-
-        // Download addon
-        QString download_addon_mcp = "checker/curl.exe -o AND2_MCP_BASE.7z -J -L -C - --retry 10 --insecure " + upd_ini.value("ADDON_MEGACIVPACK/BaseLink").toString();
-        bool cursor = false;
-        addon_setup->execute(download_addon_mcp,cursor);
-        wait_install.exec();
-        QString download_addon_mcp2 = "checker/curl.exe -o AND2_MCP_FILES.7z -J -L -C - -# --retry 10 --insecure " + upd_ini.value("ADDON_MEGACIVPACK/FilesLink").toString();
-        addon_setup->execute(download_addon_mcp2,cursor);
-        wait_install.exec();
-
-        // Write text and wait 2s
-        addon_setup->appendText("\n\n****************************************\nExtracting Mega Civ Pack Addon\n****************************************\n");
-        wait_timer.start();
-        wait_install.exec();
-
-        QString extract_addon_mcp1 = "checker/7za.exe x -y -otemp/ AND2_MCP_BASE.7z";
-        addon_setup->execute(extract_addon_mcp1,cursor);
-        wait_install.exec();
-
-        QString extract_addon_mcp2 = "checker/7za.exe x -y -otemp/ AND2_MCP_FILES.7z";
-        addon_setup->execute(extract_addon_mcp2,cursor);
-        wait_install.exec();
-
-        // Scan temp directory and generate a list of files
-        QStringList addon_list;
-        QDirIterator iterator("temp/", QDir::Files | QDir::NoDotAndDotDot,  QDirIterator::Subdirectories);
-        while (iterator.hasNext())
-        {
-            iterator.next();
-            QString filepath;
-            filepath = iterator.filePath();
-            if (filepath.endsWith(".")){iterator.next();};
-            filepath.replace("temp/","");
-            addon_list << filepath;
-        }
-        QFile output_list("uninstall_addon_MCP.txt");
-        QString file;
-        output_list.open(QIODevice::WriteOnly | QIODevice::Truncate);
-        QTextStream out_enc(&output_list);
-        addon_list.sort();
-        foreach (file, addon_list) {
-            out_enc << file << endl;
-        }
-        output_list.close();
-        QFile::remove("checker/uninstall_addon_MCP.txt");
-        output_list.rename("checker/uninstall_addon_MCP.txt");
-
-        // Copy files to mod folder
-        QDirIterator iterator2("temp/", QDir::Files | QDir::NoDotAndDotDot,  QDirIterator::Subdirectories);
-        while (iterator2.hasNext())
-        {
-            QString filepath;
-            iterator2.next();
-            filepath = iterator2.filePath();
-            //qDebug() << filepath;
-            filepath.replace("temp/","");
-            QFile::remove(filepath);
-            QFile::rename(iterator2.filePath(),filepath);
-        }
-
-        QDir temp_dir("temp/");
-        temp_dir.removeRecursively();
-
-        // Write text and wait 2s
-        addon_setup->appendText("\n\n****************************************\nMega Civ Pack addon installation finished !\n****************************************\n");
-        wait_timer.start();
-        wait_install.exec();
-
-        QFile::remove("AND2_MCP_BASE.7z");
-        QFile::remove("AND2_MCP_FILES.7z");
-        check_addon_mcp();
-
+        ActionAddonMCPUpdate();
+    }
+    else if(update_addon_MCP_combobox->currentText() == "Remove")
+    {
+        ActionAddonMCPRemove();
     }
 
-    if(update_addon_moremusic_checkbox->isChecked())
+    // Check addon More music
+    if(update_addon_moremusic_combobox->currentText() == "Install" || update_addon_moremusic_combobox->currentText() == "Update")
     {
-        // Write text and wait 2s
-        addon_setup->appendText("\n\n****************************************\nDownloading Music Addon (500MB)\n****************************************\n");
-        wait_timer.start();
-        wait_install.exec();
-
-        // Download addon
-        bool cursor = false;
-        QString download_addon_music = "checker/curl.exe -o AND2_MUSIC_ADDON.7z -J -L -C - --retry 10 --insecure " + upd_ini.value("ADDON_MOREMUSIC/Link").toString();
-        addon_setup->execute(download_addon_music,cursor);
-        wait_install.exec();
-
-        // Write text and wait 2s
-        addon_setup->appendText("\n\n****************************************\nExtracting Music Addon\n****************************************\n");
-        wait_timer.start();
-        wait_install.exec();
-
-        QString extract_addon_music = "checker/7za.exe x -y -otemp/ AND2_MUSIC_ADDON.7z";
-        addon_setup->execute(extract_addon_music,cursor);
-        wait_install.exec();
-
-        // Scan temp directory and generate a list of files
-        QStringList addon_list;
-        QDirIterator iterator("temp/", QDir::Files | QDir::NoDotAndDotDot,  QDirIterator::Subdirectories);
-        while (iterator.hasNext())
-        {
-            iterator.next();
-            QString filepath;
-            filepath = iterator.filePath();
-            if (filepath.endsWith(".")){iterator.next();};
-            filepath.replace("temp/","");
-            addon_list << filepath;
-        }
-        QFile output_list("uninstall_addon_moremusic.txt");
-        QString file;
-        output_list.open(QIODevice::WriteOnly | QIODevice::Truncate);
-        QTextStream out_enc(&output_list);
-        addon_list.sort();
-        foreach (file, addon_list) {
-            out_enc << file << endl;
-        }
-        output_list.close();
-        QFile::remove("checker/uninstall_addon_moremusic.txt");
-        output_list.rename("checker/uninstall_addon_moremusic.txt");
-
-        // Copy files to mod folder
-        QDirIterator iterator2("temp/", QDir::Files | QDir::NoDotAndDotDot,  QDirIterator::Subdirectories);
-        while (iterator2.hasNext())
-        {
-            QString filepath;
-            iterator2.next();
-            filepath = iterator2.filePath();
-            //qDebug() << filepath;
-            filepath.replace("temp/","");
-            QFile::remove(filepath);
-            QFile::rename(iterator2.filePath(),filepath);
-        }
-
-        QDir temp_dir("temp/");
-        temp_dir.removeRecursively();
-
-        // Write text and wait 2s
-        addon_setup->appendText("\n\n****************************************\nMore music addon installation finished !\n****************************************\n");
-        wait_timer.start();
-        wait_install.exec();
-        QFile::remove("AND2_MUSIC_ADDON.7z");
-        check_addon_more_music();
-
+        ActionAddonMoreMusicUpdate();
+    }
+    else if(update_addon_moremusic_combobox->currentText() == "Remove")
+    {
+        ActionAddonMoreMusicRemove();
     }
 
-    if(update_addon_morehandicaps_checkbox->isChecked())
+    // Check addon More handicaps
+    if(update_addon_morehandicaps_combobox->currentText() == "Install" || update_addon_morehandicaps_combobox->currentText() == "Update")
     {
-        // Write text and wait 2s
-        addon_setup->appendText("\n\n****************************************\nDownloading Handicaps Addon (0.02MB)\n****************************************\n\n");
-        wait_timer.start();
-        wait_install.exec();
-
-        // Download addon
-        QString download_addon_handicaps = "checker/curl.exe -o AND2_HANDICAP_ADDON.7z -J -L -C - -# --retry 10 --insecure " + upd_ini.value("ADDON_MOREHANDICAPS/Link").toString();
-        bool cursor = false;
-        addon_setup->execute(download_addon_handicaps,cursor);
-        wait_install.exec();
-
-        // Write text and wait 2s
-        addon_setup->appendText("\n\n****************************************\nExtracting Handicaps Addon\n****************************************\n");
-        wait_timer.start();
-        wait_install.exec();
-
-        QString extract_addon_music = "checker/7za.exe x -y -otemp/ AND2_HANDICAP_ADDON.7z";
-        addon_setup->execute(extract_addon_music,cursor);
-        wait_install.exec();
-
-        // Scan temp directory and generate a list of files
-        QStringList addon_list;
-        QDirIterator iterator("temp/", QDir::Files | QDir::NoDotAndDotDot,  QDirIterator::Subdirectories);
-        while (iterator.hasNext())
-        {
-            iterator.next();
-            QString filepath;
-            filepath = iterator.filePath();
-            if (filepath.endsWith(".")){iterator.next();};
-            filepath.replace("temp/","");
-            addon_list << filepath;
-        }
-        QFile output_list("uninstall_addon_morehandicaps.txt");
-        QString file;
-        output_list.open(QIODevice::WriteOnly | QIODevice::Truncate);
-        QTextStream out_enc(&output_list);
-        addon_list.sort();
-        foreach (file, addon_list) {
-            out_enc << file << endl;
-        }
-        output_list.close();
-        QFile::remove("checker/uninstall_addon_morehandicaps.txt");
-        output_list.rename("checker/uninstall_addon_morehandicaps.txt");
-
-        // Copy files to mod folder
-        QDirIterator iterator2("temp/", QDir::Files | QDir::NoDotAndDotDot,  QDirIterator::Subdirectories);
-        while (iterator2.hasNext())
-        {
-            QString filepath;
-            iterator2.next();
-            filepath = iterator2.filePath();
-            //qDebug() << filepath;
-            filepath.replace("temp/","");
-            QFile::remove(filepath);
-            QFile::rename(iterator2.filePath(),filepath);
-        }
-
-        QDir temp_dir("temp/");
-        temp_dir.removeRecursively();
-
-        // Write text and wait 2s
-        addon_setup->appendText("\n\n****************************************\nMore handicaps addon installation finished !\n****************************************\n\n");
-        wait_timer.start();
-        wait_install.exec();
-        QFile::remove("AND2_HANDICAP_ADDON.7z");
-        check_addon_more_handicaps();
+        ActionAddonMoreHandicapsUpdate();
+    }
+    else if(update_addon_morehandicaps_combobox->currentText() == "Remove")
+    {
+        ActionAddonMoreHandicapsRemove();
     }
 
-    updateInfos();
-
-    if(update_launcher_checkbox->isChecked())
+    // Check launcher
+    if(update_launcher_combobox->currentText() == "Update")
     {
-        addon_setup->appendText("\n\n****************************************\nInstalling launcher update. The program is going to be restarted !\n****************************************\n\n");
+        apply_setup->appendText("\n\nUpdating launcher... The program will now restart\n-----------------------\n");
         wait_timer.start();
         wait_install.exec();
-        launcherUpdate();
     }
+
+    emit components_installed();
 }
 
 void updateManager::on_launcher_changelog_clicked()
@@ -560,19 +662,15 @@ void updateManager::on_addon_megacivpack_clicked()
     QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=521289"));
 }
 
-void updateManager::on_checkbox_clicked()
+void updateManager::CheckComboBoxState()
 {
-    QFile update("checker/update.ini");
-    if(update.exists())
+    if (update_core_combobox->currentIndex() > 0 || update_launcher_combobox->currentIndex() > 0 || update_addon_MCP_combobox->currentIndex() > 0 || update_addon_moremusic_combobox->currentIndex() > 0 || update_addon_morehandicaps_combobox->currentIndex() > 0 )
     {
-        if (update_core_checkbox->isChecked() == true || update_launcher_checkbox->isChecked() == true  || update_addon_MCP_checkbox->isChecked() == true  || update_addon_moremusic_checkbox->isChecked() == true  || update_addon_morehandicaps_checkbox->isChecked() == true )
-        {
-            this->apply->setEnabled(true);
-        }
-        else
-        {
-            this->apply->setEnabled(false);
-        }
+        apply->setEnabled(true);
+    }
+    else
+    {
+        apply->setEnabled(false);
     }
 }
 
@@ -606,9 +704,9 @@ void Worker::abort()
 
 void Worker::UMCheckUpdate()
 {
-    // Wait 5s before to check for update
+    // Wait 3s before to check for update
     QEventLoop loop;
-    QTimer::singleShot(10000, &loop, SLOT(quit()));
+    QTimer::singleShot(3000, &loop, SLOT(quit()));
     loop.exec();
 
     // Begin processing
@@ -628,11 +726,16 @@ void Worker::UMCheckUpdate()
         setCheckerParam("ADDON_MOREMUSIC/DistantVersion",upd_ini.value("ADDON_MOREMUSIC/Version").toString());
         setCheckerParam("ADDON_MOREHANDICAPS/DistantVersion",upd_ini.value("ADDON_MOREHANDICAPS/Version").toString());
         setCheckerParam("ADDON_MEGACIVPACK/DistantBaseVersion",upd_ini.value("ADDON_MEGACIVPACK/BaseVersion").toString());
-        setCheckerParam("ADDON_MEGACIVPACK/DistantBaseVersion",upd_ini.value("ADDON_MEGACIVPACK/FilesVersion").toString());
+        setCheckerParam("ADDON_MEGACIVPACK/DistantFilesVersion",upd_ini.value("ADDON_MEGACIVPACK/FilesVersion").toString());
 
-        if(LauncherVersionCalculation() == true || readCheckerParam("ADDON_MEGACIVPACK/FilesVersion").toFloat() < readCheckerParam("ADDON_MEGACIVPACK/DistantVersion").toFloat() || readCheckerParam("ADDON_MOREHANDICAPS/Version").toFloat() < readCheckerParam("ADDON_MOREHANDICAPS/DistantBaseVersion").toFloat() || readCheckerParam("ADDON_MOREMUSIC/Version").toFloat() < readCheckerParam("ADDON_MOREMUSIC/DistantVersion").toFloat() || svnLocalInfo() < svnDistantInfo()){
+        if(LauncherVersionCalculation() == true || svnLocalInfo() < svnDistantInfo()){
             update = true;
             qDebug() << "Update is " << update;
+        }
+
+        else if (AddonsVersionCalculation())
+        {
+            update = true;
         }
 
         else
@@ -653,7 +756,7 @@ void Worker::UMCheckUpdate()
     emit finished(update);
 }
 
-bool launcherUpdate()
+bool ActionLauncherUpdate()
 {
     QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
     QStringList downloadlink;
@@ -687,6 +790,46 @@ bool LauncherVersionCalculation()
     {
         return false;
     }
+}
+
+bool AddonsVersionCalculation()
+{
+    bool update = false;
+    qDebug() << "MCP: " << check_addon_mcp() << " MM: " << check_addon_more_music() << " MH: " << check_addon_more_handicaps();
+    int u = 0;
+    if (check_addon_mcp() != "Not installed")
+    {
+        if (readCheckerParam("ADDON_MEGACIVPACK/FilesVersion") != readCheckerParam("ADDON_MEGACIVPACK/DistantFilesVersion"))
+        {
+            u++;
+            qDebug() << "u is " << u;
+        }
+    }
+    if ( check_addon_more_handicaps() != "Not installed")
+    {
+        if (readCheckerParam("ADDON_MOREHANDICAPS/Version") != readCheckerParam("ADDON_MOREHANDICAPS/DistantBaseVersion"))
+        {
+            u++;
+            qDebug() << "u is " << u;
+        }
+    }
+    if (check_addon_more_music() != "Not installed")
+    {
+        if (readCheckerParam("ADDON_MOREMUSIC/Version") != readCheckerParam("ADDON_MOREMUSIC/DistantVersion"))
+        {
+            u++;
+            qDebug() << "u is " << u;
+        }
+    }
+    if(u > 0)
+    {
+        update = true;
+    }
+    else
+    {
+        update = false;
+    }
+    return update;
 }
 
 void restartLauncher()

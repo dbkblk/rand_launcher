@@ -21,7 +21,6 @@ SOURCES += \
     updatemanager.cpp
 
 HEADERS += \
-    tinyxml2.h \
     mainwindow.h \
     civ_functions.h \
     optionbox.h \

@@ -36,17 +36,23 @@ DONE -> Fixed a mighty segfault when colors are all defined to zero.
 ### Features
 DONE -> Create a graphical launcher updater
 DONE -> Recheck addon state after installation
+- Make a uninstallation for addons (compare with the file list from the repo "svn list --recursive")
+        --> Convert Checkbox to list with the following actions ("Choose action: (none) / Install (addons only) / Update / Remove (addons only)")
+        --> Separate the addon installation in functions for install and remove
+        --> On apply, check the action
+        --> Removing : Compare generated file list with svn file list and checkout the local version of each file
+
 
 ### Bugfix
 DONE -> Option: Formations don't keep parameters
 DONE -> Confirm that the mod has been updated to popup "the mod has been updated"
-- Do not tell update is available if addons aren't installed
+DONE -> Do not tell update is available if addons aren't installed
 DONE -> Show changelog from the head version
-- Update main window infos after update;
+DONE -> Update main window infos after update;
 
 ## 0.11
 ### Features
-- Make a uninstallation for addons (compare with the file list from the repo "svn list --recursive")
+
 - Autocheck svn state from error message.
 - Option: Default update behavior: Replace all files by more recent / Keep local files.
 

@@ -193,7 +193,7 @@ void optionBox::on_opt_bt_chklauncher_clicked()
          int ret = upd_box.exec();
          switch (ret) {
              case QMessageBox::Ok :
-                 launcherUpdate();
+                 ActionLauncherUpdate();
                  break;
 
              case QMessageBox::Cancel :

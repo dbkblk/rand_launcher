@@ -3,13 +3,14 @@
 
 #include "updatebox.h"
 #include <QWidget>
-#include <QCheckBox>
+#include <QComboBox>
 #include <QObject>
 #include <QMutex>
 #include <QSettings>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QTableWidget>
+#include <QEventLoop>
 
 namespace Ui {
 class updateManager;
@@ -17,9 +18,10 @@ class updateManager;
 
 bool clearCache();
 bool clearGameOptions();
-bool launcherUpdate();
+bool ActionLauncherUpdate();
 void restartLauncher();
 bool LauncherVersionCalculation();
+bool AddonsVersionCalculation();
 int svnLocalInfo();
 int svnDistantInfo();
 
@@ -31,14 +33,26 @@ public:
     explicit updateManager(QWidget *parent = 0);
     ~updateManager();
 
+signals:
+    void components_installed();
+
 public slots:
     void updateInfos();
     void changelogCore();
     void on_launcher_changelog_clicked();
     void on_addon_sogroon_clicked();
     void on_addon_megacivpack_clicked();
-    void addons_installation();
-    void on_checkbox_clicked();
+    void ProcessActions();
+    void CheckComboBoxState();
+    void ActionCoreUpdate();
+    void ActionCoreRevert();
+    void ActionCoreClean();
+    void ActionAddonMCPUpdate();
+    void ActionAddonMCPRemove();
+    void ActionAddonMoreMusicUpdate();
+    void ActionAddonMoreMusicRemove();
+    void ActionAddonMoreHandicapsUpdate();
+    void ActionAddonMoreHandicapsRemove();
 
 private:
     QTableWidget *tab_updates;
@@ -55,17 +69,20 @@ private:
     QPushButton *apply = new QPushButton(this);
     QPushButton *cancel = new QPushButton(this);
     updatebox *changelog_box;
-    updatebox *addon_setup;
-    QCheckBox *update_core_checkbox;
-    QCheckBox *update_launcher_checkbox;
-    QCheckBox *update_addon_MCP_checkbox;
-    QCheckBox *update_addon_moremusic_checkbox;
-    QCheckBox *update_addon_morehandicaps_checkbox;
+    updatebox *apply_setup;
+    QComboBox *update_core_combobox;
+    QComboBox *update_launcher_combobox;
+    QComboBox *update_addon_MCP_combobox;
+    QComboBox *update_addon_moremusic_combobox;
+    QComboBox *update_addon_morehandicaps_combobox;
     QWidget *update_core_widget = new QWidget;
     QWidget *update_launcher_widget = new QWidget;
     QWidget *update_addon_MCP_widget = new QWidget;
     QWidget *update_addon_moremusic_widget = new QWidget;
     QWidget *update_addon_morehandicaps_widget = new QWidget;
+    QEventLoop wait_install;
+    QEventLoop wait_svn;
+    QTimer wait_timer;
 
 };
 
