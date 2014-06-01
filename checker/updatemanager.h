@@ -44,6 +44,7 @@ public slots:
     void on_addon_megacivpack_clicked();
     void ProcessActions();
     void CheckComboBoxState();
+    void ResetComboBoxState();
     void ActionCoreUpdate();
     void ActionCoreRevert();
     void ActionCoreClean();

@@ -238,9 +238,6 @@ updateManager::updateManager(QWidget *parent)
     button_layout->addWidget(apply);
     vert_layout->addLayout(button_layout);
 
-    // Creating UI
-
-
     // Actions
     connect(update_core_combobox,SIGNAL(currentIndexChanged(int)),this,SLOT(CheckComboBoxState()));
     connect(update_launcher_combobox,SIGNAL(currentIndexChanged(int)),this,SLOT(CheckComboBoxState()));
@@ -256,6 +253,7 @@ updateManager::updateManager(QWidget *parent)
     connect(cancel,SIGNAL(clicked()),this,SLOT(close()));
     connect(apply,SIGNAL(clicked()),this,SLOT(ProcessActions()));
     connect(this, SIGNAL(components_installed()), this, SLOT(updateInfos()));
+    connect(this, SIGNAL(components_installed()), this, SLOT(ResetComboBoxState()));
 
     // Create links for installation process
     wait_timer.setInterval(2000);
@@ -398,7 +396,44 @@ void updateManager::ActionAddonMCPUpdate()
 
 void updateManager::ActionAddonMCPRemove()
 {
+    QFile file_list("checker/uninstall_addon_MCP.txt");
+    if(!file_list.exists())
+    {
+        apply_setup->appendText("Mega Civ Pack is not properly installed. Cannot remove.\n");
+        return;
+    }
 
+    apply_setup->appendText("Removing Mega Civ Pack\n-----------------------\n");
+    wait_timer.start();
+    wait_install.exec();
+
+    file_list.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream ts(&file_list);
+    QStringList list;
+    while(!ts.atEnd())
+    {
+        list << ts.readLine();
+    }
+    file_list.close();
+
+    // Removing files
+    QString file;
+    QString version = QString::number(svnLocalInfo());
+    foreach(file,list)
+    {
+        QFile::remove(file);
+        apply_setup->appendText(QString("Removed %1\n").arg(file));
+        QString cmd = "checker/svn.exe up -r " + version + " --accept theirs-full \"" + file + "\"";
+        QProcess temp_proc;
+        temp_proc.execute(cmd);
+        temp_proc.waitForFinished(-1);
+    }
+
+        QDir temp_dir("Assets/Modules/Custom_Civilizations_MCP");
+    temp_dir.removeRecursively();
+
+    apply_setup->appendText("\n\nMega Civ Pack successfully removed\n-----------------------\n");
+    file_list.remove();
 }
 
 void updateManager::ActionAddonMoreMusicUpdate()
@@ -475,7 +510,44 @@ void updateManager::ActionAddonMoreMusicUpdate()
 
 void updateManager::ActionAddonMoreMusicRemove()
 {
+    QFile file_list("checker/uninstall_addon_moremusic.txt");
+    if(!file_list.exists())
+    {
+        apply_setup->appendText("More Music is not properly installed. Cannot remove.\n");
+        return;
+    }
 
+    apply_setup->appendText("Removing More Music\n-----------------------\n");
+    wait_timer.start();
+    wait_install.exec();
+
+    file_list.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream ts(&file_list);
+    QStringList list;
+    while(!ts.atEnd())
+    {
+        list << ts.readLine();
+    }
+    file_list.close();
+
+    // Removing files
+    QString file;
+    QString version = QString::number(svnLocalInfo());
+    foreach(file,list)
+    {
+        QFile::remove(file);
+        apply_setup->appendText(QString("Removing %1\n").arg(file));
+        QString cmd = "checker/svn.exe up -r " + version + " --accept theirs-full \"" + file + "\"";
+        QProcess temp_proc;
+        temp_proc.execute(cmd);
+        temp_proc.waitForFinished(-1);
+    }
+
+        QDir temp_dir("Assets/Sounds/NEW");
+    temp_dir.removeRecursively();
+
+    apply_setup->appendText("\n\nMore Music successfully removed\n-----------------------\n");
+    file_list.remove();
 }
 
 void updateManager::ActionAddonMoreHandicapsUpdate()
@@ -552,7 +624,43 @@ void updateManager::ActionAddonMoreHandicapsUpdate()
 
 void updateManager::ActionAddonMoreHandicapsRemove()
 {
+    QFile file_list("checker/uninstall_addon_morehandicaps.txt");
+    if(!file_list.exists())
+    {
+        apply_setup->appendText("More Handicaps is not properly installed. Cannot remove.\n");
+        return;
+    }
 
+    apply_setup->appendText("Removing More Handicaps\n-----------------------\n");
+    wait_timer.start();
+    wait_install.exec();
+
+    file_list.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream ts(&file_list);
+    QStringList list;
+    while(!ts.atEnd())
+    {
+        list << ts.readLine();
+    }
+    file_list.close();
+
+    // Removing files
+    QString file;
+    QString version = QString::number(svnLocalInfo());
+    foreach(file,list)
+    {
+        QFile::remove(file);
+        apply_setup->appendText(QString("Removing %1\n").arg(file));
+        QString cmd = "checker/svn.exe up -r " + version + " --accept theirs-full \"" + file + "\"";
+        QProcess temp_proc;
+        temp_proc.execute(cmd);
+        temp_proc.waitForFinished(-1);
+    }
+
+
+    // Check for removed main file
+    apply_setup->appendText("\n\nMore Handicaps successfully removed\n-----------------------\n");
+    file_list.remove();
 }
 
 void updateManager::updateInfos()
@@ -644,6 +752,7 @@ void updateManager::ProcessActions()
         wait_install.exec();
     }
 
+    this->updateInfos();
     emit components_installed();
 }
 
@@ -672,6 +781,15 @@ void updateManager::CheckComboBoxState()
     {
         apply->setEnabled(false);
     }
+}
+
+void updateManager::ResetComboBoxState()
+{
+    update_core_combobox->setCurrentIndex(0);
+    update_launcher_combobox->setCurrentIndex(0);
+    update_addon_MCP_combobox->setCurrentIndex(0);
+    update_addon_moremusic_combobox->setCurrentIndex(0);
+    update_addon_morehandicaps_combobox->setCurrentIndex(0);
 }
 
 Worker::Worker(QObject *parent) :
@@ -807,7 +925,7 @@ bool AddonsVersionCalculation()
     }
     if ( check_addon_more_handicaps() != "Not installed")
     {
-        if (readCheckerParam("ADDON_MOREHANDICAPS/Version") != readCheckerParam("ADDON_MOREHANDICAPS/DistantBaseVersion"))
+        if (readCheckerParam("ADDON_MOREHANDICAPS/Version") != readCheckerParam("ADDON_MOREHANDICAPS/DistantVersion"))
         {
             u++;
             qDebug() << "u is " << u;

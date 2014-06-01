@@ -191,8 +191,7 @@ void MainWindow::on_bt_update_clicked()
     }
     else if(chglog_diff >= 1) {
         bool value = true;
-        char command[30];
-        sprintf(command,"checker/svn.exe log -l %d -r HEAD:BASE",chglog_diff);
+        QString command = QString("checker/svn.exe log -l %1 -r HEAD:BASE").arg(chglog_diff);
         ubox->show();
         ubox->setWindowTitle("Update tool");
         ubox->execute(command,value);

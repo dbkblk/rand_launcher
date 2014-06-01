@@ -36,11 +36,7 @@ DONE -> Fixed a mighty segfault when colors are all defined to zero.
 ### Features
 DONE -> Create a graphical launcher updater
 DONE -> Recheck addon state after installation
-- Make a uninstallation for addons (compare with the file list from the repo "svn list --recursive")
-        --> Convert Checkbox to list with the following actions ("Choose action: (none) / Install (addons only) / Update / Remove (addons only)")
-        --> Separate the addon installation in functions for install and remove
-        --> On apply, check the action
-        --> Removing : Compare generated file list with svn file list and checkout the local version of each file
+DONE -> Make a uninstallation for addons (compare with the file list from the repo "svn list --recursive")
 
 
 ### Bugfix
