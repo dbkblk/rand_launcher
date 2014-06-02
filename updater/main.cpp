@@ -5,20 +5,14 @@
 #include <QTimer>
 #include <QEventLoop>
 #include <QDebug>
+#include <iostream>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     updater *w = new updater();
 
-    QString link;
-
-    if (argc == 2)
-    {
-        link = argv[2];
-        qDebug() << link;
-    }
-    w->Execute(link);
+    w->Execute(argv[1]);
     w->show();
 
     return a.exec();
