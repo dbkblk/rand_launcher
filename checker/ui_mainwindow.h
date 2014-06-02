@@ -34,7 +34,8 @@ public:
     QAction *actionAbout_AND_Resurrection_team_forum;
     QAction *actionAddon_More_music_forum;
     QAction *actionOpen_mod_folder;
-    QAction *actionPack_binaries_for_git;
+    QAction *actionTest;
+    QAction *actionTest_2;
     QWidget *centralWidget;
     QPushButton *bt_launch;
     QPushButton *bt_option;
@@ -74,8 +75,10 @@ public:
         actionAddon_More_music_forum->setObjectName(QStringLiteral("actionAddon_More_music_forum"));
         actionOpen_mod_folder = new QAction(MainWindow);
         actionOpen_mod_folder->setObjectName(QStringLiteral("actionOpen_mod_folder"));
-        actionPack_binaries_for_git = new QAction(MainWindow);
-        actionPack_binaries_for_git->setObjectName(QStringLiteral("actionPack_binaries_for_git"));
+        actionTest = new QAction(MainWindow);
+        actionTest->setObjectName(QStringLiteral("actionTest"));
+        actionTest_2 = new QAction(MainWindow);
+        actionTest_2->setObjectName(QStringLiteral("actionTest_2"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setStyleSheet(QStringLiteral(""));
@@ -145,7 +148,8 @@ public:
 #endif // QT_NO_TOOLTIP
         actionAddon_More_music_forum->setText(QApplication::translate("MainWindow", "Addon \"More music\" (forum)", 0));
         actionOpen_mod_folder->setText(QApplication::translate("MainWindow", "Open mod folder", 0));
-        actionPack_binaries_for_git->setText(QApplication::translate("MainWindow", "Pack binaries (for git)", 0));
+        actionTest->setText(QApplication::translate("MainWindow", "test", 0));
+        actionTest_2->setText(QApplication::translate("MainWindow", "test", 0));
         bt_launch->setText(QApplication::translate("MainWindow", "Launch Civilization IV", 0));
         bt_option->setText(QApplication::translate("MainWindow", "Options", 0));
         lb_versions->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" color:#000000;\">TextLabel</span></p></body></html>", 0));

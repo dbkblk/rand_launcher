@@ -18,7 +18,7 @@ optionBox::optionBox(QWidget *parent) :
 
     // Link the close update button to a bool message
 
-    connect(chglog->bt_chglog_close,SIGNAL(clicked()),this,SLOT(chglog_msg_info()));
+    connect(chglog,SIGNAL(updated()),this,SLOT(chglog_msg_info()));
 
     connect(chglog,SIGNAL(finished()),chglog->bt_chglog_close,SLOT(show()));
 
@@ -30,6 +30,15 @@ optionBox::optionBox(QWidget *parent) :
     ui->colorBox->setCurrentIndex(readColorsCounter());
 
     // Check default states
+
+    if(readOptionFormations() == true)
+    {
+        ui->opt_checkbox_formations->setChecked(1);
+    }
+    else
+    {
+        ui->opt_checkbox_formations->setChecked(0);
+    }
 
     if(readConfigParam("Mod") == "Rise of Mankind - A New Dawn") {
         ui->startBox->setChecked(1);
@@ -71,68 +80,10 @@ optionBox::~optionBox()
     delete ui;
 }
 
-// Buttons actions
-
-void optionBox::on_opt_bt_update_clicked()
-{
-    chglog->bt_chglog_close->hide();
-    chglog->show();
-    chglog->updateMode();
-    bool value = false;
-    chglog->execute("checker/svn.exe update",value);
-    clearCache();
-    clearGameOptions();
-
-    msg_show = true;
-    chglog->message = "The mod has been updated.";
-}
-
-void optionBox::on_opt_bt_cleanup_clicked()
-{
-    bool value = false;
-    chglog->execute("checker/svn.exe cleanup",value);
-    clearCache();
-    clearGameOptions();
-    QMessageBox::information(chglog, "Mod cleaned up", "The mod has been cleaned up. You can update the game now (it can grab the missing files).");
-}
-
-void optionBox::on_opt_bt_restore_clicked()
-{
-    chglog->bt_chglog_close->hide();
-    chglog->show();
-    chglog->updateMode();
-    chglog->setWindowTitle("Reverting version...");
-    bool value = false;
-    chglog->execute("checker/svn.exe update -r PREV --accept theirs-full",value);
-    clearCache();
-    clearGameOptions();
-
-    msg_show = true;
-    chglog->message = "The mod has been reverted to the previous version.";
-}
-
-void optionBox::on_opt_bt_chooserev_clicked()
-{
-    QString dial_rev = QInputDialog::getText(this, "Revision selector", "Please enter the revision you want to revert to :", QLineEdit::Normal);
-    qDebug() << dial_rev;
-    QString cmd = "checker/svn.exe update -r " + dial_rev + " --accept theirs-full";
-    bool value = false;
-    chglog->bt_chglog_close->hide();
-    chglog->show();
-    chglog->updateMode();
-    chglog->setWindowTitle("Reverting version...");
-    chglog->execute(cmd,value);
-    clearCache();
-    clearGameOptions();
-
-    msg_show = true;
-    chglog->message = "The mod has been reverted to the revision " + dial_rev;
-}
-
 void optionBox::on_colorBox_currentIndexChanged(const QString &colorName)
 {
     QString colorUI = colorName + " UI";
-    setColors(colorUI.toStdString().c_str());
+    setColors(colorUI);
 }
 
 void optionBox::on_startBox_toggled(bool checked)
@@ -183,7 +134,7 @@ void optionBox::on_opt_bt_chklauncher_clicked()
          int ret = upd_box.exec();
          switch (ret) {
              case QMessageBox::Ok :
-                 launcherUpdate();
+                 ActionLauncherUpdate();
                  break;
 
              case QMessageBox::Cancel :
@@ -196,28 +147,6 @@ void optionBox::on_opt_bt_chklauncher_clicked()
          QMessageBox::information(0, "Information", "No update is available !");
      }
 }
-
-void optionBox::on_opt_bt_changelog_clicked()
-{
-    chglog->show();
-    chglog->changelogMode();
-    bool value = true;
-    chglog->execute("checker/svn.exe log -l 10 ", value);
-    msg_show = false;
-}
-
-void optionBox::chglog_msg_info()
-{
-    if(msg_show) {
-        QMessageBox::information(this, "Information", chglog->message);
-        chglog->close();
-    }
-    else {
-        chglog->close();
-    }
-
-}
-
 
 void optionBox::on_opt_checkbox_formations_toggled(bool checked)
 {

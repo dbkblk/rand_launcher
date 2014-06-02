@@ -13,6 +13,7 @@
 #include <QtGui>
 #include <QtWidgets>
 #include <QMessageBox>
+#include <packbinaries.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -45,7 +46,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(worker, SIGNAL(finished(bool)), thread, SLOT(quit()), Qt::DirectConnection);
     connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateWindowInfos()), Qt::DirectConnection);
     connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateAvailable(bool)));
-    connect(worker, SIGNAL(finished(bool)), update_manager, SLOT(updateDistantInfos()));
+    connect(worker, SIGNAL(finished(bool)), update_manager, SLOT(updateInfos()));
+    connect(update_manager, SIGNAL(components_installed()), this, SLOT(UpdateWindowInfos()));
 
 
     // Check launcher update in background (to avoid having two threads running simultaneously, the previous thread is aborted).
@@ -69,6 +71,7 @@ MainWindow::~MainWindow()
     thread->wait();
     qDebug()<<"Deleting thread and worker in Thread "<<this->QObject::thread()->currentThreadId();
     QFile::remove("checker/update.ini");
+    QProcess::execute("taskkill /f /im curl.exe");
     delete thread;
     delete worker;
     delete ui;
@@ -103,7 +106,7 @@ void MainWindow::UpdateAvailable(bool update)
         {
             if(readCheckerParam("Main/CheckerAutoUpdate") == "1")
             {
-                launcherUpdate();
+                ActionLauncherUpdate();
             }
             else
             {
@@ -114,7 +117,7 @@ void MainWindow::UpdateAvailable(bool update)
                 int ret = askUpdate.exec();
                 switch (ret) {
                     case QMessageBox::Ok :
-                        launcherUpdate();
+                        ActionLauncherUpdate();
                         break;
 
                     case QMessageBox::Cancel :
@@ -188,8 +191,7 @@ void MainWindow::on_bt_update_clicked()
     }
     else if(chglog_diff >= 1) {
         bool value = true;
-        char command[30];
-        sprintf(command,"checker/svn.exe log -l %d -r HEAD:BASE",chglog_diff);
+        QString command = QString("checker/svn.exe log -l %1 -r HEAD:BASE").arg(chglog_diff);
         ubox->show();
         ubox->setWindowTitle("Update tool");
         ubox->execute(command,value);
@@ -263,4 +265,5 @@ void installBox::on_buttonBox_rejected()
 void MainWindow::on_bt_components_clicked()
 {
     update_manager->show();
+    update_manager->updateInfos();
 }

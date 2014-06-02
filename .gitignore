@@ -1,9 +1,18 @@
 # Avoid some files
-release/
-debug/
+archives/
+compilation/
 materials/
 release_files/
+checker/release/
+checker/debug/
+lib_packbinaries/release/
+lib_packbinaries/debug/
+updater/release/
+updater/debug/
 *.pro.user
 Makefile*
 *.debug
 *.release
+*.7z
+PrepareRelease.bat
+

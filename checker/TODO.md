@@ -27,22 +27,40 @@ DONE -> Allow to install the mod from the Civ 4 folder
 DONE -> Reset gameoptions on update (may need to change the way it read/write into the ini file to avoid mess when deleting options).
 DONE -> Make a configuration cleaner
 DONE -> Make an update manager which have checkboxes, rows with name type (mod, launcher, addon update), your version and the newest version. Choose which one to update, them let's have an update party !
-- Change version to MAJOR / MINOR numbers instead of float
+DONE -> Change version to MAJOR / MINOR numbers instead of float
 
 ### Bugfix
 DONE -> Fixed a mighty segfault when colors are all defined to zero.
 
-## 1.0
+## 0.10
+### Features
+DONE -> Create a graphical launcher updater
+DONE -> Recheck addon state after installation
+DONE -> Make a uninstallation for addons (compare with the file list from the repo "svn list --recursive")
+
+
+### Bugfix
+DONE -> Option: Formations don't keep parameters
+DONE -> Confirm that the mod has been updated to popup "the mod has been updated"
+DONE -> Do not tell update is available if addons aren't installed
+DONE -> Show changelog from the head version
+DONE -> Update main window infos after update;
+
+## 0.11
 ### Features
 
-- Create a graphical launcher updater
+- Autocheck svn state from error message.
+- Option: Default update behavior: Replace all files by more recent / Keep local files.
+
+## 1.0
+### Features
 - Menu dropdown for revision modification in option box
 - Dev tools : XML translation export / import (changes only)
-- Make a uninstallation for addons (compare with the file list from the repo "svn list --recursive")
+
 - Fix binaries packaging launching from launcher
 
 ### Bugfix
-- Confirm that the mod has been updated to popup "the mod has been updated"
+
 
 ## 2.0
 ### Features
@@ -55,6 +73,11 @@ DONE -> Fixed a mighty segfault when colors are all defined to zero.
 - Integrate a git workflow
 
 # Notes
+## Dev tools
+- XML Parser
+- Pack binaries: Make a list + checksum of each binary file
+- Pack binaries: Compare each modified file with the checksum list
+
 ## Git Workflow
 - Make a "Base pack" with all the fpk, sounds, art hosted on sourceforge
 - Put all the code and small binaries on github (it will be under 800mb)

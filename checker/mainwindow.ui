@@ -200,9 +200,14 @@
     <string>Open mod folder</string>
    </property>
   </action>
-  <action name="actionPack_binaries_for_git">
+  <action name="actionTest">
    <property name="text">
-    <string>Pack binaries (for git)</string>
+    <string>test</string>
+   </property>
+  </action>
+  <action name="actionTest_2">
+   <property name="text">
+    <string>test</string>
    </property>
   </action>
  </widget>

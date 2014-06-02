@@ -50,6 +50,8 @@ FunctionEnd
 !define MUI_FINISHPAGE_TEXT "The launcher is now installed. On the first launch, it will detect if the mod is present in the directory. If it's not, just follow the installation procedure."
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 
+!define MUI_PAGE_CUSTOMFUNCTION_PRE MSVC
+
 !define MUI_FINISHPAGE_RUN_CHECKED
 !define MUI_FINISHPAGE_RUN "$INSTDIR\and2_checker.exe"
 !define MUI_FINISHPAGE_RUN_TEXT "Start the mod launcher"
@@ -131,4 +133,41 @@ Delete "$SMPROGRAMS\$StartMenuFolder\Civilization IV - A New Dawn 2.lnk"
   RMDir "$SMPROGRAMS\$StartMenuFolder"
 
 SectionEnd
+
+Function MSVC
+
+; Check for MSVC2013
+IfFileExists "$SYSDIR\msvcp120.dll" not_install_msvc2013 install_msvc2013
+
+install_msvc2013:
+MessageBox MB_OK "Microsoft Visual C++ 2013 Redist is not installed. Downloading and installing now. Please wait..."
+NSISdl::download https://dl.dropboxusercontent.com/u/369241/vcredist_x86_2013.exe vcredist_x86_2013.exe
+Pop $R0 ;Get the return value
+  StrCmp $R0 "success" +3
+    MessageBox MB_OK "Download failed: $R0"
+    Quit   
+StrCpy $1 "/q"
+StrCpy $2 "/norestart"
+ExecWait 'vcredist_x86_2013.exe $1 $2'
+
+not_install_msvc2013:
+
+; Check for MSVC2010
+IfFileExists "$SYSDIR\msvcr100.dll" not_install_msvc2010 install_msvc2010
+
+install_msvc2010:
+MessageBox MB_OK "Microsoft Visual C++ 2010 Redist is not installed. Downloading and installing now. Please wait..."
+NSISdl::download http://download.microsoft.com/download/5/B/C/5BC5DBB3-652D-4DCE-B14A-475AB85EEF6E/vcredist_x86.exe vcredist_x86_2010.exe
+Pop $R0 ;Get the return value
+  StrCmp $R0 "success" +3
+    MessageBox MB_OK "Download failed: $R0"
+    Quit   
+StrCpy $1 "/q"
+StrCpy $2 "/norestart"
+ExecWait 'vcredist_x86_2010.exe $1 $2'
+
+not_install_msvc2010:
+
+FunctionEnd
+
 

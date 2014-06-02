@@ -10,56 +10,22 @@
 #include <QTimer>
 #include <QEventLoop>
 #include <QThread>
+#include <QDebug>
 
 updater::updater(QWidget *parent)
     : QMainWindow(parent)
 {
-    central = new QLabel(this);
-    central->setText("Updating...");
-    setCentralWidget(central);
+
+    central->setText("Killing existing process...");
+    this->setCentralWidget(central);
 
     // Layout definition
     this->setFixedHeight(50);
     this->setFixedWidth(150);
     this->setContentsMargins(15,15,15,15);
     this->setWindowTitle("Updater");
-    QDir::setCurrent("../");
-    central->setGeometry(20,20,125,30);
+    this->central->setGeometry(20,20,125,30);
     this->show();
-
-    // Create a loop to wait for process execution
-    QEventLoop wait_install;
-    QTimer wait_timer;
-    wait_timer.setInterval(2000);
-    wait_timer.setSingleShot(true);
-    connect(&wait_timer, SIGNAL(timeout()), &wait_install, SLOT(quit()));
-    wait_timer.start();
-    wait_install.exec();
-
-    // Download
-    tasks = new QProcess(parent);
-    tasks->start("taskkill /f /im and2_checker.exe");
-    tasks->waitForFinished(-1);
-    QString downloadlink = "https://dl.dropboxusercontent.com/u/369241/and2_checker.7z";
-    QString downloadfile = "and2_checker.7z";
-    QString command = "checker/wget.exe -c --no-check-certificate " + downloadlink;
-    tasks->start(command);
-    tasks->waitForFinished(-1);
-
-    // Extraction
-    command = "temp/7za.exe x -y " + downloadfile;
-    tasks->start(command);
-    tasks->waitForFinished(-1);
-
-    // Cleaning
-    QFile::remove(downloadfile);
-    if(!QFile::exists("update_out.ini")) {
-        QFile ch_conf;
-        ch_conf.open(QIODevice::WriteOnly);
-    }
-    QSettings settings("update_out.ini", QSettings::IniFormat);
-    settings.setValue("UPDATE_OUT",1);
-    tasks->startDetached("and2_checker.exe");
 }
 
 updater::~updater()
@@ -71,45 +37,61 @@ void updater::exit()
 {
     qApp->exit();
 }
-/*
-void UpdateThread::UpdateProcess()
+
+void updater::Execute(QString link)
 {
+    // Loops
+    QTimer wait_timer;
+    QEventLoop wait_install;
+    wait_timer.setInterval(1000);
+    wait_timer.setSingleShot(true);
+    connect(&wait_timer,SIGNAL(timeout()),&wait_install,SLOT(quit()));
+    connect(proc,SIGNAL(finished()),&wait_install,SLOT(quit()));
 
-    connect(addon_setup,SIGNAL(finished()),&wait_install,SLOT(quit()));
-    connect(&wait_timer, SIGNAL(timeout()), &wait_install, SLOT(quit()));
+    proc->KillProcess();
+    wait_timer.start();
+    central->setText("Downloading update...");
+    wait_install.exec();
+    proc->Download(link);
+    wait_timer.start();
+    central->setText("Extracting update...");
+    wait_install.exec();
+    proc->Extraction();
+    wait_timer.start();
+    central->setText("Finalization...");
+    wait_install.exec();
+    proc->Finalization();
 
-    // Update process. Download :
-    tasks = new QProcess(parent);
+    delete this;
+}
+
+void process::KillProcess()
+{
     tasks->start("taskkill /f /im and2_checker.exe");
-    tasks->waitForFinished(-1);
-    QString downloadlink = "https://dl.dropboxusercontent.com/u/369241/and2_checker.7z";
-    QString downloadfile = "and2_checker.7z";
-    QString command = "checker/wget.exe -c --no-check-certificate " + downloadlink;
-    tasks->start(command);
-    tasks->waitForFinished(-1);
+    emit finished();
+}
 
-    // Extraction
-    command = "temp/7za.exe x -y " + downloadfile;
-    tasks->start(command);
-    tasks->waitForFinished(-1);
+void process::Download(QString link)
+{
+    qDebug() << link;
+    QString command = "checker/curl.exe -o AND2_CHECKER_UPDATE.7z -J -L -C - -# --retry 10 --insecure " + link;
+    tasks->execute(command);
+    emit finished();
+}
 
-    // Cleaning
-    QFile::remove(downloadfile);
-    if(!QFile::exists("update_out.ini")) {
-        QFile ch_conf;
-        ch_conf.open(QIODevice::WriteOnly);
-    }
-    QSettings settings("update_out.ini", QSettings::IniFormat);
-    settings.setValue("UPDATE_OUT",1);
+void process::Extraction()
+{
+    QFile::copy("checker/7za.exe","7za.exe");
+    QString command = "7za.exe x -y AND2_CHECKER_UPDATE.7z";
+    tasks->execute(command);
+    emit finished();
+}
+
+void process::Finalization()
+{
+    QFile::remove("7za.exe");
+    QFile::remove("AND2_CHECKER_UPDATE.7z");
+    QFile::remove("checker/update.ini");
     tasks->startDetached("and2_checker.exe");
-
-    // Set _working to false, meaning the process can't be aborted anymore.
-    mutex.lock();
-    _working = false;
-    mutex.unlock();
-
-    qDebug()<<"Worker process finished in Thread "<<thread()->currentThreadId();
-
-    // Finished signal
-    emit finished(update);
-}*/
+    emit finished();
+}

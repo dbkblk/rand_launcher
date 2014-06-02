@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "optionbox.h"
 #include <civ_functions.h>
-#include <lib\tinyxml2.h>
 #include <QtCore>
 #include <QtNetwork>
 #include <QtGui>
@@ -51,7 +50,7 @@ int main(int argc, char *argv[])
     {
         QStringList files_remove;
         QString files;
-        files_remove << "icudt51.dll" << "icuin51.dll" << "icuuc51.dll" << "libeay32.dll" << "libgcc_s_dw2-1.dll" << "libstdc++-6.dll" << "libwinpthread-1.dll" << "Qt5Core.dll" << "Qt5Gui.dll" << "Qt5Network.dll" << "Qt5Widgets.dll" << "ssleay32.dll" << "checker/wget.exe";
+        files_remove << "icudt51.dll" << "icuin51.dll" << "icuuc51.dll" << "libeay32.dll" << "libgcc_s_dw2-1.dll" << "libstdc++-6.dll" << "libwinpthread-1.dll" << "Qt5Core.dll" << "Qt5Gui.dll" << "Qt5Network.dll" << "Qt5Widgets.dll" << "ssleay32.dll" << "checker/wget.exe" << "upd_proc.exe";
 
         foreach(files, files_remove)
         {
@@ -59,6 +58,7 @@ int main(int argc, char *argv[])
             QFile::remove(files);
         }
     }
+    QFile::remove("upd_proc.exe");
 
     // Check for correct path
 
