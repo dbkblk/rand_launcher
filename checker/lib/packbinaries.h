@@ -1,10 +1,9 @@
 #ifndef PACKBINARIES_H
 #define PACKBINARIES_H
 
-#include "lib_packbinaries_global.h"
 #include <QStringList>
 
-class LIB_PACKBINARIESSHARED_EXPORT PackBinaries
+class PackBinaries
 {
 
 public:

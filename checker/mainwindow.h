@@ -50,6 +50,10 @@ private slots:
     void RestoreButtonState();
     void on_bt_components_clicked();
 
+    void on_actionGit_Pack_binaries_triggered();
+
+    void on_actionGit_Create_update_binary_pack_triggered();
+
 private:
     Ui::MainWindow *ui;
     updatebox *ubox;

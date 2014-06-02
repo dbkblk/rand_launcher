@@ -185,7 +185,7 @@ QStringList PackBinaries::CompareHashs(QString file_base, QString file_update)
             QString update_hash = update_node_file.attribute("hash");
             QString update_file = update_node_file.text();
 
-            //qDebug() << "Comparing " << base_file << " with " << update_file;
+            qDebug() << "Comparing " << base_file << " with " << update_file;
 
             if (base_file == update_file)
             {
@@ -197,6 +197,8 @@ QStringList PackBinaries::CompareHashs(QString file_base, QString file_update)
             }
         }
     }
+    f_base.close();
+    f_update.close();
 
     return modified_files;
 

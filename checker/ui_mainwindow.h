@@ -34,8 +34,8 @@ public:
     QAction *actionAbout_AND_Resurrection_team_forum;
     QAction *actionAddon_More_music_forum;
     QAction *actionOpen_mod_folder;
-    QAction *actionTest;
-    QAction *actionTest_2;
+    QAction *actionGit_Pack_binaries;
+    QAction *actionGit_Create_update_binary_pack;
     QWidget *centralWidget;
     QPushButton *bt_launch;
     QPushButton *bt_option;
@@ -45,6 +45,7 @@ public:
     QMenu *menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher;
     QMenu *menuCommunity;
     QMenu *menuTools;
+    QMenu *menuDevelopment_tools;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -75,10 +76,10 @@ public:
         actionAddon_More_music_forum->setObjectName(QStringLiteral("actionAddon_More_music_forum"));
         actionOpen_mod_folder = new QAction(MainWindow);
         actionOpen_mod_folder->setObjectName(QStringLiteral("actionOpen_mod_folder"));
-        actionTest = new QAction(MainWindow);
-        actionTest->setObjectName(QStringLiteral("actionTest"));
-        actionTest_2 = new QAction(MainWindow);
-        actionTest_2->setObjectName(QStringLiteral("actionTest_2"));
+        actionGit_Pack_binaries = new QAction(MainWindow);
+        actionGit_Pack_binaries->setObjectName(QStringLiteral("actionGit_Pack_binaries"));
+        actionGit_Create_update_binary_pack = new QAction(MainWindow);
+        actionGit_Create_update_binary_pack->setObjectName(QStringLiteral("actionGit_Create_update_binary_pack"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setStyleSheet(QStringLiteral(""));
@@ -117,6 +118,8 @@ public:
         menuCommunity->setObjectName(QStringLiteral("menuCommunity"));
         menuTools = new QMenu(menuBar);
         menuTools->setObjectName(QStringLiteral("menuTools"));
+        menuDevelopment_tools = new QMenu(menuTools);
+        menuDevelopment_tools->setObjectName(QStringLiteral("menuDevelopment_tools"));
         MainWindow->setMenuBar(menuBar);
 
         menuBar->addAction(menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->menuAction());
@@ -129,6 +132,9 @@ public:
         menuCommunity->addAction(actionAddon_More_music_forum);
         menuCommunity->addAction(actionAbout_AND_Resurrection_team_forum);
         menuTools->addAction(actionOpen_mod_folder);
+        menuTools->addAction(menuDevelopment_tools->menuAction());
+        menuDevelopment_tools->addAction(actionGit_Pack_binaries);
+        menuDevelopment_tools->addAction(actionGit_Create_update_binary_pack);
 
         retranslateUi(MainWindow);
 
@@ -148,8 +154,8 @@ public:
 #endif // QT_NO_TOOLTIP
         actionAddon_More_music_forum->setText(QApplication::translate("MainWindow", "Addon \"More music\" (forum)", 0));
         actionOpen_mod_folder->setText(QApplication::translate("MainWindow", "Open mod folder", 0));
-        actionTest->setText(QApplication::translate("MainWindow", "test", 0));
-        actionTest_2->setText(QApplication::translate("MainWindow", "test", 0));
+        actionGit_Pack_binaries->setText(QApplication::translate("MainWindow", "Git: Create binary pack", 0));
+        actionGit_Create_update_binary_pack->setText(QApplication::translate("MainWindow", "Git: Create update binary pack", 0));
         bt_launch->setText(QApplication::translate("MainWindow", "Launch Civilization IV", 0));
         bt_option->setText(QApplication::translate("MainWindow", "Options", 0));
         lb_versions->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" color:#000000;\">TextLabel</span></p></body></html>", 0));
@@ -157,6 +163,7 @@ public:
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setTitle(QApplication::translate("MainWindow", "Menu", 0));
         menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
         menuTools->setTitle(QApplication::translate("MainWindow", "Tools", 0));
+        menuDevelopment_tools->setTitle(QApplication::translate("MainWindow", "Development tools", 0));
     } // retranslateUi
 
 };

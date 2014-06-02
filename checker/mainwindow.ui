@@ -156,7 +156,15 @@
     <property name="title">
      <string>Tools</string>
     </property>
+    <widget class="QMenu" name="menuDevelopment_tools">
+     <property name="title">
+      <string>Development tools</string>
+     </property>
+     <addaction name="actionGit_Pack_binaries"/>
+     <addaction name="actionGit_Create_update_binary_pack"/>
+    </widget>
     <addaction name="actionOpen_mod_folder"/>
+    <addaction name="menuDevelopment_tools"/>
    </widget>
    <addaction name="menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher"/>
    <addaction name="menuCommunity"/>
@@ -200,14 +208,14 @@
     <string>Open mod folder</string>
    </property>
   </action>
-  <action name="actionTest">
+  <action name="actionGit_Pack_binaries">
    <property name="text">
-    <string>test</string>
+    <string>Git: Create binary pack</string>
    </property>
   </action>
-  <action name="actionTest_2">
+  <action name="actionGit_Create_update_binary_pack">
    <property name="text">
-    <string>test</string>
+    <string>Git: Create update binary pack</string>
    </property>
   </action>
  </widget>

@@ -6,9 +6,7 @@
 
 TEMPLATE = subdirs
 
-SUBDIRS = checker updater \
-    lib_packbinaries
+SUBDIRS = checker updater
 
 checker.file = checker/and2_checker.pro
 updater.file = updater/updater.pro
-dev_tools.file = dev_tools/dev_tools.pro

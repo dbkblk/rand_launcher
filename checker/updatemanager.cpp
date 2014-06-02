@@ -1,8 +1,8 @@
 #include "updatemanager.h"
-#include "ui_updatemanager.h"
 #include "civ_functions.h"
 #include "updatebox.h"
 #include "mainwindow.h"
+#include "lib/packbinaries.h"
 
 #include "QObject"
 #include <QTimer>

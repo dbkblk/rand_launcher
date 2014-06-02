@@ -13,7 +13,7 @@
 #include <QtGui>
 #include <QtWidgets>
 #include <QMessageBox>
-#include <packbinaries.h>
+#include <lib/packbinaries.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -266,4 +266,127 @@ void MainWindow::on_bt_components_clicked()
 {
     update_manager->show();
     update_manager->updateInfos();
+}
+
+void MainWindow::on_actionGit_Pack_binaries_triggered()
+{
+    // Preparing signals
+    QTimer wait_timer;
+    QEventLoop wait_install;
+    wait_timer.setInterval(1000);
+    wait_timer.setSingleShot(true);
+    connect(&wait_timer,SIGNAL(timeout()),&wait_install,SLOT(quit()));
+
+    // Window layout
+    QWidget *window = new QWidget();
+    window->setGeometry(0,0,250,250);
+    window->setWindowTitle("Pack base binaries");
+    const QRect screen = QApplication::desktop()->screenGeometry();
+    window->setFixedSize(250,250);
+    window->move(screen.center());
+    QLabel *label = new QLabel(window);
+    label->setGeometry(20,20,210,210);
+    label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    label->setWordWrap(true);
+
+    // Process
+    wait_timer.start();
+    label->setText("Packing base files \n(this might take up to 10 min):\n\nListing files...");
+    wait_install.exec();
+    window->show();
+    PackBinaries pack;
+    QStringList file_list;
+    file_list = pack.ListBinaries();
+    wait_timer.start();
+    label->setText("Packing base files \n(this might take up to 10 min):\n\nListing files... OK\nGenerating hash file...");
+    wait_install.exec();
+    pack.GenerateHashFile(file_list, "AND2_BASE_FILES.xml");
+    wait_timer.start();
+    label->setText("Packing base files \n(this might take up to 10 min):\n\nListing files... OK\nGenerating hash file... OK\nGathering files...");
+    wait_install.exec();
+    pack.CopyToTempFolder(file_list);
+    wait_timer.start();
+    label->setText("Packing base files \n(this might take up to 10 min):\n\nListing files... OK\nGenerating hash file... OK\nGathering files... OK\nCompressing files...");
+    wait_install.exec();
+    pack.CompressTempFolder("AND2_BASE_FILES.7z");
+    QDir temp("temp/");
+    temp.removeRecursively();
+    wait_timer.start();
+    label->setText("Packing base files:\n\nListing files... OK\nGenerating hash file... OK\nGathering files... OK\nCompressing files... OK\nCleaning folder... OK\n\n Operation finished. The binaries have been packed in \"AND2_BASE_FILES.7z\" and their checksums are listed in \"AND2_BASE_FILES.xml\"");
+    wait_install.exec();
+}
+
+void MainWindow::on_actionGit_Create_update_binary_pack_triggered()
+{
+    // Preparing signals
+    QTimer wait_timer;
+    QEventLoop wait_install;
+    wait_timer.setInterval(1000);
+    wait_timer.setSingleShot(true);
+    connect(&wait_timer,SIGNAL(timeout()),&wait_install,SLOT(quit()));
+
+    // Window layout
+    QWidget *window = new QWidget();
+    window->setGeometry(0,0,250,250);
+    window->setWindowTitle("Pack update binaries");
+    const QRect screen = QApplication::desktop()->screenGeometry();
+    window->setFixedSize(250,250);
+    window->move(screen.center());
+    QLabel *label = new QLabel(window);
+    label->setGeometry(20,20,210,210);
+    label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    label->setWordWrap(true);
+
+    // Process
+    wait_timer.start();
+    label->setText("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)...");
+
+    wait_timer.start();
+    label->setText("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)... OK\nListing files...");
+    wait_install.exec();
+    window->show();
+    PackBinaries pack;
+    QStringList existing_files;
+    existing_files = pack.ListBinaries();
+
+    wait_timer.start();
+    label->setText("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)... OK\nListing files... OK\nGenerating hash file...");
+    wait_install.exec();
+    //pack.GenerateHashFile(existing_files, "AND2_UPDATE_FILES.xml");
+
+    wait_timer.start();
+    label->setText("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)... OK\nListing files... OK\nGenerating hash file... OK\nComparing base and update hashs...");
+    wait_install.exec();
+    QStringList updated_files;
+    updated_files = pack.CompareHashs("AND2_BASE_FILES.xml","AND2_UPDATE_FILES.xml");
+
+    qDebug() << "Pack files";
+    wait_timer.start();
+    label->setText("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)... OK\nListing files... OK\nGenerating hash file... OK\nComparing base and update hashs... OK\nChecking for new files...");
+    wait_install.exec();
+    QStringList new_files;
+    new_files = pack.CheckNewFiles("AND2_BASE_FILES.xml",existing_files);
+
+    wait_timer.start();
+    label->setText("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)... OK\nListing files... OK\nGenerating hash file... OK\nComparing base and update hashs... OK\nChecking for new files... OK\nChecking for missing files...");
+    wait_install.exec();
+    QStringList missing_files;
+    missing_files = pack.CheckMissingFiles("AND2_BASE_FILES.xml",existing_files);
+
+    wait_timer.start();
+    label->setText("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)... OK\nListing files... OK\nGenerating hash file... OK\nComparing base and update hashs... OK\nChecking for new files... OK\nChecking for missing files... OK\Gathering files...");
+    wait_install.exec();
+    pack.CopyToTempFolder(updated_files);
+    pack.CopyToTempFolder(new_files);
+
+    wait_timer.start();
+    label->setText("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)... OK\nListing files... OK\nGenerating hash file... OK\nComparing base and update hashs... OK\nChecking for new files... OK\nChecking for missing files... OK\Gathering files... OK\nCompressing files...");
+    wait_install.exec();
+    pack.CompressTempFolder("AND2_UPDATE_FILES.7z");
+    QDir temp("temp/");
+    temp.removeRecursively();
+
+    wait_timer.start();
+    label->setText("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)... OK\nListing files... OK\nGenerating hash file... OK\nComparing base and update hashs... OK\nChecking for new files... OK\nChecking for missing files... OK\Gathering files... OK\nCompressing files... OK\nCleaning folder... OK\n\n Operation finished. The updated binaries have been packed in \"AND2_UPDATE_FILES.7z\" and their checksums are listed in \"AND2_UPDATE_FILES.xml\"");
+    wait_install.exec();
 }
