@@ -36,6 +36,8 @@ public:
     QAction *actionOpen_mod_folder;
     QAction *actionGit_Pack_binaries;
     QAction *actionGit_Create_update_binary_pack;
+    QAction *actionHelp_translate_the_mod;
+    QAction *actionTranslate_the_mod_help;
     QWidget *centralWidget;
     QPushButton *bt_launch;
     QPushButton *bt_option;
@@ -80,6 +82,10 @@ public:
         actionGit_Pack_binaries->setObjectName(QStringLiteral("actionGit_Pack_binaries"));
         actionGit_Create_update_binary_pack = new QAction(MainWindow);
         actionGit_Create_update_binary_pack->setObjectName(QStringLiteral("actionGit_Create_update_binary_pack"));
+        actionHelp_translate_the_mod = new QAction(MainWindow);
+        actionHelp_translate_the_mod->setObjectName(QStringLiteral("actionHelp_translate_the_mod"));
+        actionTranslate_the_mod_help = new QAction(MainWindow);
+        actionTranslate_the_mod_help->setObjectName(QStringLiteral("actionTranslate_the_mod_help"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setStyleSheet(QStringLiteral(""));
@@ -125,14 +131,16 @@ public:
         menuBar->addAction(menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->menuAction());
         menuBar->addAction(menuCommunity->menuAction());
         menuBar->addAction(menuTools->menuAction());
+        menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->addAction(actionOpen_mod_folder);
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->addAction(actionExit);
         menuCommunity->addAction(actionForum);
         menuCommunity->addAction(actionBugreport);
         menuCommunity->addAction(actionAddon_Mega_Civ_Pack);
         menuCommunity->addAction(actionAddon_More_music_forum);
         menuCommunity->addAction(actionAbout_AND_Resurrection_team_forum);
-        menuTools->addAction(actionOpen_mod_folder);
+        menuTools->addAction(actionHelp_translate_the_mod);
         menuTools->addAction(menuDevelopment_tools->menuAction());
+        menuTools->addAction(actionTranslate_the_mod_help);
         menuDevelopment_tools->addAction(actionGit_Pack_binaries);
         menuDevelopment_tools->addAction(actionGit_Create_update_binary_pack);
 
@@ -156,13 +164,15 @@ public:
         actionOpen_mod_folder->setText(QApplication::translate("MainWindow", "Open mod folder", 0));
         actionGit_Pack_binaries->setText(QApplication::translate("MainWindow", "Git: Create binary pack", 0));
         actionGit_Create_update_binary_pack->setText(QApplication::translate("MainWindow", "Git: Create update binary pack", 0));
+        actionHelp_translate_the_mod->setText(QApplication::translate("MainWindow", "Translate the mod", 0));
+        actionTranslate_the_mod_help->setText(QApplication::translate("MainWindow", "Translate the mod (help)", 0));
         bt_launch->setText(QApplication::translate("MainWindow", "Launch Civilization IV", 0));
         bt_option->setText(QApplication::translate("MainWindow", "Options", 0));
         lb_versions->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" color:#000000;\">TextLabel</span></p></body></html>", 0));
         bt_components->setText(QApplication::translate("MainWindow", "Install / update modules", 0));
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setTitle(QApplication::translate("MainWindow", "Menu", 0));
         menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
-        menuTools->setTitle(QApplication::translate("MainWindow", "Tools", 0));
+        menuTools->setTitle(QApplication::translate("MainWindow", "Help up to improve the mod !", 0));
         menuDevelopment_tools->setTitle(QApplication::translate("MainWindow", "Development tools", 0));
     } // retranslateUi
 

@@ -28,7 +28,7 @@ updateManager::updateManager(QWidget *parent)
 
     // Layout
     this->setGeometry(0,0,580,300);
-    this->setWindowTitle("Components manager");
+    this->setWindowTitle(tr("Components manager"));
     const QRect screen = QApplication::desktop()->screenGeometry();
     this->setFixedSize(size());
     this->move(screen.center() - this->rect().center() );
@@ -49,10 +49,10 @@ updateManager::updateManager(QWidget *parent)
     tab_updates->setColumnWidth(3,100);
 
     QStringList tab_updates_header;
-    tab_updates_header << "Local version" << "Distant version" << "Action" << "Changelog";
+    tab_updates_header << tr("Local version") << tr("Distant version") << tr("Action") << tr("Changelog");
     tab_updates->setHorizontalHeaderLabels(tab_updates_header);
     QStringList tab_updates_columns;
-    tab_updates_columns << "Core mod" << "Launcher" << "Addon: Mega civ pack" << "Addon: More music" << "Addon: More handicaps";
+    tab_updates_columns << tr("Core mod") << tr("Launcher") << tr("Addon: Mega civ pack") << tr("Addon: More music") << tr("Addon: More handicaps");
     tab_updates->setVerticalHeaderLabels(tab_updates_columns);
     tab_updates->horizontalHeader()->setSectionResizeMode(0,QHeaderView::Fixed);
     tab_updates->horizontalHeader()->setSectionResizeMode(1,QHeaderView::Fixed);
@@ -118,10 +118,10 @@ updateManager::updateManager(QWidget *parent)
 
     /* Combobox */
     update_core_combobox = new QComboBox(this);
-    update_core_combobox->addItem("Choose action:");
-    update_core_combobox->addItem("Update");
-    update_core_combobox->addItem("Revert to rev. x");
-    update_core_combobox->addItem("Clean up setup");
+    update_core_combobox->addItem(tr("Choose action:"));
+    update_core_combobox->addItem(tr("Update"));
+    update_core_combobox->addItem(tr("Revert to rev. x"));
+    update_core_combobox->addItem(tr("Clean up setup"));
     QHBoxLayout *update_core_layout = new QHBoxLayout(update_core_widget);
     update_core_layout->addWidget(update_core_combobox);
     update_core_layout->setAlignment(Qt::AlignCenter);
@@ -130,8 +130,8 @@ updateManager::updateManager(QWidget *parent)
     tab_updates->setCellWidget(0,2,update_core_widget);
 
     update_launcher_combobox = new QComboBox(this);
-    update_launcher_combobox->addItem("Choose action:");
-    update_launcher_combobox->addItem("Update");
+    update_launcher_combobox->addItem(tr("Choose action:"));
+    update_launcher_combobox->addItem(tr("Update"));
     QHBoxLayout *update_launcher_layout = new QHBoxLayout(update_launcher_widget);
     update_launcher_layout->addWidget(update_launcher_combobox);
     update_launcher_layout->setAlignment(Qt::AlignCenter);
@@ -140,10 +140,10 @@ updateManager::updateManager(QWidget *parent)
     tab_updates->setCellWidget(1,2,update_launcher_widget);
 
     update_addon_MCP_combobox = new QComboBox(this);
-    update_addon_MCP_combobox->addItem("Choose action:");
-    update_addon_MCP_combobox->addItem("Install");
-    update_addon_MCP_combobox->addItem("Update");
-    update_addon_MCP_combobox->addItem("Remove");
+    update_addon_MCP_combobox->addItem(tr("Choose action:"));
+    update_addon_MCP_combobox->addItem(tr("Install"));
+    update_addon_MCP_combobox->addItem(tr("Update"));
+    update_addon_MCP_combobox->addItem(tr("Remove"));
     QHBoxLayout *update_addon_MCP_layout = new QHBoxLayout(update_addon_MCP_widget);
     update_addon_MCP_layout->addWidget(update_addon_MCP_combobox);
     update_addon_MCP_layout->setAlignment(Qt::AlignCenter);
@@ -152,10 +152,10 @@ updateManager::updateManager(QWidget *parent)
     tab_updates->setCellWidget(2,2,update_addon_MCP_widget);
 
     update_addon_moremusic_combobox = new QComboBox(this);
-    update_addon_moremusic_combobox->addItem("Choose action:");
-    update_addon_moremusic_combobox->addItem("Install");
-    update_addon_moremusic_combobox->addItem("Update");
-    update_addon_moremusic_combobox->addItem("Remove");
+    update_addon_moremusic_combobox->addItem(tr("Choose action:"));
+    update_addon_moremusic_combobox->addItem(tr("Install"));
+    update_addon_moremusic_combobox->addItem(tr("Update"));
+    update_addon_moremusic_combobox->addItem(tr("Remove"));
     QHBoxLayout *update_addon_moremusic_layout = new QHBoxLayout(update_addon_moremusic_widget);
     update_addon_moremusic_layout->addWidget(update_addon_moremusic_combobox);
     update_addon_moremusic_layout->setAlignment(Qt::AlignCenter);
@@ -164,10 +164,10 @@ updateManager::updateManager(QWidget *parent)
     tab_updates->setCellWidget(3,2,update_addon_moremusic_widget);
 
     update_addon_morehandicaps_combobox = new QComboBox(this);
-    update_addon_morehandicaps_combobox->addItem("Choose action:");
-    update_addon_morehandicaps_combobox->addItem("Install");
-    update_addon_morehandicaps_combobox->addItem("Update");
-    update_addon_morehandicaps_combobox->addItem("Remove");
+    update_addon_morehandicaps_combobox->addItem(tr("Choose action:"));
+    update_addon_morehandicaps_combobox->addItem(tr("Install"));
+    update_addon_morehandicaps_combobox->addItem(tr("Update"));
+    update_addon_morehandicaps_combobox->addItem(tr("Remove"));
     QHBoxLayout *update_addon_morehandicaps_layout = new QHBoxLayout(update_addon_morehandicaps_widget);
     update_addon_morehandicaps_layout->addWidget(update_addon_morehandicaps_combobox);
     update_addon_morehandicaps_layout->setAlignment(Qt::AlignCenter);
@@ -189,7 +189,7 @@ updateManager::updateManager(QWidget *parent)
 
     QWidget *button_launcher_widget = new QWidget();
     QPushButton *button_launcher_checkbox = new QPushButton();
-    button_launcher_checkbox->setText("View");
+    button_launcher_checkbox->setText(tr("View"));
     QHBoxLayout *button_launcher_layout = new QHBoxLayout(button_launcher_widget);
     button_launcher_layout->addWidget(button_launcher_checkbox);
     button_launcher_layout->setAlignment(Qt::AlignCenter);
@@ -199,7 +199,7 @@ updateManager::updateManager(QWidget *parent)
 
     QWidget *button_addon_MCP_widget = new QWidget();
     QPushButton *button_addon_MCP_checkbox = new QPushButton();
-    button_addon_MCP_checkbox->setText("View");
+    button_addon_MCP_checkbox->setText(tr("View"));
     QHBoxLayout *button_addon_MCP_layout = new QHBoxLayout(button_addon_MCP_widget);
     button_addon_MCP_layout->addWidget(button_addon_MCP_checkbox);
     button_addon_MCP_layout->setAlignment(Qt::AlignCenter);
@@ -209,7 +209,7 @@ updateManager::updateManager(QWidget *parent)
 
     QWidget *button_addon_moremusic_widget = new QWidget();
     QPushButton *button_addon_moremusic_checkbox = new QPushButton();
-    button_addon_moremusic_checkbox->setText("View");
+    button_addon_moremusic_checkbox->setText(tr("View"));
     QHBoxLayout *button_addon_moremusic_layout = new QHBoxLayout(button_addon_moremusic_widget);
     button_addon_moremusic_layout->addWidget(button_addon_moremusic_checkbox);
     button_addon_moremusic_layout->setAlignment(Qt::AlignCenter);
@@ -219,7 +219,7 @@ updateManager::updateManager(QWidget *parent)
 
     QWidget *button_addon_morehandicaps_widget = new QWidget();
     QPushButton *button_addon_morehandicaps_checkbox = new QPushButton();
-    button_addon_morehandicaps_checkbox->setText("View");
+    button_addon_morehandicaps_checkbox->setText(tr("View"));
     QHBoxLayout *button_addon_morehandicaps_layout = new QHBoxLayout(button_addon_morehandicaps_widget);
     button_addon_morehandicaps_layout->addWidget(button_addon_morehandicaps_checkbox);
     button_addon_morehandicaps_layout->setAlignment(Qt::AlignCenter);
@@ -231,8 +231,8 @@ updateManager::updateManager(QWidget *parent)
     vert_layout->addWidget(tab_updates);
     QWidget *buttons = new QWidget();
     apply->setEnabled(false);
-    apply->setText("Apply changes");
-    cancel->setText("Close");
+    apply->setText(tr("Apply changes"));
+    cancel->setText(tr("Close"));
     button_layout->addStretch();
     button_layout->addWidget(cancel);
     button_layout->addWidget(apply);
@@ -270,7 +270,7 @@ updateManager::~updateManager()
 void updateManager::ActionCoreUpdate()
 {
     // Actions
-    apply_setup->appendText("Updating core mod\n-----------------------\n");
+    apply_setup->appendText(tr("Updating core mod\n-----------------------\n"));
     wait_timer.start();
     wait_install.exec();
     bool cursor = false;
@@ -287,10 +287,10 @@ void updateManager::ActionCoreRevert()
     wait_timer.setSingleShot(true);
     wait_timer.setInterval(1500);
 
-    QString dial_rev = QInputDialog::getText(this, "Revision selector", "Please enter the revision you want to revert to :", QLineEdit::Normal);
+    QString dial_rev = QInputDialog::getText(this, tr("Revision selector"), tr("Please enter the revision you want to revert to :"), QLineEdit::Normal);
     qDebug() << dial_rev;
     QString cmd = "checker/svn.exe update -r " + dial_rev + " --accept theirs-full";
-    apply_setup->appendText(QString("Reverting to revision %1\n-----------------------\n").arg(dial_rev));
+    apply_setup->appendText(QString(tr("Reverting to revision %1\n-----------------------\n")).arg(dial_rev));
     bool value = false;
     apply_setup->execute(cmd,value);
     wait_svn.exec();
@@ -305,7 +305,7 @@ void updateManager::ActionCoreClean()
     wait_timer.setSingleShot(true);
     wait_timer.setInterval(1500);
 
-    apply_setup->appendText("Cleaning up installation\n-----------------------\n");
+    apply_setup->appendText(tr("Cleaning up installation\n-----------------------\n"));
     wait_timer.start();
     bool value = false;
     apply_setup->execute("checker/svn.exe cleanup",value);
@@ -318,7 +318,7 @@ void updateManager::ActionCoreClean()
 void updateManager::ActionAddonMCPUpdate()
 {
     QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
-    apply_setup->appendText("Downloading Mega Civ Pack addon (835MB)\n-----------------------\n");
+    apply_setup->appendText(tr("Downloading Mega Civ Pack addon (835MB)\n-----------------------\n"));
     wait_timer.start();
     wait_install.exec();
 
@@ -331,7 +331,7 @@ void updateManager::ActionAddonMCPUpdate()
     wait_install.exec();
 
     // Write text and wait 2s
-    apply_setup->appendText("\n\nExtracting Mega Civ Pack Addon\n-----------------------\n");
+    apply_setup->appendText(tr("\n\nExtracting Mega Civ Pack Addon\n-----------------------\n"));
     wait_timer.start();
     wait_install.exec();
 
@@ -384,7 +384,7 @@ void updateManager::ActionAddonMCPUpdate()
     temp_dir.removeRecursively();
 
     // Write text and wait 2s
-    apply_setup->appendText("\n\nMega Civ Pack addon installation finished \n-----------------------\n");
+    apply_setup->appendText(tr("\n\nMega Civ Pack addon installation finished \n-----------------------\n"));
     wait_timer.start();
     wait_install.exec();
 
@@ -399,11 +399,11 @@ void updateManager::ActionAddonMCPRemove()
     QFile file_list("checker/uninstall_addon_MCP.txt");
     if(!file_list.exists())
     {
-        apply_setup->appendText("Mega Civ Pack is not properly installed. Cannot remove.\n");
+        apply_setup->appendText(tr("Mega Civ Pack is not properly installed. Cannot remove.\n"));
         return;
     }
 
-    apply_setup->appendText("Removing Mega Civ Pack\n-----------------------\n");
+    apply_setup->appendText(tr("Removing Mega Civ Pack\n-----------------------\n"));
     wait_timer.start();
     wait_install.exec();
 
@@ -422,7 +422,7 @@ void updateManager::ActionAddonMCPRemove()
     foreach(file,list)
     {
         QFile::remove(file);
-        apply_setup->appendText(QString("Removed %1\n").arg(file));
+        apply_setup->appendText(QString(tr("Removed %1\n")).arg(file));
         QString cmd = "checker/svn.exe up -r " + version + " --accept theirs-full \"" + file + "\"";
         QProcess temp_proc;
         temp_proc.execute(cmd);
@@ -432,7 +432,7 @@ void updateManager::ActionAddonMCPRemove()
         QDir temp_dir("Assets/Modules/Custom_Civilizations_MCP");
     temp_dir.removeRecursively();
 
-    apply_setup->appendText("\n\nMega Civ Pack successfully removed\n-----------------------\n");
+    apply_setup->appendText(tr("\n\nMega Civ Pack successfully removed\n-----------------------\n"));
     file_list.remove();
 }
 
@@ -440,7 +440,7 @@ void updateManager::ActionAddonMoreMusicUpdate()
 {
     QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
     // Write text and wait 2s
-    apply_setup->appendText("Downloading Music Addon (500MB)\n-----------------------\n");
+    apply_setup->appendText(tr("Downloading Music Addon (500MB)\n-----------------------\n"));
     wait_timer.start();
     wait_install.exec();
 
@@ -451,7 +451,7 @@ void updateManager::ActionAddonMoreMusicUpdate()
     wait_install.exec();
 
     // Write text and wait 2s
-    apply_setup->appendText("\n\nExtracting Music Addon\n-----------------------\n");
+    apply_setup->appendText(tr("\n\nExtracting Music Addon\n-----------------------\n"));
     wait_timer.start();
     wait_install.exec();
 
@@ -500,7 +500,7 @@ void updateManager::ActionAddonMoreMusicUpdate()
     temp_dir.removeRecursively();
 
     // Write text and wait 2s
-    apply_setup->appendText("\n\nMore music addon installation finished !\n-----------------------\n");
+    apply_setup->appendText(tr("\n\nMore music addon installation finished !\n-----------------------\n"));
     wait_timer.start();
     wait_install.exec();
     QFile::remove("AND2_MUSIC_ADDON.7z");
@@ -513,11 +513,11 @@ void updateManager::ActionAddonMoreMusicRemove()
     QFile file_list("checker/uninstall_addon_moremusic.txt");
     if(!file_list.exists())
     {
-        apply_setup->appendText("More Music is not properly installed. Cannot remove.\n");
+        apply_setup->appendText(tr("More Music is not properly installed. Cannot remove.\n"));
         return;
     }
 
-    apply_setup->appendText("Removing More Music\n-----------------------\n");
+    apply_setup->appendText(tr("Removing More Music\n-----------------------\n"));
     wait_timer.start();
     wait_install.exec();
 
@@ -536,7 +536,7 @@ void updateManager::ActionAddonMoreMusicRemove()
     foreach(file,list)
     {
         QFile::remove(file);
-        apply_setup->appendText(QString("Removing %1\n").arg(file));
+        apply_setup->appendText(QString(tr("Removing %1\n")).arg(file));
         QString cmd = "checker/svn.exe up -r " + version + " --accept theirs-full \"" + file + "\"";
         QProcess temp_proc;
         temp_proc.execute(cmd);
@@ -546,7 +546,7 @@ void updateManager::ActionAddonMoreMusicRemove()
         QDir temp_dir("Assets/Sounds/NEW");
     temp_dir.removeRecursively();
 
-    apply_setup->appendText("\n\nMore Music successfully removed\n-----------------------\n");
+    apply_setup->appendText(tr("\n\nMore Music successfully removed\n-----------------------\n"));
     file_list.remove();
 }
 
@@ -554,7 +554,7 @@ void updateManager::ActionAddonMoreHandicapsUpdate()
 {
     QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
     // Write text and wait 2s
-    apply_setup->appendText("Downloading Handicaps Addon (0.02MB\n-----------------------\n");
+    apply_setup->appendText(tr("Downloading Handicaps Addon (0.02MB\n-----------------------\n"));
     wait_timer.start();
     wait_install.exec();
 
@@ -565,7 +565,7 @@ void updateManager::ActionAddonMoreHandicapsUpdate()
     wait_install.exec();
 
     // Write text and wait 2s
-    apply_setup->appendText("\n\nExtracting Handicaps Addon\n-----------------------\n");
+    apply_setup->appendText(tr("\n\nExtracting Handicaps Addon\n-----------------------\n"));
     wait_timer.start();
     wait_install.exec();
 
@@ -614,7 +614,7 @@ void updateManager::ActionAddonMoreHandicapsUpdate()
     temp_dir.removeRecursively();
 
     // Write text and wait 2s
-    apply_setup->appendText("\n\nHandicaps Addon installation finished !\n-----------------------\n");
+    apply_setup->appendText(tr("\n\nHandicaps Addon installation finished !\n-----------------------\n"));
     wait_timer.start();
     wait_install.exec();
     QFile::remove("AND2_HANDICAP_ADDON.7z");
@@ -627,11 +627,11 @@ void updateManager::ActionAddonMoreHandicapsRemove()
     QFile file_list("checker/uninstall_addon_morehandicaps.txt");
     if(!file_list.exists())
     {
-        apply_setup->appendText("More Handicaps is not properly installed. Cannot remove.\n");
+        apply_setup->appendText(tr("More Handicaps is not properly installed. Cannot remove.\n"));
         return;
     }
 
-    apply_setup->appendText("Removing More Handicaps\n-----------------------\n");
+    apply_setup->appendText(tr("Removing More Handicaps\n-----------------------\n"));
     wait_timer.start();
     wait_install.exec();
 
@@ -650,7 +650,7 @@ void updateManager::ActionAddonMoreHandicapsRemove()
     foreach(file,list)
     {
         QFile::remove(file);
-        apply_setup->appendText(QString("Removing %1\n").arg(file));
+        apply_setup->appendText(QString(tr("Removing %1\n")).arg(file));
         QString cmd = "checker/svn.exe up -r " + version + " --accept theirs-full \"" + file + "\"";
         QProcess temp_proc;
         temp_proc.execute(cmd);
@@ -659,7 +659,7 @@ void updateManager::ActionAddonMoreHandicapsRemove()
 
 
     // Check for removed main file
-    apply_setup->appendText("\n\nMore Handicaps successfully removed\n-----------------------\n");
+    apply_setup->appendText(tr("\n\nMore Handicaps successfully removed\n-----------------------\n"));
     file_list.remove();
 }
 
@@ -687,7 +687,7 @@ void updateManager::changelogCore()
 {
     // Calculate changelog difference
     int chglog_diff = readCheckerParam("Update/DistantRev").toInt() - readCheckerParam("Main/LocalRev").toInt();
-    qDebug() << "The changelog diff is equal to " << chglog_diff;
+    qDebug() << QObject::tr("The changelog diff is equal to ") << chglog_diff;
 
     bool value = true;
     QString command("checker/svn.exe log -l 10 -r HEAD:0");
@@ -747,7 +747,7 @@ void updateManager::ProcessActions()
     // Check launcher
     if(update_launcher_combobox->currentText() == "Update")
     {
-        apply_setup->appendText("\n\nUpdating launcher... The program will now restart\n-----------------------\n");
+        apply_setup->appendText(tr("\n\nUpdating launcher... The program will now restart\n-----------------------\n"));
         wait_timer.start();
         wait_install.exec();
     }
@@ -804,7 +804,7 @@ void Worker::requestWork()
     mutex.lock();
     _working = true;
     _abort = false;
-    qDebug()<<"Request worker start in Thread "<<thread()->currentThreadId();
+    qDebug()<<QObject::tr("Request worker start in Thread ")<<thread()->currentThreadId();
     mutex.unlock();
 
     emit workRequested();
@@ -815,7 +815,7 @@ void Worker::abort()
     mutex.lock();
     if (_working) {
         _abort = true;
-        qDebug()<<"Request worker aborting in Thread "<<thread()->currentThreadId();
+        qDebug()<<  "Request worker aborting in Thread " <<   thread()->currentThreadId();
     }
     mutex.unlock();
 }

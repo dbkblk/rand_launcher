@@ -46,25 +46,18 @@ DONE -> Do not tell update is available if addons aren't installed
 DONE -> Show changelog from the head version
 DONE -> Update main window infos after update;
 
-## 0.11
+## 1.0
 ### Features
 
 - Autocheck svn state from error message.
-- Option: Default update behavior: Replace all files by more recent / Keep local files.
-
-## 1.0
-### Features
-- Menu dropdown for revision modification in option box
-- Dev tools : XML translation export / import (changes only)
-
-- Fix binaries packaging launching from launcher
-
-### Bugfix
-
+DONE -> Link to the translation platform
+- Make the launcher translatable
+- Improve installer
 
 ## 2.0
 ### Features
 - Integrate git into the launcher
+- Fix binaries packaging launching from launcher
 - Create a borderless window with metro style
 
 # Features pending

@@ -68,7 +68,7 @@ optionBox::optionBox(QWidget *parent) :
     qDebug() << "Check reading : " << readCheckerParam("Main/ExecutablePath");
     if(readCheckerParam("Main/ExecutablePath") == "error")
     {
-        ui->opt_text_path->setText("No path specified");
+        ui->opt_text_path->setText(tr("No path specified"));
     }
     else {
         ui->opt_text_path->setText(readCheckerParam("Main/ExecutablePath"));
@@ -112,11 +112,11 @@ void optionBox::on_opt_bt_path_clicked()
     setCheckerParam("Main/ExecutablePath",exeloc);
     if(exeloc != NULL) {
         ui->opt_text_path->setText(exeloc);
-        QMessageBox::information(0, "Information", "The game path has been changed");
+        QMessageBox::information(0, "Information", tr("The game path has been changed"));
         return;
     }
     if(exeloc == NULL) {
-        ui->opt_text_path->setText("No game path specified.");
+        ui->opt_text_path->setText(tr("No game path specified."));
         return;
     }
 }
@@ -127,9 +127,9 @@ void optionBox::on_opt_bt_chklauncher_clicked()
      if(LauncherVersionCalculation())
      {
          QMessageBox upd_box;
-         upd_box.setWindowTitle("Launcher update available");
-         upd_box.setText("An update of the launcher is available.");
-         upd_box.setInformativeText("Do you want to update ?");
+         upd_box.setWindowTitle(tr("Launcher update available"));
+         upd_box.setText(tr("An update of the launcher is available."));
+         upd_box.setInformativeText(tr("Do you want to update ?"));
          upd_box.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
          int ret = upd_box.exec();
          switch (ret) {
@@ -144,7 +144,7 @@ void optionBox::on_opt_bt_chklauncher_clicked()
      }
      else
      {
-         QMessageBox::information(0, "Information", "No update is available !");
+         QMessageBox::information(0, "Information", tr("No update is available !"));
      }
 }
 

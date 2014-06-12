@@ -43,3 +43,5 @@ OTHER_FILES += \
     installer/installer_script.nsi \
     README.md \
     TODO.md
+
+TRANSLATIONS = launcher_fr.ts launcher_fi.ts launcher_de.ts launcher_hu.ts launcher_it.ts launcher_po.ts launcher_es.ts launcher_ru.ts

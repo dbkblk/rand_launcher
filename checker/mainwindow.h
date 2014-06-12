@@ -54,6 +54,10 @@ private slots:
 
     void on_actionGit_Create_update_binary_pack_triggered();
 
+    void on_actionHelp_translate_the_mod_triggered();
+
+    void on_actionTranslate_the_mod_help_triggered();
+
 private:
     Ui::MainWindow *ui;
     updatebox *ubox;
