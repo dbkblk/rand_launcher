@@ -52,7 +52,7 @@ DONE -> Update main window infos after update;
 - Autocheck svn state from error message.
 DONE -> Link to the translation platform
 - Make the launcher translatable
-- Improve installer
+DONE -> Improve installer
 
 ## 2.0
 ### Features
@@ -81,7 +81,7 @@ DONE -> Link to the translation platform
 
 ## Release process
 - Compile executable
-- Put the executable in release_files/ and compile the NSIS installer in installer/
+- Put the executable in release_files/, change the version number in NSIS script and compile the NSIS installer in installer/
 - Upload the installer file
 - Put the modified files in a packed update file
 - Upload the update pack

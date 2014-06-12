@@ -5,13 +5,16 @@
 ;--------------------------------
 
   !include "MUI.nsh"
+  !define VERSION "0.11"
 
 
 ; General information
 ;--------------------------------
 
+SetCompressor /SOLID LZMA
+
 ; The name of the installer
-Name "Civilization IV: A New Dawn 2"
+Name "Civilization IV: A New Dawn"
 
 ; The file to write
 OutFile "AND2_installer.exe"
@@ -37,16 +40,21 @@ FunctionEnd
 
 ; Pages
 ;--------------------------------
+!define MUI_ICON "rom-and.ico"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "left_image.bmp"
 
-!define MUI_WELCOMEPAGE_TEXT "This wizard will guide you through the installation of Civilization IV: A New Dawn 2.\n\nThe mod will be installed in 'My Documents\My Games\Beyond the Sword\Mods\' by default. \nIt will create a shortcut (optional) to the mod launcher, which will be used to easily download, update or configure the mod installation\n\nWARNING : Any existing mod installation is compatible. However, if you have modded files, it could be overwritten on mod update."
+!define MUI_WELCOMEPAGE_TITLE "Civilization IV: A New Dawn Expansion pack"
+!define MUI_WELCOMEPAGE_TEXT "Launcher version: ${VERSION}\n\nThis setup wizard will guide you through the installation of Civilization IV: A New Dawn.\n\nThe mod will be installed in 'My Documents\My Games\Beyond the Sword\Mods\' by default. \nIt will create a shortcut (optional) to the mod launcher, which will be used to easily download, update or configure the mod installation\n\nWARNING : Any existing mod installation is compatible. However, if you have modded files, it could be overwritten on mod update."
 !insertmacro MUI_PAGE_WELCOME
+
+
 
 ;!insertmacro MUI_PAGE_LICENSE "License.txt"
 
-!define MUI_DIRECTORYPAGE_TEXT_TOP "Setup will install Civilization IV: A New Dawn 2 in the following folder. To install in a different folder, click Browse and select another folder. NOTA: It is highly recommended to use the default folder selected below. However, you can choose to install the mod directly into the game folder ('Sid Meier's Civilization IV Beyond the Sword\Beyond the Sword\Mods\')."
+!define MUI_DIRECTORYPAGE_TEXT_TOP "Setup will install the expansion pack in the following folder.$\nTo install it in a different folder, click on 'Browse...' and select another folder.$\n$\nNOTA: It is highly recommended to use the default folder selected below. However, you can choose to install the mod directly into the game folder ('Sid Meier's Civilization IV Beyond the Sword\Beyond the Sword\Mods\')."
 !insertmacro MUI_PAGE_DIRECTORY
 
-!define MUI_FINISHPAGE_TITLE "Civilization IV - A New Dawn 2"
+!define MUI_FINISHPAGE_TITLE "Civilization IV - A New Dawn"
 !define MUI_FINISHPAGE_TEXT "The launcher is now installed. On the first launch, it will detect if the mod is present in the directory. If it's not, just follow the installation procedure."
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 
@@ -61,7 +69,7 @@ FunctionEnd
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Create Desktop Shortcut"
 !define MUI_FINISHPAGE_SHOWREADME_FUNCTION DesktopShortcut
 
-!define MUI_STARTMENUPAGE_DEFAULTFOLDER "Civilization IV - A New Dawn 2"
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER "Civilization IV - A New Dawn"
 !insertmacro MUI_PAGE_STARTMENU 0 $StartMenuFolder
 
 !insertmacro MUI_PAGE_INSTFILES
@@ -105,7 +113,7 @@ Section "instfiles" ;No components page, name is not important
     ;Create shortcuts
     CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk" "$INSTDIR\Uninstall.exe"
-CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Civilization IV - A New Dawn 2.lnk" "$INSTDIR\and2_checker.exe"
+CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Civilization IV - A New Dawn.lnk" "$INSTDIR\and2_checker.exe"
   
   !insertmacro MUI_STARTMENU_WRITE_END
   
@@ -129,7 +137,7 @@ RMDir /r "$INSTDIR\platforms\"
   !insertmacro MUI_STARTMENU_GETFOLDER 0 $StartMenuFolder
     
   Delete "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk"
-Delete "$SMPROGRAMS\$StartMenuFolder\Civilization IV - A New Dawn 2.lnk"
+Delete "$SMPROGRAMS\$StartMenuFolder\Civilization IV - A New Dawn.lnk"
   RMDir "$SMPROGRAMS\$StartMenuFolder"
 
 SectionEnd

@@ -165,8 +165,8 @@
      <addaction name="actionGit_Create_update_binary_pack"/>
     </widget>
     <addaction name="actionHelp_translate_the_mod"/>
-    <addaction name="menuDevelopment_tools"/>
     <addaction name="actionTranslate_the_mod_help"/>
+    <addaction name="menuDevelopment_tools"/>
    </widget>
    <addaction name="menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher"/>
    <addaction name="menuCommunity"/>
