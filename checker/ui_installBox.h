@@ -37,6 +37,7 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(installBox->sizePolicy().hasHeightForWidth());
         installBox->setSizePolicy(sizePolicy);
+        installBox->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         buttonBox = new QDialogButtonBox(installBox);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
         buttonBox->setGeometry(QRect(10, 102, 281, 31));

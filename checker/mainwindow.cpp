@@ -69,7 +69,7 @@ MainWindow::~MainWindow()
     // Abort threads and close the ui
     worker->abort();
     thread->wait();
-    qDebug()<<QObject::tr("Deleting thread and worker in Thread ")<<this->QObject::thread()->currentThreadId();
+    qDebug() << "Deleting thread and worker in Thread " << this->QObject::thread()->currentThreadId();
     QFile::remove("checker/update.ini");
     QProcess::execute("taskkill /f /im curl.exe");
     delete thread;
@@ -177,7 +177,12 @@ void MainWindow::on_actionOpen_mod_folder_triggered()
 
 void MainWindow::on_actionHelp_translate_the_mod_triggered()
 {
-    QDesktopServices::openUrl(QUrl("https://www.transifex.com/projects/p/civ-a-new-dawn/"));
+    QDesktopServices::openUrl(QUrl("https://www.transifex.com/projects/p/main-mod/"));
+}
+
+void MainWindow::on_actionTranslate_the_launcher_triggered()
+{
+    QDesktopServices::openUrl(QUrl("https://www.transifex.com/projects/p/launcher/"));
 }
 
 void MainWindow::on_actionTranslate_the_mod_help_triggered()
@@ -193,7 +198,7 @@ void MainWindow::on_bt_update_clicked()
     // Calculate changelog difference
 
     int chglog_diff = readCheckerParam("Update/DistantRev").toInt() - readCheckerParam("Main/LocalRev").toInt();
-    qDebug() << QObject::tr("The changelog diff is equal to ") << chglog_diff;
+    qDebug() << "The changelog diff is equal to " << chglog_diff;
 
     // If there are update, show the changelog in a window
 
@@ -302,28 +307,34 @@ void MainWindow::on_actionGit_Pack_binaries_triggered()
 
     // Process
     wait_timer.start();
-    label->setText(tr("Packing base files \n(this might take up to 10 min):\n\nListing files..."));
+    QString label_value;
+    label_value = tr("Packing base files") + "\n(" + tr("this might take up to 10 min") + ":\n\n" + tr("Listing files") + "... ";
+    label->setText(label_value);
     wait_install.exec();
     window->show();
     PackBinaries pack;
     QStringList file_list;
     file_list = pack.ListBinaries();
     wait_timer.start();
-    label->setText(tr("Packing base files \n(this might take up to 10 min):\n\nListing files... OK\nGenerating hash file..."));
+    label_value = label_value + tr("OK") + "\n" + tr("Generating hash file") + "... ";
+    label->setText(label_value);
     wait_install.exec();
     pack.GenerateHashFile(file_list, "AND2_BASE_FILES.xml");
     wait_timer.start();
-    label->setText(tr("Packing base files \n(this might take up to 10 min):\n\nListing files... OK\nGenerating hash file... OK\nGathering files..."));
+    label_value = label_value + tr("OK") + "\n" + tr("Gathering files") + "... ";
+    label->setText(label_value);
     wait_install.exec();
     pack.CopyToTempFolder(file_list);
     wait_timer.start();
-    label->setText(tr("Packing base files \n(this might take up to 10 min):\n\nListing files... OK\nGenerating hash file... OK\nGathering files... OK\nCompressing files..."));
+    label_value = label_value + tr("OK") + "\n" + tr("Compressing files") + "... ";
+    label->setText(label_value);
     wait_install.exec();
     pack.CompressTempFolder("AND2_BASE_FILES.7z");
     QDir temp("temp/");
     temp.removeRecursively();
     wait_timer.start();
-    label->setText(tr("Packing base files:\n\nListing files... OK\nGenerating hash file... OK\nGathering files... OK\nCompressing files... OK\nCleaning folder... OK\n\n Operation finished. The binaries have been packed in \"AND2_BASE_FILES.7z\" and their checksums are listed in \"AND2_BASE_FILES.xml\""));
+    label_value = label_value + tr("OK") + "\n" + tr("Cleaning folder") + "... " + tr("OK") + "\n\n" + QString(tr("Operation finished. The binaries have been packed in %1 and their checksums are listed in %2")).arg("\"AND2_BASE_FILES.7z\"").arg("\"AND2_BASE_FILES.xml\"");
+    label->setText(label_value);
     wait_install.exec();
 }
 
@@ -350,10 +361,13 @@ void MainWindow::on_actionGit_Create_update_binary_pack_triggered()
 
     // Process
     wait_timer.start();
-    label->setText(tr("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)..."));
+    QString label_value;
+    label_value = QString(tr("Packing update files")) + QString("\n(") + QString(tr("this might take up to 10 min")) + QString(":\n\n") + QString("Downloading base signatures (NB: For testing purpose, the signature must already be in the folder)") + QString("...");
+    label->setText(label_value);
 
     wait_timer.start();
-    label->setText(tr("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)... OK\nListing files..."));
+    label_value = label_value + " " + tr("OK") + "\n" + tr("Listing files") + "...";
+    label->setText(label_value);
     wait_install.exec();
     window->show();
     PackBinaries pack;
@@ -361,43 +375,50 @@ void MainWindow::on_actionGit_Create_update_binary_pack_triggered()
     existing_files = pack.ListBinaries();
 
     wait_timer.start();
-    label->setText(tr("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)... OK\nListing files... OK\nGenerating hash file..."));
+    label_value = label_value + " " + tr("OK") + "\n" + tr("Generating hash file") + "...";
+    label->setText(label_value);
     wait_install.exec();
     //pack.GenerateHashFile(existing_files, "AND2_UPDATE_FILES.xml");
 
     wait_timer.start();
-    label->setText(tr("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)... OK\nListing files... OK\nGenerating hash file... OK\nComparing base and update hashs..."));
+    label_value = label_value + " " + tr("OK") + "\n" + tr("Comparing base and update hashs") + "...";
+    label->setText(label_value);
     wait_install.exec();
     QStringList updated_files;
     updated_files = pack.CompareHashs("AND2_BASE_FILES.xml","AND2_UPDATE_FILES.xml");
 
     qDebug() << "Pack files";
     wait_timer.start();
-    label->setText(tr("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)... OK\nListing files... OK\nGenerating hash file... OK\nComparing base and update hashs... OK\nChecking for new files..."));
+    label_value = label_value + " " + tr("OK") + "\n" + tr("Checking for new files") + "...";
+    label->setText(label_value);
     wait_install.exec();
     QStringList new_files;
     new_files = pack.CheckNewFiles("AND2_BASE_FILES.xml",existing_files);
 
     wait_timer.start();
-    label->setText(tr("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)... OK\nListing files... OK\nGenerating hash file... OK\nComparing base and update hashs... OK\nChecking for new files... OK\nChecking for missing files..."));
+    label_value = label_value + " " + tr("OK") + "\n" + tr("Checking for missing files") + "...";
+    label->setText(label_value);
     wait_install.exec();
     QStringList missing_files;
     missing_files = pack.CheckMissingFiles("AND2_BASE_FILES.xml",existing_files);
 
     wait_timer.start();
-    label->setText(tr("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)... OK\nListing files... OK\nGenerating hash file... OK\nComparing base and update hashs... OK\nChecking for new files... OK\nChecking for missing files... OK\Gathering files..."));
+    label_value = label_value + " " + tr("OK") + "\n" + tr("Gathering files") + "...";
+    label->setText(label_value);
     wait_install.exec();
     pack.CopyToTempFolder(updated_files);
     pack.CopyToTempFolder(new_files);
 
     wait_timer.start();
-    label->setText(tr("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)... OK\nListing files... OK\nGenerating hash file... OK\nComparing base and update hashs... OK\nChecking for new files... OK\nChecking for missing files... OK\Gathering files... OK\nCompressing files..."));
+    label_value = label_value + " " + tr("OK") + "\n" + tr("Compressing files") + "...";
+    label->setText(label_value);
     wait_install.exec();
     pack.CompressTempFolder("AND2_UPDATE_FILES.7z");
     QDir temp("temp/");
     temp.removeRecursively();
 
     wait_timer.start();
-    label->setText(tr("Packing update files \n(this might take up to 10 min):\n\nDownloading base signatures (NB: For testing purpose, the signature must already be in the folder)... OK\nListing files... OK\nGenerating hash file... OK\nComparing base and update hashs... OK\nChecking for new files... OK\nChecking for missing files... OK\Gathering files... OK\nCompressing files... OK\nCleaning folder... OK\n\n Operation finished. The updated binaries have been packed in \"AND2_UPDATE_FILES.7z\" and their checksums are listed in \"AND2_UPDATE_FILES.xml\""));
+    label_value = label_value + " " + tr("OK") + "\n" + tr("Cleaning folder") + "..." + " " + tr("OK") + "\n\n" + QString(tr("Operation finished. The updated binaries have been packed in %1 and their checksums are listed in %2")).arg("\"AND2_UPDATE_FILES.7z\"").arg("\"AND2_UPDATE_FILES.xml\"");
+    label->setText(label_value);
     wait_install.exec();
 }

@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 
     QDir BTS_dir("../../../Beyond the sword");
     if(!BTS_dir.exists()){
-        qDebug() << QObject::tr("Launcher is in a wrong path");
+        qDebug() << "Launcher is in a wrong path";
         QMessageBox::critical(0, "Error", QObject::tr("The launcher isn't in the right directory. It should be either in 'My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn' or in 'Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn'"));
         return 1;
     }

@@ -16,7 +16,7 @@ updater::updater(QWidget *parent)
     : QMainWindow(parent)
 {
 
-    central->setText("Killing existing process...");
+    central->setText(tr("Killing existing process..."));
     this->setCentralWidget(central);
 
     // Layout definition
@@ -50,15 +50,15 @@ void updater::Execute(QString link)
 
     proc->KillProcess();
     wait_timer.start();
-    central->setText("Downloading update...");
+    central->setText(tr("Downloading update..."));
     wait_install.exec();
     proc->Download(link);
     wait_timer.start();
-    central->setText("Extracting update...");
+    central->setText(tr("Extracting update..."));
     wait_install.exec();
     proc->Extraction();
     wait_timer.start();
-    central->setText("Finalization...");
+    central->setText(tr("Finalization..."));
     wait_install.exec();
     proc->Finalization();
 

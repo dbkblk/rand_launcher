@@ -38,6 +38,7 @@ public:
     QAction *actionGit_Create_update_binary_pack;
     QAction *actionHelp_translate_the_mod;
     QAction *actionTranslate_the_mod_help;
+    QAction *actionTranslate_the_launcher;
     QWidget *centralWidget;
     QPushButton *bt_launch;
     QPushButton *bt_option;
@@ -61,6 +62,7 @@ public:
         MainWindow->setSizePolicy(sizePolicy);
         MainWindow->setMinimumSize(QSize(600, 300));
         MainWindow->setMaximumSize(QSize(600, 300));
+        MainWindow->setWindowTitle(QStringLiteral("MainWindow"));
         MainWindow->setStyleSheet(QStringLiteral(""));
         MainWindow->setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom));
         MainWindow->setDocumentMode(false);
@@ -86,6 +88,8 @@ public:
         actionHelp_translate_the_mod->setObjectName(QStringLiteral("actionHelp_translate_the_mod"));
         actionTranslate_the_mod_help = new QAction(MainWindow);
         actionTranslate_the_mod_help->setObjectName(QStringLiteral("actionTranslate_the_mod_help"));
+        actionTranslate_the_launcher = new QAction(MainWindow);
+        actionTranslate_the_launcher->setObjectName(QStringLiteral("actionTranslate_the_launcher"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setStyleSheet(QStringLiteral(""));
@@ -110,6 +114,7 @@ public:
         sizePolicy1.setHeightForWidth(lb_versions->sizePolicy().hasHeightForWidth());
         lb_versions->setSizePolicy(sizePolicy1);
         lb_versions->setStyleSheet(QStringLiteral(""));
+        lb_versions->setText(QStringLiteral("<html><head/><body><p><span style=\" color:#000000;\">TextLabel</span></p></body></html>"));
         lb_versions->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         bt_components = new QPushButton(centralWidget);
         bt_components->setObjectName(QStringLiteral("bt_components"));
@@ -139,8 +144,9 @@ public:
         menuCommunity->addAction(actionAddon_More_music_forum);
         menuCommunity->addAction(actionAbout_AND_Resurrection_team_forum);
         menuTools->addAction(actionHelp_translate_the_mod);
-        menuTools->addAction(menuDevelopment_tools->menuAction());
+        menuTools->addAction(actionTranslate_the_launcher);
         menuTools->addAction(actionTranslate_the_mod_help);
+        menuTools->addAction(menuDevelopment_tools->menuAction());
         menuDevelopment_tools->addAction(actionGit_Pack_binaries);
         menuDevelopment_tools->addAction(actionGit_Create_update_binary_pack);
 
@@ -151,7 +157,6 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         actionExit->setText(QApplication::translate("MainWindow", "Exit", 0));
         actionForum->setText(QApplication::translate("MainWindow", "Forum", 0));
         actionAddon_Mega_Civ_Pack->setText(QApplication::translate("MainWindow", "Addon \"Mega Civ Pack\" (forum)", 0));
@@ -165,15 +170,16 @@ public:
         actionGit_Pack_binaries->setText(QApplication::translate("MainWindow", "Git: Create binary pack", 0));
         actionGit_Create_update_binary_pack->setText(QApplication::translate("MainWindow", "Git: Create update binary pack", 0));
         actionHelp_translate_the_mod->setText(QApplication::translate("MainWindow", "Translate the mod", 0));
-        actionTranslate_the_mod_help->setText(QApplication::translate("MainWindow", "Translate the mod (help)", 0));
+        actionTranslate_the_mod_help->setText(QApplication::translate("MainWindow", "Help for translation (forum)", 0));
+        actionTranslate_the_launcher->setText(QApplication::translate("MainWindow", "Translate the launcher", 0));
         bt_launch->setText(QApplication::translate("MainWindow", "Launch Civilization IV", 0));
         bt_option->setText(QApplication::translate("MainWindow", "Options", 0));
-        lb_versions->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" color:#000000;\">TextLabel</span></p></body></html>", 0));
         bt_components->setText(QApplication::translate("MainWindow", "Install / update modules", 0));
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setTitle(QApplication::translate("MainWindow", "Menu", 0));
         menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
         menuTools->setTitle(QApplication::translate("MainWindow", "Help up to improve the mod !", 0));
         menuDevelopment_tools->setTitle(QApplication::translate("MainWindow", "Development tools", 0));
+        Q_UNUSED(MainWindow);
     } // retranslateUi
 
 };

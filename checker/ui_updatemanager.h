@@ -32,25 +32,26 @@ public:
         if (updateManager->objectName().isEmpty())
             updateManager->setObjectName(QStringLiteral("updateManager"));
         updateManager->resize(550, 300);
+        updateManager->setWindowTitle(QStringLiteral("Form"));
         tableWidget = new QTableWidget(updateManager);
-        if (tableWidget->columnCount() < 3)
-            tableWidget->setColumnCount(3);
+        if (tableWidget->columnCount() < 1)
+            tableWidget->setColumnCount(1);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        __qtablewidgetitem->setText(QStringLiteral("Installed"));
         tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
-        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem1);
-        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem2);
         if (tableWidget->rowCount() < 3)
             tableWidget->setRowCount(3);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        __qtablewidgetitem1->setText(QStringLiteral("Mod"));
+        tableWidget->setVerticalHeaderItem(0, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        __qtablewidgetitem2->setText(QStringLiteral("Launcher"));
+        tableWidget->setVerticalHeaderItem(1, __qtablewidgetitem2);
         QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(0, __qtablewidgetitem3);
+        __qtablewidgetitem3->setText(QStringLiteral("Addon 1"));
+        tableWidget->setVerticalHeaderItem(2, __qtablewidgetitem3);
         QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(1, __qtablewidgetitem4);
-        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
-        tableWidget->setVerticalHeaderItem(2, __qtablewidgetitem5);
-        QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
-        tableWidget->setItem(0, 0, __qtablewidgetitem6);
+        tableWidget->setItem(0, 0, __qtablewidgetitem4);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
         tableWidget->setGeometry(QRect(10, 10, 531, 281));
         tableWidget->horizontalHeader()->setDefaultSectionSize(125);
@@ -69,19 +70,6 @@ public:
 
     void retranslateUi(QWidget *updateManager)
     {
-        updateManager->setWindowTitle(QApplication::translate("updateManager", "Form", 0));
-        QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QApplication::translate("updateManager", "Installed", 0));
-        QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QApplication::translate("updateManager", "Local version", 0));
-        QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QApplication::translate("updateManager", "New version", 0));
-        QTableWidgetItem *___qtablewidgetitem3 = tableWidget->verticalHeaderItem(0);
-        ___qtablewidgetitem3->setText(QApplication::translate("updateManager", "Mod", 0));
-        QTableWidgetItem *___qtablewidgetitem4 = tableWidget->verticalHeaderItem(1);
-        ___qtablewidgetitem4->setText(QApplication::translate("updateManager", "Launcher", 0));
-        QTableWidgetItem *___qtablewidgetitem5 = tableWidget->verticalHeaderItem(2);
-        ___qtablewidgetitem5->setText(QApplication::translate("updateManager", "Addon 1", 0));
 
         const bool __sortingEnabled = tableWidget->isSortingEnabled();
         tableWidget->setSortingEnabled(false);
@@ -89,6 +77,7 @@ public:
 
         pushButton->setText(QApplication::translate("updateManager", "Update selected components", 0));
         pushButton_2->setText(QApplication::translate("updateManager", "Cancel", 0));
+        Q_UNUSED(updateManager);
     } // retranslateUi
 
 };
