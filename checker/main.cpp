@@ -14,6 +14,13 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
+    // Language components
+    QTranslator translator;
+    QString loc = QLocale::system().name().section('_', 0, 0);
+    qDebug() << loc;
+    translator.load(QString("launcher_" + loc + ".qm"),"checker/lang/");
+    a.installTranslator(&translator);
+
     // Check architecture
     BOOL b_64BitOpSys;
     #ifdef _WIN64

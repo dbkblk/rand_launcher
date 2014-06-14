@@ -95,14 +95,14 @@ public:
         centralWidget->setStyleSheet(QStringLiteral(""));
         bt_launch = new QPushButton(centralWidget);
         bt_launch->setObjectName(QStringLiteral("bt_launch"));
-        bt_launch->setGeometry(QRect(10, 230, 151, 23));
+        bt_launch->setGeometry(QRect(20, 200, 181, 25));
         bt_launch->setAutoFillBackground(false);
         bt_launch->setStyleSheet(QStringLiteral("background-image: none"));
         bt_launch->setAutoDefault(false);
         bt_launch->setFlat(false);
         bt_option = new QPushButton(centralWidget);
         bt_option->setObjectName(QStringLiteral("bt_option"));
-        bt_option->setGeometry(QRect(450, 230, 131, 23));
+        bt_option->setGeometry(QRect(400, 230, 181, 25));
         bt_option->setStyleSheet(QStringLiteral("border-image: none"));
         bt_option->setFlat(false);
         lb_versions = new QLabel(centralWidget);
@@ -118,7 +118,7 @@ public:
         lb_versions->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         bt_components = new QPushButton(centralWidget);
         bt_components->setObjectName(QStringLiteral("bt_components"));
-        bt_components->setGeometry(QRect(170, 230, 131, 23));
+        bt_components->setGeometry(QRect(20, 230, 181, 25));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -174,7 +174,7 @@ public:
         actionTranslate_the_launcher->setText(QApplication::translate("MainWindow", "Translate the launcher", 0));
         bt_launch->setText(QApplication::translate("MainWindow", "Launch Civilization IV", 0));
         bt_option->setText(QApplication::translate("MainWindow", "Options", 0));
-        bt_components->setText(QApplication::translate("MainWindow", "Install / update modules", 0));
+        bt_components->setText(QApplication::translate("MainWindow", "Manage modules", 0));
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setTitle(QApplication::translate("MainWindow", "Menu", 0));
         menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
         menuTools->setTitle(QApplication::translate("MainWindow", "Help up to improve the mod !", 0));

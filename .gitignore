@@ -14,6 +14,7 @@ Makefile*
 *.debug
 *.release
 *.7z
+*.qm
 AND2_CHECKER_VX.X.7z
 AND2_installer.exe
 PrepareRelease.bat

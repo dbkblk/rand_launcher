@@ -1,17 +1,16 @@
 ; Installation script
 ;--------------------------------
 
+SetCompressor /SOLID LZMA
+
 ; Modern UI
 ;--------------------------------
 
   !include "MUI.nsh"
   !define VERSION "0.11"
 
-
 ; General information
 ;--------------------------------
-
-SetCompressor /SOLID LZMA
 
 ; The name of the installer
 Name "Civilization IV: A New Dawn"
@@ -38,61 +37,75 @@ FunctionEnd
   Var StartMenuFolder
 
 
-; Pages
+; Layout
 ;--------------------------------
 !define MUI_ICON "rom-and.ico"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "left_image.bmp"
 
-!define MUI_WELCOMEPAGE_TITLE "Civilization IV: A New Dawn Expansion pack"
-!define MUI_WELCOMEPAGE_TEXT "Launcher version: ${VERSION}\n\nThis setup wizard will guide you through the installation of Civilization IV: A New Dawn.\n\nThe mod will be installed in 'My Documents\My Games\Beyond the Sword\Mods\' by default. \nIt will create a shortcut (optional) to the mod launcher, which will be used to easily download, update or configure the mod installation\n\nWARNING : Any existing mod installation is compatible. However, if you have modded files, it could be overwritten on mod update."
-!insertmacro MUI_PAGE_WELCOME
+; Page definition
+;--------------------------------
+!define MUI_WELCOMEPAGE_TITLE $(WELCOME_TITLE)
+!define MUI_WELCOMEPAGE_TEXT $(WELCOME)
 
-
-
-;!insertmacro MUI_PAGE_LICENSE "License.txt"
-
-!define MUI_DIRECTORYPAGE_TEXT_TOP "Setup will install the expansion pack in the following folder.$\nTo install it in a different folder, click on 'Browse...' and select another folder.$\n$\nNOTA: It is highly recommended to use the default folder selected below. However, you can choose to install the mod directly into the game folder ('Sid Meier's Civilization IV Beyond the Sword\Beyond the Sword\Mods\')."
-!insertmacro MUI_PAGE_DIRECTORY
+!define MUI_DIRECTORYPAGE_TEXT_TOP $(DIRECTORY)
 
 !define MUI_FINISHPAGE_TITLE "Civilization IV - A New Dawn"
-!define MUI_FINISHPAGE_TEXT "The launcher is now installed. On the first launch, it will detect if the mod is present in the directory. If it's not, just follow the installation procedure."
+!define MUI_FINISHPAGE_TEXT $(FINISH)
 !define MUI_FINISHPAGE_NOAUTOCLOSE
-
 !define MUI_PAGE_CUSTOMFUNCTION_PRE MSVC
-
 !define MUI_FINISHPAGE_RUN_CHECKED
 !define MUI_FINISHPAGE_RUN "$INSTDIR\and2_checker.exe"
-!define MUI_FINISHPAGE_RUN_TEXT "Start the mod launcher"
-
+!define MUI_FINISHPAGE_RUN_TEXT $(RUN)
 !define MUI_FINISHPAGE_SHOWREADME ""
 !define MUI_FINISHPAGE_SHOWREADME_CHECKED
-!define MUI_FINISHPAGE_SHOWREADME_TEXT "Create Desktop Shortcut"
+!define MUI_FINISHPAGE_SHOWREADME_TEXT $(SHORTCUT)
 !define MUI_FINISHPAGE_SHOWREADME_FUNCTION DesktopShortcut
 
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER "Civilization IV - A New Dawn"
+
+!insertmacro MUI_PAGE_WELCOME
+!insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_STARTMENU 0 $StartMenuFolder
-
 !insertmacro MUI_PAGE_INSTFILES
-
 !insertmacro MUI_PAGE_FINISH
-
 !insertmacro MUI_UNPAGE_WELCOME
 !insertmacro MUI_UNPAGE_CONFIRM
 !insertmacro MUI_UNPAGE_INSTFILES
 !insertmacro MUI_UNPAGE_FINISH
 
-
 ; Language
 ;--------------------------------
-
 !insertmacro MUI_LANGUAGE "English"
+!insertmacro MUI_LANGUAGE "French"
 
 function .onInit
-
         !insertmacro MUI_LANGDLL_DISPLAY
-
 functionEnd
 
+; Translations
+;--------------------------------
+
+; English
+
+LangString WELCOME_TITLE ${LANG_ENGLISH} "Civilization IV: A New Dawn Expansion pack"
+LangString WELCOME ${LANG_ENGLISH} "Launcher version: ${VERSION}\n\nThis setup wizard will guide you through the installation of Civilization IV: A New Dawn.\n\nThe mod will be installed in 'My Documents\My Games\Beyond the Sword\Mods\' by default. \nIt will create a shortcut (optional) to the mod launcher, which will be used to easily download, update or configure the mod installation.\n\nWARNING : Any existing mod installation is compatible. However, if you have modded files, it could be overwritten on mod update."
+LangString DIRECTORY ${LANG_ENGLISH} "Setup will install the expansion pack in the following folder.$\nTo install it in a different folder, click on 'Browse...' and select another folder.$\n$\nNOTA: It is highly recommended to use the default folder selected below. However, you can choose to install the mod directly into the game folder ('Sid Meier's Civilization IV Beyond the Sword\Beyond the Sword\Mods\')."
+LangString FINISH ${LANG_ENGLISH} "The launcher is now installed. On the first launch, it will detect if the mod is present in the directory. If it's not, just follow the installation procedure."
+LangString RUN ${LANG_ENGLISH} "Start the mod launcher"
+LangString SHORTCUT ${LANG_ENGLISH} "Create Desktop Shortcut"
+LangString MSVC10 ${LANG_ENGLISH} "Microsoft Visual C++ 2013 Redist is not installed. Downloading and installing now. Please wait..."
+LangString MSVC13 ${LANG_ENGLISH} "Microsoft Visual C++ 2010 Redist is not installed. Downloading and installing now. Please wait..."
+
+; French
+
+LangString WELCOME_TITLE ${LANG_FRENCH} "Civilization IV: A New Dawn pack d'expansion"
+LangString WELCOME ${LANG_FRENCH} "Version du lanceur: ${VERSION}\n\nCet assistant d'installation va vous guider pour l'installer de Civilization IV: A New Dawn.\nLe mod sera installé dans 'My Documents\My Games\Beyond the Sword\Mods\' par défaut. \nIl va créer un raccourcis (option) vers le lanceur, qui sera utilisé pour télécharger, mettre à jour ou configurer l'installation du mod.\n\nATTENTION : Si le mod est déjà installé, le lanceur pourrait remplacer certains de vos fichiers pendant les mises à jour."
+LangString DIRECTORY ${LANG_FRENCH} "L'installateur va installer le pack d'expansion dans le dossier suivant.$\nPour l'installer dans un dossier différent, cliquez sur 'Parcourir...' et sélectionnez un autre dossier.$\n$\nNOTE: Il est hautement recommandé d'utiliser le dossier par défaut sélectionné ci-dessous. Cependant, vous pouvez choisir d'installer le mod directement dans le dossier du jeu ('Sid Meier's Civilization IV Beyond the Sword\Beyond the Sword\Mods\')."
+LangString FINISH ${LANG_FRENCH} "Le lanceur est maintenant installé. Au premier lancement, il va essayer de détecter si le mod est présent dans le répertoire. Si ce n'est pas le cas, il suffit de suivre la procédure d'installation."
+LangString RUN ${LANG_FRENCH} "Démarrer le lanceur"
+LangString SHORTCUT ${LANG_FRENCH} "Créer un raccourci sur le bureau"
+LangString MSVC10 ${LANG_FRENCH} "Microsoft Visual C++ 2013 Redist n'est pas installé. Téléchargement et installation en cours. Veuillez patienter..."
+LangString MSVC13 ${LANG_FRENCH} "Microsoft Visual C++ 2010 Redist n'est pas installé. Téléchargement et installation en cours. Veuillez patienter..."
 
 ; Installation
 ;--------------------------------
@@ -145,10 +158,10 @@ SectionEnd
 Function MSVC
 
 ; Check for MSVC2013
+install_msvc2013:
 IfFileExists "$SYSDIR\msvcp120.dll" not_install_msvc2013 install_msvc2013
 
-install_msvc2013:
-MessageBox MB_OK "Microsoft Visual C++ 2013 Redist is not installed. Downloading and installing now. Please wait..."
+MessageBox MB_OK $(MSVC13)
 NSISdl::download https://dl.dropboxusercontent.com/u/369241/vcredist_x86_2013.exe vcredist_x86_2013.exe
 Pop $R0 ;Get the return value
   StrCmp $R0 "success" +3
@@ -164,7 +177,7 @@ not_install_msvc2013:
 IfFileExists "$SYSDIR\msvcr100.dll" not_install_msvc2010 install_msvc2010
 
 install_msvc2010:
-MessageBox MB_OK "Microsoft Visual C++ 2010 Redist is not installed. Downloading and installing now. Please wait..."
+MessageBox MB_OK $(MSVC10)
 NSISdl::download http://download.microsoft.com/download/5/B/C/5BC5DBB3-652D-4DCE-B14A-475AB85EEF6E/vcredist_x86.exe vcredist_x86_2010.exe
 Pop $R0 ;Get the return value
   StrCmp $R0 "success" +3

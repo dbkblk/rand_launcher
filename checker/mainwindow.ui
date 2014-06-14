@@ -47,10 +47,10 @@
    <widget class="QPushButton" name="bt_launch">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>230</y>
-      <width>151</width>
-      <height>23</height>
+      <x>20</x>
+      <y>200</y>
+      <width>181</width>
+      <height>25</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -72,10 +72,10 @@
    <widget class="QPushButton" name="bt_option">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>400</x>
       <y>230</y>
-      <width>131</width>
-      <height>23</height>
+      <width>181</width>
+      <height>25</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -116,14 +116,14 @@
    <widget class="QPushButton" name="bt_components">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>20</x>
       <y>230</y>
-      <width>131</width>
-      <height>23</height>
+      <width>181</width>
+      <height>25</height>
      </rect>
     </property>
     <property name="text">
-     <string>Install / update modules</string>
+     <string>Manage modules</string>
     </property>
    </widget>
   </widget>
@@ -155,7 +155,7 @@
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
-     <string>Help up to improve the mod !</string>
+     <string>Help us to improve the mod !</string>
     </property>
     <widget class="QMenu" name="menuDevelopment_tools">
      <property name="title">
