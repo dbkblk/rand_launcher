@@ -131,6 +131,7 @@ public:
         menuTools->setObjectName(QStringLiteral("menuTools"));
         menuDevelopment_tools = new QMenu(menuTools);
         menuDevelopment_tools->setObjectName(QStringLiteral("menuDevelopment_tools"));
+        menuDevelopment_tools->setEnabled(false);
         MainWindow->setMenuBar(menuBar);
 
         menuBar->addAction(menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->menuAction());
@@ -177,7 +178,7 @@ public:
         bt_components->setText(QApplication::translate("MainWindow", "Manage modules", 0));
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setTitle(QApplication::translate("MainWindow", "Menu", 0));
         menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
-        menuTools->setTitle(QApplication::translate("MainWindow", "Help up to improve the mod !", 0));
+        menuTools->setTitle(QApplication::translate("MainWindow", "Help us to improve the mod !", 0));
         menuDevelopment_tools->setTitle(QApplication::translate("MainWindow", "Development tools", 0));
         Q_UNUSED(MainWindow);
     } // retranslateUi

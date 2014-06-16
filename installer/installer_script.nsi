@@ -1,4 +1,4 @@
-; Installation script
+﻿; Installation script
 ;--------------------------------
 
 SetCompressor /SOLID LZMA
@@ -77,6 +77,7 @@ FunctionEnd
 ;--------------------------------
 !insertmacro MUI_LANGUAGE "English"
 !insertmacro MUI_LANGUAGE "French"
+!insertmacro MUI_LANGUAGE "Sinhala"
 
 function .onInit
         !insertmacro MUI_LANGDLL_DISPLAY
@@ -99,13 +100,25 @@ LangString MSVC13 ${LANG_ENGLISH} "Microsoft Visual C++ 2010 Redist is not insta
 ; French
 
 LangString WELCOME_TITLE ${LANG_FRENCH} "Civilization IV: A New Dawn pack d'expansion"
-LangString WELCOME ${LANG_FRENCH} "Version du lanceur: ${VERSION}\n\nCet assistant d'installation va vous guider pour l'installer de Civilization IV: A New Dawn.\nLe mod sera install� dans 'My Documents\My Games\Beyond the Sword\Mods\' par d�faut. \nIl va cr�er un raccourcis (option) vers le lanceur, qui sera utilis� pour t�l�charger, mettre � jour ou configurer l'installation du mod.\n\nATTENTION : Si le mod est d�j� install�, le lanceur pourrait remplacer certains de vos fichiers pendant les mises � jour."
-LangString DIRECTORY ${LANG_FRENCH} "L'installateur va installer le pack d'expansion dans le dossier suivant.$\nPour l'installer dans un dossier diff�rent, cliquez sur 'Parcourir...' et s�lectionnez un autre dossier.$\n$\nNOTE: Il est hautement recommand� d'utiliser le dossier par d�faut s�lectionn� ci-dessous. Cependant, vous pouvez choisir d'installer le mod directement dans le dossier du jeu ('Sid Meier's Civilization IV Beyond the Sword\Beyond the Sword\Mods\')."
-LangString FINISH ${LANG_FRENCH} "Le lanceur est maintenant install�. Au premier lancement, il va essayer de d�tecter si le mod est pr�sent dans le r�pertoire. Si ce n'est pas le cas, il suffit de suivre la proc�dure d'installation."
-LangString RUN ${LANG_FRENCH} "D�marrer le lanceur"
-LangString SHORTCUT ${LANG_FRENCH} "Cr�er un raccourci sur le bureau"
-LangString MSVC10 ${LANG_FRENCH} "Microsoft Visual C++ 2013 Redist n'est pas install�. T�l�chargement et installation en cours. Veuillez patienter..."
-LangString MSVC13 ${LANG_FRENCH} "Microsoft Visual C++ 2010 Redist n'est pas install�. T�l�chargement et installation en cours. Veuillez patienter..."
+LangString WELCOME ${LANG_FRENCH} "Version du lanceur: ${VERSION}\n\nCet assistant d'installation va vous guider pour l'installer de Civilization IV: A New Dawn.\nLe mod sera installé dans 'My Documents\My Games\Beyond the Sword\Mods\' par défaut. \nIl va créer un raccourcis (option) vers le lanceur, qui sera utilisé pour télécharger, mettre à jour ou configurer l'installation du mod.\n\nATTENTION : Si le mod est déjà installé, le lanceur pourrait remplacer certains de vos fichiers pendant les mises à jour."
+LangString DIRECTORY ${LANG_FRENCH} "L'installateur va installer le pack d'expansion dans le dossier suivant.$\nPour l'installer dans un dossier différent, cliquez sur 'Parcourir...' et sélectionnez un autre dossier.$\n$\nNOTE: Il est hautement recommandé d'utiliser le dossier par défaut sélectionné ci-dessous. Cependant, vous pouvez choisir d'installer le mod directement dans le dossier du jeu ('Sid Meier's Civilization IV Beyond the Sword\Beyond the Sword\Mods\')."
+LangString FINISH ${LANG_FRENCH} "Le lanceur est maintenant installé. Au premier lancement, il va essayer de détecter si le mod est présent dans le répertoire. Si ce n'est pas le cas, il suffit de suivre la procédure d'installation."
+LangString RUN ${LANG_FRENCH} "Démarrer le lanceur"
+LangString SHORTCUT ${LANG_FRENCH} "Créer un raccourci sur le bureau"
+LangString MSVC10 ${LANG_FRENCH} "Microsoft Visual C++ 2013 Redist n'est pas installé. Téléchargement et installation en cours. Veuillez patienter..."
+LangString MSVC13 ${LANG_FRENCH} "Microsoft Visual C++ 2010 Redist n'est pas installé. Téléchargement et installation en cours. Veuillez patienter..."
+
+; Sinhala
+
+LangString WELCOME_TITLE ${LANG_SINHALA} "4 වන ශිෂ්ටාචාරය : නව අවධියක උදාව"
+LangString WELCOME ${LANG_SINHALA} "විහිදුවා හරින සංස්කරණය:${VERSION}\nමෙම පිහිටුවීම් ක්‍රමය 4 වන ශිෂ්ධාචාරය ස්ථාපනයට උපදෙස් සපයයි : නව උදාවක් \nමොඩ් ස්ථාපනය කළ  යුත්තේ \'මගේ ලියවිලි/මගේ ක්‍රීඩා /කඩු වලට ඔබ්බට ගිය /මොඩ් මුල් ආකාරයෙන් \nඑය මොඩ් දියත් කිරීමට කෙටි මාර්ගයක් සපයයි ,එය පහසුවෙන් භාගත කිරීමට උපකාරී වේ.\nමොඩ් ස්ථානගත කිරීම නවීකරණය හෝ පිළියෙළ කිරීම . \nඅවවාදයයි :පවත්නා ඕනෑම මොඩ් ස්ථාපනයක් අනුකුල වේ .ඔබ සතුව මොඩ් ගොණු තිබේනම් ඒවා නවිකරණ හෝ නැවත ලිවිම කළ යුතුය ."
+LangString DIRECTORY ${LANG_SINHALA} "පරිස්ථිතිය පුළුල් ලෙස පවතින ගොනුවෙහි ස්ථාපනය කළ යුතුය.$\nඑය වෙනස් ගොනුවක ස්ථාපනය කිරීමට ,විමසීම ක්ලික් කර වෙනත් ගොනුවක් තොර ගත යුතුය$\n$\nසටහන :එය වෙනත් ගොනුවක තොර ගැනීම ඉහල ලෙස නිර්දේශ කෙරේ .කෙසේ වෙතත් ඔබට මොඩ් ඍජු ලෙසම  ක්‍රීඩා ගොනුවෙහි ස්ථානගත කළ හැක.(\'සිඩ් මෙයිරස් 4 වන ශිෂ්ටාචාරය අසිපත් වලින් එපිටට \ සිපත් වලින් එපිටට\මොඩ්ස්\')."
+LangString FINISH ${LANG_SINHALA} "දැන් දියත් කිරීම ස්ථාපිතයි .පළමු දියත් කිරීමේදී ,මොඩ් නාමාවලියෙහි පවතින බව මෙහිදී  අනාවරණය කරයි , නොඑසේනම්  ස්ථානගත කිරිමේ ක්‍රියාමාර්ගය අනුගමනය කළ යුතුය ."
+LangString RUN ${LANG_SINHALA} "මොඩ් දියත් කිරීම අරඹන්න"
+LangString SHORTCUT ${LANG_SINHALA} "මුහුණත කෙටිමාර්ගය සකස්  කරන්න"
+LangString MSVC10 ${LANG_SINHALA} "මයික්‍රොසොෆ්ට් විෂුවල් සී ++ 2013 ස්ථානගත කර නොමැත .භාගත කිරීම සහ ස්ථානගත කිරීම සිදු කරන්න . කරුණාකර රැදී සිටින්න ."
+LangString MSVC13 ${LANG_SINHALA} "මයික්‍රොසොෆ්ට් විෂුවල් සී ++ 2010 ස්ථානගත කර නොමැත .භාගත කිරීම සහ ස්ථානගත කිරීම සිදු කරන්න . කරුණාකර රැදී සිටින්න ."
+
 
 ; Installation
 ;--------------------------------

@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="SetupCaption">Setup</string>
+  <string name="NextBtn">Next</string>
+  <string name="BackBtn">Back</string>
+  <string name="CancelBtn">Cancel</string>
+  <string name="BrowseBtn">Browse...</string>
+  <string name="InstallBtn">Install</string>
+  <string name="SpaceAvailable">Space available:</string>
+  <string name="OutputFolder">Output folder:</string>
+  <string name="Extract">Extract:</string>
+  <string name="CompletedSubCaption">Completed</string>
+  <string name="MUI_TEXT_DIRECTORY_TITLE">Choose Install Location</string>
+  <string name="MUI_TEXT_DIRECTORY_SUBTITLE">Choose the folder in which to install $(^NameDA).</string>
+  <string name="MUI_TEXT_STARTMENU_TITLE">Choose Start Menu Folder</string>
+  <string name="MUI_TEXT_STARTMENU_SUBTITLE">Choose a Start Menu folder for the $(^NameDA) shortcuts.</string>
+  <string name="MUI_INNERTEXT_STARTMENU_TOP">Select the Start Menu folder in which you would like to create the program's shortcuts. You can also enter a name to create a new folder.</string>
+  <string name="MUI_INNERTEXT_STARTMENU_CHECKBOX">Do not create shortcuts</string>
+  <string name="MUI_TEXT_INSTALLING_TITLE">Installing</string>
+  <string name="MUI_TEXT_INSTALLING_SUBTITLE">Please wait while $(^NameDA) is being installed.</string>
+  <string name="MUI_TEXT_FINISH_TITLE">Installation Complete</string>
+  <string name="MUI_TEXT_FINISH_SUBTITLE">Setup was completed successfully.</string>
+  <string name="MUI_TEXT_ABORT_TITLE">Installation Aborted</string>
+  <string name="MUI_TEXT_ABORT_SUBTITLE">Setup was not completed successfully.</string>
+  <string name="MUI_BUTTONTEXT_FINISH">Finish</string>
+</resources>

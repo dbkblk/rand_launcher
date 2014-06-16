@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/checker/lang">
+        <file alias="en.png">img/en.png</file>
+        <file alias="fr.png">img/fr.png</file>
+        <file alias="si.png">img/si.png</file>
+    </qresource>
+</RCC>

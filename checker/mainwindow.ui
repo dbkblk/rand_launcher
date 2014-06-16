@@ -158,6 +158,9 @@
      <string>Help us to improve the mod !</string>
     </property>
     <widget class="QMenu" name="menuDevelopment_tools">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="title">
       <string>Development tools</string>
      </property>

@@ -54,6 +54,13 @@ DONE -> Link to the translation platform
 - Make the launcher translatable
 DONE -> Improve installer
 
+### Bugfix
+As soon as I started the game for the first time, I got the yellow button "Update available" but there are of course no updates. It happened only once. I'll see if I can reproduce it.
+I can't click on Menu or Community unless I first click on Tools and move to Menu or Community from there.
+First time I installed the launcher it got the wrong path and it started Warlord instead of BTS (but this could be a registry problem in my pc).
+There's no option for Blue Marble terrain graphics
+
+
 ## 2.0
 ### Features
 - Integrate git into the launcher

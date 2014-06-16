@@ -43,3 +43,6 @@ OTHER_FILES += \
     installer/installer_script.nsi \
     README.md \
     TODO.md
+
+RESOURCES += \
+    icons.qrc
