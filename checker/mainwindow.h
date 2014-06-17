@@ -49,16 +49,26 @@ private slots:
     void UpdateAvailable(bool update);
     void RestoreButtonState();
     void on_bt_components_clicked();
-
     void on_actionGit_Pack_binaries_triggered();
-
     void on_actionGit_Create_update_binary_pack_triggered();
-
     void on_actionHelp_translate_the_mod_triggered();
-
     void on_actionTranslate_the_mod_help_triggered();
-
     void on_actionTranslate_the_launcher_triggered();
+    void on_languageEnglish_triggered();
+    void on_languageFrench_triggered();
+    void on_languageSinhala_triggered();
+
+    void on_languageHungarian_triggered();
+
+    void on_languageFinnish_triggered();
+
+    void on_languageItalian_triggered();
+
+    void on_languageSpanish_triggered();
+
+    void on_languageGerman_triggered();
+
+    void on_languageRussian_triggered();
 
 private:
     Ui::MainWindow *ui;
@@ -68,6 +78,7 @@ private:
     Worker *worker;
     QMessageBox askUpdate;
     updateManager *update_manager;
+    QTranslator *translator;
 };
 
 class installBox : public QDialog {

@@ -1,263 +1,296 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.1">
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.ui" line="63"/>
+        <location filename="../mainwindow.ui" line="69"/>
         <source>Launch Civilization IV</source>
         <translation>Lancement de Civilization IV</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="85"/>
+        <location filename="../mainwindow.ui" line="91"/>
         <source>Options</source>
         <translation>Options</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="141"/>
+        <location filename="../mainwindow.ui" line="147"/>
         <source>Menu</source>
         <translation>Menu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="148"/>
+        <location filename="../mainwindow.ui" line="154"/>
         <source>Community</source>
         <translation>Communauté</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="126"/>
+        <location filename="../mainwindow.ui" line="132"/>
         <source>Manage modules</source>
         <translation>Gérer modules</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="158"/>
+        <location filename="../mainwindow.ui" line="164"/>
         <source>Help us to improve the mod !</source>
         <translation>Aidez-nous à améliorer le mod !</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="162"/>
+        <location filename="../mainwindow.ui" line="171"/>
         <source>Development tools</source>
         <translation>Outils de développement</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="174"/>
+        <location filename="../mainwindow.ui" line="183"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Langue</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="187"/>
+        <location filename="../mainwindow.ui" line="203"/>
         <source>Exit</source>
         <translation>Quitter</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="192"/>
+        <location filename="../mainwindow.ui" line="208"/>
         <source>Forum</source>
         <translation>Forum</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="197"/>
+        <location filename="../mainwindow.ui" line="213"/>
         <source>Addon &quot;Mega Civ Pack&quot; (forum)</source>
         <translation>Module &quot;Mega Civ Pack&quot; (forum)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="202"/>
+        <location filename="../mainwindow.ui" line="218"/>
         <source>Bugreport (forum)</source>
         <translation>Rapport de bug (forum)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="207"/>
-        <location filename="../mainwindow.ui" line="210"/>
+        <location filename="../mainwindow.ui" line="223"/>
+        <location filename="../mainwindow.ui" line="226"/>
         <source>About AND Resurrection team (forum)</source>
         <translation>A propos de l&apos;équipe (forum)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="215"/>
+        <location filename="../mainwindow.ui" line="231"/>
         <source>Addon &quot;More music&quot; (forum)</source>
         <translation>Module « Plus de musique » (forum)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="220"/>
+        <location filename="../mainwindow.ui" line="236"/>
         <source>Open mod folder</source>
         <translation>Ouvrir le dossier du mod</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="225"/>
+        <location filename="../mainwindow.ui" line="241"/>
         <source>Git: Create binary pack</source>
         <translation>Git : Créer un paquet binaire</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="230"/>
+        <location filename="../mainwindow.ui" line="246"/>
         <source>Git: Create update binary pack</source>
         <translation>Git : Créer un paquet binaire de mise à jour</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="235"/>
+        <location filename="../mainwindow.ui" line="251"/>
         <source>Translate the mod</source>
         <translation>Traduire le mod</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="240"/>
+        <location filename="../mainwindow.ui" line="256"/>
         <source>Help for translation (forum)</source>
         <translation>Aide pour la traduction (forum)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="245"/>
+        <location filename="../mainwindow.ui" line="261"/>
         <source>Translate the launcher</source>
         <translation>Traduire le lanceur</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="250"/>
+        <location filename="../mainwindow.ui" line="266"/>
         <source>English</source>
-        <translation type="unfinished"></translation>
+        <translation>Anglais</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="255"/>
+        <location filename="../mainwindow.ui" line="271"/>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation>Français</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="260"/>
+        <location filename="../mainwindow.ui" line="276"/>
         <source>Sinhala</source>
-        <translation type="unfinished"></translation>
+        <translation>Sinhala</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="103"/>
+        <location filename="../mainwindow.ui" line="281"/>
+        <source>Hungarian</source>
+        <translation>Hongrois</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="286"/>
+        <source>Finnish</source>
+        <translation>Finnois</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="291"/>
+        <source>Polish</source>
+        <translation>Polonais</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="296"/>
+        <source>Italian</source>
+        <translation>Italien</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="301"/>
+        <source>Spanish</source>
+        <translation>Espagnol</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="306"/>
+        <source>German</source>
+        <translation>Allemand</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="311"/>
+        <source>Russian</source>
+        <translation>Russe</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="114"/>
         <source>Check for update</source>
         <translation>Vérifier les mises à jour</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="121"/>
+        <location filename="../mainwindow.cpp" line="132"/>
         <source>Launcher update available</source>
         <translation>Mise à jour du lanceur disponible</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="122"/>
+        <location filename="../mainwindow.cpp" line="133"/>
         <source>An update of the launcher is available.</source>
         <translation>Une mise à jour du lanceur est disponible.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="123"/>
+        <location filename="../mainwindow.cpp" line="134"/>
         <source>Do you want to update ?</source>
         <translation>Vous voulez mettre à jour ?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="141"/>
+        <location filename="../mainwindow.cpp" line="152"/>
         <source>Update available !</source>
         <translation>Mise à jour disponible !</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="214"/>
+        <location filename="../mainwindow.cpp" line="225"/>
         <source>There is no update at the moment.</source>
         <translation>Il n&apos;y a aucune mise à jour pour le moment.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="220"/>
+        <location filename="../mainwindow.cpp" line="231"/>
         <source>Update tool</source>
         <translation>Outil de mise à jour</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="225"/>
+        <location filename="../mainwindow.cpp" line="236"/>
         <source>An error has occured while checking for updates.</source>
         <translation>Une erreur s&apos;est produite lors des mises à jour.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="233"/>
+        <location filename="../mainwindow.cpp" line="244"/>
         <source>To be able to launch the game from the launcher, you need to set the game path in the options window. (Options &gt; Select game path)</source>
         <translation>Pour être en mesure de lancer le jeu depuis le lanceur, vous devez définir le chemin d&apos;accès du jeu dans la fenêtre options. (Options &gt; Définir dossier du jeu)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="307"/>
+        <location filename="../mainwindow.cpp" line="318"/>
         <source>Pack base binaries</source>
         <translation>Créer un paquet binaire</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="319"/>
+        <location filename="../mainwindow.cpp" line="330"/>
         <source>Packing base files</source>
         <translation>Compression des binaires</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="319"/>
-        <location filename="../mainwindow.cpp" line="373"/>
+        <location filename="../mainwindow.cpp" line="330"/>
+        <location filename="../mainwindow.cpp" line="384"/>
         <source>this might take up to 10 min</source>
         <translation>cela peut prendre jusqu&apos;à 10 min</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="319"/>
-        <location filename="../mainwindow.cpp" line="377"/>
+        <location filename="../mainwindow.cpp" line="330"/>
+        <location filename="../mainwindow.cpp" line="388"/>
         <source>Listing files</source>
         <translation>Listage des fichiers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="327"/>
-        <location filename="../mainwindow.cpp" line="332"/>
-        <location filename="../mainwindow.cpp" line="337"/>
-        <location filename="../mainwindow.cpp" line="344"/>
-        <location filename="../mainwindow.cpp" line="377"/>
-        <location filename="../mainwindow.cpp" line="386"/>
-        <location filename="../mainwindow.cpp" line="392"/>
-        <location filename="../mainwindow.cpp" line="400"/>
-        <location filename="../mainwindow.cpp" line="407"/>
-        <location filename="../mainwindow.cpp" line="414"/>
-        <location filename="../mainwindow.cpp" line="421"/>
-        <location filename="../mainwindow.cpp" line="429"/>
+        <location filename="../mainwindow.cpp" line="338"/>
+        <location filename="../mainwindow.cpp" line="343"/>
+        <location filename="../mainwindow.cpp" line="348"/>
+        <location filename="../mainwindow.cpp" line="355"/>
+        <location filename="../mainwindow.cpp" line="388"/>
+        <location filename="../mainwindow.cpp" line="397"/>
+        <location filename="../mainwindow.cpp" line="403"/>
+        <location filename="../mainwindow.cpp" line="411"/>
+        <location filename="../mainwindow.cpp" line="418"/>
+        <location filename="../mainwindow.cpp" line="425"/>
+        <location filename="../mainwindow.cpp" line="432"/>
+        <location filename="../mainwindow.cpp" line="440"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="327"/>
-        <location filename="../mainwindow.cpp" line="386"/>
+        <location filename="../mainwindow.cpp" line="338"/>
+        <location filename="../mainwindow.cpp" line="397"/>
         <source>Generating hash file</source>
         <translation>Génération fichiers de hachage</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="332"/>
-        <location filename="../mainwindow.cpp" line="414"/>
+        <location filename="../mainwindow.cpp" line="343"/>
+        <location filename="../mainwindow.cpp" line="425"/>
         <source>Gathering files</source>
         <translation>Collecte des fichiers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="337"/>
-        <location filename="../mainwindow.cpp" line="421"/>
+        <location filename="../mainwindow.cpp" line="348"/>
+        <location filename="../mainwindow.cpp" line="432"/>
         <source>Compressing files</source>
         <translation>Compression des fichiers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="344"/>
-        <location filename="../mainwindow.cpp" line="429"/>
+        <location filename="../mainwindow.cpp" line="355"/>
+        <location filename="../mainwindow.cpp" line="440"/>
         <source>Cleaning folder</source>
         <translation>Nettoyage du dossier</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="344"/>
+        <location filename="../mainwindow.cpp" line="355"/>
         <source>Operation finished. The binaries have been packed in %1 and their checksums are listed in %2</source>
         <translation>Opération terminée. Les fichiers binaires ont été empaquetés dans %1 et leurs sommes de contrôle sont répertoriés dans %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="361"/>
+        <location filename="../mainwindow.cpp" line="372"/>
         <source>Pack update binaries</source>
         <translation>Créer un paquet binaire de mise à jour</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="373"/>
+        <location filename="../mainwindow.cpp" line="384"/>
         <source>Packing update files</source>
         <translation>Empaquetage des fichiers de mise à jour</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="392"/>
+        <location filename="../mainwindow.cpp" line="403"/>
         <source>Comparing base and update hashs</source>
         <translation>Comparaison des sommes de contrôle</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="400"/>
+        <location filename="../mainwindow.cpp" line="411"/>
         <source>Checking for new files</source>
         <translation>Vérification des nouveaux fichiers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="407"/>
+        <location filename="../mainwindow.cpp" line="418"/>
         <source>Checking for missing files</source>
         <translation>Vérification des fichiers manquants</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="429"/>
+        <location filename="../mainwindow.cpp" line="440"/>
         <source>Operation finished. The updated binaries have been packed in %1 and their checksums are listed in %2</source>
         <translation>Opération terminée. Les fichiers binaires mis à jour ont été empaquetés dans %1 et leurs sommes de contrôle sont répertoriés dans %2</translation>
     </message>
@@ -419,253 +452,253 @@
 <context>
     <name>updateManager</name>
     <message>
-        <location filename="../updatemanager.ui" line="67"/>
+        <location filename="../updatemanager.ui" line="73"/>
         <source>Update selected components</source>
         <translation>Mise à jour des composants sélectionnés</translation>
     </message>
     <message>
-        <location filename="../updatemanager.ui" line="80"/>
+        <location filename="../updatemanager.ui" line="86"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="31"/>
+        <location filename="../updatemanager.cpp" line="33"/>
         <source>Components manager</source>
         <translation>Gestionnaire de modules</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="52"/>
+        <location filename="../updatemanager.cpp" line="54"/>
         <source>Local version</source>
         <translation>Vers. locale</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="52"/>
+        <location filename="../updatemanager.cpp" line="54"/>
         <source>Distant version</source>
         <translation>Vers. distante</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="52"/>
+        <location filename="../updatemanager.cpp" line="54"/>
         <source>Action</source>
         <translation>Action</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="52"/>
+        <location filename="../updatemanager.cpp" line="54"/>
         <source>Changelog</source>
         <translation>Changelog</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="55"/>
+        <location filename="../updatemanager.cpp" line="57"/>
         <source>Core mod</source>
         <translation>Mod principal</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="55"/>
+        <location filename="../updatemanager.cpp" line="57"/>
         <source>Launcher</source>
         <translation>Lanceur</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="55"/>
+        <location filename="../updatemanager.cpp" line="57"/>
         <source>Addon: Mega civ pack</source>
         <translation>Module : Mega civ pack</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="55"/>
+        <location filename="../updatemanager.cpp" line="57"/>
         <source>Addon: More music</source>
         <translation>Module : Plus de musique</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="55"/>
+        <location filename="../updatemanager.cpp" line="57"/>
         <source>Addon: More handicaps</source>
         <translation>Module : Plus de handicaps</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="121"/>
-        <location filename="../updatemanager.cpp" line="133"/>
-        <location filename="../updatemanager.cpp" line="143"/>
-        <location filename="../updatemanager.cpp" line="155"/>
-        <location filename="../updatemanager.cpp" line="167"/>
+        <location filename="../updatemanager.cpp" line="123"/>
+        <location filename="../updatemanager.cpp" line="135"/>
+        <location filename="../updatemanager.cpp" line="145"/>
+        <location filename="../updatemanager.cpp" line="157"/>
+        <location filename="../updatemanager.cpp" line="169"/>
         <source>Choose action:</source>
         <translation>Choisir l&apos;action :</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="122"/>
-        <location filename="../updatemanager.cpp" line="134"/>
-        <location filename="../updatemanager.cpp" line="145"/>
-        <location filename="../updatemanager.cpp" line="157"/>
-        <location filename="../updatemanager.cpp" line="169"/>
+        <location filename="../updatemanager.cpp" line="124"/>
+        <location filename="../updatemanager.cpp" line="136"/>
+        <location filename="../updatemanager.cpp" line="147"/>
+        <location filename="../updatemanager.cpp" line="159"/>
+        <location filename="../updatemanager.cpp" line="171"/>
         <source>Update</source>
         <translation>Mise à jour</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="123"/>
+        <location filename="../updatemanager.cpp" line="125"/>
         <source>Revert to rev. x</source>
         <translation>Revenir à rev. x</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="124"/>
+        <location filename="../updatemanager.cpp" line="126"/>
         <source>Clean up setup</source>
         <translation>Nettoyer install.</translation>
-    </message>
-    <message>
-        <location filename="../updatemanager.cpp" line="144"/>
-        <location filename="../updatemanager.cpp" line="156"/>
-        <location filename="../updatemanager.cpp" line="168"/>
-        <source>Install</source>
-        <translation>Installer</translation>
     </message>
     <message>
         <location filename="../updatemanager.cpp" line="146"/>
         <location filename="../updatemanager.cpp" line="158"/>
         <location filename="../updatemanager.cpp" line="170"/>
+        <source>Install</source>
+        <translation>Installer</translation>
+    </message>
+    <message>
+        <location filename="../updatemanager.cpp" line="148"/>
+        <location filename="../updatemanager.cpp" line="160"/>
+        <location filename="../updatemanager.cpp" line="172"/>
         <source>Remove</source>
         <translation>Supprimer</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="192"/>
-        <location filename="../updatemanager.cpp" line="202"/>
-        <location filename="../updatemanager.cpp" line="212"/>
-        <location filename="../updatemanager.cpp" line="222"/>
+        <location filename="../updatemanager.cpp" line="194"/>
+        <location filename="../updatemanager.cpp" line="204"/>
+        <location filename="../updatemanager.cpp" line="214"/>
+        <location filename="../updatemanager.cpp" line="224"/>
         <source>View</source>
         <translation>Voir</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="234"/>
+        <location filename="../updatemanager.cpp" line="236"/>
         <source>Apply changes</source>
         <translation>Appliquer modif.</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="235"/>
+        <location filename="../updatemanager.cpp" line="237"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="273"/>
+        <location filename="../updatemanager.cpp" line="275"/>
         <source>Updating core mod</source>
         <translation>Mise à jour du mod principal</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="290"/>
+        <location filename="../updatemanager.cpp" line="292"/>
         <source>Revision selector</source>
         <translation>Sélecteur de révision</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="290"/>
+        <location filename="../updatemanager.cpp" line="292"/>
         <source>Please enter the revision you want to revert to :</source>
         <translation>Veuillez entrer la révision à laquelle vous souhaitez revenir :</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="293"/>
+        <location filename="../updatemanager.cpp" line="295"/>
         <source>Reverting to revision</source>
         <translation>Retour à la révision</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="308"/>
+        <location filename="../updatemanager.cpp" line="310"/>
         <source>Cleaning up installation</source>
         <translation>Nettoyage installation</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="321"/>
+        <location filename="../updatemanager.cpp" line="323"/>
         <source>Downloading Mega Civ Pack addon</source>
         <translation>Téléchargement du module &quot;Mega Civ Pack&quot;</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="334"/>
+        <location filename="../updatemanager.cpp" line="336"/>
         <source>Extracting Mega Civ Pack Addon</source>
         <translation>Extraction du module &quot;Mega Civ Pack&quot;</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="387"/>
+        <location filename="../updatemanager.cpp" line="389"/>
         <source>Mega Civ Pack addon installation finished</source>
         <translation>Module &quot;Mega Civ Pack&quot; installé !</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="402"/>
+        <location filename="../updatemanager.cpp" line="404"/>
         <source>Mega Civ Pack is not properly installed. Cannot remove.</source>
         <translation>Le module &quot;Mega Civ Pack&quot; n&apos;est pas correctement installé. Ne peut pas être désinstallé !</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="406"/>
+        <location filename="../updatemanager.cpp" line="408"/>
         <source>Removing Mega Civ Pack</source>
         <translation>Suppression  du module &quot;Mega Civ Pack&quot;</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="425"/>
+        <location filename="../updatemanager.cpp" line="427"/>
         <source>Removed %1</source>
         <translation>%1 supprimé</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="435"/>
+        <location filename="../updatemanager.cpp" line="437"/>
         <source>Mega Civ Pack successfully removed</source>
         <translation>Module &quot;Mega Civ Pack&quot; supprimé avec succès</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="443"/>
+        <location filename="../updatemanager.cpp" line="445"/>
         <source>Downloading Music Addon</source>
         <translation>Téléchargement du module &quot;Plus de musique&quot;</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="454"/>
+        <location filename="../updatemanager.cpp" line="456"/>
         <source>Extracting Music Addon</source>
         <translation>Extraction du module &quot;Plus de musique&quot;</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="503"/>
+        <location filename="../updatemanager.cpp" line="505"/>
         <source>More music addon installation finished !</source>
         <translation>Installation  du module &quot;Plus de musique&quot; terminée !</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="516"/>
+        <location filename="../updatemanager.cpp" line="518"/>
         <source>More Music is not properly installed. Cannot remove.</source>
         <translation>&quot;Plus de musique&quot; n&apos;est pas correctement installé. Impossible de supprimer.</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="520"/>
+        <location filename="../updatemanager.cpp" line="522"/>
         <source>Removing More Music</source>
         <translation>Désinstalle le module &quot;Plus de musique&quot;</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="539"/>
-        <location filename="../updatemanager.cpp" line="653"/>
+        <location filename="../updatemanager.cpp" line="541"/>
+        <location filename="../updatemanager.cpp" line="655"/>
         <source>Removing %1</source>
         <translation>Supprimer %1</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="549"/>
+        <location filename="../updatemanager.cpp" line="551"/>
         <source>More Music successfully removed</source>
         <translation>Module &quot;Plus de musique&quot; supprimé avec succès</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="557"/>
+        <location filename="../updatemanager.cpp" line="559"/>
         <source>Downloading Handicaps Addon</source>
         <translation>Téléchargement du module &quot;Plus de handicaps&quot;</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="568"/>
+        <location filename="../updatemanager.cpp" line="570"/>
         <source>Extracting Handicaps Addon</source>
         <translation>Extraction du module &quot;Plus de handicaps&quot;</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="617"/>
+        <location filename="../updatemanager.cpp" line="619"/>
         <source>Handicaps Addon installation finished !</source>
         <translation>Installer du module &quot;Plus de handicaps&quot; terminée !</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="630"/>
+        <location filename="../updatemanager.cpp" line="632"/>
         <source>More Handicaps is not properly installed. Cannot remove.</source>
         <translation>Le module &quot;Plus de handicaps&quot; n&apos;est pas correctement installé. Impossible de supprimer.</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="634"/>
+        <location filename="../updatemanager.cpp" line="636"/>
         <source>Removing More Handicaps</source>
         <translation>Suppression du module &quot;Plus de handicaps&quot;</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="662"/>
+        <location filename="../updatemanager.cpp" line="664"/>
         <source>More Handicaps successfully removed</source>
         <translation>Le module &quot;Plus de handicaps&quot; a été désinstallé !</translation>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="750"/>
+        <location filename="../updatemanager.cpp" line="752"/>
         <source>Updating launcher... The program will now restart</source>
         <translation>Mise à jour du lanceur... Le programme va redémarrer maintenant</translation>
     </message>

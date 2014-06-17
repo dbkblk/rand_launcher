@@ -19,12 +19,14 @@
 
 updateManager::updateManager(QWidget *parent)
 {
+    this->setWindowModality(Qt::ApplicationModal);
+    this->setWindowFlags(Qt::WindowStaysOnTopHint);
     QVBoxLayout *vert_layout = new QVBoxLayout(this);
     QHBoxLayout *button_layout = new QHBoxLayout(this);
     changelog_box = new updatebox(this);
     apply_setup = new updatebox(this);
     apply_setup->addonsMode();
-    apply_setup->bt_chglog_close->setText("Close");
+    apply_setup->bt_chglog_close->setText(tr("Close"));
 
     // Layout
     this->setGeometry(0,0,580,300);
@@ -178,7 +180,7 @@ updateManager::updateManager(QWidget *parent)
     /* Changelog buttons */
     QWidget *button_core_widget = new QWidget();
     QPushButton *button_core_checkbox = new QPushButton(this);
-    button_core_checkbox->setText("View");
+    button_core_checkbox->setText(tr("View"));
     button_core_checkbox->setEnabled(true);
     QHBoxLayout *button_core_layout = new QHBoxLayout(button_core_widget);
     button_core_layout->addWidget(button_core_checkbox);

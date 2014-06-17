@@ -39,7 +39,7 @@ FunctionEnd
 
 ; Layout
 ;--------------------------------
-!define MUI_ICON "rom-and.ico"
+!define MUI_ICON "AND_icon.ico"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "left_image.bmp"
 
 ; Page definition
@@ -78,6 +78,7 @@ FunctionEnd
 !insertmacro MUI_LANGUAGE "English"
 !insertmacro MUI_LANGUAGE "French"
 !insertmacro MUI_LANGUAGE "Sinhala"
+!insertmacro MUI_LANGUAGE "Spanish"
 
 function .onInit
         !insertmacro MUI_LANGDLL_DISPLAY
@@ -119,6 +120,16 @@ LangString SHORTCUT ${LANG_SINHALA} "මුහුණත කෙටිමාර්
 LangString MSVC10 ${LANG_SINHALA} "මයික්‍රොසොෆ්ට් විෂුවල් සී ++ 2013 ස්ථානගත කර නොමැත .භාගත කිරීම සහ ස්ථානගත කිරීම සිදු කරන්න . කරුණාකර රැදී සිටින්න ."
 LangString MSVC13 ${LANG_SINHALA} "මයික්‍රොසොෆ්ට් විෂුවල් සී ++ 2010 ස්ථානගත කර නොමැත .භාගත කිරීම සහ ස්ථානගත කිරීම සිදු කරන්න . කරුණාකර රැදී සිටින්න ."
 
+; Spanish
+
+LangString WELCOME_TITLE ${LANG_SPANISH} "Civilización IV: A New Dawn pack de expansión"
+LangString WELCOME ${LANG_SPANISH} "Versión del lanzador: ${VERSION}\n\nEste asistente le guiará a través de la instalación de Civilization IV: A New Dawn.\n\nEl mod se instalará en 'Mis documentos\My Games\Beyond the Sword\Mods\' de forma predeterminada.\nCreará un acceso directo (opcional) al lanzador mod, que se utilizará para descargar fácilmente, actualizar o configurar la mod instalación.\n\nADVERTENCIA: Cualquier instalación existente del mod es compatible. Sin embargo, si tienes archivos modificadas, puede sobrescribirse sobre actualización del mod."
+LangString DIRECTORY ${LANG_SPANISH} "Programa de instalación instalará el paquete de expansión en la siguiente carpeta.\nPara instalarlo en una carpeta diferente, haga clic en 'Examinar...' y seleccione otra carpeta.\n\nNOTA: se recomienda encarecidamente utilizar la carpeta predeterminada seleccionada por debajo. Sin embargo, puede instalar el mod directamente en la carpeta del juego (\'Sid Meier\'s Civilization IV Beyond the Sword\Beyond the Sword\Mods\')."
+LangString FINISH ${LANG_SPANISH} "El lanzador está instalado. En el primer lanzamiento, detectará si el mod está presente en el directorio. Si no es así, sólo sigue el procedimiento de instalación."
+LangString RUN ${LANG_SPANISH} "Iniciar el lanzador mod"
+LangString SHORTCUT ${LANG_SPANISH} "Crear acceso directo del escritorio"
+LangString MSVC10 ${LANG_SPANISH} "No está instalado Microsoft Visual C++ Redist 2013. Descargar e instalar ahora. Espera..."
+LangString MSVC13 ${LANG_SPANISH} "No está instalado Microsoft Visual C++ 2010 Redist. Descargar e instalar ahora. Espera..."
 
 ; Installation
 ;--------------------------------

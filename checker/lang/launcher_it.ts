@@ -2,240 +2,295 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.ui" line="63"/>
+        <location filename="../mainwindow.ui" line="69"/>
         <source>Launch Civilization IV</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="85"/>
+        <location filename="../mainwindow.ui" line="91"/>
         <source>Options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="141"/>
+        <location filename="../mainwindow.ui" line="147"/>
         <source>Menu</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="148"/>
+        <location filename="../mainwindow.ui" line="154"/>
         <source>Community</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="126"/>
+        <location filename="../mainwindow.ui" line="132"/>
         <source>Manage modules</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="158"/>
+        <location filename="../mainwindow.ui" line="164"/>
         <source>Help us to improve the mod !</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="162"/>
+        <location filename="../mainwindow.ui" line="171"/>
         <source>Development tools</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="178"/>
+        <location filename="../mainwindow.ui" line="183"/>
+        <source>Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="203"/>
         <source>Exit</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="183"/>
+        <location filename="../mainwindow.ui" line="208"/>
         <source>Forum</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="188"/>
+        <location filename="../mainwindow.ui" line="213"/>
         <source>Addon &quot;Mega Civ Pack&quot; (forum)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="193"/>
+        <location filename="../mainwindow.ui" line="218"/>
         <source>Bugreport (forum)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="198"/>
-        <location filename="../mainwindow.ui" line="201"/>
+        <location filename="../mainwindow.ui" line="223"/>
+        <location filename="../mainwindow.ui" line="226"/>
         <source>About AND Resurrection team (forum)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="206"/>
+        <location filename="../mainwindow.ui" line="231"/>
         <source>Addon &quot;More music&quot; (forum)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="211"/>
+        <location filename="../mainwindow.ui" line="236"/>
         <source>Open mod folder</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="216"/>
+        <location filename="../mainwindow.ui" line="241"/>
         <source>Git: Create binary pack</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="221"/>
+        <location filename="../mainwindow.ui" line="246"/>
         <source>Git: Create update binary pack</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="226"/>
+        <location filename="../mainwindow.ui" line="251"/>
         <source>Translate the mod</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="231"/>
+        <location filename="../mainwindow.ui" line="256"/>
         <source>Help for translation (forum)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="236"/>
+        <location filename="../mainwindow.ui" line="261"/>
         <source>Translate the launcher</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="95"/>
-        <source>Check for update</source>
+        <location filename="../mainwindow.ui" line="266"/>
+        <source>English</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="113"/>
-        <source>Launcher update available</source>
+        <location filename="../mainwindow.ui" line="271"/>
+        <source>French</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="276"/>
+        <source>Sinhala</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="281"/>
+        <source>Hungarian</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="286"/>
+        <source>Finnish</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="291"/>
+        <source>Polish</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="296"/>
+        <source>Italian</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="301"/>
+        <source>Spanish</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="306"/>
+        <source>German</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="311"/>
+        <source>Russian</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="114"/>
-        <source>An update of the launcher is available.</source>
+        <source>Check for update</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="115"/>
-        <source>Do you want to update ?</source>
+        <location filename="../mainwindow.cpp" line="132"/>
+        <source>Launcher update available</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="133"/>
+        <source>An update of the launcher is available.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="134"/>
+        <source>Do you want to update ?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="152"/>
         <source>Update available !</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="206"/>
+        <location filename="../mainwindow.cpp" line="225"/>
         <source>There is no update at the moment.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="212"/>
+        <location filename="../mainwindow.cpp" line="231"/>
         <source>Update tool</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="217"/>
+        <location filename="../mainwindow.cpp" line="236"/>
         <source>An error has occured while checking for updates.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="225"/>
+        <location filename="../mainwindow.cpp" line="244"/>
         <source>To be able to launch the game from the launcher, you need to set the game path in the options window. (Options &gt; Select game path)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="299"/>
+        <location filename="../mainwindow.cpp" line="318"/>
         <source>Pack base binaries</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="311"/>
+        <location filename="../mainwindow.cpp" line="330"/>
         <source>Packing base files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="311"/>
-        <location filename="../mainwindow.cpp" line="365"/>
+        <location filename="../mainwindow.cpp" line="330"/>
+        <location filename="../mainwindow.cpp" line="384"/>
         <source>this might take up to 10 min</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="311"/>
-        <location filename="../mainwindow.cpp" line="369"/>
+        <location filename="../mainwindow.cpp" line="330"/>
+        <location filename="../mainwindow.cpp" line="388"/>
         <source>Listing files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="319"/>
-        <location filename="../mainwindow.cpp" line="324"/>
-        <location filename="../mainwindow.cpp" line="329"/>
-        <location filename="../mainwindow.cpp" line="336"/>
-        <location filename="../mainwindow.cpp" line="369"/>
-        <location filename="../mainwindow.cpp" line="378"/>
-        <location filename="../mainwindow.cpp" line="384"/>
-        <location filename="../mainwindow.cpp" line="392"/>
-        <location filename="../mainwindow.cpp" line="399"/>
-        <location filename="../mainwindow.cpp" line="406"/>
-        <location filename="../mainwindow.cpp" line="413"/>
-        <location filename="../mainwindow.cpp" line="421"/>
+        <location filename="../mainwindow.cpp" line="338"/>
+        <location filename="../mainwindow.cpp" line="343"/>
+        <location filename="../mainwindow.cpp" line="348"/>
+        <location filename="../mainwindow.cpp" line="355"/>
+        <location filename="../mainwindow.cpp" line="388"/>
+        <location filename="../mainwindow.cpp" line="397"/>
+        <location filename="../mainwindow.cpp" line="403"/>
+        <location filename="../mainwindow.cpp" line="411"/>
+        <location filename="../mainwindow.cpp" line="418"/>
+        <location filename="../mainwindow.cpp" line="425"/>
+        <location filename="../mainwindow.cpp" line="432"/>
+        <location filename="../mainwindow.cpp" line="440"/>
         <source>OK</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="319"/>
-        <location filename="../mainwindow.cpp" line="378"/>
+        <location filename="../mainwindow.cpp" line="338"/>
+        <location filename="../mainwindow.cpp" line="397"/>
         <source>Generating hash file</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="324"/>
-        <location filename="../mainwindow.cpp" line="406"/>
+        <location filename="../mainwindow.cpp" line="343"/>
+        <location filename="../mainwindow.cpp" line="425"/>
         <source>Gathering files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="329"/>
-        <location filename="../mainwindow.cpp" line="413"/>
+        <location filename="../mainwindow.cpp" line="348"/>
+        <location filename="../mainwindow.cpp" line="432"/>
         <source>Compressing files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="336"/>
-        <location filename="../mainwindow.cpp" line="421"/>
+        <location filename="../mainwindow.cpp" line="355"/>
+        <location filename="../mainwindow.cpp" line="440"/>
         <source>Cleaning folder</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="336"/>
+        <location filename="../mainwindow.cpp" line="355"/>
         <source>Operation finished. The binaries have been packed in %1 and their checksums are listed in %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="353"/>
+        <location filename="../mainwindow.cpp" line="372"/>
         <source>Pack update binaries</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="365"/>
+        <location filename="../mainwindow.cpp" line="384"/>
         <source>Packing update files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="384"/>
+        <location filename="../mainwindow.cpp" line="403"/>
         <source>Comparing base and update hashs</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="392"/>
+        <location filename="../mainwindow.cpp" line="411"/>
         <source>Checking for new files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="399"/>
+        <location filename="../mainwindow.cpp" line="418"/>
         <source>Checking for missing files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="421"/>
+        <location filename="../mainwindow.cpp" line="440"/>
         <source>Operation finished. The updated binaries have been packed in %1 and their checksums are listed in %2</source>
         <translation type="unfinished"/>
     </message>
@@ -243,7 +298,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../main.cpp" line="76"/>
+        <location filename="../main.cpp" line="68"/>
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
         <translation type="unfinished"/>
     </message>
@@ -397,253 +452,253 @@
 <context>
     <name>updateManager</name>
     <message>
-        <location filename="../updatemanager.ui" line="67"/>
+        <location filename="../updatemanager.ui" line="73"/>
         <source>Update selected components</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.ui" line="80"/>
+        <location filename="../updatemanager.ui" line="86"/>
         <source>Cancel</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="31"/>
+        <location filename="../updatemanager.cpp" line="33"/>
         <source>Components manager</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="52"/>
+        <location filename="../updatemanager.cpp" line="54"/>
         <source>Local version</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="52"/>
+        <location filename="../updatemanager.cpp" line="54"/>
         <source>Distant version</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="52"/>
+        <location filename="../updatemanager.cpp" line="54"/>
         <source>Action</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="52"/>
+        <location filename="../updatemanager.cpp" line="54"/>
         <source>Changelog</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="55"/>
+        <location filename="../updatemanager.cpp" line="57"/>
         <source>Core mod</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="55"/>
+        <location filename="../updatemanager.cpp" line="57"/>
         <source>Launcher</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="55"/>
+        <location filename="../updatemanager.cpp" line="57"/>
         <source>Addon: Mega civ pack</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="55"/>
+        <location filename="../updatemanager.cpp" line="57"/>
         <source>Addon: More music</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="55"/>
+        <location filename="../updatemanager.cpp" line="57"/>
         <source>Addon: More handicaps</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="121"/>
-        <location filename="../updatemanager.cpp" line="133"/>
-        <location filename="../updatemanager.cpp" line="143"/>
-        <location filename="../updatemanager.cpp" line="155"/>
-        <location filename="../updatemanager.cpp" line="167"/>
+        <location filename="../updatemanager.cpp" line="123"/>
+        <location filename="../updatemanager.cpp" line="135"/>
+        <location filename="../updatemanager.cpp" line="145"/>
+        <location filename="../updatemanager.cpp" line="157"/>
+        <location filename="../updatemanager.cpp" line="169"/>
         <source>Choose action:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="122"/>
-        <location filename="../updatemanager.cpp" line="134"/>
-        <location filename="../updatemanager.cpp" line="145"/>
-        <location filename="../updatemanager.cpp" line="157"/>
-        <location filename="../updatemanager.cpp" line="169"/>
+        <location filename="../updatemanager.cpp" line="124"/>
+        <location filename="../updatemanager.cpp" line="136"/>
+        <location filename="../updatemanager.cpp" line="147"/>
+        <location filename="../updatemanager.cpp" line="159"/>
+        <location filename="../updatemanager.cpp" line="171"/>
         <source>Update</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="123"/>
+        <location filename="../updatemanager.cpp" line="125"/>
         <source>Revert to rev. x</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="124"/>
+        <location filename="../updatemanager.cpp" line="126"/>
         <source>Clean up setup</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../updatemanager.cpp" line="144"/>
-        <location filename="../updatemanager.cpp" line="156"/>
-        <location filename="../updatemanager.cpp" line="168"/>
-        <source>Install</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../updatemanager.cpp" line="146"/>
         <location filename="../updatemanager.cpp" line="158"/>
         <location filename="../updatemanager.cpp" line="170"/>
+        <source>Install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../updatemanager.cpp" line="148"/>
+        <location filename="../updatemanager.cpp" line="160"/>
+        <location filename="../updatemanager.cpp" line="172"/>
         <source>Remove</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="192"/>
-        <location filename="../updatemanager.cpp" line="202"/>
-        <location filename="../updatemanager.cpp" line="212"/>
-        <location filename="../updatemanager.cpp" line="222"/>
+        <location filename="../updatemanager.cpp" line="194"/>
+        <location filename="../updatemanager.cpp" line="204"/>
+        <location filename="../updatemanager.cpp" line="214"/>
+        <location filename="../updatemanager.cpp" line="224"/>
         <source>View</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="234"/>
+        <location filename="../updatemanager.cpp" line="236"/>
         <source>Apply changes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="235"/>
+        <location filename="../updatemanager.cpp" line="237"/>
         <source>Close</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="273"/>
+        <location filename="../updatemanager.cpp" line="275"/>
         <source>Updating core mod</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="290"/>
+        <location filename="../updatemanager.cpp" line="292"/>
         <source>Revision selector</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="290"/>
+        <location filename="../updatemanager.cpp" line="292"/>
         <source>Please enter the revision you want to revert to :</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="293"/>
+        <location filename="../updatemanager.cpp" line="295"/>
         <source>Reverting to revision</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="308"/>
+        <location filename="../updatemanager.cpp" line="310"/>
         <source>Cleaning up installation</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="321"/>
+        <location filename="../updatemanager.cpp" line="323"/>
         <source>Downloading Mega Civ Pack addon</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="334"/>
+        <location filename="../updatemanager.cpp" line="336"/>
         <source>Extracting Mega Civ Pack Addon</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="387"/>
+        <location filename="../updatemanager.cpp" line="389"/>
         <source>Mega Civ Pack addon installation finished</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="402"/>
+        <location filename="../updatemanager.cpp" line="404"/>
         <source>Mega Civ Pack is not properly installed. Cannot remove.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="406"/>
+        <location filename="../updatemanager.cpp" line="408"/>
         <source>Removing Mega Civ Pack</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="425"/>
+        <location filename="../updatemanager.cpp" line="427"/>
         <source>Removed %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="435"/>
+        <location filename="../updatemanager.cpp" line="437"/>
         <source>Mega Civ Pack successfully removed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="443"/>
+        <location filename="../updatemanager.cpp" line="445"/>
         <source>Downloading Music Addon</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="454"/>
+        <location filename="../updatemanager.cpp" line="456"/>
         <source>Extracting Music Addon</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="503"/>
+        <location filename="../updatemanager.cpp" line="505"/>
         <source>More music addon installation finished !</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="516"/>
+        <location filename="../updatemanager.cpp" line="518"/>
         <source>More Music is not properly installed. Cannot remove.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="520"/>
+        <location filename="../updatemanager.cpp" line="522"/>
         <source>Removing More Music</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="539"/>
-        <location filename="../updatemanager.cpp" line="653"/>
+        <location filename="../updatemanager.cpp" line="541"/>
+        <location filename="../updatemanager.cpp" line="655"/>
         <source>Removing %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="549"/>
+        <location filename="../updatemanager.cpp" line="551"/>
         <source>More Music successfully removed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="557"/>
+        <location filename="../updatemanager.cpp" line="559"/>
         <source>Downloading Handicaps Addon</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="568"/>
+        <location filename="../updatemanager.cpp" line="570"/>
         <source>Extracting Handicaps Addon</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="617"/>
+        <location filename="../updatemanager.cpp" line="619"/>
         <source>Handicaps Addon installation finished !</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="630"/>
+        <location filename="../updatemanager.cpp" line="632"/>
         <source>More Handicaps is not properly installed. Cannot remove.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="634"/>
+        <location filename="../updatemanager.cpp" line="636"/>
         <source>Removing More Handicaps</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="662"/>
+        <location filename="../updatemanager.cpp" line="664"/>
         <source>More Handicaps successfully removed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../updatemanager.cpp" line="750"/>
+        <location filename="../updatemanager.cpp" line="752"/>
         <source>Updating launcher... The program will now restart</source>
         <translation type="unfinished"/>
     </message>

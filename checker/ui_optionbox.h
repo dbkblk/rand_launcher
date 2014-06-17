@@ -21,7 +21,6 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -30,9 +29,8 @@ QT_BEGIN_NAMESPACE
 class Ui_optionBox
 {
 public:
-    QWidget *horizontalLayoutWidget;
-    QHBoxLayout *horizontalLayout;
-    QVBoxLayout *verticalLayout_2;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout_4;
     QLabel *lb_modconf;
     QLabel *lb_intcolor;
     QComboBox *colorBox;
@@ -41,8 +39,6 @@ public:
     QLabel *label;
     QPushButton *opt_bt_path;
     QLineEdit *opt_text_path;
-    QVBoxLayout *verticalLayout_3;
-    QSpacerItem *verticalSpacer_2;
     QLabel *lb_modconf_2;
     QCheckBox *checkerBox;
     QCheckBox *startBox;
@@ -54,114 +50,107 @@ public:
         if (optionBox->objectName().isEmpty())
             optionBox->setObjectName(QStringLiteral("optionBox"));
         optionBox->setWindowModality(Qt::WindowModal);
-        optionBox->resize(250, 300);
+        optionBox->resize(450, 300);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(optionBox->sizePolicy().hasHeightForWidth());
         optionBox->setSizePolicy(sizePolicy);
-        optionBox->setMinimumSize(QSize(250, 300));
-        optionBox->setMaximumSize(QSize(250, 300));
+        optionBox->setMinimumSize(QSize(450, 300));
+        optionBox->setMaximumSize(QSize(450, 300));
         optionBox->setFocusPolicy(Qt::StrongFocus);
         optionBox->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
-        horizontalLayoutWidget = new QWidget(optionBox);
-        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(10, 10, 231, 273));
-        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
-        horizontalLayout->setSpacing(1);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        lb_modconf = new QLabel(horizontalLayoutWidget);
+        verticalLayoutWidget = new QWidget(optionBox);
+        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(9, 9, 431, 281));
+        verticalLayout_4 = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        verticalLayout_4->setContentsMargins(10, 0, 10, 0);
+        lb_modconf = new QLabel(verticalLayoutWidget);
         lb_modconf->setObjectName(QStringLiteral("lb_modconf"));
 
-        verticalLayout_2->addWidget(lb_modconf);
+        verticalLayout_4->addWidget(lb_modconf);
 
-        lb_intcolor = new QLabel(horizontalLayoutWidget);
+        lb_intcolor = new QLabel(verticalLayoutWidget);
         lb_intcolor->setObjectName(QStringLiteral("lb_intcolor"));
 
-        verticalLayout_2->addWidget(lb_intcolor);
+        verticalLayout_4->addWidget(lb_intcolor);
 
-        colorBox = new QComboBox(horizontalLayoutWidget);
+        colorBox = new QComboBox(verticalLayoutWidget);
         colorBox->setObjectName(QStringLiteral("colorBox"));
+        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(colorBox->sizePolicy().hasHeightForWidth());
+        colorBox->setSizePolicy(sizePolicy1);
+        colorBox->setMinimumSize(QSize(175, 25));
         colorBox->setMaximumSize(QSize(150, 16777215));
         colorBox->setEditable(false);
 
-        verticalLayout_2->addWidget(colorBox);
+        verticalLayout_4->addWidget(colorBox);
 
-        opt_checkbox_formations = new QCheckBox(horizontalLayoutWidget);
+        opt_checkbox_formations = new QCheckBox(verticalLayoutWidget);
         opt_checkbox_formations->setObjectName(QStringLiteral("opt_checkbox_formations"));
 
-        verticalLayout_2->addWidget(opt_checkbox_formations);
+        verticalLayout_4->addWidget(opt_checkbox_formations);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        label = new QLabel(horizontalLayoutWidget);
+        label = new QLabel(verticalLayoutWidget);
         label->setObjectName(QStringLiteral("label"));
 
         horizontalLayout_2->addWidget(label);
 
-        opt_bt_path = new QPushButton(horizontalLayoutWidget);
+        opt_bt_path = new QPushButton(verticalLayoutWidget);
         opt_bt_path->setObjectName(QStringLiteral("opt_bt_path"));
+        sizePolicy1.setHeightForWidth(opt_bt_path->sizePolicy().hasHeightForWidth());
+        opt_bt_path->setSizePolicy(sizePolicy1);
+        opt_bt_path->setMinimumSize(QSize(175, 25));
         opt_bt_path->setMaximumSize(QSize(150, 16777215));
 
         horizontalLayout_2->addWidget(opt_bt_path);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_2);
+        verticalLayout_4->addLayout(horizontalLayout_2);
 
-        opt_text_path = new QLineEdit(horizontalLayoutWidget);
+        opt_text_path = new QLineEdit(verticalLayoutWidget);
         opt_text_path->setObjectName(QStringLiteral("opt_text_path"));
-        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(opt_text_path->sizePolicy().hasHeightForWidth());
         opt_text_path->setSizePolicy(sizePolicy1);
-        opt_text_path->setMinimumSize(QSize(224, 0));
+        opt_text_path->setMinimumSize(QSize(224, 25));
         opt_text_path->setMaximumSize(QSize(475, 16777215));
         opt_text_path->setReadOnly(true);
 
-        verticalLayout_2->addWidget(opt_text_path);
+        verticalLayout_4->addWidget(opt_text_path);
 
-        verticalLayout_3 = new QVBoxLayout();
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_3->addItem(verticalSpacer_2);
-
-
-        verticalLayout_2->addLayout(verticalLayout_3);
-
-        lb_modconf_2 = new QLabel(horizontalLayoutWidget);
+        lb_modconf_2 = new QLabel(verticalLayoutWidget);
         lb_modconf_2->setObjectName(QStringLiteral("lb_modconf_2"));
 
-        verticalLayout_2->addWidget(lb_modconf_2);
+        verticalLayout_4->addWidget(lb_modconf_2);
 
-        checkerBox = new QCheckBox(horizontalLayoutWidget);
+        checkerBox = new QCheckBox(verticalLayoutWidget);
         checkerBox->setObjectName(QStringLiteral("checkerBox"));
 
-        verticalLayout_2->addWidget(checkerBox);
+        verticalLayout_4->addWidget(checkerBox);
 
-        startBox = new QCheckBox(horizontalLayoutWidget);
+        startBox = new QCheckBox(verticalLayoutWidget);
         startBox->setObjectName(QStringLiteral("startBox"));
 
-        verticalLayout_2->addWidget(startBox);
+        verticalLayout_4->addWidget(startBox);
 
-        opt_checkbox_autoupdate = new QCheckBox(horizontalLayoutWidget);
+        opt_checkbox_autoupdate = new QCheckBox(verticalLayoutWidget);
         opt_checkbox_autoupdate->setObjectName(QStringLiteral("opt_checkbox_autoupdate"));
 
-        verticalLayout_2->addWidget(opt_checkbox_autoupdate);
+        verticalLayout_4->addWidget(opt_checkbox_autoupdate);
 
-        opt_bt_chklauncher = new QPushButton(horizontalLayoutWidget);
+        opt_bt_chklauncher = new QPushButton(verticalLayoutWidget);
         opt_bt_chklauncher->setObjectName(QStringLiteral("opt_bt_chklauncher"));
+        sizePolicy1.setHeightForWidth(opt_bt_chklauncher->sizePolicy().hasHeightForWidth());
+        opt_bt_chklauncher->setSizePolicy(sizePolicy1);
+        opt_bt_chklauncher->setMinimumSize(QSize(175, 25));
         opt_bt_chklauncher->setMaximumSize(QSize(150, 16777215));
 
-        verticalLayout_2->addWidget(opt_bt_chklauncher);
-
-
-        horizontalLayout->addLayout(verticalLayout_2);
+        verticalLayout_4->addWidget(opt_bt_chklauncher);
 
 
         retranslateUi(optionBox);

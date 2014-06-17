@@ -2,13 +2,19 @@
 <ui version="4.0">
  <class>updateManager</class>
  <widget class="QWidget" name="updateManager">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>550</width>
+    <width>600</width>
     <height>300</height>
    </rect>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::StrongFocus</enum>
   </property>
   <property name="windowTitle">
    <string notr="true">Form</string>
@@ -18,19 +24,40 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>531</width>
-     <height>281</height>
+     <width>581</width>
+     <height>280</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>581</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>280</height>
+    </size>
+   </property>
    <attribute name="horizontalHeaderDefaultSectionSize">
-    <number>125</number>
+    <number>100</number>
    </attribute>
    <attribute name="horizontalHeaderMinimumSectionSize">
     <number>100</number>
    </attribute>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>false</bool>
+   </attribute>
    <row>
     <property name="text">
-     <string notr="true">Mod</string>
+     <string notr="true">Core mod</string>
     </property>
    </row>
    <row>
@@ -40,19 +67,39 @@
    </row>
    <row>
     <property name="text">
-     <string notr="true">Addon 1</string>
+     <string notr="true">Addon: Mega civ pack</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Addon: More music</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Addon: More handicaps</string>
     </property>
    </row>
    <column>
     <property name="text">
-     <string notr="true">Installed</string>
+     <string>Local version</string>
     </property>
    </column>
-   <item row="0" column="0">
+   <column>
     <property name="text">
-     <string/>
+     <string>Distant version</string>
     </property>
-   </item>
+   </column>
+   <column>
+    <property name="text">
+     <string>Action</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Changelog</string>
+    </property>
+   </column>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">

@@ -64,6 +64,10 @@ void updatebox::appendOutput()
       {
           emit updated();
       }
+      if(line.contains("svn: E"))
+      {
+          QMessageBox::critical(this,"An error has occured",line);
+      }
   }
 
 

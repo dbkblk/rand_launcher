@@ -46,16 +46,20 @@ DONE -> Do not tell update is available if addons aren't installed
 DONE -> Show changelog from the head version
 DONE -> Update main window infos after update;
 
-## 1.0
+## 0.11
 ### Features
 
 - Autocheck svn state from error message.
 DONE -> Link to the translation platform
-- Make the launcher translatable
+DONE -> Make the launcher translatable
 DONE -> Improve installer
+- Add option for bluemarble
+
 
 ### Bugfix
-As soon as I started the game for the first time, I got the yellow button "Update available" but there are of course no updates. It happened only once. I'll see if I can reproduce it.
+- Fix installer
+- Fix menus not clickable at start
+- Fix delay when starting the component manager
 I can't click on Menu or Community unless I first click on Tools and move to Menu or Community from there.
 First time I installed the launcher it got the wrong path and it started Warlord instead of BTS (but this could be a registry problem in my pc).
 There's no option for Blue Marble terrain graphics
@@ -63,14 +67,18 @@ There's no option for Blue Marble terrain graphics
 
 ## 2.0
 ### Features
-- Integrate git into the launcher
+
 - Fix binaries packaging launching from launcher
 - Create a borderless window with metro style
 
 # Features pending
 
+- Integrate git into the launcher
 - Download a compressed version the first time, then update it (save bandwidth).
 - Integrate a git workflow
+
+# Bugfixes pending
+As soon as I started the game for the first time, I got the yellow button "Update available" but there are of course no updates. It happened only once. I'll see if I can reproduce it.
 
 # Notes
 ## Dev tools

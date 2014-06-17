@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -28,6 +31,9 @@
     <height>300</height>
    </size>
   </property>
+  <property name="focusPolicy">
+   <enum>Qt::StrongFocus</enum>
+  </property>
   <property name="windowTitle">
    <string notr="true">MainWindow</string>
   </property>
@@ -44,50 +50,6 @@
    <property name="styleSheet">
     <string notr="true"/>
    </property>
-   <widget class="QPushButton" name="bt_launch">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>200</y>
-      <width>181</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-image: none</string>
-    </property>
-    <property name="text">
-     <string>Launch Civilization IV</string>
-    </property>
-    <property name="autoDefault">
-     <bool>false</bool>
-    </property>
-    <property name="flat">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="bt_option">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>230</y>
-      <width>181</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-image: none</string>
-    </property>
-    <property name="text">
-     <string>Options</string>
-    </property>
-    <property name="flat">
-     <bool>false</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="lb_versions">
     <property name="geometry">
      <rect>
@@ -113,18 +75,127 @@
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="bt_components">
+   <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>230</y>
-      <width>181</width>
-      <height>25</height>
+      <y>160</y>
+      <width>561</width>
+      <height>101</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Manage modules</string>
-    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="bt_launch">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>175</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-image: none</string>
+         </property>
+         <property name="text">
+          <string>Launch Civilization IV</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="bt_components">
+         <property name="minimumSize">
+          <size>
+           <width>175</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Manage modules</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="bt_option">
+         <property name="minimumSize">
+          <size>
+           <width>175</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-image: none</string>
+         </property>
+         <property name="text">
+          <string>Options</string>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -172,7 +243,23 @@
     <addaction name="actionTranslate_the_mod_help"/>
     <addaction name="menuDevelopment_tools"/>
    </widget>
+   <widget class="QMenu" name="menuLanguage">
+    <property name="title">
+     <string>Language</string>
+    </property>
+    <addaction name="languageEnglish"/>
+    <addaction name="languageFinnish"/>
+    <addaction name="languageFrench"/>
+    <addaction name="languageGerman"/>
+    <addaction name="languageHungarian"/>
+    <addaction name="languageItalian"/>
+    <addaction name="languagePolish"/>
+    <addaction name="languageRussian"/>
+    <addaction name="languageSinhala"/>
+    <addaction name="languageSpanish"/>
+   </widget>
    <addaction name="menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher"/>
+   <addaction name="menuLanguage"/>
    <addaction name="menuCommunity"/>
    <addaction name="menuTools"/>
   </widget>
@@ -237,6 +324,56 @@
   <action name="actionTranslate_the_launcher">
    <property name="text">
     <string>Translate the launcher</string>
+   </property>
+  </action>
+  <action name="languageEnglish">
+   <property name="text">
+    <string>English</string>
+   </property>
+  </action>
+  <action name="languageFrench">
+   <property name="text">
+    <string>French</string>
+   </property>
+  </action>
+  <action name="languageSinhala">
+   <property name="text">
+    <string>Sinhala</string>
+   </property>
+  </action>
+  <action name="languageHungarian">
+   <property name="text">
+    <string>Hungarian</string>
+   </property>
+  </action>
+  <action name="languageFinnish">
+   <property name="text">
+    <string>Finnish</string>
+   </property>
+  </action>
+  <action name="languagePolish">
+   <property name="text">
+    <string>Polish</string>
+   </property>
+  </action>
+  <action name="languageItalian">
+   <property name="text">
+    <string>Italian</string>
+   </property>
+  </action>
+  <action name="languageSpanish">
+   <property name="text">
+    <string>Spanish</string>
+   </property>
+  </action>
+  <action name="languageGerman">
+   <property name="text">
+    <string>German</string>
+   </property>
+  </action>
+  <action name="languageRussian">
+   <property name="text">
+    <string>Russian</string>
    </property>
   </action>
  </widget>

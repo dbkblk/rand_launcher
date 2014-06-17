@@ -21,6 +21,23 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // Translations
+    translator = new QTranslator(this);
+    QString loc = QLocale::system().name().section('_', 0, 0);
+    qDebug() << loc;
+    translator->load(QString("launcher_" + loc + ".qm"),"checker/lang/");
+    qApp->installTranslator(translator);
+    ui->languageEnglish->setIcon(QIcon("checker/en.png"));
+    ui->languageFinnish->setIcon(QIcon("checker/fi.png"));
+    ui->languageFrench->setIcon(QIcon("checker/fr.png"));
+    ui->languageGerman->setIcon(QIcon("checker/de.png"));
+    ui->languageHungarian->setIcon(QIcon("checker/hu.png"));
+    ui->languageItalian->setIcon(QIcon("checker/it.png"));
+    ui->languagePolish->setIcon(QIcon("checker/pl.png"));
+    ui->languageRussian->setIcon(QIcon("checker/ru.png"));
+    ui->languageSinhala->setIcon(QIcon("checker/si.png"));
+    ui->languageSpanish->setIcon(QIcon("checker/es.png"));
+
     // Checker version
     setCheckerParam("Main/CheckerMajorVersion",QString::number(constants::MAJOR_CHECKER_VERSION));
     setCheckerParam("Main/CheckerMinorVersion",QString::number(constants::MINOR_CHECKER_VERSION));
@@ -62,6 +79,8 @@ MainWindow::MainWindow(QWidget *parent) :
     check_addon_mcp();
     check_addon_more_handicaps();
     check_addon_more_music();
+
+    ui->retranslateUi(this);
 }
 
 MainWindow::~MainWindow()
@@ -244,6 +263,7 @@ void MainWindow::on_bt_option_clicked()
     // Invoke the option window
 
     optbox->show();
+    optbox->reTranslate();
 }
 
 // Installation process
@@ -281,7 +301,7 @@ void installBox::on_buttonBox_rejected()
 void MainWindow::on_bt_components_clicked()
 {
     update_manager->show();
-    update_manager->updateInfos();
+    update_manager->updateInfos();    
 }
 
 void MainWindow::on_actionGit_Pack_binaries_triggered()
@@ -421,4 +441,59 @@ void MainWindow::on_actionGit_Create_update_binary_pack_triggered()
     label_value = label_value + " " + tr("OK") + "\n" + tr("Cleaning folder") + "..." + " " + tr("OK") + "\n\n" + QString(tr("Operation finished. The updated binaries have been packed in %1 and their checksums are listed in %2")).arg("\"AND2_UPDATE_FILES.7z\"").arg("\"AND2_UPDATE_FILES.xml\"");
     label->setText(label_value);
     wait_install.exec();
+}
+
+// Language support
+void MainWindow::on_languageEnglish_triggered()
+{
+    translator->load(QString("launcher.qm"),"checker/lang/");
+    ui->retranslateUi(this);
+}
+
+void MainWindow::on_languageFrench_triggered()
+{
+    translator->load(QString("launcher_fr.qm"),"checker/lang/");
+    ui->retranslateUi(this);
+}
+
+void MainWindow::on_languageSinhala_triggered()
+{
+    translator->load(QString("launcher_si.qm"),"checker/lang/");
+    ui->retranslateUi(this);
+}
+
+void MainWindow::on_languageHungarian_triggered()
+{
+    translator->load(QString("launcher_hu.qm"),"checker/lang/");
+    ui->retranslateUi(this);
+}
+
+void MainWindow::on_languageFinnish_triggered()
+{
+    translator->load(QString("launcher_pl.qm"),"checker/lang/");
+    ui->retranslateUi(this);
+}
+
+void MainWindow::on_languageItalian_triggered()
+{
+    translator->load(QString("launcher_it.qm"),"checker/lang/");
+    ui->retranslateUi(this);
+}
+
+void MainWindow::on_languageSpanish_triggered()
+{
+    translator->load(QString("launcher_es.qm"),"checker/lang/");
+    ui->retranslateUi(this);
+}
+
+void MainWindow::on_languageGerman_triggered()
+{
+    translator->load(QString("launcher_de.qm"),"checker/lang/");
+    ui->retranslateUi(this);
+}
+
+void MainWindow::on_languageRussian_triggered()
+{
+    translator->load(QString("launcher_ru.qm"),"checker/lang/");
+    ui->retranslateUi(this);
 }

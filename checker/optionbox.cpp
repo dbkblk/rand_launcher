@@ -73,11 +73,17 @@ optionBox::optionBox(QWidget *parent) :
     else {
         ui->opt_text_path->setText(readCheckerParam("Main/ExecutablePath"));
     }
+
 }
 
 optionBox::~optionBox()
 {
     delete ui;
+}
+
+void optionBox::reTranslate()
+{
+    ui->retranslateUi(this);
 }
 
 void optionBox::on_colorBox_currentIndexChanged(const QString &colorName)

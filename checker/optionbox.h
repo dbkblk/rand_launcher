@@ -18,6 +18,7 @@ class optionBox : public QMainWindow
 public:
     explicit optionBox(QWidget *parent = 0);
     ~optionBox();
+    void reTranslate();
 
 private slots:
     void on_colorBox_currentIndexChanged(const QString &colorName);
@@ -35,6 +36,7 @@ private:
     Ui::optionBox *ui;
     updatebox *chglog;
     bool msg_show;
+
 };
 
 #endif // OPTIONBOX_H

@@ -14,12 +14,15 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -39,21 +42,40 @@ public:
     QAction *actionHelp_translate_the_mod;
     QAction *actionTranslate_the_mod_help;
     QAction *actionTranslate_the_launcher;
+    QAction *languageEnglish;
+    QAction *languageFrench;
+    QAction *languageSinhala;
+    QAction *languageHungarian;
+    QAction *languageFinnish;
+    QAction *languagePolish;
+    QAction *languageItalian;
+    QAction *languageSpanish;
+    QAction *languageGerman;
+    QAction *languageRussian;
     QWidget *centralWidget;
-    QPushButton *bt_launch;
-    QPushButton *bt_option;
     QLabel *lb_versions;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *verticalLayout;
+    QSpacerItem *verticalSpacer;
+    QPushButton *bt_launch;
     QPushButton *bt_components;
+    QSpacerItem *horizontalSpacer;
+    QVBoxLayout *verticalLayout_2;
+    QSpacerItem *verticalSpacer_2;
+    QPushButton *bt_option;
     QMenuBar *menuBar;
     QMenu *menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher;
     QMenu *menuCommunity;
     QMenu *menuTools;
     QMenu *menuDevelopment_tools;
+    QMenu *menuLanguage;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
+        MainWindow->setWindowModality(Qt::WindowModal);
         MainWindow->resize(600, 300);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
@@ -62,6 +84,7 @@ public:
         MainWindow->setSizePolicy(sizePolicy);
         MainWindow->setMinimumSize(QSize(600, 300));
         MainWindow->setMaximumSize(QSize(600, 300));
+        MainWindow->setFocusPolicy(Qt::StrongFocus);
         MainWindow->setWindowTitle(QStringLiteral("MainWindow"));
         MainWindow->setStyleSheet(QStringLiteral(""));
         MainWindow->setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom));
@@ -90,21 +113,29 @@ public:
         actionTranslate_the_mod_help->setObjectName(QStringLiteral("actionTranslate_the_mod_help"));
         actionTranslate_the_launcher = new QAction(MainWindow);
         actionTranslate_the_launcher->setObjectName(QStringLiteral("actionTranslate_the_launcher"));
+        languageEnglish = new QAction(MainWindow);
+        languageEnglish->setObjectName(QStringLiteral("languageEnglish"));
+        languageFrench = new QAction(MainWindow);
+        languageFrench->setObjectName(QStringLiteral("languageFrench"));
+        languageSinhala = new QAction(MainWindow);
+        languageSinhala->setObjectName(QStringLiteral("languageSinhala"));
+        languageHungarian = new QAction(MainWindow);
+        languageHungarian->setObjectName(QStringLiteral("languageHungarian"));
+        languageFinnish = new QAction(MainWindow);
+        languageFinnish->setObjectName(QStringLiteral("languageFinnish"));
+        languagePolish = new QAction(MainWindow);
+        languagePolish->setObjectName(QStringLiteral("languagePolish"));
+        languageItalian = new QAction(MainWindow);
+        languageItalian->setObjectName(QStringLiteral("languageItalian"));
+        languageSpanish = new QAction(MainWindow);
+        languageSpanish->setObjectName(QStringLiteral("languageSpanish"));
+        languageGerman = new QAction(MainWindow);
+        languageGerman->setObjectName(QStringLiteral("languageGerman"));
+        languageRussian = new QAction(MainWindow);
+        languageRussian->setObjectName(QStringLiteral("languageRussian"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setStyleSheet(QStringLiteral(""));
-        bt_launch = new QPushButton(centralWidget);
-        bt_launch->setObjectName(QStringLiteral("bt_launch"));
-        bt_launch->setGeometry(QRect(20, 200, 181, 25));
-        bt_launch->setAutoFillBackground(false);
-        bt_launch->setStyleSheet(QStringLiteral("background-image: none"));
-        bt_launch->setAutoDefault(false);
-        bt_launch->setFlat(false);
-        bt_option = new QPushButton(centralWidget);
-        bt_option->setObjectName(QStringLiteral("bt_option"));
-        bt_option->setGeometry(QRect(400, 230, 181, 25));
-        bt_option->setStyleSheet(QStringLiteral("border-image: none"));
-        bt_option->setFlat(false);
         lb_versions = new QLabel(centralWidget);
         lb_versions->setObjectName(QStringLiteral("lb_versions"));
         lb_versions->setGeometry(QRect(480, 0, 111, 31));
@@ -116,9 +147,64 @@ public:
         lb_versions->setStyleSheet(QStringLiteral(""));
         lb_versions->setText(QStringLiteral("<html><head/><body><p><span style=\" color:#000000;\">TextLabel</span></p></body></html>"));
         lb_versions->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        bt_components = new QPushButton(centralWidget);
+        horizontalLayoutWidget = new QWidget(centralWidget);
+        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(20, 160, 561, 101));
+        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setSpacing(6);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer);
+
+        bt_launch = new QPushButton(horizontalLayoutWidget);
+        bt_launch->setObjectName(QStringLiteral("bt_launch"));
+        sizePolicy.setHeightForWidth(bt_launch->sizePolicy().hasHeightForWidth());
+        bt_launch->setSizePolicy(sizePolicy);
+        bt_launch->setMinimumSize(QSize(175, 25));
+        bt_launch->setAutoFillBackground(false);
+        bt_launch->setStyleSheet(QStringLiteral("background-image: none"));
+        bt_launch->setAutoDefault(false);
+        bt_launch->setFlat(false);
+
+        verticalLayout->addWidget(bt_launch);
+
+        bt_components = new QPushButton(horizontalLayoutWidget);
         bt_components->setObjectName(QStringLiteral("bt_components"));
-        bt_components->setGeometry(QRect(20, 230, 181, 25));
+        bt_components->setMinimumSize(QSize(175, 25));
+
+        verticalLayout->addWidget(bt_components);
+
+
+        horizontalLayout->addLayout(verticalLayout);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer_2);
+
+        bt_option = new QPushButton(horizontalLayoutWidget);
+        bt_option->setObjectName(QStringLiteral("bt_option"));
+        bt_option->setMinimumSize(QSize(175, 25));
+        bt_option->setStyleSheet(QStringLiteral("border-image: none"));
+        bt_option->setFlat(false);
+
+        verticalLayout_2->addWidget(bt_option);
+
+
+        horizontalLayout->addLayout(verticalLayout_2);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -132,9 +218,12 @@ public:
         menuDevelopment_tools = new QMenu(menuTools);
         menuDevelopment_tools->setObjectName(QStringLiteral("menuDevelopment_tools"));
         menuDevelopment_tools->setEnabled(false);
+        menuLanguage = new QMenu(menuBar);
+        menuLanguage->setObjectName(QStringLiteral("menuLanguage"));
         MainWindow->setMenuBar(menuBar);
 
         menuBar->addAction(menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->menuAction());
+        menuBar->addAction(menuLanguage->menuAction());
         menuBar->addAction(menuCommunity->menuAction());
         menuBar->addAction(menuTools->menuAction());
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->addAction(actionOpen_mod_folder);
@@ -150,6 +239,16 @@ public:
         menuTools->addAction(menuDevelopment_tools->menuAction());
         menuDevelopment_tools->addAction(actionGit_Pack_binaries);
         menuDevelopment_tools->addAction(actionGit_Create_update_binary_pack);
+        menuLanguage->addAction(languageEnglish);
+        menuLanguage->addAction(languageFinnish);
+        menuLanguage->addAction(languageFrench);
+        menuLanguage->addAction(languageGerman);
+        menuLanguage->addAction(languageHungarian);
+        menuLanguage->addAction(languageItalian);
+        menuLanguage->addAction(languagePolish);
+        menuLanguage->addAction(languageRussian);
+        menuLanguage->addAction(languageSinhala);
+        menuLanguage->addAction(languageSpanish);
 
         retranslateUi(MainWindow);
 
@@ -173,13 +272,24 @@ public:
         actionHelp_translate_the_mod->setText(QApplication::translate("MainWindow", "Translate the mod", 0));
         actionTranslate_the_mod_help->setText(QApplication::translate("MainWindow", "Help for translation (forum)", 0));
         actionTranslate_the_launcher->setText(QApplication::translate("MainWindow", "Translate the launcher", 0));
+        languageEnglish->setText(QApplication::translate("MainWindow", "English", 0));
+        languageFrench->setText(QApplication::translate("MainWindow", "French", 0));
+        languageSinhala->setText(QApplication::translate("MainWindow", "Sinhala", 0));
+        languageHungarian->setText(QApplication::translate("MainWindow", "Hungarian", 0));
+        languageFinnish->setText(QApplication::translate("MainWindow", "Finnish", 0));
+        languagePolish->setText(QApplication::translate("MainWindow", "Polish", 0));
+        languageItalian->setText(QApplication::translate("MainWindow", "Italian", 0));
+        languageSpanish->setText(QApplication::translate("MainWindow", "Spanish", 0));
+        languageGerman->setText(QApplication::translate("MainWindow", "German", 0));
+        languageRussian->setText(QApplication::translate("MainWindow", "Russian", 0));
         bt_launch->setText(QApplication::translate("MainWindow", "Launch Civilization IV", 0));
-        bt_option->setText(QApplication::translate("MainWindow", "Options", 0));
         bt_components->setText(QApplication::translate("MainWindow", "Manage modules", 0));
+        bt_option->setText(QApplication::translate("MainWindow", "Options", 0));
         menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setTitle(QApplication::translate("MainWindow", "Menu", 0));
         menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
         menuTools->setTitle(QApplication::translate("MainWindow", "Help us to improve the mod !", 0));
         menuDevelopment_tools->setTitle(QApplication::translate("MainWindow", "Development tools", 0));
+        menuLanguage->setTitle(QApplication::translate("MainWindow", "Language", 0));
         Q_UNUSED(MainWindow);
     } // retranslateUi
 

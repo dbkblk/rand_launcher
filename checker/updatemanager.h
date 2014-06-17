@@ -84,6 +84,7 @@ private:
     QEventLoop wait_install;
     QEventLoop wait_svn;
     QTimer wait_timer;
+    void reTranslate();
 
 };
 
