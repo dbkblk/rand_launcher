@@ -54,6 +54,7 @@ DONE -> Link to the translation platform
 DONE -> Make the launcher translatable
 DONE -> Improve installer
 - Add option for bluemarble
+- Code a new addon installer separated from the launcher
 
 
 ### Bugfix
