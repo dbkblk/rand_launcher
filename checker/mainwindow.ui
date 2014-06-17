@@ -43,8 +43,11 @@
   <property name="locale">
    <locale language="English" country="UnitedKingdom"/>
   </property>
-  <property name="documentMode">
+  <property name="animated">
    <bool>false</bool>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>true</bool>
   </property>
   <widget class="QWidget" name="centralWidget">
    <property name="styleSheet">
@@ -199,6 +202,9 @@
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -207,7 +213,13 @@
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher">
+   <widget class="QMenu" name="menuMenu">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::ActionsContextMenu</enum>
+    </property>
     <property name="title">
      <string>Menu</string>
     </property>
@@ -215,6 +227,9 @@
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuCommunity">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="title">
      <string>Community</string>
     </property>
@@ -258,7 +273,7 @@
     <addaction name="languageSinhala"/>
     <addaction name="languageSpanish"/>
    </widget>
-   <addaction name="menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher"/>
+   <addaction name="menuMenu"/>
    <addaction name="menuLanguage"/>
    <addaction name="menuCommunity"/>
    <addaction name="menuTools"/>
@@ -266,6 +281,9 @@
   <action name="actionExit">
    <property name="text">
     <string>Exit</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::QuitRole</enum>
    </property>
   </action>
   <action name="actionForum">

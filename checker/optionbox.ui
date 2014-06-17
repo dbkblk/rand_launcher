@@ -46,7 +46,7 @@
      <x>9</x>
      <y>9</y>
      <width>431</width>
-     <height>281</height>
+     <height>285</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -64,83 +64,87 @@
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="lb_intcolor">
-      <property name="text">
-       <string>Interface color :</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QComboBox" name="colorBox">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>175</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>150</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="editable">
-       <bool>false</bool>
-      </property>
-      <item>
-       <property name="text">
-        <string>Black</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Coal</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Dark Red</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Forest</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Purple</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Red</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Silver</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Cerulean</string>
-       </property>
-      </item>
-     </widget>
-    </item>
-    <item>
      <widget class="QCheckBox" name="opt_checkbox_formations">
       <property name="text">
        <string>Enable formations (more graphical units)</string>
       </property>
      </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="lb_intcolor">
+        <property name="text">
+         <string>Interface color :</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="colorBox">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>175</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>150</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="editable">
+         <bool>false</bool>
+        </property>
+        <item>
+         <property name="text">
+          <string>Black</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Coal</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Dark Red</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Forest</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Purple</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Red</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Silver</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Cerulean</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -225,36 +229,40 @@
      </widget>
     </item>
     <item>
-     <widget class="QCheckBox" name="opt_checkbox_autoupdate">
-      <property name="text">
-       <string>Automatically update the launcher</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="opt_bt_chklauncher">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>175</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>150</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Check for launcher update</string>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QCheckBox" name="opt_checkbox_autoupdate">
+        <property name="text">
+         <string>Automatically update the launcher</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="opt_bt_chklauncher">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>175</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>150</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Check for launcher update</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>

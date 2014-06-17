@@ -57,13 +57,9 @@ DONE -> Improve installer
 
 
 ### Bugfix
-- Fix installer
-- Fix menus not clickable at start
+- Fix addon installer
+DONE -> Fix menus not clickable at start
 - Fix delay when starting the component manager
-I can't click on Menu or Community unless I first click on Tools and move to Menu or Community from there.
-First time I installed the launcher it got the wrong path and it started Warlord instead of BTS (but this could be a registry problem in my pc).
-There's no option for Blue Marble terrain graphics
-
 
 ## 2.0
 ### Features

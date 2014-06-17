@@ -65,7 +65,7 @@ public:
     QSpacerItem *verticalSpacer_2;
     QPushButton *bt_option;
     QMenuBar *menuBar;
-    QMenu *menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher;
+    QMenu *menuMenu;
     QMenu *menuCommunity;
     QMenu *menuTools;
     QMenu *menuDevelopment_tools;
@@ -88,9 +88,11 @@ public:
         MainWindow->setWindowTitle(QStringLiteral("MainWindow"));
         MainWindow->setStyleSheet(QStringLiteral(""));
         MainWindow->setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom));
-        MainWindow->setDocumentMode(false);
+        MainWindow->setAnimated(false);
+        MainWindow->setUnifiedTitleAndToolBarOnMac(true);
         actionExit = new QAction(MainWindow);
         actionExit->setObjectName(QStringLiteral("actionExit"));
+        actionExit->setMenuRole(QAction::QuitRole);
         actionForum = new QAction(MainWindow);
         actionForum->setObjectName(QStringLiteral("actionForum"));
         actionAddon_Mega_Civ_Pack = new QAction(MainWindow);
@@ -208,11 +210,15 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
+        menuBar->setEnabled(true);
         menuBar->setGeometry(QRect(0, 0, 600, 21));
-        menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher = new QMenu(menuBar);
-        menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setObjectName(QStringLiteral("menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher"));
+        menuMenu = new QMenu(menuBar);
+        menuMenu->setObjectName(QStringLiteral("menuMenu"));
+        menuMenu->setEnabled(true);
+        menuMenu->setContextMenuPolicy(Qt::ActionsContextMenu);
         menuCommunity = new QMenu(menuBar);
         menuCommunity->setObjectName(QStringLiteral("menuCommunity"));
+        menuCommunity->setEnabled(true);
         menuTools = new QMenu(menuBar);
         menuTools->setObjectName(QStringLiteral("menuTools"));
         menuDevelopment_tools = new QMenu(menuTools);
@@ -222,12 +228,12 @@ public:
         menuLanguage->setObjectName(QStringLiteral("menuLanguage"));
         MainWindow->setMenuBar(menuBar);
 
-        menuBar->addAction(menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->menuAction());
+        menuBar->addAction(menuMenu->menuAction());
         menuBar->addAction(menuLanguage->menuAction());
         menuBar->addAction(menuCommunity->menuAction());
         menuBar->addAction(menuTools->menuAction());
-        menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->addAction(actionOpen_mod_folder);
-        menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->addAction(actionExit);
+        menuMenu->addAction(actionOpen_mod_folder);
+        menuMenu->addAction(actionExit);
         menuCommunity->addAction(actionForum);
         menuCommunity->addAction(actionBugreport);
         menuCommunity->addAction(actionAddon_Mega_Civ_Pack);
@@ -285,7 +291,7 @@ public:
         bt_launch->setText(QApplication::translate("MainWindow", "Launch Civilization IV", 0));
         bt_components->setText(QApplication::translate("MainWindow", "Manage modules", 0));
         bt_option->setText(QApplication::translate("MainWindow", "Options", 0));
-        menuCivilization_4_Rise_of_Mankind_A_New_Dawn_2_Launcher->setTitle(QApplication::translate("MainWindow", "Menu", 0));
+        menuMenu->setTitle(QApplication::translate("MainWindow", "Menu", 0));
         menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
         menuTools->setTitle(QApplication::translate("MainWindow", "Help us to improve the mod !", 0));
         menuDevelopment_tools->setTitle(QApplication::translate("MainWindow", "Development tools", 0));

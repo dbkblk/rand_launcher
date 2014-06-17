@@ -23,7 +23,6 @@ int main(int argc, char *argv[])
     #endif
 
     // Check directory from registry
-    QSettings CivRegistry;
     if(readCheckerParam("Main/ExecutablePath") == "error")
     {
         if (b_64BitOpSys == 1)
@@ -62,7 +61,7 @@ int main(int argc, char *argv[])
 
     // Check for correct path
 
-    QDir BTS_dir("../../../Beyond the sword");
+    QDir BTS_dir("../../Mods");
     if(!BTS_dir.exists()){
         qDebug() << "Launcher is in a wrong path";
         QMessageBox::critical(0, "Error", QObject::tr("The launcher isn't in the right directory. It should be either in 'My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn' or in 'Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn'"));

@@ -27,16 +27,28 @@ MainWindow::MainWindow(QWidget *parent) :
     qDebug() << loc;
     translator->load(QString("launcher_" + loc + ".qm"),"checker/lang/");
     qApp->installTranslator(translator);
-    ui->languageEnglish->setIcon(QIcon("checker/en.png"));
-    ui->languageFinnish->setIcon(QIcon("checker/fi.png"));
-    ui->languageFrench->setIcon(QIcon("checker/fr.png"));
-    ui->languageGerman->setIcon(QIcon("checker/de.png"));
-    ui->languageHungarian->setIcon(QIcon("checker/hu.png"));
-    ui->languageItalian->setIcon(QIcon("checker/it.png"));
-    ui->languagePolish->setIcon(QIcon("checker/pl.png"));
-    ui->languageRussian->setIcon(QIcon("checker/ru.png"));
-    ui->languageSinhala->setIcon(QIcon("checker/si.png"));
-    ui->languageSpanish->setIcon(QIcon("checker/es.png"));
+
+    // Menu icons
+    ui->languageEnglish->setIcon(QIcon("checker/icons/en.png"));
+    ui->languageFinnish->setIcon(QIcon("checker/icons/fi.png"));
+    ui->languageFrench->setIcon(QIcon("checker/icons/fr.png"));
+    ui->languageGerman->setIcon(QIcon("checker/icons/de.png"));
+    ui->languageHungarian->setIcon(QIcon("checker/icons/hu.png"));
+    ui->languageItalian->setIcon(QIcon("checker/icons/it.png"));
+    ui->languagePolish->setIcon(QIcon("checker/icons/pl.png"));
+    ui->languageRussian->setIcon(QIcon("checker/icons/ru.png"));
+    ui->languageSinhala->setIcon(QIcon("checker/icons/si.png"));
+    ui->languageSpanish->setIcon(QIcon("checker/icons/es.png"));
+    ui->actionOpen_mod_folder->setIcon(QIcon("checker/icons/open.png"));
+    ui->actionExit->setIcon(QIcon("checker/icons/exit.png"));
+    ui->actionForum->setIcon(QIcon("checker/icons/forum.png"));
+    ui->actionBugreport->setIcon(QIcon("checker/icons/bugs.png"));
+    ui->actionAbout_AND_Resurrection_team_forum->setIcon(QIcon("checker/icons/about.png"));
+    ui->actionAddon_Mega_Civ_Pack->setIcon(QIcon("checker/icons/mcp.png"));
+    ui->actionAddon_More_music_forum->setIcon(QIcon("checker/icons/music.png"));
+    ui->actionHelp_translate_the_mod->setIcon(QIcon("checker/icons/translate.png"));
+    ui->actionTranslate_the_launcher->setIcon(QIcon("checker/icons/translate.png"));
+    ui->actionTranslate_the_mod_help->setIcon(QIcon("checker/icons/help.png"));
 
     // Checker version
     setCheckerParam("Main/CheckerMajorVersion",QString::number(constants::MAJOR_CHECKER_VERSION));
@@ -45,13 +57,12 @@ MainWindow::MainWindow(QWidget *parent) :
     // Creation of widgets
     ubox = new updatebox(this);
     optbox = new optionBox(this);
-    updateGUI = new QWidget (this);
     update_manager = new updateManager(this);
 
     // Main window shape
 
     this->setWindowTitle("Civilization IV: A New Dawn");
-    setStyleSheet("MainWindow { background-image: url(checker/and2_background.jpg); background-position: bottom }");
+    this->setStyleSheet("MainWindow { background-image: url(checker/and2_background.jpg); background-position: bottom }");
 
     /*  Thread code, imported from https://github.com/fabienpn/simple-qt-thread-example */
     thread = new QThread();

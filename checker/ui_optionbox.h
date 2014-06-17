@@ -32,9 +32,10 @@ public:
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout_4;
     QLabel *lb_modconf;
+    QCheckBox *opt_checkbox_formations;
+    QHBoxLayout *horizontalLayout;
     QLabel *lb_intcolor;
     QComboBox *colorBox;
-    QCheckBox *opt_checkbox_formations;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label;
     QPushButton *opt_bt_path;
@@ -42,6 +43,7 @@ public:
     QLabel *lb_modconf_2;
     QCheckBox *checkerBox;
     QCheckBox *startBox;
+    QHBoxLayout *horizontalLayout_3;
     QCheckBox *opt_checkbox_autoupdate;
     QPushButton *opt_bt_chklauncher;
 
@@ -62,7 +64,7 @@ public:
         optionBox->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         verticalLayoutWidget = new QWidget(optionBox);
         verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(9, 9, 431, 281));
+        verticalLayoutWidget->setGeometry(QRect(9, 9, 431, 285));
         verticalLayout_4 = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(10, 0, 10, 0);
@@ -71,10 +73,17 @@ public:
 
         verticalLayout_4->addWidget(lb_modconf);
 
+        opt_checkbox_formations = new QCheckBox(verticalLayoutWidget);
+        opt_checkbox_formations->setObjectName(QStringLiteral("opt_checkbox_formations"));
+
+        verticalLayout_4->addWidget(opt_checkbox_formations);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         lb_intcolor = new QLabel(verticalLayoutWidget);
         lb_intcolor->setObjectName(QStringLiteral("lb_intcolor"));
 
-        verticalLayout_4->addWidget(lb_intcolor);
+        horizontalLayout->addWidget(lb_intcolor);
 
         colorBox = new QComboBox(verticalLayoutWidget);
         colorBox->setObjectName(QStringLiteral("colorBox"));
@@ -87,12 +96,10 @@ public:
         colorBox->setMaximumSize(QSize(150, 16777215));
         colorBox->setEditable(false);
 
-        verticalLayout_4->addWidget(colorBox);
+        horizontalLayout->addWidget(colorBox);
 
-        opt_checkbox_formations = new QCheckBox(verticalLayoutWidget);
-        opt_checkbox_formations->setObjectName(QStringLiteral("opt_checkbox_formations"));
 
-        verticalLayout_4->addWidget(opt_checkbox_formations);
+        verticalLayout_4->addLayout(horizontalLayout);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
@@ -138,10 +145,12 @@ public:
 
         verticalLayout_4->addWidget(startBox);
 
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         opt_checkbox_autoupdate = new QCheckBox(verticalLayoutWidget);
         opt_checkbox_autoupdate->setObjectName(QStringLiteral("opt_checkbox_autoupdate"));
 
-        verticalLayout_4->addWidget(opt_checkbox_autoupdate);
+        horizontalLayout_3->addWidget(opt_checkbox_autoupdate);
 
         opt_bt_chklauncher = new QPushButton(verticalLayoutWidget);
         opt_bt_chklauncher->setObjectName(QStringLiteral("opt_bt_chklauncher"));
@@ -150,7 +159,10 @@ public:
         opt_bt_chklauncher->setMinimumSize(QSize(175, 25));
         opt_bt_chklauncher->setMaximumSize(QSize(150, 16777215));
 
-        verticalLayout_4->addWidget(opt_bt_chklauncher);
+        horizontalLayout_3->addWidget(opt_bt_chklauncher);
+
+
+        verticalLayout_4->addLayout(horizontalLayout_3);
 
 
         retranslateUi(optionBox);
@@ -162,6 +174,7 @@ public:
     {
         optionBox->setWindowTitle(QApplication::translate("optionBox", "Options", 0));
         lb_modconf->setText(QApplication::translate("optionBox", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Mod configuration :</span></p></body></html>", 0));
+        opt_checkbox_formations->setText(QApplication::translate("optionBox", "Enable formations (more graphical units)", 0));
         lb_intcolor->setText(QApplication::translate("optionBox", "Interface color :", 0));
         colorBox->clear();
         colorBox->insertItems(0, QStringList()
@@ -174,7 +187,6 @@ public:
          << QApplication::translate("optionBox", "Silver", 0)
          << QApplication::translate("optionBox", "Cerulean", 0)
         );
-        opt_checkbox_formations->setText(QApplication::translate("optionBox", "Enable formations (more graphical units)", 0));
         label->setText(QApplication::translate("optionBox", "Game path :", 0));
         opt_bt_path->setText(QApplication::translate("optionBox", "Select game path", 0));
         lb_modconf_2->setText(QApplication::translate("optionBox", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Launcher configuration :</span></p></body></html>", 0));
