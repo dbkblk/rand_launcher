@@ -15,10 +15,11 @@ class task_updater : public QMainWindow
 public:
     explicit task_updater(QWidget *parent = 0);
     ~task_updater();
-    QString svn_update(int current_revision);
+    QString svn_update(int current_revision, int output_revision);
     void initialize();
     void execute(QString command);
     void appendText(QString text);
+    void addonInstaller(QString name, QString link);
 
 signals:
     void finished();
@@ -27,7 +28,7 @@ public slots:
     void appendOutput();
     void executeFinished();
     void executeError(QProcess::ProcessError);
-    void svnUpdateFinished();
+    void restartLauncher();
 
 private:
     Ui::task_updater *ui;

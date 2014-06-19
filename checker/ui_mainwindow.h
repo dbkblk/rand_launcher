@@ -52,6 +52,8 @@ public:
     QAction *languageSpanish;
     QAction *languageGerman;
     QAction *languageRussian;
+    QAction *actionClean_up;
+    QAction *actionRevert_to_an_older_revision;
     QWidget *centralWidget;
     QLabel *lb_versions;
     QWidget *horizontalLayoutWidget;
@@ -66,6 +68,7 @@ public:
     QPushButton *bt_option;
     QMenuBar *menuBar;
     QMenu *menuMenu;
+    QMenu *menuFix_installation;
     QMenu *menuCommunity;
     QMenu *menuTools;
     QMenu *menuDevelopment_tools;
@@ -135,6 +138,10 @@ public:
         languageGerman->setObjectName(QStringLiteral("languageGerman"));
         languageRussian = new QAction(MainWindow);
         languageRussian->setObjectName(QStringLiteral("languageRussian"));
+        actionClean_up = new QAction(MainWindow);
+        actionClean_up->setObjectName(QStringLiteral("actionClean_up"));
+        actionRevert_to_an_older_revision = new QAction(MainWindow);
+        actionRevert_to_an_older_revision->setObjectName(QStringLiteral("actionRevert_to_an_older_revision"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setStyleSheet(QStringLiteral(""));
@@ -216,6 +223,8 @@ public:
         menuMenu->setObjectName(QStringLiteral("menuMenu"));
         menuMenu->setEnabled(true);
         menuMenu->setContextMenuPolicy(Qt::ActionsContextMenu);
+        menuFix_installation = new QMenu(menuMenu);
+        menuFix_installation->setObjectName(QStringLiteral("menuFix_installation"));
         menuCommunity = new QMenu(menuBar);
         menuCommunity->setObjectName(QStringLiteral("menuCommunity"));
         menuCommunity->setEnabled(true);
@@ -233,7 +242,10 @@ public:
         menuBar->addAction(menuCommunity->menuAction());
         menuBar->addAction(menuTools->menuAction());
         menuMenu->addAction(actionOpen_mod_folder);
+        menuMenu->addAction(menuFix_installation->menuAction());
         menuMenu->addAction(actionExit);
+        menuFix_installation->addAction(actionClean_up);
+        menuFix_installation->addAction(actionRevert_to_an_older_revision);
         menuCommunity->addAction(actionForum);
         menuCommunity->addAction(actionBugreport);
         menuCommunity->addAction(actionAddon_Mega_Civ_Pack);
@@ -288,10 +300,13 @@ public:
         languageSpanish->setText(QApplication::translate("MainWindow", "Spanish", 0));
         languageGerman->setText(QApplication::translate("MainWindow", "German", 0));
         languageRussian->setText(QApplication::translate("MainWindow", "Russian", 0));
+        actionClean_up->setText(QApplication::translate("MainWindow", "Clean up", 0));
+        actionRevert_to_an_older_revision->setText(QApplication::translate("MainWindow", "Revert to an older revision...", 0));
         bt_launch->setText(QApplication::translate("MainWindow", "Launch Civilization IV", 0));
         bt_components->setText(QApplication::translate("MainWindow", "Manage modules", 0));
         bt_option->setText(QApplication::translate("MainWindow", "Options", 0));
         menuMenu->setTitle(QApplication::translate("MainWindow", "Menu", 0));
+        menuFix_installation->setTitle(QApplication::translate("MainWindow", "Fix installation", 0));
         menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
         menuTools->setTitle(QApplication::translate("MainWindow", "Help us to improve the mod !", 0));
         menuDevelopment_tools->setTitle(QApplication::translate("MainWindow", "Development tools", 0));

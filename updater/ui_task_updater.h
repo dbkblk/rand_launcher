@@ -37,17 +37,22 @@ public:
         if (task_updater->objectName().isEmpty())
             task_updater->setObjectName(QStringLiteral("task_updater"));
         task_updater->resize(600, 500);
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(task_updater->sizePolicy().hasHeightForWidth());
+        task_updater->setSizePolicy(sizePolicy);
         centralwidget = new QWidget(task_updater);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         verticalLayout = new QVBoxLayout(centralwidget);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         label = new QLabel(centralwidget);
         label->setObjectName(QStringLiteral("label"));
-        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
-        label->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
+        label->setSizePolicy(sizePolicy1);
         label->setMinimumSize(QSize(0, 25));
 
         verticalLayout->addWidget(label);

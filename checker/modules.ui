@@ -78,7 +78,7 @@ p, li { white-space: pre-wrap; }
       <item>
        <widget class="QLabel" name="label_core_version">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -95,10 +95,13 @@ p, li { white-space: pre-wrap; }
 font: 75 9pt &quot;MS Shell Dlg 2&quot;;</string>
         </property>
         <property name="text">
-         <string>TextLabel</string>
+         <string notr="true">TextLabel</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -117,6 +120,12 @@ font: 75 9pt &quot;MS Shell Dlg 2&quot;;</string>
       </item>
       <item>
        <widget class="QPushButton" name="bt_update">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="minimumSize">
          <size>
           <width>70</width>
@@ -124,20 +133,26 @@ font: 75 9pt &quot;MS Shell Dlg 2&quot;;</string>
          </size>
         </property>
         <property name="text">
-         <string>bt_update</string>
+         <string notr="true">bt_update</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="bt_remove">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="minimumSize">
          <size>
-          <width>0</width>
+          <width>70</width>
           <height>60</height>
          </size>
         </property>
         <property name="text">
-         <string>bt_remove</string>
+         <string notr="true">bt_remove</string>
         </property>
        </widget>
       </item>

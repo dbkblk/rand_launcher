@@ -53,6 +53,7 @@ DONE -> Make the launcher translatable
 DONE -> Improve installer
 DONE -> Code a new svn installer separated from the launcher
 - Reimplement addon installer
+DONE -> Reimplement clean and revert function
 
 ### Bugfix
 DONE -> Fix menus not clickable at start

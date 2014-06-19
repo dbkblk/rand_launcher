@@ -2,15 +2,15 @@
 #include "ui_task_updater.h"
 #include <QtCore>
 #include <QtXml/QtXml>
+#include <QMessageBox>
 
 task_updater::task_updater(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::task_updater)
 {
     ui->setupUi(this);
-    initialize();
 
-    connect(this,SIGNAL(finished()),this,SLOT(svnUpdateFinished()));
+    connect(this,SIGNAL(finished()),this,SLOT(restartLauncher()));
 }
 
 task_updater::~task_updater()
@@ -18,8 +18,18 @@ task_updater::~task_updater()
     delete ui;
 }
 
-QString task_updater::svn_update(int current_revision)
+QString task_updater::svn_update(int current_revision, int output_revision)
 {
+    initialize();
+    QString head;
+    if(output_revision > 0)
+    {
+        head = QString::number(output_revision);
+    }
+    else
+    {
+        head = "HEAD";
+    }
     // Set interface unlocker
     ui->label->setText("Updating the game:");
     QTimer wait_timer;
@@ -33,9 +43,9 @@ QString task_updater::svn_update(int current_revision)
     // Get number of files
     QProcess svn;
     svn.setStandardOutputFile("svn_files");
-    svn.start(QString("checker/svn.exe log -qv -r %1:HEAD --xml").arg(current_revision));
+    svn.start(QString("checker/svn.exe log -qv -r %1:%2 --xml").arg(current_revision).arg(head));
     svn.waitForFinished(-1);
-    qDebug() << "Finished";
+    //qDebug() << "Finished";
     QFile svn_out("svn_files");
     int counter = 0;
 
@@ -71,8 +81,14 @@ QString task_updater::svn_update(int current_revision)
 
     // Set progress bar
     ui->progressBar->setRange(0,counter);
+    if(output_revision > 0)
+    {
+        execute(QString("checker/svn.exe update -r %1 --non-interactive --accept tc").arg(output_revision));
+    }
+    else{
+        execute("checker/svn.exe update --non-interactive --accept tc");
+    }
 
-    execute("checker/svn.exe update --non-interactive --accept tc");
 
     return "temp";
 }
@@ -114,12 +130,8 @@ void task_updater::appendOutput()
         ui->console_output->insertPlainText(text);
         ui->console_output->moveCursor(QTextCursor::End);
         progress++;
-        qDebug() << progress;
+        //qDebug() << progress;
         ui->progressBar->setValue(progress);
-        if (text.contains("At revision"))
-        {
-            emit finished();
-        }
     }
     process_file_pos = file.pos();
   }
@@ -148,9 +160,13 @@ void task_updater::appendText(QString text)
     ui->console_output->moveCursor(QTextCursor::End);
 }
 
-void task_updater::svnUpdateFinished()
+void task_updater::restartLauncher()
 {
-    qDebug() << "Finished";
     QProcess::startDetached("and2_checker.exe");
     QApplication::quit();
+}
+
+void task_updater::addonInstaller(QString name, QString link)
+{
+
 }

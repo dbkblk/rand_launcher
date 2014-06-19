@@ -44,20 +44,13 @@ int main(int argc, char *argv[])
 
     }
 
-    // Clean directory
-    if(readCheckerParam("Main/CheckerVersion") < "0.9")
+    // Go out of update
+    if(QFile::exists("upd_proc.exe"))
     {
-        QStringList files_remove;
-        QString files;
-        files_remove << "icudt51.dll" << "icuin51.dll" << "icuuc51.dll" << "libeay32.dll" << "libgcc_s_dw2-1.dll" << "libstdc++-6.dll" << "libwinpthread-1.dll" << "Qt5Core.dll" << "Qt5Gui.dll" << "Qt5Network.dll" << "Qt5Widgets.dll" << "ssleay32.dll" << "checker/wget.exe" << "upd_proc.exe";
-
-        foreach(files, files_remove)
-        {
-            qDebug() << "Removing " << files;
-            QFile::remove(files);
-        }
+        clearCache();
+        clearGameOptions();
+        QFile::remove("upd_proc.exe");
     }
-    QFile::remove("upd_proc.exe");
 
     // Check for correct path
 

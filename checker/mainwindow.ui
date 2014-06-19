@@ -223,7 +223,15 @@
     <property name="title">
      <string>Menu</string>
     </property>
+    <widget class="QMenu" name="menuFix_installation">
+     <property name="title">
+      <string>Fix installation</string>
+     </property>
+     <addaction name="actionClean_up"/>
+     <addaction name="actionRevert_to_an_older_revision"/>
+    </widget>
     <addaction name="actionOpen_mod_folder"/>
+    <addaction name="menuFix_installation"/>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuCommunity">
@@ -392,6 +400,16 @@
   <action name="languageRussian">
    <property name="text">
     <string>Russian</string>
+   </property>
+  </action>
+  <action name="actionClean_up">
+   <property name="text">
+    <string>Clean up</string>
+   </property>
+  </action>
+  <action name="actionRevert_to_an_older_revision">
+   <property name="text">
+    <string>Revert to an older revision...</string>
    </property>
   </action>
  </widget>

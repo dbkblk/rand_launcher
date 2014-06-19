@@ -51,6 +51,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->actionHelp_translate_the_mod->setIcon(QIcon("checker/icons/translate.png"));
     ui->actionTranslate_the_launcher->setIcon(QIcon("checker/icons/translate.png"));
     ui->actionTranslate_the_mod_help->setIcon(QIcon("checker/icons/help.png"));
+    ui->actionClean_up->setIcon(QIcon("checker/icons/clean.png"));
+    ui->actionRevert_to_an_older_revision->setIcon(QIcon("checker/icons/revert.png"));
+    ui->menuFix_installation->setIcon(QIcon("checker/icons/fix.png"));
 
     // Checker version
     setCheckerParam("Main/CheckerMajorVersion",QString::number(constants::MAJOR_CHECKER_VERSION));
@@ -509,4 +512,23 @@ void MainWindow::on_languageRussian_triggered()
 {
     translator->load(QString("launcher_ru.qm"),"checker/lang/");
     ui->retranslateUi(this);
+}
+
+void MainWindow::on_actionClean_up_triggered()
+{
+    QProcess clean;
+    clean.execute("checker/svn.exe cleanup");
+    QMessageBox::information(this,"Mod cleaned","The mod has been cleaned.");
+}
+
+void MainWindow::on_actionRevert_to_an_older_revision_triggered()
+{
+    QString dial_rev = QInputDialog::getText(this, tr("Revision selector"), tr("Please enter the revision you want to revert to :"), QLineEdit::Normal);
+    if(dial_rev.toInt() > 0)
+    {
+        QFile::copy("checker/upd_proc.exe","upd_proc.exe");
+        QProcess updater;
+        updater.startDetached(QString("upd_proc.exe update %1 %2").arg(readCheckerParam("Main/LocalRev").toInt()).arg(dial_rev));
+        QApplication::quit();
+    }
 }

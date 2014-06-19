@@ -43,14 +43,13 @@ void modules::on_tree_list_itemClicked(QTreeWidgetItem *item)
 {
     if(core->isSelected())
     {
-        qDebug() << "here";
         ui->bt_remove->hide();
         ui->label->setText(QString("<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">%1</span></p></body></html>").arg(tr("Changes:")));
         ui->label_core_version->setText(QString("Version:\n%1").arg(svnLocalInfo()));
         ui->changelog_box->setText(svnGetChangelog(10));
         if(readCheckerParam("Main/LocalRev").toInt() < readCheckerParam("Update/DistantRev").toInt())
         {
-            ui->bt_update->setText(tr("Update:") + "\n" + readCheckerParam("Main/DistantRev"));
+            ui->bt_update->setText(tr("Update:") + "\n" + readCheckerParam("Update/DistantRev"));
             ui->bt_update->show();
         }
     }
@@ -91,7 +90,7 @@ void modules::moduleInterface(QString version, QString description)
     if(version == "Not installed")
     {
         ui->bt_remove->show();
-        ui->bt_remove->setText("Install module");
+        ui->bt_remove->setText("Not yet \nimplemented");
     }
     else
     {

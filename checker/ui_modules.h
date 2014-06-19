@@ -91,7 +91,7 @@ public:
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         label_core_version = new QLabel(centralwidget);
         label_core_version->setObjectName(QStringLiteral("label_core_version"));
-        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(label_core_version->sizePolicy().hasHeightForWidth());
@@ -100,7 +100,9 @@ public:
         label_core_version->setStyleSheet(QLatin1String("border-color: rgb(255, 255, 0);\n"
 "\n"
 "font: 75 9pt \"MS Shell Dlg 2\";"));
+        label_core_version->setText(QStringLiteral("TextLabel"));
         label_core_version->setAlignment(Qt::AlignCenter);
+        label_core_version->setWordWrap(true);
 
         verticalLayout->addWidget(label_core_version);
 
@@ -110,13 +112,19 @@ public:
 
         bt_update = new QPushButton(centralwidget);
         bt_update->setObjectName(QStringLiteral("bt_update"));
+        sizePolicy1.setHeightForWidth(bt_update->sizePolicy().hasHeightForWidth());
+        bt_update->setSizePolicy(sizePolicy1);
         bt_update->setMinimumSize(QSize(70, 60));
+        bt_update->setText(QStringLiteral("bt_update"));
 
         verticalLayout->addWidget(bt_update);
 
         bt_remove = new QPushButton(centralwidget);
         bt_remove->setObjectName(QStringLiteral("bt_remove"));
-        bt_remove->setMinimumSize(QSize(0, 60));
+        sizePolicy1.setHeightForWidth(bt_remove->sizePolicy().hasHeightForWidth());
+        bt_remove->setSizePolicy(sizePolicy1);
+        bt_remove->setMinimumSize(QSize(70, 60));
+        bt_remove->setText(QStringLiteral("bt_remove"));
 
         verticalLayout->addWidget(bt_remove);
 
@@ -136,9 +144,6 @@ public:
         QTreeWidgetItem *___qtreewidgetitem = tree_list->headerItem();
         ___qtreewidgetitem->setText(0, QApplication::translate("modules", "Components", 0));
         label->setText(QApplication::translate("modules", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Changes:</span></p></body></html>", 0));
-        label_core_version->setText(QApplication::translate("modules", "TextLabel", 0));
-        bt_update->setText(QApplication::translate("modules", "bt_update", 0));
-        bt_remove->setText(QApplication::translate("modules", "bt_remove", 0));
     } // retranslateUi
 
 };
