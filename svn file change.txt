@@ -1,1 +1,0 @@
-svn diff -r REVNO:HEAD --summarize

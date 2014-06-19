@@ -61,6 +61,7 @@ public:
         verticalLayout_2->setSizeConstraint(QLayout::SetFixedSize);
         label = new QLabel(centralwidget);
         label->setObjectName(QStringLiteral("label"));
+        label->setText(QStringLiteral("<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Changes:</span></p></body></html>"));
 
         verticalLayout_2->addWidget(label);
 
@@ -143,7 +144,6 @@ public:
         modules->setWindowTitle(QApplication::translate("modules", "MainWindow", 0));
         QTreeWidgetItem *___qtreewidgetitem = tree_list->headerItem();
         ___qtreewidgetitem->setText(0, QApplication::translate("modules", "Components", 0));
-        label->setText(QApplication::translate("modules", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">Changes:</span></p></body></html>", 0));
     } // retranslateUi
 
 };

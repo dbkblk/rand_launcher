@@ -34,288 +34,307 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="252"/>
+        <location filename="../mainwindow.ui" line="253"/>
         <source>Help us to improve the mod !</source>
         <translation>Ayúdanos a mejorar el mod!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="259"/>
+        <location filename="../mainwindow.ui" line="260"/>
         <source>Development tools</source>
         <translation>Herramientas de desarrollo</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="271"/>
+        <location filename="../mainwindow.ui" line="272"/>
         <source>Language</source>
         <translation>Idioma</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="291"/>
+        <location filename="../mainwindow.ui" line="292"/>
         <source>Exit</source>
         <translation>Salida</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="299"/>
+        <location filename="../mainwindow.ui" line="300"/>
         <source>Forum</source>
         <translation>Foro</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="304"/>
+        <location filename="../mainwindow.ui" line="305"/>
         <source>Addon &quot;Mega Civ Pack&quot; (forum)</source>
         <translation>Addon &quot;Mega Civ Pack&quot; (foro)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="309"/>
+        <location filename="../mainwindow.ui" line="310"/>
         <source>Bugreport (forum)</source>
         <translation>Bugreport (foro)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="314"/>
-        <location filename="../mainwindow.ui" line="317"/>
+        <location filename="../mainwindow.ui" line="315"/>
+        <location filename="../mainwindow.ui" line="318"/>
         <source>About AND Resurrection team (forum)</source>
         <translation>Acerca AND Resurrection team (foro)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="322"/>
         <source>Addon &quot;More music&quot; (forum)</source>
-        <translation>Addon &quot;Más música&quot; (foro)</translation>
+        <translation type="vanished">Addon &quot;Más música&quot; (foro)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="327"/>
+        <location filename="../mainwindow.ui" line="323"/>
+        <source>Addon &quot;More music / More handicaps / Dinosaurs&quot; (forum)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="328"/>
         <source>Open mod folder</source>
         <translation>Abra la carpeta mod</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="332"/>
+        <location filename="../mainwindow.ui" line="333"/>
         <source>Git: Create binary pack</source>
         <translation>Git: Crear paquete binario</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="337"/>
+        <location filename="../mainwindow.ui" line="338"/>
         <source>Git: Create update binary pack</source>
         <translation>Git: Crear actualizar paquete binario</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="342"/>
+        <location filename="../mainwindow.ui" line="343"/>
         <source>Translate the mod</source>
         <translation>Traducir el mod</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="347"/>
+        <location filename="../mainwindow.ui" line="348"/>
         <source>Help for translation (forum)</source>
         <translation>Ayuda para la traducción (foro)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="352"/>
+        <location filename="../mainwindow.ui" line="353"/>
         <source>Translate the launcher</source>
         <translation>Traducir el lanzador</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="357"/>
+        <location filename="../mainwindow.ui" line="358"/>
         <source>English</source>
         <translation>Inglés</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="362"/>
+        <location filename="../mainwindow.ui" line="363"/>
         <source>French</source>
         <translation>Francés</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="367"/>
+        <location filename="../mainwindow.ui" line="368"/>
         <source>Sinhala</source>
         <translation>Sinhala</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="372"/>
+        <location filename="../mainwindow.ui" line="373"/>
         <source>Hungarian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="377"/>
+        <location filename="../mainwindow.ui" line="378"/>
         <source>Finnish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="382"/>
+        <location filename="../mainwindow.ui" line="383"/>
         <source>Polish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="387"/>
+        <location filename="../mainwindow.ui" line="388"/>
         <source>Italian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="392"/>
+        <location filename="../mainwindow.ui" line="393"/>
         <source>Spanish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="397"/>
+        <location filename="../mainwindow.ui" line="398"/>
         <source>German</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="402"/>
+        <location filename="../mainwindow.ui" line="403"/>
         <source>Russian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="407"/>
+        <location filename="../mainwindow.ui" line="408"/>
         <source>Clean up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="412"/>
+        <location filename="../mainwindow.ui" line="413"/>
         <source>Revert to an older revision...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="127"/>
+        <location filename="../mainwindow.ui" line="418"/>
+        <source>Addon &quot;Blue marble&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="131"/>
         <source>Check for update</source>
         <translation>Verificación de actualización</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="145"/>
+        <location filename="../mainwindow.cpp" line="149"/>
         <source>Launcher update available</source>
         <translation>Actualización de lanzador disponible</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="146"/>
+        <location filename="../mainwindow.cpp" line="150"/>
         <source>An update of the launcher is available.</source>
         <translation>Hay disponible una actualización del lanzador.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="147"/>
+        <location filename="../mainwindow.cpp" line="151"/>
         <source>Do you want to update ?</source>
         <translation>¿Quieres actualizar?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="165"/>
+        <location filename="../mainwindow.cpp" line="169"/>
         <source>Update available !</source>
         <translation>Actualización disponible!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="238"/>
+        <location filename="../mainwindow.cpp" line="247"/>
         <source>There is no update at the moment.</source>
         <translation>No hay ninguna actualización por el momento.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="244"/>
+        <location filename="../mainwindow.cpp" line="253"/>
         <source>Update tool</source>
         <translation>Herramienta de actualización</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="249"/>
+        <location filename="../mainwindow.cpp" line="258"/>
         <source>An error has occured while checking for updates.</source>
         <translation>Ha producido un error mientras se comprueba las actualizaciones.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="257"/>
+        <location filename="../mainwindow.cpp" line="266"/>
         <source>To be able to launch the game from the launcher, you need to set the game path in the options window. (Options &gt; Select game path)</source>
         <translation>Para ser capaz de lanzar el juego desde el lanzador, necesita establecer la ruta de juego en la ventana de opciones. (Opciones &amp;gt; seleccione ruta juego)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="332"/>
+        <location filename="../mainwindow.cpp" line="341"/>
         <source>Pack base binaries</source>
         <translation>Paquete de binarios de base</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="344"/>
+        <location filename="../mainwindow.cpp" line="353"/>
         <source>Packing base files</source>
         <translation>Archivos de la base del embalaje</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="344"/>
-        <location filename="../mainwindow.cpp" line="398"/>
+        <location filename="../mainwindow.cpp" line="353"/>
+        <location filename="../mainwindow.cpp" line="407"/>
         <source>this might take up to 10 min</source>
         <translation>Esto puede tardar hasta 10 min.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="344"/>
-        <location filename="../mainwindow.cpp" line="402"/>
+        <location filename="../mainwindow.cpp" line="353"/>
+        <location filename="../mainwindow.cpp" line="411"/>
         <source>Listing files</source>
         <translation>Listado de archivos</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="352"/>
-        <location filename="../mainwindow.cpp" line="357"/>
-        <location filename="../mainwindow.cpp" line="362"/>
-        <location filename="../mainwindow.cpp" line="369"/>
-        <location filename="../mainwindow.cpp" line="402"/>
+        <location filename="../mainwindow.cpp" line="361"/>
+        <location filename="../mainwindow.cpp" line="366"/>
+        <location filename="../mainwindow.cpp" line="371"/>
+        <location filename="../mainwindow.cpp" line="378"/>
         <location filename="../mainwindow.cpp" line="411"/>
-        <location filename="../mainwindow.cpp" line="417"/>
-        <location filename="../mainwindow.cpp" line="425"/>
-        <location filename="../mainwindow.cpp" line="432"/>
-        <location filename="../mainwindow.cpp" line="439"/>
-        <location filename="../mainwindow.cpp" line="446"/>
-        <location filename="../mainwindow.cpp" line="454"/>
+        <location filename="../mainwindow.cpp" line="420"/>
+        <location filename="../mainwindow.cpp" line="426"/>
+        <location filename="../mainwindow.cpp" line="434"/>
+        <location filename="../mainwindow.cpp" line="441"/>
+        <location filename="../mainwindow.cpp" line="448"/>
+        <location filename="../mainwindow.cpp" line="455"/>
+        <location filename="../mainwindow.cpp" line="463"/>
         <source>OK</source>
         <translation>Vale</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="352"/>
-        <location filename="../mainwindow.cpp" line="411"/>
+        <location filename="../mainwindow.cpp" line="361"/>
+        <location filename="../mainwindow.cpp" line="420"/>
         <source>Generating hash file</source>
         <translation>Generando archivo hash</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="357"/>
-        <location filename="../mainwindow.cpp" line="439"/>
+        <location filename="../mainwindow.cpp" line="366"/>
+        <location filename="../mainwindow.cpp" line="448"/>
         <source>Gathering files</source>
         <translation>Archivos de reunión</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="362"/>
-        <location filename="../mainwindow.cpp" line="446"/>
+        <location filename="../mainwindow.cpp" line="371"/>
+        <location filename="../mainwindow.cpp" line="455"/>
         <source>Compressing files</source>
         <translation>Comprimiendo archivos</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="369"/>
-        <location filename="../mainwindow.cpp" line="454"/>
+        <location filename="../mainwindow.cpp" line="378"/>
+        <location filename="../mainwindow.cpp" line="463"/>
         <source>Cleaning folder</source>
         <translation>Limpieza de carpeta</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="369"/>
+        <location filename="../mainwindow.cpp" line="378"/>
         <source>Operation finished. The binaries have been packed in %1 and their checksums are listed in %2</source>
         <translation>Operación de acabado. Los binarios han sido embalados en %1 y sus sumas aparecen en %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="386"/>
+        <location filename="../mainwindow.cpp" line="395"/>
         <source>Pack update binaries</source>
         <translation>Paquete de actualización de archivos binarios</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="398"/>
+        <location filename="../mainwindow.cpp" line="407"/>
         <source>Packing update files</source>
         <translation>Archivos de actualización de embalaje</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="417"/>
+        <location filename="../mainwindow.cpp" line="426"/>
         <source>Comparing base and update hashs</source>
         <translation>Comparando la base y actualizar hashs</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="425"/>
+        <location filename="../mainwindow.cpp" line="434"/>
         <source>Checking for new files</source>
         <translation>Buscando nuevos archivos</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="432"/>
+        <location filename="../mainwindow.cpp" line="441"/>
         <source>Checking for missing files</source>
         <translation>Comprobación de archivos perdidos</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="454"/>
+        <location filename="../mainwindow.cpp" line="463"/>
         <source>Operation finished. The updated binaries have been packed in %1 and their checksums are listed in %2</source>
         <translation>Operación de acabado. Los binarios actualizados han sido embalados en %1 y sus sumas aparecen en %2</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="532"/>
+        <source>Revision selector</source>
+        <translation type="unfinished">Selector de revisión</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="532"/>
+        <source>Please enter the revision you want to revert to :</source>
+        <translation type="unfinished">Por favor ingrese la revisión que desea volver a:</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../main.cpp" line="67"/>
+        <location filename="../main.cpp" line="60"/>
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
         <translation>El lanzador no está en el directorio correcto. Debe ser en &quot;mis documentos / mi Games/Beyond la espada/Mods/subida de la humanidad - un nuevo amanecer &apos; o en &apos; Civilization IV (carpeta raíz del juego) / más allá de la espada/Mods/subida de la humanidad - un nuevo amanecer &apos;</translation>
     </message>
@@ -344,26 +363,6 @@ El mod no está instalado.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&
     <message>
         <location filename="../modules.ui" line="22"/>
         <source>Components</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules.ui" line="35"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Changes:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules.ui" line="98"/>
-        <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules.ui" line="127"/>
-        <source>bt_update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules.ui" line="140"/>
-        <source>bt_remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -397,22 +396,22 @@ El mod no está instalado.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules.cpp" line="48"/>
+        <location filename="../modules.cpp" line="47"/>
         <source>Changes:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules.cpp" line="53"/>
+        <location filename="../modules.cpp" line="52"/>
         <source>Update:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules.cpp" line="88"/>
+        <location filename="../modules.cpp" line="87"/>
         <source>Description:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules.cpp" line="89"/>
+        <location filename="../modules.cpp" line="88"/>
         <source>Installed:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -430,17 +429,17 @@ El mod no está instalado.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Configuración mod :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../optionbox.ui" line="78"/>
+        <location filename="../optionbox.ui" line="85"/>
         <source>Interface color :</source>
         <translation>Color de la interfaz:</translation>
     </message>
     <message>
-        <location filename="../optionbox.ui" line="98"/>
+        <location filename="../optionbox.ui" line="105"/>
         <source>Black</source>
         <translation>Negro</translation>
     </message>
     <message>
-        <location filename="../optionbox.ui" line="103"/>
+        <location filename="../optionbox.ui" line="110"/>
         <source>Coal</source>
         <translation>Carbón</translation>
     </message>
@@ -449,27 +448,27 @@ El mod no está instalado.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&
         <translation type="vanished">Rojo oscuro</translation>
     </message>
     <message>
-        <location filename="../optionbox.ui" line="113"/>
+        <location filename="../optionbox.ui" line="120"/>
         <source>Forest</source>
         <translation>Bosque</translation>
     </message>
     <message>
-        <location filename="../optionbox.ui" line="118"/>
+        <location filename="../optionbox.ui" line="125"/>
         <source>Purple</source>
         <translation>Púrpura</translation>
     </message>
     <message>
-        <location filename="../optionbox.ui" line="123"/>
+        <location filename="../optionbox.ui" line="130"/>
         <source>Red</source>
         <translation>Rojo</translation>
     </message>
     <message>
-        <location filename="../optionbox.ui" line="128"/>
+        <location filename="../optionbox.ui" line="135"/>
         <source>Silver</source>
         <translation>Plata</translation>
     </message>
     <message>
-        <location filename="../optionbox.ui" line="133"/>
+        <location filename="../optionbox.ui" line="140"/>
         <source>Cerulean</source>
         <translation>Cerúleo</translation>
     </message>
@@ -479,43 +478,48 @@ El mod no está instalado.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&
         <translation>Activar las formaciones (más unidades gráficas)</translation>
     </message>
     <message>
-        <location filename="../optionbox.ui" line="108"/>
+        <location filename="../optionbox.ui" line="76"/>
+        <source>Enable Blue Marble (alternative terrain graphics)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../optionbox.ui" line="115"/>
         <source>Dark red</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../optionbox.ui" line="145"/>
+        <location filename="../optionbox.ui" line="152"/>
         <source>Game path :</source>
         <translation>Ruta de juego:</translation>
     </message>
     <message>
-        <location filename="../optionbox.ui" line="170"/>
+        <location filename="../optionbox.ui" line="177"/>
         <source>Select game path</source>
         <translation>Seleccione ruta juego</translation>
     </message>
     <message>
-        <location filename="../optionbox.ui" line="220"/>
+        <location filename="../optionbox.ui" line="227"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Launcher configuration :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;
 Configuración del Lanzador :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../optionbox.ui" line="227"/>
+        <location filename="../optionbox.ui" line="234"/>
         <source>Close the launcher when game start</source>
         <translation>Cierra el lanzador cuando empiezan a juego</translation>
     </message>
     <message>
-        <location filename="../optionbox.ui" line="234"/>
+        <location filename="../optionbox.ui" line="241"/>
         <source>Autostart the mod with the game</source>
         <translation>Auto comienzo el mod con el juego</translation>
     </message>
     <message>
-        <location filename="../optionbox.ui" line="243"/>
+        <location filename="../optionbox.ui" line="250"/>
         <source>Automatically update the launcher</source>
         <translation>El lanzador se actualizan automáticamente</translation>
     </message>
     <message>
-        <location filename="../optionbox.ui" line="268"/>
+        <location filename="../optionbox.ui" line="275"/>
         <source>Check for launcher update</source>
         <translation>Cheque para actualización del lanzador</translation>
     </message>
@@ -558,13 +562,13 @@ Configuración del Lanzador :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</
 <context>
     <name>task_updater</name>
     <message>
-        <location filename="../../updater/task_updater.ui" line="14"/>
+        <location filename="../../updater/task_updater.ui" line="20"/>
         <source>Module updater</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.ui" line="33"/>
-        <source>TextLabel</source>
+        <location filename="../../updater/task_updater.cpp" line="34"/>
+        <source>Updating the game:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

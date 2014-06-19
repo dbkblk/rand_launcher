@@ -31,7 +31,7 @@ QString task_updater::svn_update(int current_revision, int output_revision)
         head = "HEAD";
     }
     // Set interface unlocker
-    ui->label->setText("Updating the game:");
+    ui->label->setText(tr("Updating the game:"));
     QTimer wait_timer;
     QEventLoop wait_install;
     wait_timer.setInterval(1000);

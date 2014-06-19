@@ -54,6 +54,7 @@ public:
         sizePolicy1.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
         label->setSizePolicy(sizePolicy1);
         label->setMinimumSize(QSize(0, 25));
+        label->setText(QStringLiteral("TextLabel"));
 
         verticalLayout->addWidget(label);
 
@@ -87,7 +88,6 @@ public:
     void retranslateUi(QMainWindow *task_updater)
     {
         task_updater->setWindowTitle(QApplication::translate("task_updater", "Module updater", 0));
-        label->setText(QApplication::translate("task_updater", "TextLabel", 0));
     } // retranslateUi
 
 };
