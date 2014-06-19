@@ -17,7 +17,6 @@ optionBox::optionBox(QWidget *parent) :
 
     // Set the detected color
     int color = readColorsCounter();
-    qDebug() << "Counter is " << color;
     ui->colorBox->setCurrentIndex(color);
 
     // Check default states
@@ -72,14 +71,9 @@ optionBox::~optionBox()
     delete ui;
 }
 
-void optionBox::reTranslate()
+void optionBox::on_colorBox_currentIndexChanged(int index)
 {
-    ui->retranslateUi(this);
-}
-
-void optionBox::on_colorBox_currentIndexChanged()
-{
-    int index = ui->colorBox->currentIndex();
+    qDebug() << "Index is " << index;
     QString colorUI;
     switch (index)
     {
@@ -204,4 +198,3 @@ void optionBox::on_opt_checkbox_autoupdate_toggled(bool checked)
     }
 
 }
-

@@ -807,7 +807,8 @@ void Worker::requestWork()
     mutex.lock();
     _working = true;
     _abort = false;
-    qDebug() << "Request worker start in Thread "<<thread()->currentThreadId();
+    //qDebug() << "Request worker start in Thread "<<thread()->currentThreadId();
+    qDebug("Starting update checking...");
     mutex.unlock();
 
     emit workRequested();
@@ -871,8 +872,8 @@ void Worker::UMCheckUpdate()
     _working = false;
     mutex.unlock();
 
-    qDebug()<<"Worker process finished in Thread "<<thread()->currentThreadId();
-
+    //qDebug()<<"Worker process finished in Thread "<<thread()->currentThreadId();
+    qDebug("Update checking ended...");
     // Finished signal
     emit finished(update);
 }

@@ -19,6 +19,7 @@ public:
 
 private slots:
     void on_tree_list_itemClicked(QTreeWidgetItem *item);
+    void moduleInterface(QString version, QString description);
 
 private:
     Ui::modules *ui;

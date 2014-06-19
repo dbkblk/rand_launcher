@@ -276,7 +276,6 @@ void MainWindow::on_bt_option_clicked()
     // Invoke the option window
     optbox = new optionBox(this);
     optbox->show();
-    optbox->reTranslate();
 }
 
 // Installation process

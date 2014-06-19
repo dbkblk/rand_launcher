@@ -43,7 +43,7 @@ bool setConfigParam(QString param, QString newValue)
     QFile::remove(ini_orig);
     QFile::rename(ini_temp,ini_orig);
 
-    qDebug() << "Parameter set to " << newValue;
+    //qDebug() << "Parameter set to " << newValue;
     return 0;
 }
 
@@ -69,19 +69,19 @@ QString readConfigParam(QString param)
     }
     file_in.close();
 
-    qDebug() << value;
+    //qDebug() << value;
     return value;
 }
 
 QString readCheckerParam(QString param)
 {
     QSettings settings("checker/checker_config.ini", QSettings::IniFormat);
-    qDebug() << settings.status();
+    //qDebug() << settings.status();
     if(!settings.contains(param)) {
         return "error";
     }
     QString value = settings.value(param).toString();
-    qDebug() << "Checker parameter set to " << settings.value(param);
+    //qDebug() << "Checker parameter set to " << settings.value(param);
     return value;
 }
 
@@ -92,9 +92,9 @@ bool setCheckerParam(QString param, QString newValue)
         ch_conf.open(QIODevice::WriteOnly);
     }
     QSettings settings("checker/checker_config.ini", QSettings::IniFormat);
-    qDebug() << settings.status();
+    //qDebug() << settings.status();
     settings.setValue(param, newValue);
-    qDebug() << "Checker parameter set to" <<       settings.value(param);
+    //qDebug() << "Checker parameter set to" <<       settings.value(param);
     return 0;
 }
 
@@ -168,7 +168,6 @@ bool setColors(QString color)
 
     // Save content back to the file
     if (!file.open(QIODevice::Truncate | QIODevice::WriteOnly)) {
-        qDebug("Basically, now we lost content of a file");
         return 0;
     }
     file.write(read.toByteArray());

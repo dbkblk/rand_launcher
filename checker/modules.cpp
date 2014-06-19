@@ -50,43 +50,45 @@ void modules::on_tree_list_itemClicked(QTreeWidgetItem *item)
     }
     if(add_blue_marble->isSelected())
     {
-        ui->bt_remove->hide();
-        ui->label->setText(QString("<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">%1</span></p></body></html>").arg(tr("Description:")));
-        ui->label_core_version->setText("");
-        ui->changelog_box->setText("BM Description");
+        QString description = "BM Description";
+        moduleInterface(check_addon_mcp(),description);
     }
     if(add_mega_civ_pack->isSelected())
     {
-        ui->bt_remove->hide();
-        ui->label->setText(QString("<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">%1</span></p></body></html>").arg(tr("Description:")));
-        QString status = check_addon_mcp();
-        ui->label_core_version->setText(tr("Installed:")+ "\n" + status);
-        ui->changelog_box->setText("MCP Description");
-        if(status == "Not installed")
-        {
-            ui->bt_remove->show();
-            ui->bt_remove->setText("Install");
-        }
+        QString description = "MCP Description";
+        moduleInterface(check_addon_mcp(),description);
     }
     if(add_more_music->isSelected())
     {
-        ui->bt_remove->hide();
-        ui->label->setText(QString("<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">%1</span></p></body></html>").arg(tr("Description:")));
-        ui->label_core_version->setText(tr("Installed:")+ "\n" + check_addon_more_music());
-        ui->changelog_box->setText("MM Description");
+        QString description = "MM Description";
+        moduleInterface(check_addon_mcp(),description);
     }
     if(add_more_handicaps->isSelected())
     {
-        ui->bt_remove->hide();
-        ui->label->setText(QString("<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">%1</span></p></body></html>").arg(tr("Description:")));
-        ui->label_core_version->setText(tr("Installed:")+ "\n" + check_addon_more_handicaps());
-        ui->changelog_box->setText("MH Description");
+        QString description = "MH Description";
+        moduleInterface(check_addon_mcp(),description);
     }
     if(add_dinosaurs->isSelected())
     {
-        ui->bt_remove->hide();
-        ui->label->setText(QString("<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">%1</span></p></body></html>").arg(tr("Description:")));
-        ui->label_core_version->setText("");
-        ui->changelog_box->setText("Dino Description");
+        QString description = "Dino Description";
+        moduleInterface(check_addon_mcp(),description);
+    }
+}
+
+void modules::moduleInterface(QString version, QString description)
+{
+    ui->bt_remove->hide();
+    ui->label->setText(QString("<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">%1</span></p></body></html>").arg(tr("Description:")));
+    ui->label_core_version->setText(tr("Installed:")+ "\n" + version);
+    ui->changelog_box->setText(description);
+    if(version == "Not installed")
+    {
+        ui->bt_remove->show();
+        ui->bt_remove->setText("Install module");
+    }
+    else
+    {
+        ui->bt_remove->show();
+        ui->bt_remove->setText("Remove module");
     }
 }

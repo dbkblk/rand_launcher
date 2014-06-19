@@ -71,12 +71,20 @@ int svnDistantInfo()
 
 QString svnGetChangelog(int revisions)
 {
+    // Avoid to redownload if the changelog has already been grabbed
+    if(readCheckerParam("Changelog/LastCheckedRevision") == QString::number(svnLocalInfo()))
+    {
+        qDebug() << "Changelog already exists";
+        return readCheckerParam("Changelog/Value");
+    }
+
     QFile::remove("svn_changelog.txt");
     QProcess svn_changelog;
     svn_changelog.setStandardOutputFile("svn_changelog.txt");
     svn_changelog.start("checker/svn.exe log -l 10 -r HEAD:0");
     svn_changelog.waitForFinished(-1);
     QString result;
+
 
     // Open the output file
     QFile svn_changelog_file("svn_changelog.txt");
@@ -85,6 +93,8 @@ QString svnGetChangelog(int revisions)
         result = svn_changelog_file.readAll();
         svn_changelog_file.close();
         svn_changelog_file.remove();
+        setCheckerParam("Changelog/LastCheckedRevision",QString::number(svnDistantInfo()));
+        setCheckerParam("Changelog/Value",result);
         return result;
     }
     return "Can't read changelog";
