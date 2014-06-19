@@ -1,4 +1,5 @@
 #include "updater.h"
+#include "task_updater.h"
 #include "QCoreApplication"
 #include <QApplication>
 #include <QDesktopWidget>
@@ -10,10 +11,18 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    updater *w = new updater();
+    task_updater *w = new task_updater();
 
-    w->Execute(argv[1]);
-    w->show();
+    if(argc == 3)
+    {
+        QString arg1 = argv[1];
+        QString arg2 = argv[2];
+        if(arg1 == "update" && arg2.toInt() > 0)
+        {
+            w->show();
+            w->svn_update(arg2.toInt());
+        }
+    }
 
     return a.exec();
 }

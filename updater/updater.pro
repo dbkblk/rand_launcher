@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,9 +13,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        updater.cpp
+        updater.cpp \
+    task_updater.cpp
 
-HEADERS  += updater.h
+HEADERS  += updater.h \
+    task_updater.h
 
 FORMS += \
-    form.ui
+    form.ui \
+    task_updater.ui
+
+RC_FILE = icon.rc

@@ -120,37 +120,37 @@
     <message>
         <location filename="../mainwindow.ui" line="281"/>
         <source>Hungarian</source>
-        <translation>Húngaro</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="286"/>
         <source>Finnish</source>
-        <translation>Finlandés</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="291"/>
         <source>Polish</source>
-        <translation>Polaco</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="296"/>
         <source>Italian</source>
-        <translation>Italiano</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="301"/>
         <source>Spanish</source>
-        <translation>Español</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="306"/>
         <source>German</source>
-        <translation>Alemán</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="311"/>
         <source>Russian</source>
-        <translation>Ruso</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="114"/>

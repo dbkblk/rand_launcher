@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="si">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="si" version="2.1">
 <context>
     <name>MainWindow</name>
     <message>
@@ -14,10 +12,6 @@
         <translation>මනාපය </translation>
     </message>
     <message>
-        <source>Install / update modules</source>
-        <translation type="vanished">ස්ථානගත කිරීම /නවීකරණ ඒකක </translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="147"/>
         <source>Menu</source>
         <translation>ලේඛනය</translation>
@@ -28,18 +22,14 @@
         <translation>ප්‍රජාව </translation>
     </message>
     <message>
-        <source>Help up to improve the mod !</source>
-        <translation type="vanished">මොඩ් දියුණු කිරීමට උපකාරී කිරීම </translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="132"/>
         <source>Manage modules</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="164"/>
         <source>Help us to improve the mod !</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="171"/>
@@ -49,7 +39,7 @@
     <message>
         <location filename="../mainwindow.ui" line="183"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="203"/>
@@ -105,66 +95,62 @@
     <message>
         <location filename="../mainwindow.ui" line="256"/>
         <source>Help for translation (forum)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="261"/>
         <source>Translate the launcher</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="266"/>
         <source>English</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="271"/>
         <source>French</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="276"/>
         <source>Sinhala</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="281"/>
         <source>Hungarian</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="286"/>
         <source>Finnish</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="291"/>
         <source>Polish</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="296"/>
         <source>Italian</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="301"/>
         <source>Spanish</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="306"/>
         <source>German</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="311"/>
         <source>Russian</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Translate the mod (help)</source>
-        <translation type="vanished">මොඩ් පරිවර්තනය කරන්න (උදවු)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="114"/>

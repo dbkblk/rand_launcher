@@ -12,15 +12,7 @@ modules::modules(QWidget *parent) :
     ui->setupUi(this);
 
     // Set version label
-    ui->label_core_version->setText(QString("Version:\n%1").arg(svnLocalInfo()));
-    ui->changelog_box->setText(svnGetChangelog(10));
-    ui->bt_remove->hide();
     ui->bt_update->hide();
-    if(readCheckerParam("Main/LocalRev").toInt() < readCheckerParam("Update/DistantRev").toInt())
-    {
-        ui->bt_update->setText(tr("Update:") + "\n" + readCheckerParam("Update/DistantRev"));
-        ui->bt_update->show();
-    }
 
     // Set the TreeWidget items
     core = new QTreeWidgetItem(ui->tree_list);
@@ -37,6 +29,9 @@ modules::modules(QWidget *parent) :
     add_more_handicaps->setText(0, tr("More handicaps"));
     add_dinosaurs = new QTreeWidgetItem(addons);
     add_dinosaurs->setText(0, tr("Dinosaurs !"));
+
+    ui->tree_list->setCurrentItem(core);
+    on_tree_list_itemClicked(core);
 }
 
 modules::~modules()
@@ -48,6 +43,7 @@ void modules::on_tree_list_itemClicked(QTreeWidgetItem *item)
 {
     if(core->isSelected())
     {
+        qDebug() << "here";
         ui->bt_remove->hide();
         ui->label->setText(QString("<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">%1</span></p></body></html>").arg(tr("Changes:")));
         ui->label_core_version->setText(QString("Version:\n%1").arg(svnLocalInfo()));
@@ -102,4 +98,16 @@ void modules::moduleInterface(QString version, QString description)
         ui->bt_remove->show();
         ui->bt_remove->setText("Remove module");
     }
+}
+
+void modules::on_bt_update_clicked()
+{
+    if(core->isSelected())
+    {
+        QFile::copy("checker/upd_proc.exe","upd_proc.exe");
+        QProcess updater;
+        updater.startDetached(QString("upd_proc.exe update %1").arg(readCheckerParam("Main/LocalRev").toInt()));
+        QApplication::quit();
+    }
+
 }

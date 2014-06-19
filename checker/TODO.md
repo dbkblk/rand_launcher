@@ -48,19 +48,22 @@ DONE -> Update main window infos after update;
 
 ## 0.11
 ### Features
-
-- Autocheck svn state from error message.
 DONE -> Link to the translation platform
 DONE -> Make the launcher translatable
 DONE -> Improve installer
-- Add option for bluemarble
-- Code a new addon installer separated from the launcher
-
+DONE -> Code a new svn installer separated from the launcher
+- Reimplement addon installer
 
 ### Bugfix
-- Fix addon installer
 DONE -> Fix menus not clickable at start
 DONE -> Fix delay when starting the component manager
+
+## 0.12
+
+- Autocheck svn state from error message.
+- Choose the merge possibilities (--accept tc / etc.)
+- Use XML to better layout changes
+- Add option for bluemarble
 
 ## 2.0
 ### Features

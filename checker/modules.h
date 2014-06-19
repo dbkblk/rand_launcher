@@ -21,6 +21,8 @@ private slots:
     void on_tree_list_itemClicked(QTreeWidgetItem *item);
     void moduleInterface(QString version, QString description);
 
+    void on_bt_update_clicked();
+
 private:
     Ui::modules *ui;
     QProcess process;

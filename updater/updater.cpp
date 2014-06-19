@@ -95,3 +95,4 @@ void process::Finalization()
     tasks->startDetached("and2_checker.exe");
     emit finished();
 }
+
