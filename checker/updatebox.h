@@ -1,6 +1,7 @@
 #ifndef UPDATEBOX_H
 #define UPDATEBOX_H
 
+#include "svn_functions.h"
 #include <QWidget>
 #include <QMainWindow>
 #include <QString>

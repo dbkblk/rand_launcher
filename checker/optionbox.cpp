@@ -14,20 +14,11 @@ optionBox::optionBox(QWidget *parent) :
     ui(new Ui::optionBox)
 {
     ui->setupUi(this);
-    chglog = new updatebox(this);
-
-    // Link the close update button to a bool message
-
-    connect(chglog,SIGNAL(updated()),this,SLOT(chglog_msg_info()));
-
-    connect(chglog,SIGNAL(finished()),chglog->bt_chglog_close,SLOT(show()));
-
-    // Link the svn signal to the main window labels
-
-    connect(chglog,SIGNAL(finished()),parent,SLOT(UpdateWindowInfos()));
 
     // Set the detected color
-    ui->colorBox->setCurrentIndex(readColorsCounter());
+    int color = readColorsCounter();
+    qDebug() << "Counter is " << color;
+    ui->colorBox->setCurrentIndex(color);
 
     // Check default states
 
@@ -86,9 +77,44 @@ void optionBox::reTranslate()
     ui->retranslateUi(this);
 }
 
-void optionBox::on_colorBox_currentIndexChanged(const QString &colorName)
+void optionBox::on_colorBox_currentIndexChanged()
 {
-    QString colorUI = colorName + " UI";
+    int index = ui->colorBox->currentIndex();
+    QString colorUI;
+    switch (index)
+    {
+    case 0:
+       colorUI = "Black UI";
+       break;
+
+    case 1:
+       colorUI = "Coal UI";
+       break;
+
+    case 2:
+       colorUI = "Dark Red UI";
+       break;
+
+    case 3:
+       colorUI = "Forest UI";
+       break;
+
+    case 4:
+       colorUI = "Purple UI";
+       break;
+
+    case 5:
+       colorUI = "Red UI";
+       break;
+
+    case 6:
+       colorUI = "Silver UI";
+       break;
+
+    case 7:
+       colorUI = "Cerulean UI";
+       break;
+    }
     setColors(colorUI);
 }
 
@@ -178,3 +204,4 @@ void optionBox::on_opt_checkbox_autoupdate_toggled(bool checked)
     }
 
 }
+

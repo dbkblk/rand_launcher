@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "civ_functions.h"
+#include "svn_functions.h"
 #include "optionbox.h"
 #include "updatebox.h"
 #include "updatemanager.h"
@@ -14,6 +15,7 @@
 #include <QtWidgets>
 #include <QMessageBox>
 #include <lib/packbinaries.h>
+#include <modules.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -56,8 +58,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Creation of widgets
     ubox = new updatebox(this);
-    optbox = new optionBox(this);
     update_manager = new updateManager(this);
+    manager = new modules(this);
 
     // Main window shape
 
@@ -272,7 +274,7 @@ void MainWindow::on_bt_launch_clicked()
 void MainWindow::on_bt_option_clicked()
 {
     // Invoke the option window
-
+    optbox = new optionBox(this);
     optbox->show();
     optbox->reTranslate();
 }
@@ -311,8 +313,9 @@ void installBox::on_buttonBox_rejected()
 
 void MainWindow::on_bt_components_clicked()
 {
-    update_manager->show();
-    update_manager->updateInfos();    
+    //update_manager->show();
+    //update_manager->updateInfos();
+    manager->show();
 }
 
 void MainWindow::on_actionGit_Pack_binaries_triggered()

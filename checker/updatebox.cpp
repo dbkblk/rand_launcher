@@ -2,6 +2,7 @@
 #include "ui_updatebox.h"
 #include "mainwindow.h"
 #include "civ_functions.h"
+#include "svn_functions.h"
 #include <QDir>
 #include <QFile>
 #include <QBoxLayout>

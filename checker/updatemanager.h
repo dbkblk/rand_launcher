@@ -14,16 +14,14 @@
 
 namespace Ui {
 class updateManager;
+class svn_functions;
 }
 
-bool clearCache();
-bool clearGameOptions();
 bool ActionLauncherUpdate();
 void restartLauncher();
 bool LauncherVersionCalculation();
 bool AddonsVersionCalculation();
-int svnLocalInfo();
-int svnDistantInfo();
+
 
 class updateManager : public QWidget
 {
@@ -85,7 +83,6 @@ private:
     QEventLoop wait_svn;
     QTimer wait_timer;
     void reTranslate();
-
 };
 
 class Worker : public QObject
@@ -129,6 +126,7 @@ signals:
 public slots:
 
     void UMCheckUpdate();
+
 };
 
 #endif // UPDATEMANAGER_H

@@ -3,6 +3,7 @@
 #include "updatebox.h"
 #include "mainwindow.h"
 #include "lib/packbinaries.h"
+#include "svn_functions.h"
 
 #include "QObject"
 #include <QTimer>
@@ -948,96 +949,5 @@ void restartLauncher()
 {
     QProcess::startDetached(QApplication::applicationFilePath());
     exit(12);
-}
-
-// Clear the cache folder
-
-bool clearCache()
-{
-    // Getting the cache path
-    std::string cacheDir;
-    std::string delCmd = "DEL /Q ";
-    std::string quote = "\"";
-    std::string finalDir = "\\My Games\\Beyond the Sword\\cache\\";
-    std::string dat = "*";
-    char* Appdata = getenv("LOCALAPPDATA");
-    cacheDir = delCmd + quote + Appdata + finalDir + dat + quote;
-    // cout << cacheDir << endl;
-
-    return 0;
-}
-
-bool clearGameOptions()
-{
-    setConfigParam("GameOptions","");
-    qDebug() << "Cleared parameters";
-    return 0;
-}
-
-int svnLocalInfo(){
-    // Get the info from the distant server
-    QProcess svn_loc;
-    svn_loc.setStandardOutputFile("svn.txt");
-    svn_loc.start("checker\\svn.exe", QStringList() << "info");
-    svn_loc.waitForFinished(-1);
-
-    // Open the output file
-    QFile svn_out_loc("svn.txt");
-    QString svn;
-    QString rev;
-
-    // Find the local revision
-    if(svn_out_loc.open(QFile::ReadWrite  |QFile::Text))
-    {
-        while(!svn_out_loc.atEnd())
-        {
-            svn += svn_out_loc.readLine();
-        }
-        int j = 0;
-        while ((j = svn.indexOf("Revision: ", j)) != -1) {
-             rev = svn.mid(j+10,3);
-             ++j;
-         }
-        qDebug() << "Local revision : " << rev;
-    setCheckerParam("Main/LocalRev",rev);
-    svn_out_loc.close();
-    QFile::remove("svn.txt");
-    return rev.toInt();
-    }
-
-    return 0;
-}
-
-int svnDistantInfo()
-{
-        // Get the info from the distant server
-        QProcess svn_dist;
-        svn_dist.setStandardOutputFile("svn_dist.txt");
-        svn_dist.start("checker\\svn.exe", QStringList() << "info" << "-r" << "HEAD");
-        svn_dist.waitForFinished(-1);
-
-        // Open the output file
-        QFile svn_out_dist("svn_dist.txt");
-        QString svn_str_dist;
-        QString rev_dist;
-
-        // Find the local revision
-        if(svn_out_dist.open(QFile::ReadWrite  |QFile::Text))
-        {
-            while(!svn_out_dist.atEnd())
-            {
-                svn_str_dist += svn_out_dist.readLine();
-            }
-            int j = 0;
-            while ((j = svn_str_dist.indexOf("Revision: ", j)) != -1) {
-                 rev_dist = svn_str_dist.mid(j+10,3);
-                 ++j;
-             }
-            qDebug() << "Distant revision : " << rev_dist;
-        setCheckerParam("Update/DistantRev",rev_dist);
-        svn_out_dist.close();
-        QFile::remove("svn_dist.txt");
-        }
-        return rev_dist.toInt();
 }
 

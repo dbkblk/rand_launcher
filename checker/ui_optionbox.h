@@ -21,6 +21,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -40,6 +41,7 @@ public:
     QLabel *label;
     QPushButton *opt_bt_path;
     QLineEdit *opt_text_path;
+    QSpacerItem *verticalSpacer;
     QLabel *lb_modconf_2;
     QCheckBox *checkerBox;
     QCheckBox *startBox;
@@ -64,7 +66,7 @@ public:
         optionBox->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         verticalLayoutWidget = new QWidget(optionBox);
         verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(9, 9, 431, 285));
+        verticalLayoutWidget->setGeometry(QRect(9, 13, 431, 271));
         verticalLayout_4 = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(10, 0, 10, 0);
@@ -93,8 +95,6 @@ public:
         sizePolicy1.setHeightForWidth(colorBox->sizePolicy().hasHeightForWidth());
         colorBox->setSizePolicy(sizePolicy1);
         colorBox->setMinimumSize(QSize(175, 25));
-        colorBox->setMaximumSize(QSize(150, 16777215));
-        colorBox->setEditable(false);
 
         horizontalLayout->addWidget(colorBox);
 
@@ -129,6 +129,10 @@ public:
         opt_text_path->setReadOnly(true);
 
         verticalLayout_4->addWidget(opt_text_path);
+
+        verticalSpacer = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout_4->addItem(verticalSpacer);
 
         lb_modconf_2 = new QLabel(verticalLayoutWidget);
         lb_modconf_2->setObjectName(QStringLiteral("lb_modconf_2"));
@@ -180,7 +184,7 @@ public:
         colorBox->insertItems(0, QStringList()
          << QApplication::translate("optionBox", "Black", 0)
          << QApplication::translate("optionBox", "Coal", 0)
-         << QApplication::translate("optionBox", "Dark Red", 0)
+         << QApplication::translate("optionBox", "Dark red", 0)
          << QApplication::translate("optionBox", "Forest", 0)
          << QApplication::translate("optionBox", "Purple", 0)
          << QApplication::translate("optionBox", "Red", 0)

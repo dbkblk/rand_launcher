@@ -19,7 +19,9 @@ SOURCES += \
     optionbox.cpp \
     updatebox.cpp \
     updatemanager.cpp \
-    lib/packbinaries.cpp
+    lib/packbinaries.cpp \
+    modules.cpp \
+    svn_functions.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -27,13 +29,16 @@ HEADERS += \
     optionbox.h \
     updatebox.h \
     updatemanager.h \
-    lib/packbinaries.h
+    lib/packbinaries.h \
+    modules.h \
+    svn_functions.h
 
 FORMS    += mainwindow.ui \
     installBox.ui \
     optionbox.ui \
     updatebox.ui \
-    updatemanager.ui
+    updatemanager.ui \
+    modules.ui
 
 RC_FILE = icon.rc
 

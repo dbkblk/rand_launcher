@@ -9,6 +9,7 @@
 #include <optionbox.h>
 #include <QThread>
 #include "updatemanager.h"
+#include "modules.h"
 
 namespace Ui {
 class MainWindow;
@@ -79,6 +80,7 @@ private:
     QMessageBox askUpdate;
     updateManager *update_manager;
     QTranslator *translator;
+    modules *manager;
 };
 
 class installBox : public QDialog {

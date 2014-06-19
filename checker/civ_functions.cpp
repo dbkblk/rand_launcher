@@ -9,8 +9,6 @@
 
 using namespace std;
 
-
-
 // Set the mod to start by default
 bool setConfigParam(QString param, QString newValue)
 {
@@ -100,36 +98,6 @@ bool setCheckerParam(QString param, QString newValue)
     return 0;
 }
 
-int readColors()
-{
-    // Open the file
-    QDomDocument read;
-    QFile file("Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml");
-    if(!file.open(QIODevice::ReadOnly))
-     {
-         qDebug() << "Error opening Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml";
-         return 0;
-     }
-    read.setContent(&file);
-
-    // Go to color level
-    QDomElement value_el = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
-
-    // Loop
-    for(;; value_el=value_el.nextSiblingElement() ) {
-        QString value = value_el.firstChildElement("Directory").text();
-        QString bLoad = value_el.firstChildElement("bLoad").text();
-
-        if (bLoad == "1") {
-            file.close();
-            return value.toInt();
-        }
-
-    }
-    file.close();
-    return 0;
-}
-
 int readColorsCounter()
 {
     // Open the file
@@ -153,6 +121,7 @@ int readColorsCounter()
         counter++;
 
         if (bLoad == "1") {
+            //qDebug() << "Counter is " << counter;
             file.close();
             return counter;
         }
@@ -354,3 +323,27 @@ bool setOptionFormations(bool value)
 
     return 0;
 }
+
+bool clearCache()
+{
+    // Getting the cache path
+    std::string cacheDir;
+    std::string delCmd = "DEL /Q ";
+    std::string quote = "\"";
+    std::string finalDir = "\\My Games\\Beyond the Sword\\cache\\";
+    std::string dat = "*";
+    char* Appdata = getenv("LOCALAPPDATA");
+    cacheDir = delCmd + quote + Appdata + finalDir + dat + quote;
+    // cout << cacheDir << endl;
+
+    return 0;
+}
+
+bool clearGameOptions()
+{
+    setConfigParam("GameOptions","");
+    qDebug() << "Cleared parameters";
+    return 0;
+}
+
+

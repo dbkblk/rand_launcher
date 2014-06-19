@@ -21,7 +21,7 @@ public:
     void reTranslate();
 
 private slots:
-    void on_colorBox_currentIndexChanged(const QString &colorName);
+    void on_colorBox_currentIndexChanged();
     void on_startBox_toggled(bool checked);
     void on_checkerBox_toggled(bool checked);
     void on_opt_bt_path_clicked();
@@ -34,9 +34,6 @@ private:
     QCheckBox *checkerBox;
     QLineEdit *opt_text_path;
     Ui::optionBox *ui;
-    updatebox *chglog;
-    bool msg_show;
-
 };
 
 #endif // OPTIONBOX_H
