@@ -60,7 +60,7 @@ DONE -> Improve installer
 ### Bugfix
 - Fix addon installer
 DONE -> Fix menus not clickable at start
-- Fix delay when starting the component manager
+DONE -> Fix delay when starting the component manager
 
 ## 2.0
 ### Features

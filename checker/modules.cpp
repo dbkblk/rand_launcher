@@ -16,6 +16,11 @@ modules::modules(QWidget *parent) :
     ui->changelog_box->setText(svnGetChangelog(10));
     ui->bt_remove->hide();
     ui->bt_update->hide();
+    if(readCheckerParam("Main/LocalRev").toInt() < readCheckerParam("Update/DistantRev").toInt())
+    {
+        ui->bt_update->setText(tr("Update:") + "\n" + readCheckerParam("Update/DistantRev"));
+        ui->bt_update->show();
+    }
 
     // Set the TreeWidget items
     core = new QTreeWidgetItem(ui->tree_list);
@@ -47,6 +52,11 @@ void modules::on_tree_list_itemClicked(QTreeWidgetItem *item)
         ui->label->setText(QString("<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">%1</span></p></body></html>").arg(tr("Changes:")));
         ui->label_core_version->setText(QString("Version:\n%1").arg(svnLocalInfo()));
         ui->changelog_box->setText(svnGetChangelog(10));
+        if(readCheckerParam("Main/LocalRev").toInt() < readCheckerParam("Update/DistantRev").toInt())
+        {
+            ui->bt_update->setText(tr("Update:") + "\n" + readCheckerParam("Main/DistantRev"));
+            ui->bt_update->show();
+        }
     }
     if(add_blue_marble->isSelected())
     {
@@ -78,6 +88,7 @@ void modules::on_tree_list_itemClicked(QTreeWidgetItem *item)
 void modules::moduleInterface(QString version, QString description)
 {
     ui->bt_remove->hide();
+    ui->bt_update->hide();
     ui->label->setText(QString("<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">%1</span></p></body></html>").arg(tr("Description:")));
     ui->label_core_version->setText(tr("Installed:")+ "\n" + version);
     ui->changelog_box->setText(description);
