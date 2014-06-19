@@ -75,6 +75,8 @@ private slots:
 
     void on_actionRevert_to_an_older_revision_triggered();
 
+    void on_actionAddon_Blue_marble_triggered();
+
 private:
     Ui::MainWindow *ui;
     updatebox *ubox;

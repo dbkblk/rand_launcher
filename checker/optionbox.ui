@@ -46,7 +46,7 @@
      <x>9</x>
      <y>13</y>
      <width>431</width>
-     <height>271</height>
+     <height>278</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -67,6 +67,13 @@
      <widget class="QCheckBox" name="opt_checkbox_formations">
       <property name="text">
        <string>Enable formations (more graphical units)</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="opt_checkbox_bluemarble">
+      <property name="text">
+       <string>Enable Blue Marble (alternative terrain graphics)</string>
       </property>
      </widget>
     </item>

@@ -51,6 +51,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->actionHelp_translate_the_mod->setIcon(QIcon("checker/icons/translate.png"));
     ui->actionTranslate_the_launcher->setIcon(QIcon("checker/icons/translate.png"));
     ui->actionTranslate_the_mod_help->setIcon(QIcon("checker/icons/help.png"));
+    ui->actionAddon_Blue_marble->setIcon(QIcon("checker/icons/blue_marble.png"));
     ui->actionClean_up->setIcon(QIcon("checker/icons/clean.png"));
     ui->actionRevert_to_an_older_revision->setIcon(QIcon("checker/icons/revert.png"));
     ui->menuFix_installation->setIcon(QIcon("checker/icons/fix.png"));
@@ -198,6 +199,11 @@ void MainWindow::on_actionAbout_AND_Resurrection_team_forum_triggered()
 void MainWindow::on_actionAddon_More_music_forum_triggered()
 {
     QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=523763"));
+}
+
+void MainWindow::on_actionAddon_Blue_marble_triggered()
+{
+    QDesktopServices::openUrl(QUrl("http://www.civfanatics.net/bluemarble/content/index.php"));
 }
 
 void MainWindow::on_actionExit_triggered()

@@ -198,3 +198,17 @@ void optionBox::on_opt_checkbox_autoupdate_toggled(bool checked)
     }
 
 }
+
+void optionBox::on_opt_checkbox_bluemarble_toggled(bool checked)
+{
+    if(checked)
+    {
+        QProcess unzip;
+        unzip.execute("checker/7za.exe e Assets/BlueMarble.zip -oAssets/ -y");
+    }
+    else
+    {
+        QFile::remove("Assets/BlueMarble.FPK");
+    }
+
+}

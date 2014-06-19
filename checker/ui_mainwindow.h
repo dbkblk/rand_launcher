@@ -54,6 +54,7 @@ public:
     QAction *languageRussian;
     QAction *actionClean_up;
     QAction *actionRevert_to_an_older_revision;
+    QAction *actionAddon_Blue_marble;
     QWidget *centralWidget;
     QLabel *lb_versions;
     QWidget *horizontalLayoutWidget;
@@ -142,6 +143,8 @@ public:
         actionClean_up->setObjectName(QStringLiteral("actionClean_up"));
         actionRevert_to_an_older_revision = new QAction(MainWindow);
         actionRevert_to_an_older_revision->setObjectName(QStringLiteral("actionRevert_to_an_older_revision"));
+        actionAddon_Blue_marble = new QAction(MainWindow);
+        actionAddon_Blue_marble->setObjectName(QStringLiteral("actionAddon_Blue_marble"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setStyleSheet(QStringLiteral(""));
@@ -248,6 +251,7 @@ public:
         menuFix_installation->addAction(actionRevert_to_an_older_revision);
         menuCommunity->addAction(actionForum);
         menuCommunity->addAction(actionBugreport);
+        menuCommunity->addAction(actionAddon_Blue_marble);
         menuCommunity->addAction(actionAddon_Mega_Civ_Pack);
         menuCommunity->addAction(actionAddon_More_music_forum);
         menuCommunity->addAction(actionAbout_AND_Resurrection_team_forum);
@@ -283,7 +287,7 @@ public:
 #ifndef QT_NO_TOOLTIP
         actionAbout_AND_Resurrection_team_forum->setToolTip(QApplication::translate("MainWindow", "About AND Resurrection team (forum)", 0));
 #endif // QT_NO_TOOLTIP
-        actionAddon_More_music_forum->setText(QApplication::translate("MainWindow", "Addon \"More music\" (forum)", 0));
+        actionAddon_More_music_forum->setText(QApplication::translate("MainWindow", "Addon \"More music / More handicaps / Dinosaurs\" (forum)", 0));
         actionOpen_mod_folder->setText(QApplication::translate("MainWindow", "Open mod folder", 0));
         actionGit_Pack_binaries->setText(QApplication::translate("MainWindow", "Git: Create binary pack", 0));
         actionGit_Create_update_binary_pack->setText(QApplication::translate("MainWindow", "Git: Create update binary pack", 0));
@@ -302,6 +306,7 @@ public:
         languageRussian->setText(QApplication::translate("MainWindow", "Russian", 0));
         actionClean_up->setText(QApplication::translate("MainWindow", "Clean up", 0));
         actionRevert_to_an_older_revision->setText(QApplication::translate("MainWindow", "Revert to an older revision...", 0));
+        actionAddon_Blue_marble->setText(QApplication::translate("MainWindow", "Addon \"Blue marble\"", 0));
         bt_launch->setText(QApplication::translate("MainWindow", "Launch Civilization IV", 0));
         bt_components->setText(QApplication::translate("MainWindow", "Manage modules", 0));
         bt_option->setText(QApplication::translate("MainWindow", "Options", 0));

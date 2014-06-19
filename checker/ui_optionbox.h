@@ -34,6 +34,7 @@ public:
     QVBoxLayout *verticalLayout_4;
     QLabel *lb_modconf;
     QCheckBox *opt_checkbox_formations;
+    QCheckBox *opt_checkbox_bluemarble;
     QHBoxLayout *horizontalLayout;
     QLabel *lb_intcolor;
     QComboBox *colorBox;
@@ -66,7 +67,7 @@ public:
         optionBox->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         verticalLayoutWidget = new QWidget(optionBox);
         verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(9, 13, 431, 271));
+        verticalLayoutWidget->setGeometry(QRect(9, 13, 431, 278));
         verticalLayout_4 = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(10, 0, 10, 0);
@@ -79,6 +80,11 @@ public:
         opt_checkbox_formations->setObjectName(QStringLiteral("opt_checkbox_formations"));
 
         verticalLayout_4->addWidget(opt_checkbox_formations);
+
+        opt_checkbox_bluemarble = new QCheckBox(verticalLayoutWidget);
+        opt_checkbox_bluemarble->setObjectName(QStringLiteral("opt_checkbox_bluemarble"));
+
+        verticalLayout_4->addWidget(opt_checkbox_bluemarble);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
@@ -179,6 +185,7 @@ public:
         optionBox->setWindowTitle(QApplication::translate("optionBox", "Options", 0));
         lb_modconf->setText(QApplication::translate("optionBox", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Mod configuration :</span></p></body></html>", 0));
         opt_checkbox_formations->setText(QApplication::translate("optionBox", "Enable formations (more graphical units)", 0));
+        opt_checkbox_bluemarble->setText(QApplication::translate("optionBox", "Enable Blue Marble (alternative terrain graphics)", 0));
         lb_intcolor->setText(QApplication::translate("optionBox", "Interface color :", 0));
         colorBox->clear();
         colorBox->insertItems(0, QStringList()
