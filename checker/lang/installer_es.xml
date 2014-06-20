@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="WELCOME_TITLE">Civilización IV: A New Dawn pack de expansión</string>
+  <string name="WELCOME">Versión del lanzador: ${versión}\n\nEste asistente le guiará a través de la instalación de Civilization IV: A New Dawn.\n\nEl mod se instalará en \'Mis documentos\My Games\Beyond the Sword\Mods\' de forma predeterminada. \nCreará un acceso directo (opcional) al lanzador mod, que se utilizará para descargar fácilmente, actualizar o configurar la mod instalación.\n\nADVERTENCIA: Cualquier instalación existente del mod es compatible. Sin embargo, si tienes archivos modificadas, puede sobrescribirse sobre actualización del mod.</string>
+  <string name="DIRECTORY">Programa de instalación instalará el paquete de expansión en la siguiente carpeta.\nPara instalarlo en una carpeta diferente, haga clic en \'Examinar...\' y seleccione otra carpeta.\n\nNOTA: se recomienda encarecidamente utilizar la carpeta predeterminada seleccionada por debajo. Sin embargo, puede instalar el mod directamente en la carpeta del juego (\'Sid Meier\'s Civilization IV Beyond the Sword\Beyond the Sword\Mods\').</string>
+  <string name="FINISH">El lanzador está instalado. En el primer lanzamiento, detectará si el mod está presente en el directorio. Si no es así, sólo sigue el procedimiento de instalación.</string>
+  <string name="RUN">Iniciar el lanzador mod</string>
+  <string name="SHORTCUT">Crear acceso directo del escritorio</string>
+  <string name="MSVC10">No está instalado Microsoft Visual C++ Redist 2013. Descargar e instalar ahora. Espera...</string>
+  <string name="MSVC13">No está instalado Microsoft Visual C++ 2010 Redist. Descargar e instalar ahora. Espera...</string>
+</resources>

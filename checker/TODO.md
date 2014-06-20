@@ -48,29 +48,41 @@ DONE -> Update main window infos after update;
 
 ## 0.11
 ### Features
-
-- Autocheck svn state from error message.
-- Option: Default update behavior: Replace all files by more recent / Keep local files.
-
-## 1.0
-### Features
-- Menu dropdown for revision modification in option box
-- Dev tools : XML translation export / import (changes only)
-
-- Fix binaries packaging launching from launcher
+DONE -> Link to the translation platform
+DONE -> Make the launcher translatable
+DONE -> Improve installer
+DONE -> Code a new svn installer separated from the launcher
+DONE -> Reimplement clean and revert function
+DONE -> Reorganized code
 
 ### Bugfix
+DONE -> Fix menus not clickable at start
+DONE -> Fix delay when starting the component manager
+DONE -> Fixed cache not working
 
+## 0.12
+- Reimplement addon installer
+- Add option for bluemarble
+
+## 0.13
+- Autocheck svn state from error message.
+- Choose the merge possibilities (--accept tc / etc.)
+- Use XML to better layout changes
 
 ## 2.0
 ### Features
-- Integrate git into the launcher
+
+- Fix binaries packaging launching from launcher
 - Create a borderless window with metro style
 
 # Features pending
 
+- Integrate git into the launcher
 - Download a compressed version the first time, then update it (save bandwidth).
 - Integrate a git workflow
+
+# Bugfixes pending
+As soon as I started the game for the first time, I got the yellow button "Update available" but there are of course no updates. It happened only once. I'll see if I can reproduce it.
 
 # Notes
 ## Dev tools
@@ -88,7 +100,7 @@ DONE -> Update main window infos after update;
 
 ## Release process
 - Compile executable
-- Put the executable in release_files/ and compile the NSIS installer in installer/
+- Put the executable in release_files/, change the version number in NSIS script and compile the NSIS installer in installer/
 - Upload the installer file
 - Put the modified files in a packed update file
 - Upload the update pack

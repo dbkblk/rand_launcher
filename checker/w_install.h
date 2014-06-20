@@ -1,0 +1,28 @@
+#ifndef W_INSTALL_H
+#define W_INSTALL_H
+
+#include "ui_w_install.h"
+#include "updatebox.h"
+#include <QtCore>
+#include <QtWidgets>
+
+void restartLauncher();
+
+class w_install : public QDialog {
+
+    Q_OBJECT
+
+public :
+    explicit w_install(QDialog *parent = 0);
+
+public slots:
+    void on_buttonBox_accepted();
+    void on_buttonBox_rejected();
+
+private:
+    Ui::w_install *ui;
+    updatebox *inst_view;
+
+};
+
+#endif // W_INSTALL_H

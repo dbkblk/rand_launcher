@@ -1,7 +1,9 @@
 #include "updatebox.h"
 #include "ui_updatebox.h"
-#include "mainwindow.h"
-#include "civ_functions.h"
+#include "w_main.h"
+#include "f_civ.h"
+#include "f_svn.h"
+
 #include <QDir>
 #include <QFile>
 #include <QBoxLayout>
@@ -41,7 +43,7 @@ updatebox::~updatebox()
     delete ui;
 }
 
-void updatebox::execute(QString command, bool &cursorUp)
+void updatebox::execute(QString command)
 {
     QFile::remove(process_file);
     process_file_pos = 0;
@@ -64,6 +66,10 @@ void updatebox::appendOutput()
       {
           emit updated();
       }
+      if(line.contains("svn: E"))
+      {
+          QMessageBox::critical(this,"An error has occured",line);
+      }
   }
 
 
@@ -82,10 +88,6 @@ void updatebox::executeFinished()
 {
   process_timer.stop();
   appendOutput();
-  if(cursorUp) {
-      ui->consoleOutput->moveCursor(QTextCursor::Start);
-      cursorUp = NULL;
-  }
   QFile::remove(process_file);
   svnLocalInfo();
 
@@ -115,7 +117,7 @@ void updatebox::changelogMode()
     ui->lb_askupdate->hide();
     ui->bt_update->hide();
     ui->lb_changelog->setGeometry(20,10,230,20);
-    ui->lb_changelog->setText("Changelog (last 10 revisions) :");
+    ui->lb_changelog->setText(tr("Changelog (last 10 revisions) :"));
     bt_chglog_close->show();
     connect(bt_chglog_close,SIGNAL(clicked()),this,SLOT(close()));
 }
@@ -123,7 +125,7 @@ void updatebox::changelogMode()
 void updatebox::updateMode()
 {
     // Layout update
-    this->setWindowTitle("Updating mod ...");
+    this->setWindowTitle(tr("Updating mod ..."));
     ui->consoleOutput->clear();
     ui->consoleOutput->setReadOnly(1);
     ui->consoleOutput->setGeometry(20,40,460,340);
@@ -131,13 +133,13 @@ void updatebox::updateMode()
     ui->bt_update->hide();
     bt_chglog_close->hide();
     ui->lb_changelog->setGeometry(20,10,230,20);
-    ui->lb_changelog->setText("Updating process :");
+    ui->lb_changelog->setText(tr("Updating process :"));
 }
 
 void updatebox::installMode()
 {
     // Layout update
-    this->setWindowTitle("Installation");
+    this->setWindowTitle(tr("Installation"));
     ui->consoleOutput->clear();
     ui->consoleOutput->setReadOnly(1);
     ui->consoleOutput->setGeometry(20,40,460,340);
@@ -145,30 +147,29 @@ void updatebox::installMode()
     ui->bt_update->hide();
     bt_chglog_close->show();
     ui->lb_changelog->setGeometry(20,10,230,20);
-    ui->lb_changelog->setText("Download mod files. Please be patient...");
+    ui->lb_changelog->setText(tr("Download mod files. Please be patient..."));
 }
 
 void updatebox::addonsMode()
 {
     // Layout update
-    this->setWindowTitle("Components setup");
+    this->setWindowTitle(tr("Components setup"));
     ui->consoleOutput->clear();
     ui->consoleOutput->setReadOnly(1);
     ui->consoleOutput->setGeometry(20,40,460,340);
     ui->lb_askupdate->hide();
     ui->bt_update->hide();
     ui->lb_changelog->setGeometry(20,10,230,20);
-    ui->lb_changelog->setText("Installing / updating selected components :");
+    ui->lb_changelog->setText(tr("Installing / updating selected components :"));
     bt_chglog_close->show();
-    bt_chglog_close->setText("Cancel");
+    bt_chglog_close->setText(tr("Cancel"));
     connect(bt_chglog_close,SIGNAL(clicked()),this,SLOT(close()));
 }
 
 void updatebox::on_bt_update_accepted()
 {
     updateMode();
-    bool cursor = false;
-    execute("checker/svn.exe update", cursor);
+    execute("checker/svn.exe update");
     clearCache();
     clearGameOptions();
     bt_chglog_close->show();

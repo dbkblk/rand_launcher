@@ -1,6 +1,8 @@
-#include "mainwindow.h"
-#include "optionbox.h"
-#include <civ_functions.h>
+#include <w_main.h>
+#include <w_options.h>
+#include <f_civ.h>
+#include <w_install.h>
+
 #include <QtCore>
 #include <QtNetwork>
 #include <QtGui>
@@ -23,7 +25,6 @@ int main(int argc, char *argv[])
     #endif
 
     // Check directory from registry
-    QSettings CivRegistry;
     if(readCheckerParam("Main/ExecutablePath") == "error")
     {
         if (b_64BitOpSys == 1)
@@ -45,40 +46,26 @@ int main(int argc, char *argv[])
 
     }
 
-    // Clean directory
-    if(readCheckerParam("Main/CheckerVersion") < "0.9")
+    // Go out of update
+    if(QFile::exists("upd_proc.exe"))
     {
-        QStringList files_remove;
-        QString files;
-        files_remove << "icudt51.dll" << "icuin51.dll" << "icuuc51.dll" << "libeay32.dll" << "libgcc_s_dw2-1.dll" << "libstdc++-6.dll" << "libwinpthread-1.dll" << "Qt5Core.dll" << "Qt5Gui.dll" << "Qt5Network.dll" << "Qt5Widgets.dll" << "ssleay32.dll" << "checker/wget.exe" << "upd_proc.exe";
-
-        foreach(files, files_remove)
-        {
-            qDebug() << "Removing " << files;
-            QFile::remove(files);
-        }
+        clearCache();
+        clearGameOptions();
+        QFile::remove("upd_proc.exe");
     }
-    QFile::remove("upd_proc.exe");
 
     // Check for correct path
 
-    QDir BTS_dir("../../../Beyond the sword");
+    QDir BTS_dir("../../Mods");
     if(!BTS_dir.exists()){
         qDebug() << "Launcher is in a wrong path";
-        QMessageBox::critical(0, "Error", "The launcher isn't in the right directory. It should be either in 'My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn' or in 'Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn'");
+        QMessageBox::critical(0, "Error", QObject::tr("The launcher isn't in the right directory. It should be either in 'My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn' or in 'Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn'"));
         return 1;
     }
 
-    // Default settings
-    if(readCheckerParam("Main/CheckerAutoUpdate") == "error")
-    {
-        qDebug() << "Default behavior : Launcher auto-update enabled";
-        setCheckerParam("Main/CheckerAutoUpdate","1");
-    }
-
     // Start the GUI
-    MainWindow w;
-    installBox install;
+    w_main w;
+    w_install install;
 
 /*    // Cleanup update output
 
@@ -94,9 +81,15 @@ int main(int argc, char *argv[])
     // Check for installation
 
     QDir svn_dir(".svn");
+    QDir assets_dir("Assets/");
     if(!svn_dir.exists()){
         qDebug() << "Directory .svn not found";
         install.show();
+
+    }
+    else if(!assets_dir.exists()){
+        qDebug() << "Directory .svn not found";
+        install.on_buttonBox_accepted();
 
     }
     else {

@@ -9,10 +9,15 @@ lib_packbinaries/release/
 lib_packbinaries/debug/
 updater/release/
 updater/debug/
+svn736_files/
 *.pro.user
 Makefile*
 *.debug
 *.release
 *.7z
+*.qm
+AND2_CHECKER_VX.X.7z
+AND2_installer.exe
 PrepareRelease.bat
 
+checker/lang/tx.exe

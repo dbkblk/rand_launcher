@@ -1,6 +1,8 @@
 #ifndef UPDATEBOX_H
 #define UPDATEBOX_H
 
+#include "f_svn.h"
+
 #include <QWidget>
 #include <QMainWindow>
 #include <QString>
@@ -23,7 +25,7 @@ class updatebox : public QMainWindow
 public:
     explicit updatebox(QWidget *parent = 0);
     ~updatebox();
-    void execute(QString command, bool &cursorUp);
+    void execute(QString command);
     void appendText(QString text);
     void changelogMode();
     void updateMode();
@@ -50,7 +52,6 @@ signals:
 
 private:
     Ui::updatebox *ui;
-    bool* cursorUp;
     QProcess process;
     QTimer process_timer;
     QString process_file;

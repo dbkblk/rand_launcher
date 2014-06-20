@@ -40,6 +40,8 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(updatebox->sizePolicy().hasHeightForWidth());
         updatebox->setSizePolicy(sizePolicy);
+        updatebox->setWindowTitle(QStringLiteral("Form"));
+        updatebox->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         bt_update = new QDialogButtonBox(updatebox);
         bt_update->setObjectName(QStringLiteral("bt_update"));
         bt_update->setGeometry(QRect(280, 60, 156, 23));
@@ -62,9 +64,9 @@ public:
 
     void retranslateUi(QWidget *updatebox)
     {
-        updatebox->setWindowTitle(QApplication::translate("updatebox", "Form", 0));
         lb_changelog->setText(QApplication::translate("updatebox", "Changelog :", 0));
         lb_askupdate->setText(QApplication::translate("updatebox", "There is an update available. Do you want to update ?", 0));
+        Q_UNUSED(updatebox);
     } // retranslateUi
 
 };

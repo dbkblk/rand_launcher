@@ -29,9 +29,11 @@ public:
         if (Form->objectName().isEmpty())
             Form->setObjectName(QStringLiteral("Form"));
         Form->resize(150, 50);
+        Form->setWindowTitle(QStringLiteral("Form"));
         label = new QLabel(Form);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(15, 12, 121, 31));
+        label->setText(QStringLiteral("Downloading"));
 
         retranslateUi(Form);
 
@@ -40,8 +42,7 @@ public:
 
     void retranslateUi(QWidget *Form)
     {
-        Form->setWindowTitle(QApplication::translate("Form", "Form", 0));
-        label->setText(QApplication::translate("Form", "Downloading", 0));
+        Q_UNUSED(Form);
     } // retranslateUi
 
 };
