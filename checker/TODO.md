@@ -54,6 +54,7 @@ DONE -> Improve installer
 DONE -> Code a new svn installer separated from the launcher
 DONE -> Reimplement clean and revert function
 DONE -> Reorganized code
+DONE -> Add option for bluemarble
 
 ### Bugfix
 DONE -> Fix menus not clickable at start
@@ -62,12 +63,11 @@ DONE -> Fixed cache not working
 
 ## 0.12
 - Reimplement addon installer
-- Add option for bluemarble
+- Choose the merge possibilities (--accept tc / etc.)
+- Use XML to better layout changes
 
 ## 0.13
 - Autocheck svn state from error message.
-- Choose the merge possibilities (--accept tc / etc.)
-- Use XML to better layout changes
 
 ## 2.0
 ### Features

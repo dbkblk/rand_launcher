@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
     // Check for installation
 
     QDir svn_dir(".svn");
-    QDir assets_dir("Assets/");
+    QDir assets_dir("Assets");
     if(!svn_dir.exists()){
         qDebug() << "Directory .svn not found";
         install.show();
