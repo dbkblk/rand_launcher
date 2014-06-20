@@ -20,6 +20,7 @@ public:
     void execute(QString command);
     void appendText(QString text);
     void addonInstaller(QString name, QString link);
+    void svn_install();
 
 signals:
     void finished();

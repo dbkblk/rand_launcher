@@ -1,8 +1,9 @@
 #include "updatebox.h"
 #include "ui_updatebox.h"
-#include "mainwindow.h"
-#include "civ_functions.h"
-#include "svn_functions.h"
+#include "w_main.h"
+#include "f_civ.h"
+#include "f_svn.h"
+
 #include <QDir>
 #include <QFile>
 #include <QBoxLayout>
@@ -42,7 +43,7 @@ updatebox::~updatebox()
     delete ui;
 }
 
-void updatebox::execute(QString command, bool &cursorUp)
+void updatebox::execute(QString command)
 {
     QFile::remove(process_file);
     process_file_pos = 0;
@@ -87,10 +88,6 @@ void updatebox::executeFinished()
 {
   process_timer.stop();
   appendOutput();
-  if(cursorUp) {
-      ui->consoleOutput->moveCursor(QTextCursor::Start);
-      cursorUp = NULL;
-  }
   QFile::remove(process_file);
   svnLocalInfo();
 
@@ -172,8 +169,7 @@ void updatebox::addonsMode()
 void updatebox::on_bt_update_accepted()
 {
     updateMode();
-    bool cursor = false;
-    execute("checker/svn.exe update", cursor);
+    execute("checker/svn.exe update");
     clearCache();
     clearGameOptions();
     bt_chglog_close->show();

@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'optionbox.ui'
+** Form generated from reading UI file 'w_options.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.3.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_OPTIONBOX_H
-#define UI_OPTIONBOX_H
+#ifndef UI_W_OPTIONS_H
+#define UI_W_OPTIONS_H
 
 #include <QtCore/QLocale>
 #include <QtCore/QVariant>
@@ -27,7 +27,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_optionBox
+class Ui_w_options
 {
 public:
     QWidget *verticalLayoutWidget;
@@ -46,26 +46,23 @@ public:
     QLabel *lb_modconf_2;
     QCheckBox *checkerBox;
     QCheckBox *startBox;
-    QHBoxLayout *horizontalLayout_3;
-    QCheckBox *opt_checkbox_autoupdate;
-    QPushButton *opt_bt_chklauncher;
 
-    void setupUi(QWidget *optionBox)
+    void setupUi(QWidget *w_options)
     {
-        if (optionBox->objectName().isEmpty())
-            optionBox->setObjectName(QStringLiteral("optionBox"));
-        optionBox->setWindowModality(Qt::WindowModal);
-        optionBox->resize(450, 300);
+        if (w_options->objectName().isEmpty())
+            w_options->setObjectName(QStringLiteral("w_options"));
+        w_options->setWindowModality(Qt::WindowModal);
+        w_options->resize(450, 300);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(optionBox->sizePolicy().hasHeightForWidth());
-        optionBox->setSizePolicy(sizePolicy);
-        optionBox->setMinimumSize(QSize(450, 300));
-        optionBox->setMaximumSize(QSize(450, 300));
-        optionBox->setFocusPolicy(Qt::StrongFocus);
-        optionBox->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
-        verticalLayoutWidget = new QWidget(optionBox);
+        sizePolicy.setHeightForWidth(w_options->sizePolicy().hasHeightForWidth());
+        w_options->setSizePolicy(sizePolicy);
+        w_options->setMinimumSize(QSize(450, 300));
+        w_options->setMaximumSize(QSize(450, 300));
+        w_options->setFocusPolicy(Qt::StrongFocus);
+        w_options->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
+        verticalLayoutWidget = new QWidget(w_options);
         verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
         verticalLayoutWidget->setGeometry(QRect(9, 13, 431, 278));
         verticalLayout_4 = new QVBoxLayout(verticalLayoutWidget);
@@ -155,64 +152,43 @@ public:
 
         verticalLayout_4->addWidget(startBox);
 
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        opt_checkbox_autoupdate = new QCheckBox(verticalLayoutWidget);
-        opt_checkbox_autoupdate->setObjectName(QStringLiteral("opt_checkbox_autoupdate"));
 
-        horizontalLayout_3->addWidget(opt_checkbox_autoupdate);
+        retranslateUi(w_options);
 
-        opt_bt_chklauncher = new QPushButton(verticalLayoutWidget);
-        opt_bt_chklauncher->setObjectName(QStringLiteral("opt_bt_chklauncher"));
-        sizePolicy1.setHeightForWidth(opt_bt_chklauncher->sizePolicy().hasHeightForWidth());
-        opt_bt_chklauncher->setSizePolicy(sizePolicy1);
-        opt_bt_chklauncher->setMinimumSize(QSize(175, 25));
-        opt_bt_chklauncher->setMaximumSize(QSize(150, 16777215));
-
-        horizontalLayout_3->addWidget(opt_bt_chklauncher);
-
-
-        verticalLayout_4->addLayout(horizontalLayout_3);
-
-
-        retranslateUi(optionBox);
-
-        QMetaObject::connectSlotsByName(optionBox);
+        QMetaObject::connectSlotsByName(w_options);
     } // setupUi
 
-    void retranslateUi(QWidget *optionBox)
+    void retranslateUi(QWidget *w_options)
     {
-        optionBox->setWindowTitle(QApplication::translate("optionBox", "Options", 0));
-        lb_modconf->setText(QApplication::translate("optionBox", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Mod configuration :</span></p></body></html>", 0));
-        opt_checkbox_formations->setText(QApplication::translate("optionBox", "Enable formations (more graphical units)", 0));
-        opt_checkbox_bluemarble->setText(QApplication::translate("optionBox", "Enable Blue Marble (alternative terrain graphics)", 0));
-        lb_intcolor->setText(QApplication::translate("optionBox", "Interface color :", 0));
+        w_options->setWindowTitle(QApplication::translate("w_options", "Options", 0));
+        lb_modconf->setText(QApplication::translate("w_options", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Mod configuration :</span></p></body></html>", 0));
+        opt_checkbox_formations->setText(QApplication::translate("w_options", "Enable formations (more graphical units)", 0));
+        opt_checkbox_bluemarble->setText(QApplication::translate("w_options", "Enable Blue Marble (alternative terrain graphics)", 0));
+        lb_intcolor->setText(QApplication::translate("w_options", "Interface color :", 0));
         colorBox->clear();
         colorBox->insertItems(0, QStringList()
-         << QApplication::translate("optionBox", "Black", 0)
-         << QApplication::translate("optionBox", "Coal", 0)
-         << QApplication::translate("optionBox", "Dark red", 0)
-         << QApplication::translate("optionBox", "Forest", 0)
-         << QApplication::translate("optionBox", "Purple", 0)
-         << QApplication::translate("optionBox", "Red", 0)
-         << QApplication::translate("optionBox", "Silver", 0)
-         << QApplication::translate("optionBox", "Cerulean", 0)
+         << QApplication::translate("w_options", "Black", 0)
+         << QApplication::translate("w_options", "Coal", 0)
+         << QApplication::translate("w_options", "Dark red", 0)
+         << QApplication::translate("w_options", "Forest", 0)
+         << QApplication::translate("w_options", "Purple", 0)
+         << QApplication::translate("w_options", "Red", 0)
+         << QApplication::translate("w_options", "Silver", 0)
+         << QApplication::translate("w_options", "Cerulean", 0)
         );
-        label->setText(QApplication::translate("optionBox", "Game path :", 0));
-        opt_bt_path->setText(QApplication::translate("optionBox", "Select game path", 0));
-        lb_modconf_2->setText(QApplication::translate("optionBox", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Launcher configuration :</span></p></body></html>", 0));
-        checkerBox->setText(QApplication::translate("optionBox", "Close the launcher when game start", 0));
-        startBox->setText(QApplication::translate("optionBox", "Autostart the mod with the game", 0));
-        opt_checkbox_autoupdate->setText(QApplication::translate("optionBox", "Automatically update the launcher", 0));
-        opt_bt_chklauncher->setText(QApplication::translate("optionBox", "Check for launcher update", 0));
+        label->setText(QApplication::translate("w_options", "Game path :", 0));
+        opt_bt_path->setText(QApplication::translate("w_options", "Select game path", 0));
+        lb_modconf_2->setText(QApplication::translate("w_options", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Launcher configuration :</span></p></body></html>", 0));
+        checkerBox->setText(QApplication::translate("w_options", "Close the launcher when game start", 0));
+        startBox->setText(QApplication::translate("w_options", "Autostart the mod with the game", 0));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class optionBox: public Ui_optionBox {};
+    class w_options: public Ui_w_options {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_OPTIONBOX_H
+#endif // UI_W_OPTIONS_H

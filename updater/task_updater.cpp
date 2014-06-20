@@ -9,12 +9,14 @@ task_updater::task_updater(QWidget *parent) :
     ui(new Ui::task_updater)
 {
     ui->setupUi(this);
+    ui->label->setText(tr("Updating the game:"));
 
     connect(this,SIGNAL(finished()),this,SLOT(restartLauncher()));
 }
 
 task_updater::~task_updater()
 {
+    QProcess::execute("taskkill /f /im svn.exe");
     delete ui;
 }
 
@@ -31,7 +33,6 @@ QString task_updater::svn_update(int current_revision, int output_revision)
         head = "HEAD";
     }
     // Set interface unlocker
-    ui->label->setText(tr("Updating the game:"));
     QTimer wait_timer;
     QEventLoop wait_install;
     wait_timer.setInterval(1000);
@@ -62,13 +63,26 @@ QString task_updater::svn_update(int current_revision, int output_revision)
             for(file_entry;!file_entry.isNull();file_entry = file_entry.nextSiblingElement())
             {
                 file_value = file_entry.firstChild().nodeValue();
-                if(file_entry.attribute("action") == "M" || file_entry.attribute("action") == "A")
+                if(output_revision == 0 || output_revision > current_revision)
                 {
-                    if(file_value.contains("/Trunk/Rise of Mankind - A New Dawn/"))
+                    if(file_entry.attribute("action") == "M" || file_entry.attribute("action") == "A")
                     {
-                        file_list << file_value;
+                        if(file_value.contains("/Trunk/Rise of Mankind - A New Dawn/"))
+                        {
+                            file_list << file_value;
+                        }
                     }
                 }
+                else{
+                    if(file_entry.attribute("action") == "D")
+                    {
+                        if(file_value.contains("/Trunk/Rise of Mankind - A New Dawn/"))
+                        {
+                            file_list << file_value;
+                        }
+                    }
+                }
+
             }
         }
 
@@ -129,9 +143,11 @@ void task_updater::appendOutput()
         QString text = file.readLine();
         ui->console_output->insertPlainText(text);
         ui->console_output->moveCursor(QTextCursor::End);
-        progress++;
-        //qDebug() << progress;
-        ui->progressBar->setValue(progress);
+        if(text.startsWith("A ") || text.startsWith("U ") )
+        {
+            progress++;
+            ui->progressBar->setValue(progress);
+        }
     }
     process_file_pos = file.pos();
   }
@@ -169,4 +185,12 @@ void task_updater::restartLauncher()
 void task_updater::addonInstaller(QString name, QString link)
 {
 
+}
+
+void task_updater::svn_install()
+{
+    ui->label->setText(tr("Please be patient during the installation:"));
+    initialize();
+    ui->progressBar->hide();
+    execute("checker/svn.exe checkout \"svn://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\" .");
 }

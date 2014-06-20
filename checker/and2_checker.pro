@@ -14,31 +14,33 @@ TEMPLATE = app
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp \
-    civ_functions.cpp \
-    optionbox.cpp \
     updatebox.cpp \
-    updatemanager.cpp \
-    lib/packbinaries.cpp \
-    modules.cpp \
-    svn_functions.cpp
+    f_check.cpp \
+    f_civ.cpp \
+    w_main.cpp \
+    w_modules.cpp \
+    w_options.cpp \
+    f_svn.cpp \
+    lib/f_binaries.cpp \
+    w_install.cpp
 
 HEADERS += \
-    mainwindow.h \
-    civ_functions.h \
-    optionbox.h \
     updatebox.h \
-    updatemanager.h \
-    lib/packbinaries.h \
-    modules.h \
-    svn_functions.h
+    f_check.h \
+    f_civ.h \
+    f_svn.h \
+    w_main.h \
+    w_modules.h \
+    w_options.h \
+    lib/f_binaries.h \
+    w_install.h
 
-FORMS    += mainwindow.ui \
-    installBox.ui \
-    optionbox.ui \
+FORMS    += \
     updatebox.ui \
-    updatemanager.ui \
-    modules.ui
+    w_main.ui \
+    w_modules.ui \
+    w_options.ui \
+    w_install.ui
 
 RC_FILE = icon.rc
 

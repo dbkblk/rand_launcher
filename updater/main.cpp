@@ -1,4 +1,3 @@
-#include "updater.h"
 #include "task_updater.h"
 #include "QCoreApplication"
 #include <QApplication>
@@ -14,7 +13,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     task_updater *w = new task_updater();
 
-    if(argc > 2)
+    if(argc > 1)
     {
         QString arg1 = argv[1];
         QString arg2 = argv[2];
@@ -30,10 +29,13 @@ int main(int argc, char *argv[])
             {
                 w->svn_update(arg2.toInt(), 0);
             }
-
+        }
+        else if(arg1 == "install")
+        {
+            w->show();
+            w->svn_install();
         }
     }
-
 
     return a.exec();
 }

@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'mainwindow.ui'
+** Form generated from reading UI file 'w_main.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.3.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_MAINWINDOW_H
-#define UI_MAINWINDOW_H
+#ifndef UI_W_MAIN_H
+#define UI_W_MAIN_H
 
 #include <QtCore/QLocale>
 #include <QtCore/QVariant>
@@ -27,7 +27,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_MainWindow
+class Ui_w_main
 {
 public:
     QAction *actionExit;
@@ -55,6 +55,7 @@ public:
     QAction *actionClean_up;
     QAction *actionRevert_to_an_older_revision;
     QAction *actionAddon_Blue_marble;
+    QAction *actionClear_cache;
     QWidget *centralWidget;
     QLabel *lb_versions;
     QWidget *horizontalLayoutWidget;
@@ -75,77 +76,79 @@ public:
     QMenu *menuDevelopment_tools;
     QMenu *menuLanguage;
 
-    void setupUi(QMainWindow *MainWindow)
+    void setupUi(QMainWindow *w_main)
     {
-        if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->setWindowModality(Qt::WindowModal);
-        MainWindow->resize(600, 300);
+        if (w_main->objectName().isEmpty())
+            w_main->setObjectName(QStringLiteral("w_main"));
+        w_main->setWindowModality(Qt::WindowModal);
+        w_main->resize(600, 300);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
-        MainWindow->setSizePolicy(sizePolicy);
-        MainWindow->setMinimumSize(QSize(600, 300));
-        MainWindow->setMaximumSize(QSize(600, 300));
-        MainWindow->setFocusPolicy(Qt::StrongFocus);
-        MainWindow->setWindowTitle(QStringLiteral("MainWindow"));
-        MainWindow->setStyleSheet(QStringLiteral(""));
-        MainWindow->setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom));
-        MainWindow->setAnimated(false);
-        MainWindow->setUnifiedTitleAndToolBarOnMac(true);
-        actionExit = new QAction(MainWindow);
+        sizePolicy.setHeightForWidth(w_main->sizePolicy().hasHeightForWidth());
+        w_main->setSizePolicy(sizePolicy);
+        w_main->setMinimumSize(QSize(600, 300));
+        w_main->setMaximumSize(QSize(600, 300));
+        w_main->setFocusPolicy(Qt::StrongFocus);
+        w_main->setWindowTitle(QStringLiteral("MainWindow"));
+        w_main->setStyleSheet(QStringLiteral(""));
+        w_main->setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom));
+        w_main->setAnimated(false);
+        w_main->setUnifiedTitleAndToolBarOnMac(true);
+        actionExit = new QAction(w_main);
         actionExit->setObjectName(QStringLiteral("actionExit"));
         actionExit->setMenuRole(QAction::QuitRole);
-        actionForum = new QAction(MainWindow);
+        actionForum = new QAction(w_main);
         actionForum->setObjectName(QStringLiteral("actionForum"));
-        actionAddon_Mega_Civ_Pack = new QAction(MainWindow);
+        actionAddon_Mega_Civ_Pack = new QAction(w_main);
         actionAddon_Mega_Civ_Pack->setObjectName(QStringLiteral("actionAddon_Mega_Civ_Pack"));
-        actionBugreport = new QAction(MainWindow);
+        actionBugreport = new QAction(w_main);
         actionBugreport->setObjectName(QStringLiteral("actionBugreport"));
-        actionAbout_AND_Resurrection_team_forum = new QAction(MainWindow);
+        actionAbout_AND_Resurrection_team_forum = new QAction(w_main);
         actionAbout_AND_Resurrection_team_forum->setObjectName(QStringLiteral("actionAbout_AND_Resurrection_team_forum"));
-        actionAddon_More_music_forum = new QAction(MainWindow);
+        actionAddon_More_music_forum = new QAction(w_main);
         actionAddon_More_music_forum->setObjectName(QStringLiteral("actionAddon_More_music_forum"));
-        actionOpen_mod_folder = new QAction(MainWindow);
+        actionOpen_mod_folder = new QAction(w_main);
         actionOpen_mod_folder->setObjectName(QStringLiteral("actionOpen_mod_folder"));
-        actionGit_Pack_binaries = new QAction(MainWindow);
+        actionGit_Pack_binaries = new QAction(w_main);
         actionGit_Pack_binaries->setObjectName(QStringLiteral("actionGit_Pack_binaries"));
-        actionGit_Create_update_binary_pack = new QAction(MainWindow);
+        actionGit_Create_update_binary_pack = new QAction(w_main);
         actionGit_Create_update_binary_pack->setObjectName(QStringLiteral("actionGit_Create_update_binary_pack"));
-        actionHelp_translate_the_mod = new QAction(MainWindow);
+        actionHelp_translate_the_mod = new QAction(w_main);
         actionHelp_translate_the_mod->setObjectName(QStringLiteral("actionHelp_translate_the_mod"));
-        actionTranslate_the_mod_help = new QAction(MainWindow);
+        actionTranslate_the_mod_help = new QAction(w_main);
         actionTranslate_the_mod_help->setObjectName(QStringLiteral("actionTranslate_the_mod_help"));
-        actionTranslate_the_launcher = new QAction(MainWindow);
+        actionTranslate_the_launcher = new QAction(w_main);
         actionTranslate_the_launcher->setObjectName(QStringLiteral("actionTranslate_the_launcher"));
-        languageEnglish = new QAction(MainWindow);
+        languageEnglish = new QAction(w_main);
         languageEnglish->setObjectName(QStringLiteral("languageEnglish"));
-        languageFrench = new QAction(MainWindow);
+        languageFrench = new QAction(w_main);
         languageFrench->setObjectName(QStringLiteral("languageFrench"));
-        languageSinhala = new QAction(MainWindow);
+        languageSinhala = new QAction(w_main);
         languageSinhala->setObjectName(QStringLiteral("languageSinhala"));
-        languageHungarian = new QAction(MainWindow);
+        languageHungarian = new QAction(w_main);
         languageHungarian->setObjectName(QStringLiteral("languageHungarian"));
-        languageFinnish = new QAction(MainWindow);
+        languageFinnish = new QAction(w_main);
         languageFinnish->setObjectName(QStringLiteral("languageFinnish"));
-        languagePolish = new QAction(MainWindow);
+        languagePolish = new QAction(w_main);
         languagePolish->setObjectName(QStringLiteral("languagePolish"));
-        languageItalian = new QAction(MainWindow);
+        languageItalian = new QAction(w_main);
         languageItalian->setObjectName(QStringLiteral("languageItalian"));
-        languageSpanish = new QAction(MainWindow);
+        languageSpanish = new QAction(w_main);
         languageSpanish->setObjectName(QStringLiteral("languageSpanish"));
-        languageGerman = new QAction(MainWindow);
+        languageGerman = new QAction(w_main);
         languageGerman->setObjectName(QStringLiteral("languageGerman"));
-        languageRussian = new QAction(MainWindow);
+        languageRussian = new QAction(w_main);
         languageRussian->setObjectName(QStringLiteral("languageRussian"));
-        actionClean_up = new QAction(MainWindow);
+        actionClean_up = new QAction(w_main);
         actionClean_up->setObjectName(QStringLiteral("actionClean_up"));
-        actionRevert_to_an_older_revision = new QAction(MainWindow);
+        actionRevert_to_an_older_revision = new QAction(w_main);
         actionRevert_to_an_older_revision->setObjectName(QStringLiteral("actionRevert_to_an_older_revision"));
-        actionAddon_Blue_marble = new QAction(MainWindow);
+        actionAddon_Blue_marble = new QAction(w_main);
         actionAddon_Blue_marble->setObjectName(QStringLiteral("actionAddon_Blue_marble"));
-        centralWidget = new QWidget(MainWindow);
+        actionClear_cache = new QAction(w_main);
+        actionClear_cache->setObjectName(QStringLiteral("actionClear_cache"));
+        centralWidget = new QWidget(w_main);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setStyleSheet(QStringLiteral(""));
         lb_versions = new QLabel(centralWidget);
@@ -217,8 +220,8 @@ public:
 
         horizontalLayout->addLayout(verticalLayout_2);
 
-        MainWindow->setCentralWidget(centralWidget);
-        menuBar = new QMenuBar(MainWindow);
+        w_main->setCentralWidget(centralWidget);
+        menuBar = new QMenuBar(w_main);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setEnabled(true);
         menuBar->setGeometry(QRect(0, 0, 600, 21));
@@ -238,7 +241,7 @@ public:
         menuDevelopment_tools->setEnabled(false);
         menuLanguage = new QMenu(menuBar);
         menuLanguage->setObjectName(QStringLiteral("menuLanguage"));
-        MainWindow->setMenuBar(menuBar);
+        w_main->setMenuBar(menuBar);
 
         menuBar->addAction(menuMenu->menuAction());
         menuBar->addAction(menuLanguage->menuAction());
@@ -248,6 +251,7 @@ public:
         menuMenu->addAction(menuFix_installation->menuAction());
         menuMenu->addAction(actionExit);
         menuFix_installation->addAction(actionClean_up);
+        menuFix_installation->addAction(actionClear_cache);
         menuFix_installation->addAction(actionRevert_to_an_older_revision);
         menuCommunity->addAction(actionForum);
         menuCommunity->addAction(actionBugreport);
@@ -272,59 +276,60 @@ public:
         menuLanguage->addAction(languageSinhala);
         menuLanguage->addAction(languageSpanish);
 
-        retranslateUi(MainWindow);
+        retranslateUi(w_main);
 
-        QMetaObject::connectSlotsByName(MainWindow);
+        QMetaObject::connectSlotsByName(w_main);
     } // setupUi
 
-    void retranslateUi(QMainWindow *MainWindow)
+    void retranslateUi(QMainWindow *w_main)
     {
-        actionExit->setText(QApplication::translate("MainWindow", "Exit", 0));
-        actionForum->setText(QApplication::translate("MainWindow", "Forum", 0));
-        actionAddon_Mega_Civ_Pack->setText(QApplication::translate("MainWindow", "Addon \"Mega Civ Pack\" (forum)", 0));
-        actionBugreport->setText(QApplication::translate("MainWindow", "Bugreport (forum)", 0));
-        actionAbout_AND_Resurrection_team_forum->setText(QApplication::translate("MainWindow", "About AND Resurrection team (forum)", 0));
+        actionExit->setText(QApplication::translate("w_main", "Exit", 0));
+        actionForum->setText(QApplication::translate("w_main", "Forum", 0));
+        actionAddon_Mega_Civ_Pack->setText(QApplication::translate("w_main", "Addon \"Mega Civ Pack\" (forum)", 0));
+        actionBugreport->setText(QApplication::translate("w_main", "Bugreport (forum)", 0));
+        actionAbout_AND_Resurrection_team_forum->setText(QApplication::translate("w_main", "About AND Resurrection team (forum)", 0));
 #ifndef QT_NO_TOOLTIP
-        actionAbout_AND_Resurrection_team_forum->setToolTip(QApplication::translate("MainWindow", "About AND Resurrection team (forum)", 0));
+        actionAbout_AND_Resurrection_team_forum->setToolTip(QApplication::translate("w_main", "About AND Resurrection team (forum)", 0));
 #endif // QT_NO_TOOLTIP
-        actionAddon_More_music_forum->setText(QApplication::translate("MainWindow", "Addon \"More music / More handicaps / Dinosaurs\" (forum)", 0));
-        actionOpen_mod_folder->setText(QApplication::translate("MainWindow", "Open mod folder", 0));
-        actionGit_Pack_binaries->setText(QApplication::translate("MainWindow", "Git: Create binary pack", 0));
-        actionGit_Create_update_binary_pack->setText(QApplication::translate("MainWindow", "Git: Create update binary pack", 0));
-        actionHelp_translate_the_mod->setText(QApplication::translate("MainWindow", "Translate the mod", 0));
-        actionTranslate_the_mod_help->setText(QApplication::translate("MainWindow", "Help for translation (forum)", 0));
-        actionTranslate_the_launcher->setText(QApplication::translate("MainWindow", "Translate the launcher", 0));
-        languageEnglish->setText(QApplication::translate("MainWindow", "English", 0));
-        languageFrench->setText(QApplication::translate("MainWindow", "French", 0));
-        languageSinhala->setText(QApplication::translate("MainWindow", "Sinhala", 0));
-        languageHungarian->setText(QApplication::translate("MainWindow", "Hungarian", 0));
-        languageFinnish->setText(QApplication::translate("MainWindow", "Finnish", 0));
-        languagePolish->setText(QApplication::translate("MainWindow", "Polish", 0));
-        languageItalian->setText(QApplication::translate("MainWindow", "Italian", 0));
-        languageSpanish->setText(QApplication::translate("MainWindow", "Spanish", 0));
-        languageGerman->setText(QApplication::translate("MainWindow", "German", 0));
-        languageRussian->setText(QApplication::translate("MainWindow", "Russian", 0));
-        actionClean_up->setText(QApplication::translate("MainWindow", "Clean up", 0));
-        actionRevert_to_an_older_revision->setText(QApplication::translate("MainWindow", "Revert to an older revision...", 0));
-        actionAddon_Blue_marble->setText(QApplication::translate("MainWindow", "Addon \"Blue marble\"", 0));
-        bt_launch->setText(QApplication::translate("MainWindow", "Launch Civilization IV", 0));
-        bt_components->setText(QApplication::translate("MainWindow", "Manage modules", 0));
-        bt_option->setText(QApplication::translate("MainWindow", "Options", 0));
-        menuMenu->setTitle(QApplication::translate("MainWindow", "Menu", 0));
-        menuFix_installation->setTitle(QApplication::translate("MainWindow", "Fix installation", 0));
-        menuCommunity->setTitle(QApplication::translate("MainWindow", "Community", 0));
-        menuTools->setTitle(QApplication::translate("MainWindow", "Help us to improve the mod !", 0));
-        menuDevelopment_tools->setTitle(QApplication::translate("MainWindow", "Development tools", 0));
-        menuLanguage->setTitle(QApplication::translate("MainWindow", "Language", 0));
-        Q_UNUSED(MainWindow);
+        actionAddon_More_music_forum->setText(QApplication::translate("w_main", "Addon \"More music / More handicaps / Dinosaurs\" (forum)", 0));
+        actionOpen_mod_folder->setText(QApplication::translate("w_main", "Open mod folder", 0));
+        actionGit_Pack_binaries->setText(QApplication::translate("w_main", "Git: Create binary pack", 0));
+        actionGit_Create_update_binary_pack->setText(QApplication::translate("w_main", "Git: Create update binary pack", 0));
+        actionHelp_translate_the_mod->setText(QApplication::translate("w_main", "Translate the mod", 0));
+        actionTranslate_the_mod_help->setText(QApplication::translate("w_main", "Help for translation (forum)", 0));
+        actionTranslate_the_launcher->setText(QApplication::translate("w_main", "Translate the launcher", 0));
+        languageEnglish->setText(QApplication::translate("w_main", "English", 0));
+        languageFrench->setText(QApplication::translate("w_main", "French", 0));
+        languageSinhala->setText(QApplication::translate("w_main", "Sinhala", 0));
+        languageHungarian->setText(QApplication::translate("w_main", "Hungarian", 0));
+        languageFinnish->setText(QApplication::translate("w_main", "Finnish", 0));
+        languagePolish->setText(QApplication::translate("w_main", "Polish", 0));
+        languageItalian->setText(QApplication::translate("w_main", "Italian", 0));
+        languageSpanish->setText(QApplication::translate("w_main", "Spanish", 0));
+        languageGerman->setText(QApplication::translate("w_main", "German", 0));
+        languageRussian->setText(QApplication::translate("w_main", "Russian", 0));
+        actionClean_up->setText(QApplication::translate("w_main", "Clean up", 0));
+        actionRevert_to_an_older_revision->setText(QApplication::translate("w_main", "Revert to an older revision...", 0));
+        actionAddon_Blue_marble->setText(QApplication::translate("w_main", "Addon \"Blue marble\"", 0));
+        actionClear_cache->setText(QApplication::translate("w_main", "Clear cache", 0));
+        bt_launch->setText(QApplication::translate("w_main", "Launch Civilization IV", 0));
+        bt_components->setText(QApplication::translate("w_main", "Manage modules", 0));
+        bt_option->setText(QApplication::translate("w_main", "Options", 0));
+        menuMenu->setTitle(QApplication::translate("w_main", "Menu", 0));
+        menuFix_installation->setTitle(QApplication::translate("w_main", "Fix installation", 0));
+        menuCommunity->setTitle(QApplication::translate("w_main", "Community", 0));
+        menuTools->setTitle(QApplication::translate("w_main", "Help us to improve the mod !", 0));
+        menuDevelopment_tools->setTitle(QApplication::translate("w_main", "Development tools", 0));
+        menuLanguage->setTitle(QApplication::translate("w_main", "Language", 0));
+        Q_UNUSED(w_main);
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class MainWindow: public Ui_MainWindow {};
+    class w_main: public Ui_w_main {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_MAINWINDOW_H
+#endif // UI_W_MAIN_H

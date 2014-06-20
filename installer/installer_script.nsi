@@ -35,7 +35,10 @@ FunctionEnd
 ;Variables
 ;--------------------------------
   Var StartMenuFolder
-
+  
+Section Size
+AddSize 3200000
+SectionEnd
 
 ; Layout
 ;--------------------------------
@@ -77,6 +80,7 @@ FunctionEnd
 ;--------------------------------
 !insertmacro MUI_LANGUAGE "English"
 !insertmacro MUI_LANGUAGE "French"
+!insertmacro MUI_LANGUAGE "Italian"
 !insertmacro MUI_LANGUAGE "Sinhala"
 !insertmacro MUI_LANGUAGE "Spanish"
 
@@ -97,6 +101,17 @@ LangString RUN ${LANG_ENGLISH} "Start the mod launcher"
 LangString SHORTCUT ${LANG_ENGLISH} "Create Desktop Shortcut"
 LangString MSVC10 ${LANG_ENGLISH} "Microsoft Visual C++ 2013 Redist is not installed. Downloading and installing now. Please wait..."
 LangString MSVC13 ${LANG_ENGLISH} "Microsoft Visual C++ 2010 Redist is not installed. Downloading and installing now. Please wait..."
+
+; Italian
+
+LangString WELCOME_TITLE ${LANG_ITALIAN} "Civilization IV: A New Dawn Expansion pack"
+LangString WELCOME ${LANG_ITALIAN} "Versione Launcher: ${VERSION}\n\nQuesta configurazione guidata vi guiderà attraverso l'installazione di Civilization IV: A New Dawn.\n\nVerrà installato il mod in 'My Documents\My Games\Beyond the Sword\Mods' di default. \nSi creerà un collegamento (opzionale) per il lanciatore mod, che verrà utilizzato per facilmente scaricare, aggiornare o configurare l'installazione mod.\n\nAttenzione: Qualsiasi installazione esistente mod è compatibile. Tuttavia, se avete i file modded, potrebbe essere sovrascritto su aggiornamento mod."
+LangString DIRECTORY ${LANG_ITALIAN} "Verrà installato il pacchetto di espansione nella seguente cartella. $\nInstallarlo in una cartella diversa, fare clic su 'Sfoglia...' e selezionare un'altra cartella. $\n$\nNOTA: è consigliabile utilizzare la cartella predefinita selezionata di seguito. Tuttavia, si può scegliere di installare il mod direttamente nella cartella del gioco ('Sid Meier\'s Civilization IV Beyond the Sword\Beyond the Sword\Mods')."
+LangString FINISH ${LANG_ITALIAN} "Il lanciatore è ora installato. Il primo avvio, rileva se la mod è presente nella directory. Se non lo è, basta seguire la procedura di installazione."
+LangString RUN ${LANG_ITALIAN} "Avviare il launcher mod"
+LangString SHORTCUT ${LANG_ITALIAN} "Creare il collegamento sul Desktop"
+LangString MSVC10 ${LANG_ITALIAN} "Non è installato Microsoft Visual C++ 2013 Redist. Scaricare e installare ora. Attendere prego..."
+LangString MSVC13 ${LANG_ITALIAN} "Non è installato Microsoft Visual C++ 2010 Redist. Scaricare e installare ora. Attendere prego..."
 
 ; French
 

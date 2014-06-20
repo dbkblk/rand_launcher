@@ -53,10 +53,12 @@ DONE -> Make the launcher translatable
 DONE -> Improve installer
 DONE -> Code a new svn installer separated from the launcher
 DONE -> Reimplement clean and revert function
+DONE -> Reorganized code
 
 ### Bugfix
 DONE -> Fix menus not clickable at start
 DONE -> Fix delay when starting the component manager
+DONE -> Fixed cache not working
 
 ## 0.12
 - Reimplement addon installer

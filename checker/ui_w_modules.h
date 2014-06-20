@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'modules.ui'
+** Form generated from reading UI file 'w_modules.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.3.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_MODULES_H
-#define UI_MODULES_H
+#ifndef UI_W_MODULES_H
+#define UI_W_MODULES_H
 
 #include <QtCore/QLocale>
 #include <QtCore/QVariant>
@@ -27,7 +27,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_modules
+class Ui_w_modules
 {
 public:
     QWidget *centralwidget;
@@ -42,12 +42,12 @@ public:
     QPushButton *bt_update;
     QPushButton *bt_remove;
 
-    void setupUi(QMainWindow *modules)
+    void setupUi(QMainWindow *w_modules)
     {
-        if (modules->objectName().isEmpty())
-            modules->setObjectName(QStringLiteral("modules"));
-        modules->resize(600, 300);
-        centralwidget = new QWidget(modules);
+        if (w_modules->objectName().isEmpty())
+            w_modules->setObjectName(QStringLiteral("w_modules"));
+        w_modules->resize(600, 300);
+        centralwidget = new QWidget(w_modules);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         horizontalLayout = new QHBoxLayout(centralwidget);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
@@ -132,26 +132,26 @@ public:
 
         horizontalLayout->addLayout(verticalLayout);
 
-        modules->setCentralWidget(centralwidget);
+        w_modules->setCentralWidget(centralwidget);
 
-        retranslateUi(modules);
+        retranslateUi(w_modules);
 
-        QMetaObject::connectSlotsByName(modules);
+        QMetaObject::connectSlotsByName(w_modules);
     } // setupUi
 
-    void retranslateUi(QMainWindow *modules)
+    void retranslateUi(QMainWindow *w_modules)
     {
-        modules->setWindowTitle(QApplication::translate("modules", "MainWindow", 0));
+        w_modules->setWindowTitle(QApplication::translate("w_modules", "MainWindow", 0));
         QTreeWidgetItem *___qtreewidgetitem = tree_list->headerItem();
-        ___qtreewidgetitem->setText(0, QApplication::translate("modules", "Components", 0));
+        ___qtreewidgetitem->setText(0, QApplication::translate("w_modules", "Components", 0));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class modules: public Ui_modules {};
+    class w_modules: public Ui_w_modules {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_MODULES_H
+#endif // UI_W_MODULES_H

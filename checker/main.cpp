@@ -1,6 +1,8 @@
-#include "mainwindow.h"
-#include "optionbox.h"
-#include <civ_functions.h>
+#include <w_main.h>
+#include <w_options.h>
+#include <f_civ.h>
+#include <w_install.h>
+
 #include <QtCore>
 #include <QtNetwork>
 #include <QtGui>
@@ -61,16 +63,9 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // Default settings
-    if(readCheckerParam("Main/CheckerAutoUpdate") == "error")
-    {
-        qDebug() << "Default behavior : Launcher auto-update enabled";
-        setCheckerParam("Main/CheckerAutoUpdate","1");
-    }
-
     // Start the GUI
-    MainWindow w;
-    installBox install;
+    w_main w;
+    w_install install;
 
 /*    // Cleanup update output
 
@@ -86,9 +81,15 @@ int main(int argc, char *argv[])
     // Check for installation
 
     QDir svn_dir(".svn");
+    QDir assets_dir("Assets/");
     if(!svn_dir.exists()){
         qDebug() << "Directory .svn not found";
         install.show();
+
+    }
+    else if(!assets_dir.exists()){
+        qDebug() << "Directory .svn not found";
+        install.on_buttonBox_accepted();
 
     }
     else {

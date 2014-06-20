@@ -13,14 +13,12 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        updater.cpp \
     task_updater.cpp
 
-HEADERS  += updater.h \
+HEADERS  += \
     task_updater.h
 
 FORMS += \
-    form.ui \
     task_updater.ui
 
 RC_FILE = icon.rc
