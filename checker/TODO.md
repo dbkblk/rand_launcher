@@ -62,11 +62,12 @@ DONE -> Fix delay when starting the component manager
 DONE -> Fixed cache not working
 
 ## 0.12
-- Reimplement addon installer
+DONE -> Save the language state
 - Choose the merge possibilities (--accept tc / etc.)
 - Use XML to better layout changes
 
 ## 0.13
+- Reimplement addon installer
 - Autocheck svn state from error message.
 
 ## 2.0

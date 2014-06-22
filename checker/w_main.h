@@ -79,6 +79,8 @@ private slots:
 
     void on_actionClear_cache_triggered();
 
+    void on_languagePolish_triggered();
+
 private:
     Ui::w_main *ui;
     updatebox *ubox;
