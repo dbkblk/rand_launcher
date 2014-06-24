@@ -19,8 +19,6 @@ w_modules::w_modules(QWidget *parent) :
     core->setText(0, tr("Core mod"));
     addons = new QTreeWidgetItem(ui->tree_list);
     addons->setText(0, tr("Addons"));
-    add_blue_marble = new QTreeWidgetItem(addons);
-    add_blue_marble->setText(0, "Blue marble");
     add_mega_civ_pack = new QTreeWidgetItem(addons);
     add_mega_civ_pack->setText(0, tr("Mega civ pack"));
     add_more_music = new QTreeWidgetItem(addons);
@@ -52,11 +50,6 @@ void w_modules::on_tree_list_itemClicked()
             ui->bt_update->setText(tr("Update:") + "\n" + readCheckerParam("Update/DistantRev"));
             ui->bt_update->show();
         }
-    }
-    if(add_blue_marble->isSelected())
-    {
-        QString description = "BM Description";
-        moduleInterface(check_addon_mcp(),description);
     }
     if(add_mega_civ_pack->isSelected())
     {

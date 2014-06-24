@@ -64,10 +64,12 @@ DONE -> Fixed cache not working
 ## 0.12
 DONE -> Save the language state
 - Choose the merge possibilities (--accept tc / etc.)
-- Use XML to better layout changes
+DONE -> Use XML to better layout changes
 
 ## 0.13
 - Reimplement addon installer
+
+## 0.14
 - Autocheck svn state from error message.
 
 ## 2.0

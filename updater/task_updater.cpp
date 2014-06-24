@@ -97,7 +97,7 @@ QString task_updater::svn_update(int current_revision, int output_revision)
     ui->progressBar->setRange(0,counter);
     if(output_revision > 0)
     {
-        execute(QString("checker/svn.exe update -r %1 --non-interactive --accept tc").arg(output_revision));
+        execute(QString("checker/svn.exe update -r %1 --non-interactive --accept tf").arg(output_revision));
     }
     else{
         execute("checker/svn.exe update --non-interactive --accept tf");
