@@ -469,7 +469,7 @@ void w_main::on_actionRevert_to_an_older_revision_triggered()
     {
         if(dial_rev.toInt() < 737)
         {
-            QMessageBox::critical(this,"Warning","The launcher has been introduced in revision 737. If you revert to an older revision, it will removed (you can reinstall it with the install link on the forum).");
+            QMessageBox::critical(this,tr("Warning"),tr("The launcher has been introduced in revision 737. If you revert to an older revision, it will removed (you can reinstall it with the install link on the forum)."));
         }
         QFile::copy("checker/upd_proc.exe","upd_proc.exe");
         QProcess updater;
@@ -481,5 +481,5 @@ void w_main::on_actionRevert_to_an_older_revision_triggered()
 void w_main::on_actionClear_cache_triggered()
 {
     clearCache();
-    QMessageBox::information(this,"Cache","The cache is now cleared. NOTE: It is already automatically cleared on update.");
+    QMessageBox::information(this,tr("Cache"),tr("The cache is now cleared. NOTE: It is already automatically cleared on update."));
 }

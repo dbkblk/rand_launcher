@@ -95,12 +95,17 @@ QString task_updater::svn_update(int current_revision, int output_revision)
 
     // Set progress bar
     ui->progressBar->setRange(0,counter);
+
+    QString behavior = "tf";
+    behavior = readCheckerParam("Main/UpdateBehavior");
+    qDebug() << "Update behavior is set to " << behavior;
+
     if(output_revision > 0)
     {
-        execute(QString("checker/svn.exe update -r %1 --non-interactive --accept tf").arg(output_revision));
+        execute(QString("checker/svn.exe update -r %1 --non-interactive --accept %2").arg(output_revision).arg(behavior));
     }
     else{
-        execute("checker/svn.exe update --non-interactive --accept tf");
+        execute(QString("checker/svn.exe update --non-interactive --accept %1").arg(behavior));
     }
 
 
@@ -193,4 +198,14 @@ void task_updater::svn_install()
     initialize();
     ui->progressBar->hide();
     execute("checker/svn.exe checkout \"svn://svn.code.sf.net/p/anewdawn/code/Trunk/Rise of Mankind - A New Dawn\" .");
+}
+
+QString readCheckerParam(QString param)
+{
+    QSettings settings("checker/checker_config.ini", QSettings::IniFormat);
+    if(!settings.contains(param)) {
+        return "error";
+    }
+    QString value = settings.value(param).toString();
+    return value;
 }

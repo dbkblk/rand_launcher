@@ -82,7 +82,7 @@
       <item>
        <widget class="QLabel" name="lb_intcolor">
         <property name="text">
-         <string>Interface color :</string>
+         <string>Interface color:</string>
         </property>
        </widget>
       </item>
@@ -149,7 +149,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Game path :</string>
+         <string>Game path:</string>
         </property>
        </widget>
       </item>
@@ -241,6 +241,43 @@
        <string>Autostart the mod with the game</string>
       </property>
      </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="lb_behavior">
+        <property name="text">
+         <string>Behavior on update:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="opt_updateBehavior">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>175</width>
+          <height>25</height>
+         </size>
+        </property>
+        <item>
+         <property name="text">
+          <string>Use new files (default)</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Keep local changes</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>

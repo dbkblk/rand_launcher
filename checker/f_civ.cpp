@@ -70,19 +70,16 @@ QString readConfigParam(QString param)
     }
     file_in.close();
 
-    //qDebug() << value;
     return value;
 }
 
 QString readCheckerParam(QString param)
 {
     QSettings settings("checker/checker_config.ini", QSettings::IniFormat);
-    //qDebug() << settings.status();
     if(!settings.contains(param)) {
         return "error";
     }
     QString value = settings.value(param).toString();
-    //qDebug() << "Checker parameter set to " << settings.value(param);
     return value;
 }
 
