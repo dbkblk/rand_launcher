@@ -18,6 +18,7 @@ Makefile*
 *.qm
 AND2_CHECKER_VX.X.7z
 AND2_installer.exe
+AND2_full_installer.exe
 PrepareRelease.bat
 
 checker/lang/tx.exe

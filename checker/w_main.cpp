@@ -26,7 +26,15 @@ w_main::w_main(QWidget *parent) :
 
     // Translations
     translator = new QTranslator(this);
-    QString loc = QLocale::system().name().section('_', 0, 0);
+    QString loc;
+    if(readCheckerParam("Main/Lang") == "error")
+    {
+        loc = QLocale::system().name().section('_', 0, 0);
+    }
+    else
+    {
+        loc = readCheckerParam("Main/Lang");
+    }
     qDebug() << "Language used: " << loc;
     translator->load(QString("launcher_" + loc + ".qm"),"checker/lang/");
     qApp->installTranslator(translator);
@@ -380,54 +388,70 @@ void w_main::on_actionGit_Create_update_binary_pack_triggered()
 void w_main::on_languageEnglish_triggered()
 {
     translator->load(QString("launcher.qm"),"checker/lang/");
+    setCheckerParam("Main/Lang","en");
     ui->retranslateUi(this);
 }
 
 void w_main::on_languageFrench_triggered()
 {
     translator->load(QString("launcher_fr.qm"),"checker/lang/");
+    setCheckerParam("Main/Lang","fr");
     ui->retranslateUi(this);
 }
 
 void w_main::on_languageSinhala_triggered()
 {
     translator->load(QString("launcher_si.qm"),"checker/lang/");
+    setCheckerParam("Main/Lang","si");
     ui->retranslateUi(this);
 }
 
 void w_main::on_languageHungarian_triggered()
 {
     translator->load(QString("launcher_hu.qm"),"checker/lang/");
+    setCheckerParam("Main/Lang","hu");
     ui->retranslateUi(this);
 }
 
 void w_main::on_languageFinnish_triggered()
 {
-    translator->load(QString("launcher_pl.qm"),"checker/lang/");
+    translator->load(QString("launcher_fi.qm"),"checker/lang/");
+    setCheckerParam("Main/Lang","fi");
     ui->retranslateUi(this);
 }
 
 void w_main::on_languageItalian_triggered()
 {
     translator->load(QString("launcher_it.qm"),"checker/lang/");
+    setCheckerParam("Main/Lang","it");
     ui->retranslateUi(this);
 }
 
 void w_main::on_languageSpanish_triggered()
 {
     translator->load(QString("launcher_es.qm"),"checker/lang/");
+    setCheckerParam("Main/Lang","es");
     ui->retranslateUi(this);
 }
 
 void w_main::on_languageGerman_triggered()
 {
     translator->load(QString("launcher_de.qm"),"checker/lang/");
+    setCheckerParam("Main/Lang","de");
+    ui->retranslateUi(this);
+}
+
+void w_main::on_languagePolish_triggered()
+{
+    translator->load(QString("launcher_pl.qm"),"checker/lang/");
+    setCheckerParam("Main/Lang","pl");
     ui->retranslateUi(this);
 }
 
 void w_main::on_languageRussian_triggered()
 {
     translator->load(QString("launcher_ru.qm"),"checker/lang/");
+    setCheckerParam("Main/Lang","ru");
     ui->retranslateUi(this);
 }
 
@@ -445,7 +469,7 @@ void w_main::on_actionRevert_to_an_older_revision_triggered()
     {
         if(dial_rev.toInt() < 737)
         {
-            QMessageBox::critical(this,"Warning","The launcher has been introduced in revision 737. If you revert to an older revision, it will removed (you can reinstall it with the install link on the forum).");
+            QMessageBox::critical(this,tr("Warning"),tr("The launcher has been introduced in revision 737. If you revert to an older revision, it will removed (you can reinstall it with the install link on the forum)."));
         }
         QFile::copy("checker/upd_proc.exe","upd_proc.exe");
         QProcess updater;
@@ -457,5 +481,5 @@ void w_main::on_actionRevert_to_an_older_revision_triggered()
 void w_main::on_actionClear_cache_triggered()
 {
     clearCache();
-    QMessageBox::information(this,"Cache","The cache is now cleared. NOTE: It is already automatically cleared on update.");
+    QMessageBox::information(this,tr("Cache"),tr("The cache is now cleared. NOTE: It is already automatically cleared on update."));
 }

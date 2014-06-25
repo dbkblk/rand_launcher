@@ -31,7 +31,6 @@ private:
     qint64 process_file_pos;
     QTreeWidgetItem *core;
     QTreeWidgetItem *addons;
-    QTreeWidgetItem *add_blue_marble;
     QTreeWidgetItem *add_mega_civ_pack;
     QTreeWidgetItem *add_more_music;
     QTreeWidgetItem *add_more_handicaps;

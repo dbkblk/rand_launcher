@@ -46,6 +46,9 @@ public:
     QLabel *lb_modconf_2;
     QCheckBox *checkerBox;
     QCheckBox *startBox;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *lb_behavior;
+    QComboBox *opt_updateBehavior;
 
     void setupUi(QWidget *w_options)
     {
@@ -152,6 +155,24 @@ public:
 
         verticalLayout_4->addWidget(startBox);
 
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        lb_behavior = new QLabel(verticalLayoutWidget);
+        lb_behavior->setObjectName(QStringLiteral("lb_behavior"));
+
+        horizontalLayout_3->addWidget(lb_behavior);
+
+        opt_updateBehavior = new QComboBox(verticalLayoutWidget);
+        opt_updateBehavior->setObjectName(QStringLiteral("opt_updateBehavior"));
+        sizePolicy1.setHeightForWidth(opt_updateBehavior->sizePolicy().hasHeightForWidth());
+        opt_updateBehavior->setSizePolicy(sizePolicy1);
+        opt_updateBehavior->setMinimumSize(QSize(175, 25));
+
+        horizontalLayout_3->addWidget(opt_updateBehavior);
+
+
+        verticalLayout_4->addLayout(horizontalLayout_3);
+
 
         retranslateUi(w_options);
 
@@ -164,7 +185,7 @@ public:
         lb_modconf->setText(QApplication::translate("w_options", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Mod configuration :</span></p></body></html>", 0));
         opt_checkbox_formations->setText(QApplication::translate("w_options", "Enable formations (more graphical units)", 0));
         opt_checkbox_bluemarble->setText(QApplication::translate("w_options", "Enable Blue Marble (alternative terrain graphics)", 0));
-        lb_intcolor->setText(QApplication::translate("w_options", "Interface color :", 0));
+        lb_intcolor->setText(QApplication::translate("w_options", "Interface color:", 0));
         colorBox->clear();
         colorBox->insertItems(0, QStringList()
          << QApplication::translate("w_options", "Black", 0)
@@ -176,11 +197,17 @@ public:
          << QApplication::translate("w_options", "Silver", 0)
          << QApplication::translate("w_options", "Cerulean", 0)
         );
-        label->setText(QApplication::translate("w_options", "Game path :", 0));
+        label->setText(QApplication::translate("w_options", "Game path:", 0));
         opt_bt_path->setText(QApplication::translate("w_options", "Select game path", 0));
         lb_modconf_2->setText(QApplication::translate("w_options", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Launcher configuration :</span></p></body></html>", 0));
         checkerBox->setText(QApplication::translate("w_options", "Close the launcher when game start", 0));
         startBox->setText(QApplication::translate("w_options", "Autostart the mod with the game", 0));
+        lb_behavior->setText(QApplication::translate("w_options", "Behavior on update:", 0));
+        opt_updateBehavior->clear();
+        opt_updateBehavior->insertItems(0, QStringList()
+         << QApplication::translate("w_options", "Use new files (default)", 0)
+         << QApplication::translate("w_options", "Keep local changes", 0)
+        );
     } // retranslateUi
 
 };

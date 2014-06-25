@@ -8,6 +8,8 @@ namespace Ui {
 class task_updater;
 }
 
+QString readCheckerParam(QString param);
+
 class task_updater : public QMainWindow
 {
     Q_OBJECT

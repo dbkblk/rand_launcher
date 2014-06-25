@@ -318,7 +318,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="192"/>
+        <location filename="../../updater/task_updater.cpp" line="197"/>
         <source>Please be patient during the installation:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -778,126 +778,146 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="129"/>
+        <location filename="../w_main.cpp" line="137"/>
         <source>Check for update</source>
         <translation type="unfinished">නවීකරණය පරික්ෂා  කරන්න </translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="139"/>
+        <location filename="../w_main.cpp" line="147"/>
         <source>Update available !</source>
         <translation type="unfinished">නවීකරණයක් පවතී </translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="209"/>
+        <location filename="../w_main.cpp" line="217"/>
         <source>To be able to launch the game from the launcher, you need to set the game path in the options window. (Options &gt; Select game path)</source>
         <translation type="unfinished">දියත් කිරීමෙහි සිට ක්‍රීඩා දියත් කිරීම සදහා ,ඔබට ක්‍රීඩා මාර්ගය වින්ඩෝස් විකල්ප වල සකස් කළ යුතුය (විකල්ප&gt;ක්‍රීඩා මාර්ග තෝරන්න )</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="252"/>
+        <location filename="../w_main.cpp" line="260"/>
         <source>Pack base binaries</source>
         <translation type="unfinished">දිවිත්ව පාදම ඇසුරුම </translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="264"/>
+        <location filename="../w_main.cpp" line="272"/>
         <source>Packing base files</source>
         <translation type="unfinished">ද්විත්ව  පාදම ගොණු </translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="264"/>
-        <location filename="../w_main.cpp" line="318"/>
+        <location filename="../w_main.cpp" line="272"/>
+        <location filename="../w_main.cpp" line="326"/>
         <source>this might take up to 10 min</source>
         <translation type="unfinished">මෙය විනාඩි 10ක් තුළ ගත හැක </translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="264"/>
-        <location filename="../w_main.cpp" line="322"/>
+        <location filename="../w_main.cpp" line="272"/>
+        <location filename="../w_main.cpp" line="330"/>
         <source>Listing files</source>
         <translation type="unfinished">ගොණු වට්ටෝරු ගත කිරීම </translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="272"/>
-        <location filename="../w_main.cpp" line="277"/>
-        <location filename="../w_main.cpp" line="282"/>
-        <location filename="../w_main.cpp" line="289"/>
-        <location filename="../w_main.cpp" line="322"/>
-        <location filename="../w_main.cpp" line="331"/>
-        <location filename="../w_main.cpp" line="337"/>
+        <location filename="../w_main.cpp" line="280"/>
+        <location filename="../w_main.cpp" line="285"/>
+        <location filename="../w_main.cpp" line="290"/>
+        <location filename="../w_main.cpp" line="297"/>
+        <location filename="../w_main.cpp" line="330"/>
+        <location filename="../w_main.cpp" line="339"/>
         <location filename="../w_main.cpp" line="345"/>
-        <location filename="../w_main.cpp" line="352"/>
-        <location filename="../w_main.cpp" line="359"/>
-        <location filename="../w_main.cpp" line="366"/>
+        <location filename="../w_main.cpp" line="353"/>
+        <location filename="../w_main.cpp" line="360"/>
+        <location filename="../w_main.cpp" line="367"/>
         <location filename="../w_main.cpp" line="374"/>
+        <location filename="../w_main.cpp" line="382"/>
         <source>OK</source>
         <translation type="unfinished">අනුමතයි </translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="272"/>
-        <location filename="../w_main.cpp" line="331"/>
+        <location filename="../w_main.cpp" line="280"/>
+        <location filename="../w_main.cpp" line="339"/>
         <source>Generating hash file</source>
         <translation type="unfinished">කැබලි ගොණු උත්පාදනය </translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="277"/>
-        <location filename="../w_main.cpp" line="359"/>
+        <location filename="../w_main.cpp" line="285"/>
+        <location filename="../w_main.cpp" line="367"/>
         <source>Gathering files</source>
         <translation type="unfinished">ගොණු එකතු කිරීම </translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="282"/>
-        <location filename="../w_main.cpp" line="366"/>
+        <location filename="../w_main.cpp" line="290"/>
+        <location filename="../w_main.cpp" line="374"/>
         <source>Compressing files</source>
         <translation type="unfinished">ගොණු සම්පීඩනය</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="289"/>
-        <location filename="../w_main.cpp" line="374"/>
+        <location filename="../w_main.cpp" line="297"/>
+        <location filename="../w_main.cpp" line="382"/>
         <source>Cleaning folder</source>
         <translation type="unfinished">ගොණු පිරිසිදු කිරීම </translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="289"/>
+        <location filename="../w_main.cpp" line="297"/>
         <source>Operation finished. The binaries have been packed in %1 and their checksums are listed in %2</source>
         <translation type="unfinished">ක්‍රියාවලිය අවසන්ය .ද්විත්ව ගොණු 1% අහුලන ලද අතර එහි අවෙක්ෂා එකතුව 2% ලෙස ගොණු ගත කර ඇත </translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="306"/>
+        <location filename="../w_main.cpp" line="314"/>
         <source>Pack update binaries</source>
         <translation type="unfinished">ද්විත්ව නවිකරණ ඇසුරුම්</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="318"/>
+        <location filename="../w_main.cpp" line="326"/>
         <source>Packing update files</source>
         <translation type="unfinished">නවිකරණ ගොණු ඇසුරුම් </translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="337"/>
+        <location filename="../w_main.cpp" line="345"/>
         <source>Comparing base and update hashs</source>
         <translation type="unfinished">පාඩම සංසන්දනය සහ කැබලි නවීකරණය </translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="345"/>
+        <location filename="../w_main.cpp" line="353"/>
         <source>Checking for new files</source>
         <translation type="unfinished">නව ගොණු පරික්ෂා කිරීම </translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="352"/>
+        <location filename="../w_main.cpp" line="360"/>
         <source>Checking for missing files</source>
         <translation type="unfinished">නැතිවුන ගොණු පරික්ෂාව </translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="374"/>
+        <location filename="../w_main.cpp" line="382"/>
         <source>Operation finished. The updated binaries have been packed in %1 and their checksums are listed in %2</source>
         <translation type="unfinished">ක්‍රියාවලිය අවසන්ය .නවිකරණ ද්විත්ව ගොණු 1% අහුලන ලද අතර එහි අවෙක්ෂා එකතුව 2% ලෙස ගොණු ගත කර ඇත </translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="443"/>
+        <location filename="../w_main.cpp" line="467"/>
         <source>Revision selector</source>
         <translation type="unfinished">පුනරීක්ෂණය තේරීම </translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="443"/>
+        <location filename="../w_main.cpp" line="467"/>
         <source>Please enter the revision you want to revert to :</source>
         <translation type="unfinished">කරුණාකර ඔබට ප්‍රතිවර්තනයට අවශ්‍ය  පුනරීක්ෂණය  සදහන් කරන්න </translation>
+    </message>
+    <message>
+        <location filename="../w_main.cpp" line="472"/>
+        <source>Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_main.cpp" line="472"/>
+        <source>The launcher has been introduced in revision 737. If you revert to an older revision, it will removed (you can reinstall it with the install link on the forum).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_main.cpp" line="484"/>
+        <source>Cache</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_main.cpp" line="484"/>
+        <source>The cache is now cleared. NOTE: It is already automatically cleared on update.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -923,42 +943,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="25"/>
+        <location filename="../w_modules.cpp" line="23"/>
         <source>Mega civ pack</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="27"/>
+        <location filename="../w_modules.cpp" line="25"/>
         <source>More music</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="29"/>
+        <location filename="../w_modules.cpp" line="27"/>
         <source>More handicaps</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="31"/>
+        <location filename="../w_modules.cpp" line="29"/>
         <source>Dinosaurs !</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="47"/>
+        <location filename="../w_modules.cpp" line="45"/>
         <source>Changes:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="52"/>
+        <location filename="../w_modules.cpp" line="50"/>
         <source>Update:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="87"/>
+        <location filename="../w_modules.cpp" line="80"/>
         <source>Description:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="88"/>
+        <location filename="../w_modules.cpp" line="81"/>
         <source>Installed:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -986,9 +1006,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="85"/>
         <source>Interface color :</source>
-        <translation type="unfinished">අතුරැ මුහුණත වර්ණය </translation>
+        <translation type="obsolete">අතුරැ මුහුණත වර්ණය </translation>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="85"/>
+        <source>Interface color:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="105"/>
@@ -1032,8 +1056,27 @@
     </message>
     <message>
         <location filename="../w_options.ui" line="152"/>
+        <source>Game path:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="250"/>
+        <source>Behavior on update:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="270"/>
+        <source>Use new files (default)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="275"/>
+        <source>Keep local changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Game path :</source>
-        <translation type="unfinished">ක්‍රීඩා මග </translation>
+        <translation type="obsolete">ක්‍රීඩා මග </translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="177"/>
@@ -1056,19 +1099,29 @@
         <translation type="unfinished">ස්වයංක්‍රිය ක්‍රීඩාවෙහි මොඩ් අරඹන්න </translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="52"/>
+        <location filename="../w_options.cpp" line="45"/>
         <source>No path specified</source>
         <translation type="unfinished">නිරූපිත මාර්ගයක් නොමැත </translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="132"/>
+        <location filename="../w_options.cpp" line="125"/>
         <source>The game path has been changed</source>
         <translation type="unfinished">ක්‍රීඩා මග වෙනස් වී ඇත </translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="136"/>
+        <location filename="../w_options.cpp" line="129"/>
         <source>No game path specified.</source>
         <translation type="unfinished">නිරූපිත ක්‍රීඩා මගක් නොමැත </translation>
+    </message>
+    <message>
+        <location filename="../w_options.cpp" line="170"/>
+        <source>Warning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_options.cpp" line="170"/>
+        <source>This option allow you to keep locally edited mod files on update. However, if there is an update of your edited file, be warned that it will not be erased but the mod will still be updated and thus, this can introduce bugs or unwilled behaviors.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
