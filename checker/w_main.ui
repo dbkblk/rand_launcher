@@ -227,8 +227,8 @@
      <property name="title">
       <string>Fix installation</string>
      </property>
-     <addaction name="actionClean_up"/>
      <addaction name="actionClear_cache"/>
+     <addaction name="actionClean_up"/>
      <addaction name="actionRevert_to_an_older_revision"/>
     </widget>
     <addaction name="actionOpen_mod_folder"/>
@@ -406,7 +406,7 @@
   </action>
   <action name="actionClean_up">
    <property name="text">
-    <string>Clean up</string>
+    <string>Restore default state</string>
    </property>
   </action>
   <action name="actionRevert_to_an_older_revision">

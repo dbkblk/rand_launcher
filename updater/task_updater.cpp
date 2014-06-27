@@ -22,6 +22,12 @@ task_updater::~task_updater()
 
 QString task_updater::svn_update(int current_revision, int output_revision)
 {
+    // Clean up before initialization
+    QProcess clean;
+    clean.start("checker/svn.exe cleanup");
+    clean.waitForFinished(-1);
+
+    // Begin updater process
     initialize();
     QString head;
     if(output_revision > 0)
@@ -163,6 +169,8 @@ void task_updater::executeFinished()
 {
   process_timer.stop();
   appendOutput();
+  QFile::remove("checker/updater.log");
+  QFile::copy(process_file,"checker/updater.log");
   QFile::remove(process_file);
 
   emit finished();

@@ -21,8 +21,6 @@ public slots:
 
 private:
     Ui::w_install *ui;
-    updatebox *inst_view;
-
 };
 
 #endif // W_INSTALL_H

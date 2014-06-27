@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'w_main.ui'
 **
-** Created by: Qt User Interface Compiler version 5.3.0
+** Created by: Qt User Interface Compiler version 5.3.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -250,8 +250,8 @@ public:
         menuMenu->addAction(actionOpen_mod_folder);
         menuMenu->addAction(menuFix_installation->menuAction());
         menuMenu->addAction(actionExit);
-        menuFix_installation->addAction(actionClean_up);
         menuFix_installation->addAction(actionClear_cache);
+        menuFix_installation->addAction(actionClean_up);
         menuFix_installation->addAction(actionRevert_to_an_older_revision);
         menuCommunity->addAction(actionForum);
         menuCommunity->addAction(actionBugreport);
@@ -308,7 +308,7 @@ public:
         languageSpanish->setText(QApplication::translate("w_main", "Spanish", 0));
         languageGerman->setText(QApplication::translate("w_main", "German", 0));
         languageRussian->setText(QApplication::translate("w_main", "Russian", 0));
-        actionClean_up->setText(QApplication::translate("w_main", "Clean up", 0));
+        actionClean_up->setText(QApplication::translate("w_main", "Restore default state", 0));
         actionRevert_to_an_older_revision->setText(QApplication::translate("w_main", "Revert to an older revision...", 0));
         actionAddon_Blue_marble->setText(QApplication::translate("w_main", "Addon \"Blue marble\"", 0));
         actionClear_cache->setText(QApplication::translate("w_main", "Clear cache", 0));

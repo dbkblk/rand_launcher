@@ -11,7 +11,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = upd_proc
 TEMPLATE = app
 
-
 SOURCES += main.cpp\
     task_updater.cpp
 

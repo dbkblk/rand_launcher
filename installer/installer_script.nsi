@@ -35,10 +35,6 @@ FunctionEnd
 ;Variables
 ;--------------------------------
   Var StartMenuFolder
-  
-Section Size
-AddSize 3200000
-SectionEnd
 
 ; Layout
 ;--------------------------------
@@ -55,7 +51,6 @@ SectionEnd
 !define MUI_FINISHPAGE_TITLE "Civilization IV - A New Dawn"
 !define MUI_FINISHPAGE_TEXT $(FINISH)
 !define MUI_FINISHPAGE_NOAUTOCLOSE
-!define MUI_PAGE_CUSTOMFUNCTION_PRE MSVC
 !define MUI_FINISHPAGE_RUN_CHECKED
 !define MUI_FINISHPAGE_RUN "$INSTDIR\and2_checker.exe"
 !define MUI_FINISHPAGE_RUN_TEXT $(RUN)
@@ -67,7 +62,9 @@ SectionEnd
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER "Civilization IV - A New Dawn"
 
 !insertmacro MUI_PAGE_WELCOME
+!insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_DIRECTORY
+RequestExecutionLevel admin
 !insertmacro MUI_PAGE_STARTMENU 0 $StartMenuFolder
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
@@ -127,11 +124,11 @@ LangString MSVC13 ${LANG_FRENCH} "Microsoft Visual C++ 2010 Redist n'est pas ins
 ; Sinhala
 
 LangString WELCOME_TITLE ${LANG_SINHALA} "4 වන ශිෂ්ටාචාරය : නව අවධියක උදාව"
-LangString WELCOME ${LANG_SINHALA} "විහිදුවා හරින සංස්කරණය:${VERSION}\nමෙම පිහිටුවීම් ක්‍රමය 4 වන ශිෂ්ධාචාරය ස්ථාපනයට උපදෙස් සපයයි : නව උදාවක් \nමොඩ් ස්ථාපනය කළ  යුත්තේ \'මගේ ලියවිලි/මගේ ක්‍රීඩා /කඩු වලට ඔබ්බට ගිය /මොඩ් මුල් ආකාරයෙන් \nඑය මොඩ් දියත් කිරීමට කෙටි මාර්ගයක් සපයයි ,එය පහසුවෙන් භාගත කිරීමට උපකාරී වේ.\nමොඩ් ස්ථානගත කිරීම නවීකරණය හෝ පිළියෙළ කිරීම . \nඅවවාදයයි :පවත්නා ඕනෑම මොඩ් ස්ථාපනයක් අනුකුල වේ .ඔබ සතුව මොඩ් ගොණු තිබේනම් ඒවා නවිකරණ හෝ නැවත ලිවිම කළ යුතුය ."
-LangString DIRECTORY ${LANG_SINHALA} "පරිස්ථිතිය පුළුල් ලෙස පවතින ගොනුවෙහි ස්ථාපනය කළ යුතුය.$\nඑය වෙනස් ගොනුවක ස්ථාපනය කිරීමට ,විමසීම ක්ලික් කර වෙනත් ගොනුවක් තොර ගත යුතුය$\n$\nසටහන :එය වෙනත් ගොනුවක තොර ගැනීම ඉහල ලෙස නිර්දේශ කෙරේ .කෙසේ වෙතත් ඔබට මොඩ් ඍජු ලෙසම  ක්‍රීඩා ගොනුවෙහි ස්ථානගත කළ හැක.(\'සිඩ් මෙයිරස් 4 වන ශිෂ්ටාචාරය අසිපත් වලින් එපිටට \ සිපත් වලින් එපිටට\මොඩ්ස්\')."
-LangString FINISH ${LANG_SINHALA} "දැන් දියත් කිරීම ස්ථාපිතයි .පළමු දියත් කිරීමේදී ,මොඩ් නාමාවලියෙහි පවතින බව මෙහිදී  අනාවරණය කරයි , නොඑසේනම්  ස්ථානගත කිරිමේ ක්‍රියාමාර්ගය අනුගමනය කළ යුතුය ."
+LangString WELCOME ${LANG_SINHALA} "විහිදුවා හරින සංස්කරණය:${VERSION}\nමෙම පිහිටුවීම් ක්‍රමය 4 වන ශිෂ්ධාචාරය ස්ථාපනයට උපදෙස් සපයයි : නව උදාවක් \nමොඩ් ස්ථාපනය කළ යුත්තේ \'මගේ ලියවිලි/මගේ ක්‍රීඩා /කඩු වලට ඔබ්බට ගිය /මොඩ් මුල් ආකාරයෙන් \nඑය මොඩ් දියත් කිරීමට කෙටි මාර්ගයක් සපයයි ,එය පහසුවෙන් භාගත කිරීමට උපකාරී වේ.\nමොඩ් ස්ථානගත කිරීම නවීකරණය හෝ පිළියෙළ කිරීම . \nඅවවාදයයි :පවත්නා ඕනෑම මොඩ් ස්ථාපනයක් අනුකුල වේ .ඔබ සතුව මොඩ් ගොණු තිබේනම් ඒවා නවිකරණ හෝ නැවත ලිවිම කළ යුතුය ."
+LangString DIRECTORY ${LANG_SINHALA} "පරිස්ථිතිය පුළුල් ලෙස පවතින ගොනුවෙහි ස්ථාපනය කළ යුතුය.$\nඑය වෙනස් ගොනුවක ස්ථාපනය කිරීමට ,විමසීම ක්ලික් කර වෙනත් ගොනුවක් තොර ගත යුතුය$\n$\nසටහන :එය වෙනත් ගොනුවක තොර ගැනීම ඉහල ලෙස නිර්දේශ කෙරේ .කෙසේ වෙතත් ඔබට මොඩ් ඍජු ලෙසම ක්‍රීඩා ගොනුවෙහි ස්ථානගත කළ හැක.(\'සිඩ් මෙයිරස් 4 වන ශිෂ්ටාචාරය අසිපත් වලින් එපිටට \ සිපත් වලින් එපිටට\මොඩ්ස්\')."
+LangString FINISH ${LANG_SINHALA} "දැන් දියත් කිරීම ස්ථාපිතයි .පළමු දියත් කිරීමේදී ,මොඩ් නාමාවලියෙහි පවතින බව මෙහිදී අනාවරණය කරයි , නොඑසේනම් ස්ථානගත කිරිමේ ක්‍රියාමාර්ගය අනුගමනය කළ යුතුය ."
 LangString RUN ${LANG_SINHALA} "මොඩ් දියත් කිරීම අරඹන්න"
-LangString SHORTCUT ${LANG_SINHALA} "මුහුණත කෙටිමාර්ගය සකස්  කරන්න"
+LangString SHORTCUT ${LANG_SINHALA} "මුහුණත කෙටිමාර්ගය සකස් කරන්න"
 LangString MSVC10 ${LANG_SINHALA} "මයික්‍රොසොෆ්ට් විෂුවල් සී ++ 2013 ස්ථානගත කර නොමැත .භාගත කිරීම සහ ස්ථානගත කිරීම සිදු කරන්න . කරුණාකර රැදී සිටින්න ."
 LangString MSVC13 ${LANG_SINHALA} "මයික්‍රොසොෆ්ට් විෂුවල් සී ++ 2010 ස්ථානගත කර නොමැත .භාගත කිරීම සහ ස්ථානගත කිරීම සිදු කරන්න . කරුණාකර රැදී සිටින්න ."
 
@@ -149,7 +146,9 @@ LangString MSVC13 ${LANG_SPANISH} "No está instalado Microsoft Visual C++ 2010 
 ; Installation
 ;--------------------------------
 
-Section "instfiles" ;No components page, name is not important
+Section "A New Dawn" ;No components page, name is not important
+SectionIn RO
+AddSize 3200000
 
   ; Set output path to the installation directory.
   SetOutPath $INSTDIR
@@ -171,6 +170,12 @@ CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Civilization IV - A New Dawn.lnk" "
   
 SectionEnd ; end the section
 
+Section "MSVC 2010 (required)"
+SetOutPath $INSTDIR
+ExecWait '"$INSTDIR\checker\vcredist_x86_2010.exe"  /passive /norestart'
+
+SectionEnd
+
 ; Uninstallation
 ;--------------------------------
 
@@ -179,12 +184,7 @@ Section "Uninstall"
 
 ; Delete files
 
-Delete "$INSTDIR\Uninstall.exe"
-Delete "$INSTDIR\and2_checker.exe"
-Delete "$INSTDIR\*.dll"
-RMDir /r "$INSTDIR\checker\"
-RMDir /r "$INSTDIR\platforms\"
-
+RMDir /r "$INSTDIR"
   
   !insertmacro MUI_STARTMENU_GETFOLDER 0 $StartMenuFolder
     
@@ -193,41 +193,5 @@ Delete "$SMPROGRAMS\$StartMenuFolder\Civilization IV - A New Dawn.lnk"
   RMDir "$SMPROGRAMS\$StartMenuFolder"
 
 SectionEnd
-
-Function MSVC
-
-; Check for MSVC2013
-install_msvc2013:
-IfFileExists "$SYSDIR\msvcp120.dll" not_install_msvc2013 install_msvc2013
-
-MessageBox MB_OK $(MSVC13)
-NSISdl::download https://dl.dropboxusercontent.com/u/369241/vcredist_x86_2013.exe vcredist_x86_2013.exe
-Pop $R0 ;Get the return value
-  StrCmp $R0 "success" +3
-    MessageBox MB_OK "Download failed: $R0"
-    Quit   
-StrCpy $1 "/q"
-StrCpy $2 "/norestart"
-ExecWait 'vcredist_x86_2013.exe $1 $2'
-
-not_install_msvc2013:
-
-; Check for MSVC2010
-IfFileExists "$SYSDIR\msvcr100.dll" not_install_msvc2010 install_msvc2010
-
-install_msvc2010:
-MessageBox MB_OK $(MSVC10)
-NSISdl::download http://download.microsoft.com/download/5/B/C/5BC5DBB3-652D-4DCE-B14A-475AB85EEF6E/vcredist_x86.exe vcredist_x86_2010.exe
-Pop $R0 ;Get the return value
-  StrCmp $R0 "success" +3
-    MessageBox MB_OK "Download failed: $R0"
-    Quit   
-StrCpy $1 "/q"
-StrCpy $2 "/norestart"
-ExecWait 'vcredist_x86_2010.exe $1 $2'
-
-not_install_msvc2010:
-
-FunctionEnd
 
 
