@@ -68,7 +68,7 @@ DONE -> Use XML to better layout changes
 
 ## 0.13
 - Reimplement addon installer
-- BUG: When changing language, the component window does not retranslate everything.
+DONE -> BUG: When changing language, the component window does not retranslate everything.
 DONE -> Installer: Add MSVC in the installer page
 
 ## 2.0

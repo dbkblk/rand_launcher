@@ -72,7 +72,6 @@ w_main::w_main(QWidget *parent) :
 
     // Creation of widgets
     ubox = new updatebox(this);
-    modules = new w_modules(this);
 
     // Main window shape
 
@@ -242,6 +241,7 @@ void w_main::on_bt_option_clicked()
 
 void w_main::on_bt_components_clicked()
 {
+    modules = new w_modules(this);
     modules->show();
 }
 

@@ -170,7 +170,7 @@ CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Civilization IV - A New Dawn.lnk" "
   
 SectionEnd ; end the section
 
-Section "MSVC 2010 (essential)"
+Section "MSVC 2010 (required)"
 SetOutPath $INSTDIR
 ExecWait '"$INSTDIR\checker\vcredist_x86_2010.exe"  /passive /norestart'
 
