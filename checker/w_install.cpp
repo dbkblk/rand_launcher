@@ -11,7 +11,7 @@ w_install::w_install(QDialog *parent) :
     // Installation window objects
 
     ui->setupUi(this);
-    ui->buttonBox->button(QDialogButtonBox::Ok)->setText(tr("Ok"));
+    ui->buttonBox->button(QDialogButtonBox::Yes)->setText(tr("Ok"));
     ui->buttonBox->button(QDialogButtonBox::Cancel)->setText(tr("Cancel"));
 }
 

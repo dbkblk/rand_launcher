@@ -19,7 +19,7 @@ class installBox;
 
 namespace constants {
 const int MAJOR_CHECKER_VERSION = 0;
-const int MINOR_CHECKER_VERSION = 12;
+const int MINOR_CHECKER_VERSION = 13;
 
 // Define the update url (the second is for testing purpose)
 const QString GLOBAL_UPDATE_URL = "checker/curl.exe -o checker/update.ini -J -L -C - -# --retry 10 --insecure https://raw.githubusercontent.com/dbkblk/and2_checker/master/update.ini";

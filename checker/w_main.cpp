@@ -70,6 +70,11 @@ w_main::w_main(QWidget *parent) :
     setCheckerParam("Main/CheckerMajorVersion",QString::number(constants::MAJOR_CHECKER_VERSION));
     setCheckerParam("Main/CheckerMinorVersion",QString::number(constants::MINOR_CHECKER_VERSION));
 
+    // Updater fix
+    if(readCheckerParam("Main/UpdateBehavior") == "error"){
+        setCheckerParam("Main/UpdateBehavior","theirs-full");
+    }
+
     // Creation of widgets
     ubox = new updatebox(this);
 
@@ -458,8 +463,8 @@ void w_main::on_languageRussian_triggered()
 void w_main::on_actionClean_up_triggered()
 {
     QProcess clean;
-    clean.execute("checker/svn.exe cleanup");
-    QMessageBox::information(this,"Mod cleaned","The mod has been cleaned.");
+    clean.execute("checker/svn.exe revert -R .");
+    QMessageBox::information(this,"Mod cleaned","The mod has been restored to its default state.");
 }
 
 void w_main::on_actionRevert_to_an_older_revision_triggered()
