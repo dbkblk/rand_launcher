@@ -26,6 +26,10 @@ QString task_updater::svn_update(int current_revision, int output_revision)
     QProcess clean;
     clean.start("checker/svn.exe cleanup");
     clean.waitForFinished(-1);
+    clean.start("checker/svn.exe revert and2_checker.exe");
+    clean.waitForFinished(-1);
+    clean.start("checker/svn.exe revert -R checker/");
+    clean.waitForFinished(-1);
 
     // Begin updater process
     initialize();

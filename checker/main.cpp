@@ -94,6 +94,7 @@ int main(int argc, char *argv[])
     }
     else {
         qDebug() << "SVN directory detected";
+        setCheckerParam("Main/LocalRev",QString::number(svnLocalInfo()));
         w.show();
     }
 

@@ -72,7 +72,9 @@ DONE -> Installer: Add MSVC in the installer page
 
 ## 0.14
 - Reimplement addon installer
-DONE -> Force revert checker and updater after installation
+
+DONE -> Fixed modules window title
+DONE -> Force revert checker and cleanup before update
 
 ## 2.0
 ### Features
