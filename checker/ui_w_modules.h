@@ -141,7 +141,7 @@ public:
 
     void retranslateUi(QMainWindow *w_modules)
     {
-        w_modules->setWindowTitle(QApplication::translate("w_modules", "MainWindow", 0));
+        w_modules->setWindowTitle(QApplication::translate("w_modules", "Modules", 0));
         QTreeWidgetItem *___qtreewidgetitem = tree_list->headerItem();
         ___qtreewidgetitem->setText(0, QApplication::translate("w_modules", "Components", 0));
     } // retranslateUi

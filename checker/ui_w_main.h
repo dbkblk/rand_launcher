@@ -56,6 +56,7 @@ public:
     QAction *actionRevert_to_an_older_revision;
     QAction *actionAddon_Blue_marble;
     QAction *actionClear_cache;
+    QAction *actionEnter_SVN_command;
     QWidget *centralWidget;
     QLabel *lb_versions;
     QWidget *horizontalLayoutWidget;
@@ -148,6 +149,8 @@ public:
         actionAddon_Blue_marble->setObjectName(QStringLiteral("actionAddon_Blue_marble"));
         actionClear_cache = new QAction(w_main);
         actionClear_cache->setObjectName(QStringLiteral("actionClear_cache"));
+        actionEnter_SVN_command = new QAction(w_main);
+        actionEnter_SVN_command->setObjectName(QStringLiteral("actionEnter_SVN_command"));
         centralWidget = new QWidget(w_main);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setStyleSheet(QStringLiteral(""));
@@ -251,6 +254,7 @@ public:
         menuMenu->addAction(menuFix_installation->menuAction());
         menuMenu->addAction(actionExit);
         menuFix_installation->addAction(actionClear_cache);
+        menuFix_installation->addAction(actionEnter_SVN_command);
         menuFix_installation->addAction(actionClean_up);
         menuFix_installation->addAction(actionRevert_to_an_older_revision);
         menuCommunity->addAction(actionForum);
@@ -312,6 +316,7 @@ public:
         actionRevert_to_an_older_revision->setText(QApplication::translate("w_main", "Revert to an older revision...", 0));
         actionAddon_Blue_marble->setText(QApplication::translate("w_main", "Addon \"Blue marble\"", 0));
         actionClear_cache->setText(QApplication::translate("w_main", "Clear cache", 0));
+        actionEnter_SVN_command->setText(QApplication::translate("w_main", "Enter SVN command", 0));
         bt_launch->setText(QApplication::translate("w_main", "Launch Civilization IV", 0));
         bt_components->setText(QApplication::translate("w_main", "Manage modules", 0));
         bt_option->setText(QApplication::translate("w_main", "Options", 0));
