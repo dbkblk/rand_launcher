@@ -59,7 +59,7 @@ public:
     void retranslateUi(QDialog *w_install)
     {
         w_install->setWindowTitle(QApplication::translate("w_install", "Mod installation", 0));
-        label->setText(QApplication::translate("w_install", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">A New Dawn 2 : </span></p><p align=\"center\"><span style=\" font-size:9pt;\">The mod is not installed.</span></p><p align=\"center\"><span style=\" font-size:9pt;\">Do you want to download and install it ?</span></p></body></html>", 0));
+        label->setText(QApplication::translate("w_install", "<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-weight:600;\">A New Dawn : </span></p><p align=\"center\"><span style=\" font-size:9pt;\">The mod is not installed.</span></p><p align=\"center\"><span style=\" font-size:9pt;\">Do you want to download and install it ?</span></p></body></html>", 0));
     } // retranslateUi
 
 };

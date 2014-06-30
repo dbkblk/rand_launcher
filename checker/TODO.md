@@ -71,8 +71,17 @@ DONE -> BUG: When changing language, the component window does not retranslate e
 DONE -> Installer: Add MSVC in the installer page
 
 ## 0.14
+DONE -> Add a command window to the fix installation menu
+DONE -> Revert command with a cmd window
+DONE -> Fixed rev number sometimes not updated
+DONE -> Fixed modules window title
+DONE -> Fixed module updater not updating when the launcher is installed from the installer
+
+## 0.15
 - Reimplement addon installer
-DONE -> Force revert checker and updater after installation
+
+## 0.16
+- Add stable version support
 
 ## 2.0
 ### Features

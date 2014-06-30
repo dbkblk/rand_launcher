@@ -228,6 +228,7 @@
       <string>Fix installation</string>
      </property>
      <addaction name="actionClear_cache"/>
+     <addaction name="actionEnter_SVN_command"/>
      <addaction name="actionClean_up"/>
      <addaction name="actionRevert_to_an_older_revision"/>
     </widget>
@@ -422,6 +423,11 @@
   <action name="actionClear_cache">
    <property name="text">
     <string>Clear cache</string>
+   </property>
+  </action>
+  <action name="actionEnter_SVN_command">
+   <property name="text">
+    <string>Enter SVN command</string>
    </property>
   </action>
  </widget>

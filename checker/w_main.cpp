@@ -65,6 +65,7 @@ w_main::w_main(QWidget *parent) :
     ui->actionRevert_to_an_older_revision->setIcon(QIcon("checker/icons/revert.png"));
     ui->menuFix_installation->setIcon(QIcon("checker/icons/fix.png"));
     ui->actionClear_cache->setIcon(QIcon("checker/icons/clear.png"));
+    ui->actionEnter_SVN_command->setIcon(QIcon("checker/icons/svn.png"));
 
     // Checker version
     setCheckerParam("Main/CheckerMajorVersion",QString::number(constants::MAJOR_CHECKER_VERSION));
@@ -462,9 +463,8 @@ void w_main::on_languageRussian_triggered()
 
 void w_main::on_actionClean_up_triggered()
 {
-    QProcess clean;
-    clean.execute("checker/svn.exe revert -R .");
-    QMessageBox::information(this,"Mod cleaned","The mod has been restored to its default state.");
+    QProcess::startDetached("cmd /K .\\checker\\svn.exe revert -R . && and2_checker.exe");
+    QApplication::quit();
 }
 
 void w_main::on_actionRevert_to_an_older_revision_triggered()
@@ -487,4 +487,14 @@ void w_main::on_actionClear_cache_triggered()
 {
     clearCache();
     QMessageBox::information(this,tr("Cache"),tr("The cache is now cleared. NOTE: It is already automatically cleared on update."));
+}
+
+void w_main::on_actionEnter_SVN_command_triggered()
+{
+    QString dial_rev = QInputDialog::getText(this, tr("SVN command"), tr("Please enter the desired SVN command :"), QLineEdit::Normal);
+    if(!dial_rev.isEmpty()){
+    QProcess::startDetached(QString("cmd /K .\\checker\\svn.exe %1").arg(dial_rev));
+    QApplication::quit();
+    }
+    return;
 }

@@ -81,6 +81,8 @@ private slots:
 
     void on_languagePolish_triggered();
 
+    void on_actionEnter_SVN_command_triggered();
+
 private:
     Ui::w_main *ui;
     updatebox *ubox;
