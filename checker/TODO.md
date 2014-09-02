@@ -77,17 +77,18 @@ DONE -> Fixed rev number sometimes not updated
 DONE -> Fixed modules window title
 DONE -> Fixed module updater not updating when the launcher is installed from the installer
 
-## 0.15
-- Reimplement addon installer
+## 1.0
+- Add a marker to see current language
+- BUG: Fix updater progress bar
+- CHECK: Self-updating launcher check
 
-## 0.16
-- Add stable version support
+## 1.1
+- Reimplement addon installer
 
 ## 2.0
 ### Features
 
 - Fix binaries packaging launching from launcher
-- Create a borderless window with metro style
 
 # Features pending
 

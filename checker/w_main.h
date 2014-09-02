@@ -55,32 +55,21 @@ private slots:
     void on_actionHelp_translate_the_mod_triggered();
     void on_actionTranslate_the_mod_help_triggered();
     void on_actionTranslate_the_launcher_triggered();
-    void on_languageEnglish_triggered();
-    void on_languageFrench_triggered();
-    void on_languageSinhala_triggered();
-
-    void on_languageHungarian_triggered();
-
-    void on_languageFinnish_triggered();
-
-    void on_languageItalian_triggered();
-
-    void on_languageSpanish_triggered();
-
-    void on_languageGerman_triggered();
-
-    void on_languageRussian_triggered();
-
+    void clear_language_state();
+    void on_language_en_triggered();
+    void on_language_fr_triggered();
+    void on_language_si_triggered();
+    void on_language_hu_triggered();
+    void on_language_fi_triggered();
+    void on_language_it_triggered();
+    void on_language_es_triggered();
+    void on_language_de_triggered();
+    void on_language_ru_triggered();
+    void on_language_pl_triggered();
     void on_actionClean_up_triggered();
-
     void on_actionRevert_to_an_older_revision_triggered();
-
     void on_actionAddon_Blue_marble_triggered();
-
     void on_actionClear_cache_triggered();
-
-    void on_languagePolish_triggered();
-
     void on_actionEnter_SVN_command_triggered();
 
 private:

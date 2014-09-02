@@ -39,17 +39,30 @@ w_main::w_main(QWidget *parent) :
     translator->load(QString("launcher_" + loc + ".qm"),"checker/lang/");
     qApp->installTranslator(translator);
 
+    // Language check
+    clear_language_state();
+    if(loc=="en"){ui->language_en->setChecked(1);}
+    if(loc=="fr"){ui->language_fr->setChecked(1);}
+    if(loc=="si"){ui->language_si->setChecked(1);}
+    if(loc=="hu"){ui->language_hu->setChecked(1);}
+    if(loc=="fi"){ui->language_fi->setChecked(1);}
+    if(loc=="it"){ui->language_it->setChecked(1);}
+    if(loc=="de"){ui->language_de->setChecked(1);}
+    if(loc=="pl"){ui->language_pl->setChecked(1);}
+    if(loc=="es"){ui->language_es->setChecked(1);}
+    if(loc=="ru"){ui->language_ru->setChecked(1);}
+
     // Menu icons
-    ui->languageEnglish->setIcon(QIcon("checker/icons/en.png"));
-    ui->languageFinnish->setIcon(QIcon("checker/icons/fi.png"));
-    ui->languageFrench->setIcon(QIcon("checker/icons/fr.png"));
-    ui->languageGerman->setIcon(QIcon("checker/icons/de.png"));
-    ui->languageHungarian->setIcon(QIcon("checker/icons/hu.png"));
-    ui->languageItalian->setIcon(QIcon("checker/icons/it.png"));
-    ui->languagePolish->setIcon(QIcon("checker/icons/pl.png"));
-    ui->languageRussian->setIcon(QIcon("checker/icons/ru.png"));
-    ui->languageSinhala->setIcon(QIcon("checker/icons/si.png"));
-    ui->languageSpanish->setIcon(QIcon("checker/icons/es.png"));
+    ui->language_en->setIcon(QIcon("checker/icons/en.png"));
+    ui->language_fi->setIcon(QIcon("checker/icons/fi.png"));
+    ui->language_fr->setIcon(QIcon("checker/icons/fr.png"));
+    ui->language_de->setIcon(QIcon("checker/icons/de.png"));
+    ui->language_hu->setIcon(QIcon("checker/icons/hu.png"));
+    ui->language_it->setIcon(QIcon("checker/icons/it.png"));
+    ui->language_pl->setIcon(QIcon("checker/icons/pl.png"));
+    ui->language_ru->setIcon(QIcon("checker/icons/ru.png"));
+    ui->language_si->setIcon(QIcon("checker/icons/si.png"));
+    ui->language_es->setIcon(QIcon("checker/icons/es.png"));
     ui->actionOpen_mod_folder->setIcon(QIcon("checker/icons/open.png"));
     ui->actionExit->setIcon(QIcon("checker/icons/exit.png"));
     ui->actionForum->setIcon(QIcon("checker/icons/forum.png"));
@@ -391,74 +404,108 @@ void w_main::on_actionGit_Create_update_binary_pack_triggered()
 }
 
 // Language support
-void w_main::on_languageEnglish_triggered()
+void w_main::clear_language_state()
+{
+    ui->language_en->setChecked(0);
+    ui->language_fr->setChecked(0);
+    ui->language_si->setChecked(0);
+    ui->language_hu->setChecked(0);
+    ui->language_fi->setChecked(0);
+    ui->language_it->setChecked(0);
+    ui->language_de->setChecked(0);
+    ui->language_pl->setChecked(0);
+    ui->language_es->setChecked(0);
+    ui->language_ru->setChecked(0);
+}
+
+void w_main::on_language_en_triggered()
 {
     translator->load(QString("launcher.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","en");
     ui->retranslateUi(this);
+    clear_language_state();
+    ui->language_en->setChecked(1);
 }
 
-void w_main::on_languageFrench_triggered()
+void w_main::on_language_fr_triggered()
 {
     translator->load(QString("launcher_fr.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","fr");
     ui->retranslateUi(this);
+    clear_language_state();
+    ui->language_fr->setChecked(1);
 }
 
-void w_main::on_languageSinhala_triggered()
+void w_main::on_language_si_triggered()
 {
     translator->load(QString("launcher_si.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","si");
     ui->retranslateUi(this);
+    clear_language_state();
+    ui->language_si->setChecked(1);
 }
 
-void w_main::on_languageHungarian_triggered()
+void w_main::on_language_hu_triggered()
 {
     translator->load(QString("launcher_hu.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","hu");
     ui->retranslateUi(this);
+    clear_language_state();
+    ui->language_hu->setChecked(1);
 }
 
-void w_main::on_languageFinnish_triggered()
+void w_main::on_language_fi_triggered()
 {
     translator->load(QString("launcher_fi.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","fi");
     ui->retranslateUi(this);
+    clear_language_state();
+    ui->language_fi->setChecked(1);
 }
 
-void w_main::on_languageItalian_triggered()
+void w_main::on_language_it_triggered()
 {
     translator->load(QString("launcher_it.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","it");
     ui->retranslateUi(this);
+    clear_language_state();
+    ui->language_it->setChecked(1);
 }
 
-void w_main::on_languageSpanish_triggered()
+void w_main::on_language_es_triggered()
 {
     translator->load(QString("launcher_es.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","es");
     ui->retranslateUi(this);
+    clear_language_state();
+    ui->language_es->setChecked(1);
 }
 
-void w_main::on_languageGerman_triggered()
+void w_main::on_language_de_triggered()
 {
     translator->load(QString("launcher_de.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","de");
     ui->retranslateUi(this);
+    clear_language_state();
+    ui->language_de->setChecked(1);
 }
 
-void w_main::on_languagePolish_triggered()
+void w_main::on_language_pl_triggered()
 {
     translator->load(QString("launcher_pl.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","pl");
     ui->retranslateUi(this);
+    clear_language_state();
+    ui->language_pl->setChecked(1);
 }
 
-void w_main::on_languageRussian_triggered()
+void w_main::on_language_ru_triggered()
 {
     translator->load(QString("launcher_ru.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","ru");
     ui->retranslateUi(this);
+    clear_language_state();
+    ui->language_ru->setChecked(1);
 }
 
 void w_main::on_actionClean_up_triggered()

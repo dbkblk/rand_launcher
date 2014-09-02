@@ -1,2 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<resources/>
+<resources>
+  <string name="WELCOME_TITLE">Modyfikacja Civilization IV: A New Dawn</string>
+  <string name="REQUIRED">wymagane</string>
+  <string name="WELCOME">Wersja launchera: ${VERSION}
+
+Instalatow poprowadzi Cię przez proces instalacji modyfikacji: Civilization IV: A New Dawn.
+
+Modyfikacja zostanie zainstalowana w \'My Documents\My Games\Beyond the Sword\Mods\' (domyślnie).
+Stworzy skrót (opcjonalnie) do launchera modyfikacji, który może zostać użyty do łatwego pobierania, aktualizacji lub konfiguracji modyfikacji.
+
+UWAGA : Jakakolwiek inna instalacja modyfikacja jest kompatybilna. Jednak jeśli masz jakieś zmodyfikowane pliki mogą one zostać nadpisane.</string>
+  <string name="DIRECTORY">Instalator zainstaluje modyfikacje w wybranym katalogu.
+Aby zainstalować w innym katalogu kliknij \'Przeglądaj...\' i wybierz inny folder.
+
+UWAGA: Jest bardzo rekomendowane użycie domyślnej ścieżki. Tak czy inaczej możesz wybrać ścieżkę beżpośrednio do folderu z grą (\'Sid Meier\'s Civilization IV Beyond the Sword\Beyond the Sword\Mods\').</string>
+  <string name="FINISH">Launcher został zainstalowany. Przy pierwszym uruchomieniu, wykryje czy modyfikacja znajduje się w podanym katalogu. Jeśli jej nie znajdzie, instalator przeprowadzi Cię przez proces instalacji.</string>
+  <string name="RUN">Uruchom laucher modyfikacji</string>
+  <string name="SHORTCUT">Stwórz skrót na pulpicie</string>
+  <string name="MSVC10">Microsoft Visual C++ 2013 Redist jest nie zainstalowany. Pobieranie oraz instalacja. Proszę czekać...</string>
+  <string name="MSVC13">Microsoft Visual C++ 2010 Redist jest nie zainstalowany. Pobieranie oraz instalacja. Proszę czekać..</string>
+</resources>
