@@ -78,9 +78,9 @@ DONE -> Fixed modules window title
 DONE -> Fixed module updater not updating when the launcher is installed from the installer
 
 ## 1.0
-- Add a marker to see current language
-- BUG: Fix updater progress bar
-- CHECK: Self-updating launcher check
+DONE -> Add a marker to see current language
+DONE -> BUG: Fix updater progress bar
+DONE -> CHECK: Self-updating launcher check
 
 ## 1.1
 - Reimplement addon installer

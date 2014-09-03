@@ -521,7 +521,7 @@ void w_main::on_actionRevert_to_an_older_revision_triggered()
     {
         if(dial_rev.toInt() < 737)
         {
-            QMessageBox::critical(this,tr("Warning"),tr("The launcher has been introduced in revision 737. If you revert to an older revision, it will removed (you can reinstall it with the install link on the forum)."));
+            QMessageBox::critical(this,tr("Warning"),tr("The launcher has been introduced in revision 737. If you revert to an older revision, it will be removed (you can reinstall it with the install link on the forum)."));
         }
         QFile::copy("checker/upd_proc.exe","upd_proc.exe");
         QProcess updater;
