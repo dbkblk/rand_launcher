@@ -81,6 +81,7 @@ DONE -> Fixed module updater not updating when the launcher is installed from th
 DONE -> Add a marker to see current language
 DONE -> BUG: Fix updater progress bar
 DONE -> CHECK: Self-updating launcher check
+- Method for full installer: SVN checkout empty directory, import files, then checkout fully recursive
 
 ## 1.1
 - Reimplement addon installer

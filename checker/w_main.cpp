@@ -30,6 +30,7 @@ w_main::w_main(QWidget *parent) :
     if(readCheckerParam("Main/Lang") == "error")
     {
         loc = QLocale::system().name().section('_', 0, 0);
+        setCheckerParam("Main/Lang",loc);
     }
     else
     {
@@ -37,6 +38,7 @@ w_main::w_main(QWidget *parent) :
     }
     qDebug() << "Language used: " << loc;
     translator->load(QString("launcher_" + loc + ".qm"),"checker/lang/");
+
     qApp->installTranslator(translator);
 
     // Language check
