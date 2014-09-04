@@ -1,2 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<resources/>
+<resources>
+  <string name="WELCOME_TITLE">Civilization IV: A New Dawn Expansionserweiterung</string>
+  <string name="REQUIRED">benötigt</string>
+  <string name="WELCOME">Launcher-Version: ${VERSION}
+
+Dieser Installationsassistent wird Sie durch die Installation von \'Civilization IV: A New Dawn\' führen.
+
+Die Mod wird standardmäßig in das Verzeichnis \'Dokumente\My Games\Beyond the Sword\Mods\' installiert. 
+Es kann eine Verknüpfung zum Launcher erstellt werden (optional). Dieser kann zum einfach Download, Update und Konfiguration der Mod-Installation verwendet werden.
+
+WARNUNG: Alle existierenden Mod-Installationen sind kompatibel. Teilweise können jedoch veränderte Dateien beim Update überschrieben werden.</string>
+  <string name="DIRECTORY">Das Setupprogramm wird das Expansionspack in das folgende Verzeichnis kopieren.$
+Um einen anderen Installationsort zu wählen, klicken Sie bitte \'Durchsuchen...\' und wählen ein anderes Verzeichnis.$
+$
+Achtung: Das unten angegebene Standardverzeichnis sollte verwendet werden. Andererseits kann die Mod auch direkt in das Spielverzeichnis (\'Sid Meier\'s Civilization IV Beyond the Sword\Beyond the Sword\Mods\') installiert werden.</string>
+  <string name="FINISH">Der Launcher ist jetzt installiert. Beim ersten Start wird überprüft, ob die Mod im Verzeichnis vorhanden ist. Sollte dies nicht der Fall sein, so folgen Sie bitte der Installationsroutine.</string>
+  <string name="RUN">Den Mod-Launcher starten</string>
+  <string name="SHORTCUT">Desktopverknüpfung erstellen</string>
+  <string name="MSVC10">Microsoft Visual C++ 2013 Redist ist nicht installiert. Das Paket wird jetzt heruntergeladen und installiert. Bitte warten...</string>
+  <string name="MSVC13">Microsoft Visual C++ 2010 Redist ist nicht installiert. Das Paket wird jetzt heruntergeladen und installiert. Bitte warten...</string>
+</resources>

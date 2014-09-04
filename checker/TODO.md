@@ -78,16 +78,20 @@ DONE -> Fixed modules window title
 DONE -> Fixed module updater not updating when the launcher is installed from the installer
 
 ## 0.15
-- Reimplement addon installer
+DONE -> Add a marker to see current language
+DONE -> BUG: Fix updater progress bar
+DONE -> CHECK: Self-updating launcher check
 
-## 0.16
-- Add stable version support
+## 1.0
+- Method for full installer: SVN checkout empty directory, import files, then checkout fully recursive
+
+## 1.1
+- Reimplement addon installer
 
 ## 2.0
 ### Features
 
 - Fix binaries packaging launching from launcher
-- Create a borderless window with metro style
 
 # Features pending
 
@@ -121,3 +125,16 @@ As soon as I started the game for the first time, I got the yellow button "Updat
 - Upload source code
 - Merge devel with master
 - Update update.ini in master with the update pack link and push it to enable autoupdate.
+
+## Standard update process
+- Check local md5sum of each file
+- Save a config file (json) with: "filepath" : "md5sum"
+- Download a json server file
+- For each filepath in json server file, compare md5sum with local file
+    4 cases:
+    -> File is identical -> Nothing to do
+    -> md5sum is different -> Download server version
+    -> File is found server-side but not client-side -> Download server version
+    -> File is found client-side but not server-side :
+        --> Standard config files are blacklisted, so they won't be removed [Autolog, Uninstall.exe, Checker/checker_config.ini, Checker/updater.log]
+        --> PROBLEM: If an addon is installed or a file manually modified.

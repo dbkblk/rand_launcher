@@ -73,26 +73,13 @@ QString task_updater::svn_update(int current_revision, int output_revision)
             for(file_entry;!file_entry.isNull();file_entry = file_entry.nextSiblingElement())
             {
                 file_value = file_entry.firstChild().nodeValue();
-                if(output_revision == 0 || output_revision > current_revision)
+                if(!file_entry.attribute("action").isNull())
                 {
-                    if(file_entry.attribute("action") == "M" || file_entry.attribute("action") == "A")
+                    if(file_value.contains("/Trunk/Rise of Mankind - A New Dawn/"))
                     {
-                        if(file_value.contains("/Trunk/Rise of Mankind - A New Dawn/"))
-                        {
-                            file_list << file_value;
-                        }
+                        file_list << file_value;
                     }
                 }
-                else{
-                    if(file_entry.attribute("action") == "D")
-                    {
-                        if(file_value.contains("/Trunk/Rise of Mankind - A New Dawn/"))
-                        {
-                            file_list << file_value;
-                        }
-                    }
-                }
-
             }
         }
 

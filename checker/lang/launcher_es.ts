@@ -442,7 +442,7 @@
     <message>
         <location filename="../w_modules.ui" line="14"/>
         <source>Modules</source>
-        <translation type="unfinished"/>
+        <translation>Módulos</translation>
     </message>
     <message>
         <location filename="../w_modules.ui" line="22"/>

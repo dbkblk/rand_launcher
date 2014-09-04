@@ -273,16 +273,16 @@
     <property name="title">
      <string>Language</string>
     </property>
-    <addaction name="languageEnglish"/>
-    <addaction name="languageFinnish"/>
-    <addaction name="languageFrench"/>
-    <addaction name="languageGerman"/>
-    <addaction name="languageHungarian"/>
-    <addaction name="languageItalian"/>
-    <addaction name="languagePolish"/>
-    <addaction name="languageRussian"/>
-    <addaction name="languageSinhala"/>
-    <addaction name="languageSpanish"/>
+    <addaction name="language_en"/>
+    <addaction name="language_fi"/>
+    <addaction name="language_fr"/>
+    <addaction name="language_de"/>
+    <addaction name="language_hu"/>
+    <addaction name="language_it"/>
+    <addaction name="language_pl"/>
+    <addaction name="language_ru"/>
+    <addaction name="language_si"/>
+    <addaction name="language_es"/>
    </widget>
    <addaction name="menuMenu"/>
    <addaction name="menuLanguage"/>
@@ -355,52 +355,88 @@
     <string>Translate the launcher</string>
    </property>
   </action>
-  <action name="languageEnglish">
+  <action name="language_en">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>English</string>
    </property>
   </action>
-  <action name="languageFrench">
+  <action name="language_fr">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>French</string>
    </property>
   </action>
-  <action name="languageSinhala">
+  <action name="language_si">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Sinhala</string>
    </property>
   </action>
-  <action name="languageHungarian">
+  <action name="language_hu">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Hungarian</string>
    </property>
   </action>
-  <action name="languageFinnish">
+  <action name="language_fi">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Finnish</string>
    </property>
   </action>
-  <action name="languagePolish">
+  <action name="language_pl">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Polish</string>
    </property>
   </action>
-  <action name="languageItalian">
+  <action name="language_it">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Italian</string>
    </property>
   </action>
-  <action name="languageSpanish">
+  <action name="language_es">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Spanish</string>
    </property>
   </action>
-  <action name="languageGerman">
+  <action name="language_de">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>German</string>
    </property>
   </action>
-  <action name="languageRussian">
+  <action name="language_ru">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Russian</string>
    </property>
