@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     // Check architecture
     BOOL b_64BitOpSys;
     #ifdef _WIN64
-        b_64BitOpSys = TRUE
+        b_64BitOpSys = TRUE;
     #else
         IsWow64Process(GetCurrentProcess(), &b_64BitOpSys);
     #endif

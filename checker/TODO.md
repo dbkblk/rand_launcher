@@ -82,6 +82,17 @@ DONE -> Add a marker to see current language
 DONE -> BUG: Fix updater progress bar
 DONE -> CHECK: Self-updating launcher check
 
+## 0.16
+-> RSYNC integration (instead of SVN):
+    -> Update checking : Download the JSON file and compare with python rev.
+    -> Changelog : ?
+    -> Update process : launch rsync command.
+    -> Get update progress: ?
+    -> Config file protection : Exclude game generated files
+-> Make SVN mandatory
+-> Remove addons support for now
+-> Setup the installer to automatically execute the launcher the first time
+
 ## 1.0
 - Method for full installer: SVN checkout empty directory, import files, then checkout fully recursive
 
