@@ -1,9 +1,8 @@
 #include "w_install.h"
 #include "ui_w_install.h"
-#include "updatebox.h"
 
-// Installation process
-
+// TO REVIEW Installation process
+/*
 w_install::w_install(QDialog *parent) :
   QDialog(parent),
   ui(new Ui::w_install)
@@ -33,4 +32,4 @@ void restartLauncher()
 {
     QProcess::startDetached(QApplication::applicationFilePath());
     exit(12);
-}
+}*/

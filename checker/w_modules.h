@@ -18,9 +18,6 @@ public:
     ~w_modules();
 
 private slots:
-    void on_tree_list_itemClicked();
-    void moduleInterface(QString version, QString description);
-
     void on_bt_update_clicked();
 
 private:

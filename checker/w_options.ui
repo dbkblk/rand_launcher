@@ -9,25 +9,25 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>450</width>
+    <width>600</width>
     <height>300</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
   <property name="minimumSize">
    <size>
-    <width>450</width>
+    <width>600</width>
     <height>300</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>450</width>
+    <width>600</width>
     <height>300</height>
    </size>
   </property>
@@ -43,10 +43,10 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>9</x>
-     <y>13</y>
-     <width>431</width>
-     <height>278</height>
+     <x>10</x>
+     <y>10</y>
+     <width>581</width>
+     <height>281</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -96,7 +96,13 @@
         </property>
         <property name="minimumSize">
          <size>
-          <width>175</width>
+          <width>200</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
           <height>25</height>
          </size>
         </property>
@@ -163,14 +169,14 @@
         </property>
         <property name="minimumSize">
          <size>
-          <width>175</width>
+          <width>200</width>
           <height>25</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>150</width>
-          <height>16777215</height>
+          <width>200</width>
+          <height>25</height>
          </size>
         </property>
         <property name="text">
@@ -183,7 +189,7 @@
     <item>
      <widget class="QLineEdit" name="opt_text_path">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -196,7 +202,7 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>475</width>
+        <width>600</width>
         <height>16777215</height>
        </size>
       </property>
@@ -204,22 +210,6 @@
        <bool>true</bool>
       </property>
      </widget>
-    </item>
-    <item>
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Fixed</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>10</height>
-       </size>
-      </property>
-     </spacer>
     </item>
     <item>
      <widget class="QLabel" name="lb_modconf_2">
@@ -241,43 +231,6 @@
        <string>Autostart the mod with the game</string>
       </property>
      </widget>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <item>
-       <widget class="QLabel" name="lb_behavior">
-        <property name="text">
-         <string>Behavior on update:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="opt_updateBehavior">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>175</width>
-          <height>25</height>
-         </size>
-        </property>
-        <item>
-         <property name="text">
-          <string>Use new files (default)</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Keep local changes</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-     </layout>
     </item>
    </layout>
   </widget>

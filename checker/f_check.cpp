@@ -1,7 +1,5 @@
 #include "f_civ.h"
-#include "updatebox.h"
 #include "w_main.h"
-#include "lib/f_binaries.h"
 #include "f_svn.h"
 
 #include "QObject"
@@ -46,8 +44,10 @@ void f_check::abort()
     mutex.unlock();
 }
 
+// TO REVIEW - Reason : SVN -> RSYNC
 void f_check::UMCheckUpdate()
 {
+    /*
     // Wait 3s before to check for update
     QEventLoop loop;
     QTimer::singleShot(3000, &loop, SLOT(quit()));
@@ -67,19 +67,10 @@ void f_check::UMCheckUpdate()
         setCheckerParam("Update/Changelog",upd_ini.value("VERSION/Changelog").toString());
         setCheckerParam("Update/DistantCheckerMajorVersion",upd_ini.value("VERSION/CheckerMajorVersion").toString());
         setCheckerParam("Update/DistantCheckerMinorVersion",upd_ini.value("VERSION/CheckerMinorVersion").toString());
-        setCheckerParam("ADDON_MOREMUSIC/DistantVersion",upd_ini.value("ADDON_MOREMUSIC/Version").toString());
-        setCheckerParam("ADDON_MOREHANDICAPS/DistantVersion",upd_ini.value("ADDON_MOREHANDICAPS/Version").toString());
-        setCheckerParam("ADDON_MEGACIVPACK/DistantBaseVersion",upd_ini.value("ADDON_MEGACIVPACK/BaseVersion").toString());
-        setCheckerParam("ADDON_MEGACIVPACK/DistantFilesVersion",upd_ini.value("ADDON_MEGACIVPACK/FilesVersion").toString());
 
         if(LauncherVersionCalculation() == true || svnLocalInfo() < svnDistantInfo()){
             update = true;
             qDebug() << "Update is " << update;
-        }
-
-        else if (AddonsVersionCalculation())
-        {
-            update = true;
         }
 
         else
@@ -98,6 +89,7 @@ void f_check::UMCheckUpdate()
     qDebug("Update checking ended...");
     // Finished signal
     emit finished(update);
+    */
 }
 
 bool f_check::ActionLauncherUpdate()
@@ -126,44 +118,4 @@ bool f_check::LauncherVersionCalculation()
     {
         return false;
     }
-}
-
-bool f_check::AddonsVersionCalculation()
-{
-    bool update = false;
-    qDebug() << "MCP: " << check_addon_mcp() << " MM: " << check_addon_more_music() << " MH: " << check_addon_more_handicaps();
-    int u = 0;
-    if (check_addon_mcp() != "Not installed")
-    {
-        if (readCheckerParam("ADDON_MEGACIVPACK/FilesVersion") != readCheckerParam("ADDON_MEGACIVPACK/DistantFilesVersion"))
-        {
-            u++;
-            qDebug() << "u is " << u;
-        }
-    }
-    if ( check_addon_more_handicaps() != "Not installed")
-    {
-        if (readCheckerParam("ADDON_MOREHANDICAPS/Version") != readCheckerParam("ADDON_MOREHANDICAPS/DistantVersion"))
-        {
-            u++;
-            qDebug() << "u is " << u;
-        }
-    }
-    if (check_addon_more_music() != "Not installed")
-    {
-        if (readCheckerParam("ADDON_MOREMUSIC/Version") != readCheckerParam("ADDON_MOREMUSIC/DistantVersion"))
-        {
-            u++;
-            qDebug() << "u is " << u;
-        }
-    }
-    if(u > 0)
-    {
-        update = true;
-    }
-    else
-    {
-        update = false;
-    }
-    return update;
 }

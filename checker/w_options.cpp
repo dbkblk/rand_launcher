@@ -2,7 +2,6 @@
 #include "w_main.h"
 #include "ui_w_options.h"
 #include "f_civ.h"
-#include "updatebox.h"
 
 #include <QtCore>
 #include <QtNetwork>
@@ -32,10 +31,6 @@ w_options::w_options(QWidget *parent) :
 
     if(readCheckerParam("Main/QuitLauncher") == "1") {
         ui->checkerBox->setChecked(1);
-    }
-
-    if(readCheckerParam("Main/UpdateBehavior") == "mine-full"){
-        ui->opt_updateBehavior->setCurrentIndex(1);
     }
 
     // Set default opt_text_path
@@ -155,21 +150,4 @@ void w_options::on_opt_checkbox_bluemarble_toggled(bool checked)
         QFile::remove("Assets/BlueMarble.FPK");
     }
 
-}
-
-void w_options::on_opt_updateBehavior_currentIndexChanged(int index)
-{
-    switch (index)
-    {
-    case 0:
-        setCheckerParam("Main/UpdateBehavior","theirs-full");
-        break;
-
-    case 1:
-        if(readCheckerParam("Main/UpdateBehavior") == "theirs-full"){
-            QMessageBox::critical(this,tr("Warning"),tr("This option allow you to keep locally edited mod files on update. However, if there is an update of your edited file, be warned that it will not be erased but the mod will still be updated and thus, this can introduce bugs or unwilled behaviors."));
-        }
-        setCheckerParam("Main/UpdateBehavior","mine-full");
-        break;
-    }
 }

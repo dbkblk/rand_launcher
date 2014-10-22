@@ -1,8 +1,6 @@
 #ifndef UPDATEMANAGER_H
 #define UPDATEMANAGER_H
 
-#include "updatebox.h"
-
 #include <QWidget>
 #include <QComboBox>
 #include <QObject>

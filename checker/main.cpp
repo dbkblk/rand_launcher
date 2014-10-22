@@ -8,15 +8,23 @@
 #include <QtGui>
 #include <QtWidgets>
 #include <QDir>
-#include <windows.h>
+//
 
 using namespace std;
+
+/* Antoine de Saint-Exupéry :
+ * 'Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.'
+ * (so please tell me if you've found something superficial) */
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
+    /* Windows specific code */
     // Check architecture
+    #ifdef _WIN32
+    #include <windows.h>
+
     BOOL b_64BitOpSys;
     #ifdef _WIN64
         b_64BitOpSys = TRUE;
@@ -54,7 +62,7 @@ int main(int argc, char *argv[])
         QFile::remove("upd_proc.exe");
     }
 
-    // Check for correct path
+    // Check for correct path (TO REMOVE ?)
 
     QDir BTS_dir("../../Mods");
     if(!BTS_dir.exists()){
@@ -62,41 +70,13 @@ int main(int argc, char *argv[])
         QMessageBox::critical(0, "Error", QObject::tr("The launcher isn't in the right directory. It should be either in 'My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn' or in 'Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn'"));
         return 1;
     }
+    #endif
+    /* End of the windows specific code */
 
     // Start the GUI
     w_main w;
-    w_install install;
-
-/*    // Cleanup update output
-
-    QFile update_output("update_out.ini");
-    if(update_output.exists()) {
-        QProcess::startDetached("taskkill /f /im upd_proc.exe");
-        update_output.remove();
-        QDir temp("temp");
-        temp.rmdir("temp");
-    }
-*/
-
-    // Check for installation
-
-    QDir svn_dir(".svn");
-    QDir assets_dir("Assets");
-    if(!svn_dir.exists()){
-        qDebug() << "Directory .svn not found";
-        install.show();
-
-    }
-    else if(!assets_dir.exists()){
-        qDebug() << "Directory .svn not found";
-        install.on_buttonBox_accepted();
-
-    }
-    else {
-        qDebug() << "SVN directory detected";
-        setCheckerParam("Main/LocalRev",QString::number(svnLocalInfo()));
-        w.show();
-    }
+    //w_install install;
+    w.show();
 
     return a.exec();
 }

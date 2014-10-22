@@ -84,11 +84,14 @@ DONE -> CHECK: Self-updating launcher check
 
 ## 0.16
 -> RSYNC integration (instead of SVN):
-    -> Update checking : Download the JSON file and compare with python rev.
-    -> Changelog : ?
-    -> Update process : launch rsync command.
-    -> Get update progress: ?
-    -> Config file protection : Exclude game generated files
+    - Start and initialise the launcher
+    - Use rsync the grab changelog_last.json.
+    - Check the latest version from the file and compare it with the local installation (from the python file ? or maybe from a variable in the ini which is validated if the update went well ?).
+    - If there is an update, inform the user (with the yellow update button).
+    - The update window will print the "changelog_last" content. A button will invite the user to read the full if needed. Another one to begin the update.
+    - Blacklist the config files from the rsync sync operation.
+    - The addons support will be removed from now.
+    - Progress bar based on the number of lines in the update file. Will follow the rsync output then compare with the number of lines.
 -> Make SVN mandatory
 -> Remove addons support for now
 -> Setup the installer to automatically execute the launcher the first time

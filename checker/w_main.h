@@ -1,7 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <updatebox.h>
 #include <w_options.h>
 #include <w_modules.h>
 #include <f_check.h>
@@ -50,8 +49,6 @@ private slots:
     void UpdateAvailable(bool update);
     void RestoreButtonState();
     void on_bt_components_clicked();
-    void on_actionGit_Pack_binaries_triggered();
-    void on_actionGit_Create_update_binary_pack_triggered();
     void on_actionHelp_translate_the_mod_triggered();
     void on_actionTranslate_the_mod_help_triggered();
     void on_actionTranslate_the_launcher_triggered();
@@ -66,15 +63,11 @@ private slots:
     void on_language_de_triggered();
     void on_language_ru_triggered();
     void on_language_pl_triggered();
-    void on_actionClean_up_triggered();
-    void on_actionRevert_to_an_older_revision_triggered();
     void on_actionAddon_Blue_marble_triggered();
     void on_actionClear_cache_triggered();
-    void on_actionEnter_SVN_command_triggered();
 
 private:
     Ui::w_main *ui;
-    updatebox *ubox;
     w_options *options;
     QThread *thread;
     f_check *worker;
