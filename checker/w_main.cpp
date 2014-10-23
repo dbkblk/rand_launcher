@@ -1,6 +1,5 @@
 #include "w_main.h"
 #include "f_civ.h"
-#include "f_svn.h"
 #include "f_check.h"
 #include "w_options.h"
 #include "ui_w_main.h"
@@ -81,13 +80,8 @@ w_main::w_main(QWidget *parent) :
     ui->actionEnter_SVN_command->setIcon(QIcon("checker/icons/svn.png"));
 
     // Internal : Set internal checker version as parameter in the ini file
-    setCheckerParam("Main/CheckerMajorVersion",QString::number(constants::MAJOR_CHECKER_VERSION));
-    setCheckerParam("Main/CheckerMinorVersion",QString::number(constants::MINOR_CHECKER_VERSION));
-
-    // Update : SVN behavior fix on update (erase my files by default)
-    if(readCheckerParam("Main/UpdateBehavior") == "error"){
-        setCheckerParam("Main/UpdateBehavior","theirs-full");
-    }
+    setCheckerParam("Main/CheckerMajorVersion",QString::number(versions::MAJOR_CHECKER_VERSION));
+    setCheckerParam("Main/CheckerMinorVersion",QString::number(versions::MINOR_CHECKER_VERSION));
 
     // GUI : Set title and background
 
@@ -101,7 +95,7 @@ w_main::w_main(QWidget *parent) :
 
     worker->moveToThread(thread);
     connect(worker, SIGNAL(workRequested()), thread, SLOT(start()));
-    connect(thread, SIGNAL(started()), worker, SLOT(UMCheckUpdate()));
+    connect(thread, SIGNAL(started()), worker, SLOT(CheckForUpdate()));
     connect(worker, SIGNAL(finished(bool)), thread, SLOT(quit()), Qt::DirectConnection);
     connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateWindowInfos()), Qt::DirectConnection);
     connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateAvailable(bool)));
@@ -111,7 +105,7 @@ w_main::w_main(QWidget *parent) :
     thread->wait(); // If the thread is not running, this will immediately return.
     worker->requestWork();
 
-    // GUI : Update the SVN local version and font color
+    // GUI : Update the local version and font color
     UpdateWindowInfos();
 
     // Translations : Reload the GUI with the correct translation
@@ -127,17 +121,17 @@ w_main::~w_main()
     delete thread;
     delete worker;
     delete ui;
-
 }
 
 void w_main::UpdateWindowInfos()
 {
-    // Versions label on the main Window
-
+    // GUI : Set versions label on the main Window
     QString vers = "Launcher rev. " + readCheckerParam("Main/CheckerMajorVersion") + "." + readCheckerParam("Main/CheckerMinorVersion") + "\nMod rev. " + readCheckerParam("Main/LocalRev");
     QPalette lb_palette;
     lb_palette.setColor(QPalette::WindowText, Qt::black);
     ui->lb_versions->setPalette(lb_palette);
+    QFont f( "Arial", 8);
+    ui->lb_versions->setFont(f);
     ui->lb_versions->setText(vers);
 }
 

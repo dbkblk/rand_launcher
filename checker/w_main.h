@@ -16,13 +16,21 @@ class w_main;
 class installBox;
 }
 
-namespace constants {
+namespace versions {
 const int MAJOR_CHECKER_VERSION = 0;
 const int MINOR_CHECKER_VERSION = 15;
+}
 
-// Define the update url (the second is for testing purpose)
-const QString GLOBAL_UPDATE_URL = "checker/curl.exe -o checker/update.ini -J -L -C - -# --retry 10 --insecure https://raw.githubusercontent.com/dbkblk/and2_checker/master/update.ini";
-//const QString GLOBAL_UPDATE_URL = "checker/curl.exe -o checker/update.ini -J -L -C - -# --retry 10 --insecure https://dl.dropboxusercontent.com/u/369241/update.ini";
+namespace tools {
+// Define OS tools
+#ifdef __linux
+const QString TOOL_RSYNC = "rsync ";
+const QString TOOL_GET = "curl -J -L -C - -# --retry 10 --insecure ";
+#endif
+#ifdef _WIN32
+const QString TOOL_RSYNC = "checker/rsync.exe ";
+const QString TOOL_GET = "checker/curl.exe -J -L -C - -# --retry 10 --insecure ";
+#endif
 }
 
 class w_main : public QMainWindow

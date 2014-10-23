@@ -19,13 +19,11 @@ SOURCES += \
     w_main.cpp \
     w_modules.cpp \
     w_options.cpp \
-    f_svn.cpp \
     w_install.cpp
 
 HEADERS += \
     f_check.h \
     f_civ.h \
-    f_svn.h \
     w_main.h \
     w_modules.h \
     w_options.h \

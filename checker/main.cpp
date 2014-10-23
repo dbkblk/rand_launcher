@@ -10,11 +10,11 @@
 #include <QDir>
 //
 
-using namespace std;
-
 /* Antoine de Saint-Exupéry :
  * 'Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.'
  * (so please tell me if you've found something superficial) */
+
+using namespace std;
 
 int main(int argc, char *argv[])
 {

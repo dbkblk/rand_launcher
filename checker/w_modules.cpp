@@ -1,6 +1,5 @@
 #include "w_modules.h"
 #include "ui_w_modules.h"
-#include "f_svn.h"
 #include "f_civ.h"
 
 #include <QtCore>
