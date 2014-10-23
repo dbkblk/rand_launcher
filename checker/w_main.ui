@@ -241,31 +241,26 @@
     <property name="title">
      <string>Community</string>
     </property>
+    <widget class="QMenu" name="menuAddons">
+     <property name="title">
+      <string>Addons</string>
+     </property>
+     <addaction name="actionAddon_Blue_marble"/>
+     <addaction name="actionAddon_Mega_Civ_Pack"/>
+     <addaction name="actionAddon_More_music_forum"/>
+    </widget>
     <addaction name="actionForum"/>
     <addaction name="actionBugreport"/>
-    <addaction name="actionAddon_Blue_marble"/>
-    <addaction name="actionAddon_Mega_Civ_Pack"/>
-    <addaction name="actionAddon_More_music_forum"/>
+    <addaction name="menuAddons"/>
     <addaction name="actionAbout_AND_Resurrection_team_forum"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
      <string>Help us to improve the mod !</string>
     </property>
-    <widget class="QMenu" name="menuDevelopment_tools">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="title">
-      <string>Development tools</string>
-     </property>
-     <addaction name="actionGit_Pack_binaries"/>
-     <addaction name="actionGit_Create_update_binary_pack"/>
-    </widget>
     <addaction name="actionHelp_translate_the_mod"/>
     <addaction name="actionTranslate_the_launcher"/>
     <addaction name="actionTranslate_the_mod_help"/>
-    <addaction name="menuDevelopment_tools"/>
    </widget>
    <widget class="QMenu" name="menuLanguage">
     <property name="title">
@@ -302,7 +297,7 @@
   </action>
   <action name="actionAddon_Mega_Civ_Pack">
    <property name="text">
-    <string>Addon &quot;Mega Civ Pack&quot; (forum)</string>
+    <string>&quot;Mega Civ Pack&quot; (forum)</string>
    </property>
   </action>
   <action name="actionBugreport">
@@ -320,7 +315,7 @@
   </action>
   <action name="actionAddon_More_music_forum">
    <property name="text">
-    <string>Addon &quot;More music / More handicaps / Dinosaurs&quot; (forum)</string>
+    <string>&quot;More music / More handicaps / Dinosaurs&quot; (forum)</string>
    </property>
   </action>
   <action name="actionOpen_mod_folder">

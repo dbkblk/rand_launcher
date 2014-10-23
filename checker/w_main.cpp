@@ -77,11 +77,10 @@ w_main::w_main(QWidget *parent) :
     ui->actionTranslate_the_launcher->setIcon(QIcon("checker/icons/translate.png"));
     ui->actionTranslate_the_mod_help->setIcon(QIcon("checker/icons/help.png"));
     ui->actionAddon_Blue_marble->setIcon(QIcon("checker/icons/blue_marble.png"));
-    ui->actionClean_up->setIcon(QIcon("checker/icons/clean.png"));
-    ui->actionRevert_to_an_older_revision->setIcon(QIcon("checker/icons/revert.png"));
+    ui->menuAddons->setIcon(QIcon("checker/icons/addons.png"));
     ui->menuFix_installation->setIcon(QIcon("checker/icons/fix.png"));
+    ui->actionClean_up->setIcon(QIcon("checker/icons/clean.png"));
     ui->actionClear_cache->setIcon(QIcon("checker/icons/clear.png"));
-    ui->actionEnter_SVN_command->setIcon(QIcon("checker/icons/svn.png"));
 
     // Internal : Set internal checker version as parameter in the ini file
     setCheckerParam("Main/CheckerMajorVersion",QString::number(versions::MAJOR_CHECKER_VERSION));
