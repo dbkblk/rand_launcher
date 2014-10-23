@@ -8,7 +8,23 @@ namespace Ui {
 class task_updater;
 }
 
-QString readCheckerParam(QString param);
+namespace tools {
+// Define OS tools
+#ifdef __linux
+const QString TOOL_RSYNC = "rsync ";
+const QString TOOL_GET = "curl -J -L -C - -# --retry 10 --insecure ";
+const QString TOOL_EXTRACT = "7z e ";
+const QString TOOL_LAUNCHER = "./and2_checker";
+const QString TOOL_UPDATER = "./upd_proc";
+#endif
+#ifdef _WIN32
+const QString TOOL_RSYNC = "checker/rsync.exe ";
+const QString TOOL_GET = "checker/curl.exe -J -L -C - -# --retry 10 --insecure ";
+const QString TOOL_EXTRACT = "checker/7za.exe e ";
+const QString TOOL_LAUNCHER = "and2_checker.exe";
+const QString TOOL_UPDATER = "upd_proc.exe";
+#endif
+}
 
 class task_updater : public QMainWindow
 {
@@ -17,12 +33,10 @@ class task_updater : public QMainWindow
 public:
     explicit task_updater(QWidget *parent = 0);
     ~task_updater();
-    QString svn_update(int current_revision, int output_revision);
+    int CountFiles();
     void initialize();
     void execute(QString command);
-    void appendText(QString text);
-    void addonInstaller(QString name, QString link);
-    void svn_install();
+    void DebugWindow();
 
 signals:
     void finished();
@@ -35,7 +49,6 @@ public slots:
 
 private:
     Ui::task_updater *ui;
-    QProcess svn;
     QProcess process;
     QTimer process_timer;
     QString process_file;

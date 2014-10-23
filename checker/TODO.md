@@ -92,8 +92,7 @@ DONE -> CHECK: Self-updating launcher check
     - Blacklist the config files from the rsync sync operation.
     - The addons support will be removed from now.
     - Progress bar based on the number of lines in the update file. Will follow the rsync output then compare with the number of lines.
--> Make SVN mandatory
--> Remove addons support for now
+DONE -> Remove addons support for now
 -> Setup the installer to automatically execute the launcher the first time
 
 ## 1.0
