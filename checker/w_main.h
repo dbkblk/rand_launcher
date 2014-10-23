@@ -26,10 +26,12 @@ namespace tools {
 #ifdef __linux
 const QString TOOL_RSYNC = "rsync ";
 const QString TOOL_GET = "curl -J -L -C - -# --retry 10 --insecure ";
+const QString TOOL_EXTRACT = "7z e ";
 #endif
 #ifdef _WIN32
 const QString TOOL_RSYNC = "checker/rsync.exe ";
 const QString TOOL_GET = "checker/curl.exe -J -L -C - -# --retry 10 --insecure ";
+const QString TOOL_EXTRACT = "checker/7za.exe e ";
 #endif
 }
 

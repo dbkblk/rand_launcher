@@ -143,7 +143,7 @@ void w_options::on_opt_checkbox_bluemarble_toggled(bool checked)
     if(checked)
     {
         QProcess unzip;
-        unzip.execute("checker/7za.exe e Assets/BlueMarble.zip -oAssets/ -y");
+        unzip.execute(tools::TOOL_EXTRACT + "Assets/BlueMarble.zip -oAssets/ -y");
     }
     else
     {
