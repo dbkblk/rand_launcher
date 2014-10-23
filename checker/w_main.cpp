@@ -21,6 +21,10 @@ w_main::w_main(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // Initialize sub-windows
+    options = new w_options(this);
+    modules = new w_modules(this);
+
     // Translations : Get language parameter, else if OS language, then wait to fully initialize the GUI.
     translator = new QTranslator(this);
     QString loc;
@@ -133,6 +137,9 @@ void w_main::UpdateWindowInfos()
     QFont f( "Arial", 8);
     ui->lb_versions->setFont(f);
     ui->lb_versions->setText(vers);
+
+    // GUI : Update modules windows
+    modules->UpdateWindow();
 }
 
 void w_main::RestoreButtonState()
@@ -238,7 +245,6 @@ void w_main::on_bt_launch_clicked()
 void w_main::on_bt_option_clicked()
 // GUI : Invoke the option window
 {
-        options = new w_options(this);
     options->show();
 }
 
@@ -247,7 +253,6 @@ void w_main::on_bt_option_clicked()
 void w_main::on_bt_components_clicked()
 // GUI : Modules button
 {
-    modules = new w_modules(this);
     modules->show();
 }
 

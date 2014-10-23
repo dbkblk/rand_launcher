@@ -29,6 +29,7 @@ public:
     bool ActionUpdate();
     int GetLocalVersion();
     int GetDistantVersion();
+    QString ExtractChangelog(QString filepath);
     void abort();
 
 private:

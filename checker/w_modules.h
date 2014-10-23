@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QtCore>
 #include <QTreeWidgetItem>
+#include "f_check.h"
 
 namespace Ui {
 class w_modules;
@@ -16,6 +17,7 @@ class w_modules : public QMainWindow
 public:
     explicit w_modules(QWidget *parent = 0);
     ~w_modules();
+    void UpdateWindow();
 
 private slots:
     void on_bt_update_clicked();

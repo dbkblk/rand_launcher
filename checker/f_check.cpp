@@ -86,14 +86,15 @@ void f_check::CheckForUpdate()
 
 bool f_check::ActionUpdate()
 {
-    // Copy the required files (May need to be copied to %TEMP% to avoid to have to clean after ?)
+    // TO REVIEW - Not reimplemented yet
+    /* Copy the required files (May need to be copied to %TEMP% to avoid to have to clean after ?)
 
     QFile::copy("checker/upd_proc.exe","upd_proc.exe");
     QFile::copy("checker/rsync.7z","rsync.7z");
     QProcess::execute("checker/7za.exe e rsync.7z");
     QProcess update;
     update.startDetached("upd_proc.exe");
-
+    */
     return 0;
 }
 
@@ -130,7 +131,7 @@ int f_check::GetDistantVersion()
     QFile file("checker/changelog_last.xml");
     if(!file.open(QIODevice::ReadOnly))
      {
-         qDebug() << "Error opening short changelog";
+         qDebug() << "Error getting changelog version";
          return 0;
      }
     read.setContent(&file);
@@ -139,5 +140,37 @@ int f_check::GetDistantVersion()
     // Return revision number
     QString version = read.firstChildElement("log").firstChildElement("logentry").attribute("revision");
     qDebug() << "Distant version : " << version;
+    setCheckerParam("Update/DistantRev",version);
     return version.toInt();
+}
+
+QString f_check::ExtractChangelog(QString filepath)
+{
+    // Open the file
+    QDomDocument read;
+    QFile file(filepath);
+    if(!file.open(QIODevice::ReadOnly))
+     {
+         qDebug() << "Error opening short changelog";
+         return 0;
+     }
+    read.setContent(&file);
+    file.close();
+
+    QString result;
+    QDomElement revision = read.firstChildElement("log").firstChildElement("logentry");
+    for(revision;!revision.isNull();revision = revision.nextSiblingElement()){
+       // Extracting values
+       QString number = revision.attribute("revision");
+       QString date = revision.firstChildElement("date").text();
+       QString author = revision.firstChildElement("author").text();
+       QString message = revision.firstChildElement("msg").text();
+
+       // Format values
+       date = date.left(10);
+       message.replace("\n","<br>");
+       result = result + "<p><span style=\" font-size:11pt; font-weight:600;\">Revision " + number + ":</span><br>" + "<span style=\" font-size:9pt; font-style: italic;\">" + date + " | Author : " + author + "</span></p>\n" + "<p><span style=\" font-size:10pt;\">" + message + "</span></p> _________________";
+    }
+
+    return result;
 }
