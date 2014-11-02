@@ -84,16 +84,17 @@ DONE -> CHECK: Self-updating launcher check
 
 ## 1.0
 -> RSYNC integration (instead of SVN):
-    DONE -> Start and initialise the launcher
-    DONE -> Use rsync the grab changelog_last.json.
-    DONE -> Check the latest version from the file and compare it with the local installation (from the python file ? or maybe from a variable in the ini which is validated if the update went well ?).
-    DONE -> If there is an update, inform the user (with the yellow update button).
-    DONE -> The update window will print the "changelog_last" content. A button will invite the user to read the full if needed. Another one to begin the update.
-    DONE -> Blacklist the config files from the rsync sync operation.
-    DONE -> The addons support will be removed from now.
-    DONE -> Progress bar based on the number of lines in the update file. Will follow the rsync output then compare with the number of lines.
-DONE -> Remove addons support for now
--> Setup the installer to automatically execute the launcher the first time
+        DONE -> Start and initialise the launcher
+        DONE -> Use rsync the grab changelog_last.json.
+        DONE -> Check the latest version from the file and compare it with the local installation (from the python file ? or maybe from a variable in the ini which is validated if the update went well ?).
+        DONE -> If there is an update, inform the user (with the yellow update button).
+        DONE -> The update window will print the "changelog_last" content. A button will invite the user to read the full if needed. Another one to begin the update.
+        DONE -> Blacklist the config files from the rsync sync operation.
+        DONE -> The addons support will be removed from now.
+        DONE -> Progress bar based on the number of lines in the update file. Will follow the rsync output then compare with the number of lines.
+    DONE -> Remove addons support for now
+    DONE -> Setup the installer to automatically execute the launcher the first time
+-> Check the first time installer
 
 ## 1.1
 - Reimplement addon installer
