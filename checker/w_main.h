@@ -17,8 +17,8 @@ class installBox;
 }
 
 namespace versions {
-const int MAJOR_CHECKER_VERSION = 0;
-const int MINOR_CHECKER_VERSION = 15;
+const int MAJOR_CHECKER_VERSION = 1;
+const int MINOR_CHECKER_VERSION = 0;
 }
 
 namespace tools {

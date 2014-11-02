@@ -24,6 +24,7 @@ w_main::w_main(QWidget *parent) :
     // Initialize sub-windows
     options = new w_options(this);
     modules = new w_modules(this);
+    modules->UpdateWindow();
 
     // Translations : Get language parameter, else if OS language, then wait to fully initialize the GUI.
     translator = new QTranslator(this);
@@ -102,6 +103,7 @@ w_main::w_main(QWidget *parent) :
     connect(worker, SIGNAL(finished(bool)), thread, SLOT(quit()), Qt::DirectConnection);
     connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateWindowInfos()), Qt::DirectConnection);
     connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateAvailable(bool)));
+    connect(worker, SIGNAL(finished(bool)), modules, SLOT(UpdateWindow()));
 
     // Update : Kill the previous background task if any, then start the task
     worker->abort();
@@ -136,9 +138,6 @@ void w_main::UpdateWindowInfos()
     QFont f( "Arial", 8);
     ui->lb_versions->setFont(f);
     ui->lb_versions->setText(vers);
-
-    // GUI : Update modules windows
-    modules->UpdateWindow();
 }
 
 void w_main::RestoreButtonState()

@@ -13,8 +13,6 @@ w_modules::w_modules(QWidget *parent) :
 
     // Set version label
     ui->bt_update->hide();
-    f_check changes;
-    ui->changelog_box->setText(changes.ExtractChangelog("checker/changelog_last.xml"));
 }
 
 w_modules::~w_modules()
@@ -38,4 +36,8 @@ void w_modules::UpdateWindow()
         qDebug() << "Update available !";
         ui->bt_update->show();
     }
+
+    // Set changelog
+    f_check changes;
+    ui->changelog_box->setText(changes.ExtractChangelog("checker/changelog_last.xml"));
 }

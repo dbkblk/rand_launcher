@@ -17,10 +17,12 @@ class w_modules : public QMainWindow
 public:
     explicit w_modules(QWidget *parent = 0);
     ~w_modules();
-    void UpdateWindow();
 
 private slots:
     void on_bt_update_clicked();
+
+public slots:
+    void UpdateWindow();
 
 private:
     Ui::w_modules *ui;
