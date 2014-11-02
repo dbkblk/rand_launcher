@@ -82,21 +82,18 @@ DONE -> Add a marker to see current language
 DONE -> BUG: Fix updater progress bar
 DONE -> CHECK: Self-updating launcher check
 
-## 0.16
+## 1.0
 -> RSYNC integration (instead of SVN):
-    - Start and initialise the launcher
-    - Use rsync the grab changelog_last.json.
-    - Check the latest version from the file and compare it with the local installation (from the python file ? or maybe from a variable in the ini which is validated if the update went well ?).
-    - If there is an update, inform the user (with the yellow update button).
-    - The update window will print the "changelog_last" content. A button will invite the user to read the full if needed. Another one to begin the update.
+    DONE -> Start and initialise the launcher
+    DONE -> Use rsync the grab changelog_last.json.
+    DONE -> Check the latest version from the file and compare it with the local installation (from the python file ? or maybe from a variable in the ini which is validated if the update went well ?).
+    DONE -> If there is an update, inform the user (with the yellow update button).
+    DONE -> The update window will print the "changelog_last" content. A button will invite the user to read the full if needed. Another one to begin the update. FIX -> Reload changelog after download.
     - Blacklist the config files from the rsync sync operation.
-    - The addons support will be removed from now.
-    - Progress bar based on the number of lines in the update file. Will follow the rsync output then compare with the number of lines.
+    DONE -> The addons support will be removed from now.
+    DONE -> Progress bar based on the number of lines in the update file. Will follow the rsync output then compare with the number of lines.
 DONE -> Remove addons support for now
 -> Setup the installer to automatically execute the launcher the first time
-
-## 1.0
-- Method for full installer: SVN checkout empty directory, import files, then checkout fully recursive
 
 ## 1.1
 - Reimplement addon installer

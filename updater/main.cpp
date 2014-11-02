@@ -46,10 +46,10 @@ int main(int argc, char *argv[])
         else {
             // Check exclusion file
 
-            QString exclusion = "--exclude \".svn*\"";
+            QString exclusion = w->ReadExcludeList();
 
             // Initialize update
-            QString operation = tools::TOOL_RSYNC + QString("-vvrz --delete-after %1 afforess.com::ftp/ .").arg(exclusion);
+            QString operation = tools::TOOL_RSYNC + QString("-vvrz --delete-after %1afforess.com::ftp/ .").arg(exclusion);
             qDebug() << operation;
             w->initialize();
 

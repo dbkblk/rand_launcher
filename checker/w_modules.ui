@@ -145,7 +145,7 @@ font: 75 9pt &quot;MS Shell Dlg 2&quot;;</string>
          </size>
         </property>
         <property name="text">
-         <string notr="true">bt_update</string>
+         <string notr="true">Update</string>
         </property>
        </widget>
       </item>

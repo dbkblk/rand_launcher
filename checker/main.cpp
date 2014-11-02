@@ -55,10 +55,17 @@ int main(int argc, char *argv[])
     }
 
     // Go out of update
-    if(QFile::exists("upd_proc.exe"))
+    if(QFile::exists("upd_proc.exe") || QFile::exists("rsync.exe"))
     {
         clearCache();
         clearGameOptions();
+        QFile::remove("cygcrypto-1.0.0.dll");
+        QFile::remove("cyggcc_s-1.dll");
+        QFile::remove("cygiconv-2.dll");
+        QFile::remove("cygssp-0.dll");
+        QFile::remove("cygwin1.dll");
+        QFile::remove("cygz.dll");
+        QFile::remove("rsync.exe");
         QFile::remove("upd_proc.exe");
     }
 

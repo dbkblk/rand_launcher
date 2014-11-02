@@ -18,7 +18,7 @@ const QString TOOL_LAUNCHER = "./and2_checker";
 const QString TOOL_UPDATER = "./upd_proc";
 #endif
 #ifdef _WIN32
-const QString TOOL_RSYNC = "checker/rsync.exe ";
+const QString TOOL_RSYNC = "rsync.exe ";
 const QString TOOL_GET = "checker/curl.exe -J -L -C - -# --retry 10 --insecure ";
 const QString TOOL_EXTRACT = "checker/7za.exe e ";
 const QString TOOL_LAUNCHER = "and2_checker.exe";
@@ -37,6 +37,7 @@ public:
     void initialize();
     void execute(QString command);
     void DebugWindow();
+    QString ReadExcludeList();
 
 signals:
     void finished();
