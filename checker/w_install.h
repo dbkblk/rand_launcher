@@ -15,8 +15,8 @@ public :
     explicit w_install(QDialog *parent = 0);
 
 public slots:
-    //void on_buttonBox_accepted();
-    //void on_buttonBox_rejected();
+    void on_buttonBox_accepted();
+    void on_buttonBox_rejected();
 
 private:
     Ui::w_install *ui;

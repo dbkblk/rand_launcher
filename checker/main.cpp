@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
         QFile::remove("upd_proc.exe");
     }
 
-    // Check for correct path (TO REMOVE ?)
+    // Check for correct path
 
     QDir BTS_dir("../../Mods");
     if(!BTS_dir.exists()){
@@ -79,11 +79,21 @@ int main(int argc, char *argv[])
     }
     #endif
     /* End of the windows specific code */
-
-    // Start the GUI
+    // Create modules
     w_main w;
-    //w_install install;
+    w_install install;
+
+    // Check for existing installation
+    QDir assets("Assets");
+    if(!assets.exists()){
+        qDebug() << "No assets dir, assuming the mod is not installed";
+        install.show();
+    }
+
+    else{
+    // Start the GUI
     w.show();
+    }
 
     return a.exec();
 }

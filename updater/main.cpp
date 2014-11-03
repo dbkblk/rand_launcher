@@ -11,53 +11,19 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    task_updater *w = new task_updater();
+    task_updater w;
+    w.show();
+    w.DebugWindow();
 
-    w->show();
-    w->DebugWindow();
+    // Check exclusion file
+    QString exclusion = w.ReadExcludeList();
 
-    // Loop process to allow retrying
-    int loop = 0;
-    while (loop != 1){
-        // Count total files and check for errors
-        if(w->CountFiles() == -1){
-            qDebug() << "An error has occured";
+    // Initialize update
+    QString operation = tools::TOOL_RSYNC + QString("-rz --info=progress2 --delete-after %1afforess.com::ftp/ .").arg(exclusion);
+    qDebug() << operation;
 
-            // Invoke a retry dialog box
-            QMessageBox retry;
-            retry.setWindowTitle("Update");
-            retry.setText("The update has failed");
-            retry.setInformativeText("Do you want to retry ?");
-            retry.setStandardButtons(QMessageBox::Yes |QMessageBox::No);
-            retry.setDefaultButton(QMessageBox::Yes);
-            int ret = retry.exec();
-
-            switch (ret) {
-              case QMessageBox::Yes:
-                  break;
-              case QMessageBox::No:
-                  loop = 1;
-                  break;
-
-              default:
-                  break;
-            }
-        }
-        else {
-            // Check exclusion file
-
-            QString exclusion = w->ReadExcludeList();
-
-            // Initialize update
-            QString operation = tools::TOOL_RSYNC + QString("-vvrz --delete-after %1afforess.com::ftp/ .").arg(exclusion);
-            qDebug() << operation;
-            w->initialize();
-
-            // Execute update operation
-            w->execute(operation);
-            loop = 1;
-        }
-    }
+    // Execute update operation
+    w.StartUpdate(operation);
 
     return a.exec();
 }

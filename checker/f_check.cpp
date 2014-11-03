@@ -104,6 +104,7 @@ bool f_check::ActionUpdate()
     QFile::copy("checker/upd_proc","upd_proc");
     QProcess update;
     update.startDetached("upd_proc");
+    QApplication::quit();
     #endif
 
     return 0;

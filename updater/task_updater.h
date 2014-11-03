@@ -33,9 +33,7 @@ class task_updater : public QMainWindow
 public:
     explicit task_updater(QWidget *parent = 0);
     ~task_updater();
-    int CountFiles();
-    void initialize();
-    void execute(QString command);
+    void StartUpdate(QString operation);
     void DebugWindow();
     QString ReadExcludeList();
 
@@ -43,18 +41,12 @@ signals:
     void finished();
 
 public slots:
-    void appendOutput();
-    void executeFinished();
-    void executeError(QProcess::ProcessError);
+    void processOutput();
     void restartLauncher();
 
 private:
     Ui::task_updater *ui;
-    QProcess process;
-    QTimer process_timer;
-    QString process_file;
-    qint64 process_file_pos;
-    int progress;
+    QProcess* process;
 };
 
 #endif // TASK_UPDATER_H

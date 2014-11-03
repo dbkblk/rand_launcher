@@ -95,9 +95,12 @@ DONE -> CHECK: Self-updating launcher check
     DONE -> Remove addons support for now
     DONE -> Setup the installer to automatically execute the launcher the first time
 -> Check the first time installer
+-> Improved updater progress (with speed and remaining time)
+BUG: Launcher is called while update isn't finished
 
 ## 1.1
 - Reimplement addon installer
+- Calculate a mean remaining time / speed during the update
 
 ## 2.0
 ### Features
