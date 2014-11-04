@@ -25,5 +25,5 @@ int main(int argc, char *argv[])
     // Execute update operation
     w.StartUpdate(operation);
 
-    return a.exec();
+    return 0;
 }

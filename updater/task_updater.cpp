@@ -3,6 +3,7 @@
 #include <QtCore>
 #include <QtXml/QtXml>
 #include <QMessageBox>
+#include <QApplication>
 
 task_updater::task_updater(QWidget *parent) :
     QMainWindow(parent),
@@ -19,11 +20,11 @@ task_updater::task_updater(QWidget *parent) :
     // Connecting signals
     connect(this,SIGNAL(finished()),this,SLOT(restartLauncher()));
     connect(process, SIGNAL(readyReadStandardOutput()), this, SLOT(processOutput()));
+    connect(this,SIGNAL(error()),this,SLOT(errorPopup()));
 }
 
 task_updater::~task_updater()
 {
-    QProcess::startDetached("killall rsync");
     delete ui;
 }
 
@@ -42,7 +43,7 @@ void task_updater::DebugWindow()
 void task_updater::StartUpdate(QString operation){
     // Set process and emit signal at the end
     process->start(operation);
-    process->waitForFinished();
+    process->waitForFinished(-1);
     emit finished();
 }
 
@@ -50,12 +51,34 @@ void task_updater::processOutput(){
     // Get standard output
     QString output = process->readAllStandardOutput();
 
+    // Check for errors
+    if(output.contains("error")){emit error();}
+
     // Extract percent
-    int pos = output.indexOf("%");
-    QString ext_percent;
-    ext_percent.append(output.at(pos-3)).append(output.at(pos-2)).append(output.at(pos-1));
-    int percent = ext_percent.toInt();
-    ui->progressBar->setValue(percent);
+    //      75,634,656   2%   10.23MB/s    0:00:07 (xfr#77, to-chk=0/13260)
+    int pos = 0;
+    int bracket = 0;
+    int i=0;
+    int value;
+    int total;
+    if (output.contains("to-chk=")){
+        pos = output.lastIndexOf("to-chk=");
+        bracket = output.lastIndexOf(")");
+        QString string = output.mid((pos+8),(pos+8-bracket));
+        QStringList list = string.split("/");
+        foreach(QString number, list){
+            number.replace(")","");
+            if(i==0){
+                value = number.toInt();
+            }
+            if(i==1){
+                total = number.toInt();
+            }
+            i++;
+        }
+        int percent = ((total - value)*100 / total);
+        ui->progressBar->setValue(percent);
+    }
 
     // Extract speed
     pos = output.indexOf("/s");
@@ -90,10 +113,14 @@ void task_updater::processOutput(){
     ui->label->setText(label);
 }
 
+void task_updater::errorPopup()
+{
+    qDebug("An error has occured");
+}
+
 void task_updater::restartLauncher()
 {
     QProcess::startDetached(tools::TOOL_LAUNCHER);
-    QApplication::quit();
 }
 
 QString task_updater::ReadExcludeList(){

@@ -39,10 +39,12 @@ public:
 
 signals:
     void finished();
+    void error();
 
 public slots:
     void processOutput();
     void restartLauncher();
+    void errorPopup();
 
 private:
     Ui::task_updater *ui;
