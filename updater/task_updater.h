@@ -39,10 +39,12 @@ public:
 
 signals:
     void finished();
+    void stopUpdate();
     void error();
 
 public slots:
     void processOutput();
+    void StopGUI();
     void restartLauncher();
     void errorPopup();
 
