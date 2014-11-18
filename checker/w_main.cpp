@@ -1,13 +1,10 @@
 #include "w_main.h"
 #include "f_civ.h"
-#include "f_svn.h"
 #include "f_check.h"
 #include "w_options.h"
-#include "updatebox.h"
 #include "ui_w_main.h"
 #include "ui_w_install.h"
 #include "ui_w_options.h"
-#include <lib/f_binaries.h>
 #include <w_modules.h>
 
 #include <QtCore>
@@ -24,7 +21,7 @@ w_main::w_main(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Translations
+    // Translations : Get language parameter, else if OS language, then wait to fully initialize the GUI.
     translator = new QTranslator(this);
     QString loc;
     if(readCheckerParam("Main/Lang") == "error")
@@ -41,7 +38,11 @@ w_main::w_main(QWidget *parent) :
 
     qApp->installTranslator(translator);
 
-    // Language check
+    // Initialize sub-windows
+    modules = new w_modules(this);
+    modules->UpdateWindow();
+
+    // GUI : Fix language menu selector
     clear_language_state();
     if(loc=="en"){ui->language_en->setChecked(1);}
     if(loc=="fr"){ui->language_fr->setChecked(1);}
@@ -54,7 +55,7 @@ w_main::w_main(QWidget *parent) :
     if(loc=="es"){ui->language_es->setChecked(1);}
     if(loc=="ru"){ui->language_ru->setChecked(1);}
 
-    // Menu icons
+    // GUI : Set menu icons
     ui->language_en->setIcon(QIcon("checker/icons/en.png"));
     ui->language_fi->setIcon(QIcon("checker/icons/fi.png"));
     ui->language_fr->setIcon(QIcon("checker/icons/fr.png"));
@@ -76,53 +77,42 @@ w_main::w_main(QWidget *parent) :
     ui->actionTranslate_the_launcher->setIcon(QIcon("checker/icons/translate.png"));
     ui->actionTranslate_the_mod_help->setIcon(QIcon("checker/icons/help.png"));
     ui->actionAddon_Blue_marble->setIcon(QIcon("checker/icons/blue_marble.png"));
-    ui->actionClean_up->setIcon(QIcon("checker/icons/clean.png"));
-    ui->actionRevert_to_an_older_revision->setIcon(QIcon("checker/icons/revert.png"));
+    ui->menuAddons->setIcon(QIcon("checker/icons/addons.png"));
     ui->menuFix_installation->setIcon(QIcon("checker/icons/fix.png"));
+    ui->actionClean_up->setIcon(QIcon("checker/icons/clean.png"));
     ui->actionClear_cache->setIcon(QIcon("checker/icons/clear.png"));
-    ui->actionEnter_SVN_command->setIcon(QIcon("checker/icons/svn.png"));
 
-    // Checker version
-    setCheckerParam("Main/CheckerMajorVersion",QString::number(constants::MAJOR_CHECKER_VERSION));
-    setCheckerParam("Main/CheckerMinorVersion",QString::number(constants::MINOR_CHECKER_VERSION));
+    // Internal : Set internal checker version as parameter in the ini file
+    setCheckerParam("Main/CheckerMajorVersion",QString::number(versions::MAJOR_CHECKER_VERSION));
+    setCheckerParam("Main/CheckerMinorVersion",QString::number(versions::MINOR_CHECKER_VERSION));
 
-    // Updater fix
-    if(readCheckerParam("Main/UpdateBehavior") == "error"){
-        setCheckerParam("Main/UpdateBehavior","theirs-full");
-    }
-
-    // Creation of widgets
-    ubox = new updatebox(this);
-
-    // Main window shape
+    // GUI : Set title and background
 
     this->setWindowTitle("Civilization IV: A New Dawn");
     this->setStyleSheet("w_main { background-image: url(checker/and2_background.jpg); background-position: bottom }");
 
+    // Update : Prepare a background task to check for update without slowing down the GUI
     /*  Thread code, imported from https://github.com/fabienpn/simple-qt-thread-example */
     thread = new QThread();
     worker = new f_check();
 
     worker->moveToThread(thread);
     connect(worker, SIGNAL(workRequested()), thread, SLOT(start()));
-    connect(thread, SIGNAL(started()), worker, SLOT(UMCheckUpdate()));
+    connect(thread, SIGNAL(started()), worker, SLOT(CheckForUpdate()));
     connect(worker, SIGNAL(finished(bool)), thread, SLOT(quit()), Qt::DirectConnection);
     connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateWindowInfos()), Qt::DirectConnection);
     connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateAvailable(bool)));
+    connect(worker, SIGNAL(finished(bool)), modules, SLOT(UpdateWindow()));
 
-    // Check launcher update in background (to avoid having two threads running simultaneously, the previous thread is aborted).
+    // Update : Kill the previous background task if any, then start the task
     worker->abort();
     thread->wait(); // If the thread is not running, this will immediately return.
     worker->requestWork();
 
-    // Update labels and buttons
+    // GUI : Update the local version and font color
     UpdateWindowInfos();
 
-    // Check for addons
-    check_addon_mcp();
-    check_addon_more_handicaps();
-    check_addon_more_music();
-
+    // Translations : Reload the GUI with the correct translation
     ui->retranslateUi(this);
 }
 
@@ -132,27 +122,26 @@ w_main::~w_main()
     worker->abort();
     thread->wait();
     qDebug() << "Deleting thread and worker in Thread " << this->QObject::thread()->currentThreadId();
-    QFile::remove("checker/update.ini");
-    QProcess::execute("taskkill /f /im curl.exe");
     delete thread;
     delete worker;
     delete ui;
-
 }
 
 void w_main::UpdateWindowInfos()
 {
-    // Versions label on the main Window
-
+    // GUI : Set versions label on the main Window
     QString vers = "Launcher rev. " + readCheckerParam("Main/CheckerMajorVersion") + "." + readCheckerParam("Main/CheckerMinorVersion") + "\nMod rev. " + readCheckerParam("Main/LocalRev");
     QPalette lb_palette;
     lb_palette.setColor(QPalette::WindowText, Qt::black);
     ui->lb_versions->setPalette(lb_palette);
+    QFont f( "Arial", 8);
+    ui->lb_versions->setFont(f);
     ui->lb_versions->setText(vers);
 }
 
 void w_main::RestoreButtonState()
 {
+    // GUI : Restore the standard aspect
     ui->bt_components->setStyleSheet("");
     ui->bt_components->setText(tr("Check for update"));
     return;
@@ -160,7 +149,7 @@ void w_main::RestoreButtonState()
 
 void w_main::UpdateAvailable(bool update)
 {
-    // Detect if it's a launcher update or another type
+    // GUID : Detect if it's a launcher update or another type then turn the update button to yellow
     if(update)
     {
         ui->bt_components->setStyleSheet("background-color: yellow");
@@ -169,7 +158,7 @@ void w_main::UpdateAvailable(bool update)
     return;
 }
 
-// Menu actions
+// GUI : Menu actions
 
 void w_main::on_actionForum_triggered()
 {
@@ -227,9 +216,8 @@ void w_main::on_actionTranslate_the_mod_help_triggered()
 }
 
 
-// Menu buttons
-
 void w_main::on_bt_launch_clicked()
+// GUI : Launch game button
 {
     // Check if the game path is known
 
@@ -252,8 +240,8 @@ void w_main::on_bt_launch_clicked()
 }
 
 void w_main::on_bt_option_clicked()
+// GUI : Invoke the option window
 {
-    // Invoke the option window
     options = new w_options(this);
     options->show();
 }
@@ -261,151 +249,12 @@ void w_main::on_bt_option_clicked()
 
 
 void w_main::on_bt_components_clicked()
+// GUI : Modules button
 {
-    modules = new w_modules(this);
     modules->show();
 }
 
-void w_main::on_actionGit_Pack_binaries_triggered()
-{
-    // Preparing signals
-    QTimer wait_timer;
-    QEventLoop wait_install;
-    wait_timer.setInterval(1000);
-    wait_timer.setSingleShot(true);
-    connect(&wait_timer,SIGNAL(timeout()),&wait_install,SLOT(quit()));
-
-    // Window layout
-    QWidget *window = new QWidget();
-    window->setGeometry(0,0,250,250);
-    window->setWindowTitle(tr("Pack base binaries"));
-    const QRect screen = QApplication::desktop()->screenGeometry();
-    window->setFixedSize(250,250);
-    window->move(screen.center());
-    QLabel *label = new QLabel(window);
-    label->setGeometry(20,20,210,210);
-    label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-    label->setWordWrap(true);
-
-    // Process
-    wait_timer.start();
-    QString label_value;
-    label_value = tr("Packing base files") + "\n(" + tr("this might take up to 10 min") + ":\n\n" + tr("Listing files") + "... ";
-    label->setText(label_value);
-    wait_install.exec();
-    window->show();
-    PackBinaries pack;
-    QStringList file_list;
-    file_list = pack.ListBinaries();
-    wait_timer.start();
-    label_value = label_value + tr("OK") + "\n" + tr("Generating hash file") + "... ";
-    label->setText(label_value);
-    wait_install.exec();
-    pack.GenerateHashFile(file_list, "AND2_BASE_FILES.xml");
-    wait_timer.start();
-    label_value = label_value + tr("OK") + "\n" + tr("Gathering files") + "... ";
-    label->setText(label_value);
-    wait_install.exec();
-    pack.CopyToTempFolder(file_list);
-    wait_timer.start();
-    label_value = label_value + tr("OK") + "\n" + tr("Compressing files") + "... ";
-    label->setText(label_value);
-    wait_install.exec();
-    pack.CompressTempFolder("AND2_BASE_FILES.7z");
-    QDir temp("temp/");
-    temp.removeRecursively();
-    wait_timer.start();
-    label_value = label_value + tr("OK") + "\n" + tr("Cleaning folder") + "... " + tr("OK") + "\n\n" + QString(tr("Operation finished. The binaries have been packed in %1 and their checksums are listed in %2")).arg("\"AND2_BASE_FILES.7z\"").arg("\"AND2_BASE_FILES.xml\"");
-    label->setText(label_value);
-    wait_install.exec();
-}
-
-void w_main::on_actionGit_Create_update_binary_pack_triggered()
-{
-    // Preparing signals
-    QTimer wait_timer;
-    QEventLoop wait_install;
-    wait_timer.setInterval(1000);
-    wait_timer.setSingleShot(true);
-    connect(&wait_timer,SIGNAL(timeout()),&wait_install,SLOT(quit()));
-
-    // Window layout
-    QWidget *window = new QWidget();
-    window->setGeometry(0,0,250,250);
-    window->setWindowTitle(tr("Pack update binaries"));
-    const QRect screen = QApplication::desktop()->screenGeometry();
-    window->setFixedSize(250,250);
-    window->move(screen.center());
-    QLabel *label = new QLabel(window);
-    label->setGeometry(20,20,210,210);
-    label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-    label->setWordWrap(true);
-
-    // Process
-    wait_timer.start();
-    QString label_value;
-    label_value = QString(tr("Packing update files")) + QString("\n(") + QString(tr("this might take up to 10 min")) + QString(":\n\n") + QString("Downloading base signatures (NB: For testing purpose, the signature must already be in the folder)") + QString("...");
-    label->setText(label_value);
-
-    wait_timer.start();
-    label_value = label_value + " " + tr("OK") + "\n" + tr("Listing files") + "...";
-    label->setText(label_value);
-    wait_install.exec();
-    window->show();
-    PackBinaries pack;
-    QStringList existing_files;
-    existing_files = pack.ListBinaries();
-
-    wait_timer.start();
-    label_value = label_value + " " + tr("OK") + "\n" + tr("Generating hash file") + "...";
-    label->setText(label_value);
-    wait_install.exec();
-    //pack.GenerateHashFile(existing_files, "AND2_UPDATE_FILES.xml");
-
-    wait_timer.start();
-    label_value = label_value + " " + tr("OK") + "\n" + tr("Comparing base and update hashs") + "...";
-    label->setText(label_value);
-    wait_install.exec();
-    QStringList updated_files;
-    updated_files = pack.CompareHashs("AND2_BASE_FILES.xml","AND2_UPDATE_FILES.xml");
-
-    qDebug() << "Pack files";
-    wait_timer.start();
-    label_value = label_value + " " + tr("OK") + "\n" + tr("Checking for new files") + "...";
-    label->setText(label_value);
-    wait_install.exec();
-    QStringList new_files;
-    new_files = pack.CheckNewFiles("AND2_BASE_FILES.xml",existing_files);
-
-    wait_timer.start();
-    label_value = label_value + " " + tr("OK") + "\n" + tr("Checking for missing files") + "...";
-    label->setText(label_value);
-    wait_install.exec();
-    QStringList missing_files;
-    missing_files = pack.CheckMissingFiles("AND2_BASE_FILES.xml",existing_files);
-
-    wait_timer.start();
-    label_value = label_value + " " + tr("OK") + "\n" + tr("Gathering files") + "...";
-    label->setText(label_value);
-    wait_install.exec();
-    pack.CopyToTempFolder(updated_files);
-    pack.CopyToTempFolder(new_files);
-
-    wait_timer.start();
-    label_value = label_value + " " + tr("OK") + "\n" + tr("Compressing files") + "...";
-    label->setText(label_value);
-    wait_install.exec();
-    pack.CompressTempFolder("AND2_UPDATE_FILES.7z");
-    QDir temp("temp/");
-    temp.removeRecursively();
-
-    wait_timer.start();
-    label_value = label_value + " " + tr("OK") + "\n" + tr("Cleaning folder") + "..." + " " + tr("OK") + "\n\n" + QString(tr("Operation finished. The updated binaries have been packed in %1 and their checksums are listed in %2")).arg("\"AND2_UPDATE_FILES.7z\"").arg("\"AND2_UPDATE_FILES.xml\"");
-    label->setText(label_value);
-    wait_install.exec();
-}
-
-// Language support
+// GUI : Set all language selector to 0 before to check the correct one
 void w_main::clear_language_state()
 {
     ui->language_en->setChecked(0);
@@ -420,11 +269,13 @@ void w_main::clear_language_state()
     ui->language_ru->setChecked(0);
 }
 
+// GUI : Individual translations selectors
 void w_main::on_language_en_triggered()
 {
     translator->load(QString("launcher.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","en");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_en->setChecked(1);
 }
@@ -434,6 +285,7 @@ void w_main::on_language_fr_triggered()
     translator->load(QString("launcher_fr.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","fr");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_fr->setChecked(1);
 }
@@ -443,6 +295,7 @@ void w_main::on_language_si_triggered()
     translator->load(QString("launcher_si.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","si");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_si->setChecked(1);
 }
@@ -452,6 +305,7 @@ void w_main::on_language_hu_triggered()
     translator->load(QString("launcher_hu.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","hu");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_hu->setChecked(1);
 }
@@ -461,6 +315,7 @@ void w_main::on_language_fi_triggered()
     translator->load(QString("launcher_fi.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","fi");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_fi->setChecked(1);
 }
@@ -470,6 +325,7 @@ void w_main::on_language_it_triggered()
     translator->load(QString("launcher_it.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","it");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_it->setChecked(1);
 }
@@ -479,6 +335,7 @@ void w_main::on_language_es_triggered()
     translator->load(QString("launcher_es.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","es");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_es->setChecked(1);
 }
@@ -488,6 +345,7 @@ void w_main::on_language_de_triggered()
     translator->load(QString("launcher_de.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","de");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_de->setChecked(1);
 }
@@ -497,6 +355,7 @@ void w_main::on_language_pl_triggered()
     translator->load(QString("launcher_pl.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","pl");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_pl->setChecked(1);
 }
@@ -506,44 +365,14 @@ void w_main::on_language_ru_triggered()
     translator->load(QString("launcher_ru.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","ru");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_ru->setChecked(1);
 }
 
-void w_main::on_actionClean_up_triggered()
-{
-    QProcess::startDetached("cmd /K .\\checker\\svn.exe revert -R . && and2_checker.exe");
-    QApplication::quit();
-}
-
-void w_main::on_actionRevert_to_an_older_revision_triggered()
-{
-    QString dial_rev = QInputDialog::getText(this, tr("Revision selector"), tr("Please enter the revision you want to revert to :"), QLineEdit::Normal);
-    if(dial_rev.toInt() > 0)
-    {
-        if(dial_rev.toInt() < 737)
-        {
-            QMessageBox::critical(this,tr("Warning"),tr("The launcher has been introduced in revision 737. If you revert to an older revision, it will be removed (you can reinstall it with the install link on the forum)."));
-        }
-        QFile::copy("checker/upd_proc.exe","upd_proc.exe");
-        QProcess updater;
-        updater.startDetached(QString("upd_proc.exe update %1 %2").arg(readCheckerParam("Main/LocalRev").toInt()).arg(dial_rev));
-        QApplication::quit();
-    }
-}
-
+// Game : Clear the cache
 void w_main::on_actionClear_cache_triggered()
 {
     clearCache();
     QMessageBox::information(this,tr("Cache"),tr("The cache is now cleared. NOTE: It is already automatically cleared on update."));
-}
-
-void w_main::on_actionEnter_SVN_command_triggered()
-{
-    QString dial_rev = QInputDialog::getText(this, tr("SVN command"), tr("Please enter the desired SVN command :"), QLineEdit::Normal);
-    if(!dial_rev.isEmpty()){
-    QProcess::startDetached(QString("cmd /K .\\checker\\svn.exe %1").arg(dial_rev));
-    QApplication::quit();
-    }
-    return;
 }

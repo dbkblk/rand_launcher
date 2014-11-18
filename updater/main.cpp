@@ -11,31 +11,20 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    task_updater *w = new task_updater();
+    task_updater w;
+    w.show();
+    w.DebugWindow();
 
-    if(argc > 1)
-    {
-        QString arg1 = argv[1];
-        QString arg2 = argv[2];
-        QString arg3 = argv[3];
-        if(arg1 == "update" && arg2.toInt() > 0)
-        {
-            w->show();
-            if(arg3.toInt() > 0)
-            {
-                w->svn_update(arg2.toInt(), arg3.toInt());
-            }
-            else
-            {
-                w->svn_update(arg2.toInt(), 0);
-            }
-        }
-        else if(arg1 == "install")
-        {
-            w->show();
-            w->svn_install();
-        }
-    }
+    // Check exclusion file
+    QString exclusion = w.ReadExcludeList("checker/exclusions.default.xml");
+    QString exclusion_custom = w.ReadExcludeList("checker/exclusions.custom.xml");
 
-    return a.exec();
+    // Initialize update
+    QString operation = tools::TOOL_RSYNC + QString("-rz --info=progress2 --delete-after %1 %2 afforess.com::ftp/ .").arg(exclusion).arg(exclusion_custom);
+    qDebug() << operation;
+
+    // Execute update operation
+    w.StartUpdate(operation);
+
+    return 0;
 }

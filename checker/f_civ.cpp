@@ -179,7 +179,7 @@ void launchGame(){
     QDesktopServices::openUrl(QUrl(u));
 }
 
-QString check_addon_mcp()
+/*QString check_addon_mcp()
 {
     QFile addon_MCP_file("Assets/Addon_MCP.ini");
     QFile addon_MCP_file2("Assets/MCP0.FPK");
@@ -260,7 +260,7 @@ QString check_addon_more_handicaps()
         setCheckerParam("ADDON_MOREHANDICAPS/Version","Not installed");
         return "Not installed";
     }
-}
+}*/
 
 bool readOptionFormations()
 {

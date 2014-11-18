@@ -1,7 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <updatebox.h>
 #include <w_options.h>
 #include <w_modules.h>
 #include <f_check.h>
@@ -17,13 +16,27 @@ class w_main;
 class installBox;
 }
 
-namespace constants {
-const int MAJOR_CHECKER_VERSION = 0;
-const int MINOR_CHECKER_VERSION = 15;
+namespace versions {
+const int MAJOR_CHECKER_VERSION = 1;
+const int MINOR_CHECKER_VERSION = 0;
+}
 
-// Define the update url (the second is for testing purpose)
-const QString GLOBAL_UPDATE_URL = "checker/curl.exe -o checker/update.ini -J -L -C - -# --retry 10 --insecure https://raw.githubusercontent.com/dbkblk/and2_checker/master/update.ini";
-//const QString GLOBAL_UPDATE_URL = "checker/curl.exe -o checker/update.ini -J -L -C - -# --retry 10 --insecure https://dl.dropboxusercontent.com/u/369241/update.ini";
+namespace tools {
+// Define OS tools
+#ifdef __linux
+const QString TOOL_RSYNC = "rsync ";
+const QString TOOL_GET = "curl -J -L -C - -# --retry 10 --insecure ";
+const QString TOOL_EXTRACT = "7z e ";
+const QString TOOL_LAUNCHER = "and2_checker";
+const QString TOOL_UPDATER = "upd_proc";
+#endif
+#ifdef _WIN32
+const QString TOOL_RSYNC = "checker/rsync.exe ";
+const QString TOOL_GET = "checker/curl.exe -J -L -C - -# --retry 10 --insecure ";
+const QString TOOL_EXTRACT = "checker/7za.exe e ";
+const QString TOOL_LAUNCHER = "and2_checker.exe";
+const QString TOOL_UPDATER = "upd_proc.exe";
+#endif
 }
 
 class w_main : public QMainWindow
@@ -50,8 +63,6 @@ private slots:
     void UpdateAvailable(bool update);
     void RestoreButtonState();
     void on_bt_components_clicked();
-    void on_actionGit_Pack_binaries_triggered();
-    void on_actionGit_Create_update_binary_pack_triggered();
     void on_actionHelp_translate_the_mod_triggered();
     void on_actionTranslate_the_mod_help_triggered();
     void on_actionTranslate_the_launcher_triggered();
@@ -66,15 +77,11 @@ private slots:
     void on_language_de_triggered();
     void on_language_ru_triggered();
     void on_language_pl_triggered();
-    void on_actionClean_up_triggered();
-    void on_actionRevert_to_an_older_revision_triggered();
     void on_actionAddon_Blue_marble_triggered();
     void on_actionClear_cache_triggered();
-    void on_actionEnter_SVN_command_triggered();
 
 private:
     Ui::w_main *ui;
-    updatebox *ubox;
     w_options *options;
     QThread *thread;
     f_check *worker;

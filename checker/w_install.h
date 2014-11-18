@@ -2,7 +2,6 @@
 #define W_INSTALL_H
 
 #include "ui_w_install.h"
-#include "updatebox.h"
 #include <QtCore>
 #include <QtWidgets>
 

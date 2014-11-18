@@ -8,7 +8,23 @@ namespace Ui {
 class task_updater;
 }
 
-QString readCheckerParam(QString param);
+namespace tools {
+// Define OS tools
+#ifdef __linux
+const QString TOOL_RSYNC = "rsync ";
+const QString TOOL_GET = "curl -J -L -C - -# --retry 10 --insecure ";
+const QString TOOL_EXTRACT = "7z e ";
+const QString TOOL_LAUNCHER = "./and2_checker";
+const QString TOOL_UPDATER = "./upd_proc";
+#endif
+#ifdef _WIN32
+const QString TOOL_RSYNC = "rsync.exe ";
+const QString TOOL_GET = "checker/curl.exe -J -L -C - -# --retry 10 --insecure ";
+const QString TOOL_EXTRACT = "checker/7za.exe e ";
+const QString TOOL_LAUNCHER = "and2_checker.exe";
+const QString TOOL_UPDATER = "upd_proc.exe";
+#endif
+}
 
 class task_updater : public QMainWindow
 {
@@ -17,30 +33,24 @@ class task_updater : public QMainWindow
 public:
     explicit task_updater(QWidget *parent = 0);
     ~task_updater();
-    QString svn_update(int current_revision, int output_revision);
-    void initialize();
-    void execute(QString command);
-    void appendText(QString text);
-    void addonInstaller(QString name, QString link);
-    void svn_install();
+    void StartUpdate(QString operation);
+    void DebugWindow();
+    QString ReadExcludeList(QString filepath);
 
 signals:
     void finished();
+    void stopUpdate();
+    void error();
 
 public slots:
-    void appendOutput();
-    void executeFinished();
-    void executeError(QProcess::ProcessError);
+    void processOutput();
+    void StopGUI();
     void restartLauncher();
+    void errorPopup();
 
 private:
     Ui::task_updater *ui;
-    QProcess svn;
-    QProcess process;
-    QTimer process_timer;
-    QString process_file;
-    qint64 process_file_pos;
-    int progress;
+    QProcess* process;
 };
 
 #endif // TASK_UPDATER_H

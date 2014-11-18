@@ -2,7 +2,6 @@
 #include "w_main.h"
 #include "ui_w_options.h"
 #include "f_civ.h"
-#include "updatebox.h"
 
 #include <QtCore>
 #include <QtNetwork>
@@ -34,10 +33,6 @@ w_options::w_options(QWidget *parent) :
         ui->checkerBox->setChecked(1);
     }
 
-    if(readCheckerParam("Main/UpdateBehavior") == "mine-full"){
-        ui->opt_updateBehavior->setCurrentIndex(1);
-    }
-
     // Set default opt_text_path
     qDebug() << "Check reading : " << readCheckerParam("Main/ExecutablePath");
     if(readCheckerParam("Main/ExecutablePath") == "error")
@@ -47,7 +42,6 @@ w_options::w_options(QWidget *parent) :
     else {
         ui->opt_text_path->setText(readCheckerParam("Main/ExecutablePath"));
     }
-
 }
 
 w_options::~w_options()
@@ -57,6 +51,7 @@ w_options::~w_options()
 
 void w_options::on_colorBox_currentIndexChanged(int index)
 {
+    if(index==-1){return;};
     qDebug() << "Index is " << index;
     QString colorUI;
     switch (index)
@@ -148,28 +143,11 @@ void w_options::on_opt_checkbox_bluemarble_toggled(bool checked)
     if(checked)
     {
         QProcess unzip;
-        unzip.execute("checker/7za.exe e Assets/BlueMarble.zip -oAssets/ -y");
+        unzip.execute(tools::TOOL_EXTRACT + "Assets/BlueMarble.zip -oAssets/ -y");
     }
     else
     {
         QFile::remove("Assets/BlueMarble.FPK");
     }
 
-}
-
-void w_options::on_opt_updateBehavior_currentIndexChanged(int index)
-{
-    switch (index)
-    {
-    case 0:
-        setCheckerParam("Main/UpdateBehavior","theirs-full");
-        break;
-
-    case 1:
-        if(readCheckerParam("Main/UpdateBehavior") == "theirs-full"){
-            QMessageBox::critical(this,tr("Warning"),tr("This option allow you to keep locally edited mod files on update. However, if there is an update of your edited file, be warned that it will not be erased but the mod will still be updated and thus, this can introduce bugs or unwilled behaviors."));
-        }
-        setCheckerParam("Main/UpdateBehavior","mine-full");
-        break;
-    }
 }

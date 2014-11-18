@@ -1,8 +1,5 @@
 #include "f_civ.h"
-#include "updatebox.h"
 #include "w_main.h"
-#include "lib/f_binaries.h"
-#include "f_svn.h"
 
 #include "QObject"
 #include <QTimer>
@@ -16,6 +13,7 @@
 #include <QDesktopWidget>
 #include <QVBoxLayout>
 #include <QDir>
+#include <QtXml/QtXml>
 
 f_check::f_check(QObject *parent) :
     QObject(parent)
@@ -46,7 +44,7 @@ void f_check::abort()
     mutex.unlock();
 }
 
-void f_check::UMCheckUpdate()
+void f_check::CheckForUpdate()
 {
     // Wait 3s before to check for update
     QEventLoop loop;
@@ -54,39 +52,25 @@ void f_check::UMCheckUpdate()
     loop.exec();
 
     // Begin processing
-    qDebug()<<"Starting worker process in Thread "<<thread()->currentThreadId();
+    //qDebug()<<"Starting worker process in Thread "<<thread()->currentThreadId();
     bool update;
+    QFile::remove("checker/changelog_last.xml");
     QProcess download;
-    download.start(constants::GLOBAL_UPDATE_URL);
+    QString get_address = tools::TOOL_GET + "-o checker/changelog_last.xml http://civ.afforess.com/changelog_last.xml";
+    //qDebug() << get_address;
+    download.start(get_address);
 
     if (download.waitForFinished(60000))
     {
-        QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
-
-        // Reading update info
-        setCheckerParam("Update/Changelog",upd_ini.value("VERSION/Changelog").toString());
-        setCheckerParam("Update/DistantCheckerMajorVersion",upd_ini.value("VERSION/CheckerMajorVersion").toString());
-        setCheckerParam("Update/DistantCheckerMinorVersion",upd_ini.value("VERSION/CheckerMinorVersion").toString());
-        setCheckerParam("ADDON_MOREMUSIC/DistantVersion",upd_ini.value("ADDON_MOREMUSIC/Version").toString());
-        setCheckerParam("ADDON_MOREHANDICAPS/DistantVersion",upd_ini.value("ADDON_MOREHANDICAPS/Version").toString());
-        setCheckerParam("ADDON_MEGACIVPACK/DistantBaseVersion",upd_ini.value("ADDON_MEGACIVPACK/BaseVersion").toString());
-        setCheckerParam("ADDON_MEGACIVPACK/DistantFilesVersion",upd_ini.value("ADDON_MEGACIVPACK/FilesVersion").toString());
-
-        if(LauncherVersionCalculation() == true || svnLocalInfo() < svnDistantInfo()){
-            update = true;
-            qDebug() << "Update is " << update;
-        }
-
-        else if (AddonsVersionCalculation())
-        {
+        // Check for update
+        if(GetDistantVersion() > GetLocalVersion()){
             update = true;
         }
-
-        else
-        {
-            qDebug() << "No update is required";
+        else {
             update = false;
         }
+        qDebug() << "New version available :" << update;
+
     }
 
     // Set _working to false, meaning the process can't be aborted anymore.
@@ -100,70 +84,105 @@ void f_check::UMCheckUpdate()
     emit finished(update);
 }
 
-bool f_check::ActionLauncherUpdate()
+bool f_check::ActionUpdate()
 {
-    QSettings upd_ini("checker/update.ini", QSettings::IniFormat);
-    QStringList downloadlink;
-    downloadlink << upd_ini.value("VERSION/DownloadLink").toString();
+    // TO REVIEW - Not reimplemented yet
+    #ifdef _WIN32
+    QFile::copy("checker/cygcrypto-1.0.0.dll","cygcrypto-1.0.0.dll");
+    QFile::copy("checker/cyggcc_s-1.dll","cyggcc_s-1.dll");
+    QFile::copy("checker/cygiconv-2.dll","cygiconv-2.dll");
+    QFile::copy("checker/cygssp-0.dll","cygssp-0.dll");
+    QFile::copy("checker/cygwin1.dll","cygwin1.dll");
+    QFile::copy("checker/cygz.dll","cygz.dll");
+    QFile::copy("checker/rsync.exe","rsync.exe");
     QFile::copy("checker/upd_proc.exe","upd_proc.exe");
     QProcess update;
-    update.startDetached("upd_proc.exe",downloadlink);
+    update.startDetached("upd_proc.exe");
+    QApplication::quit();
+    #endif
+    #ifdef __linux
+    QFile::copy("checker/upd_proc","upd_proc");
+    QProcess update;
+    update.startDetached("upd_proc");
+    QApplication::quit();
+    #endif
 
     return 0;
 }
 
-bool f_check::LauncherVersionCalculation()
+int f_check::GetLocalVersion()
 {
-    if (readCheckerParam("Main/CheckerMajorVersion").toInt() < readCheckerParam("Update/DistantCheckerMajorVersion").toInt())
+    //** Get version number from "Assets/Python/Contrib/CvModName.py"
+    // Open python file
+    QFile file("Assets/Python/Contrib/CvModName.py");
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream in_enc(&file);
+    while(!in_enc.atEnd())
     {
-        return true;
+        // Go to the mod version
+        QString line = in_enc.readLine();
+        QString version;
+        if(line.contains("modVersion = "))
+        {
+            version = line.right(5).left(3);
+            qDebug() << "Local version : " << version;
+            setCheckerParam("Main/LocalRev",version);
+            return version.toInt();
+        }
     }
-    else if (readCheckerParam("Main/CheckerMajorVersion").toInt() == readCheckerParam("Update/DistantCheckerMajorVersion").toInt() && readCheckerParam("Main/CheckerMinorVersion").toInt() < readCheckerParam("Update/DistantCheckerMinorVersion").toInt())
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    file.close();
+
+    return 0;
 }
 
-bool f_check::AddonsVersionCalculation()
+int f_check::GetDistantVersion()
 {
-    bool update = false;
-    qDebug() << "MCP: " << check_addon_mcp() << " MM: " << check_addon_more_music() << " MH: " << check_addon_more_handicaps();
-    int u = 0;
-    if (check_addon_mcp() != "Not installed")
-    {
-        if (readCheckerParam("ADDON_MEGACIVPACK/FilesVersion") != readCheckerParam("ADDON_MEGACIVPACK/DistantFilesVersion"))
-        {
-            u++;
-            qDebug() << "u is " << u;
-        }
+    // Extract the distant version number from the downloaded file
+    // Open XML changelog
+    QDomDocument read;
+    QFile file("checker/changelog_last.xml");
+    if(!file.open(QIODevice::ReadOnly))
+     {
+         qDebug() << "Error getting changelog version";
+         return 0;
+     }
+    read.setContent(&file);
+    file.close();
+
+    // Return revision number
+    QString version = read.firstChildElement("log").firstChildElement("logentry").attribute("revision");
+    qDebug() << "Distant version : " << version;
+    setCheckerParam("Update/DistantRev",version);
+    return version.toInt();
+}
+
+QString f_check::ExtractChangelog(QString filepath)
+{
+    // Open the file
+    QDomDocument read;
+    QFile file(filepath);
+    if(!file.open(QIODevice::ReadOnly))
+     {
+         qDebug() << "Error opening short changelog";
+         return 0;
+     }
+    read.setContent(&file);
+    file.close();
+
+    QString result;
+    QDomElement revision = read.firstChildElement("log").firstChildElement("logentry");
+    for(revision;!revision.isNull();revision = revision.nextSiblingElement()){
+       // Extracting values
+       QString number = revision.attribute("revision");
+       QString date = revision.firstChildElement("date").text();
+       QString author = revision.firstChildElement("author").text();
+       QString message = revision.firstChildElement("msg").text();
+
+       // Format values
+       date = date.left(10);
+       message.replace("\n","<br>");
+       result = result + "<p><span style=\" font-size:11pt; font-weight:600;\">Revision " + number + ":</span><br>" + "<span style=\" font-size:9pt; font-style: italic;\">" + date + " | Author : " + author + "</span></p>\n" + "<p><span style=\" font-size:10pt;\">" + message + "</span></p> _________________";
     }
-    if ( check_addon_more_handicaps() != "Not installed")
-    {
-        if (readCheckerParam("ADDON_MOREHANDICAPS/Version") != readCheckerParam("ADDON_MOREHANDICAPS/DistantVersion"))
-        {
-            u++;
-            qDebug() << "u is " << u;
-        }
-    }
-    if (check_addon_more_music() != "Not installed")
-    {
-        if (readCheckerParam("ADDON_MOREMUSIC/Version") != readCheckerParam("ADDON_MOREMUSIC/DistantVersion"))
-        {
-            u++;
-            qDebug() << "u is " << u;
-        }
-    }
-    if(u > 0)
-    {
-        update = true;
-    }
-    else
-    {
-        update = false;
-    }
-    return update;
+
+    return result;
 }

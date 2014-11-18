@@ -1,8 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fr">
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../main.cpp" line="62"/>
+        <location filename="../main.cpp" line="77"/>
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
         <translation>Le lanceur n&apos;est pas dans le bon répertoire. Il devrait se trouver dans &quot;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; ou dans &apos; Civilization IV (dossier racine du jeu)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</translation>
     </message>
@@ -10,19 +12,32 @@
 <context>
     <name>task_updater</name>
     <message>
-        <location filename="../../updater/task_updater.ui" line="20"/>
+        <location filename="../../updater/task_updater.ui" line="32"/>
         <source>Module updater</source>
         <translation>Mise à jour du module</translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="12"/>
         <source>Updating the game:</source>
-        <translation>Mise à jour du jeu :</translation>
+        <translation type="vanished">Mise à jour du jeu :</translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="209"/>
         <source>Please be patient during the installation:</source>
-        <translation>S&apos;il vous plaît être patient lors de l&apos;installation :</translation>
+        <translation type="vanished">S&apos;il vous plaît être patient lors de l&apos;installation :</translation>
+    </message>
+    <message>
+        <location filename="../../updater/task_updater.cpp" line="14"/>
+        <source>Updating the game. Please be patient.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../updater/task_updater.cpp" line="84"/>
+        <source>Checking and downloading data: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../updater/task_updater.cpp" line="84"/>
+        <source> files left.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -38,44 +53,36 @@
         <translation>Il y a une mise à jour disponible. Vous voulez mettre à jour ?</translation>
     </message>
     <message>
-        <location filename="../updatebox.cpp" line="120"/>
         <source>Changelog (last 10 revisions) :</source>
-        <translation>Changelog (10 dernières révisions) :</translation>
+        <translation type="vanished">Changelog (10 dernières révisions) :</translation>
     </message>
     <message>
-        <location filename="../updatebox.cpp" line="128"/>
         <source>Updating mod ...</source>
-        <translation>Mise à jour du mod...</translation>
+        <translation type="vanished">Mise à jour du mod...</translation>
     </message>
     <message>
-        <location filename="../updatebox.cpp" line="136"/>
         <source>Updating process :</source>
-        <translation>Mise à jour du processus :</translation>
+        <translation type="vanished">Mise à jour du processus :</translation>
     </message>
     <message>
-        <location filename="../updatebox.cpp" line="142"/>
         <source>Installation</source>
-        <translation>Installation</translation>
+        <translation type="vanished">Installation</translation>
     </message>
     <message>
-        <location filename="../updatebox.cpp" line="150"/>
         <source>Download mod files. Please be patient...</source>
-        <translation>Téléchargement des fichiers mod. Soyez patient...</translation>
+        <translation type="vanished">Téléchargement des fichiers mod. Soyez patient...</translation>
     </message>
     <message>
-        <location filename="../updatebox.cpp" line="156"/>
         <source>Components setup</source>
-        <translation>Installation des composants</translation>
+        <translation type="vanished">Installation des composants</translation>
     </message>
     <message>
-        <location filename="../updatebox.cpp" line="163"/>
         <source>Installing / updating selected components :</source>
-        <translation>Installation / mise à jour des composants sélectionnés :</translation>
+        <translation type="vanished">Installation / mise à jour des composants sélectionnés :</translation>
     </message>
     <message>
-        <location filename="../updatebox.cpp" line="165"/>
         <source>Cancel</source>
-        <translation>Annuler</translation>
+        <translation type="vanished">Annuler</translation>
     </message>
 </context>
 <context>
@@ -91,12 +98,12 @@
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;A New Dawn : &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Le mod n&apos;est pas installé.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Voulez-vous le télecharger et l&apos;installer ?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../w_install.cpp" line="14"/>
+        <location filename="../w_install.cpp" line="13"/>
         <source>Ok</source>
         <translation>Ok</translation>
     </message>
     <message>
-        <location filename="../w_install.cpp" line="15"/>
+        <location filename="../w_install.cpp" line="14"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
@@ -129,375 +136,347 @@
         <translation>Réparer installation</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="244"/>
+        <location filename="../w_main.ui" line="241"/>
         <source>Community</source>
         <translation>Communauté</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="255"/>
+        <location filename="../w_main.ui" line="245"/>
+        <source>Addons</source>
+        <translation type="unfinished">Modules</translation>
+    </message>
+    <message>
+        <location filename="../w_main.ui" line="258"/>
         <source>Help us to improve the mod !</source>
         <translation>Aidez-nous à améliorer le mod !</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="262"/>
         <source>Development tools</source>
-        <translation>Outils de développement</translation>
+        <translation type="vanished">Outils de développement</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="274"/>
+        <location filename="../w_main.ui" line="266"/>
         <source>Language</source>
         <translation>Langue</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="294"/>
+        <location filename="../w_main.ui" line="286"/>
         <source>Exit</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="302"/>
+        <location filename="../w_main.ui" line="294"/>
         <source>Forum</source>
         <translation>Forum</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="307"/>
         <source>Addon &quot;Mega Civ Pack&quot; (forum)</source>
-        <translation>Module &quot;Mega Civ Pack&quot; (forum)</translation>
+        <translation type="vanished">Module &quot;Mega Civ Pack&quot; (forum)</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="312"/>
+        <location filename="../w_main.ui" line="304"/>
         <source>Bugreport (forum)</source>
         <translation>Rapport de bug (forum)</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="317"/>
-        <location filename="../w_main.ui" line="320"/>
+        <location filename="../w_main.ui" line="309"/>
+        <location filename="../w_main.ui" line="312"/>
         <source>About AND Resurrection team (forum)</source>
         <translation>A propos de l&apos;équipe de AND (forum)</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="325"/>
         <source>Addon &quot;More music / More handicaps / Dinosaurs&quot; (forum)</source>
-        <translation>Module &quot;plus de musiques / plus de handicaps / dinosaures&quot; (forum)</translation>
+        <translation type="vanished">Module &quot;plus de musiques / plus de handicaps / dinosaures&quot; (forum)</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="330"/>
+        <location filename="../w_main.ui" line="299"/>
+        <source>&quot;Mega Civ Pack&quot; (forum)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_main.ui" line="317"/>
+        <source>&quot;More music / More handicaps / Dinosaurs&quot; (forum)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_main.ui" line="322"/>
         <source>Open mod folder</source>
         <translation>Ouvrir le dossier du mod</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="335"/>
+        <location filename="../w_main.ui" line="327"/>
         <source>Git: Create binary pack</source>
         <translation>Git : Créer un paquet binaire</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="340"/>
+        <location filename="../w_main.ui" line="332"/>
         <source>Git: Create update binary pack</source>
         <translation>Git : Créer une mise à jour de paquet binaire</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="345"/>
+        <location filename="../w_main.ui" line="337"/>
         <source>Translate the mod</source>
         <translation>Traduire le mod</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="350"/>
+        <location filename="../w_main.ui" line="342"/>
         <source>Help for translation (forum)</source>
         <translation>Aide pour la traduction (forum)</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="355"/>
+        <location filename="../w_main.ui" line="347"/>
         <source>Translate the launcher</source>
         <translation>Traduire le lanceur</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="360"/>
+        <location filename="../w_main.ui" line="358"/>
         <source>English</source>
         <translation>Anglais</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="365"/>
+        <location filename="../w_main.ui" line="369"/>
         <source>French</source>
         <translation>Français</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="370"/>
+        <location filename="../w_main.ui" line="377"/>
         <source>Sinhala</source>
         <translation>Sinhala</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="375"/>
+        <location filename="../w_main.ui" line="385"/>
         <source>Hungarian</source>
         <translation>Hongrois</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="380"/>
+        <location filename="../w_main.ui" line="393"/>
         <source>Finnish</source>
         <translation>Finnois</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="385"/>
+        <location filename="../w_main.ui" line="401"/>
         <source>Polish</source>
         <translation>Polonais</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="390"/>
+        <location filename="../w_main.ui" line="409"/>
         <source>Italian</source>
         <translation>Italien</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="395"/>
+        <location filename="../w_main.ui" line="417"/>
         <source>Spanish</source>
         <translation>Espagnol</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="400"/>
+        <location filename="../w_main.ui" line="425"/>
         <source>German</source>
         <translation>Allemand</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="405"/>
+        <location filename="../w_main.ui" line="433"/>
         <source>Russian</source>
         <translation>Russe</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="410"/>
+        <location filename="../w_main.ui" line="438"/>
         <source>Restore default state</source>
         <translation>Restaurer à l&apos;état initial</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="415"/>
+        <location filename="../w_main.ui" line="443"/>
         <source>Revert to an older revision...</source>
         <translation>Revenir à une révision plus ancienne...</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="420"/>
+        <location filename="../w_main.ui" line="448"/>
         <source>Addon &quot;Blue marble&quot;</source>
         <translation>Module « Blue marble »</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="425"/>
+        <location filename="../w_main.ui" line="453"/>
         <source>Clear cache</source>
         <translation>Vider le cache</translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="430"/>
+        <location filename="../w_main.ui" line="458"/>
         <source>Enter SVN command</source>
         <translation>Entrez la commande SVN</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="142"/>
+        <location filename="../w_main.cpp" line="146"/>
         <source>Check for update</source>
         <translation>Vérifier mises à jours</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="152"/>
+        <location filename="../w_main.cpp" line="156"/>
         <source>Update available !</source>
         <translation>Mise à jour disponible !</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="222"/>
+        <location filename="../w_main.cpp" line="225"/>
         <source>To be able to launch the game from the launcher, you need to set the game path in the options window. (Options &gt; Select game path)</source>
         <translation>Pour être en mesure de lancer le jeu depuis le lanceur, vous devez définir le chemin d&apos;accès de jeu dans la fenêtre options. (Options &gt; Selectionner chemin du jeu)</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="266"/>
         <source>Pack base binaries</source>
-        <translation>Pack des binaires de base</translation>
+        <translation type="vanished">Pack des binaires de base</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="278"/>
         <source>Packing base files</source>
-        <translation>Compression des fichiers de base</translation>
+        <translation type="vanished">Compression des fichiers de base</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="278"/>
-        <location filename="../w_main.cpp" line="332"/>
         <source>this might take up to 10 min</source>
-        <translation>Cela peut prendre jusqu&apos;à 10 min</translation>
+        <translation type="vanished">Cela peut prendre jusqu&apos;à 10 min</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="278"/>
-        <location filename="../w_main.cpp" line="336"/>
         <source>Listing files</source>
-        <translation>Listage des fichiers</translation>
+        <translation type="vanished">Listage des fichiers</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="286"/>
-        <location filename="../w_main.cpp" line="291"/>
-        <location filename="../w_main.cpp" line="296"/>
-        <location filename="../w_main.cpp" line="303"/>
-        <location filename="../w_main.cpp" line="336"/>
-        <location filename="../w_main.cpp" line="345"/>
-        <location filename="../w_main.cpp" line="351"/>
-        <location filename="../w_main.cpp" line="359"/>
-        <location filename="../w_main.cpp" line="366"/>
-        <location filename="../w_main.cpp" line="373"/>
-        <location filename="../w_main.cpp" line="380"/>
-        <location filename="../w_main.cpp" line="388"/>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="286"/>
-        <location filename="../w_main.cpp" line="345"/>
         <source>Generating hash file</source>
-        <translation>Génération des fichiers de hachage</translation>
+        <translation type="vanished">Génération des fichiers de hachage</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="291"/>
-        <location filename="../w_main.cpp" line="373"/>
         <source>Gathering files</source>
-        <translation>Rassemblement des fichiers</translation>
+        <translation type="vanished">Rassemblement des fichiers</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="296"/>
-        <location filename="../w_main.cpp" line="380"/>
         <source>Compressing files</source>
-        <translation>Compression de fichiers</translation>
+        <translation type="vanished">Compression de fichiers</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="303"/>
-        <location filename="../w_main.cpp" line="388"/>
         <source>Cleaning folder</source>
-        <translation>Nettoyage du dossier</translation>
+        <translation type="vanished">Nettoyage du dossier</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="303"/>
         <source>Operation finished. The binaries have been packed in %1 and their checksums are listed in %2</source>
-        <translation>Opération terminée. Les fichiers binaires ont été empaquetés dans %1 et leurs sommes de contrôle sont répertoriés dans %2</translation>
+        <translation type="vanished">Opération terminée. Les fichiers binaires ont été empaquetés dans %1 et leurs sommes de contrôle sont répertoriés dans %2</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="320"/>
         <source>Pack update binaries</source>
-        <translation>Pack de binaires de mise à jour</translation>
+        <translation type="vanished">Pack de binaires de mise à jour</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="332"/>
         <source>Packing update files</source>
-        <translation>Compression des fichiers de mise à jour</translation>
+        <translation type="vanished">Compression des fichiers de mise à jour</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="351"/>
         <source>Comparing base and update hashs</source>
-        <translation>Comparaison des sommes de contrôle de base et de mise à jour</translation>
+        <translation type="vanished">Comparaison des sommes de contrôle de base et de mise à jour</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="359"/>
         <source>Checking for new files</source>
-        <translation>Vérification des nouveaux fichiers</translation>
+        <translation type="vanished">Vérification des nouveaux fichiers</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="366"/>
         <source>Checking for missing files</source>
-        <translation>Vérification des fichiers manquants</translation>
+        <translation type="vanished">Vérification des fichiers manquants</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="388"/>
         <source>Operation finished. The updated binaries have been packed in %1 and their checksums are listed in %2</source>
-        <translation>Opération terminée. Les fichiers binaires mis à jour ont été empaquetés dans %1 et leurs sommes de contrôle sont répertoriés dans %2</translation>
+        <translation type="vanished">Opération terminée. Les fichiers binaires mis à jour ont été empaquetés dans %1 et leurs sommes de contrôle sont répertoriés dans %2</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="472"/>
         <source>Revision selector</source>
-        <translation>Sélecteur de révision</translation>
+        <translation type="vanished">Sélecteur de révision</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="472"/>
         <source>Please enter the revision you want to revert to :</source>
-        <translation>Veuillez entrer la révision à que vous souhaitez revenir :</translation>
+        <translation type="vanished">Veuillez entrer la révision à que vous souhaitez revenir :</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="477"/>
         <source>Warning</source>
-        <translation>Avertissement</translation>
+        <translation type="vanished">Avertissement</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="477"/>
         <source>The launcher has been introduced in revision 737. If you revert to an older revision, it will removed (you can reinstall it with the install link on the forum).</source>
-        <translation>Le lanceur a été introduit en révision 737. Si vous revenez à une révision plus ancienne, il sera supprimé (vous pouvez le réinstaller avec le lien d&apos;installation sur le forum).</translation>
+        <translation type="vanished">Le lanceur a été introduit en révision 737. Si vous revenez à une révision plus ancienne, il sera supprimé (vous pouvez le réinstaller avec le lien d&apos;installation sur le forum).</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="489"/>
+        <location filename="../w_main.cpp" line="377"/>
         <source>Cache</source>
         <translation>Cache</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="489"/>
+        <location filename="../w_main.cpp" line="377"/>
         <source>The cache is now cleared. NOTE: It is already automatically cleared on update.</source>
         <translation>Le cache est maintenant effacé. Remarque : il est déjà automatiquement effacé lors d&apos;une mise à jour.</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="494"/>
         <source>SVN command</source>
-        <translation>Commande SVN</translation>
+        <translation type="vanished">Commande SVN</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="494"/>
         <source>Please enter the desired SVN command :</source>
-        <translation>Veuillez entrer la commande SVN désirée :</translation>
+        <translation type="vanished">Veuillez entrer la commande SVN désirée :</translation>
     </message>
 </context>
 <context>
     <name>w_modules</name>
     <message>
-        <location filename="../w_modules.ui" line="14"/>
+        <location filename="../w_modules.ui" line="32"/>
         <source>Modules</source>
         <translation>Modules</translation>
     </message>
     <message>
-        <location filename="../w_modules.ui" line="22"/>
         <source>Components</source>
-        <translation>Composants</translation>
+        <translation type="vanished">Composants</translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="19"/>
         <source>Core mod</source>
-        <translation>Mod principal</translation>
+        <translation type="vanished">Mod principal</translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="21"/>
         <source>Addons</source>
-        <translation>Modules</translation>
+        <translation type="vanished">Modules</translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="23"/>
         <source>Mega civ pack</source>
-        <translation>Méga pack civ</translation>
+        <translation type="vanished">Méga pack civ</translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="25"/>
         <source>More music</source>
-        <translation>Plus de musique</translation>
+        <translation type="vanished">Plus de musique</translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="27"/>
         <source>More handicaps</source>
-        <translation>Plus de handicaps</translation>
+        <translation type="vanished">Plus de handicaps</translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="29"/>
         <source>Dinosaurs !</source>
-        <translation>Dinosaures !</translation>
+        <translation type="vanished">Dinosaures !</translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="45"/>
         <source>Changes:</source>
-        <translation>Changements :</translation>
+        <translation type="vanished">Changements :</translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="50"/>
         <source>Update:</source>
-        <translation>Mise à jour :</translation>
+        <translation type="vanished">Mise à jour :</translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="80"/>
         <source>Description:</source>
-        <translation>Description :</translation>
+        <translation type="vanished">Description :</translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="81"/>
         <source>Installed:</source>
-        <translation>Installé :</translation>
+        <translation type="vanished">Installé :</translation>
+    </message>
+    <message>
+        <location filename="../w_modules.cpp" line="31"/>
+        <source>Local</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_modules.cpp" line="31"/>
+        <source>Distant</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -528,109 +507,104 @@
         <translation>Couleur de l&apos;interface :</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="105"/>
+        <location filename="../w_options.ui" line="111"/>
         <source>Black</source>
         <translation>Noir</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="110"/>
+        <location filename="../w_options.ui" line="116"/>
         <source>Coal</source>
         <translation>Charbon</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="115"/>
+        <location filename="../w_options.ui" line="121"/>
         <source>Dark red</source>
         <translation>Rouge foncé</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="120"/>
+        <location filename="../w_options.ui" line="126"/>
         <source>Forest</source>
         <translation>Forêt</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="125"/>
+        <location filename="../w_options.ui" line="131"/>
         <source>Purple</source>
         <translation>Violet</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="130"/>
+        <location filename="../w_options.ui" line="136"/>
         <source>Red</source>
         <translation>Rouge</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="135"/>
+        <location filename="../w_options.ui" line="141"/>
         <source>Silver</source>
         <translation>Argent</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="140"/>
+        <location filename="../w_options.ui" line="146"/>
         <source>Cerulean</source>
         <translation>Bleu céruléen</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="152"/>
+        <location filename="../w_options.ui" line="158"/>
         <source>Game path:</source>
         <translation>Chemin du jeu :</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="177"/>
+        <location filename="../w_options.ui" line="183"/>
         <source>Select game path</source>
         <translation>Sélectionnez chemin du jeu</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="227"/>
+        <location filename="../w_options.ui" line="217"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Launcher configuration :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Configuration du lanceur :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="234"/>
+        <location filename="../w_options.ui" line="224"/>
         <source>Close the launcher when game start</source>
         <translation>Fermer le lanceur lorsque le jeu démarre</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="241"/>
+        <location filename="../w_options.ui" line="231"/>
         <source>Autostart the mod with the game</source>
         <translation>Démarrer le mod avec le jeu</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="250"/>
         <source>Behavior on update:</source>
-        <translation>Comportement sur mise à jour :</translation>
+        <translation type="vanished">Comportement sur mise à jour :</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="270"/>
         <source>Use new files (default)</source>
-        <translation>Utiliser nouveaux fichiers (défaut)</translation>
+        <translation type="vanished">Utiliser nouveaux fichiers (défaut)</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="275"/>
         <source>Keep local changes</source>
-        <translation>Conserver les modif. locales</translation>
+        <translation type="vanished">Conserver les modif. locales</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="45"/>
+        <location filename="../w_options.cpp" line="40"/>
         <source>No path specified</source>
         <translation>Aucun chemin d&apos;accès spécifié</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="125"/>
+        <location filename="../w_options.cpp" line="120"/>
         <source>The game path has been changed</source>
         <translation>Le chemin d&apos;accès de jeu a été changé</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="129"/>
+        <location filename="../w_options.cpp" line="124"/>
         <source>No game path specified.</source>
         <translation>Aucun chemin d&apos;accès du jeu spécifié</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="170"/>
         <source>Warning</source>
-        <translation>Avertissement</translation>
+        <translation type="vanished">Avertissement</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="170"/>
         <source>This option allow you to keep locally edited mod files on update. However, if there is an update of your edited file, be warned that it will not be erased but the mod will still be updated and thus, this can introduce bugs or unwilled behaviors.</source>
-        <translation>Cette option permet de garder les fichiers du mod édités localement lors d&apos;une mise à jour. Toutefois, s&apos;il y a une mise à jour du fichier édité, soyez averti qu&apos;il ne sera pas effacé, mais que le mod sera quand même mis à jour et que cela peut introduire des bugs ou des comportements non-souhaités.</translation>
+        <translation type="vanished">Cette option permet de garder les fichiers du mod édités localement lors d&apos;une mise à jour. Toutefois, s&apos;il y a une mise à jour du fichier édité, soyez averti qu&apos;il ne sera pas effacé, mais que le mod sera quand même mis à jour et que cela peut introduire des bugs ou des comportements non-souhaités.</translation>
     </message>
 </context>
 </TS>

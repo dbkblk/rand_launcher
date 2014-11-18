@@ -48,16 +48,7 @@ FunctionEnd
 
 !define MUI_DIRECTORYPAGE_TEXT_TOP $(DIRECTORY)
 
-!define MUI_FINISHPAGE_TITLE "Civilization IV - A New Dawn"
-!define MUI_FINISHPAGE_TEXT $(FINISH)
-!define MUI_FINISHPAGE_NOAUTOCLOSE
-!define MUI_FINISHPAGE_RUN_CHECKED
-!define MUI_FINISHPAGE_RUN "$INSTDIR\and2_checker.exe"
-!define MUI_FINISHPAGE_RUN_TEXT $(RUN)
-!define MUI_FINISHPAGE_SHOWREADME ""
-!define MUI_FINISHPAGE_SHOWREADME_CHECKED
-!define MUI_FINISHPAGE_SHOWREADME_TEXT $(SHORTCUT)
-!define MUI_FINISHPAGE_SHOWREADME_FUNCTION DesktopShortcut
+;!define MUI_FINISHPAGE_RUN "$INSTDIR\and2_checker.exe"
 
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER "Civilization IV - A New Dawn"
 
@@ -67,11 +58,11 @@ FunctionEnd
 RequestExecutionLevel admin
 !insertmacro MUI_PAGE_STARTMENU 0 $StartMenuFolder
 !insertmacro MUI_PAGE_INSTFILES
-!insertmacro MUI_PAGE_FINISH
+;!insertmacro MUI_PAGE_FINISH
 !insertmacro MUI_UNPAGE_WELCOME
 !insertmacro MUI_UNPAGE_CONFIRM
 !insertmacro MUI_UNPAGE_INSTFILES
-!insertmacro MUI_UNPAGE_FINISH
+;!insertmacro MUI_UNPAGE_FINISH
 
 ; Language
 ;--------------------------------
@@ -83,9 +74,15 @@ RequestExecutionLevel admin
 !insertmacro MUI_LANGUAGE "Sinhala"
 !insertmacro MUI_LANGUAGE "Spanish"
 
-function .onInit
+Function .onInit
         !insertmacro MUI_LANGDLL_DISPLAY
-functionEnd
+FunctionEnd
+
+Function .onInstSuccess
+Exec "$INSTDIR\and2_checker.exe"
+FunctionEnd
+
+AutoCloseWindow true 
 
 ; Translations
 ;--------------------------------
@@ -179,7 +176,7 @@ LangString MSVC13 ${LANG_SPANISH} "No está instalado Microsoft Visual C++ 2013 
 
 Section "A New Dawn" ;No components page, name is not important
 SectionIn RO
-AddSize 3200000
+AddSize 1700000
 
   ; Set output path to the installation directory.
   SetOutPath $INSTDIR
@@ -200,6 +197,10 @@ CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Civilization IV - A New Dawn.lnk" "
   !insertmacro MUI_STARTMENU_WRITE_END
   
 SectionEnd ; end the section
+
+Section "$(SHORTCUT)"
+CreateShortcut "$desktop\Civilization IV - A New Dawn.lnk" "$instdir\and2_checker.exe"
+SectionEnd
 
 Section "MSVC 2010 ($(REQUIRED))"
 SetOutPath $INSTDIR

@@ -72,7 +72,7 @@
      <string notr="true"/>
     </property>
     <property name="text">
-     <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#000000;&quot;&gt;TextLabel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt; color:#000000;&quot;&gt;TextLabel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -228,9 +228,6 @@
       <string>Fix installation</string>
      </property>
      <addaction name="actionClear_cache"/>
-     <addaction name="actionEnter_SVN_command"/>
-     <addaction name="actionClean_up"/>
-     <addaction name="actionRevert_to_an_older_revision"/>
     </widget>
     <addaction name="actionOpen_mod_folder"/>
     <addaction name="menuFix_installation"/>
@@ -243,31 +240,26 @@
     <property name="title">
      <string>Community</string>
     </property>
+    <widget class="QMenu" name="menuAddons">
+     <property name="title">
+      <string>Addons</string>
+     </property>
+     <addaction name="actionAddon_Blue_marble"/>
+     <addaction name="actionAddon_Mega_Civ_Pack"/>
+     <addaction name="actionAddon_More_music_forum"/>
+    </widget>
     <addaction name="actionForum"/>
     <addaction name="actionBugreport"/>
-    <addaction name="actionAddon_Blue_marble"/>
-    <addaction name="actionAddon_Mega_Civ_Pack"/>
-    <addaction name="actionAddon_More_music_forum"/>
+    <addaction name="menuAddons"/>
     <addaction name="actionAbout_AND_Resurrection_team_forum"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
      <string>Help us to improve the mod !</string>
     </property>
-    <widget class="QMenu" name="menuDevelopment_tools">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="title">
-      <string>Development tools</string>
-     </property>
-     <addaction name="actionGit_Pack_binaries"/>
-     <addaction name="actionGit_Create_update_binary_pack"/>
-    </widget>
     <addaction name="actionHelp_translate_the_mod"/>
     <addaction name="actionTranslate_the_launcher"/>
     <addaction name="actionTranslate_the_mod_help"/>
-    <addaction name="menuDevelopment_tools"/>
    </widget>
    <widget class="QMenu" name="menuLanguage">
     <property name="title">
@@ -304,7 +296,7 @@
   </action>
   <action name="actionAddon_Mega_Civ_Pack">
    <property name="text">
-    <string>Addon &quot;Mega Civ Pack&quot; (forum)</string>
+    <string>&quot;Mega Civ Pack&quot; (forum)</string>
    </property>
   </action>
   <action name="actionBugreport">
@@ -322,7 +314,7 @@
   </action>
   <action name="actionAddon_More_music_forum">
    <property name="text">
-    <string>Addon &quot;More music / More handicaps / Dinosaurs&quot; (forum)</string>
+    <string>&quot;More music / More handicaps / Dinosaurs&quot; (forum)</string>
    </property>
   </action>
   <action name="actionOpen_mod_folder">

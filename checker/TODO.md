@@ -83,10 +83,14 @@ DONE -> BUG: Fix updater progress bar
 DONE -> CHECK: Self-updating launcher check
 
 ## 1.0
-- Method for full installer: SVN checkout empty directory, import files, then checkout fully recursive
+DONE -> Integrate RSYNC instead of SVN
+DONE -> Setup the installer to automatically execute the launcher the first time
+-> Check the first time installer
+DONE -> Improved updater progress
 
 ## 1.1
 - Reimplement addon installer
+- Calculate a mean remaining time / speed during the update
 
 ## 2.0
 ### Features

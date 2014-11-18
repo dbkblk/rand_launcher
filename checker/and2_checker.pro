@@ -14,25 +14,19 @@ TEMPLATE = app
 
 SOURCES += \
     main.cpp \
-    updatebox.cpp \
     f_check.cpp \
     f_civ.cpp \
     w_main.cpp \
     w_modules.cpp \
     w_options.cpp \
-    f_svn.cpp \
-    lib/f_binaries.cpp \
     w_install.cpp
 
 HEADERS += \
-    updatebox.h \
     f_check.h \
     f_civ.h \
-    f_svn.h \
     w_main.h \
     w_modules.h \
     w_options.h \
-    lib/f_binaries.h \
     w_install.h
 
 FORMS    += \

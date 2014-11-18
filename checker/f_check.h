@@ -1,8 +1,6 @@
 #ifndef UPDATEMANAGER_H
 #define UPDATEMANAGER_H
 
-#include "updatebox.h"
-
 #include <QWidget>
 #include <QComboBox>
 #include <QObject>
@@ -24,34 +22,19 @@ class f_check : public QObject
 
 public:
     explicit f_check(QObject *parent = 0);
-    /**
-     * @brief Requests the process to start
-     *
-     * It is thread safe as it uses #mutex to protect access to #_working variable.
-     */
     void requestWork();
     bool AddonsVersionCalculation();
     bool LauncherVersionCalculation();
     bool ActionLauncherUpdate();
-    /**
-     * @brief Requests the process to abort
-     *
-     * It is thread safe as it uses #mutex to protect access to #_abort variable.
-     */
+    bool ActionUpdate();
+    int GetLocalVersion();
+    int GetDistantVersion();
+    QString ExtractChangelog(QString filepath);
     void abort();
 
 private:
-    /**
-     * @brief Process is aborted when @em true
-     */
     bool _abort;
-    /**
-     * @brief @em true when Worker is doing work
-     */
     bool _working;
-    /**
-     * @brief Protects access to #_abort
-     */
     QMutex mutex;
 
 signals:
@@ -60,9 +43,7 @@ signals:
     bool work_update_check(bool update);
 
 public slots:
-
-    void UMCheckUpdate();
-
+    void CheckForUpdate();
 };
 
 #endif // UPDATEMANAGER_H

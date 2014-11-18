@@ -20,6 +20,8 @@ AND2_CHECKER_VX.X.7z
 AND2_installer.exe
 AND2_full_installer.exe
 PrepareRelease.bat
-
+PrepareFullRelease.bat
 checker/lang/tx.exe
 launcher.pro.user.3.2-pre1
+*.o
+*_plugin_import.cpp
