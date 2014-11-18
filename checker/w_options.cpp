@@ -42,7 +42,6 @@ w_options::w_options(QWidget *parent) :
     else {
         ui->opt_text_path->setText(readCheckerParam("Main/ExecutablePath"));
     }
-
 }
 
 w_options::~w_options()
@@ -52,6 +51,7 @@ w_options::~w_options()
 
 void w_options::on_colorBox_currentIndexChanged(int index)
 {
+    if(index==-1){return;};
     qDebug() << "Index is " << index;
     QString colorUI;
     switch (index)

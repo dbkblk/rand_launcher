@@ -51,6 +51,7 @@ void task_updater::StartUpdate(QString operation){
 void task_updater::processOutput(){
     // Get standard output
     QString output = process->readAllStandardOutput();
+    qDebug() << output;
 
     // Check for errors
     if(output.contains("error")){emit error();}
@@ -100,13 +101,13 @@ void task_updater::restartLauncher()
     QProcess::startDetached(tools::TOOL_LAUNCHER);
 }
 
-QString task_updater::ReadExcludeList(){
+QString task_updater::ReadExcludeList(QString filepath){
     // Read an XML subfolder (checker/exclusions/exclusions.xml) to be able to add individual addons xml later
 
     QString exclude_list;
     // Open the XML file
     QDomDocument read;
-    QFile file("checker/exclusions.default.xml");
+    QFile file(filepath);
     if(!file.open(QIODevice::ReadOnly))
      {
          qDebug() << "Error opening file";

@@ -16,10 +16,11 @@ int main(int argc, char *argv[])
     w.DebugWindow();
 
     // Check exclusion file
-    QString exclusion = w.ReadExcludeList();
+    QString exclusion = w.ReadExcludeList("checker/exclusions.default.xml");
+    QString exclusion_custom = w.ReadExcludeList("checker/exclusions.custom.xml");
 
     // Initialize update
-    QString operation = tools::TOOL_RSYNC + QString("-rz --info=progress2 --delete-after %1afforess.com::ftp/ .").arg(exclusion);
+    QString operation = tools::TOOL_RSYNC + QString("-rz --info=progress2 --delete-after %1 %2 afforess.com::ftp/ .").arg(exclusion).arg(exclusion_custom);
     qDebug() << operation;
 
     // Execute update operation

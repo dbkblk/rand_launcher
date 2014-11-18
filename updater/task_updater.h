@@ -35,7 +35,7 @@ public:
     ~task_updater();
     void StartUpdate(QString operation);
     void DebugWindow();
-    QString ReadExcludeList();
+    QString ReadExcludeList(QString filepath);
 
 signals:
     void finished();

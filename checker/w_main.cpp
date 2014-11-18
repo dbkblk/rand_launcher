@@ -21,11 +21,6 @@ w_main::w_main(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Initialize sub-windows
-    options = new w_options(this);
-    modules = new w_modules(this);
-    modules->UpdateWindow();
-
     // Translations : Get language parameter, else if OS language, then wait to fully initialize the GUI.
     translator = new QTranslator(this);
     QString loc;
@@ -42,6 +37,10 @@ w_main::w_main(QWidget *parent) :
     translator->load(QString("launcher_" + loc + ".qm"),"checker/lang/");
 
     qApp->installTranslator(translator);
+
+    // Initialize sub-windows
+    modules = new w_modules(this);
+    modules->UpdateWindow();
 
     // GUI : Fix language menu selector
     clear_language_state();
@@ -243,6 +242,7 @@ void w_main::on_bt_launch_clicked()
 void w_main::on_bt_option_clicked()
 // GUI : Invoke the option window
 {
+    options = new w_options(this);
     options->show();
 }
 
@@ -275,6 +275,7 @@ void w_main::on_language_en_triggered()
     translator->load(QString("launcher.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","en");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_en->setChecked(1);
 }
@@ -284,6 +285,7 @@ void w_main::on_language_fr_triggered()
     translator->load(QString("launcher_fr.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","fr");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_fr->setChecked(1);
 }
@@ -293,6 +295,7 @@ void w_main::on_language_si_triggered()
     translator->load(QString("launcher_si.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","si");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_si->setChecked(1);
 }
@@ -302,6 +305,7 @@ void w_main::on_language_hu_triggered()
     translator->load(QString("launcher_hu.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","hu");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_hu->setChecked(1);
 }
@@ -311,6 +315,7 @@ void w_main::on_language_fi_triggered()
     translator->load(QString("launcher_fi.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","fi");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_fi->setChecked(1);
 }
@@ -320,6 +325,7 @@ void w_main::on_language_it_triggered()
     translator->load(QString("launcher_it.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","it");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_it->setChecked(1);
 }
@@ -329,6 +335,7 @@ void w_main::on_language_es_triggered()
     translator->load(QString("launcher_es.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","es");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_es->setChecked(1);
 }
@@ -338,6 +345,7 @@ void w_main::on_language_de_triggered()
     translator->load(QString("launcher_de.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","de");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_de->setChecked(1);
 }
@@ -347,6 +355,7 @@ void w_main::on_language_pl_triggered()
     translator->load(QString("launcher_pl.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","pl");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_pl->setChecked(1);
 }
@@ -356,6 +365,7 @@ void w_main::on_language_ru_triggered()
     translator->load(QString("launcher_ru.qm"),"checker/lang/");
     setCheckerParam("Main/Lang","ru");
     ui->retranslateUi(this);
+    modules->UpdateWindow();
     clear_language_state();
     ui->language_ru->setChecked(1);
 }

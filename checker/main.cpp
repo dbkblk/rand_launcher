@@ -81,13 +81,15 @@ int main(int argc, char *argv[])
     /* End of the windows specific code */
     // Create modules
     w_main w;
-    w_install install;
 
     // Check for existing installation
     QDir assets("Assets");
     if(!assets.exists()){
         qDebug() << "No assets dir, assuming the mod is not installed";
-        install.show();
+
+        // Launch updater
+        f_check updater;
+        updater.ActionUpdate();
     }
 
     else{

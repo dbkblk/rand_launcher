@@ -40,4 +40,7 @@ void w_modules::UpdateWindow()
     // Set changelog
     f_check changes;
     ui->changelog_box->setText(changes.ExtractChangelog("checker/changelog_last.xml"));
+
+    // Retranslate
+    ui->retranslateUi(this);
 }

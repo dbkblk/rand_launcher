@@ -16,9 +16,7 @@ w_install::w_install(QDialog *parent) :
 
 void w_install::on_buttonBox_accepted()
 {
-    // Launch updater
-    f_check updater;
-    updater.ActionUpdate();
+
 }
 
 void w_install::on_buttonBox_rejected()
