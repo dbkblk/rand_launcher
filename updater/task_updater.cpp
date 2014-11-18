@@ -63,6 +63,7 @@ void task_updater::processOutput(){
     int separator = 0;
     int value;
     int total;
+    int percent = 0;
     if (output.contains("to-chk=")){
         pos = output.lastIndexOf("to-chk=");
         separator = output.lastIndexOf("/");
@@ -71,7 +72,10 @@ void task_updater::processOutput(){
         qDebug() << "Files to check: " << value;
         total = output.mid((separator+1),(bracket-(separator+1))).toInt();
         //qDebug() << total;
-        int percent = ((total - value)*100 / total);
+        // Avoid crash on windows
+        if (total >  0){
+            percent = ((total - value)*100 / total);
+        }
 
         // Update progress bar
         ui->progressBar->setValue(percent);
