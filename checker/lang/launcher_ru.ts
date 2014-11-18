@@ -22,12 +22,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="79"/>
+        <location filename="../../updater/task_updater.cpp" line="84"/>
         <source>Checking and downloading data: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="79"/>
+        <location filename="../../updater/task_updater.cpp" line="84"/>
         <source> files left.</source>
         <translation type="unfinished"></translation>
     </message>
