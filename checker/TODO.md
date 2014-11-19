@@ -85,26 +85,16 @@ DONE -> CHECK: Self-updating launcher check
 ## 1.0
 DONE -> Integrate RSYNC instead of SVN
 DONE -> Setup the installer to automatically execute the launcher the first time
--> Check the first time installer
+DONE -> Check the first time installer
 DONE -> Improved updater progress
 
+## 1.01
+- Updater: Create a "updating" file at start then delete it at the end. The launcher should check if the file is present, and then relaunch the updater again.
+
 ## 1.1
+- GUI to exclude files
 - Reimplement addon installer
 - Calculate a mean remaining time / speed during the update
-
-## 2.0
-### Features
-
-- Fix binaries packaging launching from launcher
-
-# Features pending
-
-- Integrate git into the launcher
-- Download a compressed version the first time, then update it (save bandwidth).
-- Integrate a git workflow
-
-# Bugfixes pending
-As soon as I started the game for the first time, I got the yellow button "Update available" but there are of course no updates. It happened only once. I'll see if I can reproduce it.
 
 # Notes
 ## Dev tools
@@ -129,16 +119,3 @@ As soon as I started the game for the first time, I got the yellow button "Updat
 - Upload source code
 - Merge devel with master
 - Update update.ini in master with the update pack link and push it to enable autoupdate.
-
-## Standard update process
-- Check local md5sum of each file
-- Save a config file (json) with: "filepath" : "md5sum"
-- Download a json server file
-- For each filepath in json server file, compare md5sum with local file
-    4 cases:
-    -> File is identical -> Nothing to do
-    -> md5sum is different -> Download server version
-    -> File is found server-side but not client-side -> Download server version
-    -> File is found client-side but not server-side :
-        --> Standard config files are blacklisted, so they won't be removed [Autolog, Uninstall.exe, Checker/checker_config.ini, Checker/updater.log]
-        --> PROBLEM: If an addon is installed or a file manually modified.

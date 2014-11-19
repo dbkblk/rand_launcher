@@ -15,6 +15,11 @@ int main(int argc, char *argv[])
     w.show();
     w.DebugWindow();
 
+    // Write temp file
+    QFile temp("updating");
+    temp.open(QIODevice::WriteOnly | QIODevice::Truncate);
+    temp.close();
+
     // Check exclusion file
     QString exclusion = w.ReadExcludeList("checker/exclusions.default.xml");
     QString exclusion_custom = w.ReadExcludeList("checker/exclusions.custom.xml");

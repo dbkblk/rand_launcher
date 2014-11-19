@@ -26,6 +26,8 @@ task_updater::task_updater(QWidget *parent) :
 
 task_updater::~task_updater()
 {
+
+
     delete ui;
 }
 
@@ -98,6 +100,7 @@ void task_updater::errorPopup()
 void task_updater::StopGUI()
 {
     disconnect(process, SIGNAL(readyReadStandardOutput()), this, SLOT(processOutput()));
+    QFile::remove("updating");
 }
 
 void task_updater::restartLauncher()

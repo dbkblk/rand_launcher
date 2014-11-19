@@ -83,6 +83,17 @@ int main(int argc, char *argv[])
     w_main w;
 
     // Check for existing installation
+    QFile temp("updating");
+    if(temp.exists()){
+        qDebug() << "Previous update may have crashed. Checking file again.";
+        #ifdef _WIN32
+        system("taskkill /F rsync.exe");
+        #endif
+        #ifdef __linux
+        system("killall rsync");
+        #endif
+    }
+
     QDir assets("Assets");
     if(!assets.exists()){
         qDebug() << "No assets dir, assuming the mod is not installed";
