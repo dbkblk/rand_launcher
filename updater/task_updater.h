@@ -34,7 +34,7 @@ public:
     explicit task_updater(QWidget *parent = 0);
     ~task_updater();
     void StartUpdate(QString operation);
-    void DebugWindow();
+    void DebugWindow(int time);
     QString ReadExcludeList(QString filepath);
 
 signals:

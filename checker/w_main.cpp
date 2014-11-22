@@ -82,10 +82,6 @@ w_main::w_main(QWidget *parent) :
     ui->actionClean_up->setIcon(QIcon("checker/icons/clean.png"));
     ui->actionClear_cache->setIcon(QIcon("checker/icons/clear.png"));
 
-    // Internal : Set internal checker version as parameter in the ini file
-    setCheckerParam("Main/CheckerMajorVersion",QString::number(versions::MAJOR_CHECKER_VERSION));
-    setCheckerParam("Main/CheckerMinorVersion",QString::number(versions::MINOR_CHECKER_VERSION));
-
     // GUI : Set title and background
 
     this->setWindowTitle("Civilization IV: A New Dawn");
@@ -130,7 +126,7 @@ w_main::~w_main()
 void w_main::UpdateWindowInfos()
 {
     // GUI : Set versions label on the main Window
-    QString vers = "Launcher rev. " + readCheckerParam("Main/CheckerMajorVersion") + "." + readCheckerParam("Main/CheckerMinorVersion") + "\nMod rev. " + readCheckerParam("Main/LocalRev");
+    QString vers = "Launcher rev. " + versions::CHECKER_VERSION + "\nMod rev. " + readCheckerParam("Main/LocalRev");
     QPalette lb_palette;
     lb_palette.setColor(QPalette::WindowText, Qt::black);
     ui->lb_versions->setPalette(lb_palette);

@@ -85,13 +85,20 @@ int main(int argc, char *argv[])
     // Check for existing installation
     QFile temp("updating");
     if(temp.exists()){
-        qDebug() << "Previous update may have crashed. Checking file again.";
+        f_check updater;
+        updater.PrepareUpdate();
+        QMessageBox msgBox;
+        msgBox.setText(QObject::tr("There seems to be a problem with the previous update. Checking file again."));
+        msgBox.exec();
+        QFile::remove("updating");
         #ifdef _WIN32
         system("taskkill /F rsync.exe");
         #endif
         #ifdef __linux
         system("killall rsync");
         #endif
+        updater.ActionUpdate();
+        return a.exec();
     }
 
     QDir assets("Assets");
@@ -100,7 +107,9 @@ int main(int argc, char *argv[])
 
         // Launch updater
         f_check updater;
+        updater.PrepareUpdate();
         updater.ActionUpdate();
+        return a.exec();
     }
 
     else{
