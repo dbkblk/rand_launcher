@@ -26,6 +26,7 @@ public:
     bool AddonsVersionCalculation();
     bool LauncherVersionCalculation();
     bool ActionLauncherUpdate();
+    bool PrepareUpdate();
     bool ActionUpdate();
     int GetLocalVersion();
     int GetDistantVersion();

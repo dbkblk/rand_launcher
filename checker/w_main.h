@@ -17,8 +17,7 @@ class installBox;
 }
 
 namespace versions {
-const int MAJOR_CHECKER_VERSION = 1;
-const int MINOR_CHECKER_VERSION = 0;
+const QString CHECKER_VERSION = "1.01";
 }
 
 namespace tools {

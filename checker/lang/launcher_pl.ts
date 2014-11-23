@@ -1,12 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl" version="2.1">
 <context>
     <name>QObject</name>
     <message>
         <location filename="../main.cpp" line="77"/>
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
         <translation>Launcher nie jest w prawidłowym katalogu. Powinien znajdować się w: &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; lub w  &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="91"/>
+        <source>There seems to be a problem with the previous update. Checking file again.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -17,27 +20,19 @@
         <translation>Aktualizuj moduły</translation>
     </message>
     <message>
-        <source>Updating the game:</source>
-        <translation type="vanished">Aktualizowanie gry:</translation>
-    </message>
-    <message>
-        <source>Please be patient during the installation:</source>
-        <translation type="vanished">Prosimy o cierpliwość podczas instalacji:</translation>
-    </message>
-    <message>
         <location filename="../../updater/task_updater.cpp" line="14"/>
         <source>Updating the game. Please be patient.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="84"/>
+        <location filename="../../updater/task_updater.cpp" line="86"/>
         <source>Checking and downloading data: </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="84"/>
+        <location filename="../../updater/task_updater.cpp" line="86"/>
         <source> files left.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -51,38 +46,6 @@
         <location filename="../updatebox.ui" line="74"/>
         <source>There is an update available. Do you want to update ?</source>
         <translation>Jest dostępna aktualizacja. Chcesz zaktualizować?</translation>
-    </message>
-    <message>
-        <source>Changelog (last 10 revisions) :</source>
-        <translation type="vanished">Lista zmian (10 ostatnich):</translation>
-    </message>
-    <message>
-        <source>Updating mod ...</source>
-        <translation type="vanished">Aktualizacja modu...</translation>
-    </message>
-    <message>
-        <source>Updating process :</source>
-        <translation type="vanished">Proces aktualizacji:</translation>
-    </message>
-    <message>
-        <source>Installation</source>
-        <translation type="vanished">Instalacja</translation>
-    </message>
-    <message>
-        <source>Download mod files. Please be patient...</source>
-        <translation type="vanished">Pobieranie plików modyfikacji. Proszę czekać...</translation>
-    </message>
-    <message>
-        <source>Components setup</source>
-        <translation type="vanished">Ustawienia komponentów</translation>
-    </message>
-    <message>
-        <source>Installing / updating selected components :</source>
-        <translation type="vanished">Instalowanie / aktualizowanie wybranych komponentów:</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Anuluj</translation>
     </message>
 </context>
 <context>
@@ -100,12 +63,12 @@
     <message>
         <location filename="../w_install.cpp" line="13"/>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../w_install.cpp" line="14"/>
         <source>Cancel</source>
-        <translation>Anuluj</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -143,16 +106,12 @@
     <message>
         <location filename="../w_main.ui" line="245"/>
         <source>Addons</source>
-        <translation type="unfinished">Dodatki</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../w_main.ui" line="258"/>
         <source>Help us to improve the mod !</source>
         <translation>Pomóż nam ulepszyć modyfikację!</translation>
-    </message>
-    <message>
-        <source>Development tools</source>
-        <translation type="vanished">Narzędzia developerskie</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="266"/>
@@ -170,10 +129,6 @@
         <translation>Forum</translation>
     </message>
     <message>
-        <source>Addon &quot;Mega Civ Pack&quot; (forum)</source>
-        <translation type="vanished">Dodatek &quot;Mega Civ Pack&quot; (forum)</translation>
-    </message>
-    <message>
         <location filename="../w_main.ui" line="304"/>
         <source>Bugreport (forum)</source>
         <translation>Raportuj błąd (forum)</translation>
@@ -185,18 +140,14 @@
         <translation>O zespole AND Resurrection (forum)</translation>
     </message>
     <message>
-        <source>Addon &quot;More music / More handicaps / Dinosaurs&quot; (forum)</source>
-        <translation type="vanished">Dodatek &quot;More music / More handicaps / Dinosaurs&quot; (forum)</translation>
-    </message>
-    <message>
         <location filename="../w_main.ui" line="299"/>
         <source>&quot;Mega Civ Pack&quot; (forum)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../w_main.ui" line="317"/>
         <source>&quot;More music / More handicaps / Dinosaurs&quot; (forum)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../w_main.ui" line="322"/>
@@ -305,117 +256,29 @@
         <translation>Wprowadź komendę SVN</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="146"/>
+        <location filename="../w_main.cpp" line="142"/>
         <source>Check for update</source>
         <translation>Sprawdź aktualizacje</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="156"/>
+        <location filename="../w_main.cpp" line="152"/>
         <source>Update available !</source>
         <translation>Aktualizacja dostępna!</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="225"/>
+        <location filename="../w_main.cpp" line="221"/>
         <source>To be able to launch the game from the launcher, you need to set the game path in the options window. (Options &gt; Select game path)</source>
         <translation>By uruchomić grę z launchera, należy podać w opcjach ścieżkę do gry (Opcje &gt; Podaj ścieżkę gry)</translation>
     </message>
     <message>
-        <source>Pack base binaries</source>
-        <translation type="vanished">Spakuj bazowe bianrki</translation>
-    </message>
-    <message>
-        <source>Packing base files</source>
-        <translation type="vanished">Spakuj bazowe pliki</translation>
-    </message>
-    <message>
-        <source>this might take up to 10 min</source>
-        <translation type="vanished">operacja może zająć około 10 minut</translation>
-    </message>
-    <message>
-        <source>Listing files</source>
-        <translation type="vanished">Wyświetl pliki</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation type="vanished">OK</translation>
-    </message>
-    <message>
-        <source>Generating hash file</source>
-        <translation type="vanished">Wygeneruj plik hash</translation>
-    </message>
-    <message>
-        <source>Gathering files</source>
-        <translation type="vanished">Pobieranie plików</translation>
-    </message>
-    <message>
-        <source>Compressing files</source>
-        <translation type="vanished">Kompresowanie plików</translation>
-    </message>
-    <message>
-        <source>Cleaning folder</source>
-        <translation type="vanished">Czyszczenie folderu</translation>
-    </message>
-    <message>
-        <source>Operation finished. The binaries have been packed in %1 and their checksums are listed in %2</source>
-        <translation type="vanished">Operacja zakończona. Binarki zostały spakowane w %1 i jego sumy kontrolne znajdują się w %2</translation>
-    </message>
-    <message>
-        <source>Pack update binaries</source>
-        <translation type="vanished">Spakuj zaktualizowane binarki</translation>
-    </message>
-    <message>
-        <source>Packing update files</source>
-        <translation type="vanished">Pakowanie zaktualizowanych plików</translation>
-    </message>
-    <message>
-        <source>Comparing base and update hashs</source>
-        <translation type="vanished">Porównaj hashe bazowych i zaktualizowanych plików</translation>
-    </message>
-    <message>
-        <source>Checking for new files</source>
-        <translation type="vanished">Szukanie nowych plików</translation>
-    </message>
-    <message>
-        <source>Checking for missing files</source>
-        <translation type="vanished">Szukanie brakujących plików</translation>
-    </message>
-    <message>
-        <source>Operation finished. The updated binaries have been packed in %1 and their checksums are listed in %2</source>
-        <translation type="vanished">Operacja zakończona. Zaktualizowane binarki zostały spakowane do %1 i ich sumy kontrolne są w %2</translation>
-    </message>
-    <message>
-        <source>Revision selector</source>
-        <translation type="vanished">Wybór rewizji</translation>
-    </message>
-    <message>
-        <source>Please enter the revision you want to revert to :</source>
-        <translation type="vanished">Podaj rewizję którą chcesz pobrać:</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation type="vanished">Uwaga</translation>
-    </message>
-    <message>
-        <source>The launcher has been introduced in revision 737. If you revert to an older revision, it will removed (you can reinstall it with the install link on the forum).</source>
-        <translation type="vanished">Launcher został dodany w rewizji 737. Jeśli pobierzesz starszą rewizję, launcher zostanie usunięty (możesz przeinstalować go ponownie)</translation>
-    </message>
-    <message>
-        <location filename="../w_main.cpp" line="377"/>
+        <location filename="../w_main.cpp" line="373"/>
         <source>Cache</source>
         <translation>Pamięć podręczna</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="377"/>
+        <location filename="../w_main.cpp" line="373"/>
         <source>The cache is now cleared. NOTE: It is already automatically cleared on update.</source>
         <translation>Pamięć podręczna została wyczyszczona. UWAGA: Będzie czyszczony automatycznie przy aktualizacji</translation>
-    </message>
-    <message>
-        <source>SVN command</source>
-        <translation type="vanished">Komenda SVN</translation>
-    </message>
-    <message>
-        <source>Please enter the desired SVN command :</source>
-        <translation type="vanished">Wprowadź żądaną komendę SVN:</translation>
     </message>
 </context>
 <context>
@@ -426,58 +289,14 @@
         <translation>Moduły</translation>
     </message>
     <message>
-        <source>Components</source>
-        <translation type="vanished">Komponenty</translation>
-    </message>
-    <message>
-        <source>Core mod</source>
-        <translation type="vanished">Główny mod</translation>
-    </message>
-    <message>
-        <source>Addons</source>
-        <translation type="vanished">Dodatki</translation>
-    </message>
-    <message>
-        <source>Mega civ pack</source>
-        <translation type="vanished">Mega civ pack</translation>
-    </message>
-    <message>
-        <source>More music</source>
-        <translation type="vanished">Więcej muzyki</translation>
-    </message>
-    <message>
-        <source>More handicaps</source>
-        <translation type="vanished">Utrudnienia</translation>
-    </message>
-    <message>
-        <source>Dinosaurs !</source>
-        <translation type="vanished">Dinozaury!</translation>
-    </message>
-    <message>
-        <source>Changes:</source>
-        <translation type="vanished">Zmiany:</translation>
-    </message>
-    <message>
-        <source>Update:</source>
-        <translation type="vanished">Aktualizacja:</translation>
-    </message>
-    <message>
-        <source>Description:</source>
-        <translation type="vanished">Opis:</translation>
-    </message>
-    <message>
-        <source>Installed:</source>
-        <translation type="vanished">Zainstalowano:</translation>
-    </message>
-    <message>
-        <location filename="../w_modules.cpp" line="31"/>
+        <location filename="../w_modules.cpp" line="32"/>
         <source>Local</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="31"/>
+        <location filename="../w_modules.cpp" line="32"/>
         <source>Distant</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -573,18 +392,6 @@
         <translation>Automatyczny start modyfikacji wraz ze startem gry</translation>
     </message>
     <message>
-        <source>Behavior on update:</source>
-        <translation type="vanished">Zachowanie podczas aktualizacji:</translation>
-    </message>
-    <message>
-        <source>Use new files (default)</source>
-        <translation type="vanished">Użyj nowych plików (domyślnie)</translation>
-    </message>
-    <message>
-        <source>Keep local changes</source>
-        <translation type="vanished">Zachowaj zmiany lokalne</translation>
-    </message>
-    <message>
         <location filename="../w_options.cpp" line="40"/>
         <source>No path specified</source>
         <translation>Brak podanej ścieżki</translation>
@@ -598,14 +405,6 @@
         <location filename="../w_options.cpp" line="124"/>
         <source>No game path specified.</source>
         <translation>Brak podanej ścieżki do gry</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation type="vanished">Uwaga</translation>
-    </message>
-    <message>
-        <source>This option allow you to keep locally edited mod files on update. However, if there is an update of your edited file, be warned that it will not be erased but the mod will still be updated and thus, this can introduce bugs or unwilled behaviors.</source>
-        <translation type="vanished">Ta opcja pozwala zachować lokalnie zmodyfikowane pliki gry przy aktualizacji. Jednak jeśli będzie aktualizacja tych plików, nie zostaną zmienione ale może to powodować błędy!</translation>
     </message>
 </context>
 </TS>

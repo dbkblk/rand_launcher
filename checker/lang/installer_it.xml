@@ -1,8 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="WELCOME_TITLE">Civilization IV: A New Dawn Expansion pack</string>
-  <string name="WELCOME">Versione Launcher: ${VERSION}\n\nQuesta configurazione guidata vi guiderà attraverso l\'installazione di Civilization IV: A New Dawn.\n\nVerrà installato il mod in \'My Documents\My Games\Beyond the Sword\Mods\' di default. \nSi creerà un collegamento (opzionale) per il lanciatore mod, che verrà utilizzato per facilmente scaricare, aggiornare o configurare l\'installazione mod.\n\nAttenzione: Qualsiasi installazione esistente mod è compatibile. Tuttavia, se avete i file modded, potrebbe essere sovrascritto su aggiornamento mod.</string>
-  <string name="DIRECTORY">Verrà installato il pacchetto di espansione nella seguente cartella. $\nInstallarlo in una cartella diversa, fare clic su \'Sfoglia...\' e selezionare un\'altra cartella. $ $\n\nNOTA: è consigliabile utilizzare la cartella predefinita selezionata di seguito. Tuttavia, si può scegliere di installare il mod direttamente nella cartella del gioco (\'Sid Meier\'s Civilization IV Beyond the Sword\Beyond the Sword\Mods\').</string>
   <string name="FINISH">Il lanciatore è ora installato. Il primo avvio, rileva se la mod è presente nella directory. Se non lo è, basta seguire la procedura di installazione.</string>
   <string name="RUN">Avviare il launcher mod</string>
   <string name="SHORTCUT">Creare il collegamento sul Desktop</string>

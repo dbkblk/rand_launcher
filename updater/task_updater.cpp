@@ -26,15 +26,17 @@ task_updater::task_updater(QWidget *parent) :
 
 task_updater::~task_updater()
 {
+
+
     delete ui;
 }
 
-void task_updater::DebugWindow()
+void task_updater::DebugWindow(int time)
 {
     // GUI: Fix the interface lockup
     QTimer wait_timer;
     QEventLoop wait_install;
-    wait_timer.setInterval(0500);
+    wait_timer.setInterval(time);
     wait_timer.setSingleShot(true);
     connect(&wait_timer,SIGNAL(timeout()),&wait_install,SLOT(quit()));
     wait_timer.start();
@@ -98,6 +100,7 @@ void task_updater::errorPopup()
 void task_updater::StopGUI()
 {
     disconnect(process, SIGNAL(readyReadStandardOutput()), this, SLOT(processOutput()));
+    QFile::remove("updating");
 }
 
 void task_updater::restartLauncher()

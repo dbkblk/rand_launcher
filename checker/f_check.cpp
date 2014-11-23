@@ -84,10 +84,10 @@ void f_check::CheckForUpdate()
     emit finished(update);
 }
 
-bool f_check::ActionUpdate()
+bool f_check::PrepareUpdate()
 {
-    // TO REVIEW - Not reimplemented yet
     #ifdef _WIN32
+    QFile::copy("checker/upd_proc.exe","upd_proc.exe");
     QFile::copy("checker/cygcrypto-1.0.0.dll","cygcrypto-1.0.0.dll");
     QFile::copy("checker/cyggcc_s-1.dll","cyggcc_s-1.dll");
     QFile::copy("checker/cygiconv-2.dll","cygiconv-2.dll");
@@ -95,13 +95,22 @@ bool f_check::ActionUpdate()
     QFile::copy("checker/cygwin1.dll","cygwin1.dll");
     QFile::copy("checker/cygz.dll","cygz.dll");
     QFile::copy("checker/rsync.exe","rsync.exe");
-    QFile::copy("checker/upd_proc.exe","upd_proc.exe");
+    #endif
+    #ifdef __linux
+    QFile::copy("checker/upd_proc","upd_proc");
+    #endif
+
+    return 0;
+}
+
+bool f_check::ActionUpdate()
+{
+    #ifdef _WIN32
     QProcess update;
     update.startDetached("upd_proc.exe");
     QApplication::quit();
     #endif
     #ifdef __linux
-    QFile::copy("checker/upd_proc","upd_proc");
     QProcess update;
     update.startDetached("upd_proc");
     QApplication::quit();

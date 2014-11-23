@@ -8,6 +8,11 @@
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../main.cpp" line="91"/>
+        <source>There seems to be a problem with the previous update. Checking file again.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>task_updater</name>
@@ -22,12 +27,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="84"/>
+        <location filename="../../updater/task_updater.cpp" line="86"/>
         <source>Checking and downloading data: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="84"/>
+        <location filename="../../updater/task_updater.cpp" line="86"/>
         <source> files left.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -252,27 +257,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="146"/>
+        <location filename="../w_main.cpp" line="142"/>
         <source>Check for update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="156"/>
+        <location filename="../w_main.cpp" line="152"/>
         <source>Update available !</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="225"/>
+        <location filename="../w_main.cpp" line="221"/>
         <source>To be able to launch the game from the launcher, you need to set the game path in the options window. (Options &gt; Select game path)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="377"/>
+        <location filename="../w_main.cpp" line="373"/>
         <source>Cache</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="377"/>
+        <location filename="../w_main.cpp" line="373"/>
         <source>The cache is now cleared. NOTE: It is already automatically cleared on update.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -285,12 +290,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="31"/>
+        <location filename="../w_modules.cpp" line="32"/>
         <source>Local</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="31"/>
+        <location filename="../w_modules.cpp" line="32"/>
         <source>Distant</source>
         <translation type="unfinished"></translation>
     </message>

@@ -23,6 +23,7 @@ w_modules::~w_modules()
 void w_modules::on_bt_update_clicked()
 {
     f_check launch;
+    launch.PrepareUpdate();
     launch.ActionUpdate();
 }
 

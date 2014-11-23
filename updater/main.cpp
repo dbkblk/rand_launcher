@@ -13,7 +13,12 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     task_updater w;
     w.show();
-    w.DebugWindow();
+    w.DebugWindow(3000);
+
+    // Write temp file
+    QFile temp("updating");
+    temp.open(QIODevice::WriteOnly | QIODevice::Truncate);
+    temp.close();
 
     // Check exclusion file
     QString exclusion = w.ReadExcludeList("checker/exclusions.default.xml");
