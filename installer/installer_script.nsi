@@ -19,18 +19,10 @@ Name "Civilization IV: A New Dawn"
 OutFile "AND2_installer.exe"
 
 ; The default installation directory
-InstallDir "$DOCUMENTS\My Games\Beyond the sword\Mods\Rise of Mankind - A New Dawn\"
+InstallDir "$DOCUMENTS\My Games\Beyond the sword\Mods\"
 
 ; Request application privileges
 RequestExecutionLevel user
-
-; Shortcut creation
-;--------------------------------
-
-Function DesktopShortcut
-CreateShortcut "$desktop\Civilization IV - A New Dawn.lnk" "$instdir\and2_checker.exe"
-FunctionEnd
-
 
 ;Variables
 ;--------------------------------
@@ -79,7 +71,9 @@ Function .onInit
 FunctionEnd
 
 Function .onInstSuccess
-Exec "$INSTDIR\and2_checker.exe"
+SetOutPath "$INSTDIR\Rise of Mankind - A New Dawn\"
+Exec "$INSTDIR\Rise of Mankind - A New Dawn\and2_checker.exe"
+SetOutPath "$INSTDIR"
 FunctionEnd
 
 AutoCloseWindow true 
@@ -185,26 +179,26 @@ AddSize 1700000
   File /r "..\release_files\*"
 
 ;Create uninstaller
-  WriteUninstaller "$INSTDIR\Uninstall.exe"
+  WriteUninstaller "$INSTDIR\Rise of Mankind - A New Dawn\Uninstall.exe"
 
   !insertmacro MUI_STARTMENU_WRITE_BEGIN 0
     
     ;Create shortcuts
     CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk" "$INSTDIR\Uninstall.exe"
-CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Civilization IV - A New Dawn.lnk" "$INSTDIR\and2_checker.exe"
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk" "$INSTDIR\Rise of Mankind - A New Dawn\Uninstall.exe"
+CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Civilization IV - A New Dawn.lnk" "$INSTDIR\Rise of Mankind - A New Dawn\and2_checker.exe"
   
   !insertmacro MUI_STARTMENU_WRITE_END
   
 SectionEnd ; end the section
 
 Section "$(SHORTCUT)"
-CreateShortcut "$desktop\Civilization IV - A New Dawn.lnk" "$instdir\and2_checker.exe"
+CreateShortcut "$desktop\Civilization IV - A New Dawn.lnk" "$instdir\Rise of Mankind - A New Dawn\and2_checker.exe"
 SectionEnd
 
 Section "MSVC 2010 ($(REQUIRED))"
 SetOutPath $INSTDIR
-ExecWait '"$INSTDIR\checker\vcredist_x86_2010.exe"  /passive /norestart'
+ExecWait '"$INSTDIR\Rise of Mankind - A New Dawn\checker\vcredist_x86_2010.exe"  /passive /norestart'
 
 SectionEnd
 
