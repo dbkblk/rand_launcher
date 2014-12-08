@@ -25,7 +25,8 @@ int main(int argc, char *argv[])
     QString exclusion_custom = w.ReadExcludeList("checker/exclusions.custom.xml");
 
     // Initialize update
-    QString operation = tools::TOOL_RSYNC + QString("-rz --info=progress2 --delete-after %1 %2 afforess.com::ftp/ .").arg(exclusion).arg(exclusion_custom);
+    QString operation = tools::TOOL_RSYNC + QString("-rz --info=progress2 --delete-after %1%2afforess.com::ftp/ .").arg(exclusion).arg(exclusion_custom);
+    //operation.replace("\"","\\\"");
     qDebug() << operation;
 
     // Execute update operation
