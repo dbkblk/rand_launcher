@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
         msgBox.exec();
         QFile::remove("updating");
         #ifdef _WIN32
-        system("taskkill /F rsync.exe");
+        system("taskkill /IM rsync.exe");
         #endif
         #ifdef __linux
         system("killall rsync");

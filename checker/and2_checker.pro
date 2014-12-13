@@ -19,7 +19,8 @@ SOURCES += \
     w_main.cpp \
     w_modules.cpp \
     w_options.cpp \
-    w_install.cpp
+    w_install.cpp \
+    w_exclusion.cpp
 
 HEADERS += \
     f_check.h \
@@ -27,14 +28,16 @@ HEADERS += \
     w_main.h \
     w_modules.h \
     w_options.h \
-    w_install.h
+    w_install.h \
+    w_exclusion.h
 
 FORMS    += \
     updatebox.ui \
     w_main.ui \
     w_modules.ui \
     w_options.ui \
-    w_install.ui
+    w_install.ui \
+    w_exclusion.ui
 
 RC_FILE = icon.rc
 

@@ -1,5 +1,6 @@
 #include "w_options.h"
 #include "w_main.h"
+#include "w_exclusion.h"
 #include "ui_w_options.h"
 #include "f_civ.h"
 
@@ -150,4 +151,10 @@ void w_options::on_opt_checkbox_bluemarble_toggled(bool checked)
         QFile::remove("Assets/BlueMarble.FPK");
     }
 
+}
+
+void w_options::on_bt_exclusions_clicked()
+{
+    exclusion = new w_exclusion(this);
+    exclusion->show();
 }

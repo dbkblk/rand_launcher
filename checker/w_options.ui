@@ -232,6 +232,13 @@
       </property>
      </widget>
     </item>
+    <item alignment="Qt::AlignRight|Qt::AlignVCenter">
+     <widget class="QPushButton" name="bt_exclusions">
+      <property name="text">
+       <string>Exclude files from update</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
  </widget>

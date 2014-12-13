@@ -5,6 +5,7 @@
 #include <QtNetwork>
 #include <QtGui>
 #include <QtWidgets>
+#include "w_exclusion.h"
 
 namespace Ui {
 class w_options;
@@ -27,11 +28,14 @@ private slots:
     void on_opt_checkbox_formations_toggled(bool checked);
     void on_opt_checkbox_bluemarble_toggled(bool checked);
 
+    void on_bt_exclusions_clicked();
+
 private:
     QCheckBox *startBox;
     QCheckBox *checkerBox;
     QLineEdit *opt_text_path;
     Ui::w_options *ui;
+    w_exclusion *exclusion;
 };
 
 #endif // OPTIONBOX_H
