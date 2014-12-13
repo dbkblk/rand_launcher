@@ -58,34 +58,38 @@ void w_options::on_colorBox_currentIndexChanged(int index)
     switch (index)
     {
     case 0:
-       colorUI = "Black UI";
+       colorUI = "default";
        break;
 
     case 1:
-       colorUI = "Coal UI";
+       colorUI = "Black UI";
        break;
 
     case 2:
-       colorUI = "Dark Red UI";
+       colorUI = "Coal UI";
        break;
 
     case 3:
-       colorUI = "Forest UI";
+       colorUI = "Dark Red UI";
        break;
 
     case 4:
-       colorUI = "Purple UI";
+       colorUI = "Forest UI";
        break;
 
     case 5:
-       colorUI = "Red UI";
+       colorUI = "Purple UI";
        break;
 
     case 6:
-       colorUI = "Silver UI";
+       colorUI = "Red UI";
        break;
 
     case 7:
+       colorUI = "Silver UI";
+       break;
+
+    case 8:
        colorUI = "Cerulean UI";
        break;
     }
