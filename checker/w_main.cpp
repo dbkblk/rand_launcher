@@ -46,7 +46,6 @@ w_main::w_main(QWidget *parent) :
     clear_language_state();
     if(loc=="en"){ui->language_en->setChecked(1);}
     if(loc=="fr"){ui->language_fr->setChecked(1);}
-    if(loc=="si"){ui->language_si->setChecked(1);}
     if(loc=="hu"){ui->language_hu->setChecked(1);}
     if(loc=="fi"){ui->language_fi->setChecked(1);}
     if(loc=="it"){ui->language_it->setChecked(1);}
@@ -64,7 +63,6 @@ w_main::w_main(QWidget *parent) :
     ui->language_it->setIcon(QIcon("checker/icons/it.png"));
     ui->language_pl->setIcon(QIcon("checker/icons/pl.png"));
     ui->language_ru->setIcon(QIcon("checker/icons/ru.png"));
-    ui->language_si->setIcon(QIcon("checker/icons/si.png"));
     ui->language_es->setIcon(QIcon("checker/icons/es.png"));
     ui->actionOpen_mod_folder->setIcon(QIcon("checker/icons/open.png"));
     ui->actionExit->setIcon(QIcon("checker/icons/exit.png"));
@@ -81,6 +79,7 @@ w_main::w_main(QWidget *parent) :
     ui->menuFix_installation->setIcon(QIcon("checker/icons/fix.png"));
     ui->actionClean_up->setIcon(QIcon("checker/icons/clean.png"));
     ui->actionClear_cache->setIcon(QIcon("checker/icons/clear.png"));
+    ui->actionReset->setIcon(QIcon("checker/icons/reset.png"));
 
     // GUI : Set title and background
 
@@ -286,16 +285,6 @@ void w_main::on_language_fr_triggered()
     ui->language_fr->setChecked(1);
 }
 
-void w_main::on_language_si_triggered()
-{
-    translator->load(QString("launcher_si.qm"),"checker/lang/");
-    setCheckerParam("Main/Lang","si");
-    ui->retranslateUi(this);
-    modules->UpdateWindow();
-    clear_language_state();
-    ui->language_si->setChecked(1);
-}
-
 void w_main::on_language_hu_triggered()
 {
     translator->load(QString("launcher_hu.qm"),"checker/lang/");
@@ -371,4 +360,26 @@ void w_main::on_actionClear_cache_triggered()
 {
     clearCache();
     QMessageBox::information(this,tr("Cache"),tr("The cache is now cleared. NOTE: It is already automatically cleared on update."));
+}
+
+void w_main::on_actionReset_triggered()
+{
+    f_check reset;
+    QMessageBox msgBox;
+    msgBox.setWindowTitle(tr("Reset mod"));
+    msgBox.setText(tr("This will reset the mod to the default state. Any modification or launcher preferences will be removed."));
+    msgBox.setInformativeText(tr("Are you sure to continue ?"));
+    msgBox.setStandardButtons(QMessageBox::Ok |  QMessageBox::Cancel);
+    msgBox.setDefaultButton(QMessageBox::Cancel);
+    int ret = msgBox.exec();
+    switch (ret) {
+        case QMessageBox::Ok:
+            reset.PrepareUpdate();
+            reset.ActionReset();
+            break;
+        case QMessageBox::Cancel:
+            break;
+        default:
+            break;
+    }
 }

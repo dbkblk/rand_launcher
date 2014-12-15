@@ -210,7 +210,7 @@
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>21</height>
+     <height>18</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
@@ -228,6 +228,7 @@
       <string>Fix installation</string>
      </property>
      <addaction name="actionClear_cache"/>
+     <addaction name="actionReset"/>
     </widget>
     <addaction name="actionOpen_mod_folder"/>
     <addaction name="menuFix_installation"/>
@@ -273,7 +274,6 @@
     <addaction name="language_it"/>
     <addaction name="language_pl"/>
     <addaction name="language_ru"/>
-    <addaction name="language_si"/>
     <addaction name="language_es"/>
    </widget>
    <addaction name="menuMenu"/>
@@ -456,6 +456,11 @@
   <action name="actionEnter_SVN_command">
    <property name="text">
     <string>Enter SVN command</string>
+   </property>
+  </action>
+  <action name="actionReset">
+   <property name="text">
+    <string>Reset mod to default state</string>
    </property>
   </action>
  </widget>

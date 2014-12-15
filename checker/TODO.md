@@ -93,9 +93,10 @@ DONE -> Updater: Create a "updating" file at start then delete it at the end. Th
 
 ## 1.02
 DONE -> Force installer to make a folder named "Rise of Mankind - A New Dawn" and to decompress into "Mods/" folder + Check the folder name at start
-DONE - Possibility to use the default color (!?)
+DONE -> Possibility to use the default color (!?)
 DONE -> GUI to exclude files
-- Drop support for Sinhala (unmaintened and less than 1% translated)
+DONE -> Drop support for Sinhala (unmaintened and less than 1% translated)
+DONE -> Add a function to reset the mod in the default state
 
 ## Pending
 ? - Fix the weird updating loop !?

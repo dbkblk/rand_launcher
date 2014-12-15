@@ -28,6 +28,7 @@ public:
     bool ActionLauncherUpdate();
     bool PrepareUpdate();
     bool ActionUpdate();
+    bool ActionReset();
     int GetLocalVersion();
     int GetDistantVersion();
     QString ExtractChangelog(QString filepath);

@@ -119,6 +119,22 @@ bool f_check::ActionUpdate()
     return 0;
 }
 
+bool f_check::ActionReset()
+{
+    #ifdef _WIN32
+    QProcess update;
+    update.startDetached("upd_proc.exe reset");
+    QApplication::quit();
+    #endif
+    #ifdef __linux
+    QProcess update;
+    update.startDetached("upd_proc reset");
+    QApplication::quit();
+    #endif
+
+    return 0;
+}
+
 int f_check::GetLocalVersion()
 {
     //** Get version number from "Assets/Python/Contrib/CvModName.py"
