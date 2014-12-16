@@ -19,18 +19,10 @@ Name "Civilization IV: A New Dawn"
 OutFile "AND2_installer.exe"
 
 ; The default installation directory
-InstallDir "$DOCUMENTS\My Games\Beyond the sword\Mods\Rise of Mankind - A New Dawn\"
+InstallDir "$DOCUMENTS\My Games\Beyond the sword\Mods\"
 
 ; Request application privileges
 RequestExecutionLevel user
-
-; Shortcut creation
-;--------------------------------
-
-Function DesktopShortcut
-CreateShortcut "$desktop\Civilization IV - A New Dawn.lnk" "$instdir\and2_checker.exe"
-FunctionEnd
-
 
 ;Variables
 ;--------------------------------
@@ -71,7 +63,6 @@ RequestExecutionLevel admin
 !insertmacro MUI_LANGUAGE "German"
 !insertmacro MUI_LANGUAGE "Italian"
 !insertmacro MUI_LANGUAGE "Polish"
-!insertmacro MUI_LANGUAGE "Sinhala"
 !insertmacro MUI_LANGUAGE "Spanish"
 
 Function .onInit
@@ -79,7 +70,9 @@ Function .onInit
 FunctionEnd
 
 Function .onInstSuccess
-Exec "$INSTDIR\and2_checker.exe"
+SetOutPath "$INSTDIR\Rise of Mankind - A New Dawn\"
+Exec "$INSTDIR\Rise of Mankind - A New Dawn\and2_checker.exe"
+SetOutPath "$INSTDIR"
 FunctionEnd
 
 AutoCloseWindow true 
@@ -147,17 +140,6 @@ LangString SHORTCUT ${LANG_POLISH} "Stwórz skrót na pulpicie"
 LangString MSVC10 ${LANG_POLISH} "Microsoft Visual C++ 2010 Redist jest nie zainstalowany. Pobieranie oraz instalacja. Proszę czekać..."
 LangString MSVC13 ${LANG_POLISH} "Microsoft Visual C++ 2013 Redist jest nie zainstalowany. Pobieranie oraz instalacja. Proszę czekać..."
 
-; Sinhala
-
-LangString WELCOME_TITLE ${LANG_SINHALA} "4 වන ශිෂ්ටාචාරය : නව අවධියක උදාව"
-LangString WELCOME ${LANG_SINHALA} "විහිදුවා හරින සංස්කරණය:${VERSION}\nමෙම පිහිටුවීම් ක්‍රමය 4 වන ශිෂ්ධාචාරය ස්ථාපනයට උපදෙස් සපයයි : නව උදාවක් \nමොඩ් ස්ථාපනය කළ යුත්තේ \'මගේ ලියවිලි/මගේ ක්‍රීඩා /කඩු වලට ඔබ්බට ගිය /මොඩ් මුල් ආකාරයෙන් \nඑය මොඩ් දියත් කිරීමට කෙටි මාර්ගයක් සපයයි ,එය පහසුවෙන් භාගත කිරීමට උපකාරී වේ.\nමොඩ් ස්ථානගත කිරීම නවීකරණය හෝ පිළියෙළ කිරීම . \nඅවවාදයයි :පවත්නා ඕනෑම මොඩ් ස්ථාපනයක් අනුකුල වේ .ඔබ සතුව මොඩ් ගොණු තිබේනම් ඒවා නවිකරණ හෝ නැවත ලිවිම කළ යුතුය ."
-LangString REQUIRED ${LANG_SINHALA} "required"
-LangString DIRECTORY ${LANG_SINHALA} "පරිස්ථිතිය පුළුල් ලෙස පවතින ගොනුවෙහි ස්ථාපනය කළ යුතුය.$\nඑය වෙනස් ගොනුවක ස්ථාපනය කිරීමට ,විමසීම ක්ලික් කර වෙනත් ගොනුවක් තොර ගත යුතුය$\n$\nසටහන :එය වෙනත් ගොනුවක තොර ගැනීම ඉහල ලෙස නිර්දේශ කෙරේ .කෙසේ වෙතත් ඔබට මොඩ් ඍජු ලෙසම ක්‍රීඩා ගොනුවෙහි ස්ථානගත කළ හැක.(\'සිඩ් මෙයිරස් 4 වන ශිෂ්ටාචාරය අසිපත් වලින් එපිටට \ සිපත් වලින් එපිටට\මොඩ්ස්\')."
-LangString FINISH ${LANG_SINHALA} "දැන් දියත් කිරීම ස්ථාපිතයි .පළමු දියත් කිරීමේදී ,මොඩ් නාමාවලියෙහි පවතින බව මෙහිදී අනාවරණය කරයි , නොඑසේනම් ස්ථානගත කිරිමේ ක්‍රියාමාර්ගය අනුගමනය කළ යුතුය ."
-LangString RUN ${LANG_SINHALA} "මොඩ් දියත් කිරීම අරඹන්න"
-LangString SHORTCUT ${LANG_SINHALA} "මුහුණත කෙටිමාර්ගය සකස් කරන්න"
-LangString MSVC10 ${LANG_SINHALA} "මයික්‍රොසොෆ්ට් විෂුවල් සී ++ 2010 ස්ථානගත කර නොමැත .භාගත කිරීම සහ ස්ථානගත කිරීම සිදු කරන්න . කරුණාකර රැදී සිටින්න ."
-LangString MSVC13 ${LANG_SINHALA} "මයික්‍රොසොෆ්ට් විෂුවල් සී ++ 2013 ස්ථානගත කර නොමැත .භාගත කිරීම සහ ස්ථානගත කිරීම සිදු කරන්න . කරුණාකර රැදී සිටින්න ."
 
 ; Spanish
 
@@ -185,26 +167,26 @@ AddSize 1700000
   File /r "..\release_files\*"
 
 ;Create uninstaller
-  WriteUninstaller "$INSTDIR\Uninstall.exe"
+  WriteUninstaller "$INSTDIR\Rise of Mankind - A New Dawn\Uninstall.exe"
 
   !insertmacro MUI_STARTMENU_WRITE_BEGIN 0
     
     ;Create shortcuts
     CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
-    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk" "$INSTDIR\Uninstall.exe"
-CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Civilization IV - A New Dawn.lnk" "$INSTDIR\and2_checker.exe"
+    CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk" "$INSTDIR\Rise of Mankind - A New Dawn\Uninstall.exe"
+CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Civilization IV - A New Dawn.lnk" "$INSTDIR\Rise of Mankind - A New Dawn\and2_checker.exe"
   
   !insertmacro MUI_STARTMENU_WRITE_END
   
 SectionEnd ; end the section
 
 Section "$(SHORTCUT)"
-CreateShortcut "$desktop\Civilization IV - A New Dawn.lnk" "$instdir\and2_checker.exe"
+CreateShortcut "$desktop\Civilization IV - A New Dawn.lnk" "$instdir\Rise of Mankind - A New Dawn\and2_checker.exe"
 SectionEnd
 
 Section "MSVC 2010 ($(REQUIRED))"
 SetOutPath $INSTDIR
-ExecWait '"$INSTDIR\checker\vcredist_x86_2010.exe"  /passive /norestart'
+ExecWait '"$INSTDIR\Rise of Mankind - A New Dawn\checker\vcredist_x86_2010.exe"  /passive /norestart'
 
 SectionEnd
 

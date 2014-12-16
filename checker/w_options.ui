@@ -108,6 +108,11 @@
         </property>
         <item>
          <property name="text">
+          <string>Dark blue (default)</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
           <string>Black</string>
          </property>
         </item>
@@ -229,6 +234,13 @@
      <widget class="QCheckBox" name="startBox">
       <property name="text">
        <string>Autostart the mod with the game</string>
+      </property>
+     </widget>
+    </item>
+    <item alignment="Qt::AlignRight|Qt::AlignVCenter">
+     <widget class="QPushButton" name="bt_exclusions">
+      <property name="text">
+       <string>Exclude files from update</string>
       </property>
      </widget>
     </item>

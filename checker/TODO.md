@@ -89,12 +89,21 @@ DONE -> Check the first time installer
 DONE -> Improved updater progress
 
 ## 1.01
-- Updater: Create a "updating" file at start then delete it at the end. The launcher should check if the file is present, and then relaunch the updater again.
+DONE -> Updater: Create a "updating" file at start then delete it at the end. The launcher should check if the file is present, and then relaunch the updater again.
+
+## 1.02
+DONE -> Force installer to make a folder named "Rise of Mankind - A New Dawn" and to decompress into "Mods/" folder + Check the folder name at start
+DONE -> Possibility to use the default color (!?)
+DONE -> GUI to exclude files
+DONE -> Drop support for Sinhala (unmaintened and less than 1% translated)
+DONE -> Add a function to reset the mod in the default state
+
+## Pending
+? - Fix the weird updating loop !?
 
 ## 1.1
-- GUI to exclude files
+- Add support for exclusions for mods files
 - Reimplement addon installer
-- Calculate a mean remaining time / speed during the update
 
 # Notes
 ## Dev tools

@@ -112,7 +112,7 @@ int readColorsCounter()
     QDomElement value_el = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
 
     // Loop
-    int counter = -1;
+    int counter = 0;
     for(;; value_el=value_el.nextSiblingElement() ) {
 
         QString bLoad = value_el.firstChildElement("bLoad").text();
@@ -152,17 +152,18 @@ bool setColors(QString color)
     // Reset all values
     for(color_element ; !color_element.isNull(); color_element=color_element.nextSiblingElement() ) {
         color_element.firstChildElement("bLoad").firstChild().setNodeValue("0");
-    }
+        }
 
-    color_element = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
+        if(color != "default"){
+        color_element = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
 
-    for(color_element ; !color_element.isNull(); color_element=color_element.nextSiblingElement() ) {
-        QString txtValue = color_element.firstChildElement("Directory").firstChild().nodeValue();
-        if (txtValue == color) {
-            color_element.firstChildElement("bLoad").firstChild().setNodeValue("1");
+        for(color_element ; !color_element.isNull(); color_element=color_element.nextSiblingElement() ) {
+            QString txtValue = color_element.firstChildElement("Directory").firstChild().nodeValue();
+            if (txtValue == color) {
+                color_element.firstChildElement("bLoad").firstChild().setNodeValue("1");
+            }
         }
     }
-
 
     // Save content back to the file
     if (!file.open(QIODevice::Truncate | QIODevice::WriteOnly)) {

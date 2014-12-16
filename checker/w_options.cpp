@@ -1,5 +1,6 @@
 #include "w_options.h"
 #include "w_main.h"
+#include "w_exclusion.h"
 #include "ui_w_options.h"
 #include "f_civ.h"
 
@@ -57,34 +58,38 @@ void w_options::on_colorBox_currentIndexChanged(int index)
     switch (index)
     {
     case 0:
-       colorUI = "Black UI";
+       colorUI = "default";
        break;
 
     case 1:
-       colorUI = "Coal UI";
+       colorUI = "Black UI";
        break;
 
     case 2:
-       colorUI = "Dark Red UI";
+       colorUI = "Coal UI";
        break;
 
     case 3:
-       colorUI = "Forest UI";
+       colorUI = "Dark Red UI";
        break;
 
     case 4:
-       colorUI = "Purple UI";
+       colorUI = "Forest UI";
        break;
 
     case 5:
-       colorUI = "Red UI";
+       colorUI = "Purple UI";
        break;
 
     case 6:
-       colorUI = "Silver UI";
+       colorUI = "Red UI";
        break;
 
     case 7:
+       colorUI = "Silver UI";
+       break;
+
+    case 8:
        colorUI = "Cerulean UI";
        break;
     }
@@ -150,4 +155,10 @@ void w_options::on_opt_checkbox_bluemarble_toggled(bool checked)
         QFile::remove("Assets/BlueMarble.FPK");
     }
 
+}
+
+void w_options::on_bt_exclusions_clicked()
+{
+    exclusion = new w_exclusion(this);
+    exclusion->show();
 }
