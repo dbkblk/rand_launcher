@@ -98,6 +98,12 @@ DONE -> GUI to exclude files
 DONE -> Drop support for Sinhala (unmaintened and less than 1% translated)
 DONE -> Add a function to reset the mod in the default state
 
+## 1.03
+- Fix the update logic to download the MLF_ xml files for "formations" and "interface color". Might inject setting in these xml at each launcher startup (or after update).
+- Fix the shortcut path for and2_checker in installer
+- Set the launcher to autostart the mod by default OR warn the user when the ini file isn't detected.
+- Fix the updating loop which seems to occurs on W7 64 or W8.1 64 (wrong path ?)
+
 ## Pending
 ? - Fix the weird updating loop !?
 
