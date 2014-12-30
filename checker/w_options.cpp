@@ -18,11 +18,18 @@ w_options::w_options(QWidget *parent) :
     // Set the detected color
     int color = readColorsCounter();
     ui->colorBox->setCurrentIndex(color);
+    setCheckerParam("Modules/ColorUI",QString::number(color));
 
     // Check default states
+    QFile bluemarble("Assets/BlueMarble.FPK");
+    if(bluemarble.exists()){
+        ui->opt_checkbox_bluemarble->setChecked(1);
+    }
 
     if(readOptionFormations() == true)
     {
+        // Save parameter
+        setCheckerParam("Modules/Formations", "1");
         ui->opt_checkbox_formations->setChecked(1);
     }
 
@@ -53,47 +60,8 @@ w_options::~w_options()
 void w_options::on_colorBox_currentIndexChanged(int index)
 {
     if(index==-1){return;};
-    qDebug() << "Index is " << index;
-    QString colorUI;
-    switch (index)
-    {
-    case 0:
-       colorUI = "default";
-       break;
-
-    case 1:
-       colorUI = "Black UI";
-       break;
-
-    case 2:
-       colorUI = "Coal UI";
-       break;
-
-    case 3:
-       colorUI = "Dark Red UI";
-       break;
-
-    case 4:
-       colorUI = "Forest UI";
-       break;
-
-    case 5:
-       colorUI = "Purple UI";
-       break;
-
-    case 6:
-       colorUI = "Red UI";
-       break;
-
-    case 7:
-       colorUI = "Silver UI";
-       break;
-
-    case 8:
-       colorUI = "Cerulean UI";
-       break;
-    }
-    setColors(colorUI);
+    setCheckerParam("Modules/ColorUI",QString::number(index));
+    setColors(index);
 }
 
 void w_options::on_startBox_toggled(bool checked)
@@ -135,17 +103,19 @@ void w_options::on_opt_checkbox_formations_toggled(bool checked)
 {
     if(checked)
     {
+        setCheckerParam("Modules/Formations", "1");
         setOptionFormations(true);
     }
     else
     {
+        setCheckerParam("Modules/Formations", "0");
         setOptionFormations(false);
     }
 }
 
 void w_options::on_opt_checkbox_bluemarble_toggled(bool checked)
 {
-    if(checked)
+    if(checked && !QFile::exists("Assets/BlueMarble.FPK"))
     {
         QProcess unzip;
         unzip.execute(tools::TOOL_EXTRACT + "Assets/BlueMarble.zip -oAssets/ -y");

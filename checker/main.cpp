@@ -59,14 +59,16 @@ int main(int argc, char *argv[])
     {
         clearCache();
         clearGameOptions();
-        QFile::remove("cygcrypto-1.0.0.dll");
         QFile::remove("cyggcc_s-1.dll");
         QFile::remove("cygiconv-2.dll");
-        QFile::remove("cygssp-0.dll");
         QFile::remove("cygwin1.dll");
-        QFile::remove("cygz.dll");
         QFile::remove("rsync.exe");
         QFile::remove("upd_proc.exe");
+    }
+
+    // Check for double installation
+    if(checkDoubleInstallation()>1){
+        QMessageBox::critical(0, "Error", QObject::tr("The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:\n- My Documents/My Games/Beyond the Sword/Mods \n- Game folder installation/Beyond the Sword/Mods"));
     }
 
     // Check for correct path
@@ -79,6 +81,19 @@ int main(int argc, char *argv[])
     }
     #endif
     /* End of the windows specific code */
+
+    // Inject saved color UI and formations parameters to xml files in case of update
+    if(readCheckerParam("Modules/Formations") == "1" && readOptionFormations() == false){
+        qDebug() << "Inject formation setting to xml";
+        setOptionFormations(true);
+    }
+    int color_xml = readColorsCounter();
+    int color_saved = readCheckerParam("Modules/ColorUI").toInt();
+    if(color_xml != color_saved){
+        qDebug() << "Inject color UI setting to xml";
+        setColors(color_saved);
+    }
+
     // Create modules
     w_main w;
 

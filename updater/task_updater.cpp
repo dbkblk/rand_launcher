@@ -46,6 +46,7 @@ void task_updater::DebugWindow(int time)
 void task_updater::StartUpdate(QString operation){
     // Set process and emit signal at the end
     process->start(operation);
+    //process->execute(operation); //Uncomment execute to debug
     process->waitForFinished(-1);
     emit finished();
 }
@@ -136,7 +137,7 @@ QString task_updater::ReadExcludeList(QString filepath){
     // Split string list into a formatted exclusion list
     foreach(QString entry, exclusions){
         if(!entry.isEmpty()){
-            exclude_list = exclude_list + "--exclude \"" + entry + "\" ";
+            exclude_list = exclude_list + "--exclude=\"" + entry + "\" ";
         }
     }
     //qDebug() << exclude_list;

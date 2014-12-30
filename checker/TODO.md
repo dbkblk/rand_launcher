@@ -1,19 +1,81 @@
 # Roadmap
-## 0.8
-### Features
+## 1.1
+- Add support for exclusions for mods files
+- Reimplement addon installer
 
-DONE -> Update label after mod update
-DONE -> Hide the close button while update is still pending
-DONE -> Add a menu to navigate to the mod folder
+## 1.03
+DONE (TO TEST ON OTHERS SYSTEMS)-> Fix the mighty rsync error on some W7 / W8.1 64 bits systems.
+DONE -> Autostart the mod with the game from the launcher, independently from the autostart option set.
+DONE -> Detect double folders presence in base game and my documents and warn the user.
+DONE -> Detect the Blue Marble FPK file.
+DONE -> Color UI / Formations: Instead of blocking the file from update, save the parameters and check / inject at each launcher start if changed.
+DONE -> Fixed "exclude files" button size.
+
+## 1.02
+DONE -> Force installer to make a folder named "Rise of Mankind - A New Dawn" and to decompress into "Mods/" folder + Check the folder name at start
+DONE -> Possibility to use the default color (!?)
+DONE -> GUI to exclude files
+DONE -> Drop support for Sinhala (unmaintened and less than 1% translated)
+DONE -> Add a function to reset the mod in the default state
+
+## 1.01
+DONE -> Updater: Create a "updating" file at start then delete it at the end. The launcher should check if the file is present, and then relaunch the updater again.
+
+## 1.0
+DONE -> Integrate RSYNC instead of SVN
+DONE -> Setup the installer to automatically execute the launcher the first time
+DONE -> Check the first time installer
+DONE -> Improved updater progress
+
+## 0.15
+DONE -> Add a marker to see current language
+DONE -> BUG: Fix updater progress bar
+DONE -> CHECK: Self-updating launcher check
+
+## 0.14
+DONE -> Add a command window to the fix installation menu
+DONE -> Revert command with a cmd window
+DONE -> Fixed rev number sometimes not updated
+DONE -> Fixed modules window title
+DONE -> Fixed module updater not updating when the launcher is installed from the installer
+
+## 0.13
+DONE -> BUG: When changing language, the component window does not retranslate everything.
+DONE -> Installer: Add MSVC in the installer page
+
+## 0.12
+DONE -> Save the language state
+DONE -> Choose the merge possibilities (--accept tc / etc.)
+DONE -> Use XML to better layout changes
+
+## 0.11
+### Features
+DONE -> Link to the translation platform
+DONE -> Make the launcher translatable
+DONE -> Improve installer
+DONE -> Code a new svn installer separated from the launcher
+DONE -> Reimplement clean and revert function
+DONE -> Reorganized code
+DONE -> Add option for bluemarble
 
 ### Bugfix
+DONE -> Fix menus not clickable at start
+DONE -> Fix delay when starting the component manager
+DONE -> Fixed cache not working
 
-DONE -> Restore launcher update check from options
-DONE -> setText on installation box label crash the window !
-DONE -> Fix incorrect version just after update.
-DONE -> Remove the "Waiting for data..." when the text is updated on the changelog window.
-DONE -> Do not invoke a window to cleanup the mod but show a confirmation message
-DONE -> Fix update process (the signal don't create a window)
+## 0.10
+### Features
+DONE -> Create a graphical launcher updater
+DONE -> Recheck addon state after installation
+DONE -> Make a uninstallation for addons (compare with the file list from the repo "svn list --recursive")
+
+
+### Bugfix
+DONE -> Option: Formations don't keep parameters
+DONE -> Confirm that the mod has been updated to popup "the mod has been updated"
+DONE -> Do not tell update is available if addons aren't installed
+DONE -> Show changelog from the head version
+DONE -> Update main window infos after update;
 
 ## 0.9
 ### Features
@@ -32,78 +94,21 @@ DONE -> Change version to MAJOR / MINOR numbers instead of float
 ### Bugfix
 DONE -> Fixed a mighty segfault when colors are all defined to zero.
 
-## 0.10
+## 0.8
 ### Features
-DONE -> Create a graphical launcher updater
-DONE -> Recheck addon state after installation
-DONE -> Make a uninstallation for addons (compare with the file list from the repo "svn list --recursive")
 
+DONE -> Update label after mod update
+DONE -> Hide the close button while update is still pending
+DONE -> Add a menu to navigate to the mod folder
 
 ### Bugfix
-DONE -> Option: Formations don't keep parameters
-DONE -> Confirm that the mod has been updated to popup "the mod has been updated"
-DONE -> Do not tell update is available if addons aren't installed
-DONE -> Show changelog from the head version
-DONE -> Update main window infos after update;
 
-## 0.11
-### Features
-DONE -> Link to the translation platform
-DONE -> Make the launcher translatable
-DONE -> Improve installer
-DONE -> Code a new svn installer separated from the launcher
-DONE -> Reimplement clean and revert function
-DONE -> Reorganized code
-DONE -> Add option for bluemarble
-
-### Bugfix
-DONE -> Fix menus not clickable at start
-DONE -> Fix delay when starting the component manager
-DONE -> Fixed cache not working
-
-## 0.12
-DONE -> Save the language state
-DONE -> Choose the merge possibilities (--accept tc / etc.)
-DONE -> Use XML to better layout changes
-
-## 0.13
-DONE -> BUG: When changing language, the component window does not retranslate everything.
-DONE -> Installer: Add MSVC in the installer page
-
-## 0.14
-DONE -> Add a command window to the fix installation menu
-DONE -> Revert command with a cmd window
-DONE -> Fixed rev number sometimes not updated
-DONE -> Fixed modules window title
-DONE -> Fixed module updater not updating when the launcher is installed from the installer
-
-## 0.15
-DONE -> Add a marker to see current language
-DONE -> BUG: Fix updater progress bar
-DONE -> CHECK: Self-updating launcher check
-
-## 1.0
-DONE -> Integrate RSYNC instead of SVN
-DONE -> Setup the installer to automatically execute the launcher the first time
-DONE -> Check the first time installer
-DONE -> Improved updater progress
-
-## 1.01
-DONE -> Updater: Create a "updating" file at start then delete it at the end. The launcher should check if the file is present, and then relaunch the updater again.
-
-## 1.02
-DONE -> Force installer to make a folder named "Rise of Mankind - A New Dawn" and to decompress into "Mods/" folder + Check the folder name at start
-DONE -> Possibility to use the default color (!?)
-DONE -> GUI to exclude files
-DONE -> Drop support for Sinhala (unmaintened and less than 1% translated)
-DONE -> Add a function to reset the mod in the default state
-
-## Pending
-? - Fix the weird updating loop !?
-
-## 1.1
-- Add support for exclusions for mods files
-- Reimplement addon installer
+DONE -> Restore launcher update check from options
+DONE -> setText on installation box label crash the window !
+DONE -> Fix incorrect version just after update.
+DONE -> Remove the "Waiting for data..." when the text is updated on the changelog window.
+DONE -> Do not invoke a window to cleanup the mod but show a confirmation message
+DONE -> Fix update process (the signal don't create a window)
 
 # Notes
 ## Dev tools

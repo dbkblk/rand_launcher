@@ -13,7 +13,7 @@ bool rollBack();
 bool checkUpdate();
 int readColors();
 int readColorsCounter();
-bool setColors(QString color);
+bool setColors(int index);
 const char* readXML(const char* file, const char* tag);
 bool writeXML(const char* file, const char* tag, const char* newValue);
 void launchGame();
@@ -25,5 +25,6 @@ bool readOptionFormations();
 bool setOptionFormations(bool value);
 bool clearCache();
 bool clearGameOptions();
+int checkDoubleInstallation();
 
 #endif
