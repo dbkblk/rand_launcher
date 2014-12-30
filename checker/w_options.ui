@@ -233,12 +233,30 @@
     <item>
      <widget class="QCheckBox" name="startBox">
       <property name="text">
-       <string>Autostart the mod with the game</string>
+       <string>Autostart the mod with the game by default</string>
       </property>
      </widget>
     </item>
     <item alignment="Qt::AlignRight|Qt::AlignVCenter">
      <widget class="QPushButton" name="bt_exclusions">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>25</height>
+       </size>
+      </property>
       <property name="text">
        <string>Exclude files from update</string>
       </property>

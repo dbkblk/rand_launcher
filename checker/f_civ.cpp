@@ -133,8 +133,49 @@ int readColorsCounter()
     return 99;
 }
 
-bool setColors(QString color)
+bool setColors(int index)
 {
+    // Convert the index into a string
+    QString colorUI;
+    switch (index)
+    {
+    case 0:
+       colorUI = "default";
+       break;
+
+    case 1:
+       colorUI = "Black UI";
+       break;
+
+    case 2:
+       colorUI = "Coal UI";
+       break;
+
+    case 3:
+       colorUI = "Dark Red UI";
+       break;
+
+    case 4:
+       colorUI = "Forest UI";
+       break;
+
+    case 5:
+       colorUI = "Purple UI";
+       break;
+
+    case 6:
+       colorUI = "Red UI";
+       break;
+
+    case 7:
+       colorUI = "Silver UI";
+       break;
+
+    case 8:
+       colorUI = "Cerulean UI";
+       break;
+    }
+
     // Open the file
     QDomDocument read;
     QFile file("Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml");
@@ -154,12 +195,12 @@ bool setColors(QString color)
         color_element.firstChildElement("bLoad").firstChild().setNodeValue("0");
         }
 
-        if(color != "default"){
+        if(colorUI != "default"){
         color_element = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
 
         for(color_element ; !color_element.isNull(); color_element=color_element.nextSiblingElement() ) {
             QString txtValue = color_element.firstChildElement("Directory").firstChild().nodeValue();
-            if (txtValue == color) {
+            if (txtValue == colorUI) {
                 color_element.firstChildElement("bLoad").firstChild().setNodeValue("1");
             }
         }
@@ -176,8 +217,12 @@ bool setColors(QString color)
 
 void launchGame(){
     QString bt_exe = readCheckerParam("Main/ExecutablePath");
-    QUrl u = QUrl::fromLocalFile(bt_exe);
-    QDesktopServices::openUrl(QUrl(u));
+    QStringList arg;
+    arg << "mod=\\Rise of Mankind - A New Dawn";
+    QProcess update;
+    update.startDetached(bt_exe, arg);
+    //QUrl u = QUrl::fromLocalFile(bt_exe);
+    //QDesktopServices::openUrl(QUrl(u));
 }
 
 /*QString check_addon_mcp()
@@ -343,4 +388,19 @@ bool clearGameOptions()
     return 0;
 }
 
+int checkDoubleInstallation()
+{
+    int counter = 0;
+    // Check My Docs standard path
+    QDir mydocs_dir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn/";
+    if(mydocs_dir.exists()){counter++;qDebug() << "My docs path detected";};
+
+    // Check base game standard path
+    QString base_path = readCheckerParam("Main/ExecutablePath");
+    base_path.remove("Civ4BeyondSword.exe");
+    base_path.append("Mods/Rise of Mankind - A New Dawn");
+    QDir base_dir(base_path);
+    if(base_dir.exists()){counter++;qDebug() << "Standard path detected";};
+    return counter;
+}
 

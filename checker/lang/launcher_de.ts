@@ -1,15 +1,24 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="de">
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../main.cpp" line="77"/>
+        <location filename="../main.cpp" line="71"/>
+        <source>The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:
+- My Documents/My Games/Beyond the Sword/Mods 
+- Game folder installation/Beyond the Sword/Mods</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="79"/>
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
         <translation>Der Launcher ist nicht im richtigen Verzeichnis. Er sollte entweder in &apos;Dokumente/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; oder in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; sein.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="92"/>
+        <location filename="../main.cpp" line="107"/>
         <source>There seems to be a problem with the previous update. Checking file again.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -22,17 +31,17 @@
     <message>
         <location filename="../../updater/task_updater.cpp" line="14"/>
         <source>Updating the game. Please be patient.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="86"/>
+        <location filename="../../updater/task_updater.cpp" line="87"/>
         <source>Checking and downloading data: </source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="86"/>
+        <location filename="../../updater/task_updater.cpp" line="87"/>
         <source> files left.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -53,12 +62,12 @@
     <message>
         <location filename="../w_exclusion.ui" line="32"/>
         <source>Choose which files to exclude from update</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_exclusion.ui" line="67"/>
         <source>File</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -76,12 +85,12 @@
     <message>
         <location filename="../w_install.cpp" line="13"/>
         <source>Ok</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_install.cpp" line="14"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -119,7 +128,7 @@
     <message>
         <location filename="../w_main.ui" line="246"/>
         <source>Addons</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="259"/>
@@ -155,12 +164,12 @@
     <message>
         <location filename="../w_main.ui" line="299"/>
         <source>&quot;Mega Civ Pack&quot; (forum)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="317"/>
         <source>&quot;More music / More handicaps / Dinosaurs&quot; (forum)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="322"/>
@@ -270,7 +279,7 @@
     <message>
         <location filename="../w_main.ui" line="463"/>
         <source>Reset mod to default state</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_main.cpp" line="141"/>
@@ -300,17 +309,17 @@
     <message>
         <location filename="../w_main.cpp" line="369"/>
         <source>Reset mod</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_main.cpp" line="370"/>
         <source>This will reset the mod to the default state. Any modification or launcher preferences will be removed.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_main.cpp" line="371"/>
         <source>Are you sure to continue ?</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -323,12 +332,12 @@
     <message>
         <location filename="../w_modules.cpp" line="32"/>
         <source>Local</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_modules.cpp" line="32"/>
         <source>Distant</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -361,7 +370,7 @@
     <message>
         <location filename="../w_options.ui" line="111"/>
         <source>Dark blue (default)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="116"/>
@@ -425,26 +434,30 @@
     </message>
     <message>
         <location filename="../w_options.ui" line="236"/>
+        <source>Autostart the mod with the game by default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Autostart the mod with the game</source>
-        <translation>Die Mod automatisch mit dem Spiel starten</translation>
+        <translation type="vanished">Die Mod automatisch mit dem Spiel starten</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="243"/>
+        <location filename="../w_options.ui" line="261"/>
         <source>Exclude files from update</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="41"/>
+        <location filename="../w_options.cpp" line="48"/>
         <source>No path specified</source>
         <translation>Kein Pfad angegeben</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="125"/>
+        <location filename="../w_options.cpp" line="93"/>
         <source>The game path has been changed</source>
         <translation>Der Spielpfad wurde geändert</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="129"/>
+        <location filename="../w_options.cpp" line="97"/>
         <source>No game path specified.</source>
         <translation>Kein Spielpfad angegeben.</translation>
     </message>

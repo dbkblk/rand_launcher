@@ -1,13 +1,22 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fr">
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../main.cpp" line="77"/>
+        <location filename="../main.cpp" line="71"/>
+        <source>The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:
+- My Documents/My Games/Beyond the Sword/Mods 
+- Game folder installation/Beyond the Sword/Mods</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="79"/>
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
         <translation>Le lanceur n&apos;est pas dans le bon répertoire. Il devrait se trouver dans &quot;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; ou dans &apos; Civilization IV (dossier racine du jeu)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="92"/>
+        <location filename="../main.cpp" line="107"/>
         <source>There seems to be a problem with the previous update. Checking file again.</source>
         <translation>Il semble qu&apos;il y ait eu un problème avec la mise à jour précédente. Nouvelle vérification des fichiers.</translation>
     </message>
@@ -25,12 +34,12 @@
         <translation>Mise à jour du jeu. Soyez patient.</translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="86"/>
+        <location filename="../../updater/task_updater.cpp" line="87"/>
         <source>Checking and downloading data: </source>
         <translation>Vérification et mise à jour des données:</translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="86"/>
+        <location filename="../../updater/task_updater.cpp" line="87"/>
         <source> files left.</source>
         <translation>fichiers restants.</translation>
     </message>
@@ -425,26 +434,30 @@
     </message>
     <message>
         <location filename="../w_options.ui" line="236"/>
-        <source>Autostart the mod with the game</source>
-        <translation>Démarrer le mod avec le jeu</translation>
+        <source>Autostart the mod with the game by default</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="243"/>
+        <source>Autostart the mod with the game</source>
+        <translation type="vanished">Démarrer le mod avec le jeu</translation>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="261"/>
         <source>Exclude files from update</source>
         <translation>Exclure des fichiers de la mise à jour</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="41"/>
+        <location filename="../w_options.cpp" line="48"/>
         <source>No path specified</source>
         <translation>Aucun chemin d&apos;accès spécifié</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="125"/>
+        <location filename="../w_options.cpp" line="93"/>
         <source>The game path has been changed</source>
         <translation>Le chemin d&apos;accès de jeu a été changé</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="129"/>
+        <location filename="../w_options.cpp" line="97"/>
         <source>No game path specified.</source>
         <translation>Aucun chemin d&apos;accès du jeu spécifié</translation>
     </message>
