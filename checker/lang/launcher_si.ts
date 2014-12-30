@@ -4,12 +4,19 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../main.cpp" line="77"/>
+        <location filename="../main.cpp" line="71"/>
+        <source>The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:
+- My Documents/My Games/Beyond the Sword/Mods 
+- Game folder installation/Beyond the Sword/Mods</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="79"/>
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
         <translation>දියත්කිරීම නියමිත නාමාවලියෙහි නොමැත .එය &apos;මගේ ලියවිලි /මගේ ක්‍රීඩා /අසිපත් වලින් ඔබ්බට /මොඩ්ස්/මනුෂ්‍ය වර්ගය පිබිදීම -නව පිබිදීමක් හෝ 4 වන ශිෂ්ටාචාරය (මුල් ක්‍රීඩා ගොනුව )/අසිපත් වලින් ඔබ්බට /මොඩ්ස්/මනුෂ්‍ය වර්ගය පිබිදීම -නව පිබිදීමක් </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="92"/>
+        <location filename="../main.cpp" line="107"/>
         <source>There seems to be a problem with the previous update. Checking file again.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27,12 +34,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="86"/>
+        <location filename="../../updater/task_updater.cpp" line="87"/>
         <source>Checking and downloading data: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="86"/>
+        <location filename="../../updater/task_updater.cpp" line="87"/>
         <source> files left.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -427,26 +434,26 @@
     </message>
     <message>
         <location filename="../w_options.ui" line="236"/>
-        <source>Autostart the mod with the game</source>
+        <source>Autostart the mod with the game by default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="243"/>
+        <location filename="../w_options.ui" line="261"/>
         <source>Exclude files from update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="41"/>
+        <location filename="../w_options.cpp" line="48"/>
         <source>No path specified</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="125"/>
+        <location filename="../w_options.cpp" line="93"/>
         <source>The game path has been changed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="129"/>
+        <location filename="../w_options.cpp" line="97"/>
         <source>No game path specified.</source>
         <translation type="unfinished"></translation>
     </message>

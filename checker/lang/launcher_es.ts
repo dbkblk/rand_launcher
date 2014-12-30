@@ -1,13 +1,22 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="es">
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../main.cpp" line="77"/>
+        <location filename="../main.cpp" line="71"/>
+        <source>The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:
+- My Documents/My Games/Beyond the Sword/Mods 
+- Game folder installation/Beyond the Sword/Mods</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="79"/>
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
         <translation>El lanzador no está en el correcto directorio. Debe ser en &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; o en &apos; Civilization IV (carpeta del juego)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="92"/>
+        <location filename="../main.cpp" line="107"/>
         <source>There seems to be a problem with the previous update. Checking file again.</source>
         <translation>Parece haber un problema con la actualización anterior. Revisando el archivo.</translation>
     </message>
@@ -25,12 +34,12 @@
         <translation>Actualizando el juego. Por favor tenga paciencia.</translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="86"/>
+        <location filename="../../updater/task_updater.cpp" line="87"/>
         <source>Checking and downloading data: </source>
         <translation>Comprobación y descarga de datos: </translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="86"/>
+        <location filename="../../updater/task_updater.cpp" line="87"/>
         <source> files left.</source>
         <translation>ficheros restante.</translation>
     </message>
@@ -427,26 +436,30 @@ Configuración del lanzador :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</
     </message>
     <message>
         <location filename="../w_options.ui" line="236"/>
-        <source>Autostart the mod with the game</source>
-        <translation>Iniciar el mod con el juego</translation>
+        <source>Autostart the mod with the game by default</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="243"/>
+        <source>Autostart the mod with the game</source>
+        <translation type="vanished">Iniciar el mod con el juego</translation>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="261"/>
         <source>Exclude files from update</source>
         <translation>Excluir archivos de actualización</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="41"/>
+        <location filename="../w_options.cpp" line="48"/>
         <source>No path specified</source>
         <translation>No hay ruta de acceso especificada</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="125"/>
+        <location filename="../w_options.cpp" line="93"/>
         <source>The game path has been changed</source>
         <translation>Se ha cambiado el camino juego</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="129"/>
+        <location filename="../w_options.cpp" line="97"/>
         <source>No game path specified.</source>
         <translation>No hay juego ruta de acceso especificada.</translation>
     </message>
