@@ -97,9 +97,20 @@ DONE -> Fixed a mighty segfault when colors are all defined to zero.
 ## 0.8
 ### Features
 
+<<<<<<< HEAD
 DONE -> Update label after mod update
 DONE -> Hide the close button while update is still pending
 DONE -> Add a menu to navigate to the mod folder
+=======
+## 1.03
+- Fix the update logic to download the MLF_ xml files for "formations" and "interface color". Might inject setting in these xml at each launcher startup (or after update).
+- Fix the shortcut path for and2_checker in installer
+- Set the launcher to autostart the mod by default OR warn the user when the ini file isn't detected.
+- Fix the updating loop which seems to occurs on W7 64 or W8.1 64 (wrong path ?)
+
+## Pending
+? - Fix the weird updating loop !?
+>>>>>>> 7e326cbf25ffba6e5b70ef5fa90fc341e265425a
 
 ### Bugfix
 
