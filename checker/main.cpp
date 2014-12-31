@@ -7,6 +7,7 @@
 #include <QtNetwork>
 #include <QtGui>
 #include <QtWidgets>
+#include <QtXml>
 #include <QDir>
 //
 
@@ -93,6 +94,27 @@ int main(int argc, char *argv[])
         qDebug() << "Inject color UI setting to xml";
         setColors(color_saved);
     }
+
+    // Create exclusions.default.xml if not exist
+    QFile exclusion("checker/exclusions.custom.xml");
+    if(!exclusion.exists()){
+        qDebug() << "No existing custom exclusion file, writing new one.";
+        exclusion.open(QIODevice::WriteOnly | QIODevice::Truncate);
+        QDomDocument xml_exclusion;
+        QDomNode declaration = xml_exclusion.createProcessingInstruction("xml",QString("version=\"1.0\" encoding=\"UTF-8\""));
+        xml_exclusion.insertBefore(declaration,xml_exclusion.firstChild());
+        QDomNode root = xml_exclusion.createElement("exclusions");
+        xml_exclusion.appendChild(root);
+        QDomComment comment = xml_exclusion.createComment("Put your custom files inside \"entity\" tags");
+        root.appendChild(comment);
+        QDomNode entity = xml_exclusion.createElement("entity");
+        root.appendChild(entity);
+
+        // Save file
+        exclusion.write(xml_exclusion.toByteArray());
+        exclusion.close();
+    }
+
 
     // Create modules
     w_main w;

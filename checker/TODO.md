@@ -10,6 +10,7 @@ DONE -> Detect double folders presence in base game and my documents and warn th
 DONE -> Detect the Blue Marble FPK file.
 DONE -> Color UI / Formations: Instead of blocking the file from update, save the parameters and check / inject at each launcher start if changed.
 DONE -> Fixed "exclude files" button size.
+DONE -> Generate an exclusion.custom.xml file if not present.
 
 ## 1.02
 DONE -> Force installer to make a folder named "Rise of Mankind - A New Dawn" and to decompress into "Mods/" folder + Check the folder name at start
