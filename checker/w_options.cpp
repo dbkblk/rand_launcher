@@ -122,7 +122,7 @@ void w_options::on_opt_checkbox_bluemarble_toggled(bool checked)
         QProcess unzip;
         unzip.execute(tools::TOOL_EXTRACT + "Assets/BlueMarble.zip -oAssets/ -y");
     }
-    else
+    else if (!checked)
     {
         QFile::remove("Assets/BlueMarble.FPK");
     }
