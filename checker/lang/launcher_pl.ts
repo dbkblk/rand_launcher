@@ -4,19 +4,19 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../main.cpp" line="71"/>
+        <location filename="../main.cpp" line="72"/>
         <source>The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:
 - My Documents/My Games/Beyond the Sword/Mods 
 - Game folder installation/Beyond the Sword/Mods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="79"/>
+        <location filename="../main.cpp" line="80"/>
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
         <translation>Launcher nie jest w prawidłowym katalogu. Powinien znajdować się w: &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; lub w  &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="107"/>
+        <location filename="../main.cpp" line="129"/>
         <source>There seems to be a problem with the previous update. Checking file again.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -453,12 +453,12 @@
         <translation>Brak podanej ścieżki</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="93"/>
+        <location filename="../w_options.cpp" line="95"/>
         <source>The game path has been changed</source>
         <translation>Ścieżka gry została zmieniona</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="97"/>
+        <location filename="../w_options.cpp" line="99"/>
         <source>No game path specified.</source>
         <translation>Brak podanej ścieżki do gry</translation>
     </message>

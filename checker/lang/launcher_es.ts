@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="es">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -8,7 +6,9 @@
         <source>The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:
 - My Documents/My Games/Beyond the Sword/Mods 
 - Game folder installation/Beyond the Sword/Mods</source>
-        <translation type="unfinished"></translation>
+        <translation>La mod instalación fue detectada en doble. Esto puede causar problemas inesperados. Por favor, busque la mod carpeta en estas dos localidades y borrar la vieja carpeta:
+- Mis documentos/My Games/Beyond the Sword/Mods
+- Carpeta de la instalación del juego/Beyond the Sword/Mods</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="79"/>
@@ -437,11 +437,7 @@ Configuración del lanzador :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</
     <message>
         <location filename="../w_options.ui" line="236"/>
         <source>Autostart the mod with the game by default</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Autostart the mod with the game</source>
-        <translation type="vanished">Iniciar el mod con el juego</translation>
+        <translation>Arrancar el mod con el juego por defecto</translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="261"/>
