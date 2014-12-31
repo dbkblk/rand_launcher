@@ -50,6 +50,8 @@ w_options::w_options(QWidget *parent) :
     else {
         ui->opt_text_path->setText(readCheckerParam("Main/ExecutablePath"));
     }
+
+    exclusion = new w_exclusion(this);
 }
 
 w_options::~w_options()
@@ -129,6 +131,5 @@ void w_options::on_opt_checkbox_bluemarble_toggled(bool checked)
 
 void w_options::on_bt_exclusions_clicked()
 {
-    exclusion = new w_exclusion(this);
     exclusion->show();
 }
