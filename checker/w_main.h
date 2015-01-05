@@ -17,7 +17,7 @@ class installBox;
 }
 
 namespace versions {
-const QString CHECKER_VERSION = "1.03";
+const QString CHECKER_VERSION = "1.04";
 }
 
 namespace tools {
@@ -25,14 +25,16 @@ namespace tools {
 #ifdef __linux
 const QString TOOL_RSYNC = "rsync ";
 const QString TOOL_GET = "curl -J -L -C - -# --retry 10 --insecure ";
-const QString TOOL_EXTRACT = "7z e ";
+const QString TOOL_UNXZ = "xz -d ";
+const QString TOOL_UNTAR = "tar -xf ";
 const QString TOOL_LAUNCHER = "and2_checker";
 const QString TOOL_UPDATER = "upd_proc";
 #endif
 #ifdef _WIN32
 const QString TOOL_RSYNC = "checker/rsync.exe ";
 const QString TOOL_GET = "checker/curl.exe -J -L -C - -# --retry 10 --insecure ";
-const QString TOOL_EXTRACT = "checker/7za.exe e ";
+const QString TOOL_XZ = "checker/xz.exe -d ";
+const QString TOOL_TAR = "checker/tar.exe -xf ";
 const QString TOOL_LAUNCHER = "and2_checker.exe";
 const QString TOOL_UPDATER = "upd_proc.exe";
 #endif

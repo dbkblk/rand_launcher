@@ -1,7 +1,8 @@
 # Roadmap
 ## 1.1
 - Add support for exclusions for mods files
-- Reimplement addon installer
+- Reimplement addon installer with XML injection support
+- Eventual linux support
 
 ## 1.03
 DONE (TO TEST ON OTHERS SYSTEMS)-> Fix the mighty rsync error on some W7 / W8.1 64 bits systems.
