@@ -14,8 +14,8 @@ namespace tools {
 const QString TOOL_RSYNC = "rsync ";
 const QString TOOL_GET = "curl -J -L -C - -# --retry 10 --insecure ";
 const QString TOOL_EXTRACT = "7z e ";
-const QString TOOL_LAUNCHER = "./and2_checker";
-const QString TOOL_UPDATER = "./upd_proc";
+const QString TOOL_LAUNCHER = "and2_checker";
+const QString TOOL_UPDATER = "upd_proc";
 #endif
 #ifdef _WIN32
 const QString TOOL_RSYNC = "rsync.exe ";

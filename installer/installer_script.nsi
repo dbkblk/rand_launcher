@@ -7,7 +7,7 @@ SetCompressor /SOLID LZMA
 ;--------------------------------
 
   !include "MUI.nsh"
-  !define VERSION "1.0"
+  !define VERSION "1.04"
 
 ; General information
 ;--------------------------------
@@ -181,7 +181,8 @@ CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Civilization IV - A New Dawn.lnk" "
 SectionEnd ; end the section
 
 Section "$(SHORTCUT)"
-CreateShortcut "$desktop\Civilization IV - A New Dawn.lnk" "$instdir\Rise of Mankind - A New Dawn\and2_checker.exe"
+SetOutPath "$INSTDIR\Rise of Mankind - A New Dawn\"
+CreateShortcut "$DESKTOP\Civilization IV - A New Dawn.lnk" "$INSTDIR\Rise of Mankind - A New Dawn\and2_checker.exe"
 SectionEnd
 
 Section "MSVC 2010 ($(REQUIRED))"

@@ -120,7 +120,14 @@ void w_options::on_opt_checkbox_bluemarble_toggled(bool checked)
     if(checked && !QFile::exists("Assets/BlueMarble.FPK"))
     {
         QProcess unzip;
-        unzip.execute(tools::TOOL_EXTRACT + "Assets/BlueMarble.zip -oAssets/ -y");
+        QFile::copy("Assets/BlueMarble.tar.xz","Assets/bm.tar.xz");
+        unzip.execute(tools::TOOL_XZ + "Assets/bm.tar.xz");
+        unzip.execute(tools::TOOL_TAR + "Assets/bm.tar");
+        QFile::remove("Assets/bm.tar");
+        if(!QFile::exists("Assets/BlueMarble.FPK")){
+            qDebug() << "Problem during BlueMarble decompression";
+            ui->opt_checkbox_bluemarble->setChecked(0);
+        }
     }
     else if (!checked)
     {
