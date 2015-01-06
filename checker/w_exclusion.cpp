@@ -268,10 +268,6 @@ QStringList w_exclusion::GetCheckedList(){
 }
 
 void w_exclusion::WriteToXML(QStringList file_list){
-    foreach(QString entry, file_list){
-        qDebug() << entry;
-    }
-
     // Load the file
     QDomDocument xml;
     QFile file("checker/exclusions.custom.xml");
@@ -284,8 +280,8 @@ void w_exclusion::WriteToXML(QStringList file_list){
     file.close();
 
     // Set the correct node
-    QDomElement root = xml.firstChildElement().toElement();
-    QDomElement entity = xml.firstChildElement("exclusions").firstChildElement("entity").toElement();
+    QDomElement root = xml.firstChildElement("exclusions").toElement();
+    QDomElement entity = root.firstChildElement("entity").toElement();
 
     // Check each entity for corresponding file
     QList<QDomNode> nodes_to_remove;
@@ -293,7 +289,8 @@ void w_exclusion::WriteToXML(QStringList file_list){
         QString value = entity.firstChild().nodeValue();
         int counter = 0;
         foreach(QString entry, file_list){
-            if(value.compare(entry)){
+            if(value == entry){
+                qDebug() << "Removing" << value;
                 counter++;
                 file_list.removeAll(entry);
             }
@@ -312,14 +309,15 @@ void w_exclusion::WriteToXML(QStringList file_list){
 
     // Add new nodes
     foreach(QString entry, file_list){
-        QDomElement temp_node = xml.createElement("entity");
+        QDomNode temp_node = xml.createElement("entity");
         root.appendChild(temp_node);
         temp_node.appendChild(xml.createTextNode(entry));
     }
 
     // Save to file
-    file.open(QIODevice::Truncate | QIODevice::WriteOnly);
-    file.write(xml.toByteArray());
+    file.open(QIODevice::WriteOnly | QIODevice::Truncate);
+    QTextStream ts(&file);
+    xml.save(ts, 4);
     file.close();
 }
 
