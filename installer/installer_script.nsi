@@ -173,8 +173,10 @@ AddSize 1700000
     
     ;Create shortcuts
     CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
+	SetOutPath "$INSTDIR\Rise of Mankind - A New Dawn\"
     CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk" "$INSTDIR\Rise of Mankind - A New Dawn\Uninstall.exe"
-CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Civilization IV - A New Dawn.lnk" "$INSTDIR\Rise of Mankind - A New Dawn\and2_checker.exe"
+	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Civilization IV - A New Dawn.lnk" "$INSTDIR\Rise of Mankind - A New Dawn\and2_checker.exe"
+	SetOutPath "$INSTDIR"
   
   !insertmacro MUI_STARTMENU_WRITE_END
   
