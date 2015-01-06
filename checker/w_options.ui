@@ -46,7 +46,7 @@
      <x>10</x>
      <y>10</y>
      <width>581</width>
-     <height>281</height>
+     <height>293</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -71,11 +71,52 @@
      </widget>
     </item>
     <item>
-     <widget class="QCheckBox" name="opt_checkbox_bluemarble">
-      <property name="text">
-       <string>Enable Blue Marble (alternative terrain graphics)</string>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="lb_intcolor_2">
+        <property name="text">
+         <string>Change terrain texture set:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="dd_textures">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
+          <height>25</height>
+         </size>
+        </property>
+        <item>
+         <property name="text">
+          <string>A New Dawn (default)</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Blue Marble</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Original</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">

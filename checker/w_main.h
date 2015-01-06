@@ -26,7 +26,7 @@ namespace tools {
 const QString TOOL_RSYNC = "rsync ";
 const QString TOOL_GET = "curl -J -L -C - -# --retry 10 --insecure ";
 const QString TOOL_UNXZ = "xz -d ";
-const QString TOOL_UNTAR = "tar -xf ";
+const QString TOOL_UNTAR = "tar -xpf ";
 const QString TOOL_LAUNCHER = "and2_checker";
 const QString TOOL_UPDATER = "upd_proc";
 #endif
@@ -34,7 +34,7 @@ const QString TOOL_UPDATER = "upd_proc";
 const QString TOOL_RSYNC = "checker/rsync.exe ";
 const QString TOOL_GET = "checker/curl.exe -J -L -C - -# --retry 10 --insecure ";
 const QString TOOL_XZ = "checker/xz.exe -d ";
-const QString TOOL_TAR = "checker/tar.exe -xf ";
+const QString TOOL_TAR = "checker/tar.exe -xpf ";
 const QString TOOL_LAUNCHER = "and2_checker.exe";
 const QString TOOL_UPDATER = "upd_proc.exe";
 #endif

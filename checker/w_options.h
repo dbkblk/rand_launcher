@@ -26,9 +26,8 @@ private slots:
     void on_checkerBox_toggled(bool checked);
     void on_opt_bt_path_clicked();
     void on_opt_checkbox_formations_toggled(bool checked);
-    void on_opt_checkbox_bluemarble_toggled(bool checked);
-
     void on_bt_exclusions_clicked();
+    void on_dd_textures_currentIndexChanged(int index);
 
 private:
     QCheckBox *startBox;
