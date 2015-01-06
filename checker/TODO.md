@@ -5,8 +5,8 @@
 - Eventual linux support
 
 ## 1.03
-x Fix the mighty rsync error on some W7 / W8.1 64 bits systems.
-x Autostart the mod with the game from the launcher, independently from the autostart option set.
+-x Fix the mighty rsync error on some W7 / W8.1 64 bits systems.
+-x Autostart the mod with the game from the launcher, independently from the autostart option set.
 x Detect double folders presence in base game and my documents and warn the user.
 x Detect the Blue Marble FPK file.
 x Color UI / Formations: Instead of blocking the file from update, save the parameters and check / inject at each launcher start if changed.
