@@ -15,7 +15,6 @@ class w_exclusion : public QDialog
 
 public:
     explicit w_exclusion(QWidget *parent = 0);
-    void AddItem(QTreeWidget *treeWidget, QTreeWidgetItem *itm, QString string);
     QStringList ListFiles();
     void PopulateList(QTreeWidget *treeWidget, QStringList file_list, QStringList exclusion_list);
     void CheckChildState(QTreeWidgetItem* item, enum Qt::CheckState eCheckState);

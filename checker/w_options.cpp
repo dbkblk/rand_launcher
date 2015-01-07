@@ -21,10 +21,10 @@ w_options::w_options(QWidget *parent) :
     setCheckerParam("Modules/ColorUI",QString::number(color));
 
     // Check default states
-    QFile bluemarble("Assets/BlueMarble.FPK");
-    if(bluemarble.exists()){
-        //ui->opt_checkbox_bluemarble->setChecked(1);
-    }
+     if(QFile::remove("Assets/terrain_textures_and.fpk")){ui->dd_textures->setCurrentIndex(0);}
+    else if(QFile::remove("Assets/terrain_textures_bluemarble.fpk")){ui->dd_textures->setCurrentIndex(1);}
+    else if(QFile::remove("Assets/terrain_textures_original.fpk")){ui->dd_textures->setCurrentIndex(2);}
+    else if(QFile::exists("Assets/terrain_textures_alternative.fpk")){ui->dd_textures->setCurrentIndex(3);}
 
     if(readOptionFormations() == true)
     {
@@ -128,6 +128,7 @@ void w_options::on_dd_textures_currentIndexChanged(int index)
             unTarXz("Assets/terrain_textures_and.tar.xz");
             QFile::remove("Assets/terrain_textures_original.fpk");
             QFile::remove("Assets/terrain_textures_bluemarble.fpk");
+            QFile::remove("Assets/terrain_textures_alternative.fpk");
         }
     }
     if(index == 1) // Blue Marble
@@ -136,6 +137,7 @@ void w_options::on_dd_textures_currentIndexChanged(int index)
             unTarXz("Assets/terrain_textures_bluemarble.tar.xz");
             QFile::remove("Assets/terrain_textures_original.fpk");
             QFile::remove("Assets/terrain_textures_and.fpk");
+            QFile::remove("Assets/terrain_textures_alternative.fpk");
         }
     }
     if(index == 2) // Original enhanced
@@ -144,6 +146,16 @@ void w_options::on_dd_textures_currentIndexChanged(int index)
             unTarXz("Assets/terrain_textures_original.tar.xz");
             QFile::remove("Assets/terrain_textures_bluemarble.fpk");
             QFile::remove("Assets/terrain_textures_and.fpk");
+            QFile::remove("Assets/terrain_textures_alternative.fpk");
+        }
+    }
+    if(index == 3) // Alternative
+    {
+        if(!QFile::exists("Assets/terrain_textures_alternative.fpk")){
+            unTarXz("Assets/terrain_textures_alternative.tar.xz");
+            QFile::remove("Assets/terrain_textures_bluemarble.fpk");
+            QFile::remove("Assets/terrain_textures_and.fpk");
+            QFile::remove("Assets/terrain_textures_original.fpk");
         }
     }
 }

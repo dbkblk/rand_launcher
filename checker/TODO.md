@@ -5,8 +5,8 @@
 - Eventual linux support
 
 ## 1.05
--> Remove the terrain art from the FPK and add a dropdown box to choose between original Civ terrain / A New Dawn terrain / Blue Marble
--> Fix the custom exclusion box to save files on Windows 7+.
+- Remove the terrain art from the FPK and add a dropdown box to choose between original Civ terrain / A New Dawn terrain / Blue Marble
+- Fix the custom exclusion box to save files on Windows 7+.
 
 ## 1.04
 - Updated all the executables to the latest cygwin version (should fix curl errors and ease maintenance)

@@ -28,15 +28,6 @@ w_exclusion::w_exclusion(QWidget *parent) :
     connect(ui->buttonBox,SIGNAL(accepted()),this,SLOT(GetOutputList()));
 }
 
-void w_exclusion::AddItem(QTreeWidget *treeWidget, QTreeWidgetItem *itm, QString string)
-{
-    itm->setText(0,string);
-    itm->setFlags(itm->flags() | Qt::ItemIsUserCheckable);
-    itm->setCheckState(0,Qt::Checked);
-    ui->treeWidget->insertTopLevelItem(0,itm);
-    treeWidget->addTopLevelItem(itm);
-}
-
 QStringList w_exclusion::ListFiles()
 {
     // List all files
@@ -78,9 +69,11 @@ void w_exclusion::PopulateList(QTreeWidget *treeWidget, QStringList file_list, Q
                     topLevelItem->setFlags(topLevelItem->flags() | Qt::ItemIsUserCheckable);
                     if(checked == 1){
                         topLevelItem->setCheckState(0,Qt::Checked);
+                        topLevelItem->setForeground(0,QBrush(Qt::red));
                     }
                     else{
                         topLevelItem->setCheckState(0,Qt::Unchecked);
+                        topLevelItem->setForeground(0,QBrush(Qt::black));
                     }
 
                     treeWidget->addTopLevelItem(topLevelItem);

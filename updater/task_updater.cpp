@@ -9,8 +9,25 @@ task_updater::task_updater(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::task_updater)
 {
-    // Setting GUI and process
     ui->setupUi(this);
+
+    // Translations : Get language parameter, else if OS language, then wait to fully initialize the GUI.
+    translator = new QTranslator(this);
+    QString loc;
+    if(readCheckerParam("Main/Lang") == "error")
+    {
+        loc = QLocale::system().name().section('_', 0, 0);
+    }
+    else
+    {
+        loc = readCheckerParam("Main/Lang");
+    }
+    qDebug() << "Language used: " << loc;
+    translator->load(QString("launcher_" + loc + ".qm"),"checker/lang/");
+
+    qApp->installTranslator(translator);
+
+    // Setting GUI and process
     ui->label->setText(tr("Updating the game. Please be patient."));
     process = new QProcess(this);
     ui->progressBar->setRange(0,100);
@@ -84,7 +101,7 @@ void task_updater::processOutput(){
         ui->progressBar->setValue(percent);
 
         // Update label
-        QString label = QString(tr("Checking and downloading data: ")) + QString::number(value) + QString(tr(" files left."));
+        QString label = QString(tr("Checking and downloading data:")+" ") + QString::number(value) + QString(" " + tr(" files left."));
         //qDebug() << label;
         ui->label->setText(label);
         ui->label->repaint();
@@ -144,3 +161,14 @@ QString task_updater::ReadExcludeList(QString filepath){
 
     return exclude_list;
 }
+
+QString task_updater::readCheckerParam(QString param)
+{
+    QSettings settings("checker/checker_config.ini", QSettings::IniFormat);
+    if(!settings.contains(param)) {
+        return "error";
+    }
+    QString value = settings.value(param).toString();
+    return value;
+}
+

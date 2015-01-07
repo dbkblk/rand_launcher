@@ -17,7 +17,7 @@ class installBox;
 }
 
 namespace versions {
-const QString CHECKER_VERSION = "1.04";
+const QString CHECKER_VERSION = "1.05";
 }
 
 namespace tools {
@@ -25,8 +25,8 @@ namespace tools {
 #ifdef __linux
 const QString TOOL_RSYNC = "rsync ";
 const QString TOOL_GET = "curl -J -L -C - -# --retry 10 --insecure ";
-const QString TOOL_UNXZ = "xz -d ";
-const QString TOOL_UNTAR = "tar -xpf ";
+const QString TOOL_XZ = "xz -d ";
+const QString TOOL_TAR = "tar -xpf ";
 const QString TOOL_LAUNCHER = "and2_checker";
 const QString TOOL_UPDATER = "upd_proc";
 #endif
