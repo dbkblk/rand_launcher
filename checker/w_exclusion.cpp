@@ -69,7 +69,6 @@ void w_exclusion::PopulateList(QTreeWidget *treeWidget, QStringList file_list, Q
                     topLevelItem->setFlags(topLevelItem->flags() | Qt::ItemIsUserCheckable);
                     if(checked == 1){
                         topLevelItem->setCheckState(0,Qt::Checked);
-                        topLevelItem->setForeground(0,QBrush(Qt::red));
                     }
                     else{
                         topLevelItem->setCheckState(0,Qt::Unchecked);
