@@ -21,10 +21,10 @@ w_options::w_options(QWidget *parent) :
     setCheckerParam("Modules/ColorUI",QString::number(color));
 
     // Check default states
-     if(QFile::remove("Assets/terrain_textures_and.fpk")){ui->dd_textures->setCurrentIndex(0);}
-    else if(QFile::remove("Assets/terrain_textures_bluemarble.fpk")){ui->dd_textures->setCurrentIndex(1);}
-    else if(QFile::remove("Assets/terrain_textures_original.fpk")){ui->dd_textures->setCurrentIndex(2);}
-    else if(QFile::exists("Assets/terrain_textures_alternative.fpk")){ui->dd_textures->setCurrentIndex(3);}
+     if(readCheckerParam("Modules/Terrain") == "0"){ui->dd_textures->setCurrentIndex(0);}
+    else if(readCheckerParam("Modules/Terrain") == "1"){ui->dd_textures->setCurrentIndex(1);}
+    else if(readCheckerParam("Modules/Terrain") == "2"){ui->dd_textures->setCurrentIndex(2);}
+    else if(readCheckerParam("Modules/Terrain") == "3"){ui->dd_textures->setCurrentIndex(3);}
 
     if(readOptionFormations() == true)
     {
