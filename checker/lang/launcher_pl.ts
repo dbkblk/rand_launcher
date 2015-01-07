@@ -29,17 +29,17 @@
         <translation>Aktualizuj moduły</translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="14"/>
+        <location filename="../../updater/task_updater.cpp" line="31"/>
         <source>Updating the game. Please be patient.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="87"/>
-        <source>Checking and downloading data: </source>
+        <location filename="../../updater/task_updater.cpp" line="104"/>
+        <source>Checking and downloading data:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="87"/>
+        <location filename="../../updater/task_updater.cpp" line="104"/>
         <source> files left.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -359,82 +359,106 @@
         <translation>Włącz formacje (więcej widocznych jednostek)</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="76"/>
         <source>Enable Blue Marble (alternative terrain graphics)</source>
-        <translation>Włącz Blue Marble (alternatywna grafika terenu)</translation>
+        <translation type="vanished">Włącz Blue Marble (alternatywna grafika terenu)</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="85"/>
+        <location filename="../w_options.ui" line="78"/>
+        <source>Change terrain texture set:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="104"/>
+        <source>A New Dawn (default)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="109"/>
+        <source>Blue Marble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="114"/>
+        <source>Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="119"/>
+        <source>Alternative</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="131"/>
         <source>Interface color:</source>
         <translation>Kolor interfejsu:</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="111"/>
+        <location filename="../w_options.ui" line="157"/>
         <source>Dark blue (default)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="116"/>
+        <location filename="../w_options.ui" line="162"/>
         <source>Black</source>
         <translation>Czarny</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="121"/>
+        <location filename="../w_options.ui" line="167"/>
         <source>Coal</source>
         <translation>Węglowy</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="126"/>
+        <location filename="../w_options.ui" line="172"/>
         <source>Dark red</source>
         <translation>Ciemny Czerwony</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="131"/>
+        <location filename="../w_options.ui" line="177"/>
         <source>Forest</source>
         <translation>Las</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="136"/>
+        <location filename="../w_options.ui" line="182"/>
         <source>Purple</source>
         <translation>Purpurowy</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="141"/>
+        <location filename="../w_options.ui" line="187"/>
         <source>Red</source>
         <translation>Czerwony</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="146"/>
+        <location filename="../w_options.ui" line="192"/>
         <source>Silver</source>
         <translation>Srebrny</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="151"/>
+        <location filename="../w_options.ui" line="197"/>
         <source>Cerulean</source>
         <translation>Ceruleum</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="163"/>
+        <location filename="../w_options.ui" line="209"/>
         <source>Game path:</source>
         <translation>Ścieżka gry:</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="188"/>
+        <location filename="../w_options.ui" line="234"/>
         <source>Select game path</source>
         <translation>Podaj ścieżkę gry</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="222"/>
+        <location filename="../w_options.ui" line="268"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Launcher configuration :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Konfiguracja launchera:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="229"/>
+        <location filename="../w_options.ui" line="275"/>
         <source>Close the launcher when game start</source>
         <translation>Zamknij launcher przy starcie gry</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="236"/>
+        <location filename="../w_options.ui" line="282"/>
         <source>Autostart the mod with the game by default</source>
         <translation type="unfinished"></translation>
     </message>
@@ -443,7 +467,7 @@
         <translation type="vanished">Automatyczny start modyfikacji wraz ze startem gry</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="261"/>
+        <location filename="../w_options.ui" line="307"/>
         <source>Exclude files from update</source>
         <translation type="unfinished"></translation>
     </message>

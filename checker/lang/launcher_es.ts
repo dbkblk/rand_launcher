@@ -1,8 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="es">
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../main.cpp" line="71"/>
+        <location filename="../main.cpp" line="72"/>
         <source>The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:
 - My Documents/My Games/Beyond the Sword/Mods 
 - Game folder installation/Beyond the Sword/Mods</source>
@@ -11,12 +13,12 @@
 - Carpeta de la instalación del juego/Beyond the Sword/Mods</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="79"/>
+        <location filename="../main.cpp" line="80"/>
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
         <translation>El lanzador no está en el correcto directorio. Debe ser en &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; o en &apos; Civilization IV (carpeta del juego)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="107"/>
+        <location filename="../main.cpp" line="129"/>
         <source>There seems to be a problem with the previous update. Checking file again.</source>
         <translation>Parece haber un problema con la actualización anterior. Revisando el archivo.</translation>
     </message>
@@ -29,17 +31,21 @@
         <translation>Actualización del módulo</translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="14"/>
+        <location filename="../../updater/task_updater.cpp" line="31"/>
         <source>Updating the game. Please be patient.</source>
         <translation>Actualizando el juego. Por favor tenga paciencia.</translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="87"/>
-        <source>Checking and downloading data: </source>
-        <translation>Comprobación y descarga de datos: </translation>
+        <location filename="../../updater/task_updater.cpp" line="104"/>
+        <source>Checking and downloading data:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../updater/task_updater.cpp" line="87"/>
+        <source>Checking and downloading data: </source>
+        <translation type="vanished">Comprobación y descarga de datos: </translation>
+    </message>
+    <message>
+        <location filename="../../updater/task_updater.cpp" line="104"/>
         <source> files left.</source>
         <translation>ficheros restante.</translation>
     </message>
@@ -359,88 +365,112 @@ Configuración mod :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translati
         <translation>Activar las formaciones (más unidades gráficas)</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="76"/>
         <source>Enable Blue Marble (alternative terrain graphics)</source>
-        <translation>Activar Blue Marble (gráficos de terreno alternativo)</translation>
+        <translation type="vanished">Activar Blue Marble (gráficos de terreno alternativo)</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="85"/>
+        <location filename="../w_options.ui" line="78"/>
+        <source>Change terrain texture set:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="104"/>
+        <source>A New Dawn (default)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="109"/>
+        <source>Blue Marble</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="114"/>
+        <source>Original</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="119"/>
+        <source>Alternative</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="131"/>
         <source>Interface color:</source>
         <translation>Color de la interfaz:</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="111"/>
+        <location filename="../w_options.ui" line="157"/>
         <source>Dark blue (default)</source>
         <translation>Azul oscuro (defecto)</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="116"/>
+        <location filename="../w_options.ui" line="162"/>
         <source>Black</source>
         <translation>Negro</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="121"/>
+        <location filename="../w_options.ui" line="167"/>
         <source>Coal</source>
         <translation>Carbón</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="126"/>
+        <location filename="../w_options.ui" line="172"/>
         <source>Dark red</source>
         <translation>Rojo oscuro</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="131"/>
+        <location filename="../w_options.ui" line="177"/>
         <source>Forest</source>
         <translation>Bosque</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="136"/>
+        <location filename="../w_options.ui" line="182"/>
         <source>Purple</source>
         <translation>Púrpura</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="141"/>
+        <location filename="../w_options.ui" line="187"/>
         <source>Red</source>
         <translation>Rojo</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="146"/>
+        <location filename="../w_options.ui" line="192"/>
         <source>Silver</source>
         <translation>Plata</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="151"/>
+        <location filename="../w_options.ui" line="197"/>
         <source>Cerulean</source>
         <translation>Cerúleo</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="163"/>
+        <location filename="../w_options.ui" line="209"/>
         <source>Game path:</source>
         <translation>Ruta de juego:</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="188"/>
+        <location filename="../w_options.ui" line="234"/>
         <source>Select game path</source>
         <translation>Seleccione ruta del juego</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="222"/>
+        <location filename="../w_options.ui" line="268"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Launcher configuration :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;
 Configuración del lanzador :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="229"/>
+        <location filename="../w_options.ui" line="275"/>
         <source>Close the launcher when game start</source>
         <translation>Cierra el lanzador cuando empiezan a juego</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="236"/>
+        <location filename="../w_options.ui" line="282"/>
         <source>Autostart the mod with the game by default</source>
         <translation>Arrancar el mod con el juego por defecto</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="261"/>
+        <location filename="../w_options.ui" line="307"/>
         <source>Exclude files from update</source>
         <translation>Excluir archivos de actualización</translation>
     </message>
@@ -450,12 +480,12 @@ Configuración del lanzador :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</
         <translation>No hay ruta de acceso especificada</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="93"/>
+        <location filename="../w_options.cpp" line="95"/>
         <source>The game path has been changed</source>
         <translation>Se ha cambiado el camino juego</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="97"/>
+        <location filename="../w_options.cpp" line="99"/>
         <source>No game path specified.</source>
         <translation>No hay juego ruta de acceso especificada.</translation>
     </message>
