@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="es">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -38,11 +36,7 @@
     <message>
         <location filename="../../updater/task_updater.cpp" line="104"/>
         <source>Checking and downloading data:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Checking and downloading data: </source>
-        <translation type="vanished">Comprobación y descarga de datos: </translation>
+        <translation>Comprobación y descarga de datos: </translation>
     </message>
     <message>
         <location filename="../../updater/task_updater.cpp" line="104"/>
@@ -365,33 +359,29 @@ Configuración mod :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translati
         <translation>Activar las formaciones (más unidades gráficas)</translation>
     </message>
     <message>
-        <source>Enable Blue Marble (alternative terrain graphics)</source>
-        <translation type="vanished">Activar Blue Marble (gráficos de terreno alternativo)</translation>
-    </message>
-    <message>
         <location filename="../w_options.ui" line="78"/>
         <source>Change terrain texture set:</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambiar la textura del terreno:</translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="104"/>
         <source>A New Dawn (default)</source>
-        <translation type="unfinished"></translation>
+        <translation>A New Dawn (defecto)</translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="109"/>
         <source>Blue Marble</source>
-        <translation type="unfinished"></translation>
+        <translation>Blue Marble</translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="114"/>
         <source>Original</source>
-        <translation type="unfinished"></translation>
+        <translation>Original</translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="119"/>
         <source>Alternative</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternativa</translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="131"/>
