@@ -36,6 +36,7 @@ public:
     void StartUpdate(QString operation);
     void DebugWindow(int time);
     QString ReadExcludeList(QString filepath);
+    QString readCheckerParam(QString param);
 
 signals:
     void finished();
@@ -51,6 +52,7 @@ public slots:
 private:
     Ui::task_updater *ui;
     QProcess* process;
+    QTranslator *translator;
 };
 
 #endif // TASK_UPDATER_H

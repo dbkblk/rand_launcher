@@ -4,124 +4,106 @@
 - Reimplement addon installer with XML injection support
 - Eventual linux support
 
+## 1.05
+- Remove the terrain art from the FPK and add a dropdown box to choose between original Civ terrain / A New Dawn terrain / Blue Marble
+- Fix the custom exclusion box to save files on Windows 7+.
+
+## 1.04
+- Updated all the executables to the latest cygwin version (should fix curl errors and ease maintenance)
+- Updated Blue Marble option algorithm
+- Installer: Updated to fix the wrong shortcut execution path (which prevent the launcher to start from the shortcut)
+
 ## 1.03
-DONE (TO TEST ON OTHERS SYSTEMS)-> Fix the mighty rsync error on some W7 / W8.1 64 bits systems.
-DONE -> Autostart the mod with the game from the launcher, independently from the autostart option set.
-DONE -> Detect double folders presence in base game and my documents and warn the user.
-DONE -> Detect the Blue Marble FPK file.
-DONE -> Color UI / Formations: Instead of blocking the file from update, save the parameters and check / inject at each launcher start if changed.
-DONE -> Fixed "exclude files" button size.
-DONE -> Generate an exclusion.custom.xml file if not present.
+- Fix the mighty rsync error on some W7 / W8.1 64 bits systems.
+- Autostart the mod with the game from the launcher, independently from the autostart option set.
+- Detect double folders presence in base game and my documents and warn the user.
+- Detect the Blue Marble FPK file.
+- Color UI / Formations: Instead of blocking the file from update, save the parameters and check / inject at each launcher start if changed.
+- Fixed "exclude files" button size.
+- Generate an exclusion.custom.xml file if not present.
 
 ## 1.02
-DONE -> Force installer to make a folder named "Rise of Mankind - A New Dawn" and to decompress into "Mods/" folder + Check the folder name at start
-DONE -> Possibility to use the default color (!?)
-DONE -> GUI to exclude files
-DONE -> Drop support for Sinhala (unmaintened and less than 1% translated)
-DONE -> Add a function to reset the mod in the default state
+- Force installer to make a folder named "Rise of Mankind - A New Dawn" and to decompress into "Mods/" folder + Check the folder name at start
+- Possibility to use the default color (!?)
+- GUI to exclude files
+- Drop support for Sinhala (unmaintened and less than 1% translated)
+- Add a function to reset the mod in the default state
 
 ## 1.01
-DONE -> Updater: Create a "updating" file at start then delete it at the end. The launcher should check if the file is present, and then relaunch the updater again.
+- Updater: Create a "updating" file at start then delete it at the end. The launcher should check if the file is present, and then relaunch the updater again.
 
 ## 1.0
-DONE -> Integrate RSYNC instead of SVN
-DONE -> Setup the installer to automatically execute the launcher the first time
-DONE -> Check the first time installer
-DONE -> Improved updater progress
+- Integrate RSYNC instead of SVN
+- Setup the installer to automatically execute the launcher the first time
+- Check the first time installer
+- Improved updater progress
 
 ## 0.15
-DONE -> Add a marker to see current language
-DONE -> BUG: Fix updater progress bar
-DONE -> CHECK: Self-updating launcher check
+- Add a marker to see current language
+- BUG: Fix updater progress bar
+- CHECK: Self-updating launcher check
 
 ## 0.14
-DONE -> Add a command window to the fix installation menu
-DONE -> Revert command with a cmd window
-DONE -> Fixed rev number sometimes not updated
-DONE -> Fixed modules window title
-DONE -> Fixed module updater not updating when the launcher is installed from the installer
+- Add a command window to the fix installation menu
+- Revert command with a cmd window
+- Fixed rev number sometimes not updated
+- Fixed modules window title
+- Fixed module updater not updating when the launcher is installed from the installer
 
 ## 0.13
-DONE -> BUG: When changing language, the component window does not retranslate everything.
-DONE -> Installer: Add MSVC in the installer page
+- BUG: When changing language, the component window does not retranslate everything.
+- Installer: Add MSVC in the installer page
 
 ## 0.12
-DONE -> Save the language state
-DONE -> Choose the merge possibilities (--accept tc / etc.)
-DONE -> Use XML to better layout changes
+- Save the language state
+- Choose the merge possibilities (--accept tc / etc.)
+- Use XML to better layout changes
 
 ## 0.11
-### Features
-DONE -> Link to the translation platform
-DONE -> Make the launcher translatable
-DONE -> Improve installer
-DONE -> Code a new svn installer separated from the launcher
-DONE -> Reimplement clean and revert function
-DONE -> Reorganized code
-DONE -> Add option for bluemarble
-
-### Bugfix
-DONE -> Fix menus not clickable at start
-DONE -> Fix delay when starting the component manager
-DONE -> Fixed cache not working
+- Link to the translation platform
+- Make the launcher translatable
+- Improve installer
+- Code a new svn installer separated from the launcher
+- Reimplement clean and revert function
+- Reorganized code
+- Add option for bluemarble
+- Fix menus not clickable at start
+- Fix delay when starting the component manager
+- Fixed cache not working
 
 ## 0.10
-### Features
-DONE -> Create a graphical launcher updater
-DONE -> Recheck addon state after installation
-DONE -> Make a uninstallation for addons (compare with the file list from the repo "svn list --recursive")
-
-
-### Bugfix
-DONE -> Option: Formations don't keep parameters
-DONE -> Confirm that the mod has been updated to popup "the mod has been updated"
-DONE -> Do not tell update is available if addons aren't installed
-DONE -> Show changelog from the head version
-DONE -> Update main window infos after update;
+- Create a graphical launcher updater
+- Recheck addon state after installation
+- Make a uninstallation for addons (compare with the file list from the repo "svn list --recursive")
+- Option: Formations don't keep parameters
+- Confirm that the mod has been updated to popup "the mod has been updated"
+- Do not tell update is available if addons aren't installed
+- Show changelog from the head version
+- Update main window infos after update;
 
 ## 0.9
-### Features
-
-DONE -> Autodetect the game path from registry
-DONE -> Add easy installation of addons
-DONE -> Option to autoupdate the launcher, and the mod
-DONE -> Update graphics
-DONE -> Add an option to setup "formations"
-DONE -> Allow to install the mod from the Civ 4 folder
-DONE -> Reset gameoptions on update (may need to change the way it read/write into the ini file to avoid mess when deleting options).
-DONE -> Make a configuration cleaner
-DONE -> Make an update manager which have checkboxes, rows with name type (mod, launcher, addon update), your version and the newest version. Choose which one to update, them let's have an update party !
-DONE -> Change version to MAJOR / MINOR numbers instead of float
-
-### Bugfix
-DONE -> Fixed a mighty segfault when colors are all defined to zero.
+- Autodetect the game path from registry
+- Add easy installation of addons
+- Option to autoupdate the launcher, and the mod
+- Update graphics
+- Add an option to setup "formations"
+- Allow to install the mod from the Civ 4 folder
+- Reset gameoptions on update (may need to change the way it read/write into the ini file to avoid mess when deleting options).
+- Make a configuration cleaner
+- Make an update manager which have checkboxes, rows with name type (mod, launcher, addon update), your version and the newest version. Choose which one to update, them let's have an update party !
+- Change version to MAJOR / MINOR numbers instead of float
+- Fixed a mighty segfault when colors are all defined to zero.
 
 ## 0.8
-### Features
-
-<<<<<<< HEAD
-DONE -> Update label after mod update
-DONE -> Hide the close button while update is still pending
-DONE -> Add a menu to navigate to the mod folder
-=======
-## 1.03
-- Fix the update logic to download the MLF_ xml files for "formations" and "interface color". Might inject setting in these xml at each launcher startup (or after update).
-- Fix the shortcut path for and2_checker in installer
-- Set the launcher to autostart the mod by default OR warn the user when the ini file isn't detected.
-- Fix the updating loop which seems to occurs on W7 64 or W8.1 64 (wrong path ?)
-
-## Pending
-? - Fix the weird updating loop !?
->>>>>>> 7e326cbf25ffba6e5b70ef5fa90fc341e265425a
-
-### Bugfix
-
-DONE -> Restore launcher update check from options
-DONE -> setText on installation box label crash the window !
-DONE -> Fix incorrect version just after update.
-DONE -> Remove the "Waiting for data..." when the text is updated on the changelog window.
-DONE -> Do not invoke a window to cleanup the mod but show a confirmation message
-DONE -> Fix update process (the signal don't create a window)
+- Update label after mod update
+- Hide the close button while update is still pending
+- Add a menu to navigate to the mod folder
+- Restore launcher update check from options
+- setText on installation box label crash the window !
+- Fix incorrect version just after update.
+- Remove the "Waiting for data..." when the text is updated on the changelog window.
+- Do not invoke a window to cleanup the mod but show a confirmation message
+- Fix update process (the signal don't create a window)
 
 # Notes
 ## Dev tools

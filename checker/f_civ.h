@@ -26,5 +26,6 @@ bool setOptionFormations(bool value);
 bool clearCache();
 bool clearGameOptions();
 int checkDoubleInstallation();
+void unTarXz(QString file);
 
 #endif

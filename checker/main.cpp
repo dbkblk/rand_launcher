@@ -115,6 +115,13 @@ int main(int argc, char *argv[])
         exclusion.close();
     }
 
+    // Checking terrain art
+    if(QFile::exists("Assets/terrain_textures_and.fpk")){setCheckerParam("Modules/Terrain","0");}
+   else if(QFile::exists("Assets/terrain_textures_bluemarble.fpk")){setCheckerParam("Modules/Terrain","1");}
+   else if(QFile::exists("Assets/terrain_textures_original.fpk")){setCheckerParam("Modules/Terrain","2");}
+   else if(QFile::exists("Assets/terrain_textures_alternative.fpk")){setCheckerParam("Modules/Terrain","3");}
+    else{unTarXz("Assets/terrain_textures_and.tar.xz");}
+
 
     // Create modules
     w_main w;

@@ -404,3 +404,13 @@ int checkDoubleInstallation()
     return counter;
 }
 
+void unTarXz(QString file){
+    QStringList split = file.split("/");
+    split.removeLast();
+    QFile::copy(QString(file),"temp.tar.xz");
+    QProcess unzip;
+    unzip.execute(tools::TOOL_XZ + "temp.tar.xz");
+    unzip.execute(tools::TOOL_TAR + "temp.tar");
+    QFile::remove("temp.tar");
+}
+

@@ -21,10 +21,10 @@ w_options::w_options(QWidget *parent) :
     setCheckerParam("Modules/ColorUI",QString::number(color));
 
     // Check default states
-    QFile bluemarble("Assets/BlueMarble.FPK");
-    if(bluemarble.exists()){
-        ui->opt_checkbox_bluemarble->setChecked(1);
-    }
+     if(readCheckerParam("Modules/Terrain") == "0"){ui->dd_textures->setCurrentIndex(0);}
+    else if(readCheckerParam("Modules/Terrain") == "1"){ui->dd_textures->setCurrentIndex(1);}
+    else if(readCheckerParam("Modules/Terrain") == "2"){ui->dd_textures->setCurrentIndex(2);}
+    else if(readCheckerParam("Modules/Terrain") == "3"){ui->dd_textures->setCurrentIndex(3);}
 
     if(readOptionFormations() == true)
     {
@@ -115,28 +115,47 @@ void w_options::on_opt_checkbox_formations_toggled(bool checked)
     }
 }
 
-void w_options::on_opt_checkbox_bluemarble_toggled(bool checked)
-{
-    if(checked && !QFile::exists("Assets/BlueMarble.FPK"))
-    {
-        QProcess unzip;
-        QFile::copy("Assets/BlueMarble.tar.xz","Assets/bm.tar.xz");
-        unzip.execute(tools::TOOL_XZ + "Assets/bm.tar.xz");
-        unzip.execute(tools::TOOL_TAR + "Assets/bm.tar");
-        QFile::remove("Assets/bm.tar");
-        if(!QFile::exists("Assets/BlueMarble.FPK")){
-            qDebug() << "Problem during BlueMarble decompression";
-            ui->opt_checkbox_bluemarble->setChecked(0);
-        }
-    }
-    else if (!checked)
-    {
-        QFile::remove("Assets/BlueMarble.FPK");
-    }
-
-}
-
 void w_options::on_bt_exclusions_clicked()
 {
     exclusion->show();
+}
+
+void w_options::on_dd_textures_currentIndexChanged(int index)
+{
+    if(index == 0) // AND default textures
+    {
+        if(!QFile::exists("Assets/terrain_textures_and.fpk")){
+            unTarXz("Assets/terrain_textures_and.tar.xz");
+            QFile::remove("Assets/terrain_textures_original.fpk");
+            QFile::remove("Assets/terrain_textures_bluemarble.fpk");
+            QFile::remove("Assets/terrain_textures_alternative.fpk");
+        }
+    }
+    if(index == 1) // Blue Marble
+    {
+        if(!QFile::exists("Assets/terrain_textures_bluemarble.fpk")){
+            unTarXz("Assets/terrain_textures_bluemarble.tar.xz");
+            QFile::remove("Assets/terrain_textures_original.fpk");
+            QFile::remove("Assets/terrain_textures_and.fpk");
+            QFile::remove("Assets/terrain_textures_alternative.fpk");
+        }
+    }
+    if(index == 2) // Original enhanced
+    {
+        if(!QFile::exists("Assets/terrain_textures_original.fpk")){
+            unTarXz("Assets/terrain_textures_original.tar.xz");
+            QFile::remove("Assets/terrain_textures_bluemarble.fpk");
+            QFile::remove("Assets/terrain_textures_and.fpk");
+            QFile::remove("Assets/terrain_textures_alternative.fpk");
+        }
+    }
+    if(index == 3) // Alternative
+    {
+        if(!QFile::exists("Assets/terrain_textures_alternative.fpk")){
+            unTarXz("Assets/terrain_textures_alternative.tar.xz");
+            QFile::remove("Assets/terrain_textures_bluemarble.fpk");
+            QFile::remove("Assets/terrain_textures_and.fpk");
+            QFile::remove("Assets/terrain_textures_original.fpk");
+        }
+    }
 }
