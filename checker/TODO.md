@@ -3,10 +3,13 @@
 - Add support for exclusions for mods files
 - Reimplement addon installer with XML injection support
 - Eventual linux support
+- Eventual console output in detail window for the updater
 
 ## 1.06
 - Fix the dropdown not remembering the previous choice on close/open options window
--> Add menu for the civilopedia strings translation
+- Create the exclusion window when the button is clicked instead of during the options initialization
+- Add menu for the civilopedia strings translation
+-> Multi-thread the updater
 
 ## 1.05
 - Remove the terrain art from the FPK and add a dropdown box to choose between original Civ terrain / A New Dawn terrain / Blue Marble

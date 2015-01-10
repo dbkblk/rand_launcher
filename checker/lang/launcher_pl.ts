@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="pl">
 <context>
     <name>QObject</name>
     <message>
@@ -6,7 +8,7 @@
         <source>The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:
 - My Documents/My Games/Beyond the Sword/Mods 
 - Game folder installation/Beyond the Sword/Mods</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
@@ -14,9 +16,9 @@
         <translation>Launcher nie jest w prawidłowym katalogu. Powinien znajdować się w: &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; lub w  &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="129"/>
+        <location filename="../main.cpp" line="136"/>
         <source>There seems to be a problem with the previous update. Checking file again.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -29,17 +31,17 @@
     <message>
         <location filename="../../updater/task_updater.cpp" line="31"/>
         <source>Updating the game. Please be patient.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../updater/task_updater.cpp" line="104"/>
         <source>Checking and downloading data:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../updater/task_updater.cpp" line="104"/>
         <source> files left.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -60,12 +62,12 @@
     <message>
         <location filename="../w_exclusion.ui" line="32"/>
         <source>Choose which files to exclude from update</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_exclusion.ui" line="67"/>
         <source>File</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -83,12 +85,12 @@
     <message>
         <location filename="../w_install.cpp" line="13"/>
         <source>Ok</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_install.cpp" line="14"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -126,7 +128,7 @@
     <message>
         <location filename="../w_main.ui" line="246"/>
         <source>Addons</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="259"/>
@@ -162,12 +164,12 @@
     <message>
         <location filename="../w_main.ui" line="299"/>
         <source>&quot;Mega Civ Pack&quot; (forum)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="317"/>
         <source>&quot;More music / More handicaps / Dinosaurs&quot; (forum)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="322"/>
@@ -278,7 +280,12 @@
     <message>
         <location filename="../w_main.ui" line="463"/>
         <source>Reset mod to default state</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_main.ui" line="468"/>
+        <source>Translate the civilopedia</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_main.cpp" line="141"/>
@@ -308,17 +315,17 @@
     <message>
         <location filename="../w_main.cpp" line="369"/>
         <source>Reset mod</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_main.cpp" line="370"/>
         <source>This will reset the mod to the default state. Any modification or launcher preferences will be removed.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_main.cpp" line="371"/>
         <source>Are you sure to continue ?</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -331,12 +338,12 @@
     <message>
         <location filename="../w_modules.cpp" line="32"/>
         <source>Local</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_modules.cpp" line="32"/>
         <source>Distant</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -359,27 +366,27 @@
     <message>
         <location filename="../w_options.ui" line="78"/>
         <source>Change terrain texture set:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="104"/>
         <source>A New Dawn (default)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="109"/>
         <source>Blue Marble</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="114"/>
         <source>Original</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="119"/>
         <source>Alternative</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="131"/>
@@ -389,7 +396,7 @@
     <message>
         <location filename="../w_options.ui" line="157"/>
         <source>Dark blue (default)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="162"/>
@@ -454,12 +461,12 @@
     <message>
         <location filename="../w_options.ui" line="282"/>
         <source>Autostart the mod with the game by default</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="307"/>
         <source>Exclude files from update</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../w_options.cpp" line="48"/>
@@ -467,12 +474,12 @@
         <translation>Brak podanej ścieżki</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="95"/>
+        <location filename="../w_options.cpp" line="93"/>
         <source>The game path has been changed</source>
         <translation>Ścieżka gry została zmieniona</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="99"/>
+        <location filename="../w_options.cpp" line="97"/>
         <source>No game path specified.</source>
         <translation>Brak podanej ścieżki do gry</translation>
     </message>

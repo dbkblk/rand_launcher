@@ -72,7 +72,7 @@ w_main::w_main(QWidget *parent) :
     ui->actionAddon_Mega_Civ_Pack->setIcon(QIcon("checker/icons/mcp.png"));
     ui->actionAddon_More_music_forum->setIcon(QIcon("checker/icons/music.png"));
     ui->actionHelp_translate_the_mod->setIcon(QIcon("checker/icons/translate.png"));
-    ui->actionTranslate_the_launcher->setIcon(QIcon("checker/icons/translate.png"));
+    ui->actionTranslate_the_civilopedia->setIcon(QIcon("checker/icons/translate.png"));
     ui->actionTranslate_the_mod_help->setIcon(QIcon("checker/icons/help.png"));
     ui->actionAddon_Blue_marble->setIcon(QIcon("checker/icons/blue_marble.png"));
     ui->menuAddons->setIcon(QIcon("checker/icons/addons.png"));
@@ -197,12 +197,12 @@ void w_main::on_actionOpen_mod_folder_triggered()
 
 void w_main::on_actionHelp_translate_the_mod_triggered()
 {
-    QDesktopServices::openUrl(QUrl("https://www.transifex.com/projects/p/main-mod/"));
+    QDesktopServices::openUrl(QUrl("https://www.transifex.com/projects/p/and-main-mod/"));
 }
 
-void w_main::on_actionTranslate_the_launcher_triggered()
+void w_main::on_actionTranslate_tthe_civilopedia_triggered()
 {
-    QDesktopServices::openUrl(QUrl("https://www.transifex.com/projects/p/launcher/"));
+    QDesktopServices::openUrl(QUrl("https://www.transifex.com/projects/p/and-civilopedia-strings/"));
 }
 
 void w_main::on_actionTranslate_the_mod_help_triggered()

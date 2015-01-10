@@ -1,14 +1,14 @@
 [main]
-host = https://www.transifex.com/projects/p/launcher/
+host = https://www.transifex.com/
 
-[launcher.main]
+[main-mod.launcher]
 file_filter = launcher_<lang>.ts
 host = https://www.transifex.com
 source_file = launcher.ts
 source_lang = en
 type = QT
 
-[launcher.installer]
+[main-mod.installer]
 file_filter = installer_<lang>.xml
 host = https://www.transifex.com
 source_file = installer_en.xml

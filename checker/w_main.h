@@ -66,7 +66,7 @@ private slots:
     void on_bt_components_clicked();
     void on_actionHelp_translate_the_mod_triggered();
     void on_actionTranslate_the_mod_help_triggered();
-    void on_actionTranslate_the_launcher_triggered();
+    void on_actionTranslate_tthe_civilopedia_triggered();
     void clear_language_state();
     void on_language_en_triggered();
     void on_language_fr_triggered();
@@ -80,6 +80,8 @@ private slots:
     void on_actionAddon_Blue_marble_triggered();
     void on_actionClear_cache_triggered();
     void on_actionReset_triggered();
+
+
 
 private:
     Ui::w_main *ui;

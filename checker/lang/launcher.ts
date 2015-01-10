@@ -16,7 +16,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="129"/>
+        <location filename="../main.cpp" line="136"/>
         <source>There seems to be a problem with the previous update. Checking file again.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -282,6 +282,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../w_main.ui" line="468"/>
+        <source>Translate the civilopedia</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../w_main.cpp" line="141"/>
         <source>Check for update</source>
         <translation type="unfinished"></translation>
@@ -468,12 +473,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="95"/>
+        <location filename="../w_options.cpp" line="93"/>
         <source>The game path has been changed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="99"/>
+        <location filename="../w_options.cpp" line="97"/>
         <source>No game path specified.</source>
         <translation type="unfinished"></translation>
     </message>
