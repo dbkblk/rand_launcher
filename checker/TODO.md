@@ -4,6 +4,10 @@
 - Reimplement addon installer with XML injection support
 - Eventual linux support
 
+## 1.06
+- Fix the dropdown not remembering the previous choice on close/open options window
+-> Add menu for the civilopedia strings translation
+
 ## 1.05
 - Remove the terrain art from the FPK and add a dropdown box to choose between original Civ terrain / A New Dawn terrain / Blue Marble
 - Fix the custom exclusion box to save files on Windows 7+.

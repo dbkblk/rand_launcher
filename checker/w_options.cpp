@@ -50,8 +50,6 @@ w_options::w_options(QWidget *parent) :
     else {
         ui->opt_text_path->setText(readCheckerParam("Main/ExecutablePath"));
     }
-
-    exclusion = new w_exclusion(this);
 }
 
 w_options::~w_options()
@@ -117,6 +115,7 @@ void w_options::on_opt_checkbox_formations_toggled(bool checked)
 
 void w_options::on_bt_exclusions_clicked()
 {
+    exclusion = new w_exclusion(this);
     exclusion->show();
 }
 
@@ -129,6 +128,7 @@ void w_options::on_dd_textures_currentIndexChanged(int index)
             QFile::remove("Assets/terrain_textures_original.fpk");
             QFile::remove("Assets/terrain_textures_bluemarble.fpk");
             QFile::remove("Assets/terrain_textures_alternative.fpk");
+            setCheckerParam("Modules/Terrain","0");
         }
     }
     if(index == 1) // Blue Marble
@@ -138,6 +138,7 @@ void w_options::on_dd_textures_currentIndexChanged(int index)
             QFile::remove("Assets/terrain_textures_original.fpk");
             QFile::remove("Assets/terrain_textures_and.fpk");
             QFile::remove("Assets/terrain_textures_alternative.fpk");
+            setCheckerParam("Modules/Terrain","1");
         }
     }
     if(index == 2) // Original enhanced
@@ -147,6 +148,7 @@ void w_options::on_dd_textures_currentIndexChanged(int index)
             QFile::remove("Assets/terrain_textures_bluemarble.fpk");
             QFile::remove("Assets/terrain_textures_and.fpk");
             QFile::remove("Assets/terrain_textures_alternative.fpk");
+            setCheckerParam("Modules/Terrain","2");
         }
     }
     if(index == 3) // Alternative
@@ -156,6 +158,7 @@ void w_options::on_dd_textures_currentIndexChanged(int index)
             QFile::remove("Assets/terrain_textures_bluemarble.fpk");
             QFile::remove("Assets/terrain_textures_and.fpk");
             QFile::remove("Assets/terrain_textures_original.fpk");
+            setCheckerParam("Modules/Terrain","3");
         }
     }
 }
