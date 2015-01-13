@@ -14,7 +14,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../main.cpp" line="136"/>
+        <location filename="../main.cpp" line="137"/>
         <source>There seems to be a problem with the previous update. Checking file again.</source>
         <translation type="unfinished"/>
     </message>
@@ -262,42 +262,42 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="141"/>
+        <location filename="../w_main.cpp" line="142"/>
         <source>Check for update</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="151"/>
+        <location filename="../w_main.cpp" line="152"/>
         <source>Update available !</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="220"/>
+        <location filename="../w_main.cpp" line="221"/>
         <source>To be able to launch the game from the launcher, you need to set the game path in the options window. (Options &gt; Select game path)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="362"/>
+        <location filename="../w_main.cpp" line="363"/>
         <source>Cache</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="362"/>
+        <location filename="../w_main.cpp" line="363"/>
         <source>The cache is now cleared. NOTE: It is already automatically cleared on update.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="369"/>
+        <location filename="../w_main.cpp" line="371"/>
         <source>Reset mod</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="370"/>
+        <location filename="../w_main.cpp" line="372"/>
         <source>This will reset the mod to the default state. Any modification or launcher preferences will be removed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="371"/>
+        <location filename="../w_main.cpp" line="373"/>
         <source>Are you sure to continue ?</source>
         <translation type="unfinished"/>
     </message>
@@ -330,12 +330,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="32"/>
+        <location filename="../w_modules.cpp" line="37"/>
         <source>Local</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="32"/>
+        <location filename="../w_modules.cpp" line="37"/>
         <source>Distant</source>
         <translation type="unfinished"/>
     </message>
@@ -379,101 +379,106 @@
     </message>
     <message>
         <location filename="../w_options.ui" line="119"/>
-        <source>Alternative</source>
+        <source>Sparth</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_options.ui" line="131"/>
+        <location filename="../w_options.ui" line="124"/>
+        <source>Vincentz</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="136"/>
         <source>Interface color:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_options.ui" line="157"/>
+        <location filename="../w_options.ui" line="162"/>
         <source>Dark blue (default)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_options.ui" line="162"/>
+        <location filename="../w_options.ui" line="167"/>
         <source>Black</source>
         <translation>Musta</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="167"/>
+        <location filename="../w_options.ui" line="172"/>
         <source>Coal</source>
         <translation>hiili:hiilen:hiiltä</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="172"/>
+        <location filename="../w_options.ui" line="177"/>
         <source>Dark red</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_options.ui" line="177"/>
+        <location filename="../w_options.ui" line="182"/>
         <source>Forest</source>
         <translation>metsä:metsän:metsässä:metsästä</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="182"/>
+        <location filename="../w_options.ui" line="187"/>
         <source>Purple</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_options.ui" line="187"/>
+        <location filename="../w_options.ui" line="192"/>
         <source>Red</source>
         <translation>Punainen</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="192"/>
+        <location filename="../w_options.ui" line="197"/>
         <source>Silver</source>
         <translation>hopea:hopean:hopeaa</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="197"/>
+        <location filename="../w_options.ui" line="202"/>
         <source>Cerulean</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_options.ui" line="209"/>
+        <location filename="../w_options.ui" line="214"/>
         <source>Game path:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_options.ui" line="234"/>
+        <location filename="../w_options.ui" line="239"/>
         <source>Select game path</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_options.ui" line="268"/>
+        <location filename="../w_options.ui" line="273"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Launcher configuration :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_options.ui" line="275"/>
+        <location filename="../w_options.ui" line="280"/>
         <source>Close the launcher when game start</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_options.ui" line="282"/>
+        <location filename="../w_options.ui" line="287"/>
         <source>Autostart the mod with the game by default</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_options.ui" line="307"/>
+        <location filename="../w_options.ui" line="312"/>
         <source>Exclude files from update</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="48"/>
+        <location filename="../w_options.cpp" line="46"/>
         <source>No path specified</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="93"/>
+        <location filename="../w_options.cpp" line="91"/>
         <source>The game path has been changed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="97"/>
+        <location filename="../w_options.cpp" line="95"/>
         <source>No game path specified.</source>
         <translation type="unfinished"/>
     </message>
