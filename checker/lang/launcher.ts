@@ -22,29 +22,6 @@
     </message>
 </context>
 <context>
-    <name>task_updater</name>
-    <message>
-        <location filename="../../updater/task_updater.ui" line="32"/>
-        <source>Module updater</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../updater/task_updater.cpp" line="31"/>
-        <source>Updating the game. Please be patient.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../updater/task_updater.cpp" line="104"/>
-        <source>Checking and downloading data:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../updater/task_updater.cpp" line="104"/>
-        <source> files left.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>updatebox</name>
     <message>
         <location filename="../updatebox.ui" line="61"/>
@@ -324,6 +301,26 @@
     <message>
         <location filename="../w_main.cpp" line="371"/>
         <source>Are you sure to continue ?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../updater/w_main.ui" line="32"/>
+        <source>Module updater</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../updater/w_main.cpp" line="31"/>
+        <source>Updating the game. Please be patient.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../updater/w_main.cpp" line="89"/>
+        <source>Checking and downloading data:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../updater/w_main.cpp" line="89"/>
+        <source> files left.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

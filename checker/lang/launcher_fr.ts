@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -21,29 +19,6 @@
         <location filename="../main.cpp" line="136"/>
         <source>There seems to be a problem with the previous update. Checking file again.</source>
         <translation>Il semble qu&apos;il y ait eu un problème avec la mise à jour précédente. Nouvelle vérification des fichiers.</translation>
-    </message>
-</context>
-<context>
-    <name>task_updater</name>
-    <message>
-        <location filename="../../updater/task_updater.ui" line="32"/>
-        <source>Module updater</source>
-        <translation>Mise à jour du module</translation>
-    </message>
-    <message>
-        <location filename="../../updater/task_updater.cpp" line="31"/>
-        <source>Updating the game. Please be patient.</source>
-        <translation>Mise à jour du jeu. Soyez patient.</translation>
-    </message>
-    <message>
-        <location filename="../../updater/task_updater.cpp" line="104"/>
-        <source>Checking and downloading data:</source>
-        <translation>Vérification et mise à jour des données:</translation>
-    </message>
-    <message>
-        <location filename="../../updater/task_updater.cpp" line="104"/>
-        <source> files left.</source>
-        <translation>fichiers restants.</translation>
     </message>
 </context>
 <context>
@@ -286,7 +261,7 @@
     <message>
         <location filename="../w_main.ui" line="468"/>
         <source>Translate the civilopedia</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduire la civilopedia</translation>
     </message>
     <message>
         <location filename="../w_main.cpp" line="141"/>
@@ -327,6 +302,26 @@
         <location filename="../w_main.cpp" line="371"/>
         <source>Are you sure to continue ?</source>
         <translation>Êtes-vous sûr de continuer ?</translation>
+    </message>
+    <message>
+        <location filename="../../updater/w_main.ui" line="32"/>
+        <source>Module updater</source>
+        <translation>Mise à jour du module</translation>
+    </message>
+    <message>
+        <location filename="../../updater/w_main.cpp" line="31"/>
+        <source>Updating the game. Please be patient.</source>
+        <translation>Mise à jour du jeu. Soyez patient.</translation>
+    </message>
+    <message>
+        <location filename="../../updater/w_main.cpp" line="89"/>
+        <source>Checking and downloading data:</source>
+        <translation>Vérification et mise à jour des données :</translation>
+    </message>
+    <message>
+        <location filename="../../updater/w_main.cpp" line="89"/>
+        <source> files left.</source>
+        <translation>fichiers restants.</translation>
     </message>
 </context>
 <context>

@@ -1,16 +1,14 @@
 [main]
-host = https://www.transifex.com/
-
-[main-mod.launcher]
-file_filter = launcher_<lang>.ts
 host = https://www.transifex.com
+
+[and-main-mod.launcher]
+file_filter = launcher_<lang>.ts
 source_file = launcher.ts
 source_lang = en
 type = QT
 
-[main-mod.installer]
+[and-main-mod.installer]
 file_filter = installer_<lang>.xml
-host = https://www.transifex.com
 source_file = installer_en.xml
 source_lang = en
 type = ANDROID
