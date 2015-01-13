@@ -16,32 +16,9 @@
         <translation>Le lanceur n&apos;est pas dans le bon répertoire. Il devrait se trouver dans &quot;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; ou dans &apos; Civilization IV (dossier racine du jeu)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="129"/>
+        <location filename="../main.cpp" line="137"/>
         <source>There seems to be a problem with the previous update. Checking file again.</source>
         <translation>Il semble qu&apos;il y ait eu un problème avec la mise à jour précédente. Nouvelle vérification des fichiers.</translation>
-    </message>
-</context>
-<context>
-    <name>task_updater</name>
-    <message>
-        <location filename="../../updater/task_updater.ui" line="32"/>
-        <source>Module updater</source>
-        <translation>Mise à jour du module</translation>
-    </message>
-    <message>
-        <location filename="../../updater/task_updater.cpp" line="31"/>
-        <source>Updating the game. Please be patient.</source>
-        <translation>Mise à jour du jeu. Soyez patient.</translation>
-    </message>
-    <message>
-        <location filename="../../updater/task_updater.cpp" line="104"/>
-        <source>Checking and downloading data:</source>
-        <translation>Vérification et mise à jour des données:</translation>
-    </message>
-    <message>
-        <location filename="../../updater/task_updater.cpp" line="104"/>
-        <source> files left.</source>
-        <translation>fichiers restants.</translation>
     </message>
 </context>
 <context>
@@ -282,44 +259,69 @@
         <translation>Réinitialiser l&apos;installation du mod</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="141"/>
+        <location filename="../w_main.ui" line="468"/>
+        <source>Translate the civilopedia</source>
+        <translation>Traduire la civilopedia</translation>
+    </message>
+    <message>
+        <location filename="../w_main.cpp" line="142"/>
         <source>Check for update</source>
         <translation>Vérifier mises à jours</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="151"/>
+        <location filename="../w_main.cpp" line="152"/>
         <source>Update available !</source>
         <translation>Mise à jour disponible !</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="220"/>
+        <location filename="../w_main.cpp" line="221"/>
         <source>To be able to launch the game from the launcher, you need to set the game path in the options window. (Options &gt; Select game path)</source>
         <translation>Pour être en mesure de lancer le jeu depuis le lanceur, vous devez définir le chemin d&apos;accès de jeu dans la fenêtre options. (Options &gt; Selectionner chemin du jeu)</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="362"/>
+        <location filename="../w_main.cpp" line="363"/>
         <source>Cache</source>
         <translation>Cache</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="362"/>
+        <location filename="../w_main.cpp" line="363"/>
         <source>The cache is now cleared. NOTE: It is already automatically cleared on update.</source>
         <translation>Le cache est maintenant effacé. Remarque : il est déjà automatiquement effacé lors d&apos;une mise à jour.</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="369"/>
+        <location filename="../w_main.cpp" line="371"/>
         <source>Reset mod</source>
         <translation>Réinitialiser le mod</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="370"/>
+        <location filename="../w_main.cpp" line="372"/>
         <source>This will reset the mod to the default state. Any modification or launcher preferences will be removed.</source>
         <translation>Cela réinitialisera le mod à son état par défaut. Toute modification ou préférence du lanceur sera supprimée.</translation>
     </message>
     <message>
-        <location filename="../w_main.cpp" line="371"/>
+        <location filename="../w_main.cpp" line="373"/>
         <source>Are you sure to continue ?</source>
         <translation>Êtes-vous sûr de continuer ?</translation>
+    </message>
+    <message>
+        <location filename="../../updater/w_main.ui" line="32"/>
+        <source>Module updater</source>
+        <translation>Mise à jour du module</translation>
+    </message>
+    <message>
+        <location filename="../../updater/w_main.cpp" line="31"/>
+        <source>Updating the game. Please be patient.</source>
+        <translation>Mise à jour du jeu. Soyez patient.</translation>
+    </message>
+    <message>
+        <location filename="../../updater/w_main.cpp" line="89"/>
+        <source>Checking and downloading data:</source>
+        <translation>Vérification et mise à jour des données :</translation>
+    </message>
+    <message>
+        <location filename="../../updater/w_main.cpp" line="89"/>
+        <source> files left.</source>
+        <translation>fichiers restants.</translation>
     </message>
 </context>
 <context>
@@ -330,12 +332,12 @@
         <translation>Modules</translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="32"/>
+        <location filename="../w_modules.cpp" line="37"/>
         <source>Local</source>
         <translation>Local</translation>
     </message>
     <message>
-        <location filename="../w_modules.cpp" line="32"/>
+        <location filename="../w_modules.cpp" line="37"/>
         <source>Distant</source>
         <translation>Distant</translation>
     </message>
@@ -379,101 +381,106 @@
     </message>
     <message>
         <location filename="../w_options.ui" line="119"/>
-        <source>Alternative</source>
-        <translation>Alternative</translation>
+        <source>Sparth</source>
+        <translation>Sparth</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="131"/>
+        <location filename="../w_options.ui" line="124"/>
+        <source>Vincentz</source>
+        <translation>Vincentz</translation>
+    </message>
+    <message>
+        <location filename="../w_options.ui" line="136"/>
         <source>Interface color:</source>
         <translation>Couleur de l&apos;interface :</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="157"/>
+        <location filename="../w_options.ui" line="162"/>
         <source>Dark blue (default)</source>
         <translation>Bleu foncé (défaut)</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="162"/>
+        <location filename="../w_options.ui" line="167"/>
         <source>Black</source>
         <translation>Noir</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="167"/>
+        <location filename="../w_options.ui" line="172"/>
         <source>Coal</source>
         <translation>Charbon</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="172"/>
+        <location filename="../w_options.ui" line="177"/>
         <source>Dark red</source>
         <translation>Rouge foncé</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="177"/>
+        <location filename="../w_options.ui" line="182"/>
         <source>Forest</source>
         <translation>Forêt</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="182"/>
+        <location filename="../w_options.ui" line="187"/>
         <source>Purple</source>
         <translation>Violet</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="187"/>
+        <location filename="../w_options.ui" line="192"/>
         <source>Red</source>
         <translation>Rouge</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="192"/>
+        <location filename="../w_options.ui" line="197"/>
         <source>Silver</source>
         <translation>Argent</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="197"/>
+        <location filename="../w_options.ui" line="202"/>
         <source>Cerulean</source>
         <translation>Bleu céruléen</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="209"/>
+        <location filename="../w_options.ui" line="214"/>
         <source>Game path:</source>
         <translation>Chemin du jeu :</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="234"/>
+        <location filename="../w_options.ui" line="239"/>
         <source>Select game path</source>
         <translation>Sélectionnez chemin du jeu</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="268"/>
+        <location filename="../w_options.ui" line="273"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Launcher configuration :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Configuration du lanceur :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="275"/>
+        <location filename="../w_options.ui" line="280"/>
         <source>Close the launcher when game start</source>
         <translation>Fermer le lanceur lorsque le jeu démarre</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="282"/>
+        <location filename="../w_options.ui" line="287"/>
         <source>Autostart the mod with the game by default</source>
         <translation>Démarrer le mod avec le jeu par défaut</translation>
     </message>
     <message>
-        <location filename="../w_options.ui" line="307"/>
+        <location filename="../w_options.ui" line="312"/>
         <source>Exclude files from update</source>
         <translation>Exclure des fichiers de la mise à jour</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="48"/>
+        <location filename="../w_options.cpp" line="46"/>
         <source>No path specified</source>
         <translation>Aucun chemin d&apos;accès spécifié</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="95"/>
+        <location filename="../w_options.cpp" line="91"/>
         <source>The game path has been changed</source>
         <translation>Le chemin d&apos;accès de jeu a été changé</translation>
     </message>
     <message>
-        <location filename="../w_options.cpp" line="99"/>
+        <location filename="../w_options.cpp" line="95"/>
         <source>No game path specified.</source>
         <translation>Aucun chemin d&apos;accès du jeu spécifié</translation>
     </message>

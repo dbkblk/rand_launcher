@@ -7,7 +7,7 @@ SetCompressor /SOLID LZMA
 ;--------------------------------
 
   !include "MUI.nsh"
-  !define VERSION "1.05"
+  !define VERSION "1.06"
 
 ; General information
 ;--------------------------------

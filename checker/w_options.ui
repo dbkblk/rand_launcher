@@ -116,7 +116,12 @@
         </item>
         <item>
          <property name="text">
-          <string>Alternative</string>
+          <string>Sparth</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Vincentz</string>
          </property>
         </item>
        </widget>

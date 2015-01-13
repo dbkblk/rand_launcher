@@ -21,10 +21,8 @@ w_options::w_options(QWidget *parent) :
     setCheckerParam("Modules/ColorUI",QString::number(color));
 
     // Check default states
-     if(readCheckerParam("Modules/Terrain") == "0"){ui->dd_textures->setCurrentIndex(0);}
-    else if(readCheckerParam("Modules/Terrain") == "1"){ui->dd_textures->setCurrentIndex(1);}
-    else if(readCheckerParam("Modules/Terrain") == "2"){ui->dd_textures->setCurrentIndex(2);}
-    else if(readCheckerParam("Modules/Terrain") == "3"){ui->dd_textures->setCurrentIndex(3);}
+    int terrain = QString(readCheckerParam("Modules/Terrain")).toInt();
+    if(terrain < 5){ui->dd_textures->setCurrentIndex(terrain);}
 
     if(readOptionFormations() == true)
     {
@@ -50,8 +48,6 @@ w_options::w_options(QWidget *parent) :
     else {
         ui->opt_text_path->setText(readCheckerParam("Main/ExecutablePath"));
     }
-
-    exclusion = new w_exclusion(this);
 }
 
 w_options::~w_options()
@@ -117,6 +113,7 @@ void w_options::on_opt_checkbox_formations_toggled(bool checked)
 
 void w_options::on_bt_exclusions_clicked()
 {
+    exclusion = new w_exclusion(this);
     exclusion->show();
 }
 
@@ -129,6 +126,8 @@ void w_options::on_dd_textures_currentIndexChanged(int index)
             QFile::remove("Assets/terrain_textures_original.fpk");
             QFile::remove("Assets/terrain_textures_bluemarble.fpk");
             QFile::remove("Assets/terrain_textures_alternative.fpk");
+            QFile::remove("Assets/terrain_textures_vincentz.fpk");
+            setCheckerParam("Modules/Terrain","0");
         }
     }
     if(index == 1) // Blue Marble
@@ -138,6 +137,8 @@ void w_options::on_dd_textures_currentIndexChanged(int index)
             QFile::remove("Assets/terrain_textures_original.fpk");
             QFile::remove("Assets/terrain_textures_and.fpk");
             QFile::remove("Assets/terrain_textures_alternative.fpk");
+            QFile::remove("Assets/terrain_textures_vincentz.fpk");
+            setCheckerParam("Modules/Terrain","1");
         }
     }
     if(index == 2) // Original enhanced
@@ -147,6 +148,8 @@ void w_options::on_dd_textures_currentIndexChanged(int index)
             QFile::remove("Assets/terrain_textures_bluemarble.fpk");
             QFile::remove("Assets/terrain_textures_and.fpk");
             QFile::remove("Assets/terrain_textures_alternative.fpk");
+            QFile::remove("Assets/terrain_textures_vincentz.fpk");
+            setCheckerParam("Modules/Terrain","2");
         }
     }
     if(index == 3) // Alternative
@@ -156,6 +159,19 @@ void w_options::on_dd_textures_currentIndexChanged(int index)
             QFile::remove("Assets/terrain_textures_bluemarble.fpk");
             QFile::remove("Assets/terrain_textures_and.fpk");
             QFile::remove("Assets/terrain_textures_original.fpk");
+            QFile::remove("Assets/terrain_textures_vincentz.fpk");
+            setCheckerParam("Modules/Terrain","3");
+        }
+    }
+    if(index == 4) // Vincentz
+    {
+        if(!QFile::exists("Assets/terrain_textures_vincentz.fpk")){
+            unTarXz("Assets/terrain_textures_vincentz.tar.xz");
+            QFile::remove("Assets/terrain_textures_bluemarble.fpk");
+            QFile::remove("Assets/terrain_textures_and.fpk");
+            QFile::remove("Assets/terrain_textures_original.fpk");
+            QFile::remove("Assets/terrain_textures_alternative.fpk");
+            setCheckerParam("Modules/Terrain","4");
         }
     }
 }

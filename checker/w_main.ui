@@ -210,7 +210,7 @@
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>18</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
@@ -259,7 +259,7 @@
      <string>Help us to improve the mod !</string>
     </property>
     <addaction name="actionHelp_translate_the_mod"/>
-    <addaction name="actionTranslate_the_launcher"/>
+    <addaction name="actionTranslate_the_civilopedia"/>
     <addaction name="actionTranslate_the_mod_help"/>
    </widget>
    <widget class="QMenu" name="menuLanguage">
@@ -461,6 +461,11 @@
   <action name="actionReset">
    <property name="text">
     <string>Reset mod to default state</string>
+   </property>
+  </action>
+  <action name="actionTranslate_the_civilopedia">
+   <property name="text">
+    <string>Translate the civilopedia</string>
    </property>
   </action>
  </widget>

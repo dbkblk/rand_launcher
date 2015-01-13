@@ -22,9 +22,14 @@ w_modules::~w_modules()
 
 void w_modules::on_bt_update_clicked()
 {
-    f_check launch;
-    launch.PrepareUpdate();
-    launch.ActionUpdate();
+    f_check *launch = new f_check;
+    connect(launch, SIGNAL(exit()), this, SLOT(terminate()));
+    launch->PrepareUpdate();
+    launch->ActionUpdate();
+}
+
+void w_modules::terminate(){
+    emit exit();
 }
 
 void w_modules::UpdateWindow()

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>task_updater</class>
- <widget class="QMainWindow" name="task_updater">
+ <class>w_main</class>
+ <widget class="QMainWindow" name="w_main">
   <property name="geometry">
    <rect>
     <x>0</x>

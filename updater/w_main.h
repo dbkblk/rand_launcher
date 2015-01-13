@@ -1,11 +1,16 @@
-#ifndef TASK_UPDATER_H
-#define TASK_UPDATER_H
+#ifndef w_main_H
+#define w_main_H
 
 #include <QMainWindow>
 #include <QtCore>
+#include "f_updater.h"
+#include <QtCore>
+#include <QtGui>
+#include <QtWidgets>
+#include <QThread>
 
 namespace Ui {
-class task_updater;
+class w_main;
 }
 
 namespace tools {
@@ -26,33 +31,29 @@ const QString TOOL_UPDATER = "upd_proc.exe";
 #endif
 }
 
-class task_updater : public QMainWindow
+class w_main : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit task_updater(QWidget *parent = 0);
-    ~task_updater();
-    void StartUpdate(QString operation);
+    explicit w_main(QWidget *parent = 0);
+    ~w_main();
+    void StartUpdate();
     void DebugWindow(int time);
     QString ReadExcludeList(QString filepath);
     QString readCheckerParam(QString param);
-
-signals:
-    void finished();
-    void stopUpdate();
-    void error();
+    void ResetInstallation();
 
 public slots:
-    void processOutput();
-    void StopGUI();
     void restartLauncher();
     void errorPopup();
+    void updateInterface(int percent, int value);
 
 private:
-    Ui::task_updater *ui;
-    QProcess* process;
+    Ui::w_main *ui;
+    QThread *thread;
+    f_updater *worker;
     QTranslator *translator;
 };
 
-#endif // TASK_UPDATER_H
+#endif // w_main_H

@@ -18,8 +18,12 @@ public:
     explicit w_modules(QWidget *parent = 0);
     ~w_modules();
 
+signals:
+    void exit();
+
 private slots:
     void on_bt_update_clicked();
+    void terminate();
 
 public slots:
     void UpdateWindow();

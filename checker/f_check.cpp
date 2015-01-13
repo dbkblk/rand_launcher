@@ -100,20 +100,17 @@ bool f_check::PrepareUpdate()
     return 0;
 }
 
-bool f_check::ActionUpdate()
+void f_check::ActionUpdate()
 {
     #ifdef _WIN32
     QProcess update;
     update.startDetached("upd_proc.exe");
-    QApplication::quit();
     #endif
     #ifdef __linux
     QProcess update;
     update.startDetached("upd_proc");
-    QApplication::quit();
     #endif
-
-    return 0;
+    emit exit();
 }
 
 bool f_check::ActionReset()
