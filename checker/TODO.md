@@ -9,7 +9,7 @@
 - Fix the dropdown not remembering the previous choice on close/open options window
 - Create the exclusion window when the button is clicked instead of during the options initialization
 - Add menu for the civilopedia strings translation
--> Multi-thread the updater
+- Start the updater in a separate thread
 
 ## 1.05
 - Remove the terrain art from the FPK and add a dropdown box to choose between original Civ terrain / A New Dawn terrain / Blue Marble

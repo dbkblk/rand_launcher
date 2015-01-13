@@ -11,13 +11,15 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = upd_proc
 TEMPLATE = app
 
-SOURCES += main.cpp\
-    task_updater.cpp
+SOURCES += main.cpp \
+    w_main.cpp \
+    f_updater.cpp
 
 HEADERS  += \
-    task_updater.h
+    w_main.h \
+    f_updater.h
 
 FORMS += \
-    task_updater.ui
+    w_main.ui
 
 RC_FILE = icon.rc
