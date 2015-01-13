@@ -17,7 +17,7 @@ class installBox;
 }
 
 namespace versions {
-const QString CHECKER_VERSION = "1.05";
+const QString CHECKER_VERSION = "1.06";
 }
 
 namespace tools {
@@ -49,6 +49,9 @@ public:
     ~w_main();
     QWidget *updateGUI;
 
+public slots:
+    void stopLauncher();
+
 private slots:
 
     void on_actionForum_triggered();
@@ -66,7 +69,7 @@ private slots:
     void on_bt_components_clicked();
     void on_actionHelp_translate_the_mod_triggered();
     void on_actionTranslate_the_mod_help_triggered();
-    void on_actionTranslate_tthe_civilopedia_triggered();
+    void on_actionTranslate_the_civilopedia_triggered();
     void clear_language_state();
     void on_language_en_triggered();
     void on_language_fr_triggered();

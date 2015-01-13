@@ -27,7 +27,7 @@ public:
     bool LauncherVersionCalculation();
     bool ActionLauncherUpdate();
     bool PrepareUpdate();
-    bool ActionUpdate();
+    void ActionUpdate();
     bool ActionReset();
     int GetLocalVersion();
     int GetDistantVersion();
@@ -43,6 +43,7 @@ signals:
     void workRequested();
     void finished(bool update);
     bool work_update_check(bool update);
+    void exit();
 
 public slots:
     void CheckForUpdate();

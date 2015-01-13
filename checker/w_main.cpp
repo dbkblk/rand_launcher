@@ -41,6 +41,7 @@ w_main::w_main(QWidget *parent) :
     // Initialize sub-windows
     modules = new w_modules(this);
     modules->UpdateWindow();
+    connect(modules, SIGNAL(exit()), this, SLOT(stopLauncher()));
 
     // GUI : Fix language menu selector
     clear_language_state();
@@ -200,7 +201,7 @@ void w_main::on_actionHelp_translate_the_mod_triggered()
     QDesktopServices::openUrl(QUrl("https://www.transifex.com/projects/p/and-main-mod/"));
 }
 
-void w_main::on_actionTranslate_tthe_civilopedia_triggered()
+void w_main::on_actionTranslate_the_civilopedia_triggered()
 {
     QDesktopServices::openUrl(QUrl("https://www.transifex.com/projects/p/and-civilopedia-strings/"));
 }
@@ -364,7 +365,8 @@ void w_main::on_actionClear_cache_triggered()
 
 void w_main::on_actionReset_triggered()
 {
-    f_check reset;
+    f_check *reset = new f_check;
+    connect(reset, SIGNAL(exit()), this, SLOT(stopLauncher()));
     QMessageBox msgBox;
     msgBox.setWindowTitle(tr("Reset mod"));
     msgBox.setText(tr("This will reset the mod to the default state. Any modification or launcher preferences will be removed."));
@@ -374,12 +376,16 @@ void w_main::on_actionReset_triggered()
     int ret = msgBox.exec();
     switch (ret) {
         case QMessageBox::Ok:
-            reset.PrepareUpdate();
-            reset.ActionReset();
+            reset->PrepareUpdate();
+            reset->ActionReset();
             break;
         case QMessageBox::Cancel:
             break;
         default:
             break;
     }
+}
+
+void w_main::stopLauncher(){
+    this->close();
 }
