@@ -387,5 +387,6 @@ void w_main::on_actionReset_triggered()
 }
 
 void w_main::stopLauncher(){
+    qDebug("Closing UI");
     this->close();
 }

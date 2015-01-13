@@ -117,9 +117,10 @@ int main(int argc, char *argv[])
 
     // Checking terrain art
     if(QFile::exists("Assets/terrain_textures_and.fpk")){setCheckerParam("Modules/Terrain","0");}
-   else if(QFile::exists("Assets/terrain_textures_bluemarble.fpk")){setCheckerParam("Modules/Terrain","1");}
-   else if(QFile::exists("Assets/terrain_textures_original.fpk")){setCheckerParam("Modules/Terrain","2");}
-   else if(QFile::exists("Assets/terrain_textures_alternative.fpk")){setCheckerParam("Modules/Terrain","3");}
+    else if(QFile::exists("Assets/terrain_textures_bluemarble.fpk")){setCheckerParam("Modules/Terrain","1");}
+    else if(QFile::exists("Assets/terrain_textures_original.fpk")){setCheckerParam("Modules/Terrain","2");}
+    else if(QFile::exists("Assets/terrain_textures_alternative.fpk")){setCheckerParam("Modules/Terrain","3");}
+    else if(QFile::exists("Assets/terrain_textures_vincentz.tar.xz")){setCheckerParam("Modules/Terrain","4");}
     else{unTarXz("Assets/terrain_textures_and.tar.xz");}
 
 
@@ -149,7 +150,9 @@ int main(int argc, char *argv[])
             QFile::remove("reset");
             updater.ActionReset();
         }
-        return a.exec();
+        qDebug("Closing UI");
+        w.close();
+        return 0;
     }
 
     QDir assets("Assets");
@@ -160,7 +163,7 @@ int main(int argc, char *argv[])
         f_check updater;
         updater.PrepareUpdate();
         updater.ActionUpdate();
-        return a.exec();
+        return 0;
     }
 
     else{
