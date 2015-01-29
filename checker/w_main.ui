@@ -245,14 +245,14 @@
      <property name="title">
       <string>Addons</string>
      </property>
-     <addaction name="actionAddon_Blue_marble"/>
      <addaction name="actionAddon_Mega_Civ_Pack"/>
      <addaction name="actionAddon_More_music_forum"/>
     </widget>
+    <addaction name="actionWebsite"/>
     <addaction name="actionForum"/>
     <addaction name="actionBugreport"/>
-    <addaction name="menuAddons"/>
     <addaction name="actionAbout_AND_Resurrection_team_forum"/>
+    <addaction name="menuAddons"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
@@ -306,7 +306,7 @@
   </action>
   <action name="actionAbout_AND_Resurrection_team_forum">
    <property name="text">
-    <string>About AND Resurrection team (forum)</string>
+    <string>History and credits</string>
    </property>
    <property name="toolTip">
     <string>About AND Resurrection team (forum)</string>
@@ -466,6 +466,11 @@
   <action name="actionTranslate_the_civilopedia">
    <property name="text">
     <string>Translate the civilopedia</string>
+   </property>
+  </action>
+  <action name="actionWebsite">
+   <property name="text">
+    <string>Website</string>
    </property>
   </action>
  </widget>

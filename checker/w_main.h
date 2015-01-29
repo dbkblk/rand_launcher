@@ -17,7 +17,7 @@ class installBox;
 }
 
 namespace versions {
-const QString CHECKER_VERSION = "1.06";
+const QString CHECKER_VERSION = "1.07";
 }
 
 namespace tools {
@@ -80,11 +80,9 @@ private slots:
     void on_language_de_triggered();
     void on_language_ru_triggered();
     void on_language_pl_triggered();
-    void on_actionAddon_Blue_marble_triggered();
     void on_actionClear_cache_triggered();
     void on_actionReset_triggered();
-
-
+    void on_actionWebsite_triggered();
 
 private:
     Ui::w_main *ui;

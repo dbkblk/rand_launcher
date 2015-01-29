@@ -75,7 +75,7 @@ w_main::w_main(QWidget *parent) :
     ui->actionHelp_translate_the_mod->setIcon(QIcon("checker/icons/translate.png"));
     ui->actionTranslate_the_civilopedia->setIcon(QIcon("checker/icons/translate.png"));
     ui->actionTranslate_the_mod_help->setIcon(QIcon("checker/icons/help.png"));
-    ui->actionAddon_Blue_marble->setIcon(QIcon("checker/icons/blue_marble.png"));
+    ui->actionWebsite->setIcon(QIcon("checker/icons/blue_marble.png"));
     ui->menuAddons->setIcon(QIcon("checker/icons/addons.png"));
     ui->menuFix_installation->setIcon(QIcon("checker/icons/fix.png"));
     ui->actionClean_up->setIcon(QIcon("checker/icons/clean.png"));
@@ -156,6 +156,12 @@ void w_main::UpdateAvailable(bool update)
 
 // GUI : Menu actions
 
+
+void w_main::on_actionWebsite_triggered()
+{
+    QDesktopServices::openUrl(QUrl("http://anewdawn.sf.net"));
+}
+
 void w_main::on_actionForum_triggered()
 {
     QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/forumdisplay.php?f=369"));
@@ -173,17 +179,12 @@ void w_main::on_actionBugreport_triggered()
 
 void w_main::on_actionAbout_AND_Resurrection_team_forum_triggered()
 {
-    QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=471460"));
+    QDesktopServices::openUrl(QUrl("http://anewdawn.sf.net/pages/credits/"));
 }
 
 void w_main::on_actionAddon_More_music_forum_triggered()
 {
     QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=523763"));
-}
-
-void w_main::on_actionAddon_Blue_marble_triggered()
-{
-    QDesktopServices::openUrl(QUrl("http://www.civfanatics.net/bluemarble/content/index.php"));
 }
 
 void w_main::on_actionExit_triggered()
