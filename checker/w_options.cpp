@@ -119,6 +119,12 @@ void w_options::on_bt_exclusions_clicked()
 
 void w_options::on_dd_textures_currentIndexChanged(int index)
 {
+    // Check if clearing cache is needed (index is different than saved setting)
+    if(QString(readCheckerParam("Modules/Terrain")).toInt() != index){
+        clearCache();
+    }
+
+    // Texture change
     if(index == 0) // AND default textures
     {
         if(!QFile::exists("Assets/terrain_textures_and.fpk")){
@@ -152,7 +158,7 @@ void w_options::on_dd_textures_currentIndexChanged(int index)
             setCheckerParam("Modules/Terrain","2");
         }
     }
-    if(index == 3) // Alternative
+    if(index == 3) // Sparth
     {
         if(!QFile::exists("Assets/terrain_textures_alternative.fpk")){
             unTarXz("Assets/terrain_textures_alternative.tar.xz");
