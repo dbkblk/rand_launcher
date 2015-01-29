@@ -5,6 +5,17 @@
 - Eventual linux support
 - Eventual console output in detail window for the updater
 
+## 1.08
+- Add a font size switcher
+
+## 1.07
+- Enable international support
+    -> Bind the launcher language to the game language
+    -> Change font for non-european languages (Arabic, Thai, etc.)
+    -> Include the default Dark blue interface
+-> Add the website to the menu
+-> Clear cache on texture set change
+
 ## 1.06
 - Fix the dropdown not remembering the previous choice on close/open options window
 - Create the exclusion window when the button is clicked instead of during the options initialization
