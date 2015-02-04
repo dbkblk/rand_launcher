@@ -11,7 +11,7 @@
 using namespace std;
 
 // Set the mod to start by default
-bool setConfigParam(QString param, QString newValue)
+bool setGameOption(QString param, QString newValue)
 {
     // Get config paths
     QDir config_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/My Games/Beyond the sword/";
@@ -48,7 +48,7 @@ bool setConfigParam(QString param, QString newValue)
     return 0;
 }
 
-QString readConfigParam(QString param)
+QString readGameOption(QString param)
 {
     // Get config paths
     QDir config_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/My Games/Beyond the sword/";
@@ -221,92 +221,7 @@ void launchGame(){
     arg << "mod=\\Rise of Mankind - A New Dawn";
     QProcess update;
     update.startDetached(bt_exe, arg);
-    //QUrl u = QUrl::fromLocalFile(bt_exe);
-    //QDesktopServices::openUrl(QUrl(u));
 }
-
-/*QString check_addon_mcp()
-{
-    QFile addon_MCP_file("Assets/Addon_MCP.ini");
-    QFile addon_MCP_file2("Assets/MCP0.FPK");
-    if(addon_MCP_file2.exists() == true)
-    {
-        if(addon_MCP_file.exists() == true)
-        {
-            qDebug() << "Civ Mega Pack detected";
-            QSettings addon_MCP_settings("Assets/Addon_MCP.ini", QSettings::IniFormat);
-            QString MCP_version = addon_MCP_settings.value("Main/Version").toString();
-
-            setCheckerParam("ADDON_MEGACIVPACK/FilesVersion",MCP_version);
-            return MCP_version;
-        }
-        else
-        {
-            setCheckerParam("ADDON_MEGACIVPACK/FilesVersion","Unknown");
-            return "Unknown";
-        }
-
-    }
-    else
-    {
-        qDebug() << "Civ Mega Pack not detected";
-        setCheckerParam("ADDON_MEGACIVPACK/FilesVersion","Not installed");
-        return "Not installed";
-    }
-}
-
-QString check_addon_more_music()
-{
-    QFile addon_audio_file("Assets/Addon_audio.ini");
-    QDir addon_audio_new("Assets/Sounds/Addon_audio");
-    QDir addon_audio_old("Assets/Sounds/NEW");
-
-    if (addon_audio_new.exists() == true || addon_audio_old.exists() == true)
-    {
-        qDebug() << "More music detected";
-        if(addon_audio_file.exists() == true)
-        {
-            QSettings addon_audio_settings("Assets/Addon_audio.ini", QSettings::IniFormat);
-            QString audio_version = addon_audio_settings.value("Main/Version").toString();
-
-            setCheckerParam("ADDON_MOREMUSIC/Version",audio_version);
-            return audio_version;
-        }
-        else
-        {
-            setCheckerParam("ADDON_MOREMUSIC/Version","Unknown");
-            return "Unknown";
-        }
-
-    }
-    else
-    {
-        qDebug() << "More music not detected";
-        setCheckerParam("ADDON_MOREMUSIC/Version","Not installed");
-        return "Not installed";
-    }
-}
-
-QString check_addon_more_handicaps()
-{
-    QFile addon_handicaps_file("Assets/Addon_handicap.ini");
-    if(addon_handicaps_file.exists() == true)
-    {
-        qDebug() << "More handicaps detected";
-        QSettings addon_handicaps_settings("Assets/Addon_handicap.ini", QSettings::IniFormat);
-        QString handicaps_version = addon_handicaps_settings.value("Main/Version").toString();
-
-        setCheckerParam("ADDON_MOREHANDICAPS/Version",handicaps_version);
-
-        return handicaps_version;
-    }
-    else
-    {
-        qDebug() << "More handicaps not detected";
-        setCheckerParam("ADDON_MOREHANDICAPS/Version","Not installed");
-        return "Not installed";
-    }
-}*/
 
 bool readOptionFormations()
 {
@@ -383,7 +298,7 @@ bool clearCache()
 
 bool clearGameOptions()
 {
-    setConfigParam("GameOptions","");
+    setGameOption("GameOptions","");
     qDebug() << "Cleared parameters";
     return 0;
 }

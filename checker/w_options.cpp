@@ -31,7 +31,7 @@ w_options::w_options(QWidget *parent) :
         ui->opt_checkbox_formations->setChecked(1);
     }
 
-    if(readConfigParam("Mod") == "Rise of Mankind - A New Dawn") {
+    if(readGameOption("Mod") == "Rise of Mankind - A New Dawn") {
         ui->startBox->setChecked(1);
     }
 
@@ -65,10 +65,10 @@ void w_options::on_colorBox_currentIndexChanged(int index)
 void w_options::on_startBox_toggled(bool checked)
 {
     if(!checked) {
-        setConfigParam("Mod", "0");
+        setGameOption("Mod", "0");
     }
     if(checked) {
-        setConfigParam("Mod", "Rise of Mankind - A New Dawn");
+        setGameOption("Mod", "Rise of Mankind - A New Dawn");
     }
 }
 

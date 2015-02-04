@@ -4,8 +4,8 @@
 #define civ_function
 
 
-bool setConfigParam(QString param, QString newValue);
-QString readConfigParam(QString param);
+bool setGameOption(QString param, QString newValue);
+QString readGameOption(QString param);
 QString readCheckerParam(QString param);
 bool setCheckerParam(QString param, QString newValue);
 bool cleanUp();
@@ -27,5 +27,4 @@ bool clearCache();
 bool clearGameOptions();
 int checkDoubleInstallation();
 void unTarXz(QString file);
-
 #endif
