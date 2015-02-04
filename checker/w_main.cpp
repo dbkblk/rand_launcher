@@ -1,5 +1,6 @@
 #include "w_main.h"
 #include "f_civ.h"
+#include "f_lang.h"
 #include "f_check.h"
 #include "w_options.h"
 #include "ui_w_main.h"
@@ -21,22 +22,53 @@ w_main::w_main(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Translations : Get language parameter, else if OS language, then wait to fully initialize the GUI.
+    /* Language routine : Get language parameter, else if OS language, then wait to fully initialize the GUI.
+     * See f_lang.cpp for details */
+    // Get OS language
+    QString loc = QLocale::system().name().section('_', 0, 0);
+
     translator = new QTranslator(this);
-    QString loc;
+
     if(readCheckerParam("Main/Lang") == "error")
     {
-        loc = QLocale::system().name().section('_', 0, 0);
-        setCheckerParam("Main/Lang",loc);
+        if(isLanguageSupported(loc)){
+            setCheckerParam("Main/Lang",loc);
+        }
+        else {
+            setCheckerParam("Main/Lang","en");
+            loc = "en";
+        }
     }
     else
     {
         loc = readCheckerParam("Main/Lang");
     }
-    qDebug() << "Language used: " << loc;
+    qDebug() << "Language used: " << getLanguageNameFromCode(loc);
+
+    // Compare language OS with game language
+    QString gameLanguage = readGameOption("Language");
+    if(gameLanguage != getLanguageGameNumberFromCode(loc)){
+        qDebug() << "Launcher language is" << loc << "while game language is" << getLanguageCodeFromGameNumber(gameLanguage) << ". Setting game language.";
+        setGameOption("Language", getLanguageGameNumberFromCode(loc));
+    }
+
+    // If language is not supported and fScale is positive, set it to negative value
+    if (getFScale() == true && !isLanguageSupported(loc)){
+        setFScale(false);
+    }
+
+    // Set recommended font for Arabic (TODO: to improve later)
+    QString recfont = getLanguageRecommendedFont(loc);
+    if (recfont != getLanguageCurrentFont(loc)){
+        setLanguageFont(recfont);
+    }
+
+    // Setup translator
     translator->load(QString("launcher_" + loc + ".qm"),"checker/lang/");
 
     qApp->installTranslator(translator);
+
+    // End of language routine
 
     // Initialize sub-windows
     modules = new w_modules(this);
