@@ -11,8 +11,9 @@ w_modules::w_modules(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Set version label
+    // Set labels
     ui->bt_update->hide();
+    ui->label->setText("<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">" + tr("Changes (last 50) :") + "</span></p></body></html>");
 }
 
 w_modules::~w_modules()
