@@ -31,3 +31,12 @@ launcher.pro.user.3.2-pre1
 Emergency_update.bat
 .gitignore~
 Architecture.mm
+checker/lang/lang.tar.xz
+checker/ui_w_options.h
+checker/ui_w_modules.h
+checker/ui_w_main.h
+checker/ui_w_install.h
+checker/ui_w_exclusion.h
+checker/ui_updatebox.h
+updater/ui_w_main.h
+and2_checker.cppcheck

@@ -20,7 +20,8 @@ SOURCES += \
     w_modules.cpp \
     w_options.cpp \
     w_install.cpp \
-    w_exclusion.cpp
+    w_exclusion.cpp \
+    f_lang.cpp
 
 HEADERS += \
     f_check.h \
@@ -29,10 +30,10 @@ HEADERS += \
     w_modules.h \
     w_options.h \
     w_install.h \
-    w_exclusion.h
+    w_exclusion.h \
+    f_lang.h
 
 FORMS    += \
-    updatebox.ui \
     w_main.ui \
     w_modules.ui \
     w_options.ui \
