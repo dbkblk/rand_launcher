@@ -14,5 +14,5 @@ bool getFScale();
 void setFScale(bool enable);
 QString getLanguageRecommendedFont(QString code);
 QString getLanguageCurrentFont(QString code);
-QString setLanguageFont(QString font);
+void setLanguageFont(QString font);
 #endif // F_LANG_H

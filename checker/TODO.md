@@ -7,6 +7,7 @@
 
 ## 1.08
 - Add a font size switcher
+- Profile import / export
 
 ## 1.07
 - Enable international support

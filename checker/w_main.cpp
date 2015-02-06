@@ -57,7 +57,7 @@ w_main::w_main(QWidget *parent) :
         setFScale(false);
     }
 
-    // Set recommended font for Arabic (TODO: to improve later)
+    // Set recommended font for Arabic
     QString recfont = getLanguageRecommendedFont(loc);
     if (recfont != getLanguageCurrentFont(loc)){
         setLanguageFont(recfont);

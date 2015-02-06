@@ -165,13 +165,95 @@ void setFScale(bool enable){
 }
 
 QString getLanguageRecommendedFont(QString code){
-    return "";
+    QDomDocument global;
+    QFile file("checker/languagesDefine.xml");
+    if(!file.open(QIODevice::ReadOnly))
+     {
+         qDebug() << "Error opening checker/languagesDefine.xml";
+         return 0;
+     }
+    global.setContent(&file);
+    file.close();
+    QString font;
+
+    QDomElement element_define = global.firstChildElement("Civ4Defines").firstChildElement("Define").toElement();
+    for(;!element_define.isNull();element_define = element_define.nextSiblingElement()){
+        if(element_define.firstChildElement("Code").firstChild().nodeValue() == code){
+            font = element_define.firstChildElement("Font").firstChild().nodeValue();
+                        break;
+        }
+    }
+    return font;
 }
 
 QString getLanguageCurrentFont(QString code){
+    QFile file("Assets/Modules/Interface Colors/Black UI/Resource/Themes/Civ4/Civ4Theme_Common.thm"); // Change for each color UI file.
+    QString value = "GFont	.Size0_Normal";
+
+    // Read the file
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream in_enc(&file);
+    while(!in_enc.atEnd())
+    {
+        QString line = in_enc.readLine();
+        if(line.contains(value))
+        {
+            // Isolate each value
+            QStringList list = line.split("\"");
+            file.close();
+            return QString(list[1]);
+        }
+    }
     return "";
 }
 
-QString setLanguageFont(QString font){
-    return "";
+void setLanguageFont(QString font){
+    // List all interface common theme files
+    QStringList xml_filter;
+    QStringList color_list;
+    xml_filter << "*";
+    QDir root("Assets/Modules/Interface Colors/");
+    foreach(QFileInfo entry, root.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot)){
+        color_list << entry.fileName();
+    }
+
+    // Loop through all interface files
+    foreach(QString color_file, color_list){
+        QString file_name = "Assets/Modules/Interface Colors/" + color_file + "/Resource/Themes/Civ4/Civ4Theme_Common.thm";
+        QString file_name_out = file_name + ".tmp";
+        QFile file(file_name);
+
+        // Make a copy
+        QFile file_out(file_name_out);
+        file_out.remove();
+        file.copy(file_name_out);
+
+        // Set the values to look for
+        QString value = "GFont	.Size";
+
+        // Read the file
+        file.open(QIODevice::ReadOnly | QIODevice::Text);
+        QTextStream in_enc(&file);
+        file_out.open(QIODevice::WriteOnly | QIODevice::Truncate);
+        QTextStream out_enc(&file_out);
+        while(!in_enc.atEnd())
+        {
+            QString line = in_enc.readLine();
+            if(line.contains(value))
+            {
+                // Isolate each value and replace the font value
+                QStringList list = line.split("\"");
+                list[1] = font;
+                line = list.join("\"");
+                //qDebug() << line;
+            }
+
+            out_enc << line << "\n";
+        }
+        file.close();
+        file_out.close();
+        file.remove();
+        file_out.rename(file_name);
+    }
+        return;
 }
