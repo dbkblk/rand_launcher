@@ -17,6 +17,7 @@ w_options::w_options(QWidget *parent) :
 
     // Set the detected color
     int color = readColorsCounter();
+    qDebug() << color;
     ui->colorBox->setCurrentIndex(color);
     setCheckerParam("Modules/ColorUI",QString::number(color));
 

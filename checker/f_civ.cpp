@@ -116,7 +116,6 @@ int readColorsCounter()
     for(;; value_el=value_el.nextSiblingElement() ) {
 
         QString bLoad = value_el.firstChildElement("bLoad").text();
-        counter++;
 
         if (bLoad == "1") {
             //qDebug() << "Counter is " << counter;
@@ -128,6 +127,7 @@ int readColorsCounter()
             file.close();
             return 0;
         }
+        counter++;
     }
     file.close();
     return 99;
@@ -140,7 +140,7 @@ bool setColors(int index)
     switch (index)
     {
     case 0:
-       colorUI = "default";
+       colorUI = "Default UI";
        break;
 
     case 1:
@@ -195,14 +195,12 @@ bool setColors(int index)
         color_element.firstChildElement("bLoad").firstChild().setNodeValue("0");
         }
 
-        if(colorUI != "default"){
-        color_element = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
+    color_element = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
 
-        for(color_element ; !color_element.isNull(); color_element=color_element.nextSiblingElement() ) {
-            QString txtValue = color_element.firstChildElement("Directory").firstChild().nodeValue();
-            if (txtValue == colorUI) {
-                color_element.firstChildElement("bLoad").firstChild().setNodeValue("1");
-            }
+    for(color_element ; !color_element.isNull(); color_element=color_element.nextSiblingElement() ) {
+        QString txtValue = color_element.firstChildElement("Directory").firstChild().nodeValue();
+        if (txtValue == colorUI) {
+            color_element.firstChildElement("bLoad").firstChild().setNodeValue("1");
         }
     }
 
