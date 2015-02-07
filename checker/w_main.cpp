@@ -45,24 +45,6 @@ w_main::w_main(QWidget *parent) :
     }
     qDebug() << "Language used: " << getLanguageNameFromCode(loc);
 
-    // Compare language OS with game language
-    QString gameLanguage = readGameOption("Language");
-    if(gameLanguage != getLanguageGameNumberFromCode(loc)){
-        qDebug() << "Launcher language is" << loc << "while game language is" << getLanguageCodeFromGameNumber(gameLanguage) << ". Setting game language.";
-        setGameOption("Language", getLanguageGameNumberFromCode(loc));
-    }
-
-    // If language is not supported and fScale is positive, set it to negative value
-    if (getFScale() == true && !isLanguageSupported(loc)){
-        setFScale(false);
-    }
-
-    // Set recommended game font
-    QString recfont = getLanguageRecommendedFont(loc);
-    if (recfont != getLanguageCurrentFont(loc)){
-        setLanguageFont(recfont);
-    }
-
     // Initialize sub-windows
     modules = new w_modules(this);
     modules->UpdateWindow();
@@ -324,6 +306,27 @@ void w_main::populate_language_menu(QString code)
     setGameOption("Language", getLanguageGameNumberFromCode(code));
     if(isLanguageSupported(code)){
         ui->flag->setPixmap("checker/icons/" + code + ".png");
+    }
+
+    // Compare language OS with game language
+    QString gameLanguage = readGameOption("Language");
+    if(gameLanguage != getLanguageGameNumberFromCode(code)){
+        qDebug() << "Launcher language is" << code << "while game language is" << getLanguageCodeFromGameNumber(gameLanguage) << ". Setting game language.";
+        setGameOption("Language", getLanguageGameNumberFromCode(code));
+    }
+
+    // If language is not supported and fScale is positive, set it to negative value
+    if (getFScale() == true && !isLanguageDefault(code)){
+        setFScale(false);
+    }
+    if(isLanguageDefault(code)){
+        setFScale(true);
+    }
+
+    // Set recommended game font
+    QString recfont = getLanguageRecommendedFont(code);
+    if (recfont != getLanguageCurrentFont(code)){
+        setLanguageFont(recfont);
     }
 }
 
