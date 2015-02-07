@@ -72,35 +72,6 @@ w_main::w_main(QWidget *parent) :
     translator->load(QString("launcher_" + loc + ".qm"),"checker/lang/");
     qApp->installTranslator(translator);
 
-    // Populate language menu
-    clear_language_state();
-    if(loc=="en"){ui->language_en->setChecked(1);}
-    ui->language_en->setIcon(QIcon("checker/icons/en.png"));
-    if(loc=="fr"){ui->language_fr->setChecked(1);}
-    ui->language_fr->setIcon(QIcon("checker/icons/fr.png"));
-    if(loc=="de"){ui->language_de->setChecked(1);}
-    ui->language_de->setIcon(QIcon("checker/icons/de.png"));
-    if(loc=="it"){ui->language_it->setChecked(1);}
-    ui->language_it->setIcon(QIcon("checker/icons/it.png"));
-    if(loc=="es"){ui->language_es->setChecked(1);}
-    ui->language_es->setIcon(QIcon("checker/icons/es.png"));
-    if(loc=="fi"){ui->language_fi->setChecked(1);}
-    ui->language_fi->setIcon(QIcon("checker/icons/fi.png"));
-    if(loc=="hu"){ui->language_hu->setChecked(1);}
-    ui->language_hu->setIcon(QIcon("checker/icons/hu.png"));
-    if(loc=="pl"){ui->language_pl->setChecked(1);}
-    ui->language_pl->setIcon(QIcon("checker/icons/pl.png"));
-    if(loc=="ru"){ui->language_ru->setChecked(1);}
-    ui->language_ru->setIcon(QIcon("checker/icons/ru.png"));
-    if(loc=="cs"){ui->language_cs->setChecked(1);}
-    ui->language_cs->setIcon(QIcon("checker/icons/cs.png"));
-    if(loc=="da"){ui->language_da->setChecked(1);}
-    ui->language_da->setIcon(QIcon("checker/icons/da.png"));
-    if(loc=="ar"){ui->language_ar->setChecked(1);}
-    ui->language_ar->setIcon(QIcon("checker/icons/ar.png"));
-    if(loc=="tr"){ui->language_tr->setChecked(1);}
-    ui->language_tr->setIcon(QIcon("checker/icons/tr.png"));
-
     // GUI : Set menu icons
     ui->actionOpen_mod_folder->setIcon(QIcon("checker/icons/open.png"));
     ui->actionExit->setIcon(QIcon("checker/icons/exit.png"));
@@ -147,6 +118,8 @@ w_main::w_main(QWidget *parent) :
 
     // Translations : Reload the GUI with the correct translation
     ui->retranslateUi(this);
+    clear_language_state();
+    populate_language_menu(loc);
 }
 
 w_main::~w_main()
@@ -306,95 +279,138 @@ void w_main::language_select(QString langCode){
     clear_language_state();
 }
 
+void w_main::populate_language_menu(QString code)
+{
+    if(code=="en"){ui->language_en->setChecked(1);}
+    ui->language_en->setIcon(QIcon("checker/icons/en.png"));
+    ui->language_en->setText(tr("English"));
+    if(code=="fr"){ui->language_fr->setChecked(1);}
+    ui->language_fr->setIcon(QIcon("checker/icons/fr.png"));
+    ui->language_fr->setText(tr("French") + " (" + getLanguageProgressFromCode("fr") + "%)");
+    if(code=="de"){ui->language_de->setChecked(1);}
+    ui->language_de->setIcon(QIcon("checker/icons/de.png"));
+    ui->language_de->setText(tr("German") + " (" + getLanguageProgressFromCode("de") + "%)");
+    if(code=="it"){ui->language_it->setChecked(1);}
+    ui->language_it->setIcon(QIcon("checker/icons/it.png"));
+    ui->language_it->setText(tr("Italian") + " (" + getLanguageProgressFromCode("it") + "%)");
+    if(code=="es"){ui->language_es->setChecked(1);}
+    ui->language_es->setIcon(QIcon("checker/icons/es.png"));
+    ui->language_es->setText(tr("Spanish") + " (" + getLanguageProgressFromCode("es") + "%)");
+    if(code=="fi"){ui->language_fi->setChecked(1);}
+    ui->language_fi->setIcon(QIcon("checker/icons/fi.png"));
+    ui->language_fi->setText(tr("Finnish") + " (" + getLanguageProgressFromCode("fi") + "%)");
+    if(code=="hu"){ui->language_hu->setChecked(1);}
+    ui->language_hu->setIcon(QIcon("checker/icons/hu.png"));
+    ui->language_hu->setText(tr("Hungarian") + " (" + getLanguageProgressFromCode("hu") + "%)");
+    if(code=="pl"){ui->language_pl->setChecked(1);}
+    ui->language_pl->setIcon(QIcon("checker/icons/pl.png"));
+    ui->language_pl->setText(tr("Polish") + " (" + getLanguageProgressFromCode("pl") + "%)");
+    if(code=="ru"){ui->language_ru->setChecked(1);}
+    ui->language_ru->setIcon(QIcon("checker/icons/ru.png"));
+    ui->language_ru->setText(tr("Russian") + " (" + getLanguageProgressFromCode("ru") + "%)");
+    if(code=="cs"){ui->language_cs->setChecked(1);}
+    ui->language_cs->setIcon(QIcon("checker/icons/cs.png"));
+    ui->language_cs->setText(tr("Czech") + " (" + getLanguageProgressFromCode("cs") + "%)");
+    if(code=="da"){ui->language_da->setChecked(1);}
+    ui->language_da->setIcon(QIcon("checker/icons/da.png"));
+    ui->language_da->setText(tr("Danish") + " (" + getLanguageProgressFromCode("da") + "%)");
+    if(code=="ar"){ui->language_ar->setChecked(1);}
+    ui->language_ar->setIcon(QIcon("checker/icons/ar.png"));
+    ui->language_ar->setText(tr("Arabic") + " (" + getLanguageProgressFromCode("ar") + "%)");
+    if(code=="tr"){ui->language_tr->setChecked(1);}
+    ui->language_tr->setIcon(QIcon("checker/icons/tr.png"));
+    ui->language_tr->setText(tr("Turkish") + " (" + getLanguageProgressFromCode("tr") + "%)");
+}
+
 void w_main::on_language_en_triggered()
 {
     QString lang = "en";
     language_select(lang);
-    ui->language_en->setChecked(1);
+    populate_language_menu(lang);
 }
 
 void w_main::on_language_fr_triggered()
 {
     QString lang = "fr";
     language_select(lang);
-    ui->language_fr->setChecked(1);
+    populate_language_menu(lang);
 }
 
 void w_main::on_language_hu_triggered()
 {
     QString lang = "hu";
     language_select(lang);
-    ui->language_hu->setChecked(1);
+    populate_language_menu(lang);
 }
 
 void w_main::on_language_fi_triggered()
 {
     QString lang = "fi";
     language_select(lang);
-    ui->language_fi->setChecked(1);
+    populate_language_menu(lang);
 }
 
 void w_main::on_language_it_triggered()
 {
     QString lang = "it";
     language_select(lang);
-    ui->language_it->setChecked(1);
+    populate_language_menu(lang);
 }
 
 void w_main::on_language_es_triggered()
 {
     QString lang = "es";
     language_select(lang);
-    ui->language_es->setChecked(1);
+    populate_language_menu(lang);
 }
 
 void w_main::on_language_de_triggered()
 {
     QString lang = "de";
     language_select(lang);
-    ui->language_de->setChecked(1);
+    populate_language_menu(lang);
 }
 
 void w_main::on_language_pl_triggered()
 {
     QString lang = "pl";
     language_select(lang);
-    ui->language_pl->setChecked(1);
+    populate_language_menu(lang);
 }
 
 void w_main::on_language_ru_triggered()
 {
     QString lang = "ru";
     language_select(lang);
-    ui->language_ru->setChecked(1);
+    populate_language_menu(lang);
 }
 
 void w_main::on_language_cs_triggered()
 {
     QString lang = "cs";
     language_select(lang);
-    ui->language_cs->setChecked(1);
+    populate_language_menu(lang);
 }
 
 void w_main::on_language_da_triggered()
 {
     QString lang = "da";
     language_select(lang);
-    ui->language_da->setChecked(1);
+    populate_language_menu(lang);
 }
 
 void w_main::on_language_ar_triggered()
 {
     QString lang = "ar";
     language_select(lang);
-    ui->language_ar->setChecked(1);
+    populate_language_menu(lang);
 }
 
 void w_main::on_language_tr_triggered()
 {
     QString lang = "tr";
     language_select(lang);
-    ui->language_tr->setChecked(1);
+    populate_language_menu(lang);
 }
 
 

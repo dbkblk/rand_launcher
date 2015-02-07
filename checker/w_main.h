@@ -88,6 +88,7 @@ private slots:
     void on_language_ar_triggered();
     void on_language_tr_triggered();
     void language_select(QString langCode);
+    void populate_language_menu(QString code);
 
 private:
     Ui::w_main *ui;

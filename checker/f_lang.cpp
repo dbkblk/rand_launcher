@@ -87,6 +87,28 @@ QString getLanguageGameNumberFromCode(QString code){
     return language;
 }
 
+QString getLanguageProgressFromCode(QString code){
+    QDomDocument global;
+    QFile file("checker/languagesDefine.xml");
+    if(!file.open(QIODevice::ReadOnly))
+     {
+         qDebug() << "Error opening checker/languagesDefine.xml";
+         return "err";
+     }
+    global.setContent(&file);
+    file.close();
+    QString progress = "err";
+
+    QDomElement element_define = global.firstChildElement("Civ4Defines").firstChildElement("Define").toElement();
+    for(;!element_define.isNull();element_define = element_define.nextSiblingElement()){
+        if(element_define.firstChildElement("Code").firstChild().nodeValue() == code){
+            progress = element_define.firstChildElement("Progress").firstChild().nodeValue();
+                        break;
+        }
+    }
+    return progress;
+}
+
 QString getLanguageCodeFromGameNumber(QString number){
     QDomDocument global;
     QFile file("checker/languagesDefine.xml");

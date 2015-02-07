@@ -9,6 +9,7 @@ bool isLanguageDefault(QString language);
 bool isLanguageSupported(QString code);
 QString getLanguageNameFromCode(QString code);
 QString getLanguageGameNumberFromCode(QString code);
+QString getLanguageProgressFromCode(QString code);
 QString getLanguageCodeFromGameNumber(QString number);
 bool getFScale();
 void setFScale(bool enable);
