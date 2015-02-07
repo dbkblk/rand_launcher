@@ -83,6 +83,11 @@ private slots:
     void on_actionClear_cache_triggered();
     void on_actionReset_triggered();
     void on_actionWebsite_triggered();
+    void on_language_cs_triggered();
+    void on_language_da_triggered();
+    void on_language_ar_triggered();
+    void on_language_tr_triggered();
+    void language_select(QString langCode);
 
 private:
     Ui::w_main *ui;

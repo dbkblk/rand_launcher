@@ -3,6 +3,7 @@ archives/
 compilation/
 materials/
 release_files/
+transifex-stats/
 checker/release/
 checker/debug/
 lib_packbinaries/release/
@@ -40,3 +41,4 @@ checker/ui_w_exclusion.h
 checker/ui_updatebox.h
 updater/ui_w_main.h
 and2_checker.cppcheck
+transifex-stats/UpdateTransifexStats.bat

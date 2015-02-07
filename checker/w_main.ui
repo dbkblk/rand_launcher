@@ -200,6 +200,19 @@
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="flag">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string notr="true"/>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="enabled">
@@ -275,6 +288,10 @@
     <addaction name="language_pl"/>
     <addaction name="language_ru"/>
     <addaction name="language_es"/>
+    <addaction name="language_cs"/>
+    <addaction name="language_da"/>
+    <addaction name="language_ar"/>
+    <addaction name="language_tr"/>
    </widget>
    <addaction name="menuMenu"/>
    <addaction name="menuLanguage"/>
@@ -471,6 +488,38 @@
   <action name="actionWebsite">
    <property name="text">
     <string>Website</string>
+   </property>
+  </action>
+  <action name="language_cs">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Czech</string>
+   </property>
+  </action>
+  <action name="language_da">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Danish</string>
+   </property>
+  </action>
+  <action name="language_ar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Arabic</string>
+   </property>
+  </action>
+  <action name="language_tr">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Turkish</string>
    </property>
   </action>
  </widget>

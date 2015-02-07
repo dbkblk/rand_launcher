@@ -57,46 +57,51 @@ w_main::w_main(QWidget *parent) :
         setFScale(false);
     }
 
-    // Set recommended font for Arabic
+    // Set recommended game font
     QString recfont = getLanguageRecommendedFont(loc);
     if (recfont != getLanguageCurrentFont(loc)){
         setLanguageFont(recfont);
     }
-
-    // Setup translator
-    translator->load(QString("launcher_" + loc + ".qm"),"checker/lang/");
-
-    qApp->installTranslator(translator);
-
-    // End of language routine
 
     // Initialize sub-windows
     modules = new w_modules(this);
     modules->UpdateWindow();
     connect(modules, SIGNAL(exit()), this, SLOT(stopLauncher()));
 
-    // GUI : Fix language menu selector
+    // Setup translator
+    translator->load(QString("launcher_" + loc + ".qm"),"checker/lang/");
+    qApp->installTranslator(translator);
+
+    // Populate language menu
     clear_language_state();
     if(loc=="en"){ui->language_en->setChecked(1);}
+    ui->language_en->setIcon(QIcon("checker/icons/en.png"));
     if(loc=="fr"){ui->language_fr->setChecked(1);}
-    if(loc=="hu"){ui->language_hu->setChecked(1);}
-    if(loc=="fi"){ui->language_fi->setChecked(1);}
-    if(loc=="it"){ui->language_it->setChecked(1);}
+    ui->language_fr->setIcon(QIcon("checker/icons/fr.png"));
     if(loc=="de"){ui->language_de->setChecked(1);}
-    if(loc=="pl"){ui->language_pl->setChecked(1);}
+    ui->language_de->setIcon(QIcon("checker/icons/de.png"));
+    if(loc=="it"){ui->language_it->setChecked(1);}
+    ui->language_it->setIcon(QIcon("checker/icons/it.png"));
     if(loc=="es"){ui->language_es->setChecked(1);}
+    ui->language_es->setIcon(QIcon("checker/icons/es.png"));
+    if(loc=="fi"){ui->language_fi->setChecked(1);}
+    ui->language_fi->setIcon(QIcon("checker/icons/fi.png"));
+    if(loc=="hu"){ui->language_hu->setChecked(1);}
+    ui->language_hu->setIcon(QIcon("checker/icons/hu.png"));
+    if(loc=="pl"){ui->language_pl->setChecked(1);}
+    ui->language_pl->setIcon(QIcon("checker/icons/pl.png"));
     if(loc=="ru"){ui->language_ru->setChecked(1);}
+    ui->language_ru->setIcon(QIcon("checker/icons/ru.png"));
+    if(loc=="cs"){ui->language_cs->setChecked(1);}
+    ui->language_cs->setIcon(QIcon("checker/icons/cs.png"));
+    if(loc=="da"){ui->language_da->setChecked(1);}
+    ui->language_da->setIcon(QIcon("checker/icons/da.png"));
+    if(loc=="ar"){ui->language_ar->setChecked(1);}
+    ui->language_ar->setIcon(QIcon("checker/icons/ar.png"));
+    if(loc=="tr"){ui->language_tr->setChecked(1);}
+    ui->language_tr->setIcon(QIcon("checker/icons/tr.png"));
 
     // GUI : Set menu icons
-    ui->language_en->setIcon(QIcon("checker/icons/en.png"));
-    ui->language_fi->setIcon(QIcon("checker/icons/fi.png"));
-    ui->language_fr->setIcon(QIcon("checker/icons/fr.png"));
-    ui->language_de->setIcon(QIcon("checker/icons/de.png"));
-    ui->language_hu->setIcon(QIcon("checker/icons/hu.png"));
-    ui->language_it->setIcon(QIcon("checker/icons/it.png"));
-    ui->language_pl->setIcon(QIcon("checker/icons/pl.png"));
-    ui->language_ru->setIcon(QIcon("checker/icons/ru.png"));
-    ui->language_es->setIcon(QIcon("checker/icons/es.png"));
     ui->actionOpen_mod_folder->setIcon(QIcon("checker/icons/open.png"));
     ui->actionExit->setIcon(QIcon("checker/icons/exit.png"));
     ui->actionForum->setIcon(QIcon("checker/icons/forum.png"));
@@ -286,108 +291,112 @@ void w_main::on_bt_components_clicked()
 // GUI : Set all language selector to 0 before to check the correct one
 void w_main::clear_language_state()
 {
-    ui->language_en->setChecked(0);
-    ui->language_fr->setChecked(0);
-    ui->language_si->setChecked(0);
-    ui->language_hu->setChecked(0);
-    ui->language_fi->setChecked(0);
-    ui->language_it->setChecked(0);
-    ui->language_de->setChecked(0);
-    ui->language_pl->setChecked(0);
-    ui->language_es->setChecked(0);
-    ui->language_ru->setChecked(0);
+    foreach(QAction *action, ui->menuLanguage->actions()){
+        action->setChecked(0);
+    }
 }
 
 // GUI : Individual translations selectors
-void w_main::on_language_en_triggered()
-{
-    translator->load(QString("launcher.qm"),"checker/lang/");
-    setCheckerParam("Main/Lang","en");
+void w_main::language_select(QString langCode){
+    qDebug() << "Language set to" << getLanguageNameFromCode(langCode);
+    translator->load(QString("launcher_" + langCode + ".qm"),"checker/lang/");
+    setCheckerParam("Main/Lang",langCode);
     ui->retranslateUi(this);
     modules->UpdateWindow();
     clear_language_state();
+}
+
+void w_main::on_language_en_triggered()
+{
+    QString lang = "en";
+    language_select(lang);
     ui->language_en->setChecked(1);
 }
 
 void w_main::on_language_fr_triggered()
 {
-    translator->load(QString("launcher_fr.qm"),"checker/lang/");
-    setCheckerParam("Main/Lang","fr");
-    ui->retranslateUi(this);
-    modules->UpdateWindow();
-    clear_language_state();
+    QString lang = "fr";
+    language_select(lang);
     ui->language_fr->setChecked(1);
 }
 
 void w_main::on_language_hu_triggered()
 {
-    translator->load(QString("launcher_hu.qm"),"checker/lang/");
-    setCheckerParam("Main/Lang","hu");
-    ui->retranslateUi(this);
-    modules->UpdateWindow();
-    clear_language_state();
+    QString lang = "hu";
+    language_select(lang);
     ui->language_hu->setChecked(1);
 }
 
 void w_main::on_language_fi_triggered()
 {
-    translator->load(QString("launcher_fi.qm"),"checker/lang/");
-    setCheckerParam("Main/Lang","fi");
-    ui->retranslateUi(this);
-    modules->UpdateWindow();
-    clear_language_state();
+    QString lang = "fi";
+    language_select(lang);
     ui->language_fi->setChecked(1);
 }
 
 void w_main::on_language_it_triggered()
 {
-    translator->load(QString("launcher_it.qm"),"checker/lang/");
-    setCheckerParam("Main/Lang","it");
-    ui->retranslateUi(this);
-    modules->UpdateWindow();
-    clear_language_state();
+    QString lang = "it";
+    language_select(lang);
     ui->language_it->setChecked(1);
 }
 
 void w_main::on_language_es_triggered()
 {
-    translator->load(QString("launcher_es.qm"),"checker/lang/");
-    setCheckerParam("Main/Lang","es");
-    ui->retranslateUi(this);
-    modules->UpdateWindow();
-    clear_language_state();
+    QString lang = "es";
+    language_select(lang);
     ui->language_es->setChecked(1);
 }
 
 void w_main::on_language_de_triggered()
 {
-    translator->load(QString("launcher_de.qm"),"checker/lang/");
-    setCheckerParam("Main/Lang","de");
-    ui->retranslateUi(this);
-    modules->UpdateWindow();
-    clear_language_state();
+    QString lang = "de";
+    language_select(lang);
     ui->language_de->setChecked(1);
 }
 
 void w_main::on_language_pl_triggered()
 {
-    translator->load(QString("launcher_pl.qm"),"checker/lang/");
-    setCheckerParam("Main/Lang","pl");
-    ui->retranslateUi(this);
-    modules->UpdateWindow();
-    clear_language_state();
+    QString lang = "pl";
+    language_select(lang);
     ui->language_pl->setChecked(1);
 }
 
 void w_main::on_language_ru_triggered()
 {
-    translator->load(QString("launcher_ru.qm"),"checker/lang/");
-    setCheckerParam("Main/Lang","ru");
-    ui->retranslateUi(this);
-    modules->UpdateWindow();
-    clear_language_state();
+    QString lang = "ru";
+    language_select(lang);
     ui->language_ru->setChecked(1);
 }
+
+void w_main::on_language_cs_triggered()
+{
+    QString lang = "cs";
+    language_select(lang);
+    ui->language_cs->setChecked(1);
+}
+
+void w_main::on_language_da_triggered()
+{
+    QString lang = "da";
+    language_select(lang);
+    ui->language_da->setChecked(1);
+}
+
+void w_main::on_language_ar_triggered()
+{
+    QString lang = "ar";
+    language_select(lang);
+    ui->language_ar->setChecked(1);
+}
+
+void w_main::on_language_tr_triggered()
+{
+    QString lang = "tr";
+    language_select(lang);
+    ui->language_tr->setChecked(1);
+}
+
 
 // Game : Clear the cache
 void w_main::on_actionClear_cache_triggered()
