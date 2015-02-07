@@ -94,6 +94,9 @@ int main(int argc, char *argv[])
         qDebug() << "Inject color UI setting to xml";
         setColors(color_saved);
     }
+    if(color_saved == 0){
+        setColors(color_saved);
+    }
 
     // Create exclusions.default.xml if not exist
     QFile exclusion("checker/exclusions.custom.xml");
