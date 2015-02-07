@@ -322,6 +322,9 @@ void w_main::populate_language_menu(QString code)
     ui->language_tr->setText(tr("Turkish") + " (" + getLanguageProgressFromCode("tr") + "%)");
 
     setGameOption("Language", getLanguageGameNumberFromCode(code));
+    if(isLanguageSupported(code)){
+        ui->flag->setPixmap("checker/icons/" + code + ".png");
+    }
 }
 
 void w_main::on_language_en_triggered()
