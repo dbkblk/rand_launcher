@@ -320,6 +320,8 @@ void w_main::populate_language_menu(QString code)
     if(code=="tr"){ui->language_tr->setChecked(1);}
     ui->language_tr->setIcon(QIcon("checker/icons/tr.png"));
     ui->language_tr->setText(tr("Turkish") + " (" + getLanguageProgressFromCode("tr") + "%)");
+
+    setGameOption("Language", getLanguageGameNumberFromCode(code));
 }
 
 void w_main::on_language_en_triggered()
