@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="ar_EG">
 <context>
     <name>QObject</name>
     <message>
@@ -115,23 +115,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../w_main.ui" line="321"/>
-        <source>Bugreport (forum)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../w_main.ui" line="329"/>
-        <source>About AND Resurrection team (forum)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../w_main.ui" line="316"/>
         <source>&quot;Mega Civ Pack&quot; (forum)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../w_main.ui" line="321"/>
+        <source>Bugreport (forum)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../w_main.ui" line="326"/>
         <source>History and credits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../w_main.ui" line="329"/>
+        <source>About AND Resurrection team (forum)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
