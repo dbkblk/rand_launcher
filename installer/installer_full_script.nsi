@@ -7,7 +7,7 @@ SetCompressor /SOLID LZMA
 ;--------------------------------
 
   !include "MUI.nsh"
-  !define REVISION "868"
+  !define REVISION "875"
 
 ; General information
 ;--------------------------------
@@ -16,7 +16,7 @@ SetCompressor /SOLID LZMA
 Name "Civilization IV: A New Dawn"
 
 ; The file to write
-OutFile "C:\Documents and Settings\Virtualbox\Bureau\AND2_full_installer.exe"
+OutFile "C:\Users\Hadrien\Desktop\AND2_full_installer.exe"
 
 ; The default installation directory
 InstallDir "$DOCUMENTS\My Games\Beyond the sword\Mods\"
@@ -164,7 +164,7 @@ SectionIn RO
   SetOutPath $INSTDIR
   
   ; Put file there
-  File /r "C:\Documents and Settings\Virtualbox\Mes documents\My Games\Beyond the Sword\MODS\*"
+  File /r "C:\Users\Hadrien\Desktop\import\*"
 
 ;Create uninstaller
   WriteUninstaller "$INSTDIR\Rise of Mankind - A New Dawn\Uninstall.exe"
