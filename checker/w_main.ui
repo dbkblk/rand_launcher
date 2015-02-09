@@ -143,7 +143,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Manage modules</string>
+          <string>See latest changes</string>
          </property>
         </widget>
        </item>
@@ -256,10 +256,18 @@
     </property>
     <widget class="QMenu" name="menuAddons">
      <property name="title">
-      <string>Addons</string>
+      <string>Modules</string>
      </property>
-     <addaction name="actionAddon_Mega_Civ_Pack"/>
-     <addaction name="actionAddon_More_music_forum"/>
+     <widget class="QMenu" name="menuAddons_list">
+      <property name="title">
+       <string>Get modules</string>
+      </property>
+     </widget>
+     <addaction name="menuAddons_list"/>
+     <addaction name="actionInstall_addon"/>
+     <addaction name="actionGet_modules"/>
+     <addaction name="separator"/>
+     <addaction name="actionDetected"/>
     </widget>
     <addaction name="actionWebsite"/>
     <addaction name="actionForum"/>
@@ -313,7 +321,7 @@
   </action>
   <action name="actionAddon_Mega_Civ_Pack">
    <property name="text">
-    <string>&quot;Mega Civ Pack&quot; (forum)</string>
+    <string>Mega Civ. pack</string>
    </property>
   </action>
   <action name="actionBugreport">
@@ -331,7 +339,10 @@
   </action>
   <action name="actionAddon_More_music_forum">
    <property name="text">
-    <string>&quot;More music / More handicaps / Dinosaurs&quot; (forum)</string>
+    <string>More music / Dinosaurs (forum)</string>
+   </property>
+   <property name="toolTip">
+    <string>More music / Dinosaurs (forum)</string>
    </property>
   </action>
   <action name="actionOpen_mod_folder">
@@ -520,6 +531,41 @@
    </property>
    <property name="text">
     <string>Turkish</string>
+   </property>
+  </action>
+  <action name="actionInstall_addon">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Install / update module</string>
+   </property>
+  </action>
+  <action name="actionGet_modules">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Remove module</string>
+   </property>
+  </action>
+  <action name="action">
+   <property name="text">
+    <string notr="true">--------</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">--------</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">--------</string>
+   </property>
+  </action>
+  <action name="actionDetected">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Detected:</string>
    </property>
   </action>
  </widget>

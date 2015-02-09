@@ -17,7 +17,7 @@ class installBox;
 }
 
 namespace versions {
-const QString CHECKER_VERSION = "1.07";
+const QString CHECKER_VERSION = "1.08";
 }
 
 namespace tools {
@@ -51,9 +51,9 @@ public:
 
 public slots:
     void stopLauncher();
+    void openURL(QString url);
 
 private slots:
-
     void on_actionForum_triggered();
     void on_actionAddon_Mega_Civ_Pack_triggered();
     void on_actionBugreport_triggered();
@@ -89,6 +89,7 @@ private slots:
     void on_language_tr_triggered();
     void language_select(QString langCode);
     void populate_language_menu(QString code);
+    void populate_mod_list();
 
 private:
     Ui::w_main *ui;

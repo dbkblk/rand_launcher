@@ -15,6 +15,7 @@
 #include <QtGui>
 #include <QtWidgets>
 #include <QMessageBox>
+#include <QtXml>
 
 w_main::w_main(QWidget *parent) :
     QMainWindow(parent),
@@ -95,13 +96,17 @@ w_main::w_main(QWidget *parent) :
     thread->wait(); // If the thread is not running, this will immediately return.
     worker->requestWork();
 
+    // Map signals for dynamic mod menu
+    populate_mod_list();
+
     // GUI : Update the local version and font color
-    UpdateWindowInfos();
+    UpdateWindowInfos();    
 
     // Translations : Reload the GUI with the correct translation
     ui->retranslateUi(this);
     clear_language_state();
     populate_language_menu(loc);
+
 }
 
 w_main::~w_main()
@@ -148,6 +153,9 @@ void w_main::UpdateAvailable(bool update)
 
 // GUI : Menu actions
 
+void w_main::openURL(QString url){
+    QDesktopServices::openUrl(QUrl(url));
+}
 
 void w_main::on_actionWebsite_triggered()
 {
@@ -161,7 +169,7 @@ void w_main::on_actionForum_triggered()
 
 void w_main::on_actionAddon_Mega_Civ_Pack_triggered()
 {
-    QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=521289"));
+    QDesktopServices::openUrl(QUrl("https://github.com/dbkblk/civ4_and2_civmegapack"));
 }
 
 void w_main::on_actionBugreport_triggered()
@@ -328,6 +336,69 @@ void w_main::populate_language_menu(QString code)
     if (recfont != getLanguageCurrentFont(code)){
         setLanguageFont(recfont);
     }
+}
+
+void w_main::populate_mod_list(){
+    // Check knownModules list
+    QSignalMapper* signalMapper = new QSignalMapper (this);
+    QFile known("checker/knownModules.xml");
+    if(known.open(QIODevice::ReadOnly))
+    {
+        QDomDocument knxml;
+        knxml.setContent(&known);
+        known.close();
+        QDomElement element = knxml.firstChildElement("root").firstChildElement("module").toElement();
+        for(;!element.isNull();element = element.nextSiblingElement()){
+            QString name = element.firstChildElement("name").firstChild().nodeValue();
+            QString url = element.firstChildElement("url").firstChild().nodeValue();
+
+            // Create menu entry and map signal action
+            QAction *act = ui->menuAddons_list->addAction(QIcon(element.firstChildElement("icon").firstChild().nodeValue()), element.firstChildElement("name").firstChild().nodeValue());
+            connect(act, SIGNAL(triggered()), signalMapper, SLOT(map()));
+            signalMapper->setMapping(act,url);
+        }
+    }
+    connect(signalMapper, SIGNAL(mapped(QString)), this, SLOT(openURL(QString)));
+
+    // List mods folders
+    QStringList mod_list;
+    QDir root("Assets/Modules/");
+    foreach(QFileInfo entry, root.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot)){
+        mod_list << entry.fileName();
+    }
+
+    // Removing default mods from list
+    mod_list.removeAll("Custom Leaderheads");
+    mod_list.removeAll("Formations");
+    mod_list.removeAll("Interface Colors");
+
+    // Add entry
+    foreach(QString entry, mod_list){
+        // Get mod name and version
+        QString name;
+        QString version;
+        QFile file("Assets/Modules/" + entry + "/modInfo.xml");
+        if(file.open(QIODevice::ReadOnly)){
+            QDomDocument xml;
+            xml.setContent(&file);
+            file.close();
+            name = xml.firstChildElement("root").firstChildElement("name").firstChild().nodeValue();
+            version = xml.firstChildElement("root").firstChildElement("version").firstChild().nodeValue();
+            version.prepend("v.");
+        }
+        else{
+            name = entry;
+            version = "unknown version";
+        }
+
+        QString modInfo = name + ", " + version;
+
+        qDebug() << "Mod detected:" << modInfo;
+        QAction *act = ui->menuAddons->addAction(modInfo);
+        act->setEnabled(false);
+    }
+
+
 }
 
 void w_main::on_language_en_triggered()
