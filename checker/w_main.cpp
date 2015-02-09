@@ -361,16 +361,7 @@ void w_main::populate_mod_list(){
     connect(signalMapper, SIGNAL(mapped(QString)), this, SLOT(openURL(QString)));
 
     // List mods folders
-    QStringList mod_list;
-    QDir root("Assets/Modules/");
-    foreach(QFileInfo entry, root.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot)){
-        mod_list << entry.fileName();
-    }
-
-    // Removing default mods from list
-    mod_list.removeAll("Custom Leaderheads");
-    mod_list.removeAll("Formations");
-    mod_list.removeAll("Interface Colors");
+    QStringList mod_list = listModFolders();
 
     // Add entry
     foreach(QString entry, mod_list){

@@ -118,6 +118,9 @@ int main(int argc, char *argv[])
         exclusion.close();
     }
 
+    // Regenerate mod exclusion file
+    generateModsExclusion();
+
     // Checking terrain art
     if(QFile::exists("Assets/terrain_textures_and.fpk")){setCheckerParam("Modules/Terrain","0");}
     else if(QFile::exists("Assets/terrain_textures_bluemarble.fpk")){setCheckerParam("Modules/Terrain","1");}
