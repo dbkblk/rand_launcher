@@ -43,8 +43,9 @@ void f_updater::updateLaunch(){
     // Prepare update
     QString exclusion_default = readExcludeList("checker/exclusions.default.xml");
     QString exclusion_custom = readExcludeList("checker/exclusions.custom.xml");
-    QString operation = tools::TOOL_RSYNC + QString("-rz --info=progress2 --delete-after %1%2rsync://afforess.com/ftp/ .").arg(exclusion_default).arg(exclusion_custom);
-    //qDebug() << operation;
+    QString exclusion_mods = readExcludeList("checker/exclusions.mods.xml");
+    QString operation = tools::TOOL_RSYNC + QString("-rz --info=progress2 --delete-after %1%2%3rsync://afforess.com/ftp/ .").arg(exclusion_default).arg(exclusion_custom).arg(exclusion_mods);
+    qDebug() << operation;
 
     // Set process and emit signal at the end
     process->start(operation);
