@@ -21,7 +21,8 @@ SOURCES += \
     w_options.cpp \
     w_install.cpp \
     w_exclusion.cpp \
-    f_lang.cpp
+    f_lang.cpp \
+    f_mods.cpp
 
 HEADERS += \
     f_check.h \
@@ -31,7 +32,8 @@ HEADERS += \
     w_options.h \
     w_install.h \
     w_exclusion.h \
-    f_lang.h
+    f_lang.h \
+    f_mods.h
 
 FORMS    += \
     w_main.ui \

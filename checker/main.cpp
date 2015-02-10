@@ -1,6 +1,7 @@
 #include <w_main.h>
 #include <w_options.h>
 #include <f_civ.h>
+#include <f_mods.h>
 #include <w_install.h>
 
 #include <QtCore>
@@ -120,6 +121,7 @@ int main(int argc, char *argv[])
 
     // Regenerate mod exclusion file
     generateModsExclusion();
+    generateModsMLFFile();
 
     // Checking terrain art
     if(QFile::exists("Assets/terrain_textures_and.fpk")){setCheckerParam("Modules/Terrain","0");}

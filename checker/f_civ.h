@@ -27,6 +27,4 @@ bool clearCache();
 bool clearGameOptions();
 int checkDoubleInstallation();
 void unTarXz(QString file);
-QStringList listModFolders();
-void generateModsExclusion();
 #endif

@@ -2,6 +2,7 @@
 #include "f_civ.h"
 #include "f_lang.h"
 #include "f_check.h"
+#include "f_mods.h"
 #include "w_options.h"
 #include "ui_w_main.h"
 #include "ui_w_install.h"
@@ -187,6 +188,12 @@ void w_main::on_actionAddon_More_music_forum_triggered()
     QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=523763"));
 }
 
+void w_main::on_actionGive_us_feedback_forum_triggered()
+{
+    QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/forumdisplay.php?f=369"));
+}
+
+
 void w_main::on_actionExit_triggered()
 {
     QApplication::quit();
@@ -341,7 +348,7 @@ void w_main::populate_language_menu(QString code)
 void w_main::populate_mod_list(){
     // Check knownModules list
     QSignalMapper* signalMapper = new QSignalMapper (this);
-    QFile known("checker/knownModules.xml");
+    QFile known("Assets/Modules/knownModules.xml");
     if(known.open(QIODevice::ReadOnly))
     {
         QDomDocument knxml;

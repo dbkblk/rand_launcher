@@ -264,14 +264,11 @@
       </property>
      </widget>
      <addaction name="menuAddons_list"/>
-     <addaction name="actionInstall_addon"/>
-     <addaction name="actionGet_modules"/>
      <addaction name="separator"/>
      <addaction name="actionDetected"/>
     </widget>
     <addaction name="actionWebsite"/>
     <addaction name="actionForum"/>
-    <addaction name="actionBugreport"/>
     <addaction name="actionAbout_AND_Resurrection_team_forum"/>
     <addaction name="menuAddons"/>
    </widget>
@@ -282,6 +279,8 @@
     <addaction name="actionHelp_translate_the_mod"/>
     <addaction name="actionTranslate_the_civilopedia"/>
     <addaction name="actionTranslate_the_mod_help"/>
+    <addaction name="actionBugreport"/>
+    <addaction name="actionGive_us_feedback_forum"/>
    </widget>
    <widget class="QMenu" name="menuLanguage">
     <property name="title">
@@ -566,6 +565,11 @@
    </property>
    <property name="text">
     <string>Detected:</string>
+   </property>
+  </action>
+  <action name="actionGive_us_feedback_forum">
+   <property name="text">
+    <string>Give us feedback ! (forum)</string>
    </property>
   </action>
  </widget>

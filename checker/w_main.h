@@ -91,6 +91,8 @@ private slots:
     void populate_language_menu(QString code);
     void populate_mod_list();
 
+    void on_actionGive_us_feedback_forum_triggered();
+
 private:
     Ui::w_main *ui;
     w_options *options;
