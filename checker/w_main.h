@@ -4,6 +4,7 @@
 #include <w_options.h>
 #include <w_modules.h>
 #include <f_check.h>
+#include <f_mods.h>
 
 #include <QtCore>
 #include <QtNetwork>
@@ -93,11 +94,17 @@ private slots:
 
     void on_actionGive_us_feedback_forum_triggered();
 
+    void on_actionTranslate_the_website_triggered();
+
+    void on_actionTranslate_the_module_Mega_Civ_pack_triggered();
+
 private:
     Ui::w_main *ui;
     w_options *options;
     QThread *thread;
     f_check *worker;
+    QThread *inj_thread;
+    f_injection *inj_worker;
     QMessageBox askUpdate;
     QTranslator *translator;
     w_modules *modules;

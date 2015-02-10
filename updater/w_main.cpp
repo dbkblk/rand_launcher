@@ -48,7 +48,7 @@ w_main::~w_main()
 {
     //qDebug("Kill UI");
     worker->abort();
-    thread->wait();
+    thread->wait(1000);
     delete thread;
     delete worker;
     delete ui;

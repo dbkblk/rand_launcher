@@ -53,7 +53,6 @@ QStringList getModExtraFiles(QString modName){
         return list;
     }
     QStringList empty;
-    empty << "";
     return empty;
 }
 
@@ -117,9 +116,6 @@ void generateModsMLFFile(){
         //qDebug() << enabled_mods;
     }
 
-    // If there are enabled mods that are not default, inject audio xml
-    //preInjectXML();
-
     // Generate new file
     QDomDocument xml;
 
@@ -178,6 +174,50 @@ void generateModsMLFFile(){
     QTextStream ts(&save);
     xml.save(ts, 4);
     save.close();
+}
+
+f_injection::f_injection(QObject *parent) :
+    QObject(parent)
+{
+    _working =false;
+    _abort = false;
+}
+
+void f_injection::requestWork()
+{
+    mutex.lock();
+    _working = true;
+    _abort = false;
+    mutex.unlock();
+
+    emit workRequested();
+}
+
+void f_injection::abort()
+{
+    mutex.lock();
+    if (_working) {
+        _abort = true;
+    }
+    mutex.unlock();
+}
+
+void f_injection::start()
+{
+    // Wait 5s before to inject audio files
+    QEventLoop loop;
+    QTimer::singleShot(5000, &loop, SLOT(quit()));
+    loop.exec();
+
+    qDebug("Starting Audio XML mod injection.");
+    preInjectXML();
+
+    // Set _working to false, meaning the process can't be aborted anymore.
+    mutex.lock();
+    _working = false;
+    mutex.unlock();
+
+    qDebug("Audio XML mod injection done.");
 }
 
 // Civ4_audio_xml_injector code v1.0
@@ -265,7 +305,6 @@ bool injectXml(QString defaultFile, QStringList fileList, QString fileSuffix){
         // Check if tag exists in the base file
         audio_tag_list << audio_tag.firstChildElement(id_tag).firstChild().nodeValue();
     }
-    int initial = audio_tag_list.count();
 
     // List all files with the right suffix
     int total_new = 0;
@@ -312,27 +351,15 @@ bool injectXml(QString defaultFile, QStringList fileList, QString fileSuffix){
         }
     }
 
-    // DEBUG
-    /*
-    QDomElement debug;
-    int i = 0;
-    if(fileSuffix == "AudioDefines.xml"){
-        debug = audio.firstChildElement(root_tag).firstChildElement("SoundDatas").firstChildElement(start_tag).toElement();
-    }
-    else{
-        debug = audio.firstChildElement(root_tag).firstChildElement(start_tag).toElement();
-    }
-    for(;!debug.isNull();debug = debug.nextSiblingElement()){
-        i++;
-    }
-    qDebug() << "Old:" << initial << "New:" << i << "Injected" << total_new << "tags.";
-    */
-
     // Save the file
-    audio_file.remove();
-    audio_file.open(QIODevice::Truncate | QIODevice::WriteOnly);
-    audio_file.write(audio.toByteArray());
-    audio_file.close();
+    if(total_new > 0){
+        audio_file.remove();
+        audio_file.open(QIODevice::Truncate | QIODevice::WriteOnly);
+        QTextStream ts(&audio_file);
+        audio.save(ts, 4);
+        audio_file.close();
+        return true;
+    }
     return false;
 }
 
@@ -357,6 +384,4 @@ void preInjectXML()
     injectXml("Assets/XML/Audio/Audio3DScripts.xml",file_list,"Audio3DScripts.xml");
     injectXml("Assets/XML/Audio/AudioDefines.xml",file_list,"AudioDefines.xml");
     injectXml("Assets/XML/Audio/AudioSoundscapeScripts.xml",file_list,"AudioSoundscapeScripts.xml");
-
-    // Wait for input
 }

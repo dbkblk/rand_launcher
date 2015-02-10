@@ -66,7 +66,11 @@ w_main::w_main(QWidget *parent) :
     ui->actionAddon_More_music_forum->setIcon(QIcon("checker/icons/music.png"));
     ui->actionHelp_translate_the_mod->setIcon(QIcon("checker/icons/translate.png"));
     ui->actionTranslate_the_civilopedia->setIcon(QIcon("checker/icons/translate.png"));
+    ui->actionTranslate_the_module_Mega_Civ_pack->setIcon(QIcon("checker/icons/translate.png"));
+    ui->actionTranslate_the_website->setIcon(QIcon("checker/icons/translate.png"));
     ui->actionTranslate_the_mod_help->setIcon(QIcon("checker/icons/help.png"));
+    ui->menuTranslation->setIcon(QIcon("checker/icons/transl.png"));
+    ui->actionGive_us_feedback_forum->setIcon(QIcon("checker/icons/feed.png"));
     ui->actionWebsite->setIcon(QIcon("checker/icons/blue_marble.png"));
     ui->menuAddons->setIcon(QIcon("checker/icons/addons.png"));
     ui->menuFix_installation->setIcon(QIcon("checker/icons/fix.png"));
@@ -108,16 +112,30 @@ w_main::w_main(QWidget *parent) :
     clear_language_state();
     populate_language_menu(loc);
 
+    // Inject audio xml silently in background in non-default modules have been detected (TODO: to improve)
+    inj_thread = new QThread();
+    inj_worker = new f_injection();
+    inj_worker->moveToThread(inj_thread);
+    connect(inj_worker, SIGNAL(workRequested()), inj_thread, SLOT(start()));
+    connect(inj_thread, SIGNAL(started()), inj_worker, SLOT(start()));
+    inj_worker->abort();
+    inj_thread->wait(); // If the thread is not running, this will immediately return.
+    inj_worker->requestWork();
 }
 
 w_main::~w_main()
 {
     // Abort threads and close the ui
+    qDebug("Exiting the launcher");
     worker->abort();
-    thread->wait();
+    thread->wait(5000);
+    inj_worker->abort();
+    inj_thread->wait(1000);
     qDebug() << "Deleting thread and worker in Thread " << this->QObject::thread()->currentThreadId();
     delete thread;
     delete worker;
+    delete inj_thread;
+    delete inj_worker;
     delete ui;
 }
 
@@ -160,37 +178,37 @@ void w_main::openURL(QString url){
 
 void w_main::on_actionWebsite_triggered()
 {
-    QDesktopServices::openUrl(QUrl("http://anewdawn.sf.net"));
+    openURL("http://anewdawn.sf.net");
 }
 
 void w_main::on_actionForum_triggered()
 {
-    QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/forumdisplay.php?f=369"));
+    openURL("http://forums.civfanatics.com/forumdisplay.php?f=369");
 }
 
 void w_main::on_actionAddon_Mega_Civ_Pack_triggered()
 {
-    QDesktopServices::openUrl(QUrl("https://github.com/dbkblk/civ4_and2_civmegapack"));
+    openURL("https://github.com/dbkblk/civ4_and2_civmegapack");
 }
 
 void w_main::on_actionBugreport_triggered()
 {
-    QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=474185"));
+    openURL("http://forums.civfanatics.com/showthread.php?t=474185");
 }
 
 void w_main::on_actionAbout_AND_Resurrection_team_forum_triggered()
 {
-    QDesktopServices::openUrl(QUrl("http://anewdawn.sf.net/pages/credits/"));
+    openURL("http://anewdawn.sf.net/pages/credits/");
 }
 
 void w_main::on_actionAddon_More_music_forum_triggered()
 {
-    QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=523763"));
+    openURL("http://forums.civfanatics.com/showthread.php?t=523763");
 }
 
 void w_main::on_actionGive_us_feedback_forum_triggered()
 {
-    QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/forumdisplay.php?f=369"));
+    openURL("http://forums.civfanatics.com/forumdisplay.php?f=369");
 }
 
 
@@ -206,17 +224,17 @@ void w_main::on_actionOpen_mod_folder_triggered()
 
 void w_main::on_actionHelp_translate_the_mod_triggered()
 {
-    QDesktopServices::openUrl(QUrl("https://www.transifex.com/projects/p/and-main-mod/"));
+    openURL("https://www.transifex.com/projects/p/and-main-mod/");
 }
 
 void w_main::on_actionTranslate_the_civilopedia_triggered()
 {
-    QDesktopServices::openUrl(QUrl("https://www.transifex.com/projects/p/and-civilopedia-strings/"));
+    openURL("https://www.transifex.com/projects/p/and-civilopedia-strings/");
 }
 
 void w_main::on_actionTranslate_the_mod_help_triggered()
 {
-    QDesktopServices::openUrl(QUrl("http://forums.civfanatics.com/showthread.php?t=526671"));
+    openURL("http://forums.civfanatics.com/showthread.php?t=526671");
 }
 
 
@@ -524,4 +542,14 @@ void w_main::on_actionReset_triggered()
 void w_main::stopLauncher(){
     qDebug("Closing UI");
     this->close();
+}
+
+void w_main::on_actionTranslate_the_website_triggered()
+{
+    openURL("https://www.transifex.com/projects/p/and-website/");
+}
+
+void w_main::on_actionTranslate_the_module_Mega_Civ_pack_triggered()
+{
+    openURL("https://www.transifex.com/projects/p/and-modules/");
 }
