@@ -116,6 +116,7 @@ void w_options::on_bt_customColor_clicked()
     setColorCustomDefinition(color_set);
     setColorSet(color_set);
     setCheckerParam("Modules/ColorUICustom",color_set.join(","));
+    ui->colorBox->setCurrentIndex(getColorNumberFromSet(color_set));
 }
 
 void w_options::on_startBox_toggled(bool checked)
