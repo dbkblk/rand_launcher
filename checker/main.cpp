@@ -89,9 +89,24 @@ int main(int argc, char *argv[])
         qDebug() << "Inject formation setting to xml";
         setOptionFormations(true);
     }
-    if(getColorSet() != getColorSetFromName(readCheckerParam("Modules/ColorUI"))){
-        qDebug() << "Inject color UI setting to xml";
-        setColorSet(getColorSetFromName(readCheckerParam("Modules/ColorUI")));
+    // Check color set is conform to the saved parameter
+    if(readCheckerParam("Modules/ColorUI") == "Custom"){
+        QString color = readCheckerParam("Modules/ColorUICustom");
+        QStringList color_set = color.replace("\"","").split(",");
+        if(getColorSetFromName("Custom") != color_set){
+            qDebug() << "Inject custom color definition";
+            setColorCustomDefinition(color_set);
+        }
+        if(getColorSet() != color_set){
+            qDebug() << "Inject custom color UI to xml";
+            setColorSet(color_set);
+        }
+    }
+    else{
+        if(getColorSet() != getColorSetFromName(readCheckerParam("Modules/ColorUI"))){
+            qDebug() << "Inject color UI to xml";
+            setColorSet(getColorSetFromName(readCheckerParam("Modules/ColorUI")));
+        }
     }
 
     // Create exclusions.default.xml if not exist

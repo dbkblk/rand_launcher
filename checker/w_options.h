@@ -30,6 +30,8 @@ private slots:
     void on_dd_textures_currentIndexChanged(int index);
     void populateColorBox();
 
+    void on_bt_customColor_clicked();
+
 private:
     QCheckBox *startBox;
     QCheckBox *checkerBox;

@@ -209,7 +209,7 @@ int getColorNumberFromSet(QStringList color_set){
             QStringList temp;
             temp << color.attribute("r") << color.attribute("g") << color.attribute("b") << color.attribute("a");
             if (temp == color_set){
-                qDebug() << "getColorNumberFromSet()" << color_set << i;
+                //qDebug() << "getColorNumberFromSet()" << color_set << i;
                 return i;
             }
             i++;
@@ -249,6 +249,37 @@ void setColorSet(QStringList color_set)
     file_out.close();
     file.remove();
     file_out.rename("Assets/Modules/Interface/Resource/Themes/Civ4/Civ4Theme_Common.thm");
+}
+
+bool setColorCustomDefinition(QStringList color_set){
+    // Open color definition file
+    QFile definition("Assets/Modules/Interface/colorSets.xml");
+    QDomDocument xml;
+
+    if(definition.open(QIODevice::ReadOnly | QIODevice::Text)){
+        xml.setContent(&definition);
+        definition.close();
+        QDomElement color = xml.firstChildElement("root").firstChildElement("color").toElement();
+        for(;!color.isNull();color = color.nextSiblingElement()){
+                if (color.firstChild().nodeValue() == "Custom"){
+                    color.setAttribute("r", color_set[0]);
+                    color.setAttribute("g", color_set[1]);
+                    color.setAttribute("b", color_set[2]);
+                    color.setAttribute("a", color_set[3]);
+            }
+        }
+    }
+
+    // Save file
+    definition.remove();
+    if(definition.open(QIODevice::Truncate | QIODevice::WriteOnly)){
+        QTextStream ts(&definition);
+        xml.save(ts, 4);
+        definition.close();
+        return true;
+    }
+
+    return false;
 }
 
 void launchGame(){

@@ -14,10 +14,13 @@ w_options::w_options(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::w_options)
 {
-    ui->setupUi(this);
-
     int init;
     init = 0;
+
+    ui->setupUi(this);
+
+    // Set custom color button
+    ui->bt_customColor->setIcon(QIcon("checker/icons/cust.png"));
 
     // Generate color box
     populateColorBox();
@@ -42,7 +45,7 @@ w_options::w_options(QWidget *parent) :
     }
 
     // Set default opt_text_path
-    qDebug() << "Check reading : " << readCheckerParam("Main/ExecutablePath");
+    qDebug() << "Executable path: " << readCheckerParam("Main/ExecutablePath");
     if(readCheckerParam("Main/ExecutablePath") == "error")
     {
         ui->opt_text_path->setText(tr("No path specified"));
@@ -91,13 +94,28 @@ void w_options::populateColorBox()
 
 void w_options::on_colorBox_currentIndexChanged(int index)
 {
-    qDebug() << "Index value:" << init;
+    //qDebug() << "Index value:" << init;
     if(init == 1){
         QStringList color_set = getColorSetFromNumber(index);
+        QString color_name = getColorName(color_set);
         setColorSet(color_set);
-        setCheckerParam("Modules/ColorUI",getColorName(color_set));
+        setCheckerParam("Modules/ColorUI",color_name);
     }
     init = 1;
+}
+
+void w_options::on_bt_customColor_clicked()
+{
+    // Get color values
+    QStringList color_set = getColorSetFromName("Custom");
+    QColor custom = QColorDialog::getColor(QColor(color_set[0].toInt(),color_set[1].toInt(),color_set[2].toInt(),color_set[3].toInt()), this, "Pick a custom color",QColorDialog::ShowAlphaChannel);
+
+    // Save custom color
+    color_set.clear();
+    color_set << QString::number(custom.red()) << QString::number(custom.green()) << QString::number(custom.blue()) << QString::number(custom.alpha());
+    setColorCustomDefinition(color_set);
+    setColorSet(color_set);
+    setCheckerParam("Modules/ColorUICustom",color_set.join(","));
 }
 
 void w_options::on_startBox_toggled(bool checked)
@@ -219,3 +237,5 @@ void w_options::on_dd_textures_currentIndexChanged(int index)
         }
     }
 }
+
+

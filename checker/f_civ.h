@@ -17,6 +17,7 @@ QStringList getColorSetFromNumber(int number);
 QStringList getColorSetFromName(QString color_name);
 int getColorNumberFromSet(QStringList color_set);
 void setColorSet(QStringList color_set);
+bool setColorCustomDefinition(QStringList color_set);
 const char* readXML(const char* file, const char* tag);
 bool writeXML(const char* file, const char* tag, const char* newValue);
 void launchGame();
