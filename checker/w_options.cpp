@@ -8,6 +8,7 @@
 #include <QtNetwork>
 #include <QtGui>
 #include <QtWidgets>
+#include <QtXml>
 
 w_options::w_options(QWidget *parent) :
     QMainWindow(parent),
@@ -15,11 +16,11 @@ w_options::w_options(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Set the detected color
-    int color = readColorsCounter();
-    //qDebug() << color;
-    ui->colorBox->setCurrentIndex(color);
-    setCheckerParam("Modules/ColorUI",QString::number(color));
+    int init;
+    init = 0;
+
+    // Generate color box
+    populateColorBox();
 
     // Check default states
     int terrain = QString(readCheckerParam("Modules/Terrain")).toInt();
@@ -56,11 +57,47 @@ w_options::~w_options()
     delete ui;
 }
 
+void w_options::populateColorBox()
+{
+    // Open color definition file
+    QFile definition("Assets/Modules/Interface/colorSets.xml");
+    QDomDocument xml;
+    if(definition.open(QIODevice::ReadOnly | QIODevice::Text)){
+        xml.setContent(&definition);
+        definition.close();
+        QDomElement color = xml.firstChildElement("root").firstChildElement("color").toElement();
+        for(;!color.isNull();color = color.nextSiblingElement()){
+            // Add color to the color box
+            QString result = color.firstChild().nodeValue();
+
+            // Rename to known translations
+            if(result == "Default"){ui->colorBox->addItem(tr("Dark blue (Default)"));}
+            else if(result == "Black"){ui->colorBox->addItem(tr("Black"));}
+            else if(result == "Cerulean"){ui->colorBox->addItem(tr("Cerulean"));}
+            else if(result == "Coal"){ui->colorBox->addItem(tr("Coal"));}
+            else if(result == "Dark Red"){ui->colorBox->addItem(tr("Dark red"));}
+            else if(result == "Forest"){ui->colorBox->addItem(tr("Forest"));}
+            else if(result == "Purple"){ui->colorBox->addItem(tr("Purple"));}
+            else if(result == "Red"){ui->colorBox->addItem(tr("Red"));}
+            else if(result == "Silver"){ui->colorBox->addItem(tr("Silver"));}
+            else if(result == "Custom"){ui->colorBox->addItem(tr("Custom"));}
+            else {ui->colorBox->addItem(result);}
+        }
+    }
+
+    // Set the color box index
+    ui->colorBox->setCurrentIndex(getColorNumberFromSet(getColorSetFromName(readCheckerParam("Modules/ColorUI"))));
+}
+
 void w_options::on_colorBox_currentIndexChanged(int index)
 {
-    if(index==-1){return;};
-    setCheckerParam("Modules/ColorUI",QString::number(index));
-    setColors(index);
+    qDebug() << "Index value:" << init;
+    if(init == 1){
+        QStringList color_set = getColorSetFromNumber(index);
+        setColorSet(color_set);
+        setCheckerParam("Modules/ColorUI",getColorName(color_set));
+    }
+    init = 1;
 }
 
 void w_options::on_startBox_toggled(bool checked)

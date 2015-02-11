@@ -157,51 +157,9 @@
           <height>25</height>
          </size>
         </property>
-        <item>
-         <property name="text">
-          <string>Dark blue (default)</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Black</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Coal</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Dark red</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Forest</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Purple</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Red</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Silver</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Cerulean</string>
-         </property>
-        </item>
+        <property name="currentText">
+         <string notr="true"/>
+        </property>
        </widget>
       </item>
      </layout>

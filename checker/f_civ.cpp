@@ -96,121 +96,159 @@ bool setCheckerParam(QString param, QString newValue)
     return 0;
 }
 
-int readColorsCounter()
+QStringList getColorSet()
 {
-    // Open the file
-    QDomDocument read;
-    QFile file("Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml");
-    if(!file.open(QIODevice::ReadOnly))
-     {
-         qDebug() << "Error opening Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml";
-         return 0;
-     }
-    read.setContent(&file);
-
-    // Go to color level
-    QDomElement value_el = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
-
-    // Loop
-    int counter = 0;
-    for(;; value_el=value_el.nextSiblingElement() ) {
-
-        QString bLoad = value_el.firstChildElement("bLoad").text();
-
-        if (bLoad == "1") {
-            //qDebug() << "Counter is " << counter;
-            file.close();
-            return counter;
-        }
-        if (counter == 7)
+    // Open theme file
+    QFile file("Assets/Modules/Interface/Resource/Themes/Civ4/Civ4Theme_Common.thm");
+    QStringList result;
+    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream ts(&file);
+        while(!ts.atEnd())
         {
-            file.close();
-            return 0;
+            QString line = ts.readLine();
+            if(line.contains("GColor\t.BG"))
+            {
+                QStringList list = line.replace("(","~").replace(")","~").replace(",","~").split("~");
+                result << list[1].trimmed();
+                result << list[2].trimmed();
+                result << list[3].trimmed();
+                result << list[4].trimmed();
+                //qDebug() << "Color found" << result;
+            }
         }
-        counter++;
+        file.close();
     }
-    file.close();
-    return 99;
+
+    //qDebug() << "getColorSet()" << result;
+
+    return result;
 }
 
-bool setColors(int index)
+QStringList getColorSetFromName(QString color_name){
+    // Open color definition file
+    QFile definition("Assets/Modules/Interface/colorSets.xml");
+    QDomDocument xml;
+    QStringList result;
+    if(definition.open(QIODevice::ReadOnly | QIODevice::Text)){
+        xml.setContent(&definition);
+        definition.close();
+        QDomElement color = xml.firstChildElement("root").firstChildElement("color").toElement();
+        for(;!color.isNull();color = color.nextSiblingElement()){
+            if(color.firstChild().nodeValue() == color_name){
+                result << color.attribute("r") << color.attribute("g") << color.attribute("b") << color.attribute("a");
+            }
+        }
+    }
+    if(result.isEmpty()){
+        // If name is unknown, set default
+        result << "69" << "93" << "156" << "217";
+        setCheckerParam("Modules/ColorUI", "Default");
+    }
+
+    //qDebug() << "getColorSetFromName()" << color_name << result;
+    return result;
+}
+
+QString getColorName(QStringList color_set){
+    // Open color definition file
+    QFile definition("Assets/Modules/Interface/colorSets.xml");
+    QDomDocument xml;
+    QString result = "Custom";
+    if(definition.open(QIODevice::ReadOnly | QIODevice::Text)){
+        xml.setContent(&definition);
+        definition.close();
+        QDomElement color = xml.firstChildElement("root").firstChildElement("color").toElement();
+        for(;!color.isNull();color = color.nextSiblingElement()){
+            QStringList temp;
+            temp << color.attribute("r") << color.attribute("g") << color.attribute("b") << color.attribute("a");
+            if(temp.join(",") == color_set.join(",")){
+                result = color.firstChild().nodeValue();
+            }
+        }
+    }
+
+    //qDebug() << "getColorName()" << color_set << result;
+
+return result;
+}
+
+QStringList getColorSetFromNumber(int number){
+    // Open color definition file
+    QFile definition("Assets/Modules/Interface/colorSets.xml");
+    QDomDocument xml;
+    int i = 0;
+    if(definition.open(QIODevice::ReadOnly | QIODevice::Text)){
+        xml.setContent(&definition);
+        definition.close();
+        QDomElement color = xml.firstChildElement("root").firstChildElement("color").toElement();
+        for(;!color.isNull();color = color.nextSiblingElement()){
+            if(i == number){
+                QStringList temp;
+                temp << color.attribute("r") << color.attribute("g") << color.attribute("b") << color.attribute("a");
+                //qDebug() << "getColorSetFromNumber()" << i << temp;
+                return temp;
+            }
+            i++;
+        }
+    }
+    //qDebug() << "getColorSetFromNumber()" << "Empty";
+    QStringList empty;
+    return empty;
+}
+
+int getColorNumberFromSet(QStringList color_set){
+    // Open color definition file
+    QFile definition("Assets/Modules/Interface/colorSets.xml");
+    QDomDocument xml;
+    int i = 0;
+    if(definition.open(QIODevice::ReadOnly | QIODevice::Text)){
+        xml.setContent(&definition);
+        definition.close();
+        QDomElement color = xml.firstChildElement("root").firstChildElement("color").toElement();
+        for(;!color.isNull();color = color.nextSiblingElement()){
+            QStringList temp;
+            temp << color.attribute("r") << color.attribute("g") << color.attribute("b") << color.attribute("a");
+            if (temp == color_set){
+                qDebug() << "getColorNumberFromSet()" << color_set << i;
+                return i;
+            }
+            i++;
+        }
+    }
+
+    //qDebug() << "getColorNumberFromSet()" << "0";
+
+    return 0;
+}
+
+
+void setColorSet(QStringList color_set)
 {
-    // Convert the index into a string
-    QString colorUI;
-    switch (index)
-    {
-    case 0:
-       colorUI = "Default UI";
-       break;
-
-    case 1:
-       colorUI = "Black UI";
-       break;
-
-    case 2:
-       colorUI = "Coal UI";
-       break;
-
-    case 3:
-       colorUI = "Dark Red UI";
-       break;
-
-    case 4:
-       colorUI = "Forest UI";
-       break;
-
-    case 5:
-       colorUI = "Purple UI";
-       break;
-
-    case 6:
-       colorUI = "Red UI";
-       break;
-
-    case 7:
-       colorUI = "Silver UI";
-       break;
-
-    case 8:
-       colorUI = "Cerulean UI";
-       break;
+    qDebug() << "Interface color set to" << color_set;
+    // Open theme file
+    QFile file("Assets/Modules/Interface/Resource/Themes/Civ4/Civ4Theme_Common.thm");
+    QFile file_out("Assets/Modules/Interface/Resource/Themes/Civ4/Civ4Theme_Common.thm_temp");
+    file_out.open(QIODevice::WriteOnly | QIODevice::Truncate);
+    QTextStream ts_out(&file_out);
+    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream ts(&file);
+        while(!ts.atEnd())
+        {
+            QString line = ts.readLine();
+            if(line.contains("GColor\t.BG"))
+            {
+                line = "\t\t\t\tGColor\t.BG\t\t\t\t\t\t\t=\tGColor( " + color_set[0] + ", " + color_set[1] + ", " + color_set[2] + ", " + color_set[3] + ")\t\t:\tGFC_Control_Color;\t//Set for dynamic color change";
+            }
+            ts_out << line << "\n";
+        }
+        file.close();
     }
 
-    // Open the file
-    QDomDocument read;
-    QFile file("Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml");
-    if(!file.open(QIODevice::ReadOnly))
-     {
-         qDebug() << "Error opening Assets/Modules/Interface Colors/MLF_CIV4ModularLoadingControls.xml";
-         return 0;
-     }
-    read.setContent(&file);
-    file.close();
-
-    // Go to color level
-    QDomElement color_element = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
-
-    // Reset all values
-    for(color_element ; !color_element.isNull(); color_element=color_element.nextSiblingElement() ) {
-        color_element.firstChildElement("bLoad").firstChild().setNodeValue("0");
-        }
-
-    color_element = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
-
-    for(color_element ; !color_element.isNull(); color_element=color_element.nextSiblingElement() ) {
-        QString txtValue = color_element.firstChildElement("Directory").firstChild().nodeValue();
-        if (txtValue == colorUI) {
-            color_element.firstChildElement("bLoad").firstChild().setNodeValue("1");
-        }
-    }
 
     // Save content back to the file
-    if (!file.open(QIODevice::Truncate | QIODevice::WriteOnly)) {
-        return 0;
-    }
-    file.write(read.toByteArray());
-    file.close();
-    return 0;
+    file_out.close();
+    file.remove();
+    file_out.rename("Assets/Modules/Interface/Resource/Themes/Civ4/Civ4Theme_Common.thm");
 }
 
 void launchGame(){

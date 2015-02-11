@@ -89,14 +89,9 @@ int main(int argc, char *argv[])
         qDebug() << "Inject formation setting to xml";
         setOptionFormations(true);
     }
-    int color_xml = readColorsCounter();
-    int color_saved = readCheckerParam("Modules/ColorUI").toInt();
-    if(color_xml != color_saved){
+    if(getColorSet() != getColorSetFromName(readCheckerParam("Modules/ColorUI"))){
         qDebug() << "Inject color UI setting to xml";
-        setColors(color_saved);
-    }
-    if(color_saved == 0){
-        setColors(color_saved);
+        setColorSet(getColorSetFromName(readCheckerParam("Modules/ColorUI")));
     }
 
     // Create exclusions.default.xml if not exist

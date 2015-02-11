@@ -28,6 +28,7 @@ private slots:
     void on_opt_checkbox_formations_toggled(bool checked);
     void on_bt_exclusions_clicked();
     void on_dd_textures_currentIndexChanged(int index);
+    void populateColorBox();
 
 private:
     QCheckBox *startBox;
@@ -35,6 +36,7 @@ private:
     QLineEdit *opt_text_path;
     Ui::w_options *ui;
     w_exclusion *exclusion;
+    int init;
 };
 
 #endif // OPTIONBOX_H
