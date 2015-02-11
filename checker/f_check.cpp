@@ -69,7 +69,7 @@ void f_check::CheckForUpdate()
         else {
             update = false;
         }
-        qDebug() << "New version available :" << update;
+        //qDebug() << "New version available :" << update;
 
     }
 

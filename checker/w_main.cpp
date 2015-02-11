@@ -62,8 +62,6 @@ w_main::w_main(QWidget *parent) :
     ui->actionForum->setIcon(QIcon("checker/icons/forum.png"));
     ui->actionBugreport->setIcon(QIcon("checker/icons/bugs.png"));
     ui->actionAbout_AND_Resurrection_team_forum->setIcon(QIcon("checker/icons/about.png"));
-    ui->actionAddon_Mega_Civ_Pack->setIcon(QIcon("checker/icons/mcp.png"));
-    ui->actionAddon_More_music_forum->setIcon(QIcon("checker/icons/music.png"));
     ui->actionHelp_translate_the_mod->setIcon(QIcon("checker/icons/translate.png"));
     ui->actionTranslate_the_civilopedia->setIcon(QIcon("checker/icons/translate.png"));
     ui->actionTranslate_the_module_Mega_Civ_pack->setIcon(QIcon("checker/icons/translate.png"));
@@ -74,7 +72,6 @@ w_main::w_main(QWidget *parent) :
     ui->actionWebsite->setIcon(QIcon("checker/icons/blue_marble.png"));
     ui->menuAddons->setIcon(QIcon("checker/icons/addons.png"));
     ui->menuFix_installation->setIcon(QIcon("checker/icons/fix.png"));
-    ui->actionClean_up->setIcon(QIcon("checker/icons/clean.png"));
     ui->actionClear_cache->setIcon(QIcon("checker/icons/clear.png"));
     ui->actionReset->setIcon(QIcon("checker/icons/reset.png"));
 
@@ -366,6 +363,7 @@ void w_main::populate_language_menu(QString code)
 void w_main::populate_mod_list(){
     // Check knownModules list
     QSignalMapper* signalMapper = new QSignalMapper (this);
+    QSignalMapper* modMapper = new QSignalMapper (this);
     QFile known("Assets/Modules/knownModules.xml");
     if(known.open(QIODevice::ReadOnly))
     {
@@ -378,7 +376,7 @@ void w_main::populate_mod_list(){
             QString url = element.firstChildElement("url").firstChild().nodeValue();
 
             // Create menu entry and map signal action
-            QAction *act = ui->menuAddons_list->addAction(QIcon(element.firstChildElement("icon").firstChild().nodeValue()), element.firstChildElement("name").firstChild().nodeValue());
+            QAction *act = ui->menuAddons_list->addAction(QIcon(element.firstChildElement("icon").firstChild().nodeValue()), name);
             connect(act, SIGNAL(triggered()), signalMapper, SLOT(map()));
             signalMapper->setMapping(act,url);
         }
@@ -388,7 +386,7 @@ void w_main::populate_mod_list(){
     // List mods folders
     QStringList mod_list = listModFolders();
 
-    // Add entry
+    // Add entry for each detected mod
     foreach(QString entry, mod_list){
         // Get mod name and version
         QString name;
@@ -409,12 +407,38 @@ void w_main::populate_mod_list(){
 
         QString modInfo = name + ", " + version;
 
-        qDebug() << "Mod detected:" << modInfo;
+        // Map signals and action to be able to enable/disable mods
+        bool status = getModActivationStatus(entry);
+        qDebug() << "Mod detected:" << modInfo << ", status:" << status;
         QAction *act = ui->menuAddons->addAction(modInfo);
-        act->setEnabled(false);
+        action_mod[act] = entry;
+        connect(act, SIGNAL(triggered()), modMapper, SLOT(map()));
+        modMapper->setMapping(act,entry);
+
+        // Set initial icons
+        if(status){
+            act->setIcon(QIcon("checker/icons/enabled.png"));
+        }
+        else{
+            act->setIcon(QIcon("checker/icons/disabled.png"));
+        }
     }
+    connect(modMapper, SIGNAL(mapped(QString)), this, SLOT(setModStatus(QString)));
+}
 
-
+void w_main::setModStatus(QString mod_name){
+    QAction *mod_action = action_mod.key(mod_name);
+    bool current = getModActivationStatus(mod_name);
+    if(current){
+        setModActivationStatus(mod_name, false);
+        mod_action->setIcon(QIcon("checker/icons/disabled.png"));
+        qDebug() << "Mod" << mod_name << "set to false";
+    }
+    else{
+        setModActivationStatus(mod_name,true);
+        mod_action->setIcon(QIcon("checker/icons/enabled.png"));
+        qDebug() << "Mod" << mod_name << "set to true";
+    }
 }
 
 void w_main::on_language_en_triggered()

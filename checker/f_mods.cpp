@@ -56,6 +56,57 @@ QStringList getModExtraFiles(QString modName){
     return empty;
 }
 
+bool getModActivationStatus(QString mod_name){
+    // Open mod definition file
+    QFile file("Assets/Modules/MLF_CIV4ModularLoadingControls.xml");
+    bool status = false;
+    if(file.open(QIODevice::ReadOnly)){
+        QDomDocument xml;
+        xml.setContent(&file);
+        file.close();
+
+        // List enabled modules
+        QDomElement module = xml.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
+        for(;!module.isNull();module = module.nextSiblingElement()){
+            if(module.firstChildElement("Directory").firstChild().nodeValue() == mod_name){
+                QString status_str = module.firstChildElement("bLoad").firstChild().nodeValue();
+                if(status_str == "1"){
+                    status = true;
+                }
+            }
+        }
+    }
+    return status;
+}
+
+void setModActivationStatus(QString mod_name, bool status){
+    // Open mod definition file
+    QFile file("Assets/Modules/MLF_CIV4ModularLoadingControls.xml");
+    if(file.open(QIODevice::ReadOnly)){
+        QDomDocument xml;
+        xml.setContent(&file);
+        file.close();
+
+        QString value = "0";
+        if(status){ value = "1";}
+
+        // List enabled modules
+        QDomElement module = xml.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
+        for(;!module.isNull();module = module.nextSiblingElement()){
+            if(module.firstChildElement("Directory").firstChild().nodeValue() == mod_name){
+                module.firstChildElement("bLoad").firstChild().setNodeValue(value);
+            }
+        }
+
+        // Save exclusion file
+        file.remove();
+        file.open(QIODevice::Truncate | QIODevice::WriteOnly);
+        QTextStream ts(&file);
+        xml.save(ts, 4);
+        file.close();
+    }
+}
+
 void generateModsExclusion(){
     // Regenerate exclusion file
     QFile exclusion("checker/exclusions.mods.xml");

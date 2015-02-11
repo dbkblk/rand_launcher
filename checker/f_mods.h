@@ -5,6 +5,8 @@
 QStringList listDefaultModFolders();
 QStringList listModFolders();
 QStringList getModExtraFiles(QString modName);
+bool getModActivationStatus(QString mod_name);
+void setModActivationStatus(QString mod_name, bool status);
 void generateModsExclusion();
 void generateModsMLFFile();
 

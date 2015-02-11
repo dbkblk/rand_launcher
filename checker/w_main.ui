@@ -326,11 +326,6 @@
     <string>Forum</string>
    </property>
   </action>
-  <action name="actionAddon_Mega_Civ_Pack">
-   <property name="text">
-    <string>Mega Civ. pack</string>
-   </property>
-  </action>
   <action name="actionBugreport">
    <property name="text">
     <string>Report a bug (forum)</string>
@@ -344,27 +339,9 @@
     <string>About AND Resurrection team (forum)</string>
    </property>
   </action>
-  <action name="actionAddon_More_music_forum">
-   <property name="text">
-    <string>More music / Dinosaurs (forum)</string>
-   </property>
-   <property name="toolTip">
-    <string>More music / Dinosaurs (forum)</string>
-   </property>
-  </action>
   <action name="actionOpen_mod_folder">
    <property name="text">
     <string>Open mod folder</string>
-   </property>
-  </action>
-  <action name="actionGit_Pack_binaries">
-   <property name="text">
-    <string>Git: Create binary pack</string>
-   </property>
-  </action>
-  <action name="actionGit_Create_update_binary_pack">
-   <property name="text">
-    <string>Git: Create update binary pack</string>
    </property>
   </action>
   <action name="actionHelp_translate_the_mod">
@@ -375,11 +352,6 @@
   <action name="actionTranslate_the_mod_help">
    <property name="text">
     <string>Help for translation (forum)</string>
-   </property>
-  </action>
-  <action name="actionTranslate_the_launcher">
-   <property name="text">
-    <string>Translate the launcher</string>
    </property>
   </action>
   <action name="language_en">
@@ -402,14 +374,6 @@
    </property>
    <property name="text">
     <string>French</string>
-   </property>
-  </action>
-  <action name="language_si">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Sinhala</string>
    </property>
   </action>
   <action name="language_hu">
@@ -468,29 +432,9 @@
     <string>Russian</string>
    </property>
   </action>
-  <action name="actionClean_up">
-   <property name="text">
-    <string>Restore default state</string>
-   </property>
-  </action>
-  <action name="actionRevert_to_an_older_revision">
-   <property name="text">
-    <string>Revert to an older revision...</string>
-   </property>
-  </action>
-  <action name="actionAddon_Blue_marble">
-   <property name="text">
-    <string>Addon &quot;Blue marble&quot;</string>
-   </property>
-  </action>
   <action name="actionClear_cache">
    <property name="text">
     <string>Clear cache</string>
-   </property>
-  </action>
-  <action name="actionEnter_SVN_command">
-   <property name="text">
-    <string>Enter SVN command</string>
    </property>
   </action>
   <action name="actionReset">
@@ -540,39 +484,12 @@
     <string>Turkish</string>
    </property>
   </action>
-  <action name="actionInstall_addon">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="text">
-    <string>Install / update module</string>
-   </property>
-  </action>
-  <action name="actionGet_modules">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="text">
-    <string>Remove module</string>
-   </property>
-  </action>
-  <action name="action">
-   <property name="text">
-    <string notr="true">--------</string>
-   </property>
-   <property name="iconText">
-    <string notr="true">--------</string>
-   </property>
-   <property name="toolTip">
-    <string notr="true">--------</string>
-   </property>
-  </action>
   <action name="actionDetected">
    <property name="enabled">
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Detected:</string>
+    <string>Activation status:</string>
    </property>
   </action>
   <action name="actionGive_us_feedback_forum">

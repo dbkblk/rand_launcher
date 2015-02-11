@@ -91,6 +91,7 @@ private slots:
     void language_select(QString langCode);
     void populate_language_menu(QString code);
     void populate_mod_list();
+    void setModStatus(QString mod_name);
 
     void on_actionGive_us_feedback_forum_triggered();
 
@@ -101,6 +102,7 @@ private slots:
 private:
     Ui::w_main *ui;
     w_options *options;
+    QMap<QAction *, QString> action_mod;
     QThread *thread;
     f_check *worker;
     QThread *inj_thread;
