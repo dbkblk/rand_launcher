@@ -209,7 +209,7 @@ QString getLanguageRecommendedFont(QString code){
 }
 
 QString getLanguageCurrentFont(QString code){
-    QFile file("Assets/Modules/Interface Colors/Black UI/Resource/Themes/Civ4/Civ4Theme_Common.thm"); // Change for each color UI file.
+    QFile file("Assets/Modules/Interface/Resource/Themes/Civ4/Civ4Theme_Common.thm"); // Change for each color UI file.
     QString value = "GFont	.Size0_Normal";
 
     // Read the file
@@ -230,52 +230,46 @@ QString getLanguageCurrentFont(QString code){
 }
 
 void setLanguageFont(QString font){
-    // List all interface common theme files
-    QStringList xml_filter;
-    QStringList color_list;
-    xml_filter << "*";
-    QDir root("Assets/Modules/Interface Colors/");
-    foreach(QFileInfo entry, root.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot)){
-        color_list << entry.fileName();
-    }
+    QString file_name = "Assets/Modules/Interface/Resource/Themes/Civ4/Civ4Theme_Common.thm";
+    QString file_name_out = file_name + ".tmp";
+    QFile file(file_name);
 
-    // Loop through all interface files
-    foreach(QString color_file, color_list){
-        QString file_name = "Assets/Modules/Interface Colors/" + color_file + "/Resource/Themes/Civ4/Civ4Theme_Common.thm";
-        QString file_name_out = file_name + ".tmp";
-        QFile file(file_name);
+    // Make a copy
+    QFile file_out(file_name_out);
+    file_out.remove();
+    file.copy(file_name_out);
 
-        // Make a copy
-        QFile file_out(file_name_out);
-        file_out.remove();
-        file.copy(file_name_out);
+    // Set the values to look for
+    QString value = "GFont	.Size";
 
-        // Set the values to look for
-        QString value = "GFont	.Size";
-
-        // Read the file
-        file.open(QIODevice::ReadOnly | QIODevice::Text);
-        QTextStream in_enc(&file);
-        file_out.open(QIODevice::WriteOnly | QIODevice::Truncate);
-        QTextStream out_enc(&file_out);
-        while(!in_enc.atEnd())
+    // Read the file
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream in_enc(&file);
+    file_out.open(QIODevice::WriteOnly | QIODevice::Truncate);
+    QTextStream out_enc(&file_out);
+    while(!in_enc.atEnd())
+    {
+        QString line = in_enc.readLine();
+        if(line.contains(value))
         {
-            QString line = in_enc.readLine();
-            if(line.contains(value))
-            {
-                // Isolate each value and replace the font value
-                QStringList list = line.split("\"");
-                list[1] = font;
-                line = list.join("\"");
-                //qDebug() << line;
+            // Isolate each value and replace the font value
+            QStringList list = line.split("\"");
+            if(line.contains("GFont	.Size4_Bold")){
+                // Set Trebuchet MS instead on city billboard (TODO: need to be set in XML).
+                list[1] = "Trebuchet MS";
             }
-
-            out_enc << line << "\n";
+            else{
+                list[1] = font;
+            }
+            line = list.join("\"");
+            //qDebug() << line;
         }
-        file.close();
-        file_out.close();
-        file.remove();
-        file_out.rename(file_name);
+
+        out_enc << line << "\n";
     }
-        return;
+    file.close();
+    file_out.close();
+    file.remove();
+    file_out.rename(file_name);
+    return;
 }
