@@ -183,11 +183,6 @@ void w_main::on_actionForum_triggered()
     openURL("http://forums.civfanatics.com/forumdisplay.php?f=369");
 }
 
-void w_main::on_actionAddon_Mega_Civ_Pack_triggered()
-{
-    openURL("https://github.com/dbkblk/civ4_and2_civmegapack");
-}
-
 void w_main::on_actionBugreport_triggered()
 {
     openURL("http://forums.civfanatics.com/showthread.php?t=474185");
@@ -196,11 +191,6 @@ void w_main::on_actionBugreport_triggered()
 void w_main::on_actionAbout_AND_Resurrection_team_forum_triggered()
 {
     openURL("http://anewdawn.sf.net/pages/credits/");
-}
-
-void w_main::on_actionAddon_More_music_forum_triggered()
-{
-    openURL("http://forums.civfanatics.com/showthread.php?t=523763");
 }
 
 void w_main::on_actionGive_us_feedback_forum_triggered()

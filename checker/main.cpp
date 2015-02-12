@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    // Create exclusions.default.xml if not exist
+    // Create exclusions.custom.xml if not exist
     QFile exclusion("checker/exclusions.custom.xml");
     if(!exclusion.exists()){
         qDebug() << "No existing custom exclusion file, writing new one.";

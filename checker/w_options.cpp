@@ -111,12 +111,17 @@ void w_options::on_bt_customColor_clicked()
     QColor custom = QColorDialog::getColor(QColor(color_set[0].toInt(),color_set[1].toInt(),color_set[2].toInt(),color_set[3].toInt()), this, "Pick a custom color",QColorDialog::ShowAlphaChannel);
 
     // Save custom color
-    color_set.clear();
-    color_set << QString::number(custom.red()) << QString::number(custom.green()) << QString::number(custom.blue()) << QString::number(custom.alpha());
-    setColorCustomDefinition(color_set);
-    setColorSet(color_set);
-    setCheckerParam("Modules/ColorUICustom",color_set.join(","));
-    ui->colorBox->setCurrentIndex(getColorNumberFromSet(color_set));
+    if(custom.isValid()){
+        color_set.clear();
+        color_set << QString::number(custom.red()) << QString::number(custom.green()) << QString::number(custom.blue()) << QString::number(custom.alpha());
+        setColorCustomDefinition(color_set);
+        setColorSet(color_set);
+        setCheckerParam("Modules/ColorUICustom",color_set.join(","));
+        ui->colorBox->setCurrentIndex(getColorNumberFromSet(color_set));
+    }
+    else {
+        qDebug() << "Custom color selection aborted.";
+    }
 }
 
 void w_options::on_startBox_toggled(bool checked)

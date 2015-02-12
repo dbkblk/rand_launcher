@@ -56,11 +56,9 @@ public slots:
 
 private slots:
     void on_actionForum_triggered();
-    void on_actionAddon_Mega_Civ_Pack_triggered();
     void on_actionBugreport_triggered();
     void on_actionAbout_AND_Resurrection_team_forum_triggered();
     void on_actionExit_triggered();
-    void on_actionAddon_More_music_forum_triggered();
     void on_bt_launch_clicked();
     void on_bt_option_clicked();
     void UpdateWindowInfos();
