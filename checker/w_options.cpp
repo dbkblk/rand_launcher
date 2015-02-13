@@ -181,67 +181,8 @@ void w_options::on_bt_exclusions_clicked()
 
 void w_options::on_dd_textures_currentIndexChanged(int index)
 {
-    // Check if clearing cache is needed (index is different than saved setting)
-    if(QString(readCheckerParam("Modules/Terrain")).toInt() != index){
-        clearCache();
-    }
-
-    // Texture change
-    if(index == 0) // AND default textures
-    {
-        if(!QFile::exists("Assets/terrain_textures_and.fpk")){
-            unTarXz("Assets/terrain_textures_and.tar.xz");
-            QFile::remove("Assets/terrain_textures_original.fpk");
-            QFile::remove("Assets/terrain_textures_bluemarble.fpk");
-            QFile::remove("Assets/terrain_textures_alternative.fpk");
-            QFile::remove("Assets/terrain_textures_vincentz.fpk");
-            setCheckerParam("Modules/Terrain","0");
-        }
-    }
-    if(index == 1) // Blue Marble
-    {
-        if(!QFile::exists("Assets/terrain_textures_bluemarble.fpk")){
-            unTarXz("Assets/terrain_textures_bluemarble.tar.xz");
-            QFile::remove("Assets/terrain_textures_original.fpk");
-            QFile::remove("Assets/terrain_textures_and.fpk");
-            QFile::remove("Assets/terrain_textures_alternative.fpk");
-            QFile::remove("Assets/terrain_textures_vincentz.fpk");
-            setCheckerParam("Modules/Terrain","1");
-        }
-    }
-    if(index == 2) // Original enhanced
-    {
-        if(!QFile::exists("Assets/terrain_textures_original.fpk")){
-            unTarXz("Assets/terrain_textures_original.tar.xz");
-            QFile::remove("Assets/terrain_textures_bluemarble.fpk");
-            QFile::remove("Assets/terrain_textures_and.fpk");
-            QFile::remove("Assets/terrain_textures_alternative.fpk");
-            QFile::remove("Assets/terrain_textures_vincentz.fpk");
-            setCheckerParam("Modules/Terrain","2");
-        }
-    }
-    if(index == 3) // Sparth
-    {
-        if(!QFile::exists("Assets/terrain_textures_alternative.fpk")){
-            unTarXz("Assets/terrain_textures_alternative.tar.xz");
-            QFile::remove("Assets/terrain_textures_bluemarble.fpk");
-            QFile::remove("Assets/terrain_textures_and.fpk");
-            QFile::remove("Assets/terrain_textures_original.fpk");
-            QFile::remove("Assets/terrain_textures_vincentz.fpk");
-            setCheckerParam("Modules/Terrain","3");
-        }
-    }
-    if(index == 4) // Vincentz
-    {
-        if(!QFile::exists("Assets/terrain_textures_vincentz.fpk")){
-            unTarXz("Assets/terrain_textures_vincentz.tar.xz");
-            QFile::remove("Assets/terrain_textures_bluemarble.fpk");
-            QFile::remove("Assets/terrain_textures_and.fpk");
-            QFile::remove("Assets/terrain_textures_original.fpk");
-            QFile::remove("Assets/terrain_textures_alternative.fpk");
-            setCheckerParam("Modules/Terrain","4");
-        }
-    }
+    setTextureTerrainSet(index);
+    ui->dd_textures->setCurrentIndex(index);
 }
 
 

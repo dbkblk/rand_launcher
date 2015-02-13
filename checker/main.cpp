@@ -134,13 +134,13 @@ int main(int argc, char *argv[])
     generateModsMLFFile();
 
     // Checking terrain art
-    if(QFile::exists("Assets/terrain_textures_and.fpk")){setCheckerParam("Modules/Terrain","0");}
-    else if(QFile::exists("Assets/terrain_textures_bluemarble.fpk")){setCheckerParam("Modules/Terrain","1");}
-    else if(QFile::exists("Assets/terrain_textures_original.fpk")){setCheckerParam("Modules/Terrain","2");}
-    else if(QFile::exists("Assets/terrain_textures_alternative.fpk")){setCheckerParam("Modules/Terrain","3");}
-    else if(QFile::exists("Assets/terrain_textures_vincentz.tar.xz")){setCheckerParam("Modules/Terrain","4");}
-    else{unTarXz("Assets/terrain_textures_and.tar.xz");}
-
+    QString terrain = readCheckerParam("Modules/Terrain");
+    if(terrain == "error"){
+        setTextureTerrainSet(0);
+    }
+    else{
+        setTextureTerrainSet(terrain.toInt());
+    }
 
     // Create modules
     w_main w;

@@ -31,4 +31,5 @@ bool clearCache();
 bool clearGameOptions();
 int checkDoubleInstallation();
 void unTarXz(QString file);
+void setTextureTerrainSet(int index);
 #endif

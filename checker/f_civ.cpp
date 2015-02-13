@@ -395,3 +395,36 @@ void unTarXz(QString file){
     unzip.execute(tools::TOOL_TAR + "temp.tar");
     QFile::remove("temp.tar");
 }
+
+void setTextureTerrainSet(int index){
+    QStringList known_sets;
+    // Texture sets order
+    known_sets << "and" << "bluemarble" << "original" << "alternative" << "vincentz";
+
+    // Get the texture to set
+    QString texture = known_sets[index];
+    QString texture_file_name = "Assets/terrain_textures_" + texture + ".fpk";
+    QString texture_archive_name = "Assets/terrain_textures_" + texture + ".tar.xz";
+
+    // Remove that texture from the list
+    known_sets.removeAll(texture);
+
+    if(!QFile::exists(texture_file_name)){
+        unTarXz(texture_archive_name);
+    }
+    setCheckerParam("Modules/Terrain",QString::number(index));
+
+    // Remove all other textures
+    foreach(QString entry, known_sets){
+        QString texture_to_remove = "Assets/terrain_textures_" + entry + ".fpk";
+        if(QFile::exists(texture_to_remove)){
+            QFile::remove(texture_to_remove);
+        }
+    }
+
+    // Check if clearing cache is needed (index is different than saved setting)
+    if(QString(readCheckerParam("Modules/Terrain")).toInt() != index){
+        clearCache();
+    }
+    qDebug() << "Terrain texture set to" << texture;
+}
