@@ -186,7 +186,7 @@ int main(int argc, char *argv[])
 
     else{
     // Start the GUI
-    w.show();
+        w.show();
     }
 
     return a.exec();

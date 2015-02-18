@@ -365,7 +365,49 @@ bool clearCache()
 
 bool clearGameOptions()
 {
-    setGameOption("GameOptions","");
+    // Rewrite of the setGameOptions
+    // Get config paths
+    QDir config_path = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/My Games/Beyond the sword/";
+    QString ini_orig = config_path.filePath("CivilizationIV.ini");
+    QString ini_temp = config_path.filePath("CivlizationIV.ini.temp");
+    QString ini_backup = config_path.filePath("CivilizationIV.bak");
+
+    // Make a backup
+    QFile::remove(ini_backup);
+    QFile::copy(ini_orig, ini_backup);
+
+    // Set value
+    QFile file_in(ini_orig);
+    QFile file_out(ini_temp);
+    file_in.open(QIODevice::ReadOnly | QIODevice::Text);
+    file_out.open(QIODevice::WriteOnly | QIODevice::Truncate);
+    QTextStream in_enc(&file_in);
+    QTextStream out_enc(&file_out);
+    int counter = 0;
+
+    // Reset the first occurence and remove the following
+    while(!in_enc.atEnd())
+    {
+        QString line = in_enc.readLine();
+        if(line.contains("GameOptions") && counter == 0)
+        {
+            line = "GameOptions = ";
+            counter++;
+            out_enc << line << "\n";
+        }
+        else if((line.contains("GameOptions") || line.contains("; Game Options")) && counter > 0)
+        {
+            line = "GameOptions = ";
+        }
+        else
+        {
+            out_enc << line << "\n";
+        }
+    }
+    file_in.close();
+    file_out.close();
+    QFile::remove(ini_orig);
+    QFile::rename(ini_temp,ini_orig);
     qDebug() << "Cleared parameters";
     return 0;
 }

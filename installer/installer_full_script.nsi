@@ -7,7 +7,7 @@ SetCompressor /SOLID LZMA
 ;--------------------------------
 
   !include "MUI.nsh"
-  !define REVISION "879"
+  !define REVISION "884"
 
 ; General information
 ;--------------------------------
@@ -16,7 +16,7 @@ SetCompressor /SOLID LZMA
 Name "Civilization IV: A New Dawn"
 
 ; The file to write
-OutFile "C:\Users\Hadrien\Desktop\AND2_full_installer.exe"
+OutFile "C:\Users\Hadrien\Desktop\and2_full_installer_rev${REVISION}.exe"
 
 ; The default installation directory
 InstallDir "$DOCUMENTS\My Games\Beyond the sword\Mods\"
