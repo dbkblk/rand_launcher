@@ -84,6 +84,10 @@ int main(int argc, char *argv[])
     #endif
     /* End of the windows specific code */
 
+    // Regenerate mod exclusion file
+    generateModsExclusion();
+    generateModsMLFFile();
+
     // Inject saved color UI and formations parameters to xml files in case of update
     if(readCheckerParam("Modules/Formations") == "1" && readOptionFormations() == false){
         qDebug() << "Inject formation setting to xml";
@@ -128,10 +132,6 @@ int main(int argc, char *argv[])
         exclusion.write(xml_exclusion.toByteArray());
         exclusion.close();
     }
-
-    // Regenerate mod exclusion file
-    generateModsExclusion();
-    generateModsMLFFile();
 
     // Checking terrain art
     QString terrain = readCheckerParam("Modules/Terrain");

@@ -199,8 +199,21 @@ void generateModsMLFFile(){
     ConfigurationInfo.appendChild(Modules);
 
     // Generate an entry for each mod detected
-    QStringList full_list = listDefaultModFolders() + listModFolders();
-    foreach(QString entry, full_list){
+    // Force-enable default mods
+    foreach(QString entry, listDefaultModFolders()){
+        if(!entry.isEmpty()){
+            QDomElement Module = xml.createElement("Module");
+            Modules.appendChild(Module);
+            QDomElement Directory = xml.createElement("Directory");
+            Module.appendChild(Directory);
+            Directory.appendChild(xml.createTextNode(entry));
+            QDomElement bLoad = xml.createElement("bLoad");
+            Module.appendChild(bLoad);
+            bLoad.appendChild(xml.createTextNode("1"));
+        }
+    }
+    // Enable others mods based on the previous result
+    foreach(QString entry, listModFolders()){
         if(!entry.isEmpty()){
             QDomElement Module = xml.createElement("Module");
             Modules.appendChild(Module);
