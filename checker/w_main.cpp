@@ -109,7 +109,7 @@ w_main::w_main(QWidget *parent) :
     clear_language_state();
     populate_language_menu(loc);
 
-    // Inject audio xml silently in background in non-default modules have been detected (TODO: to improve)
+    // Inject audio xml silently in background in non-default modules have been detected
     inj_thread = new QThread();
     inj_worker = new f_injection();
     inj_worker->moveToThread(inj_thread);
