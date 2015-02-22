@@ -7,7 +7,7 @@ SetCompressor /SOLID LZMA
 ;--------------------------------
 
   !include "MUI.nsh"
-  !define REVISION "884"
+  !define REVISION "895"
 
 ; General information
 ;--------------------------------
@@ -164,7 +164,7 @@ SectionIn RO
   SetOutPath $INSTDIR
   
   ; Put file there
-  File /r "C:\Users\Hadrien\Desktop\import\*"
+  File /r "C:\Users\Hadrien\Desktop\import\*" /x ".svn" /x "Example" /x "OverWriting Components" /x "Sources" /x "Translations" /x "A New Dawn Install Script" /x "AND 1.75 to AND 1.76 Upgrader Install Script" /x "Patch Install Script"
 
 ;Create uninstaller
   WriteUninstaller "$INSTDIR\Rise of Mankind - A New Dawn\Uninstall.exe"
