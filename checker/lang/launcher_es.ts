@@ -357,7 +357,7 @@
     </message>
     <message>
         <location filename="../w_modules.cpp" line="38"/>
-        <source>Distant</source>
+        <source>Remote</source>
         <translation>Distante</translation>
     </message>
 </context>

@@ -62,7 +62,7 @@
     <message>
         <location filename="../w_main.ui" line="127"/>
         <source>Launch Civilization IV</source>
-        <translation>Lancement de Civilization IV</translation>
+        <translation>Lancer Civilization IV</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="192"/>
@@ -77,7 +77,7 @@
     <message>
         <location filename="../w_main.ui" line="241"/>
         <source>Fix installation</source>
-        <translation>Réparer installation</translation>
+        <translation>Réparer l&apos;installation</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="255"/>
@@ -310,7 +310,7 @@
     <message>
         <location filename="../w_main.cpp" line="550"/>
         <source>Are you sure to continue ?</source>
-        <translation>Êtes-vous sûr de continuer ?</translation>
+        <translation>Êtes-vous sûr de vouloir continuer ?</translation>
     </message>
     <message>
         <location filename="../../updater/w_main.ui" line="32"/>
@@ -357,7 +357,7 @@
     </message>
     <message>
         <location filename="../w_modules.cpp" line="38"/>
-        <source>Distant</source>
+        <source>Remote</source>
         <translation>Distant</translation>
     </message>
 </context>

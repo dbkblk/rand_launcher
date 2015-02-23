@@ -2,6 +2,8 @@
 <resources>
   <string name="WELCOME_TITLE">Modyfikacja Civilization IV: A New Dawn</string>
   <string name="REQUIRED">wymagane</string>
+  <string name="WELCOME">Wersja: ${REVISION}\n\nTen instalator przeprowadzi Cię przez proces instalacji Civilization IV: A New Dawn.\n\nModyfikacja zostanie zainstalowana domyślnie w folderze \'My Documents\My Games\Beyond the Sword\Mods\'. \nStworzy również skrót (opcjonalnie) do lunchera modyfikacji, który można użyć do łatwego pobrania, zaktualizowania lub skonfigurowania modyfikacji.\n\nUWAGA: Każda zainstalowana już wersja modyfikacji jest kompatybilna. Jednak jeśli masz zmodyfikowane pliki, zostaną one nadpisane w czasie aktualizacji.</string>
+  <string name="DIRECTORY">Instalator zainstaluje modyfikacje w podanym folderze.$\nAby zainstalować w innej lokalizacji kliknij \'Przeglądaj...\' i wybierz inny folder.$\n$\nUWAGA: Jest mocno zalecane by użyć domyślnej lokalizacji. Możesz, także zainstalować mod bezpośrednio w folderze gry (\'Sid Meier\'s Civilization IV Beyond the Sword\Beyond the Sword\Mods\').</string>
   <string name="FINISH">Launcher został zainstalowany. Przy pierwszym uruchomieniu, wykryje czy modyfikacja znajduje się w podanym katalogu. Jeśli jej nie znajdzie, instalator przeprowadzi Cię przez proces instalacji.</string>
   <string name="RUN">Uruchom laucher modyfikacji</string>
   <string name="SHORTCUT">Stwórz skrót na pulpicie</string>

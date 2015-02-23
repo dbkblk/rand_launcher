@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ja" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -414,7 +414,7 @@
     <message>
         <location filename="../w_options.cpp" line="78"/>
         <source>Black</source>
-        <translation>Černá</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../w_options.cpp" line="80"/>
@@ -439,7 +439,7 @@
     <message>
         <location filename="../w_options.cpp" line="84"/>
         <source>Red</source>
-        <translation>Červená</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../w_options.cpp" line="85"/>

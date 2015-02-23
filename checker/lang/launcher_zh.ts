@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -52,7 +52,7 @@
     <message>
         <location filename="../w_install.cpp" line="14"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>取消</translation>
     </message>
 </context>
 <context>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../w_main.ui" line="192"/>
         <source>Options</source>
-        <translation type="unfinished"/>
+        <translation>选项</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="237"/>
@@ -90,17 +90,17 @@
     <message>
         <location filename="../w_main.ui" line="295"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>语言</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="318"/>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>退出</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="326"/>
         <source>Forum</source>
-        <translation type="unfinished"/>
+        <translation>中心广场</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="339"/>
@@ -156,13 +156,13 @@
         <location filename="../w_main.ui" line="365"/>
         <location filename="../w_main.cpp" line="298"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>English</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="376"/>
         <location filename="../w_main.cpp" line="301"/>
         <source>French</source>
-        <translation type="unfinished"/>
+        <translation>------</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="384"/>
@@ -174,7 +174,7 @@
         <location filename="../w_main.ui" line="392"/>
         <location filename="../w_main.cpp" line="313"/>
         <source>Finnish</source>
-        <translation type="unfinished"/>
+        <translation>中文</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="400"/>
@@ -186,19 +186,19 @@
         <location filename="../w_main.ui" line="408"/>
         <location filename="../w_main.cpp" line="307"/>
         <source>Italian</source>
-        <translation type="unfinished"/>
+        <translation>------</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="416"/>
         <location filename="../w_main.cpp" line="310"/>
         <source>Spanish</source>
-        <translation type="unfinished"/>
+        <translation>------</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="424"/>
         <location filename="../w_main.cpp" line="304"/>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>------</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="432"/>
@@ -364,7 +364,7 @@
     <message>
         <location filename="../w_options.ui" line="38"/>
         <source>Options</source>
-        <translation type="unfinished"/>
+        <translation>选项</translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="62"/>
@@ -414,12 +414,12 @@
     <message>
         <location filename="../w_options.cpp" line="78"/>
         <source>Black</source>
-        <translation>Černá</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../w_options.cpp" line="80"/>
         <source>Coal</source>
-        <translation type="unfinished"/>
+        <translation>煤炭</translation>
     </message>
     <message>
         <location filename="../w_options.cpp" line="81"/>
@@ -429,7 +429,7 @@
     <message>
         <location filename="../w_options.cpp" line="82"/>
         <source>Forest</source>
-        <translation type="unfinished"/>
+        <translation>森林</translation>
     </message>
     <message>
         <location filename="../w_options.cpp" line="83"/>
@@ -439,12 +439,12 @@
     <message>
         <location filename="../w_options.cpp" line="84"/>
         <source>Red</source>
-        <translation>Červená</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../w_options.cpp" line="85"/>
         <source>Silver</source>
-        <translation type="unfinished"/>
+        <translation>白银</translation>
     </message>
     <message>
         <location filename="../w_options.cpp" line="79"/>

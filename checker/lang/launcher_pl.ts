@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pl" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -8,7 +6,9 @@
         <source>The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:
 - My Documents/My Games/Beyond the Sword/Mods 
 - Game folder installation/Beyond the Sword/Mods</source>
-        <translation type="unfinished"></translation>
+        <translation>Wykryto zduplikowaną instalację modyfikacji. Może to powodować nieprzewidziane problemy. Proszę sprawdzić folder modyfikacji w poniższych dwóch lokacjach i usunąć jeden z nich:
+- Dokumenty/My Games/Beyond the Sword/Mods
+- Folder gry/Beyond the Sword/Mods</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="81"/>
@@ -18,18 +18,7 @@
     <message>
         <location filename="../main.cpp" line="155"/>
         <source>There seems to be a problem with the previous update. Checking file again.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>updatebox</name>
-    <message>
-        <source>Changelog :</source>
-        <translation type="vanished">Lista zmian:</translation>
-    </message>
-    <message>
-        <source>There is an update available. Do you want to update ?</source>
-        <translation type="vanished">Jest dostępna aktualizacja. Chcesz zaktualizować?</translation>
+        <translation>Poprzednia aktualizacja zakończyła się niepowodzeniem. Sprawdzam pliki gry.</translation>
     </message>
 </context>
 <context>
@@ -37,7 +26,7 @@
     <message>
         <location filename="../w_exclusion.ui" line="32"/>
         <source>Choose which files to exclude from update</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz pliki które chcesz wykluczyć z aktualizacji</translation>
     </message>
     <message>
         <location filename="../w_exclusion.ui" line="67"/>
@@ -74,10 +63,6 @@
         <location filename="../w_main.ui" line="127"/>
         <source>Launch Civilization IV</source>
         <translation>Uruchom Civilization IV</translation>
-    </message>
-    <message>
-        <source>Manage modules</source>
-        <translation type="vanished">Zarządzaj modułami</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="192"/>
@@ -120,10 +105,6 @@
         <translation>Forum</translation>
     </message>
     <message>
-        <source>Bugreport (forum)</source>
-        <translation type="vanished">Raportuj błąd (forum)</translation>
-    </message>
-    <message>
         <location filename="../w_main.ui" line="339"/>
         <source>About AND Resurrection team (forum)</source>
         <translation>O zespole AND Resurrection (forum)</translation>
@@ -131,45 +112,37 @@
     <message>
         <location filename="../w_main.ui" line="336"/>
         <source>History and credits</source>
-        <translation type="unfinished"></translation>
+        <translation>Historia i twórcy</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="146"/>
         <source>See latest changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobacz najnowsze zmiany</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="259"/>
         <source>Modules</source>
-        <translation type="unfinished">Moduły</translation>
+        <translation>Moduły</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="263"/>
         <source>Get modules</source>
-        <translation type="unfinished"></translation>
+        <translation>Pobierz moduły</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="281"/>
         <source>Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tłumaczenie</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="331"/>
         <source>Report a bug (forum)</source>
-        <translation type="unfinished"></translation>
+        <translation>Zgłoś błąd (forum)</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="344"/>
         <source>Open mod folder</source>
         <translation>Otwórz katalog modyfikacji</translation>
-    </message>
-    <message>
-        <source>Git: Create binary pack</source>
-        <translation type="vanished">Git: Stwórz plik binarny</translation>
-    </message>
-    <message>
-        <source>Git: Create update binary pack</source>
-        <translation type="vanished">Git: Utwórz paczkę zaktualizowanych binarek</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="349"/>
@@ -182,10 +155,6 @@
         <translation>Pomóż w tłumaczeniu (forum)</translation>
     </message>
     <message>
-        <source>Translate the launcher</source>
-        <translation type="vanished">Tłumacz launcher</translation>
-    </message>
-    <message>
         <location filename="../w_main.ui" line="365"/>
         <location filename="../w_main.cpp" line="298"/>
         <source>English</source>
@@ -196,11 +165,6 @@
         <location filename="../w_main.cpp" line="301"/>
         <source>French</source>
         <translation>Francuski</translation>
-    </message>
-    <message>
-        <source>Sinhala</source>
-        <translation type="vanished">Cejloński
-</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="384"/>
@@ -245,84 +209,68 @@
         <translation>Rosyjski</translation>
     </message>
     <message>
-        <source>Restore default state</source>
-        <translation type="vanished">Przywróć domyślne</translation>
-    </message>
-    <message>
-        <source>Revert to an older revision...</source>
-        <translation type="vanished">Przywróć starą wersję</translation>
-    </message>
-    <message>
-        <source>Addon &quot;Blue marble&quot;</source>
-        <translation type="vanished">Dodatek &quot;Blue marble&quot;</translation>
-    </message>
-    <message>
         <location filename="../w_main.ui" line="437"/>
         <source>Clear cache</source>
         <translation>Wyczyść cache</translation>
     </message>
     <message>
-        <source>Enter SVN command</source>
-        <translation type="vanished">Wprowadź komendę SVN</translation>
-    </message>
-    <message>
         <location filename="../w_main.ui" line="442"/>
         <source>Reset mod to default state</source>
-        <translation type="unfinished"></translation>
+        <translation>Przywróć domyślny stan modyfikacji</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="447"/>
         <source>Translate the civilopedia</source>
-        <translation type="unfinished"></translation>
+        <translation>Tłumacz civilizopedie</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="452"/>
         <source>Website</source>
-        <translation type="unfinished"></translation>
+        <translation>Strona</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="460"/>
         <location filename="../w_main.cpp" line="325"/>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>Czeski</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="468"/>
         <location filename="../w_main.cpp" line="328"/>
         <source>Danish</source>
-        <translation type="unfinished"></translation>
+        <translation>Duński</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="476"/>
         <location filename="../w_main.cpp" line="331"/>
         <source>Arabic</source>
-        <translation type="unfinished"></translation>
+        <translation>Arabski</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="484"/>
         <location filename="../w_main.cpp" line="334"/>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>Turecki</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="492"/>
         <source>Activation status:</source>
-        <translation type="unfinished"></translation>
+        <translation>Status aktywacji:</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="497"/>
         <source>Give us feedback ! (forum)</source>
-        <translation type="unfinished"></translation>
+        <translation>Podziel się opinią! (forum)</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="502"/>
         <source>Translate the website</source>
-        <translation type="unfinished"></translation>
+        <translation>Tłumacz strone</translation>
     </message>
     <message>
         <location filename="../w_main.ui" line="507"/>
         <source>Translate the module &quot;Mega Civ. pack&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Tłumacz moduł &quot;Mega Civ. pack&quot;</translation>
     </message>
     <message>
         <location filename="../w_main.cpp" line="155"/>
@@ -352,17 +300,17 @@
     <message>
         <location filename="../w_main.cpp" line="548"/>
         <source>Reset mod</source>
-        <translation type="unfinished"></translation>
+        <translation>Zresetuj Mod</translation>
     </message>
     <message>
         <location filename="../w_main.cpp" line="549"/>
         <source>This will reset the mod to the default state. Any modification or launcher preferences will be removed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta opcja zresetuje modyfikację do stanu domyślnego. Wszystkie modyfikacje i ustawienia launchera zostaną usunięte.</translation>
     </message>
     <message>
         <location filename="../w_main.cpp" line="550"/>
         <source>Are you sure to continue ?</source>
-        <translation type="unfinished"></translation>
+        <translation>Na pewno chcesz kontynuować?</translation>
     </message>
     <message>
         <location filename="../../updater/w_main.ui" line="32"/>
@@ -372,17 +320,17 @@
     <message>
         <location filename="../../updater/w_main.cpp" line="31"/>
         <source>Updating the game. Please be patient.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizacja gry. Proszę czekać.</translation>
     </message>
     <message>
         <location filename="../../updater/w_main.cpp" line="89"/>
         <source>Checking and downloading data:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sprawdzanie i pobieranie plików:</translation>
     </message>
     <message>
         <location filename="../../updater/w_main.cpp" line="89"/>
         <source> files left.</source>
-        <translation type="unfinished"></translation>
+        <translation>plików pozostało.</translation>
     </message>
 </context>
 <context>
@@ -395,12 +343,12 @@
     <message>
         <location filename="../w_modules.ui" line="148"/>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Akutalizacja</translation>
     </message>
     <message>
         <location filename="../w_modules.cpp" line="16"/>
         <source>Changes (last 50) :</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmiany (ostatnie 50):</translation>
     </message>
     <message>
         <location filename="../w_modules.cpp" line="38"/>
@@ -409,8 +357,8 @@
     </message>
     <message>
         <location filename="../w_modules.cpp" line="38"/>
-        <source>Distant</source>
-        <translation type="unfinished"></translation>
+        <source>Remote</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -433,32 +381,32 @@
     <message>
         <location filename="../w_options.ui" line="78"/>
         <source>Change terrain texture set:</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmień zestaw tekstur terenu:</translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="104"/>
         <source>A New Dawn (default)</source>
-        <translation type="unfinished"></translation>
+        <translation>A New Dawn (domyślny)</translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="109"/>
         <source>Blue Marble</source>
-        <translation type="unfinished"></translation>
+        <translation>Blue Marble</translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="114"/>
         <source>Original</source>
-        <translation type="unfinished"></translation>
+        <translation>Orginalny</translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="119"/>
         <source>Sparth</source>
-        <translation type="unfinished"></translation>
+        <translation>Sparth</translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="124"/>
         <source>Vincentz</source>
-        <translation type="unfinished"></translation>
+        <translation>Vincentz</translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="136"/>
@@ -528,12 +476,12 @@
     <message>
         <location filename="../w_options.ui" line="264"/>
         <source>Autostart the mod with the game by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatyczne uruchamianie modyfikacji wraz ze startem gry.</translation>
     </message>
     <message>
         <location filename="../w_options.ui" line="289"/>
         <source>Exclude files from update</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyklucz pliki z aktualizacji</translation>
     </message>
     <message>
         <location filename="../w_options.cpp" line="51"/>
@@ -543,12 +491,12 @@
     <message>
         <location filename="../w_options.cpp" line="77"/>
         <source>Dark blue (Default)</source>
-        <translation type="unfinished"></translation>
+        <translation>Dark blue (domyślny)</translation>
     </message>
     <message>
         <location filename="../w_options.cpp" line="86"/>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Niestandardowe</translation>
     </message>
     <message>
         <location filename="../w_options.cpp" line="148"/>
