@@ -9,6 +9,8 @@ bool getModActivationStatus(QString mod_name);
 void setModActivationStatus(QString mod_name, bool status);
 void generateModsExclusion();
 void generateModsMLFFile();
+QStringList getOptionEnabledMods();
+void setOptionEnabledMods(QString mod_name, bool status);
 
 class f_injection : public QObject
 {

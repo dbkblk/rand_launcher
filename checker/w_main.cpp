@@ -419,13 +419,15 @@ void w_main::populate_mod_list(){
 void w_main::setModStatus(QString mod_name){
     QAction *mod_action = action_mod.key(mod_name);
     bool current = getModActivationStatus(mod_name);
-    if(current){
+    if(current){ // The mod is enabled so click on the button it will disable it
         setModActivationStatus(mod_name, false);
+        setOptionEnabledMods(mod_name,false);
         mod_action->setIcon(QIcon("checker/icons/disabled.png"));
         qDebug() << "Mod" << mod_name << "set to false";
     }
-    else{
+    else{ // The mod is disabled so click on the button it will enable it
         setModActivationStatus(mod_name,true);
+        setOptionEnabledMods(mod_name,true);
         mod_action->setIcon(QIcon("checker/icons/enabled.png"));
         qDebug() << "Mod" << mod_name << "set to true";
     }

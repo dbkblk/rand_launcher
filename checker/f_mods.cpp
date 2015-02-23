@@ -1,4 +1,5 @@
 #include "f_mods.h"
+#include "f_civ.h"
 #include <QtCore>
 #include <QtXml>
 
@@ -150,24 +151,15 @@ void generateModsExclusion(){
 void generateModsMLFFile(){
     // Open original file
     QFile file_orig("Assets/Modules/MLF_CIV4ModularLoadingControls.xml");
-    QStringList enabled_mods;
-    if(file_orig.open(QIODevice::ReadOnly)){
-        QDomDocument xml_orig;
-        xml_orig.setContent(&file_orig);
-        file_orig.close();
-
-        // List enabled modules
-        QDomElement module_orig = xml_orig.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
-        for(;!module_orig.isNull();module_orig = module_orig.nextSiblingElement()){
-            if(module_orig.firstChildElement("bLoad").firstChild().nodeValue() == "1"){
-                enabled_mods << module_orig.firstChildElement("Directory").firstChild().nodeValue();
-            }
-        }
-
-        //qDebug() << enabled_mods;
+    QStringList enabled_mods = getOptionEnabledMods();
+    if(!file_orig.open(QIODevice::ReadOnly)){
+        return;
     }
 
     // Generate new file
+    QDomDocument xml_orig;
+    xml_orig.setContent(&file_orig);
+    file_orig.close();
     QDomDocument xml;
 
     // Generate header
@@ -238,6 +230,52 @@ void generateModsMLFFile(){
     QTextStream ts(&save);
     xml.save(ts, 4);
     save.close();
+}
+
+QStringList getOptionEnabledMods()
+{ // Return the enabled mods saved in options
+    QString string = readCheckerParam("Modules/Enabled");
+    if(string != "error")
+    {
+        return string.split(";");
+    }
+    QStringList empty;
+    return empty;
+}
+
+void setOptionEnabledMods(QString mod_name, bool status)
+{
+    QString string = readCheckerParam("Modules/Enabled");
+    QStringList list = string.split(";");
+    QStringList new_list;
+    int count = 0;
+    foreach(QString entry, list)
+    {
+        if (entry == "error")
+        {
+        }
+        else if(entry != mod_name)
+        {
+            new_list << entry;
+        }
+        else
+        { // Add to the list if enabled, don't if disabled.
+            count++;
+            if(entry == mod_name && status && count == 0)
+            {
+                new_list << entry;
+            }
+        }
+    }
+    if((list.count() == 0 || count == 0) && status)
+    {
+        new_list << mod_name;
+    }
+
+    // Create a string from the list and save it in config file
+    QString result = new_list.join(";");
+    setCheckerParam("Modules/Enabled",result);
+    qDebug() << result;
 }
 
 f_injection::f_injection(QObject *parent) :
