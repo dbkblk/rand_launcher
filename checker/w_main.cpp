@@ -49,14 +49,14 @@ w_main::w_main(QWidget *parent) :
     }
     qDebug() << "Language used: " << getLanguageNameFromCode(loc);
 
+    // Setup translator
+    translator->load(QString("launcher_" + loc + ".qm"),"checker/lang/");
+    qApp->installTranslator(translator);
+
     // Initialize sub-windows
     modules = new w_modules(this);
     modules->UpdateWindow();
     connect(modules, SIGNAL(exit()), this, SLOT(stopLauncher()));
-
-    // Setup translator
-    translator->load(QString("launcher_" + loc + ".qm"),"checker/lang/");
-    qApp->installTranslator(translator);
 
     // GUI : Set menu icons
     ui->actionOpen_mod_folder->setIcon(QIcon("checker/icons/open.png"));

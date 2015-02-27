@@ -6,9 +6,3 @@ file_filter = launcher_<lang>.ts
 source_file = launcher.ts
 source_lang = en
 type = QT
-
-[and-main-mod.installer]
-file_filter = installer_<lang>.xml
-source_file = installer_en.xml
-source_lang = en
-type = ANDROID

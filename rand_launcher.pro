@@ -11,4 +11,4 @@ SUBDIRS = checker updater
 checker.file = checker/and2_checker.pro
 updater.file = updater/updater.pro
 
-TRANSLATIONS = checker/lang/launcher.ts checker/lang/launcher_de.ts checker/lang/launcher_es.ts checker/lang/launcher_fi.ts checker/lang/launcher_fr.ts checker/lang/launcher_it.ts checker/lang/launcher_hu.ts checker/lang/launcher_pl.ts checker/lang/launcher_ru.ts checker/lang/launcher_cs.ts checker/lang/launcher_da.ts checker/lang/launcher_ar.ts checker/lang/launcher_tr.ts
+TRANSLATIONS = translations/launcher.ts translations/launcher_de.ts translations/launcher_es.ts translations/launcher_fi.ts translations/launcher_fr.ts translations/launcher_it.ts translations/launcher_hu.ts translations/launcher_pl.ts translations/launcher_ru.ts translations/launcher_cs.ts translations/launcher_da.ts translations/launcher_ar.ts translations/launcher_tr.ts translations/launcher_ko.ts translations/launcher_ja.ts translations/launcher_zh.ts
