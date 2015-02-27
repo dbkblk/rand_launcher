@@ -20,7 +20,7 @@ void setColorSet(QStringList color_set);
 bool setColorCustomDefinition(QStringList color_set);
 const char* readXML(const char* file, const char* tag);
 bool writeXML(const char* file, const char* tag, const char* newValue);
-void launchGame();
+void launchGame(QString executable);
 int launcherCheck();
 QString check_addon_mcp();
 QString check_addon_more_music();
@@ -32,4 +32,5 @@ bool clearGameOptions();
 int checkDoubleInstallation();
 void unTarXz(QString file);
 void setTextureTerrainSet(int index);
+QString checkMd5(QString file_path);
 #endif

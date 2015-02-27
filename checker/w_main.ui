@@ -294,18 +294,21 @@
     <property name="title">
      <string>Language</string>
     </property>
+    <addaction name="language_ar"/>
+    <addaction name="language_zh"/>
+    <addaction name="language_cs"/>
+    <addaction name="language_da"/>
     <addaction name="language_en"/>
     <addaction name="language_fi"/>
     <addaction name="language_fr"/>
     <addaction name="language_de"/>
     <addaction name="language_hu"/>
     <addaction name="language_it"/>
+    <addaction name="language_ja"/>
+    <addaction name="language_ko"/>
     <addaction name="language_pl"/>
     <addaction name="language_ru"/>
     <addaction name="language_es"/>
-    <addaction name="language_cs"/>
-    <addaction name="language_da"/>
-    <addaction name="language_ar"/>
     <addaction name="language_tr"/>
    </widget>
    <addaction name="menuMenu"/>
@@ -505,6 +508,30 @@
   <action name="actionTranslate_the_module_Mega_Civ_pack">
    <property name="text">
     <string>Translate the module &quot;Mega Civ. pack&quot;</string>
+   </property>
+  </action>
+  <action name="language_ko">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Korean</string>
+   </property>
+  </action>
+  <action name="language_zh">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Chinese</string>
+   </property>
+  </action>
+  <action name="language_ja">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Japanese</string>
    </property>
   </action>
  </widget>

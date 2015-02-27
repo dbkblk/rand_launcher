@@ -282,12 +282,11 @@ bool setColorCustomDefinition(QStringList color_set){
     return false;
 }
 
-void launchGame(){
-    QString bt_exe = readCheckerParam("Main/ExecutablePath");
+void launchGame(QString executable){
     QStringList arg;
     arg << "mod=\\Rise of Mankind - A New Dawn";
     QProcess update;
-    update.startDetached(bt_exe, arg);
+    update.startDetached(executable, arg);
 }
 
 bool readOptionFormations()
@@ -469,4 +468,18 @@ void setTextureTerrainSet(int index){
         clearCache();
     }
     qDebug() << "Terrain texture set to" << texture;
+}
+
+QString checkMd5(QString file_path){
+    // Generate hash of original file
+    QFile file(file_path);
+    QCryptographicHash crypto(QCryptographicHash::Md5);
+    file.open(QFile::ReadOnly);
+    while(!file.atEnd()){
+        crypto.addData(file.read(8192));
+    }
+    QByteArray hash = crypto.result().toHex();
+    QString hash_string = hash;
+    file.close();
+    return hash_string;
 }

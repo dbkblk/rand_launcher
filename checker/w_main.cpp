@@ -40,10 +40,12 @@ w_main::w_main(QWidget *parent) :
             setCheckerParam("Main/Lang","en");
             loc = "en";
         }
+        checkGameFont();
     }
     else
     {
         loc = readCheckerParam("Main/Lang");
+        checkGameFont();
     }
     qDebug() << "Language used: " << getLanguageNameFromCode(loc);
 
@@ -118,6 +120,15 @@ w_main::w_main(QWidget *parent) :
     inj_worker->abort();
     inj_thread->wait(); // If the thread is not running, this will immediately return.
     inj_worker->requestWork();
+
+    // Invite the user to select the right executable if the file doesn't exists
+    QString executable = readCheckerParam("Main/ExecutablePath");
+    if(!QFile::exists(executable))
+    {
+        QMessageBox::information(0, "Information", tr("The executable saved in your settings doesn't exist. You will be now invited to select the game executable location"));
+        QString exeloc = QFileDialog::getOpenFileName(0, tr("Find Civ IV executable"), QString(), "(Civ4BeyondSword.exe)");
+        setCheckerParam("Main/ExecutablePath",exeloc);
+    }
 }
 
 w_main::~w_main()
@@ -235,7 +246,56 @@ void w_main::on_bt_launch_clicked()
         return;
     }
     else {
-        launchGame();
+        QString lang = getCurrentLanguage();
+        QString executable;
+        if(lang == "ko" || lang == "ja" || lang == "zh")
+        { // Asian language have a different executable, supporting 2-bytes encoding
+            executable = readCheckerParam("Main/ExecutablePath");
+            QString asian_executable = executable;
+            asian_executable.replace("Civ4BeyondSword.exe","Civ4BeyondSword_Asian.exe");
+            QFile exe(executable);
+            if(!exe.exists())
+            {
+                QMessageBox::information(0, "Information", tr("The executable hasn't been found. Please set the game path in the options window. (Options > Select game path)"));
+                return;
+            }
+            QFile asian_exe(asian_executable);
+            if(!asian_exe.exists())
+            { // Make a question box
+                QMessageBox question;
+                question.setWindowTitle(tr("Asian language patch not applied"));
+                question.setText(tr("You need to apply a patch on the base game for the extension to be compatible with Asian languages. The original version won't be modified. Would you like to apply it now ?"));
+                question.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+                int ret = question.exec();
+                switch(ret){
+                    case QMessageBox::Ok:
+                        system("checker\\asian_patcher.exe");
+                        return;
+                        break;
+
+                    case QMessageBox::Cancel:
+                        return;
+                        break;
+
+                    default:
+                        return;
+                        break;
+                }
+            }
+            launchGame(asian_executable);
+        }
+        else
+        {
+            executable = readCheckerParam("Main/ExecutablePath");
+            QFile exe(executable);
+            if(!exe.exists())
+            {
+                QMessageBox::information(0, "Information", tr("The executable hasn't been found. Please set the game path in the options window. (Options > Select game path)"));
+                return;
+            }
+            launchGame(executable);
+        }
+
     }
 
     // Check if the launcher should quit
@@ -322,6 +382,15 @@ void w_main::populate_language_menu(QString code)
     if(code=="tr"){ui->language_tr->setChecked(1);}
     ui->language_tr->setIcon(QIcon("checker/icons/tr.png"));
     ui->language_tr->setText(tr("Turkish") + " (" + getLanguageProgressFromCode("tr") + "%)");
+    if(code=="ko"){ui->language_ko->setChecked(1);}
+    ui->language_ko->setIcon(QIcon("checker/icons/ko.png"));
+    ui->language_ko->setText(tr("Korean") + " (" + getLanguageProgressFromCode("ko") + "%)");
+    if(code=="zh"){ui->language_zh->setChecked(1);}
+    ui->language_zh->setIcon(QIcon("checker/icons/zh.png"));
+    ui->language_zh->setText(tr("Chinese") + " (" + getLanguageProgressFromCode("zh") + "%)");
+    if(code=="ja"){ui->language_ja->setChecked(1);}
+    ui->language_ja->setIcon(QIcon("checker/icons/ja.png"));
+    ui->language_ja->setText(tr("Japanese") + " (" + getLanguageProgressFromCode("ja") + "%)");
 
     setGameOption("Language", getLanguageGameNumberFromCode(code));
     if(isLanguageSupported(code)){
@@ -348,6 +417,9 @@ void w_main::populate_language_menu(QString code)
     if (recfont != getLanguageCurrentFont(code)){
         setLanguageFont(recfont);
     }
+
+    // Check the TGA files
+    checkGameFont();
 }
 
 void w_main::populate_mod_list(){
@@ -520,6 +592,27 @@ void w_main::on_language_ar_triggered()
 void w_main::on_language_tr_triggered()
 {
     QString lang = "tr";
+    language_select(lang);
+    populate_language_menu(lang);
+}
+
+void w_main::on_language_ko_triggered()
+{
+    QString lang = "ko";
+    language_select(lang);
+    populate_language_menu(lang);
+}
+
+void w_main::on_language_zh_triggered()
+{
+    QString lang = "zh";
+    language_select(lang);
+    populate_language_menu(lang);
+}
+
+void w_main::on_language_ja_triggered()
+{
+    QString lang = "ja";
     language_select(lang);
     populate_language_menu(lang);
 }

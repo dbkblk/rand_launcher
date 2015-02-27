@@ -146,7 +146,7 @@ void w_options::on_checkerBox_toggled(bool checked)
 
 void w_options::on_opt_bt_path_clicked()
 {
-    QString exeloc = QFileDialog::getOpenFileName(0, "Find Civ. IV executable", QString(), "(Civ4BeyondSword.exe)");
+    QString exeloc = QFileDialog::getOpenFileName(0, tr("Find Civ IV executable"), QString(), "(Civ4BeyondSword.exe)");
     setCheckerParam("Main/ExecutablePath",exeloc);
     if(exeloc != NULL) {
         ui->opt_text_path->setText(exeloc);

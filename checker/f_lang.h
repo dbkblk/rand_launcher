@@ -16,4 +16,7 @@ void setFScale(bool enable);
 QString getLanguageRecommendedFont(QString code);
 QString getLanguageCurrentFont(QString code);
 void setLanguageFont(QString font);
+QString getCurrentLanguage();
+void checkGameFont();
+bool isLanguageAsian(QString langCode);
 #endif // F_LANG_H

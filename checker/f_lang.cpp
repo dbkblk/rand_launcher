@@ -1,4 +1,5 @@
 #include "f_lang.h"
+#include "f_civ.h"
 
 #include <QtCore>
 #include <QtNetwork>
@@ -254,13 +255,13 @@ void setLanguageFont(QString font){
         {
             // Isolate each value and replace the font value
             QStringList list = line.split("\"");
-            if(line.contains("GFont	.Size4_Bold")){
+            /*if(line.contains("GFont	.Size4_Bold")){
                 // Set Trebuchet MS instead on city billboard (TODO: need to be set in XML).
                 list[1] = "Trebuchet MS";
             }
-            else{
+            else{*/
                 list[1] = font;
-            }
+            //}
             line = list.join("\"");
             //qDebug() << line;
         }
@@ -272,4 +273,88 @@ void setLanguageFont(QString font){
     file.remove();
     file_out.rename(file_name);
     return;
+}
+
+QString getCurrentLanguage()
+{
+    return readCheckerParam("Main/Lang");
+}
+
+bool isLanguageAsian(QString langCode)
+{
+    if(langCode == "ko" || langCode == "ja" || langCode == "zh")
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+void checkGameFont()
+{
+    // Get md5 of files
+    QString font100 = "Assets/res/Fonts/GameFont.tga";
+    QString font75 = "Assets/res/Fonts/GameFont_75.tga";
+    QString md5100 = checkMd5(font100);
+    QString md575 = checkMd5(font75);
+
+    // Get current language
+    QString lang = readCheckerParam("Main/Lang");
+
+    // Get md5 corresponding to the executable used (asian (2-bytes) / latin (1-byte))
+    QDomDocument xml;
+    QFile file("Assets/res/Fonts/md5GameFont.xml");
+    if(!file.open(QIODevice::ReadOnly))
+     {
+         qDebug() << "Cannot open Assets/res/Fonts/md5GameFont.xml";
+         return;
+     }
+    xml.setContent(&file);
+    file.close();
+    QDomElement root = xml.firstChildElement().toElement();
+    qDebug() << root.isNull() << root.firstChildElement("Asian").isNull() << root.firstChildElement("Asian").firstChildElement("gf75").isNull();
+    bool update = false;
+    bool isAsian = isLanguageAsian(lang);
+    if(isAsian)
+    {
+        QString temp75 = root.firstChildElement("Asian").firstChildElement("gf75").firstChild().nodeValue();
+        QString temp100 = root.firstChildElement("Asian").firstChildElement("gf100").firstChild().nodeValue();
+        if((temp75 != md575) || (temp100 != md5100))
+        {
+            qDebug() << "Gamefonts need to be changed. Extracting.";
+            update = true;
+        }
+        else{
+            qDebug() << "Gamefonts are in sync";
+        }
+    }
+    else
+    {
+        QString temp75 = root.firstChildElement("Latin").firstChildElement("gf75").firstChild().nodeValue();
+        QString temp100 = root.firstChildElement("Latin").firstChildElement("gf100").firstChild().nodeValue();
+        if((temp75 != md575) || (temp100 != md5100))
+        {
+            qDebug() << "GameFonts TGA need to be changed. Extracting.";
+            update = true;
+        }
+        else{
+            qDebug() << "GameFonts TGA are in sync";
+        }
+    }
+
+    // Extract again if needed
+    if(update)
+    {
+        if(isAsian)
+        {
+            unTarXz("Assets/res/Fonts/gamefont_asian.tar.xz");
+        }
+        else
+        {
+            unTarXz("Assets/res/Fonts/gamefont_latin.tar.xz");
+        }
+        qDebug() << "GameFonts TGA update done.";
+    }
 }
