@@ -76,6 +76,7 @@ w_main::w_main(QWidget *parent) :
     ui->menuFix_installation->setIcon(QIcon("checker/icons/fix.png"));
     ui->actionClear_cache->setIcon(QIcon("checker/icons/clear.png"));
     ui->actionReset->setIcon(QIcon("checker/icons/reset.png"));
+    ui->actionDevelopment_platform->setIcon(QIcon("checker/icons/dev.png"));
 
     // GUI : Set title and background
 
@@ -661,4 +662,9 @@ void w_main::on_actionTranslate_the_website_triggered()
 void w_main::on_actionTranslate_the_module_Mega_Civ_pack_triggered()
 {
     openURL("https://www.transifex.com/projects/p/and-modules/");
+}
+
+void w_main::on_actionDevelopment_platform_triggered()
+{
+    openURL("https://trello.com/b/2pl5QYF3/civ4-rand/");
 }

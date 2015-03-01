@@ -270,6 +270,7 @@
     <addaction name="actionWebsite"/>
     <addaction name="actionForum"/>
     <addaction name="actionAbout_AND_Resurrection_team_forum"/>
+    <addaction name="actionDevelopment_platform"/>
     <addaction name="menuAddons"/>
    </widget>
    <widget class="QMenu" name="menuTools">
@@ -532,6 +533,14 @@
    </property>
    <property name="text">
     <string>Japanese</string>
+   </property>
+  </action>
+  <action name="actionDevelopment_platform">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Development tracker</string>
    </property>
   </action>
  </widget>
