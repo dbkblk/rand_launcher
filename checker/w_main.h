@@ -105,6 +105,8 @@ private slots:
 
     void on_actionDevelopment_platform_triggered();
 
+    void on_actionApply_Asian_language_patch_again_triggered();
+
 private:
     Ui::w_main *ui;
     w_options *options;

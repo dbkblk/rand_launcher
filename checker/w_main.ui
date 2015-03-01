@@ -242,6 +242,7 @@
      </property>
      <addaction name="actionClear_cache"/>
      <addaction name="actionReset"/>
+     <addaction name="actionApply_Asian_language_patch_again"/>
     </widget>
     <addaction name="actionOpen_mod_folder"/>
     <addaction name="menuFix_installation"/>
@@ -541,6 +542,11 @@
    </property>
    <property name="text">
     <string>Development tracker</string>
+   </property>
+  </action>
+  <action name="actionApply_Asian_language_patch_again">
+   <property name="text">
+    <string>Apply Asian language patch again</string>
    </property>
   </action>
  </widget>
