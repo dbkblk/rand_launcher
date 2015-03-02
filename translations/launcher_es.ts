@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="es">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -295,27 +293,27 @@
     <message>
         <location filename="../checker/w_main.ui" line="545"/>
         <source>Development tracker</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="550"/>
         <source>Apply Asian language patch again</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="555"/>
         <source>Frequently asked questions</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="131"/>
         <source>The executable saved in your settings doesn&apos;t exist. You will be now invited to select the game executable location</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="132"/>
         <source>Find Civ IV executable</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="169"/>
@@ -336,17 +334,17 @@
         <location filename="../checker/w_main.cpp" line="262"/>
         <location filename="../checker/w_main.cpp" line="296"/>
         <source>The executable hasn&apos;t been found. Please set the game path in the options window. (Options &gt; Select game path)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="269"/>
         <source>Asian language patch not applied</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="270"/>
         <source>You need to apply a patch on the base game for the extension to be compatible with Asian languages. The original version won&apos;t be modified. Would you like to apply it now ?</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="628"/>
@@ -443,7 +441,7 @@ Configuración mod :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translati
     <message>
         <location filename="../checker/w_options.ui" line="76"/>
         <source>Enable modern flags (on by default)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="85"/>
@@ -569,7 +567,7 @@ Configuración del lanzador :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</
     <message>
         <location filename="../checker/w_options.cpp" line="154"/>
         <source>Find Civ IV executable</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="158"/>

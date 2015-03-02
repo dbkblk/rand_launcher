@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -295,17 +293,17 @@
     <message>
         <location filename="../checker/w_main.ui" line="545"/>
         <source>Development tracker</source>
-        <translation type="unfinished"></translation>
+        <translation>Suivi du développement</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="550"/>
         <source>Apply Asian language patch again</source>
-        <translation type="unfinished"></translation>
+        <translation>Ré-appliquer le patch langue asiatique</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="555"/>
         <source>Frequently asked questions</source>
-        <translation type="unfinished"></translation>
+        <translation>Foire aux questions</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="131"/>
@@ -442,7 +440,7 @@
     <message>
         <location filename="../checker/w_options.ui" line="76"/>
         <source>Enable modern flags (on by default)</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer les drapeaux modernes (actif par défaut)</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="85"/>
@@ -452,7 +450,7 @@
     <message>
         <location filename="../checker/w_options.ui" line="111"/>
         <source>A New Dawn (default)</source>
-        <translation>A New Dawn (defaut)</translation>
+        <translation>A New Dawn (défaut)</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="116"/>

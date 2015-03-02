@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="cs">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -278,44 +276,44 @@
         <location filename="../checker/w_main.ui" line="521"/>
         <location filename="../checker/w_main.cpp" line="390"/>
         <source>Korean</source>
-        <translation type="unfinished"></translation>
+        <translation>Korejština</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="529"/>
         <location filename="../checker/w_main.cpp" line="393"/>
         <source>Chinese</source>
-        <translation type="unfinished"></translation>
+        <translation>Čínština</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="537"/>
         <location filename="../checker/w_main.cpp" line="396"/>
         <source>Japanese</source>
-        <translation type="unfinished"></translation>
+        <translation>Japonština</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="545"/>
         <source>Development tracker</source>
-        <translation type="unfinished"></translation>
+        <translation>Sledování vývoje</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="550"/>
         <source>Apply Asian language patch again</source>
-        <translation type="unfinished"></translation>
+        <translation>Znovu aplikovat patch asijských jazyků</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="555"/>
         <source>Frequently asked questions</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="131"/>
         <source>The executable saved in your settings doesn&apos;t exist. You will be now invited to select the game executable location</source>
-        <translation type="unfinished"></translation>
+        <translation>Spustitelný soubor uložený v nastaveních neexistuje. Budete vyzván ke výběru umístění spustitelného souboru hry.</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="132"/>
         <source>Find Civ IV executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Najdi spustitelný Civ IV soubor.</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="169"/>
@@ -325,28 +323,28 @@
     <message>
         <location filename="../checker/w_main.cpp" line="179"/>
         <source>Update available !</source>
-        <translation>Dostupná aktualizace.</translation>
+        <translation>Dostupná aktualizace!</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="248"/>
         <source>To be able to launch the game from the launcher, you need to set the game path in the options window. (Options &gt; Select game path)</source>
-        <translation>Ke spuštění hry ve spouštěči je třeba nastavit umístění hry v okně možností. (Možnosti &gt; Vyber umístění hry)</translation>
+        <translation>Ke spuštění hry ve spouštěči je třeba nastavit umístění hry v okně možností. (Možnosti &gt; Vybrat umístění hry)</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="262"/>
         <location filename="../checker/w_main.cpp" line="296"/>
         <source>The executable hasn&apos;t been found. Please set the game path in the options window. (Options &gt; Select game path)</source>
-        <translation type="unfinished"></translation>
+        <translation>Spustitelný soubor nebyl nalezen. Prosím nastavte umístění hry v okně možností. (Možnosti &gt; Vybrat umístění hry)</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="269"/>
         <source>Asian language patch not applied</source>
-        <translation type="unfinished"></translation>
+        <translation>Patch na asijské jazyky není aplikován</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="270"/>
         <source>You need to apply a patch on the base game for the extension to be compatible with Asian languages. The original version won&apos;t be modified. Would you like to apply it now ?</source>
-        <translation type="unfinished"></translation>
+        <translation>Je třeba aplikovat patch na základní hru aby bylo rozšíření kompatibilní s asijskými jazyky. Původní verze nebude modifikována. Přejete si jej aplikovat nyní?</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="628"/>
@@ -391,7 +389,7 @@
     <message>
         <location filename="../updater/w_main.cpp" line="89"/>
         <source> files left.</source>
-        <translation>souborů zbývá.</translation>
+        <translation>zbývajících souborů.</translation>
     </message>
 </context>
 <context>
@@ -437,12 +435,12 @@
     <message>
         <location filename="../checker/w_options.ui" line="69"/>
         <source>Enable formations (more graphical units)</source>
-        <translation>Povolit formace (více zobrazených jednotek)</translation>
+        <translation>Povolit formace (více viditelných jednotek)</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="76"/>
         <source>Enable modern flags (on by default)</source>
-        <translation type="unfinished"></translation>
+        <translation>Povolit moderní vlajky (výchozí: zapnuto)</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="85"/>
@@ -547,7 +545,7 @@
     <message>
         <location filename="../checker/w_options.ui" line="296"/>
         <source>Exclude files from update</source>
-        <translation>Vyloučit soubory z aktualizace</translation>
+        <translation>Vyloučit soubory z aktualizací</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="56"/>
@@ -567,7 +565,7 @@
     <message>
         <location filename="../checker/w_options.cpp" line="154"/>
         <source>Find Civ IV executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Najdi spustitelný Civ IV soubor</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="158"/>
