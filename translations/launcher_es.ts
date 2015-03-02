@@ -18,7 +18,7 @@
         <translation>El lanzador no está en el correcto directorio. Debe ser en &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; o en &apos; Civilization IV (carpeta del juego)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</translation>
     </message>
     <message>
-        <location filename="../checker/main.cpp" line="155"/>
+        <location filename="../checker/main.cpp" line="170"/>
         <source>There seems to be a problem with the previous update. Checking file again.</source>
         <translation>Parece haber un problema con la actualización anterior. Revisando el archivo.</translation>
     </message>
@@ -436,138 +436,143 @@ Configuración mod :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translati
         <translation>Activar las formaciones (más unidades gráficas)</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="78"/>
+        <location filename="../checker/w_options.ui" line="76"/>
+        <source>Enable modern flags (on by default)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../checker/w_options.ui" line="85"/>
         <source>Change terrain texture set:</source>
         <translation>Cambiar la textura del terreno:</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="104"/>
+        <location filename="../checker/w_options.ui" line="111"/>
         <source>A New Dawn (default)</source>
         <translation>A New Dawn (defecto)</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="109"/>
+        <location filename="../checker/w_options.ui" line="116"/>
         <source>Blue Marble</source>
         <translation>Blue Marble</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="114"/>
+        <location filename="../checker/w_options.ui" line="121"/>
         <source>Original</source>
         <translation>Original</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="119"/>
+        <location filename="../checker/w_options.ui" line="126"/>
         <source>Sparth</source>
         <translation>Sparth</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="124"/>
+        <location filename="../checker/w_options.ui" line="131"/>
         <source>Vincentz</source>
         <translation>Vincentz</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="136"/>
+        <location filename="../checker/w_options.ui" line="143"/>
         <source>Interface color:</source>
         <translation>Color de la interfaz:</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="78"/>
+        <location filename="../checker/w_options.cpp" line="83"/>
         <source>Black</source>
         <translation>Negro</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="80"/>
+        <location filename="../checker/w_options.cpp" line="85"/>
         <source>Coal</source>
         <translation>Carbón</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="81"/>
+        <location filename="../checker/w_options.cpp" line="86"/>
         <source>Dark red</source>
         <translation>Rojo oscuro</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="82"/>
+        <location filename="../checker/w_options.cpp" line="87"/>
         <source>Forest</source>
         <translation>Bosque</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="83"/>
+        <location filename="../checker/w_options.cpp" line="88"/>
         <source>Purple</source>
         <translation>Púrpura</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="84"/>
+        <location filename="../checker/w_options.cpp" line="89"/>
         <source>Red</source>
         <translation>Rojo</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="85"/>
+        <location filename="../checker/w_options.cpp" line="90"/>
         <source>Silver</source>
         <translation>Plata</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="79"/>
+        <location filename="../checker/w_options.cpp" line="84"/>
         <source>Cerulean</source>
         <translation>Cerúleo</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="191"/>
+        <location filename="../checker/w_options.ui" line="198"/>
         <source>Game path:</source>
         <translation>Ruta de juego:</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="216"/>
+        <location filename="../checker/w_options.ui" line="223"/>
         <source>Select game path</source>
         <translation>Seleccione ruta del juego</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="250"/>
+        <location filename="../checker/w_options.ui" line="257"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Launcher configuration :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;
 Configuración del lanzador :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="257"/>
+        <location filename="../checker/w_options.ui" line="264"/>
         <source>Close the launcher when game start</source>
         <translation>Cierra el lanzador cuando empiezan a juego</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="264"/>
+        <location filename="../checker/w_options.ui" line="271"/>
         <source>Autostart the mod with the game by default</source>
         <translation>Arrancar el mod con el juego por defecto</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="289"/>
+        <location filename="../checker/w_options.ui" line="296"/>
         <source>Exclude files from update</source>
         <translation>Excluir archivos de actualización</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="51"/>
+        <location filename="../checker/w_options.cpp" line="56"/>
         <source>No path specified</source>
         <translation>No hay ruta de acceso especificada</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="77"/>
+        <location filename="../checker/w_options.cpp" line="82"/>
         <source>Dark blue (Default)</source>
         <translation>Azul oscuro (defecto)</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="86"/>
+        <location filename="../checker/w_options.cpp" line="91"/>
         <source>Custom</source>
         <translation>Personalizado</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="149"/>
+        <location filename="../checker/w_options.cpp" line="154"/>
         <source>Find Civ IV executable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="153"/>
+        <location filename="../checker/w_options.cpp" line="158"/>
         <source>The game path has been changed</source>
         <translation>Se ha cambiado el camino juego</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="157"/>
+        <location filename="../checker/w_options.cpp" line="162"/>
         <source>No game path specified.</source>
         <translation>No hay juego ruta de acceso especificada.</translation>
     </message>

@@ -18,7 +18,7 @@
         <translation>Spouštěč není ve správné složce. Měl by se nacházet v &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; nebo v &apos;Civilization IV (základní adresář hry)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</translation>
     </message>
     <message>
-        <location filename="../checker/main.cpp" line="155"/>
+        <location filename="../checker/main.cpp" line="170"/>
         <source>There seems to be a problem with the previous update. Checking file again.</source>
         <translation>Nalezen problém s poslední aktualizací. Kontroluji soubory.</translation>
     </message>
@@ -435,137 +435,142 @@
         <translation>Povolit formace (více zobrazených jednotek)</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="78"/>
+        <location filename="../checker/w_options.ui" line="76"/>
+        <source>Enable modern flags (on by default)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../checker/w_options.ui" line="85"/>
         <source>Change terrain texture set:</source>
         <translation>Změnit sadu textur terénu.</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="104"/>
+        <location filename="../checker/w_options.ui" line="111"/>
         <source>A New Dawn (default)</source>
         <translation>A New Dawn (default)</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="109"/>
+        <location filename="../checker/w_options.ui" line="116"/>
         <source>Blue Marble</source>
         <translation>Blue Marble</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="114"/>
+        <location filename="../checker/w_options.ui" line="121"/>
         <source>Original</source>
         <translation>Původní</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="119"/>
+        <location filename="../checker/w_options.ui" line="126"/>
         <source>Sparth</source>
         <translation>Sparth</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="124"/>
+        <location filename="../checker/w_options.ui" line="131"/>
         <source>Vincentz</source>
         <translation>Vincentz</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="136"/>
+        <location filename="../checker/w_options.ui" line="143"/>
         <source>Interface color:</source>
         <translation>Barva rozhraní:</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="78"/>
+        <location filename="../checker/w_options.cpp" line="83"/>
         <source>Black</source>
         <translation>Černá</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="80"/>
+        <location filename="../checker/w_options.cpp" line="85"/>
         <source>Coal</source>
         <translation>Uhlová</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="81"/>
+        <location filename="../checker/w_options.cpp" line="86"/>
         <source>Dark red</source>
         <translation>Tmavě červená</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="82"/>
+        <location filename="../checker/w_options.cpp" line="87"/>
         <source>Forest</source>
         <translation>Les</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="83"/>
+        <location filename="../checker/w_options.cpp" line="88"/>
         <source>Purple</source>
         <translation>Fialová</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="84"/>
+        <location filename="../checker/w_options.cpp" line="89"/>
         <source>Red</source>
         <translation>Červená</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="85"/>
+        <location filename="../checker/w_options.cpp" line="90"/>
         <source>Silver</source>
         <translation>Stříbrná</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="79"/>
+        <location filename="../checker/w_options.cpp" line="84"/>
         <source>Cerulean</source>
         <translation>Modrá</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="191"/>
+        <location filename="../checker/w_options.ui" line="198"/>
         <source>Game path:</source>
         <translation>Umístění hry:</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="216"/>
+        <location filename="../checker/w_options.ui" line="223"/>
         <source>Select game path</source>
         <translation>Vybrat umístění hry</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="250"/>
+        <location filename="../checker/w_options.ui" line="257"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Launcher configuration :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Konfigurace spouštěče:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="257"/>
+        <location filename="../checker/w_options.ui" line="264"/>
         <source>Close the launcher when game start</source>
         <translation>Zavřít spouštěč při zapnutí hry</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="264"/>
+        <location filename="../checker/w_options.ui" line="271"/>
         <source>Autostart the mod with the game by default</source>
         <translation>Automaticky zapnout mód s hrou</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.ui" line="289"/>
+        <location filename="../checker/w_options.ui" line="296"/>
         <source>Exclude files from update</source>
         <translation>Vyloučit soubory z aktualizace</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="51"/>
+        <location filename="../checker/w_options.cpp" line="56"/>
         <source>No path specified</source>
         <translation>Není určeno umístění</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="77"/>
+        <location filename="../checker/w_options.cpp" line="82"/>
         <source>Dark blue (Default)</source>
         <translation>Tmavě modrá (Výchozí)</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="86"/>
+        <location filename="../checker/w_options.cpp" line="91"/>
         <source>Custom</source>
         <translation>Vlastní</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="149"/>
+        <location filename="../checker/w_options.cpp" line="154"/>
         <source>Find Civ IV executable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="153"/>
+        <location filename="../checker/w_options.cpp" line="158"/>
         <source>The game path has been changed</source>
         <translation>Umístění hry bylo změněno.</translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="157"/>
+        <location filename="../checker/w_options.cpp" line="162"/>
         <source>No game path specified.</source>
         <translation>Není určeno umístění hry.</translation>
     </message>
