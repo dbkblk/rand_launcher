@@ -107,6 +107,8 @@ private slots:
 
     void on_actionApply_Asian_language_patch_again_triggered();
 
+    void on_actionFrequently_asked_questions_triggered();
+
 private:
     Ui::w_main *ui;
     w_options *options;

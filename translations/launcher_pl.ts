@@ -87,32 +87,32 @@
         <translation>Społeczność</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="279"/>
+        <location filename="../checker/w_main.ui" line="280"/>
         <source>Help us to improve the mod !</source>
         <translation>Pomóż nam ulepszyć modyfikację!</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="297"/>
+        <location filename="../checker/w_main.ui" line="298"/>
         <source>Language</source>
         <translation>Język</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="323"/>
+        <location filename="../checker/w_main.ui" line="324"/>
         <source>Exit</source>
         <translation>Wyjdź</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="331"/>
+        <location filename="../checker/w_main.ui" line="332"/>
         <source>Forum</source>
         <translation>Forum</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="344"/>
+        <location filename="../checker/w_main.ui" line="345"/>
         <source>About AND Resurrection team (forum)</source>
         <translation>O zespole AND Resurrection (forum)</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="341"/>
+        <location filename="../checker/w_main.ui" line="342"/>
         <source>History and credits</source>
         <translation>Historia i twórcy</translation>
     </message>
@@ -132,239 +132,244 @@
         <translation>Pobierz moduły</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="283"/>
+        <location filename="../checker/w_main.ui" line="284"/>
         <source>Translation</source>
         <translation>Tłumaczenie</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="336"/>
+        <location filename="../checker/w_main.ui" line="337"/>
         <source>Report a bug (forum)</source>
         <translation>Zgłoś błąd (forum)</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="349"/>
+        <location filename="../checker/w_main.ui" line="350"/>
         <source>Open mod folder</source>
         <translation>Otwórz katalog modyfikacji</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="354"/>
+        <location filename="../checker/w_main.ui" line="355"/>
         <source>Translate the mod</source>
         <translation>Tłumacz modyfikacje</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="359"/>
+        <location filename="../checker/w_main.ui" line="360"/>
         <source>Help for translation (forum)</source>
         <translation>Pomóż w tłumaczeniu (forum)</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="370"/>
-        <location filename="../checker/w_main.cpp" line="350"/>
+        <location filename="../checker/w_main.ui" line="371"/>
+        <location filename="../checker/w_main.cpp" line="351"/>
         <source>English</source>
         <translation>Angielski</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="381"/>
-        <location filename="../checker/w_main.cpp" line="353"/>
+        <location filename="../checker/w_main.ui" line="382"/>
+        <location filename="../checker/w_main.cpp" line="354"/>
         <source>French</source>
         <translation>Francuski</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="389"/>
-        <location filename="../checker/w_main.cpp" line="368"/>
+        <location filename="../checker/w_main.ui" line="390"/>
+        <location filename="../checker/w_main.cpp" line="369"/>
         <source>Hungarian</source>
         <translation>Węgierski</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="397"/>
-        <location filename="../checker/w_main.cpp" line="365"/>
+        <location filename="../checker/w_main.ui" line="398"/>
+        <location filename="../checker/w_main.cpp" line="366"/>
         <source>Finnish</source>
         <translation>Fiński</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="405"/>
-        <location filename="../checker/w_main.cpp" line="371"/>
+        <location filename="../checker/w_main.ui" line="406"/>
+        <location filename="../checker/w_main.cpp" line="372"/>
         <source>Polish</source>
         <translation>Polski</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="413"/>
-        <location filename="../checker/w_main.cpp" line="359"/>
+        <location filename="../checker/w_main.ui" line="414"/>
+        <location filename="../checker/w_main.cpp" line="360"/>
         <source>Italian</source>
         <translation>Włoski</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="421"/>
-        <location filename="../checker/w_main.cpp" line="362"/>
+        <location filename="../checker/w_main.ui" line="422"/>
+        <location filename="../checker/w_main.cpp" line="363"/>
         <source>Spanish</source>
         <translation>Hiszpański</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="429"/>
-        <location filename="../checker/w_main.cpp" line="356"/>
+        <location filename="../checker/w_main.ui" line="430"/>
+        <location filename="../checker/w_main.cpp" line="357"/>
         <source>German</source>
         <translation>Niemiecki</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="437"/>
-        <location filename="../checker/w_main.cpp" line="374"/>
+        <location filename="../checker/w_main.ui" line="438"/>
+        <location filename="../checker/w_main.cpp" line="375"/>
         <source>Russian</source>
         <translation>Rosyjski</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="442"/>
+        <location filename="../checker/w_main.ui" line="443"/>
         <source>Clear cache</source>
         <translation>Wyczyść cache</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="447"/>
+        <location filename="../checker/w_main.ui" line="448"/>
         <source>Reset mod to default state</source>
         <translation>Przywróć domyślny stan modyfikacji</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="452"/>
+        <location filename="../checker/w_main.ui" line="453"/>
         <source>Translate the civilopedia</source>
         <translation>Tłumacz civilizopedie</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="457"/>
+        <location filename="../checker/w_main.ui" line="458"/>
         <source>Website</source>
         <translation>Strona</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="465"/>
-        <location filename="../checker/w_main.cpp" line="377"/>
+        <location filename="../checker/w_main.ui" line="466"/>
+        <location filename="../checker/w_main.cpp" line="378"/>
         <source>Czech</source>
         <translation>Czeski</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="473"/>
-        <location filename="../checker/w_main.cpp" line="380"/>
+        <location filename="../checker/w_main.ui" line="474"/>
+        <location filename="../checker/w_main.cpp" line="381"/>
         <source>Danish</source>
         <translation>Duński</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="481"/>
-        <location filename="../checker/w_main.cpp" line="383"/>
+        <location filename="../checker/w_main.ui" line="482"/>
+        <location filename="../checker/w_main.cpp" line="384"/>
         <source>Arabic</source>
         <translation>Arabski</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="489"/>
-        <location filename="../checker/w_main.cpp" line="386"/>
+        <location filename="../checker/w_main.ui" line="490"/>
+        <location filename="../checker/w_main.cpp" line="387"/>
         <source>Turkish</source>
         <translation>Turecki</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="497"/>
+        <location filename="../checker/w_main.ui" line="498"/>
         <source>Activation status:</source>
         <translation>Status aktywacji:</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="502"/>
+        <location filename="../checker/w_main.ui" line="503"/>
         <source>Give us feedback ! (forum)</source>
         <translation>Podziel się opinią! (forum)</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="507"/>
+        <location filename="../checker/w_main.ui" line="508"/>
         <source>Translate the website</source>
         <translation>Tłumacz strone</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="512"/>
+        <location filename="../checker/w_main.ui" line="513"/>
         <source>Translate the module &quot;Mega Civ. pack&quot;</source>
         <translation>Tłumacz moduł &quot;Mega Civ. pack&quot;</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="520"/>
-        <location filename="../checker/w_main.cpp" line="389"/>
+        <location filename="../checker/w_main.ui" line="521"/>
+        <location filename="../checker/w_main.cpp" line="390"/>
         <source>Korean</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="528"/>
-        <location filename="../checker/w_main.cpp" line="392"/>
+        <location filename="../checker/w_main.ui" line="529"/>
+        <location filename="../checker/w_main.cpp" line="393"/>
         <source>Chinese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="536"/>
-        <location filename="../checker/w_main.cpp" line="395"/>
+        <location filename="../checker/w_main.ui" line="537"/>
+        <location filename="../checker/w_main.cpp" line="396"/>
         <source>Japanese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="544"/>
+        <location filename="../checker/w_main.ui" line="545"/>
         <source>Development tracker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="549"/>
+        <location filename="../checker/w_main.ui" line="550"/>
         <source>Apply Asian language patch again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="130"/>
-        <source>The executable saved in your settings doesn&apos;t exist. You will be now invited to select the game executable location</source>
+        <location filename="../checker/w_main.ui" line="555"/>
+        <source>Frequently asked questions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="131"/>
+        <source>The executable saved in your settings doesn&apos;t exist. You will be now invited to select the game executable location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../checker/w_main.cpp" line="132"/>
         <source>Find Civ IV executable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="168"/>
+        <location filename="../checker/w_main.cpp" line="169"/>
         <source>Check for update</source>
         <translation>Sprawdź aktualizacje</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="178"/>
+        <location filename="../checker/w_main.cpp" line="179"/>
         <source>Update available !</source>
         <translation>Aktualizacja dostępna!</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="247"/>
+        <location filename="../checker/w_main.cpp" line="248"/>
         <source>To be able to launch the game from the launcher, you need to set the game path in the options window. (Options &gt; Select game path)</source>
         <translation>By uruchomić grę z launchera, należy podać w opcjach ścieżkę do gry (Opcje &gt; Podaj ścieżkę gry)</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="261"/>
-        <location filename="../checker/w_main.cpp" line="295"/>
+        <location filename="../checker/w_main.cpp" line="262"/>
+        <location filename="../checker/w_main.cpp" line="296"/>
         <source>The executable hasn&apos;t been found. Please set the game path in the options window. (Options &gt; Select game path)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="268"/>
+        <location filename="../checker/w_main.cpp" line="269"/>
         <source>Asian language patch not applied</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="269"/>
+        <location filename="../checker/w_main.cpp" line="270"/>
         <source>You need to apply a patch on the base game for the extension to be compatible with Asian languages. The original version won&apos;t be modified. Would you like to apply it now ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="627"/>
+        <location filename="../checker/w_main.cpp" line="628"/>
         <source>Cache</source>
         <translation>Pamięć podręczna</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="627"/>
+        <location filename="../checker/w_main.cpp" line="628"/>
         <source>The cache is now cleared. NOTE: It is already automatically cleared on update.</source>
         <translation>Pamięć podręczna została wyczyszczona. UWAGA: Będzie czyszczony automatycznie przy aktualizacji</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="635"/>
+        <location filename="../checker/w_main.cpp" line="636"/>
         <source>Reset mod</source>
         <translation>Zresetuj Mod</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="636"/>
+        <location filename="../checker/w_main.cpp" line="637"/>
         <source>This will reset the mod to the default state. Any modification or launcher preferences will be removed.</source>
         <translation>Ta opcja zresetuje modyfikację do stanu domyślnego. Wszystkie modyfikacje i ustawienia launchera zostaną usunięte.</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="637"/>
+        <location filename="../checker/w_main.cpp" line="638"/>
         <source>Are you sure to continue ?</source>
         <translation>Na pewno chcesz kontynuować?</translation>
     </message>

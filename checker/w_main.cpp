@@ -78,6 +78,7 @@ w_main::w_main(QWidget *parent) :
     ui->actionReset->setIcon(QIcon("checker/icons/reset.png"));
     ui->actionDevelopment_platform->setIcon(QIcon("checker/icons/dev.png"));
     ui->actionApply_Asian_language_patch_again->setIcon(QIcon("checker/icons/asian.png"));
+    ui->actionFrequently_asked_questions->setIcon(QIcon("checker/icons/faq.png"));
 
     // GUI : Set title and background
 
@@ -673,4 +674,9 @@ void w_main::on_actionDevelopment_platform_triggered()
 void w_main::on_actionApply_Asian_language_patch_again_triggered()
 {
     system("checker\\asian_patcher.exe");
+}
+
+void w_main::on_actionFrequently_asked_questions_triggered()
+{
+    openURL("http://anewdawn.sourceforge.net/pages/faq/");
 }

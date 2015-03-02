@@ -271,6 +271,7 @@
     <addaction name="actionWebsite"/>
     <addaction name="actionForum"/>
     <addaction name="actionAbout_AND_Resurrection_team_forum"/>
+    <addaction name="actionFrequently_asked_questions"/>
     <addaction name="actionDevelopment_platform"/>
     <addaction name="menuAddons"/>
    </widget>
@@ -547,6 +548,11 @@
   <action name="actionApply_Asian_language_patch_again">
    <property name="text">
     <string>Apply Asian language patch again</string>
+   </property>
+  </action>
+  <action name="actionFrequently_asked_questions">
+   <property name="text">
+    <string>Frequently asked questions</string>
    </property>
   </action>
  </widget>
