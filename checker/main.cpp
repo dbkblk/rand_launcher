@@ -91,7 +91,7 @@ int main(int argc, char *argv[])
     // Inject saved color UI and formations parameters to xml files in case of update
     bool formations = false;
     if (readCheckerParam("Modules/Formations") == "1")
-    {
+    { // Disabled by default
         formations = true;
     }
     if(formations != readOptionFormations()){
@@ -99,8 +99,8 @@ int main(int argc, char *argv[])
         setOptionFormations(formations);
     }
     bool modern_flags = false;
-    if (readCheckerParam("Modules/ModernFlags") == "1")
-    {
+    if (readCheckerParam("Modules/ModernFlags") == "1" || readCheckerParam("Modules/ModernFlags") == "error")
+    { // Enabled by default
         modern_flags = true;
     }
     if(modern_flags != readOptionModernFlags())
