@@ -314,7 +314,7 @@ void checkGameFont()
     xml.setContent(&file);
     file.close();
     QDomElement root = xml.firstChildElement().toElement();
-    qDebug() << root.isNull() << root.firstChildElement("Asian").isNull() << root.firstChildElement("Asian").firstChildElement("gf75").isNull();
+    //qDebug() << root.isNull() << root.firstChildElement("Asian").isNull() << root.firstChildElement("Asian").firstChildElement("gf75").isNull();
     bool update = false;
     bool isAsian = isLanguageAsian(lang);
     if(isAsian)

@@ -89,9 +89,24 @@ int main(int argc, char *argv[])
     generateModsMLFFile();
 
     // Inject saved color UI and formations parameters to xml files in case of update
-    if(readCheckerParam("Modules/Formations") == "1" && readOptionFormations() == false){
+    bool formations = false;
+    if (readCheckerParam("Modules/Formations") == "1")
+    {
+        formations = true;
+    }
+    if(formations != readOptionFormations()){
         qDebug() << "Inject formation setting to xml";
-        setOptionFormations(true);
+        setOptionFormations(formations);
+    }
+    bool modern_flags = false;
+    if (readCheckerParam("Modules/ModernFlags") == "1")
+    {
+        modern_flags = true;
+    }
+    if(modern_flags != readOptionModernFlags())
+    {
+        qDebug() << "Inject modern flags setting to xml";
+        setOptionModernFlags(modern_flags);
     }
     // Check color set is conform to the saved parameter
     if(readCheckerParam("Modules/ColorUI") == "Custom"){

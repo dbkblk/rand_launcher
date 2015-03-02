@@ -29,11 +29,16 @@ w_options::w_options(QWidget *parent) :
     int terrain = QString(readCheckerParam("Modules/Terrain")).toInt();
     if(terrain < 5){ui->dd_textures->setCurrentIndex(terrain);}
 
-    if(readOptionFormations() == true)
+    if(readOptionFormations())
     {
         // Save parameter
         setCheckerParam("Modules/Formations", "1");
         ui->opt_checkbox_formations->setChecked(1);
+    }
+
+    if(readOptionModernFlags())
+    {
+        ui->opt_checkbox_modern_flags->setChecked(1);
     }
 
     if(readGameOption("Mod") == "Rise of Mankind - A New Dawn") {
@@ -184,5 +189,16 @@ void w_options::on_dd_textures_currentIndexChanged(int index)
     setTextureTerrainSet(index);
     ui->dd_textures->setCurrentIndex(index);
 }
-
-
+void w_options::on_opt_checkbox_modern_flags_toggled(bool checked)
+{
+    if(checked)
+    {
+        setCheckerParam("Modules/ModernFlags", "1");
+        setOptionModernFlags(true);
+    }
+    else
+    {
+        setCheckerParam("Modules/ModernFlags", "0");
+        setOptionModernFlags(false);
+    }
+}

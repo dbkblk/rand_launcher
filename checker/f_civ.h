@@ -27,6 +27,8 @@ QString check_addon_more_music();
 QString check_addon_more_handicaps();
 bool readOptionFormations();
 bool setOptionFormations(bool value);
+bool readOptionModernFlags();
+bool setOptionModernFlags(bool value);
 bool clearCache();
 bool clearGameOptions();
 int checkDoubleInstallation();

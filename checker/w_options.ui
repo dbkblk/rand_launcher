@@ -51,10 +51,10 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
     <property name="leftMargin">
-     <number>10</number>
+     <number>5</number>
     </property>
     <property name="rightMargin">
-     <number>10</number>
+     <number>5</number>
     </property>
     <item>
      <widget class="QLabel" name="lb_modconf">
@@ -67,6 +67,13 @@
      <widget class="QCheckBox" name="opt_checkbox_formations">
       <property name="text">
        <string>Enable formations (more graphical units)</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="opt_checkbox_modern_flags">
+      <property name="text">
+       <string>Enable modern flags (on by default)</string>
       </property>
      </widget>
     </item>

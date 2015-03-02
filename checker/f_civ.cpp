@@ -348,6 +348,65 @@ bool setOptionFormations(bool value)
     return 0;
 }
 
+bool readOptionModernFlags()
+{
+    // Open the file
+    QDomDocument read;
+    QFile file("Assets/Modules/Modern_flags/MLF_CIV4ModularLoadingControls.xml");
+    if(!file.open(QIODevice::ReadOnly))
+     {
+         qDebug() << "Error opening file";
+         return 0;
+     }
+    read.setContent(&file);
+    file.close();
+
+    // Go to color level
+    QDomElement value_el = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
+
+    QString bLoad = value_el.firstChildElement("bLoad").firstChild().nodeValue();
+
+    if (bLoad.toInt() == 1) {
+        return true;
+    }
+    return false;
+}
+
+bool setOptionModernFlags(bool value)
+{
+    // Open the file
+    QDomDocument read;
+    QFile file("Assets/Modules/Modern_flags/MLF_CIV4ModularLoadingControls.xml");
+
+    if(!file.open(QIODevice::ReadOnly))
+     {
+         qDebug() << "Error opening file";
+         return 0;
+     }
+    read.setContent(&file);
+    file.close();
+
+    // Go to color level
+    QDomElement value_el = read.firstChildElement("Civ4ModularLoadControls").firstChildElement("ConfigurationInfos").firstChildElement("ConfigurationInfo").firstChildElement("Modules").firstChildElement("Module").toElement();
+
+    // Set values
+    if (value)
+    {
+        value_el.firstChildElement("bLoad").firstChild().setNodeValue("1");
+    }
+    else
+    {
+        value_el.firstChildElement("bLoad").firstChild().setNodeValue("0");
+    }
+
+    // Save content back to the file
+    file.open(QIODevice::Truncate | QIODevice::WriteOnly);
+    file.write(read.toByteArray());
+    file.close();
+
+    return 0;
+}
+
 bool clearCache()
 {
     // Getting the cache path

@@ -29,8 +29,8 @@ private slots:
     void on_bt_exclusions_clicked();
     void on_dd_textures_currentIndexChanged(int index);
     void populateColorBox();
-
     void on_bt_customColor_clicked();
+    void on_opt_checkbox_modern_flags_toggled(bool checked);
 
 private:
     QCheckBox *startBox;
