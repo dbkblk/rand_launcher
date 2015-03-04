@@ -394,6 +394,9 @@ void w_main::populate_language_menu(QString code)
     if(code=="ja"){ui->language_ja->setChecked(1);}
     ui->language_ja->setIcon(QIcon("checker/icons/ja.png"));
     ui->language_ja->setText(tr("Japanese") + " (" + getLanguageProgressFromCode("ja") + "%)");
+    if(code=="el"){ui->language_el->setChecked(1);}
+    ui->language_el->setIcon(QIcon("checker/icons/el.png"));
+    ui->language_el->setText(tr("Greek") + " (" + getLanguageProgressFromCode("el") + "%)");
 
     setGameOption("Language", getLanguageGameNumberFromCode(code));
     if(isLanguageSupported(code)){
@@ -616,6 +619,13 @@ void w_main::on_language_zh_triggered()
 void w_main::on_language_ja_triggered()
 {
     QString lang = "ja";
+    language_select(lang);
+    populate_language_menu(lang);
+}
+
+void w_main::on_language_el_triggered()
+{
+    QString lang = "el";
     language_select(lang);
     populate_language_menu(lang);
 }

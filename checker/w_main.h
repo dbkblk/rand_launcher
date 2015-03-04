@@ -18,7 +18,7 @@ class installBox;
 }
 
 namespace versions {
-const QString CHECKER_VERSION = "1.14";
+const QString CHECKER_VERSION = "1.15";
 }
 
 namespace tools {
@@ -108,6 +108,8 @@ private slots:
     void on_actionApply_Asian_language_patch_again_triggered();
 
     void on_actionFrequently_asked_questions_triggered();
+
+    void on_language_el_triggered();
 
 private:
     Ui::w_main *ui;

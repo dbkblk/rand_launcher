@@ -305,6 +305,7 @@
     <addaction name="language_fi"/>
     <addaction name="language_fr"/>
     <addaction name="language_de"/>
+    <addaction name="language_el"/>
     <addaction name="language_hu"/>
     <addaction name="language_it"/>
     <addaction name="language_ja"/>
@@ -553,6 +554,11 @@
   <action name="actionFrequently_asked_questions">
    <property name="text">
     <string>Frequently asked questions</string>
+   </property>
+  </action>
+  <action name="language_el">
+   <property name="text">
+    <string>Greek</string>
    </property>
   </action>
  </widget>
