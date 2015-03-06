@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="es">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -295,44 +293,44 @@
     <message>
         <location filename="../checker/w_main.ui" line="548"/>
         <source>Development tracker</source>
-        <translation type="unfinished"></translation>
+        <translation>Seguir el desarrollo</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="553"/>
         <source>Apply Asian language patch again</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplicar el parche de idiomas asiáticos</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="558"/>
         <source>Frequently asked questions</source>
-        <translation type="unfinished"></translation>
+        <translation>Preguntas más frecuentes</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="563"/>
         <location filename="../checker/w_main.cpp" line="400"/>
         <source>Greek</source>
-        <translation type="unfinished"></translation>
+        <translation>Griego</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="568"/>
         <location filename="../checker/w_main.cpp" line="403"/>
         <source>Portuguese</source>
-        <translation type="unfinished"></translation>
+        <translation>Portugués</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="573"/>
         <source>Check the files again</source>
-        <translation type="unfinished"></translation>
+        <translation>Compruebe los archivos otra vez</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="132"/>
         <source>The executable saved in your settings doesn&apos;t exist. You will be now invited to select the game executable location</source>
-        <translation type="unfinished"></translation>
+        <translation>No existe el ejecutable que se guarda en la configuración. Se le invita ahora a seleccionar la ubicación del ejecutable del juego</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="133"/>
         <source>Find Civ IV executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Encontrar Civ IV ejecutable</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="170"/>
@@ -353,17 +351,17 @@
         <location filename="../checker/w_main.cpp" line="263"/>
         <location filename="../checker/w_main.cpp" line="297"/>
         <source>The executable hasn&apos;t been found. Please set the game path in the options window. (Options &gt; Select game path)</source>
-        <translation type="unfinished"></translation>
+        <translation>El ejecutable no ha sido encontrado. Por favor, define la ruta de juego en la ventana de opciones. (Opciones &gt; Seleccione ruta juego)</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="270"/>
         <source>Asian language patch not applied</source>
-        <translation type="unfinished"></translation>
+        <translation>Parche idioma asiático no se aplica</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="271"/>
         <source>You need to apply a patch on the base game for the extension to be compatible with Asian languages. The original version won&apos;t be modified. Would you like to apply it now ?</source>
-        <translation type="unfinished"></translation>
+        <translation>Es necesario de aplicar un parche sobre el juego de base para la extensión es compatible con los idiomas asiáticos. La versión original no sea modificada. ¿Te gustaría aplicarlo ahora?</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="649"/>
@@ -394,12 +392,12 @@
     <message>
         <location filename="../checker/w_main.cpp" line="680"/>
         <source>Check files</source>
-        <translation type="unfinished"></translation>
+        <translation>Verificación de los archivos</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="681"/>
         <source>This will check the mod files again without removing your modifications (if they are listed as exclusions) or preferences. If an update is available, this will update the game.</source>
-        <translation type="unfinished"></translation>
+        <translation>Esto comprobará los archivos del mod una nueva vez sin quitar sus modificaciones (si se enumeran como exclusiones) o sus preferencias. Si hay una actualización disponible, éste actualizará el juego.</translation>
     </message>
     <message>
         <location filename="../updater/w_main.ui" line="32"/>
@@ -471,7 +469,7 @@ Configuración mod :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translati
     <message>
         <location filename="../checker/w_options.ui" line="76"/>
         <source>Enable modern flags (on by default)</source>
-        <translation type="unfinished"></translation>
+        <translation>Activar las banderas modernas (activo por defecto)</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="85"/>
@@ -597,7 +595,7 @@ Configuración del lanzador :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</
     <message>
         <location filename="../checker/w_options.cpp" line="154"/>
         <source>Find Civ IV executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Encontrar Civ IV ejecutable</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="158"/>

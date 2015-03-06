@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="cs">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="cs" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -311,18 +309,18 @@
         <location filename="../checker/w_main.ui" line="563"/>
         <location filename="../checker/w_main.cpp" line="400"/>
         <source>Greek</source>
-        <translation type="unfinished"></translation>
+        <translation>Řecky</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="568"/>
         <location filename="../checker/w_main.cpp" line="403"/>
         <source>Portuguese</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="573"/>
         <source>Check the files again</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="132"/>
@@ -394,12 +392,12 @@
     <message>
         <location filename="../checker/w_main.cpp" line="680"/>
         <source>Check files</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="681"/>
         <source>This will check the mod files again without removing your modifications (if they are listed as exclusions) or preferences. If an update is available, this will update the game.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../updater/w_main.ui" line="32"/>

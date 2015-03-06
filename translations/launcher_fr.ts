@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -317,12 +315,12 @@
         <location filename="../checker/w_main.ui" line="568"/>
         <location filename="../checker/w_main.cpp" line="403"/>
         <source>Portuguese</source>
-        <translation type="unfinished"></translation>
+        <translation>Portugais</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="573"/>
         <source>Check the files again</source>
-        <translation type="unfinished"></translation>
+        <translation>Vérifier de nouveau les fichiers</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="132"/>
@@ -394,12 +392,12 @@
     <message>
         <location filename="../checker/w_main.cpp" line="680"/>
         <source>Check files</source>
-        <translation type="unfinished"></translation>
+        <translation>Vérification des fichiers</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="681"/>
         <source>This will check the mod files again without removing your modifications (if they are listed as exclusions) or preferences. If an update is available, this will update the game.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cela vérifiera à nouveau les fichiers du mod sans enlever vos modifications (si elles sont répertoriées comme étant exclues) ou vos préférences. Si une mise à jour est disponible, cela mettra à jour le jeu.</translation>
     </message>
     <message>
         <location filename="../updater/w_main.ui" line="32"/>
