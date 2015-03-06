@@ -79,6 +79,7 @@ w_main::w_main(QWidget *parent) :
     ui->actionDevelopment_platform->setIcon(QIcon("checker/icons/dev.png"));
     ui->actionApply_Asian_language_patch_again->setIcon(QIcon("checker/icons/asian.png"));
     ui->actionFrequently_asked_questions->setIcon(QIcon("checker/icons/faq.png"));
+    ui->actionCheck_the_files_again->setIcon(QIcon("checker/icons/cust.png"));
 
     // GUI : Set title and background
 
@@ -397,6 +398,9 @@ void w_main::populate_language_menu(QString code)
     if(code=="el"){ui->language_el->setChecked(1);}
     ui->language_el->setIcon(QIcon("checker/icons/el.png"));
     ui->language_el->setText(tr("Greek") + " (" + getLanguageProgressFromCode("el") + "%)");
+    if(code=="pt"){ui->language_pt->setChecked(1);}
+    ui->language_pt->setIcon(QIcon("checker/icons/pt.png"));
+    ui->language_pt->setText(tr("Portuguese") + " (" + getLanguageProgressFromCode("pt") + "%)");
 
     setGameOption("Language", getLanguageGameNumberFromCode(code));
     if(isLanguageSupported(code)){
@@ -630,6 +634,13 @@ void w_main::on_language_el_triggered()
     populate_language_menu(lang);
 }
 
+void w_main::on_language_pt_triggered()
+{
+    QString lang = "pt";
+    language_select(lang);
+    populate_language_menu(lang);
+}
+
 
 // Game : Clear the cache
 void w_main::on_actionClear_cache_triggered()
@@ -653,6 +664,29 @@ void w_main::on_actionReset_triggered()
         case QMessageBox::Ok:
             reset->PrepareUpdate();
             reset->ActionReset();
+            break;
+        case QMessageBox::Cancel:
+            break;
+        default:
+            break;
+    }
+}
+
+void w_main::on_actionCheck_the_files_again_triggered()
+{
+    f_check *check = new f_check;
+    connect(check, SIGNAL(exit()), this, SLOT(stopLauncher()));
+    QMessageBox msgBox;
+    msgBox.setWindowTitle(tr("Check files"));
+    msgBox.setText(tr("This will check the mod files again without removing your modifications (if they are listed as exclusions) or preferences. If an update is available, this will update the game."));
+    msgBox.setInformativeText(tr("Are you sure to continue ?"));
+    msgBox.setStandardButtons(QMessageBox::Ok |  QMessageBox::Cancel);
+    msgBox.setDefaultButton(QMessageBox::Cancel);
+    int ret = msgBox.exec();
+    switch (ret) {
+        case QMessageBox::Ok:
+            check->PrepareUpdate();
+            check->ActionUpdate();
             break;
         case QMessageBox::Cancel:
             break;
@@ -690,3 +724,5 @@ void w_main::on_actionFrequently_asked_questions_triggered()
 {
     openURL("http://anewdawn.sourceforge.net/pages/faq/");
 }
+
+

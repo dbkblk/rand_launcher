@@ -241,6 +241,7 @@
       <string>Fix installation</string>
      </property>
      <addaction name="actionClear_cache"/>
+     <addaction name="actionCheck_the_files_again"/>
      <addaction name="actionReset"/>
      <addaction name="actionApply_Asian_language_patch_again"/>
     </widget>
@@ -311,6 +312,7 @@
     <addaction name="language_ja"/>
     <addaction name="language_ko"/>
     <addaction name="language_pl"/>
+    <addaction name="language_pt"/>
     <addaction name="language_ru"/>
     <addaction name="language_es"/>
     <addaction name="language_tr"/>
@@ -559,6 +561,16 @@
   <action name="language_el">
    <property name="text">
     <string>Greek</string>
+   </property>
+  </action>
+  <action name="language_pt">
+   <property name="text">
+    <string>Portuguese</string>
+   </property>
+  </action>
+  <action name="actionCheck_the_files_again">
+   <property name="text">
+    <string>Check the files again</string>
    </property>
   </action>
  </widget>
