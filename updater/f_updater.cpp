@@ -44,12 +44,11 @@ void f_updater::updateLaunch(){
     QString exclusion_default = readExcludeList("checker/exclusions.default.xml");
     QString exclusion_custom = readExcludeList("checker/exclusions.custom.xml");
     QString exclusion_mods = readExcludeList("checker/exclusions.mods.xml");
-    QString operation = tools::TOOL_RSYNC + QString("-rz --progress --delete-after %1%2%3rsync://afforess.com/ftp/ .").arg(exclusion_default).arg(exclusion_custom).arg(exclusion_mods);
+    QString operation = tools::TOOL_RSYNC + QString("-rz --force --progress --delete-after %1%2%3rsync://afforess.com/ftp/ .").arg(exclusion_default).arg(exclusion_custom).arg(exclusion_mods);
     qDebug() << operation;
 
     // Set process and emit signal at the end
     process->start(operation);
-    //process->execute(operation); //Uncomment execute to debug
     process->waitForFinished(-1);
 
     // Set _working to false, meaning the process can't be aborted anymore.
@@ -65,7 +64,7 @@ void f_updater::resetLaunch(){
     QFile temp("reset");
     temp.open(QIODevice::WriteOnly | QIODevice::Truncate);
     temp.close();
-    QString operation = tools::TOOL_RSYNC + QString("-rz --info=progress2 --delete-after --exclude=\"cyggcc_s-1.dll\" --exclude=\"cygiconv-2.dll\" --exclude=\"cygwin1.dll\" --exclude=\"rsync.exe\" --exclude=\"upd_proc.exe\" --exclude=\".svn*\" --exclude=\"updating\" afforess.com::ftp/ .");
+    QString operation = tools::TOOL_RSYNC + QString("-rz --force --progress --delete-after --exclude=\".svn*\" --exclude=\"updating\" afforess.com::ftp/ .");
     qDebug() << operation;
 
     // Set process and emit signal at the end
@@ -83,7 +82,7 @@ void f_updater::processOutput(){
 
     // Get standard output
     QString output = process->readAllStandardOutput();
-    qDebug() << output;
+    //qDebug() << output;
 
     // Check for errors
     if(output.contains("error")){emit error();}
@@ -107,12 +106,10 @@ void f_updater::processOutput(){
         // Avoid crash on windows
         if (total >  0){
             percent = ((total - value)*100 / total);
+
+            // Emit update signal
+            emit progress(percent, value);
         }
-
-        // Emit update signal
-        emit progress(percent, value);
-
-        if(percent == 100){qDebug("Finished update"); emit finished();}
     }
 }
 

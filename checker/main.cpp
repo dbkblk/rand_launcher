@@ -56,17 +56,20 @@ int main(int argc, char *argv[])
 
     }
 
-    // Go out of update
+    // Go out of update. Remove files which were used during update.
+    QStringList files;
+    files << "msys-iconv-2.dll" << "msys-1.0.dll" << "msys-popt-0.dll" << "msys-intl-8.dll" << "rsync.exe" << "upd_proc.exe";
     if(QFile::exists("upd_proc.exe") || QFile::exists("rsync.exe"))
     {
         clearCache();
         clearGameOptions();
-        QFile::remove("msys-iconv-2.dll");
-        QFile::remove("msys-1.0.dll");
-        QFile::remove("msys-popt-0.dll");
-        QFile::remove("msys-intl-8.dll");
-        QFile::remove("rsync.exe");
-        QFile::remove("upd_proc.exe");
+    }
+    foreach(QString file, files)
+    {
+        if(QFile::exists(file))
+        {
+            QFile::remove(file);
+        }
     }
 
     // Check for double installation
