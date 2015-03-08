@@ -56,7 +56,7 @@ void f_check::CheckForUpdate()
     bool update;
     QFile::remove("checker/changelog_last.xml");
     QProcess download;
-    QString get_address = tools::TOOL_GET + "-o checker/changelog_last.xml http://civ.afforess.com/changelog_last.xml";
+    QString get_address = tools::TOOL_GET + "-O checker/changelog_last.xml http://civ.afforess.com/changelog_last.xml";
     //qDebug() << get_address;
     download.start(get_address);
 

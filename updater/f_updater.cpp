@@ -44,7 +44,7 @@ void f_updater::updateLaunch(){
     QString exclusion_default = readExcludeList("checker/exclusions.default.xml");
     QString exclusion_custom = readExcludeList("checker/exclusions.custom.xml");
     QString exclusion_mods = readExcludeList("checker/exclusions.mods.xml");
-    QString operation = tools::TOOL_RSYNC + QString("-rz --info=progress2 --delete-after %1%2%3rsync://afforess.com/ftp/ .").arg(exclusion_default).arg(exclusion_custom).arg(exclusion_mods);
+    QString operation = tools::TOOL_RSYNC + QString("-rz --progress --delete-after %1%2%3rsync://afforess.com/ftp/ .").arg(exclusion_default).arg(exclusion_custom).arg(exclusion_mods);
     qDebug() << operation;
 
     // Set process and emit signal at the end
@@ -83,7 +83,7 @@ void f_updater::processOutput(){
 
     // Get standard output
     QString output = process->readAllStandardOutput();
-    //qDebug() << output;
+    qDebug() << output;
 
     // Check for errors
     if(output.contains("error")){emit error();}
@@ -96,11 +96,11 @@ void f_updater::processOutput(){
     int value;
     int total;
     int percent = 0;
-    if (output.contains("to-chk=")){
-        pos = output.lastIndexOf("to-chk=");
+    if (output.contains("to-check=")){
+        pos = output.lastIndexOf("to-check=");
         separator = output.lastIndexOf("/");
         bracket = output.lastIndexOf(")");
-        value = output.mid((pos+7),(separator-(pos+7))).toInt();
+        value = output.mid((pos+9),(separator-(pos+9))).toInt();
         qDebug() << "Files to check: " << value;
         total = output.mid((separator+1),(bracket-(separator+1))).toInt();
         //qDebug() << total;

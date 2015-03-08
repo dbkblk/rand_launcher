@@ -244,7 +244,11 @@ void setLanguageFont(QString font){
     QString value = "GFont	.Size";
 
     // Read the file
-    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
+     {
+         qDebug() << "Error opening Civ4Theme_Common.thm";
+         return;
+     }
     QTextStream in_enc(&file);
     file_out.open(QIODevice::WriteOnly | QIODevice::Truncate);
     QTextStream out_enc(&file_out);

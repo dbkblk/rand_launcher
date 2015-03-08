@@ -46,11 +46,6 @@ w_main::w_main(QWidget *parent) :
 
 w_main::~w_main()
 {
-    //qDebug("Kill UI");
-    worker->abort();
-    thread->wait(1000);
-    delete thread;
-    delete worker;
     delete ui;
 }
 
@@ -98,10 +93,24 @@ void w_main::errorPopup()
 }
 
 void w_main::restartLauncher()
-{
-    //qDebug("Restart launcher");
+{    
+    // Update interface a last time
+    updateInterface(100, 0);
+
+    // Kill the threads
+    qDebug("Kill thread");
+    worker->abort();
+    thread->wait(10000);
+    delete thread;
+    delete worker;
+
+    // Restart the launcher before to quit
+    qDebug() << "Remove update";
     QFile::remove("updating");
     QProcess::startDetached(tools::TOOL_LAUNCHER);
+
+    // Stop the UI
+    qDebug("Kill UI");
     this->close();
 }
 

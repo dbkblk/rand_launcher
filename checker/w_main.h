@@ -25,7 +25,7 @@ namespace tools {
 // Define OS tools
 #ifdef __linux
 const QString TOOL_RSYNC = "rsync ";
-const QString TOOL_GET = "curl -J -L -C - -# --retry 10 --insecure ";
+const QString TOOL_GET = "wget -t 10 ";
 const QString TOOL_XZ = "xz -d ";
 const QString TOOL_TAR = "tar -xpf ";
 const QString TOOL_LAUNCHER = "and2_checker";
@@ -33,7 +33,7 @@ const QString TOOL_UPDATER = "upd_proc";
 #endif
 #ifdef _WIN32
 const QString TOOL_RSYNC = "checker/rsync.exe ";
-const QString TOOL_GET = "checker/curl.exe -J -L -C - -# --retry 10 --insecure ";
+const QString TOOL_GET = "checker/wget.exe -t 10 ";
 const QString TOOL_XZ = "checker/xz.exe -d ";
 const QString TOOL_TAR = "checker/tar.exe -xpf ";
 const QString TOOL_LAUNCHER = "and2_checker.exe";
