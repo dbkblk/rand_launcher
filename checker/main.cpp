@@ -61,9 +61,10 @@ int main(int argc, char *argv[])
     {
         clearCache();
         clearGameOptions();
-        QFile::remove("cyggcc_s-1.dll");
-        QFile::remove("cygiconv-2.dll");
-        QFile::remove("cygwin1.dll");
+        QFile::remove("msys-iconv-2.dll");
+        QFile::remove("msys-1.0.dll");
+        QFile::remove("msys-popt-0.dll");
+        QFile::remove("msys-intl-8.dll");
         QFile::remove("rsync.exe");
         QFile::remove("upd_proc.exe");
     }

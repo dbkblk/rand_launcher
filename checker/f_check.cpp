@@ -88,9 +88,10 @@ bool f_check::PrepareUpdate()
 {
     #ifdef _WIN32
     QFile::copy("checker/upd_proc.exe","upd_proc.exe");
-    QFile::copy("checker/cyggcc_s-1.dll","cyggcc_s-1.dll");
-    QFile::copy("checker/cygiconv-2.dll","cygiconv-2.dll");
-    QFile::copy("checker/cygwin1.dll","cygwin1.dll");
+    QFile::copy("checker/msys-iconv-2.dll","msys-iconv-2.dll");
+    QFile::copy("checker/msys-1.0.dll","msys-1.0.dll");
+    QFile::copy("checker/msys-popt-0.dll","msys-popt-0.dll");
+    QFile::copy("checker/msys-intl-8.dll","msys-intl-8.dll");
     QFile::copy("checker/rsync.exe","rsync.exe");
     #endif
     #ifdef __linux
