@@ -299,6 +299,7 @@
      <string>Language</string>
     </property>
     <addaction name="language_ar"/>
+    <addaction name="language_pt_BR"/>
     <addaction name="language_zh"/>
     <addaction name="language_cs"/>
     <addaction name="language_da"/>
@@ -571,6 +572,11 @@
   <action name="actionCheck_the_files_again">
    <property name="text">
     <string>Check the files again</string>
+   </property>
+  </action>
+  <action name="language_pt_BR">
+   <property name="text">
+    <string>Brazilian</string>
    </property>
   </action>
  </widget>

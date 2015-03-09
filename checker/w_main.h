@@ -115,6 +115,8 @@ private slots:
 
     void on_actionCheck_the_files_again_triggered();
 
+    void on_language_pt_BR_triggered();
+
 private:
     Ui::w_main *ui;
     w_options *options;

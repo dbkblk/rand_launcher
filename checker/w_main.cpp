@@ -401,6 +401,9 @@ void w_main::populate_language_menu(QString code)
     if(code=="pt"){ui->language_pt->setChecked(1);}
     ui->language_pt->setIcon(QIcon("checker/icons/pt.png"));
     ui->language_pt->setText(tr("Portuguese") + " (" + getLanguageProgressFromCode("pt") + "%)");
+    if(code=="pt_BR"){ui->language_pt_BR->setChecked(1);}
+    ui->language_pt_BR->setIcon(QIcon("checker/icons/pt_BR.png"));
+    ui->language_pt_BR->setText(tr("Brazilian") + " (" + getLanguageProgressFromCode("pt_BR") + "%)");
 
     setGameOption("Language", getLanguageGameNumberFromCode(code));
     if(isLanguageSupported(code)){
@@ -641,6 +644,13 @@ void w_main::on_language_pt_triggered()
     populate_language_menu(lang);
 }
 
+void w_main::on_language_pt_BR_triggered()
+{
+    QString lang = "pt_BR";
+    language_select(lang);
+    populate_language_menu(lang);
+}
+
 
 // Game : Clear the cache
 void w_main::on_actionClear_cache_triggered()
@@ -724,5 +734,3 @@ void w_main::on_actionFrequently_asked_questions_triggered()
 {
     openURL("http://anewdawn.sourceforge.net/pages/faq/");
 }
-
-

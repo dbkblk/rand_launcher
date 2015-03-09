@@ -17,7 +17,7 @@
 
 bool isLanguageDefault(QString language){
     QStringList list;
-    list << "en" << "fr" << "de" << "it" << "es" << "pt";
+    list << "en" << "fr" << "de" << "it" << "es" << "pt" << "pt_BR";
     if(list.contains(language)){return true;}
     return false;
 }

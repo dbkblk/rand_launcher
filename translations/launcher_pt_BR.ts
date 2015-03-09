@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="pt_BR">
 <context>
     <name>QObject</name>
     <message>
@@ -65,6 +65,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../checker/w_main.ui" line="146"/>
+        <source>See latest changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../checker/w_main.ui" line="192"/>
         <source>Options</source>
         <translation type="unfinished"></translation>
@@ -85,8 +90,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../checker/w_main.ui" line="261"/>
+        <source>Modules</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../checker/w_main.ui" line="265"/>
+        <source>Get modules</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../checker/w_main.ui" line="281"/>
         <source>Help us to improve the mod !</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../checker/w_main.ui" line="285"/>
+        <source>Translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -105,8 +125,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="349"/>
-        <source>About AND Resurrection team (forum)</source>
+        <location filename="../checker/w_main.ui" line="341"/>
+        <source>Report a bug (forum)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -115,28 +135,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="146"/>
-        <source>See latest changes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../checker/w_main.ui" line="261"/>
-        <source>Modules</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../checker/w_main.ui" line="265"/>
-        <source>Get modules</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../checker/w_main.ui" line="285"/>
-        <source>Translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../checker/w_main.ui" line="341"/>
-        <source>Report a bug (forum)</source>
+        <location filename="../checker/w_main.ui" line="349"/>
+        <source>About AND Resurrection team (forum)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -512,46 +512,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="83"/>
-        <source>Black</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../checker/w_options.cpp" line="85"/>
-        <source>Coal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../checker/w_options.cpp" line="86"/>
-        <source>Dark red</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../checker/w_options.cpp" line="87"/>
-        <source>Forest</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../checker/w_options.cpp" line="88"/>
-        <source>Purple</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../checker/w_options.cpp" line="89"/>
-        <source>Red</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../checker/w_options.cpp" line="90"/>
-        <source>Silver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../checker/w_options.cpp" line="84"/>
-        <source>Cerulean</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../checker/w_options.ui" line="198"/>
         <source>Game path:</source>
         <translation type="unfinished"></translation>
@@ -589,6 +549,46 @@
     <message>
         <location filename="../checker/w_options.cpp" line="82"/>
         <source>Dark blue (Default)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../checker/w_options.cpp" line="83"/>
+        <source>Black</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../checker/w_options.cpp" line="84"/>
+        <source>Cerulean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../checker/w_options.cpp" line="85"/>
+        <source>Coal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../checker/w_options.cpp" line="86"/>
+        <source>Dark red</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../checker/w_options.cpp" line="87"/>
+        <source>Forest</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../checker/w_options.cpp" line="88"/>
+        <source>Purple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../checker/w_options.cpp" line="89"/>
+        <source>Red</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../checker/w_options.cpp" line="90"/>
+        <source>Silver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
