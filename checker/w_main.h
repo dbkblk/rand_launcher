@@ -18,7 +18,7 @@ class installBox;
 }
 
 namespace versions {
-const QString CHECKER_VERSION = "1.17";
+const QString CHECKER_VERSION = "1.18";
 }
 
 namespace tools {
@@ -90,32 +90,20 @@ private slots:
     void populate_language_menu(QString code);
     void populate_mod_list();
     void setModStatus(QString mod_name);
-
     void on_actionGive_us_feedback_forum_triggered();
-
     void on_actionTranslate_the_website_triggered();
-
     void on_actionTranslate_the_module_Mega_Civ_pack_triggered();
-
     void on_language_ko_triggered();
-
-    void on_language_zh_triggered();
-
     void on_language_ja_triggered();
-
     void on_actionDevelopment_platform_triggered();
-
     void on_actionApply_Asian_language_patch_again_triggered();
-
     void on_actionFrequently_asked_questions_triggered();
-
     void on_language_el_triggered();
-
     void on_language_pt_triggered();
-
     void on_actionCheck_the_files_again_triggered();
-
     void on_language_pt_BR_triggered();
+    void on_language_zh_simp_triggered();
+    void on_language_zh_trad_triggered();
 
 private:
     Ui::w_main *ui;

@@ -95,22 +95,22 @@
         <translation>言語</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="328"/>
+        <location filename="../checker/w_main.ui" line="329"/>
         <source>Exit</source>
         <translation>終了</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="336"/>
+        <location filename="../checker/w_main.ui" line="337"/>
         <source>Forum</source>
         <translation>公共広場</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="349"/>
+        <location filename="../checker/w_main.ui" line="350"/>
         <source>About AND Resurrection team (forum)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="346"/>
+        <location filename="../checker/w_main.ui" line="347"/>
         <source>History and credits</source>
         <translation type="unfinished"></translation>
     </message>
@@ -135,196 +135,202 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="341"/>
+        <location filename="../checker/w_main.ui" line="342"/>
         <source>Report a bug (forum)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="354"/>
+        <location filename="../checker/w_main.ui" line="355"/>
         <source>Open mod folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="359"/>
+        <location filename="../checker/w_main.ui" line="360"/>
         <source>Translate the mod</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="364"/>
+        <location filename="../checker/w_main.ui" line="365"/>
         <source>Help for translation (forum)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="375"/>
+        <location filename="../checker/w_main.ui" line="376"/>
         <location filename="../checker/w_main.cpp" line="352"/>
         <source>English</source>
         <translation>英語</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="386"/>
+        <location filename="../checker/w_main.ui" line="387"/>
         <location filename="../checker/w_main.cpp" line="355"/>
         <source>French</source>
         <translation>フランス語</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="394"/>
+        <location filename="../checker/w_main.ui" line="395"/>
         <location filename="../checker/w_main.cpp" line="370"/>
         <source>Hungarian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="402"/>
+        <location filename="../checker/w_main.ui" line="403"/>
         <location filename="../checker/w_main.cpp" line="367"/>
         <source>Finnish</source>
         <translation>日本語</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="410"/>
+        <location filename="../checker/w_main.ui" line="411"/>
         <location filename="../checker/w_main.cpp" line="373"/>
         <source>Polish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="418"/>
+        <location filename="../checker/w_main.ui" line="419"/>
         <location filename="../checker/w_main.cpp" line="361"/>
         <source>Italian</source>
         <translation>イタリア語</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="426"/>
+        <location filename="../checker/w_main.ui" line="427"/>
         <location filename="../checker/w_main.cpp" line="364"/>
         <source>Spanish</source>
         <translation>スペイン語</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="434"/>
+        <location filename="../checker/w_main.ui" line="435"/>
         <location filename="../checker/w_main.cpp" line="358"/>
         <source>German</source>
         <translation>ドイツ語</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="442"/>
+        <location filename="../checker/w_main.ui" line="443"/>
         <location filename="../checker/w_main.cpp" line="376"/>
         <source>Russian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="447"/>
+        <location filename="../checker/w_main.ui" line="448"/>
         <source>Clear cache</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="452"/>
+        <location filename="../checker/w_main.ui" line="453"/>
         <source>Reset mod to default state</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="457"/>
+        <location filename="../checker/w_main.ui" line="458"/>
         <source>Translate the civilopedia</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="462"/>
+        <location filename="../checker/w_main.ui" line="463"/>
         <source>Website</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="470"/>
+        <location filename="../checker/w_main.ui" line="471"/>
         <location filename="../checker/w_main.cpp" line="379"/>
         <source>Czech</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="478"/>
+        <location filename="../checker/w_main.ui" line="479"/>
         <location filename="../checker/w_main.cpp" line="382"/>
         <source>Danish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="486"/>
+        <location filename="../checker/w_main.ui" line="487"/>
         <location filename="../checker/w_main.cpp" line="385"/>
         <source>Arabic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="494"/>
+        <location filename="../checker/w_main.ui" line="495"/>
         <location filename="../checker/w_main.cpp" line="388"/>
         <source>Turkish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="502"/>
+        <location filename="../checker/w_main.ui" line="503"/>
         <source>Activation status:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="507"/>
+        <location filename="../checker/w_main.ui" line="508"/>
         <source>Give us feedback ! (forum)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="512"/>
+        <location filename="../checker/w_main.ui" line="513"/>
         <source>Translate the website</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="517"/>
+        <location filename="../checker/w_main.ui" line="518"/>
         <source>Translate the module &quot;Mega Civ. pack&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="525"/>
+        <location filename="../checker/w_main.ui" line="526"/>
         <location filename="../checker/w_main.cpp" line="391"/>
         <source>Korean</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="533"/>
+        <location filename="../checker/w_main.ui" line="534"/>
         <location filename="../checker/w_main.cpp" line="394"/>
-        <source>Chinese</source>
+        <source>Chinese (simplified)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="541"/>
+        <location filename="../checker/w_main.ui" line="585"/>
         <location filename="../checker/w_main.cpp" line="397"/>
+        <source>Chinese (traditional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../checker/w_main.ui" line="542"/>
+        <location filename="../checker/w_main.cpp" line="400"/>
         <source>Japanese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="549"/>
+        <location filename="../checker/w_main.ui" line="550"/>
         <source>Development tracker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="554"/>
+        <location filename="../checker/w_main.ui" line="555"/>
         <source>Apply Asian language patch again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="559"/>
+        <location filename="../checker/w_main.ui" line="560"/>
         <source>Frequently asked questions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="564"/>
-        <location filename="../checker/w_main.cpp" line="400"/>
+        <location filename="../checker/w_main.ui" line="565"/>
+        <location filename="../checker/w_main.cpp" line="403"/>
         <source>Greek</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="569"/>
-        <location filename="../checker/w_main.cpp" line="403"/>
+        <location filename="../checker/w_main.ui" line="570"/>
+        <location filename="../checker/w_main.cpp" line="406"/>
         <source>Portuguese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="574"/>
+        <location filename="../checker/w_main.ui" line="575"/>
         <source>Check the files again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="579"/>
-        <location filename="../checker/w_main.cpp" line="406"/>
+        <location filename="../checker/w_main.ui" line="580"/>
+        <location filename="../checker/w_main.cpp" line="409"/>
         <source>Brazilian</source>
         <translation type="unfinished"></translation>
     </message>
@@ -370,38 +376,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="659"/>
+        <location filename="../checker/w_main.cpp" line="669"/>
         <source>Cache</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="659"/>
+        <location filename="../checker/w_main.cpp" line="669"/>
         <source>The cache is now cleared. NOTE: It is already automatically cleared on update.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="667"/>
+        <location filename="../checker/w_main.cpp" line="677"/>
         <source>Reset mod</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="668"/>
+        <location filename="../checker/w_main.cpp" line="678"/>
         <source>This will reset the mod to the default state. Any modification or launcher preferences will be removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="669"/>
-        <location filename="../checker/w_main.cpp" line="692"/>
+        <location filename="../checker/w_main.cpp" line="679"/>
+        <location filename="../checker/w_main.cpp" line="702"/>
         <source>Are you sure to continue ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="690"/>
+        <location filename="../checker/w_main.cpp" line="700"/>
         <source>Check files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="691"/>
+        <location filename="../checker/w_main.cpp" line="701"/>
         <source>This will check the mod files again without removing your modifications (if they are listed as exclusions) or preferences. If an update is available, this will update the game.</source>
         <translation type="unfinished"></translation>
     </message>

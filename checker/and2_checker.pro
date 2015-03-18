@@ -12,7 +12,7 @@ TARGET = and2_checker
 
 CONFIG += static
 
-QMAKE_LFLAGS = -static-libgcc -static-libstdc++ -static -lstdc++ -lpthread
+QMAKE_LFLAGS = -static -lpthread
 
 TEMPLATE = app
 
