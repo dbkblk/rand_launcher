@@ -286,7 +286,7 @@ QString getCurrentLanguage()
 
 bool isLanguageAsian(QString langCode)
 {
-    if(langCode == "ko" || langCode == "ja" || langCode == "zh")
+    if(langCode == "ko" || langCode == "ja" || langCode == "zh_simp" || langCode == "zh_trad")
     {
         return true;
     }

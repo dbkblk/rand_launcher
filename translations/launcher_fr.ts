@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -284,13 +282,13 @@
         <location filename="../checker/w_main.ui" line="534"/>
         <location filename="../checker/w_main.cpp" line="394"/>
         <source>Chinese (simplified)</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinois (simplifié)</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="585"/>
         <location filename="../checker/w_main.cpp" line="397"/>
         <source>Chinese (traditional)</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinois (traditionnel)</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="542"/>
