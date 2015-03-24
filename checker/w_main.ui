@@ -300,10 +300,13 @@
     </property>
     <addaction name="language_ar"/>
     <addaction name="language_pt_BR"/>
+    <addaction name="language_bg"/>
+    <addaction name="language_ca"/>
     <addaction name="language_zh_simp"/>
     <addaction name="language_zh_trad"/>
     <addaction name="language_cs"/>
     <addaction name="language_da"/>
+    <addaction name="language_nl"/>
     <addaction name="language_en"/>
     <addaction name="language_fi"/>
     <addaction name="language_fr"/>
@@ -583,6 +586,21 @@
   <action name="language_zh_trad">
    <property name="text">
     <string>Chinese (traditional)</string>
+   </property>
+  </action>
+  <action name="language_ca">
+   <property name="text">
+    <string>Catalan</string>
+   </property>
+  </action>
+  <action name="language_bg">
+   <property name="text">
+    <string>Bulgarian</string>
+   </property>
+  </action>
+  <action name="language_nl">
+   <property name="text">
+    <string>Dutch</string>
    </property>
   </action>
  </widget>

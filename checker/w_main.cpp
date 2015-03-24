@@ -407,6 +407,15 @@ void w_main::populate_language_menu(QString code)
     if(code=="pt_BR"){ui->language_pt_BR->setChecked(1);}
     ui->language_pt_BR->setIcon(QIcon("checker/icons/pt_BR.png"));
     ui->language_pt_BR->setText(tr("Brazilian") + " (" + getLanguageProgressFromCode("pt_BR") + "%)");
+    if(code=="bg"){ui->language_bg->setChecked(1);}
+    ui->language_bg->setIcon(QIcon("checker/icons/bg.png"));
+    ui->language_bg->setText(tr("Bulgarian") + " (" + getLanguageProgressFromCode("bg") + "%)");
+    if(code=="ca"){ui->language_ca->setChecked(1);}
+    ui->language_ca->setIcon(QIcon("checker/icons/ca.png"));
+    ui->language_ca->setText(tr("Catalan") + " (" + getLanguageProgressFromCode("ca") + "%)");
+    if(code=="nl"){ui->language_nl->setChecked(1);}
+    ui->language_nl->setIcon(QIcon("checker/icons/nl.png"));
+    ui->language_nl->setText(tr("Dutch") + " (" + getLanguageProgressFromCode("nl") + "%)");
 
     setGameOption("Language", getLanguageGameNumberFromCode(code));
     if(isLanguageSupported(code)){
@@ -657,6 +666,27 @@ void w_main::on_language_pt_triggered()
 void w_main::on_language_pt_BR_triggered()
 {
     QString lang = "pt_BR";
+    language_select(lang);
+    populate_language_menu(lang);
+}
+
+void w_main::on_language_ca_triggered()
+{
+    QString lang = "ca";
+    language_select(lang);
+    populate_language_menu(lang);
+}
+
+void w_main::on_language_bg_triggered()
+{
+    QString lang = "bg";
+    language_select(lang);
+    populate_language_menu(lang);
+}
+
+void w_main::on_language_nl_triggered()
+{
+    QString lang = "nl";
     language_select(lang);
     populate_language_menu(lang);
 }

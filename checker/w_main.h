@@ -105,6 +105,12 @@ private slots:
     void on_language_zh_simp_triggered();
     void on_language_zh_trad_triggered();
 
+    void on_language_ca_triggered();
+
+    void on_language_bg_triggered();
+
+    void on_language_nl_triggered();
+
 private:
     Ui::w_main *ui;
     w_options *options;
