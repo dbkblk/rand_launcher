@@ -80,6 +80,7 @@ w_main::w_main(QWidget *parent) :
     ui->actionApply_Asian_language_patch_again->setIcon(QIcon("checker/icons/asian.png"));
     ui->actionFrequently_asked_questions->setIcon(QIcon("checker/icons/faq.png"));
     ui->actionCheck_the_files_again->setIcon(QIcon("checker/icons/cust.png"));
+    ui->actionWrite_a_review_on_Moddb->setIcon(QIcon("checker/icons/moddb.png"));
 
     // GUI : Set title and background
 
@@ -773,4 +774,9 @@ void w_main::on_actionApply_Asian_language_patch_again_triggered()
 void w_main::on_actionFrequently_asked_questions_triggered()
 {
     openURL("http://anewdawn.sourceforge.net/pages/faq/");
+}
+
+void w_main::on_actionWrite_a_review_on_Moddb_triggered()
+{
+    openURL("http://www.moddb.com/mods/rise-of-mankind-a-new-dawn");
 }

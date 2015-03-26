@@ -293,6 +293,7 @@
     <addaction name="menuTranslation"/>
     <addaction name="actionBugreport"/>
     <addaction name="actionGive_us_feedback_forum"/>
+    <addaction name="actionWrite_a_review_on_Moddb"/>
    </widget>
    <widget class="QMenu" name="menuLanguage">
     <property name="title">
@@ -601,6 +602,11 @@
   <action name="language_nl">
    <property name="text">
     <string>Dutch</string>
+   </property>
+  </action>
+  <action name="actionWrite_a_review_on_Moddb">
+   <property name="text">
+    <string>Write a review on Moddb</string>
    </property>
   </action>
  </widget>
