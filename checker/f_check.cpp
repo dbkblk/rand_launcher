@@ -87,12 +87,13 @@ void f_check::CheckForUpdate()
 bool f_check::PrepareUpdate()
 {
     #ifdef _WIN32
-    QFile::copy("checker/upd_proc.exe","upd_proc.exe");
-    QFile::copy("checker/msys-iconv-2.dll","msys-iconv-2.dll");
-    QFile::copy("checker/msys-1.0.dll","msys-1.0.dll");
-    QFile::copy("checker/msys-popt-0.dll","msys-popt-0.dll");
-    QFile::copy("checker/msys-intl-8.dll","msys-intl-8.dll");
-    QFile::copy("checker/rsync.exe","rsync.exe");
+    QStringList files;
+    files << "msys-iconv-2.dll" << "msys-1.0.dll" << "msys-popt-0.dll" << "msys-intl-8.dll" << "rsync.exe" << "upd_proc.exe";
+    foreach(QString file, files)
+    {
+        QFile::remove(file);
+        QFile::copy(QString("checker/" + file),file);
+    }
     #endif
     #ifdef __linux
     QFile::copy("checker/upd_proc","upd_proc");

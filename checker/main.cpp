@@ -56,6 +56,32 @@ int main(int argc, char *argv[])
 
     }
 
+    // Check for existing installation
+    QFile temp("updating");
+    QFile reset("reset");
+    if(temp.exists() || reset.exists()){
+        f_check updater;
+        updater.PrepareUpdate();
+        QMessageBox msgBox;
+        msgBox.setText(QObject::tr("There seems to be a problem with the previous update. Checking file again."));
+        msgBox.exec();
+        #ifdef _WIN32
+        system("taskkill /IM rsync.exe");
+        #endif
+        #ifdef __linux
+        system("killall rsync");
+        #endif
+        if(temp.exists()){
+            QFile::remove("updating");
+            updater.ActionUpdate();
+        }
+        if(reset.exists()){
+            QFile::remove("reset");
+            updater.ActionReset();
+        }
+        return 0;
+    }
+
     // Go out of update. Remove files which were used during update.
     QStringList files;
     files << "msys-iconv-2.dll" << "msys-1.0.dll" << "msys-popt-0.dll" << "msys-intl-8.dll" << "rsync.exe" << "upd_proc.exe";
@@ -163,34 +189,6 @@ int main(int argc, char *argv[])
 
     // Create modules
     w_main w;
-
-    // Check for existing installation
-    QFile temp("updating");
-    QFile reset("reset");
-    if(temp.exists() || reset.exists()){
-        f_check updater;
-        updater.PrepareUpdate();
-        QMessageBox msgBox;
-        msgBox.setText(QObject::tr("There seems to be a problem with the previous update. Checking file again."));
-        msgBox.exec();
-        #ifdef _WIN32
-        system("taskkill /IM rsync.exe");
-        #endif
-        #ifdef __linux
-        system("killall rsync");
-        #endif
-        if(temp.exists()){
-            QFile::remove("updating");
-            updater.ActionUpdate();
-        }
-        if(reset.exists()){
-            QFile::remove("reset");
-            updater.ActionReset();
-        }
-        qDebug("Closing UI");
-        w.close();
-        return 0;
-    }
 
     QDir assets("Assets");
     if(!assets.exists()){
