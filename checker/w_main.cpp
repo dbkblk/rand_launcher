@@ -72,7 +72,6 @@ w_main::w_main(QWidget *parent) :
     ui->menuTranslation->setIcon(QIcon("checker/icons/transl.png"));
     ui->actionGive_us_feedback_forum->setIcon(QIcon("checker/icons/feed.png"));
     ui->actionWebsite->setIcon(QIcon("checker/icons/blue_marble.png"));
-    ui->menuAddons->setIcon(QIcon("checker/icons/addons.png"));
     ui->menuFix_installation->setIcon(QIcon("checker/icons/fix.png"));
     ui->actionClear_cache->setIcon(QIcon("checker/icons/clear.png"));
     ui->actionReset->setIcon(QIcon("checker/icons/reset.png"));
@@ -464,7 +463,7 @@ void w_main::populate_mod_list(){
             QString url = element.firstChildElement("url").firstChild().nodeValue();
 
             // Create menu entry and map signal action
-            QAction *act = ui->menuAddons_list->addAction(QIcon(element.firstChildElement("icon").firstChild().nodeValue()), name);
+            QAction *act = ui->menuModulesList->addAction(QIcon(element.firstChildElement("icon").firstChild().nodeValue()), name);
             connect(act, SIGNAL(triggered()), signalMapper, SLOT(map()));
             signalMapper->setMapping(act,url);
         }
@@ -498,7 +497,7 @@ void w_main::populate_mod_list(){
         // Map signals and action to be able to enable/disable mods
         bool status = getModActivationStatus(entry);
         qDebug() << "Mod detected:" << modInfo << ", status:" << status;
-        QAction *act = ui->menuAddons->addAction(modInfo);
+        QAction *act = ui->menuModules->addAction(modInfo);
         action_mod[act] = entry;
         connect(act, SIGNAL(triggered()), modMapper, SLOT(map()));
         modMapper->setMapping(act,entry);

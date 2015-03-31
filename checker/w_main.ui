@@ -256,25 +256,11 @@
     <property name="title">
      <string>Community</string>
     </property>
-    <widget class="QMenu" name="menuAddons">
-     <property name="title">
-      <string>Modules</string>
-     </property>
-     <widget class="QMenu" name="menuAddons_list">
-      <property name="title">
-       <string>Get modules</string>
-      </property>
-     </widget>
-     <addaction name="menuAddons_list"/>
-     <addaction name="separator"/>
-     <addaction name="actionDetected"/>
-    </widget>
     <addaction name="actionWebsite"/>
     <addaction name="actionForum"/>
     <addaction name="actionAbout_AND_Resurrection_team_forum"/>
     <addaction name="actionFrequently_asked_questions"/>
     <addaction name="actionDevelopment_platform"/>
-    <addaction name="menuAddons"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
@@ -323,8 +309,22 @@
     <addaction name="language_es"/>
     <addaction name="language_tr"/>
    </widget>
+   <widget class="QMenu" name="menuModules">
+    <property name="title">
+     <string>Modules</string>
+    </property>
+    <widget class="QMenu" name="menuModulesList">
+     <property name="title">
+      <string>Get modules</string>
+     </property>
+    </widget>
+    <addaction name="menuModulesList"/>
+    <addaction name="separator"/>
+    <addaction name="actionDetected"/>
+   </widget>
    <addaction name="menuMenu"/>
    <addaction name="menuLanguage"/>
+   <addaction name="menuModules"/>
    <addaction name="menuCommunity"/>
    <addaction name="menuTools"/>
   </widget>
