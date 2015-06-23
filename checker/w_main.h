@@ -4,6 +4,7 @@
 #include <w_options.h>
 #include <w_modules.h>
 #include <f_check.h>
+#include <f_mods.h>
 
 #include <QtCore>
 #include <QtNetwork>
@@ -17,14 +18,14 @@ class installBox;
 }
 
 namespace versions {
-const QString CHECKER_VERSION = "1.06";
+const QString CHECKER_VERSION = "1.20";
 }
 
 namespace tools {
 // Define OS tools
 #ifdef __linux
 const QString TOOL_RSYNC = "rsync ";
-const QString TOOL_GET = "curl -J -L -C - -# --retry 10 --insecure ";
+const QString TOOL_GET = "wget -t 10 ";
 const QString TOOL_XZ = "xz -d ";
 const QString TOOL_TAR = "tar -xpf ";
 const QString TOOL_LAUNCHER = "and2_checker";
@@ -32,7 +33,7 @@ const QString TOOL_UPDATER = "upd_proc";
 #endif
 #ifdef _WIN32
 const QString TOOL_RSYNC = "checker/rsync.exe ";
-const QString TOOL_GET = "checker/curl.exe -J -L -C - -# --retry 10 --insecure ";
+const QString TOOL_GET = "checker/wget.exe -t 10 ";
 const QString TOOL_XZ = "checker/xz.exe -d ";
 const QString TOOL_TAR = "checker/tar.exe -xpf ";
 const QString TOOL_LAUNCHER = "and2_checker.exe";
@@ -51,15 +52,13 @@ public:
 
 public slots:
     void stopLauncher();
+    void openURL(QString url);
 
 private slots:
-
     void on_actionForum_triggered();
-    void on_actionAddon_Mega_Civ_Pack_triggered();
     void on_actionBugreport_triggered();
     void on_actionAbout_AND_Resurrection_team_forum_triggered();
     void on_actionExit_triggered();
-    void on_actionAddon_More_music_forum_triggered();
     void on_bt_launch_clicked();
     void on_bt_option_clicked();
     void UpdateWindowInfos();
@@ -80,17 +79,44 @@ private slots:
     void on_language_de_triggered();
     void on_language_ru_triggered();
     void on_language_pl_triggered();
-    void on_actionAddon_Blue_marble_triggered();
     void on_actionClear_cache_triggered();
     void on_actionReset_triggered();
-
-
+    void on_actionWebsite_triggered();
+    void on_language_cs_triggered();
+    void on_language_da_triggered();
+    void on_language_ar_triggered();
+    void on_language_tr_triggered();
+    void language_select(QString langCode);
+    void populate_language_menu(QString code);
+    void populate_mod_list();
+    void setModStatus(QString mod_name);
+    void on_actionGive_us_feedback_forum_triggered();
+    void on_actionTranslate_the_website_triggered();
+    void on_actionTranslate_the_module_Mega_Civ_pack_triggered();
+    void on_language_ko_triggered();
+    void on_language_ja_triggered();
+    void on_actionDevelopment_platform_triggered();
+    void on_actionApply_Asian_language_patch_again_triggered();
+    void on_actionFrequently_asked_questions_triggered();
+    void on_language_el_triggered();
+    void on_language_pt_triggered();
+    void on_actionCheck_the_files_again_triggered();
+    void on_language_pt_BR_triggered();
+    void on_language_zh_simp_triggered();
+    void on_language_zh_trad_triggered();
+    void on_language_ca_triggered();
+    void on_language_bg_triggered();
+    void on_language_nl_triggered();
+    void on_actionWrite_a_review_on_Moddb_triggered();
 
 private:
     Ui::w_main *ui;
     w_options *options;
+    QMap<QAction *, QString> action_mod;
     QThread *thread;
     f_check *worker;
+    QThread *inj_thread;
+    f_injection *inj_worker;
     QMessageBox askUpdate;
     QTranslator *translator;
     w_modules *modules;

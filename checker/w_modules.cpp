@@ -11,8 +11,9 @@ w_modules::w_modules(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Set version label
+    // Set labels
     ui->bt_update->hide();
+    ui->label->setText("<html><head/><body><p><span style=\" font-size:12pt; font-weight:600;\">" + QString(tr("Changes (last 50) :")) + "</span></p></body></html>");
 }
 
 w_modules::~w_modules()
@@ -34,7 +35,7 @@ void w_modules::terminate(){
 
 void w_modules::UpdateWindow()
 {
-    QString result = "<p><span style=\" font-size:10pt; font-weight:600;\">" + tr("Local") + " :<br></span><span style=\" font-size:9pt; \">" + readCheckerParam("Main/LocalRev") +"</span></p>" + "<p><span style=\" font-size:10pt; font-weight:600;\">" + tr("Distant") + " :<br></span><span style=\" font-size:9pt; \">" + readCheckerParam("Update/DistantRev") +"</span></p>";
+    QString result = "<p><span style=\" font-size:10pt; font-weight:600;\">" + tr("Local") + " :<br></span><span style=\" font-size:9pt; \">" + readCheckerParam("Main/LocalRev") +"</span></p>" + "<p><span style=\" font-size:10pt; font-weight:600;\">" + tr("Remote") + " :<br></span><span style=\" font-size:9pt; \">" + readCheckerParam("Update/DistantRev") +"</span></p>";
     ui->label_version->setText(result);
 
     // Check for update

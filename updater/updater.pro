@@ -8,6 +8,10 @@ QT       += core gui xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+CONFIG+=static
+
+QMAKE_LFLAGS = -static-libgcc -static-libstdc++ -static -lpthread
+
 TARGET = upd_proc
 TEMPLATE = app
 

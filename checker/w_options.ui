@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>300</height>
+    <width>650</width>
+    <height>350</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -21,14 +21,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>300</height>
+    <width>650</width>
+    <height>350</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
-    <height>300</height>
+    <width>650</width>
+    <height>350</height>
    </size>
   </property>
   <property name="focusPolicy">
@@ -45,16 +45,16 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>581</width>
-     <height>281</height>
+     <width>631</width>
+     <height>331</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
     <property name="leftMargin">
-     <number>10</number>
+     <number>5</number>
     </property>
     <property name="rightMargin">
-     <number>10</number>
+     <number>5</number>
     </property>
     <item>
      <widget class="QLabel" name="lb_modconf">
@@ -67,6 +67,13 @@
      <widget class="QCheckBox" name="opt_checkbox_formations">
       <property name="text">
        <string>Enable formations (more graphical units)</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="opt_checkbox_modern_flags">
+      <property name="text">
+       <string>Enable modern flags (on by default)</string>
       </property>
      </widget>
     </item>
@@ -147,61 +154,38 @@
         </property>
         <property name="minimumSize">
          <size>
-          <width>200</width>
+          <width>164</width>
           <height>25</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>200</width>
+          <width>164</width>
           <height>25</height>
          </size>
         </property>
-        <item>
-         <property name="text">
-          <string>Dark blue (default)</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Black</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Coal</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Dark red</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Forest</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Purple</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Red</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Silver</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Cerulean</string>
-         </property>
-        </item>
+        <property name="currentText">
+         <string notr="true"/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="bt_customColor">
+        <property name="minimumSize">
+         <size>
+          <width>30</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="text">
+         <string notr="true"/>
+        </property>
        </widget>
       </item>
      </layout>

@@ -29,5 +29,6 @@ int main(int argc, char *argv[])
     else{
         w->StartUpdate();
     }
+
     return a.exec();
 }

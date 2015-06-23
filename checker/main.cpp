@@ -1,6 +1,7 @@
 #include <w_main.h>
 #include <w_options.h>
 #include <f_civ.h>
+#include <f_mods.h>
 #include <w_install.h>
 
 #include <QtCore>
@@ -55,78 +56,6 @@ int main(int argc, char *argv[])
 
     }
 
-    // Go out of update
-    if(QFile::exists("upd_proc.exe") || QFile::exists("rsync.exe"))
-    {
-        clearCache();
-        clearGameOptions();
-        QFile::remove("cyggcc_s-1.dll");
-        QFile::remove("cygiconv-2.dll");
-        QFile::remove("cygwin1.dll");
-        QFile::remove("rsync.exe");
-        QFile::remove("upd_proc.exe");
-    }
-
-    // Check for double installation
-    if(checkDoubleInstallation()>1){
-        QMessageBox::critical(0, "Error", QObject::tr("The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:\n- My Documents/My Games/Beyond the Sword/Mods \n- Game folder installation/Beyond the Sword/Mods"));
-    }
-
-    // Check for correct path
-
-    QDir BTS_dir("../../Mods");
-    if(!BTS_dir.exists()){
-        qDebug() << "Launcher is in a wrong path";
-        QMessageBox::critical(0, "Error", QObject::tr("The launcher isn't in the right directory. It should be either in 'My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn' or in 'Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn'"));
-        return 1;
-    }
-    #endif
-    /* End of the windows specific code */
-
-    // Inject saved color UI and formations parameters to xml files in case of update
-    if(readCheckerParam("Modules/Formations") == "1" && readOptionFormations() == false){
-        qDebug() << "Inject formation setting to xml";
-        setOptionFormations(true);
-    }
-    int color_xml = readColorsCounter();
-    int color_saved = readCheckerParam("Modules/ColorUI").toInt();
-    if(color_xml != color_saved){
-        qDebug() << "Inject color UI setting to xml";
-        setColors(color_saved);
-    }
-
-    // Create exclusions.default.xml if not exist
-    QFile exclusion("checker/exclusions.custom.xml");
-    if(!exclusion.exists()){
-        qDebug() << "No existing custom exclusion file, writing new one.";
-        exclusion.open(QIODevice::WriteOnly | QIODevice::Truncate);
-        QDomDocument xml_exclusion;
-        QDomNode declaration = xml_exclusion.createProcessingInstruction("xml",QString("version=\"1.0\" encoding=\"UTF-8\""));
-        xml_exclusion.insertBefore(declaration,xml_exclusion.firstChild());
-        QDomNode root = xml_exclusion.createElement("exclusions");
-        xml_exclusion.appendChild(root);
-        QDomComment comment = xml_exclusion.createComment("Put your custom files inside \"entity\" tags");
-        root.appendChild(comment);
-        QDomNode entity = xml_exclusion.createElement("entity");
-        root.appendChild(entity);
-
-        // Save file
-        exclusion.write(xml_exclusion.toByteArray());
-        exclusion.close();
-    }
-
-    // Checking terrain art
-    if(QFile::exists("Assets/terrain_textures_and.fpk")){setCheckerParam("Modules/Terrain","0");}
-    else if(QFile::exists("Assets/terrain_textures_bluemarble.fpk")){setCheckerParam("Modules/Terrain","1");}
-    else if(QFile::exists("Assets/terrain_textures_original.fpk")){setCheckerParam("Modules/Terrain","2");}
-    else if(QFile::exists("Assets/terrain_textures_alternative.fpk")){setCheckerParam("Modules/Terrain","3");}
-    else if(QFile::exists("Assets/terrain_textures_vincentz.tar.xz")){setCheckerParam("Modules/Terrain","4");}
-    else{unTarXz("Assets/terrain_textures_and.tar.xz");}
-
-
-    // Create modules
-    w_main w;
-
     // Check for existing installation
     QFile temp("updating");
     QFile reset("reset");
@@ -150,10 +79,116 @@ int main(int argc, char *argv[])
             QFile::remove("reset");
             updater.ActionReset();
         }
-        qDebug("Closing UI");
-        w.close();
         return 0;
     }
+
+    // Go out of update. Remove files which were used during update.
+    QStringList files;
+    files << "msys-iconv-2.dll" << "msys-1.0.dll" << "msys-popt-0.dll" << "msys-intl-8.dll" << "rsync.exe" << "upd_proc.exe";
+    if(QFile::exists("upd_proc.exe") || QFile::exists("rsync.exe"))
+    {
+        clearCache();
+        clearGameOptions();
+    }
+    foreach(QString file, files)
+    {
+        if(QFile::exists(file))
+        {
+            QFile::remove(file);
+        }
+    }
+
+    // Check for double installation
+    if(checkDoubleInstallation()>1){
+        QMessageBox::critical(0, "Error", QObject::tr("The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:\n- My Documents/My Games/Beyond the Sword/Mods \n- Game folder installation/Beyond the Sword/Mods"));
+    }
+
+    // Check for correct path
+
+    QDir BTS_dir("../../Mods");
+    if(!BTS_dir.exists()){
+        qDebug() << "Launcher is in a wrong path";
+        QMessageBox::critical(0, "Error", QObject::tr("The launcher isn't in the right directory. It should be either in 'My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn' or in 'Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn'"));
+        return 1;
+    }
+    #endif
+    /* End of the windows specific code */
+
+    // Regenerate mod exclusion file
+    generateModsExclusion();
+    generateModsMLFFile();
+
+    // Inject saved color UI and formations parameters to xml files in case of update
+    bool formations = false;
+    if (readCheckerParam("Modules/Formations") == "1")
+    { // Disabled by default
+        formations = true;
+    }
+    if(formations != readOptionFormations()){
+        qDebug() << "Inject formation setting to xml";
+        setOptionFormations(formations);
+    }
+    bool modern_flags = false;
+    if (readCheckerParam("Modules/ModernFlags") == "1" || readCheckerParam("Modules/ModernFlags") == "error")
+    { // Enabled by default
+        modern_flags = true;
+    }
+    if(modern_flags != readOptionModernFlags())
+    {
+        qDebug() << "Inject modern flags setting to xml";
+        setOptionModernFlags(modern_flags);
+    }
+    // Check color set is conform to the saved parameter
+    if(readCheckerParam("Modules/ColorUI") == "Custom"){
+        QString color = readCheckerParam("Modules/ColorUICustom");
+        QStringList color_set = color.replace("\"","").split(",");
+        if(getColorSetFromName("Custom") != color_set){
+            qDebug() << "Inject custom color definition";
+            setColorCustomDefinition(color_set);
+        }
+        if(getColorSet() != color_set){
+            qDebug() << "Inject custom color UI to xml";
+            setColorSet(color_set);
+        }
+    }
+    else{
+        if(getColorSet() != getColorSetFromName(readCheckerParam("Modules/ColorUI"))){
+            qDebug() << "Inject color UI to xml";
+            setColorSet(getColorSetFromName(readCheckerParam("Modules/ColorUI")));
+        }
+    }
+
+    // Create exclusions.custom.xml if not exist
+    QFile exclusion("checker/exclusions.custom.xml");
+    if(!exclusion.exists()){
+        qDebug() << "No existing custom exclusion file, writing new one.";
+        exclusion.open(QIODevice::WriteOnly | QIODevice::Truncate);
+        QDomDocument xml_exclusion;
+        QDomNode declaration = xml_exclusion.createProcessingInstruction("xml",QString("version=\"1.0\" encoding=\"UTF-8\""));
+        xml_exclusion.insertBefore(declaration,xml_exclusion.firstChild());
+        QDomNode root = xml_exclusion.createElement("exclusions");
+        xml_exclusion.appendChild(root);
+        QDomComment comment = xml_exclusion.createComment("Put your custom files inside \"entity\" tags");
+        root.appendChild(comment);
+        QDomNode entity = xml_exclusion.createElement("entity");
+        root.appendChild(entity);
+
+        // Save file
+        exclusion.write(xml_exclusion.toByteArray());
+        exclusion.close();
+    }
+
+    // Checking terrain art
+    QString terrain = readCheckerParam("Modules/Terrain");
+    if(terrain == "error"){
+        setTextureTerrainSet(0);
+    }
+    else{
+        setTextureTerrainSet(terrain.toInt());
+    }
+
+    // Create modules
+    w_main w;
 
     QDir assets("Assets");
     if(!assets.exists()){
@@ -168,7 +203,7 @@ int main(int argc, char *argv[])
 
     else{
     // Start the GUI
-    w.show();
+        w.show();
     }
 
     return a.exec();

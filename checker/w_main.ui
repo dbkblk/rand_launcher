@@ -143,7 +143,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Manage modules</string>
+          <string>See latest changes</string>
          </property>
         </widget>
        </item>
@@ -200,6 +200,19 @@
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="flag">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string notr="true"/>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="enabled">
@@ -228,7 +241,9 @@
       <string>Fix installation</string>
      </property>
      <addaction name="actionClear_cache"/>
+     <addaction name="actionCheck_the_files_again"/>
      <addaction name="actionReset"/>
+     <addaction name="actionApply_Asian_language_patch_again"/>
     </widget>
     <addaction name="actionOpen_mod_folder"/>
     <addaction name="menuFix_installation"/>
@@ -241,43 +256,75 @@
     <property name="title">
      <string>Community</string>
     </property>
-    <widget class="QMenu" name="menuAddons">
-     <property name="title">
-      <string>Addons</string>
-     </property>
-     <addaction name="actionAddon_Blue_marble"/>
-     <addaction name="actionAddon_Mega_Civ_Pack"/>
-     <addaction name="actionAddon_More_music_forum"/>
-    </widget>
+    <addaction name="actionWebsite"/>
     <addaction name="actionForum"/>
-    <addaction name="actionBugreport"/>
-    <addaction name="menuAddons"/>
     <addaction name="actionAbout_AND_Resurrection_team_forum"/>
+    <addaction name="actionFrequently_asked_questions"/>
+    <addaction name="actionDevelopment_platform"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
      <string>Help us to improve the mod !</string>
     </property>
-    <addaction name="actionHelp_translate_the_mod"/>
-    <addaction name="actionTranslate_the_civilopedia"/>
-    <addaction name="actionTranslate_the_mod_help"/>
+    <widget class="QMenu" name="menuTranslation">
+     <property name="title">
+      <string>Translation</string>
+     </property>
+     <addaction name="actionHelp_translate_the_mod"/>
+     <addaction name="actionTranslate_the_civilopedia"/>
+     <addaction name="actionTranslate_the_website"/>
+     <addaction name="actionTranslate_the_module_Mega_Civ_pack"/>
+     <addaction name="actionTranslate_the_mod_help"/>
+    </widget>
+    <addaction name="menuTranslation"/>
+    <addaction name="actionBugreport"/>
+    <addaction name="actionGive_us_feedback_forum"/>
+    <addaction name="actionWrite_a_review_on_Moddb"/>
    </widget>
    <widget class="QMenu" name="menuLanguage">
     <property name="title">
      <string>Language</string>
     </property>
+    <addaction name="language_ar"/>
+    <addaction name="language_pt_BR"/>
+    <addaction name="language_bg"/>
+    <addaction name="language_ca"/>
+    <addaction name="language_zh_simp"/>
+    <addaction name="language_zh_trad"/>
+    <addaction name="language_cs"/>
+    <addaction name="language_da"/>
+    <addaction name="language_nl"/>
     <addaction name="language_en"/>
     <addaction name="language_fi"/>
     <addaction name="language_fr"/>
     <addaction name="language_de"/>
+    <addaction name="language_el"/>
     <addaction name="language_hu"/>
     <addaction name="language_it"/>
+    <addaction name="language_ja"/>
+    <addaction name="language_ko"/>
     <addaction name="language_pl"/>
+    <addaction name="language_pt"/>
     <addaction name="language_ru"/>
     <addaction name="language_es"/>
+    <addaction name="language_tr"/>
+   </widget>
+   <widget class="QMenu" name="menuModules">
+    <property name="title">
+     <string>Modules</string>
+    </property>
+    <widget class="QMenu" name="menuModulesList">
+     <property name="title">
+      <string>Get modules</string>
+     </property>
+    </widget>
+    <addaction name="menuModulesList"/>
+    <addaction name="separator"/>
+    <addaction name="actionDetected"/>
    </widget>
    <addaction name="menuMenu"/>
    <addaction name="menuLanguage"/>
+   <addaction name="menuModules"/>
    <addaction name="menuCommunity"/>
    <addaction name="menuTools"/>
   </widget>
@@ -294,42 +341,22 @@
     <string>Forum</string>
    </property>
   </action>
-  <action name="actionAddon_Mega_Civ_Pack">
-   <property name="text">
-    <string>&quot;Mega Civ Pack&quot; (forum)</string>
-   </property>
-  </action>
   <action name="actionBugreport">
    <property name="text">
-    <string>Bugreport (forum)</string>
+    <string>Report a bug (forum)</string>
    </property>
   </action>
   <action name="actionAbout_AND_Resurrection_team_forum">
    <property name="text">
-    <string>About AND Resurrection team (forum)</string>
+    <string>History and credits</string>
    </property>
    <property name="toolTip">
     <string>About AND Resurrection team (forum)</string>
    </property>
   </action>
-  <action name="actionAddon_More_music_forum">
-   <property name="text">
-    <string>&quot;More music / More handicaps / Dinosaurs&quot; (forum)</string>
-   </property>
-  </action>
   <action name="actionOpen_mod_folder">
    <property name="text">
     <string>Open mod folder</string>
-   </property>
-  </action>
-  <action name="actionGit_Pack_binaries">
-   <property name="text">
-    <string>Git: Create binary pack</string>
-   </property>
-  </action>
-  <action name="actionGit_Create_update_binary_pack">
-   <property name="text">
-    <string>Git: Create update binary pack</string>
    </property>
   </action>
   <action name="actionHelp_translate_the_mod">
@@ -340,11 +367,6 @@
   <action name="actionTranslate_the_mod_help">
    <property name="text">
     <string>Help for translation (forum)</string>
-   </property>
-  </action>
-  <action name="actionTranslate_the_launcher">
-   <property name="text">
-    <string>Translate the launcher</string>
    </property>
   </action>
   <action name="language_en">
@@ -367,14 +389,6 @@
    </property>
    <property name="text">
     <string>French</string>
-   </property>
-  </action>
-  <action name="language_si">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Sinhala</string>
    </property>
   </action>
   <action name="language_hu">
@@ -433,29 +447,9 @@
     <string>Russian</string>
    </property>
   </action>
-  <action name="actionClean_up">
-   <property name="text">
-    <string>Restore default state</string>
-   </property>
-  </action>
-  <action name="actionRevert_to_an_older_revision">
-   <property name="text">
-    <string>Revert to an older revision...</string>
-   </property>
-  </action>
-  <action name="actionAddon_Blue_marble">
-   <property name="text">
-    <string>Addon &quot;Blue marble&quot;</string>
-   </property>
-  </action>
   <action name="actionClear_cache">
    <property name="text">
     <string>Clear cache</string>
-   </property>
-  </action>
-  <action name="actionEnter_SVN_command">
-   <property name="text">
-    <string>Enter SVN command</string>
    </property>
   </action>
   <action name="actionReset">
@@ -466,6 +460,153 @@
   <action name="actionTranslate_the_civilopedia">
    <property name="text">
     <string>Translate the civilopedia</string>
+   </property>
+  </action>
+  <action name="actionWebsite">
+   <property name="text">
+    <string>Website</string>
+   </property>
+  </action>
+  <action name="language_cs">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Czech</string>
+   </property>
+  </action>
+  <action name="language_da">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Danish</string>
+   </property>
+  </action>
+  <action name="language_ar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Arabic</string>
+   </property>
+  </action>
+  <action name="language_tr">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Turkish</string>
+   </property>
+  </action>
+  <action name="actionDetected">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Activation status:</string>
+   </property>
+  </action>
+  <action name="actionGive_us_feedback_forum">
+   <property name="text">
+    <string>Give us feedback ! (forum)</string>
+   </property>
+  </action>
+  <action name="actionTranslate_the_website">
+   <property name="text">
+    <string>Translate the website</string>
+   </property>
+  </action>
+  <action name="actionTranslate_the_module_Mega_Civ_pack">
+   <property name="text">
+    <string>Translate the module &quot;Mega Civ. pack&quot;</string>
+   </property>
+  </action>
+  <action name="language_ko">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Korean</string>
+   </property>
+  </action>
+  <action name="language_zh_simp">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Chinese (simplified)</string>
+   </property>
+  </action>
+  <action name="language_ja">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Japanese</string>
+   </property>
+  </action>
+  <action name="actionDevelopment_platform">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Development tracker</string>
+   </property>
+  </action>
+  <action name="actionApply_Asian_language_patch_again">
+   <property name="text">
+    <string>Apply Asian language patch again</string>
+   </property>
+  </action>
+  <action name="actionFrequently_asked_questions">
+   <property name="text">
+    <string>Frequently asked questions</string>
+   </property>
+  </action>
+  <action name="language_el">
+   <property name="text">
+    <string>Greek</string>
+   </property>
+  </action>
+  <action name="language_pt">
+   <property name="text">
+    <string>Portuguese</string>
+   </property>
+  </action>
+  <action name="actionCheck_the_files_again">
+   <property name="text">
+    <string>Check the files again</string>
+   </property>
+  </action>
+  <action name="language_pt_BR">
+   <property name="text">
+    <string>Brazilian</string>
+   </property>
+  </action>
+  <action name="language_zh_trad">
+   <property name="text">
+    <string>Chinese (traditional)</string>
+   </property>
+  </action>
+  <action name="language_ca">
+   <property name="text">
+    <string>Catalan</string>
+   </property>
+  </action>
+  <action name="language_bg">
+   <property name="text">
+    <string>Bulgarian</string>
+   </property>
+  </action>
+  <action name="language_nl">
+   <property name="text">
+    <string>Dutch</string>
+   </property>
+  </action>
+  <action name="actionWrite_a_review_on_Moddb">
+   <property name="text">
+    <string>Write a review on Moddb</string>
    </property>
   </action>
  </widget>

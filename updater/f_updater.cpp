@@ -43,12 +43,12 @@ void f_updater::updateLaunch(){
     // Prepare update
     QString exclusion_default = readExcludeList("checker/exclusions.default.xml");
     QString exclusion_custom = readExcludeList("checker/exclusions.custom.xml");
-    QString operation = tools::TOOL_RSYNC + QString("-rz --info=progress2 --delete-after %1%2rsync://afforess.com/ftp/ .").arg(exclusion_default).arg(exclusion_custom);
-    //qDebug() << operation;
+    QString exclusion_mods = readExcludeList("checker/exclusions.mods.xml");
+    QString operation = tools::TOOL_RSYNC + QString("-rz --force --progress --delete-after %1%2%3rsync://afforess.com/ftp/ .").arg(exclusion_default).arg(exclusion_custom).arg(exclusion_mods);
+    qDebug() << operation;
 
     // Set process and emit signal at the end
     process->start(operation);
-    //process->execute(operation); //Uncomment execute to debug
     process->waitForFinished(-1);
 
     // Set _working to false, meaning the process can't be aborted anymore.
@@ -64,7 +64,7 @@ void f_updater::resetLaunch(){
     QFile temp("reset");
     temp.open(QIODevice::WriteOnly | QIODevice::Truncate);
     temp.close();
-    QString operation = tools::TOOL_RSYNC + QString("-rz --info=progress2 --delete-after --exclude=\"cyggcc_s-1.dll\" --exclude=\"cygiconv-2.dll\" --exclude=\"cygwin1.dll\" --exclude=\"rsync.exe\" --exclude=\"upd_proc.exe\" --exclude=\".svn*\" --exclude=\"updating\" afforess.com::ftp/ .");
+    QString operation = tools::TOOL_RSYNC + QString("-rz --force --progress --delete-after --exclude=\".svn*\" --exclude=\"updating\" afforess.com::ftp/ .");
     qDebug() << operation;
 
     // Set process and emit signal at the end
@@ -95,23 +95,21 @@ void f_updater::processOutput(){
     int value;
     int total;
     int percent = 0;
-    if (output.contains("to-chk=")){
-        pos = output.lastIndexOf("to-chk=");
+    if (output.contains("to-check=")){
+        pos = output.lastIndexOf("to-check=");
         separator = output.lastIndexOf("/");
         bracket = output.lastIndexOf(")");
-        value = output.mid((pos+7),(separator-(pos+7))).toInt();
+        value = output.mid((pos+9),(separator-(pos+9))).toInt();
         qDebug() << "Files to check: " << value;
         total = output.mid((separator+1),(bracket-(separator+1))).toInt();
         //qDebug() << total;
         // Avoid crash on windows
         if (total >  0){
             percent = ((total - value)*100 / total);
+
+            // Emit update signal
+            emit progress(percent, value);
         }
-
-        // Emit update signal
-        emit progress(percent, value);
-
-        if(percent == 100){qDebug("Finished update"); emit finished();}
     }
 }
 

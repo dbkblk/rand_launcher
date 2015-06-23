@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources>
-  <string name="WELCOME_TITLE">Civilization IV: A New Dawn Expansion pack</string>
-  <string name="FINISH">Il lanciatore è ora installato. Il primo avvio, rileva se la mod è presente nella directory. Se non lo è, basta seguire la procedura di installazione.</string>
-  <string name="RUN">Avviare il launcher mod</string>
-  <string name="SHORTCUT">Creare il collegamento sul Desktop</string>
-  <string name="MSVC10">Non è installato Microsoft Visual C++ 2013 Redist. Scaricare e installare ora. Attendere prego...</string>
-  <string name="MSVC13">Non è installato Microsoft Visual C++ 2010 Redist. Scaricare e installare ora. Attendere prego...</string>
-</resources>

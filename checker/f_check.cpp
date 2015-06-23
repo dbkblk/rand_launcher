@@ -56,7 +56,7 @@ void f_check::CheckForUpdate()
     bool update;
     QFile::remove("checker/changelog_last.xml");
     QProcess download;
-    QString get_address = tools::TOOL_GET + "-o checker/changelog_last.xml http://civ.afforess.com/changelog_last.xml";
+    QString get_address = tools::TOOL_GET + "-O checker/changelog_last.xml http://civ.afforess.com/changelog_last.xml";
     //qDebug() << get_address;
     download.start(get_address);
 
@@ -69,7 +69,7 @@ void f_check::CheckForUpdate()
         else {
             update = false;
         }
-        qDebug() << "New version available :" << update;
+        //qDebug() << "New version available :" << update;
 
     }
 
@@ -87,11 +87,13 @@ void f_check::CheckForUpdate()
 bool f_check::PrepareUpdate()
 {
     #ifdef _WIN32
-    QFile::copy("checker/upd_proc.exe","upd_proc.exe");
-    QFile::copy("checker/cyggcc_s-1.dll","cyggcc_s-1.dll");
-    QFile::copy("checker/cygiconv-2.dll","cygiconv-2.dll");
-    QFile::copy("checker/cygwin1.dll","cygwin1.dll");
-    QFile::copy("checker/rsync.exe","rsync.exe");
+    QStringList files;
+    files << "msys-iconv-2.dll" << "msys-1.0.dll" << "msys-popt-0.dll" << "msys-intl-8.dll" << "rsync.exe" << "upd_proc.exe";
+    foreach(QString file, files)
+    {
+        QFile::remove(file);
+        QFile::copy(QString("checker/" + file),file);
+    }
     #endif
     #ifdef __linux
     QFile::copy("checker/upd_proc","upd_proc");
