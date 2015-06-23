@@ -10,7 +10,7 @@ QT       += core gui network widgets xml
 
 TARGET = and2_checker
 
-QMAKE_LFLAGS = -s -Os
+QMAKE_LFLAGS = -static -lpthread
 
 TEMPLATE = app
 
