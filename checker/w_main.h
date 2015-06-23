@@ -102,8 +102,8 @@ private slots:
     void on_language_pt_triggered();
     void on_actionCheck_the_files_again_triggered();
     void on_language_pt_BR_triggered();
-    void on_language_zh_simp_triggered();
-    void on_language_zh_trad_triggered();
+    void on_language_zh_Hans_triggered();
+    void on_language_zh_Hant_triggered();
     void on_language_ca_triggered();
     void on_language_bg_triggered();
     void on_language_nl_triggered();

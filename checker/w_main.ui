@@ -289,8 +289,8 @@
     <addaction name="language_pt_BR"/>
     <addaction name="language_bg"/>
     <addaction name="language_ca"/>
-    <addaction name="language_zh_simp"/>
-    <addaction name="language_zh_trad"/>
+    <addaction name="language_zh_Hans"/>
+    <addaction name="language_zh_Hant"/>
     <addaction name="language_cs"/>
     <addaction name="language_da"/>
     <addaction name="language_nl"/>
@@ -530,7 +530,7 @@
     <string>Korean</string>
    </property>
   </action>
-  <action name="language_zh_simp">
+  <action name="language_zh_Hans">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -584,7 +584,7 @@
     <string>Brazilian</string>
    </property>
   </action>
-  <action name="language_zh_trad">
+  <action name="language_zh_Hant">
    <property name="text">
     <string>Chinese (traditional)</string>
    </property>

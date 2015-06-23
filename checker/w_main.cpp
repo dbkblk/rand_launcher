@@ -389,12 +389,12 @@ void w_main::populate_language_menu(QString code)
     if(code=="ko"){ui->language_ko->setChecked(1);}
     ui->language_ko->setIcon(QIcon("checker/icons/ko.png"));
     ui->language_ko->setText(tr("Korean") + " (" + getLanguageProgressFromCode("ko") + "%)");
-    if(code=="zh_simp"){ui->language_zh_simp->setChecked(1);}
-    ui->language_zh_simp->setIcon(QIcon("checker/icons/zh_simp.png"));
-    ui->language_zh_simp->setText(tr("Chinese (simplified)") + " (" + getLanguageProgressFromCode("zh_simp") + "%)");
-    if(code=="zh_trad"){ui->language_zh_trad->setChecked(1);}
-    ui->language_zh_trad->setIcon(QIcon("checker/icons/zh_trad.png"));
-    ui->language_zh_trad->setText(tr("Chinese (traditional)") + " (" + getLanguageProgressFromCode("zh_trad") + "%)");
+    if(code=="zh_Hans"){ui->language_zh_Hans->setChecked(1);}
+    ui->language_zh_Hans->setIcon(QIcon("checker/icons/zh_Hans.png"));
+    ui->language_zh_Hans->setText(tr("Chinese (simplified)") + " (" + getLanguageProgressFromCode("zh_Hans") + "%)");
+    if(code=="zh_Hant"){ui->language_zh_Hant->setChecked(1);}
+    ui->language_zh_Hant->setIcon(QIcon("checker/icons/zh_Hant.png"));
+    ui->language_zh_Hant->setText(tr("Chinese (traditional)") + " (" + getLanguageProgressFromCode("zh_Hant") + "%)");
     if(code=="ja"){ui->language_ja->setChecked(1);}
     ui->language_ja->setIcon(QIcon("checker/icons/ja.png"));
     ui->language_ja->setText(tr("Japanese") + " (" + getLanguageProgressFromCode("ja") + "%)");
@@ -628,16 +628,16 @@ void w_main::on_language_ko_triggered()
     populate_language_menu(lang);
 }
 
-void w_main::on_language_zh_simp_triggered()
+void w_main::on_language_zh_Hans_triggered()
 {
-    QString lang = "zh-Hans";
+    QString lang = "zh_Hans";
     language_select(lang);
     populate_language_menu(lang);
 }
 
-void w_main::on_language_zh_trad_triggered()
+void w_main::on_language_zh_Hant_triggered()
 {
-    QString lang = "zh-Hant";
+    QString lang = "zh_Hant";
     language_select(lang);
     populate_language_menu(lang);
 }
