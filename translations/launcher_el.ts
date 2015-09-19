@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="el">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="el" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -208,7 +206,7 @@
         <location filename="../checker/w_main.ui" line="447"/>
         <location filename="../checker/w_main.cpp" line="376"/>
         <source>Russian</source>
-        <translation>Ρώσικα</translation>
+        <translation>Ρωσικά</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="452"/>
@@ -223,12 +221,12 @@
     <message>
         <location filename="../checker/w_main.ui" line="462"/>
         <source>Translate the civilopedia</source>
-        <translation>Μετάφραση της civilopedia</translation>
+        <translation>Μεταφράστε την civilopedia</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="467"/>
         <source>Website</source>
-        <translation>Ιστοσελίδα</translation>
+        <translation>Ιστότοπος</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="475"/>
@@ -296,24 +294,24 @@
         <location filename="../checker/w_main.ui" line="597"/>
         <location filename="../checker/w_main.cpp" line="415"/>
         <source>Catalan</source>
-        <translation type="unfinished"></translation>
+        <translation>Καταλανικά</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="602"/>
         <location filename="../checker/w_main.cpp" line="412"/>
         <source>Bulgarian</source>
-        <translation type="unfinished"></translation>
+        <translation>Βουλγαρικά</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="607"/>
         <location filename="../checker/w_main.cpp" line="418"/>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Ολλανδικά</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="612"/>
         <source>Write a review on Moddb</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="549"/>
@@ -510,62 +508,62 @@
     <message>
         <location filename="../checker/w_options.ui" line="85"/>
         <source>Change terrain texture set:</source>
-        <translation type="unfinished"></translation>
+        <translation>Αλλάξτε το σύνολο υφής του εδάφους:</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="111"/>
         <source>A New Dawn (default)</source>
-        <translation type="unfinished"></translation>
+        <translation>A New Dawn (προεπιλογή)</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="116"/>
         <source>Blue Marble</source>
-        <translation type="unfinished"></translation>
+        <translation>Blue Marble</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="121"/>
         <source>Original</source>
-        <translation>Προτώτυπο</translation>
+        <translation>Πρωτότυπο</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="126"/>
         <source>Sparth</source>
-        <translation type="unfinished"></translation>
+        <translation>Sparth</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="131"/>
         <source>Vincentz</source>
-        <translation type="unfinished"></translation>
+        <translation>Vincentz</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="143"/>
         <source>Interface color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρώμα interface:</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="83"/>
         <source>Black</source>
-        <translation type="unfinished"></translation>
+        <translation>Μαύρο</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="85"/>
         <source>Coal</source>
-        <translation type="unfinished"></translation>
+        <translation>Ανθρακί</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="86"/>
         <source>Dark red</source>
-        <translation type="unfinished"></translation>
+        <translation>Σκούρο κόκκινο</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="87"/>
         <source>Forest</source>
-        <translation type="unfinished"></translation>
+        <translation>Δάσος</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="88"/>
         <source>Purple</source>
-        <translation type="unfinished"></translation>
+        <translation>Μωβ</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="89"/>
@@ -580,7 +578,7 @@
     <message>
         <location filename="../checker/w_options.cpp" line="84"/>
         <source>Cerulean</source>
-        <translation type="unfinished"></translation>
+        <translation>Γαλανό</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="198"/>
@@ -590,42 +588,42 @@
     <message>
         <location filename="../checker/w_options.ui" line="223"/>
         <source>Select game path</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλέξτε Διαδρομή Παιχνιδιού</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="257"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Launcher configuration :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt; &lt;body&gt;&lt;p&gt;&lt;span style=&quot;font-size:10pt; font-weight:600;&quot;&gt;Διαμόρφωση προωθητή :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="264"/>
         <source>Close the launcher when game start</source>
-        <translation type="unfinished"></translation>
+        <translation>Κλείστε τον προωθητή όταν ξεκινήσει το παιχνίδι</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="271"/>
         <source>Autostart the mod with the game by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτόματη εκκίνηση του mod με το παιχνίδι από προεπιλογή</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="296"/>
         <source>Exclude files from update</source>
-        <translation type="unfinished"></translation>
+        <translation>Εξαίρεση αρχείων από την ενημέρωση</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="56"/>
         <source>No path specified</source>
-        <translation type="unfinished"></translation>
+        <translation>Δεν έχει καθοριστεί διαδρομή</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="82"/>
         <source>Dark blue (Default)</source>
-        <translation type="unfinished"></translation>
+        <translation>Σκούρο μπλε (προεπιλογή)</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="91"/>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσαρμοσμένο</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="154"/>
@@ -640,7 +638,7 @@
     <message>
         <location filename="../checker/w_options.cpp" line="162"/>
         <source>No game path specified.</source>
-        <translation type="unfinished"></translation>
+        <translation>Δεν έχει καθοριστεί η διαδρομή του παιχνιδιού.</translation>
     </message>
 </context>
 </TS>

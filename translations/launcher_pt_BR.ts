@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pt_BR">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_BR" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -265,7 +263,7 @@
     <message>
         <location filename="../checker/w_main.ui" line="520"/>
         <source>Translate the website</source>
-        <translation>Traduza o Site</translation>
+        <translation>Traduzir o Site</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="525"/>
@@ -294,24 +292,24 @@
         <location filename="../checker/w_main.ui" line="597"/>
         <location filename="../checker/w_main.cpp" line="415"/>
         <source>Catalan</source>
-        <translation type="unfinished"></translation>
+        <translation>Catalão</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="602"/>
         <location filename="../checker/w_main.cpp" line="412"/>
         <source>Bulgarian</source>
-        <translation type="unfinished"></translation>
+        <translation>Búlgaro</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="607"/>
         <location filename="../checker/w_main.cpp" line="418"/>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Holandês</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="612"/>
         <source>Write a review on Moddb</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="549"/>
@@ -465,7 +463,7 @@
     <message>
         <location filename="../checker/w_modules.ui" line="148"/>
         <source>Update</source>
-        <translation>Atualização</translation>
+        <translation>Atualizar</translation>
     </message>
     <message>
         <location filename="../checker/w_modules.cpp" line="16"/>
@@ -608,7 +606,7 @@
     <message>
         <location filename="../checker/w_options.ui" line="296"/>
         <source>Exclude files from update</source>
-        <translation>Excluir Arquivos de atualização</translation>
+        <translation>Excluir Arquivos de Atualização</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="56"/>

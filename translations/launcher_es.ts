@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="es">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -15,7 +13,7 @@
     <message>
         <location filename="../checker/main.cpp" line="111"/>
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
-        <translation>El lanzador no está en el correcto directorio. Debe ser en &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; o en &apos; Civilization IV (carpeta del juego)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</translation>
+        <translation>El lanzador no está en el directorio correcto. Debe ser en &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; o en &apos; Civilization IV (carpeta del juego)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</translation>
     </message>
     <message>
         <location filename="../checker/main.cpp" line="66"/>
@@ -296,24 +294,24 @@
         <location filename="../checker/w_main.ui" line="597"/>
         <location filename="../checker/w_main.cpp" line="415"/>
         <source>Catalan</source>
-        <translation type="unfinished"></translation>
+        <translation>Catalán</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="602"/>
         <location filename="../checker/w_main.cpp" line="412"/>
         <source>Bulgarian</source>
-        <translation type="unfinished"></translation>
+        <translation>Búlgaro</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="607"/>
         <location filename="../checker/w_main.cpp" line="418"/>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Holandés</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="612"/>
         <source>Write a review on Moddb</source>
-        <translation type="unfinished"></translation>
+        <translation>Escriba un análisis en Moddb</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="549"/>

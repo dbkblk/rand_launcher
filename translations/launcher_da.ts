@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="da">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="da" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -8,7 +6,8 @@
         <source>The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:
 - My Documents/My Games/Beyond the Sword/Mods 
 - Game folder installation/Beyond the Sword/Mods</source>
-        <translation>Mod installationen ligger doubbelt. Dette kan medføre uventede problemer. Kontroller for mod mappen disse to steder, og slet den forkerte: -mine dokumenter / My Games/Beyond the Sword/Mods
+        <translation>Mod installationen ligger dobbelt. Dette kan medføre uventede problemer. Kontroller for mod-mappen disse to steder, og slet den forkerte:
+ - mine dokumenter / My Games/Beyond the Sword/Mods
  - spillet mappen installation/Beyond the Sword/Mods</translation>
     </message>
     <message>
@@ -295,24 +294,24 @@
         <location filename="../checker/w_main.ui" line="597"/>
         <location filename="../checker/w_main.cpp" line="415"/>
         <source>Catalan</source>
-        <translation type="unfinished"></translation>
+        <translation>Catalansk</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="602"/>
         <location filename="../checker/w_main.cpp" line="412"/>
         <source>Bulgarian</source>
-        <translation type="unfinished"></translation>
+        <translation>Bulgalsk</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="607"/>
         <location filename="../checker/w_main.cpp" line="418"/>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Hollandsk</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="612"/>
         <source>Write a review on Moddb</source>
-        <translation type="unfinished"></translation>
+        <translation>Skriv en anmeldelse på Moddb</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="549"/>

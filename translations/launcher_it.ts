@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="it">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="it" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -294,24 +292,24 @@
         <location filename="../checker/w_main.ui" line="597"/>
         <location filename="../checker/w_main.cpp" line="415"/>
         <source>Catalan</source>
-        <translation type="unfinished"></translation>
+        <translation>Catalano</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="602"/>
         <location filename="../checker/w_main.cpp" line="412"/>
         <source>Bulgarian</source>
-        <translation type="unfinished"></translation>
+        <translation>Bulgaro</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="607"/>
         <location filename="../checker/w_main.cpp" line="418"/>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Olandese</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="612"/>
         <source>Write a review on Moddb</source>
-        <translation type="unfinished"></translation>
+        <translation>Scrivi un commento su Moddb</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="549"/>

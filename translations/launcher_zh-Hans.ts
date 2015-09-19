@@ -2,21 +2,23 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../checker/main.cpp" line="77"/>
+        <location filename="../checker/main.cpp" line="103"/>
         <source>The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:
 - My Documents/My Games/Beyond the Sword/Mods 
 - Game folder installation/Beyond the Sword/Mods</source>
-        <translation type="unfinished"/>
+        <translation>mod安装有误.这可能引发未知问题.请检查以下两个路径并删除错误的mod
+- My Documents/My Games/Beyond the Sword/Mods
+- Game folder installation/Beyond the Sword/Mods</translation>
     </message>
     <message>
-        <location filename="../checker/main.cpp" line="85"/>
+        <location filename="../checker/main.cpp" line="111"/>
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
-        <translation type="unfinished"/>
+        <translation>启动程序未在正确的目录下。它应该在 &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; 或者 &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;目录下。</translation>
     </message>
     <message>
-        <location filename="../checker/main.cpp" line="174"/>
+        <location filename="../checker/main.cpp" line="66"/>
         <source>There seems to be a problem with the previous update. Checking file again.</source>
-        <translation type="unfinished"/>
+        <translation>之前的更新可能存在问题。请再核对一遍文件。</translation>
     </message>
 </context>
 <context>
@@ -24,12 +26,12 @@
     <message>
         <location filename="../checker/w_exclusion.ui" line="32"/>
         <source>Choose which files to exclude from update</source>
-        <translation type="unfinished"/>
+        <translation>请选择要排除在更新范围外的文件。</translation>
     </message>
     <message>
         <location filename="../checker/w_exclusion.ui" line="67"/>
         <source>File</source>
-        <translation type="unfinished"/>
+        <translation>文件</translation>
     </message>
 </context>
 <context>
@@ -37,17 +39,17 @@
     <message>
         <location filename="../checker/w_install.ui" line="20"/>
         <source>Mod installation</source>
-        <translation type="unfinished"/>
+        <translation>Mod的安装</translation>
     </message>
     <message>
         <location filename="../checker/w_install.ui" line="57"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;A New Dawn : &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;The mod is not installed.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Do you want to download and install it ?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;新的黎明 : &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Mod未安装.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;你要下载并安装吗 ?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../checker/w_install.cpp" line="13"/>
         <source>Ok</source>
-        <translation type="unfinished"/>
+        <translation>好的</translation>
     </message>
     <message>
         <location filename="../checker/w_install.cpp" line="14"/>
@@ -60,7 +62,7 @@
     <message>
         <location filename="../checker/w_main.ui" line="127"/>
         <source>Launch Civilization IV</source>
-        <translation type="unfinished"/>
+        <translation>启动文明四</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="192"/>
@@ -70,382 +72,387 @@
     <message>
         <location filename="../checker/w_main.ui" line="237"/>
         <source>Menu</source>
-        <translation type="unfinished"/>
+        <translation>菜单</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="241"/>
         <source>Fix installation</source>
-        <translation type="unfinished"/>
+        <translation>修复安装</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="257"/>
         <source>Community</source>
-        <translation type="unfinished"/>
+        <translation>社区</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="281"/>
+        <location filename="../checker/w_main.ui" line="267"/>
         <source>Help us to improve the mod !</source>
-        <translation type="unfinished"/>
+        <translation>帮助我们改进该Mod！</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="299"/>
+        <location filename="../checker/w_main.ui" line="286"/>
         <source>Language</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="332"/>
+        <location filename="../checker/w_main.ui" line="333"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="340"/>
+        <location filename="../checker/w_main.ui" line="341"/>
         <source>Forum</source>
         <translation>中心广场</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="353"/>
+        <location filename="../checker/w_main.ui" line="354"/>
         <source>About AND Resurrection team (forum)</source>
-        <translation type="unfinished"/>
+        <translation>关于AND复活组(forum)</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="350"/>
+        <location filename="../checker/w_main.ui" line="351"/>
         <source>History and credits</source>
-        <translation type="unfinished"/>
+        <translation>历史和字幕</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="146"/>
         <source>See latest changes</source>
-        <translation type="unfinished"/>
+        <translation>查看最新改动</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="261"/>
+        <location filename="../checker/w_main.ui" line="314"/>
         <source>Modules</source>
-        <translation type="unfinished"/>
+        <translation>模块</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="265"/>
+        <location filename="../checker/w_main.ui" line="318"/>
         <source>Get modules</source>
-        <translation type="unfinished"/>
+        <translation>获取组件</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="285"/>
+        <location filename="../checker/w_main.ui" line="271"/>
         <source>Translation</source>
-        <translation type="unfinished"/>
+        <translation>翻译</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="345"/>
+        <location filename="../checker/w_main.ui" line="346"/>
         <source>Report a bug (forum)</source>
-        <translation type="unfinished"/>
+        <translation>报告bug（去论坛）</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="358"/>
+        <location filename="../checker/w_main.ui" line="359"/>
         <source>Open mod folder</source>
-        <translation type="unfinished"/>
+        <translation>打开Mod文件夹</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="363"/>
+        <location filename="../checker/w_main.ui" line="364"/>
         <source>Translate the mod</source>
-        <translation type="unfinished"/>
+        <translation>翻译该</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="368"/>
+        <location filename="../checker/w_main.ui" line="369"/>
         <source>Help for translation (forum)</source>
-        <translation type="unfinished"/>
+        <translation>帮助翻译（去论坛）</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="379"/>
+        <location filename="../checker/w_main.ui" line="380"/>
         <location filename="../checker/w_main.cpp" line="352"/>
         <source>English</source>
         <translation>English</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="390"/>
+        <location filename="../checker/w_main.ui" line="391"/>
         <location filename="../checker/w_main.cpp" line="355"/>
         <source>French</source>
         <translation>------</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="398"/>
+        <location filename="../checker/w_main.ui" line="399"/>
         <location filename="../checker/w_main.cpp" line="370"/>
         <source>Hungarian</source>
-        <translation type="unfinished"/>
+        <translation>匈牙利语</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="406"/>
+        <location filename="../checker/w_main.ui" line="407"/>
         <location filename="../checker/w_main.cpp" line="367"/>
         <source>Finnish</source>
         <translation>中文</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="414"/>
+        <location filename="../checker/w_main.ui" line="415"/>
         <location filename="../checker/w_main.cpp" line="373"/>
         <source>Polish</source>
-        <translation type="unfinished"/>
+        <translation>波兰语</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="422"/>
+        <location filename="../checker/w_main.ui" line="423"/>
         <location filename="../checker/w_main.cpp" line="361"/>
         <source>Italian</source>
         <translation>------</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="430"/>
+        <location filename="../checker/w_main.ui" line="431"/>
         <location filename="../checker/w_main.cpp" line="364"/>
         <source>Spanish</source>
         <translation>------</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="438"/>
+        <location filename="../checker/w_main.ui" line="439"/>
         <location filename="../checker/w_main.cpp" line="358"/>
         <source>German</source>
         <translation>------</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="446"/>
+        <location filename="../checker/w_main.ui" line="447"/>
         <location filename="../checker/w_main.cpp" line="376"/>
         <source>Russian</source>
-        <translation type="unfinished"/>
+        <translation>俄语</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="451"/>
+        <location filename="../checker/w_main.ui" line="452"/>
         <source>Clear cache</source>
-        <translation type="unfinished"/>
+        <translation>清除缓存</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="456"/>
+        <location filename="../checker/w_main.ui" line="457"/>
         <source>Reset mod to default state</source>
-        <translation type="unfinished"/>
+        <translation>重置Mod至默认状态</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="461"/>
+        <location filename="../checker/w_main.ui" line="462"/>
         <source>Translate the civilopedia</source>
-        <translation type="unfinished"/>
+        <translation>翻译文明百科</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="466"/>
+        <location filename="../checker/w_main.ui" line="467"/>
         <source>Website</source>
-        <translation type="unfinished"/>
+        <translation>网站</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="474"/>
+        <location filename="../checker/w_main.ui" line="475"/>
         <location filename="../checker/w_main.cpp" line="379"/>
         <source>Czech</source>
-        <translation type="unfinished"/>
+        <translation>捷克语</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="482"/>
+        <location filename="../checker/w_main.ui" line="483"/>
         <location filename="../checker/w_main.cpp" line="382"/>
         <source>Danish</source>
-        <translation type="unfinished"/>
+        <translation>丹麦语</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="490"/>
+        <location filename="../checker/w_main.ui" line="491"/>
         <location filename="../checker/w_main.cpp" line="385"/>
         <source>Arabic</source>
-        <translation type="unfinished"/>
+        <translation>阿拉伯语</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="498"/>
+        <location filename="../checker/w_main.ui" line="502"/>
         <location filename="../checker/w_main.cpp" line="388"/>
         <source>Turkish</source>
-        <translation type="unfinished"/>
+        <translation>土耳其语</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="506"/>
+        <location filename="../checker/w_main.ui" line="510"/>
         <source>Activation status:</source>
-        <translation type="unfinished"/>
+        <translation>激活状态：</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="511"/>
+        <location filename="../checker/w_main.ui" line="515"/>
         <source>Give us feedback ! (forum)</source>
-        <translation type="unfinished"/>
+        <translation>反馈意见（去论坛）</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="516"/>
+        <location filename="../checker/w_main.ui" line="520"/>
         <source>Translate the website</source>
-        <translation type="unfinished"/>
+        <translation>翻译网站内容</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="521"/>
+        <location filename="../checker/w_main.ui" line="525"/>
         <source>Translate the module &quot;Mega Civ. pack&quot;</source>
-        <translation type="unfinished"/>
+        <translation>翻译 &quot;Mega Civ. pack&quot;模块</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="529"/>
+        <location filename="../checker/w_main.ui" line="533"/>
         <location filename="../checker/w_main.cpp" line="391"/>
         <source>Korean</source>
-        <translation type="unfinished"/>
+        <translation>朝鲜语</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="537"/>
+        <location filename="../checker/w_main.ui" line="541"/>
         <location filename="../checker/w_main.cpp" line="394"/>
         <source>Chinese (simplified)</source>
-        <translation type="unfinished"/>
+        <translation>简体中文</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="588"/>
+        <location filename="../checker/w_main.ui" line="592"/>
         <location filename="../checker/w_main.cpp" line="397"/>
         <source>Chinese (traditional)</source>
-        <translation type="unfinished"/>
+        <translation>繁体中文</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="593"/>
+        <location filename="../checker/w_main.ui" line="597"/>
         <location filename="../checker/w_main.cpp" line="415"/>
         <source>Catalan</source>
-        <translation type="unfinished"/>
+        <translation>加泰罗尼亚语</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="598"/>
+        <location filename="../checker/w_main.ui" line="602"/>
         <location filename="../checker/w_main.cpp" line="412"/>
         <source>Bulgarian</source>
-        <translation type="unfinished"/>
+        <translation>保加利亚语</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="603"/>
+        <location filename="../checker/w_main.ui" line="607"/>
         <location filename="../checker/w_main.cpp" line="418"/>
         <source>Dutch</source>
+        <translation>荷兰语</translation>
+    </message>
+    <message>
+        <location filename="../checker/w_main.ui" line="612"/>
+        <source>Write a review on Moddb</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="545"/>
+        <location filename="../checker/w_main.ui" line="549"/>
         <location filename="../checker/w_main.cpp" line="400"/>
         <source>Japanese</source>
-        <translation type="unfinished"/>
+        <translation>日语</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="553"/>
+        <location filename="../checker/w_main.ui" line="557"/>
         <source>Development tracker</source>
-        <translation type="unfinished"/>
+        <translation>开发进度</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="558"/>
+        <location filename="../checker/w_main.ui" line="562"/>
         <source>Apply Asian language patch again</source>
-        <translation type="unfinished"/>
+        <translation>重新安装亚洲语言补丁</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="563"/>
+        <location filename="../checker/w_main.ui" line="567"/>
         <source>Frequently asked questions</source>
-        <translation type="unfinished"/>
+        <translation>常见问题</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="568"/>
+        <location filename="../checker/w_main.ui" line="572"/>
         <location filename="../checker/w_main.cpp" line="403"/>
         <source>Greek</source>
-        <translation type="unfinished"/>
+        <translation>希腊语</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="573"/>
+        <location filename="../checker/w_main.ui" line="577"/>
         <location filename="../checker/w_main.cpp" line="406"/>
         <source>Portuguese</source>
-        <translation type="unfinished"/>
+        <translation>葡萄牙语</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="578"/>
+        <location filename="../checker/w_main.ui" line="582"/>
         <source>Check the files again</source>
-        <translation type="unfinished"/>
+        <translation>重新核对文件</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="583"/>
+        <location filename="../checker/w_main.ui" line="587"/>
         <location filename="../checker/w_main.cpp" line="409"/>
         <source>Brazilian</source>
-        <translation type="unfinished"/>
+        <translation>巴西语（葡萄牙语？）</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="132"/>
         <source>The executable saved in your settings doesn&apos;t exist. You will be now invited to select the game executable location</source>
-        <translation type="unfinished"/>
+        <translation>你的设置中保存的可执行文件不存在。请选择游戏可执行文件的位置。</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="133"/>
         <source>Find Civ IV executable</source>
-        <translation type="unfinished"/>
+        <translation>寻找文明四可执行文件</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="170"/>
         <source>Check for update</source>
-        <translation type="unfinished"/>
+        <translation>查看更新</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="180"/>
         <source>Update available !</source>
-        <translation type="unfinished"/>
+        <translation>有可用更新！</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="249"/>
         <source>To be able to launch the game from the launcher, you need to set the game path in the options window. (Options &gt; Select game path)</source>
-        <translation type="unfinished"/>
+        <translation>要使用启动程序启动游戏，你需要在选项窗口设定游戏路径（选项-&gt;选择游戏路径）</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="263"/>
         <location filename="../checker/w_main.cpp" line="297"/>
         <source>The executable hasn&apos;t been found. Please set the game path in the options window. (Options &gt; Select game path)</source>
-        <translation type="unfinished"/>
+        <translation>未找到可执行文件。请在选项窗口设定游戏路径（选项-&gt;选择游戏路径）</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="270"/>
         <source>Asian language patch not applied</source>
-        <translation type="unfinished"/>
+        <translation>亚洲语言补丁未安装。</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="271"/>
         <source>You need to apply a patch on the base game for the extension to be compatible with Asian languages. The original version won&apos;t be modified. Would you like to apply it now ?</source>
-        <translation type="unfinished"/>
+        <translation>你需要应用此补丁以兼容东亚语言。原程序将被修改，你确定要应用补丁吗？</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="699"/>
         <source>Cache</source>
-        <translation type="unfinished"/>
+        <translation>缓存</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="699"/>
         <source>The cache is now cleared. NOTE: It is already automatically cleared on update.</source>
-        <translation type="unfinished"/>
+        <translation>缓存已清理。注意：缓存在更新时已经自动清理。</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="707"/>
         <source>Reset mod</source>
-        <translation type="unfinished"/>
+        <translation>重启Mod</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="708"/>
         <source>This will reset the mod to the default state. Any modification or launcher preferences will be removed.</source>
-        <translation type="unfinished"/>
+        <translation>这将重置Mod至默认状态。任何修改或启动设置将被移除。</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="709"/>
         <location filename="../checker/w_main.cpp" line="732"/>
         <source>Are you sure to continue ?</source>
-        <translation type="unfinished"/>
+        <translation>确定要继续吗？</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="730"/>
         <source>Check files</source>
-        <translation type="unfinished"/>
+        <translation>核对文件</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="731"/>
         <source>This will check the mod files again without removing your modifications (if they are listed as exclusions) or preferences. If an update is available, this will update the game.</source>
-        <translation type="unfinished"/>
+        <translation>这将再次核对Mod文件，如果你的修改已被排除在更新范围外，这将不会移除你的修改或者启动设置。如果有可用更新，这将对游戏进行更新。</translation>
     </message>
     <message>
         <location filename="../updater/w_main.ui" line="32"/>
         <source>Module updater</source>
-        <translation type="unfinished"/>
+        <translation>模块更新程序</translation>
     </message>
     <message>
         <location filename="../updater/w_main.cpp" line="31"/>
         <source>Updating the game. Please be patient.</source>
-        <translation type="unfinished"/>
+        <translation>正在更新。请耐心等候。</translation>
     </message>
     <message>
         <location filename="../updater/w_main.cpp" line="84"/>
         <source>Checking and downloading data:</source>
-        <translation type="unfinished"/>
+        <translation>正在检查并下载数据：</translation>
     </message>
     <message>
         <location filename="../updater/w_main.cpp" line="84"/>
         <source> files left.</source>
-        <translation type="unfinished"/>
+        <translation>个文件剩余。</translation>
     </message>
 </context>
 <context>
@@ -453,27 +460,27 @@
     <message>
         <location filename="../checker/w_modules.ui" line="32"/>
         <source>Modules</source>
-        <translation type="unfinished"/>
+        <translation>模块</translation>
     </message>
     <message>
         <location filename="../checker/w_modules.ui" line="148"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>更新</translation>
     </message>
     <message>
         <location filename="../checker/w_modules.cpp" line="16"/>
         <source>Changes (last 50) :</source>
-        <translation type="unfinished"/>
+        <translation>改动（最近的50处）：</translation>
     </message>
     <message>
         <location filename="../checker/w_modules.cpp" line="38"/>
         <source>Local</source>
-        <translation type="unfinished"/>
+        <translation>本地</translation>
     </message>
     <message>
         <location filename="../checker/w_modules.cpp" line="38"/>
         <source>Remote</source>
-        <translation type="unfinished"/>
+        <translation>远程</translation>
     </message>
 </context>
 <context>
@@ -486,57 +493,57 @@
     <message>
         <location filename="../checker/w_options.ui" line="62"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mod configuration :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;模组配置:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="69"/>
         <source>Enable formations (more graphical units)</source>
-        <translation type="unfinished"/>
+        <translation>启用阵型（显示更多个体）</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="76"/>
         <source>Enable modern flags (on by default)</source>
-        <translation type="unfinished"/>
+        <translation>启用现代国旗（默认开启）</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="85"/>
         <source>Change terrain texture set:</source>
-        <translation type="unfinished"/>
+        <translation>改变地形文本设置：</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="111"/>
         <source>A New Dawn (default)</source>
-        <translation type="unfinished"/>
+        <translation>新的黎明（默认）</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="116"/>
         <source>Blue Marble</source>
-        <translation type="unfinished"/>
+        <translation>蓝色大理石</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="121"/>
         <source>Original</source>
-        <translation type="unfinished"/>
+        <translation>原版</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="126"/>
         <source>Sparth</source>
-        <translation type="unfinished"/>
+        <translation>Sparth</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="131"/>
         <source>Vincentz</source>
-        <translation type="unfinished"/>
+        <translation>Vincentz</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="143"/>
         <source>Interface color:</source>
-        <translation type="unfinished"/>
+        <translation>界面颜色：</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="83"/>
         <source>Black</source>
-        <translation type="unfinished"/>
+        <translation>黑色</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="85"/>
@@ -546,7 +553,7 @@
     <message>
         <location filename="../checker/w_options.cpp" line="86"/>
         <source>Dark red</source>
-        <translation type="unfinished"/>
+        <translation>深红</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="87"/>
@@ -556,12 +563,12 @@
     <message>
         <location filename="../checker/w_options.cpp" line="88"/>
         <source>Purple</source>
-        <translation type="unfinished"/>
+        <translation>紫色</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="89"/>
         <source>Red</source>
-        <translation type="unfinished"/>
+        <translation>红色</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="90"/>
@@ -571,67 +578,67 @@
     <message>
         <location filename="../checker/w_options.cpp" line="84"/>
         <source>Cerulean</source>
-        <translation type="unfinished"/>
+        <translation>天蓝</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="198"/>
         <source>Game path:</source>
-        <translation type="unfinished"/>
+        <translation>游戏路径</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="223"/>
         <source>Select game path</source>
-        <translation type="unfinished"/>
+        <translation>选择游戏路径</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="257"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Launcher configuration :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;启动器配置:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="264"/>
         <source>Close the launcher when game start</source>
-        <translation type="unfinished"/>
+        <translation>游戏启动时关闭启动程序。</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="271"/>
         <source>Autostart the mod with the game by default</source>
-        <translation type="unfinished"/>
+        <translation>默认随游戏启动该</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="296"/>
         <source>Exclude files from update</source>
-        <translation type="unfinished"/>
+        <translation>不更新的文件</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="56"/>
         <source>No path specified</source>
-        <translation type="unfinished"/>
+        <translation>未指定路径</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="82"/>
         <source>Dark blue (Default)</source>
-        <translation type="unfinished"/>
+        <translation>深蓝（默认）</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="91"/>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>自定义</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="154"/>
         <source>Find Civ IV executable</source>
-        <translation type="unfinished"/>
+        <translation>寻找文明四可执行文件</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="158"/>
         <source>The game path has been changed</source>
-        <translation type="unfinished"/>
+        <translation>游戏路径已经改变</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="162"/>
         <source>No game path specified.</source>
-        <translation type="unfinished"/>
+        <translation>未指定游戏路径</translation>
     </message>
 </context>
 </TS>

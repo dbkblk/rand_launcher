@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ru">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -8,17 +6,21 @@
         <source>The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:
 - My Documents/My Games/Beyond the Sword/Mods 
 - Game folder installation/Beyond the Sword/Mods</source>
-        <translation type="unfinished"></translation>
+        <translation>Обнаружено две установленные версии мода. Это может привести к непредсказуемым проблемам при использовании. Пожалуйста, проверьте наличие мода в этих двух папках, и удалите ненужную версию:
+
+- My Documents/My Games/Beyond the Sword/Mods 
+
+- Папка установки Civ4/Beyond the Sword/Mods</translation>
     </message>
     <message>
         <location filename="../checker/main.cpp" line="111"/>
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы мода расположены в неверном месте. Мод должен быть расположен либо в папке - &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;.    либо в &apos;Civilization IV (папка установки самой игры)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; </translation>
     </message>
     <message>
         <location filename="../checker/main.cpp" line="66"/>
         <source>There seems to be a problem with the previous update. Checking file again.</source>
-        <translation type="unfinished"></translation>
+        <translation>Похоже,  предыдущее обновление мода прошло с ошибкой. Проверка файлов запущена повторно.</translation>
     </message>
 </context>
 <context>
@@ -26,12 +28,12 @@
     <message>
         <location filename="../checker/w_exclusion.ui" line="32"/>
         <source>Choose which files to exclude from update</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите файлы, которые не будут обновляться</translation>
     </message>
     <message>
         <location filename="../checker/w_exclusion.ui" line="67"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>Файл</translation>
     </message>
 </context>
 <context>
@@ -39,12 +41,12 @@
     <message>
         <location filename="../checker/w_install.ui" line="20"/>
         <source>Mod installation</source>
-        <translation type="unfinished"></translation>
+        <translation>Установка мода</translation>
     </message>
     <message>
         <location filename="../checker/w_install.ui" line="57"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;A New Dawn : &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;The mod is not installed.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Do you want to download and install it ?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;A New Dawn : &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Мод не установлен.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Хотите загрузить и установить его?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../checker/w_install.cpp" line="13"/>
@@ -54,7 +56,7 @@
     <message>
         <location filename="../checker/w_install.cpp" line="14"/>
         <source>Cancel</source>
-        <translation>Отменить</translation>
+        <translation>Отмена</translation>
     </message>
 </context>
 <context>
@@ -62,7 +64,7 @@
     <message>
         <location filename="../checker/w_main.ui" line="127"/>
         <source>Launch Civilization IV</source>
-        <translation type="unfinished"></translation>
+        <translation>Запуск Civilization IV</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="192"/>
@@ -72,22 +74,22 @@
     <message>
         <location filename="../checker/w_main.ui" line="237"/>
         <source>Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Меню</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="241"/>
         <source>Fix installation</source>
-        <translation type="unfinished"></translation>
+        <translation>Исправить установку</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="257"/>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Сообщество</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="267"/>
         <source>Help us to improve the mod !</source>
-        <translation type="unfinished"></translation>
+        <translation>Помогите нам улучшить мод!</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="286"/>
@@ -102,57 +104,57 @@
     <message>
         <location filename="../checker/w_main.ui" line="341"/>
         <source>Forum</source>
-        <translation>Форум:Форум:Форума:Форумом:Форуму:Форумов:Форуме</translation>
+        <translation>Форум</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="354"/>
         <source>About AND Resurrection team (forum)</source>
-        <translation type="unfinished"></translation>
+        <translation>О нас - AND Resurrection team (форум)</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="351"/>
         <source>History and credits</source>
-        <translation type="unfinished"></translation>
+        <translation>История разработки</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="146"/>
         <source>See latest changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Последние изменения</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="314"/>
         <source>Modules</source>
-        <translation type="unfinished"></translation>
+        <translation>Модули</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="318"/>
         <source>Get modules</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузить модули</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="271"/>
         <source>Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Перевод</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="346"/>
         <source>Report a bug (forum)</source>
-        <translation type="unfinished"></translation>
+        <translation>Сообщить об ошибке (форум)</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="359"/>
         <source>Open mod folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть папку мода</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="364"/>
         <source>Translate the mod</source>
-        <translation type="unfinished"></translation>
+        <translation>Участие в переводе мода</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="369"/>
         <source>Help for translation (forum)</source>
-        <translation type="unfinished"></translation>
+        <translation>Помощь в переводе (форум)</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="380"/>
@@ -170,19 +172,19 @@
         <location filename="../checker/w_main.ui" line="399"/>
         <location filename="../checker/w_main.cpp" line="370"/>
         <source>Hungarian</source>
-        <translation type="unfinished"></translation>
+        <translation>Венгерский</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="407"/>
         <location filename="../checker/w_main.cpp" line="367"/>
         <source>Finnish</source>
-        <translation type="unfinished"></translation>
+        <translation>Финский</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="415"/>
         <location filename="../checker/w_main.cpp" line="373"/>
         <source>Polish</source>
-        <translation type="unfinished"></translation>
+        <translation>Польсикй</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="423"/>
@@ -200,259 +202,259 @@
         <location filename="../checker/w_main.ui" line="439"/>
         <location filename="../checker/w_main.cpp" line="358"/>
         <source>German</source>
-        <translation>Герман</translation>
+        <translation>Немецкий</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="447"/>
         <location filename="../checker/w_main.cpp" line="376"/>
         <source>Russian</source>
-        <translation type="unfinished"></translation>
+        <translation>Русский</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="452"/>
         <source>Clear cache</source>
-        <translation type="unfinished"></translation>
+        <translation>Очистить кэш</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="457"/>
         <source>Reset mod to default state</source>
-        <translation type="unfinished"></translation>
+        <translation>Сброс мода к начальному состоянию</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="462"/>
         <source>Translate the civilopedia</source>
-        <translation type="unfinished"></translation>
+        <translation>Перевод цивилопедии</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="467"/>
         <source>Website</source>
-        <translation type="unfinished"></translation>
+        <translation>Веб-сайт</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="475"/>
         <location filename="../checker/w_main.cpp" line="379"/>
         <source>Czech</source>
-        <translation type="unfinished"></translation>
+        <translation>Чешский</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="483"/>
         <location filename="../checker/w_main.cpp" line="382"/>
         <source>Danish</source>
-        <translation type="unfinished"></translation>
+        <translation>Датский</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="491"/>
         <location filename="../checker/w_main.cpp" line="385"/>
         <source>Arabic</source>
-        <translation type="unfinished"></translation>
+        <translation>Арабский</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="502"/>
         <location filename="../checker/w_main.cpp" line="388"/>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>Турецкий</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="510"/>
         <source>Activation status:</source>
-        <translation type="unfinished"></translation>
+        <translation>Состояние:</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="515"/>
         <source>Give us feedback ! (forum)</source>
-        <translation type="unfinished"></translation>
+        <translation>Свяжитесь с нами! (форум)</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="520"/>
         <source>Translate the website</source>
-        <translation type="unfinished"></translation>
+        <translation>Перевод веб-сайта</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="525"/>
         <source>Translate the module &quot;Mega Civ. pack&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Перевод модуля &quot;Mega Civ. pack&quot;</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="533"/>
         <location filename="../checker/w_main.cpp" line="391"/>
         <source>Korean</source>
-        <translation type="unfinished"></translation>
+        <translation>Корейский</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="541"/>
         <location filename="../checker/w_main.cpp" line="394"/>
         <source>Chinese (simplified)</source>
-        <translation type="unfinished"></translation>
+        <translation>Китайский (упрощенный)</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="592"/>
         <location filename="../checker/w_main.cpp" line="397"/>
         <source>Chinese (traditional)</source>
-        <translation type="unfinished"></translation>
+        <translation>Китайский (традиционный)</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="597"/>
         <location filename="../checker/w_main.cpp" line="415"/>
         <source>Catalan</source>
-        <translation type="unfinished"></translation>
+        <translation>Каталонский</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="602"/>
         <location filename="../checker/w_main.cpp" line="412"/>
         <source>Bulgarian</source>
-        <translation type="unfinished"></translation>
+        <translation>Болгарский</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="607"/>
         <location filename="../checker/w_main.cpp" line="418"/>
         <source>Dutch</source>
-        <translation type="unfinished"></translation>
+        <translation>Нидерландский</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="612"/>
         <source>Write a review on Moddb</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="549"/>
         <location filename="../checker/w_main.cpp" line="400"/>
         <source>Japanese</source>
-        <translation type="unfinished"></translation>
+        <translation>Японский</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="557"/>
         <source>Development tracker</source>
-        <translation type="unfinished"></translation>
+        <translation>Отслеживание разработки мода</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="562"/>
         <source>Apply Asian language patch again</source>
-        <translation type="unfinished"></translation>
+        <translation>Повторно применить патч для азиатских языков</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="567"/>
         <source>Frequently asked questions</source>
-        <translation type="unfinished"></translation>
+        <translation>Часто задаваемые вопросы</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="572"/>
         <location filename="../checker/w_main.cpp" line="403"/>
         <source>Greek</source>
-        <translation type="unfinished"></translation>
+        <translation>Греческий</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="577"/>
         <location filename="../checker/w_main.cpp" line="406"/>
         <source>Portuguese</source>
-        <translation type="unfinished"></translation>
+        <translation>Португальский</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="582"/>
         <source>Check the files again</source>
-        <translation type="unfinished"></translation>
+        <translation>Повторная проверка всех файлов</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="587"/>
         <location filename="../checker/w_main.cpp" line="409"/>
         <source>Brazilian</source>
-        <translation type="unfinished"></translation>
+        <translation>Бразильский</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="132"/>
         <source>The executable saved in your settings doesn&apos;t exist. You will be now invited to select the game executable location</source>
-        <translation type="unfinished"></translation>
+        <translation>Исполняемый файл, указанный в настройках, не существует. Сейчас Вам будет предложено выбрать путь к исполняемому файлу игры.</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="133"/>
         <source>Find Civ IV executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Найти файл запуска Civ IV</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="170"/>
         <source>Check for update</source>
-        <translation type="unfinished"></translation>
+        <translation>Проверить обновления</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="180"/>
         <source>Update available !</source>
-        <translation type="unfinished"></translation>
+        <translation>Доступно обновление!</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="249"/>
         <source>To be able to launch the game from the launcher, you need to set the game path in the options window. (Options &gt; Select game path)</source>
-        <translation type="unfinished"></translation>
+        <translation>Чтобы иметь возможность запускать игру из программы запуска мода, вам нужно указать путь к установленной игре. (Настройки &gt; Указать место установки игры)</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="263"/>
         <location filename="../checker/w_main.cpp" line="297"/>
         <source>The executable hasn&apos;t been found. Please set the game path in the options window. (Options &gt; Select game path)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файл запуска игры не найден. Пожалуйста, укажите место куда установлена игра в Настройках. (Настройки &gt; Указать место установки игры)</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="270"/>
         <source>Asian language patch not applied</source>
-        <translation type="unfinished"></translation>
+        <translation>Патч для азиатских языков не активирован</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="271"/>
         <source>You need to apply a patch on the base game for the extension to be compatible with Asian languages. The original version won&apos;t be modified. Would you like to apply it now ?</source>
-        <translation type="unfinished"></translation>
+        <translation>Чтобы дополнение корректно работало с азиатскими языками, Вам нужно установить патч к игре. Установить патч прямо сейчас?</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="699"/>
         <source>Cache</source>
-        <translation type="unfinished"></translation>
+        <translation>Кэш</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="699"/>
         <source>The cache is now cleared. NOTE: It is already automatically cleared on update.</source>
-        <translation type="unfinished"></translation>
+        <translation>Кэш отчищен. Примечание: он автоматически очищается при обновлении.</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="707"/>
         <source>Reset mod</source>
-        <translation type="unfinished"></translation>
+        <translation>Сбросить Мод</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="708"/>
         <source>This will reset the mod to the default state. Any modification or launcher preferences will be removed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Это действие сбросит мод к изначальному состоянию. Любые изменения и настройки программы запуска будут удалены.</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="709"/>
         <location filename="../checker/w_main.cpp" line="732"/>
         <source>Are you sure to continue ?</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы уверены что хотите продолжить?</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="730"/>
         <source>Check files</source>
-        <translation type="unfinished"></translation>
+        <translation>Проверить файлы</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="731"/>
         <source>This will check the mod files again without removing your modifications (if they are listed as exclusions) or preferences. If an update is available, this will update the game.</source>
-        <translation type="unfinished"></translation>
+        <translation>Произойдет проверка всех файлов мода. Измененные Вами файлы (если они отмечены запретом на обновление) и настройки не будут затронуты. Если доступны обновления, они будут загружены и установлены.</translation>
     </message>
     <message>
         <location filename="../updater/w_main.ui" line="32"/>
         <source>Module updater</source>
-        <translation type="unfinished"></translation>
+        <translation>Обновление модулей</translation>
     </message>
     <message>
         <location filename="../updater/w_main.cpp" line="31"/>
         <source>Updating the game. Please be patient.</source>
-        <translation type="unfinished"></translation>
+        <translation>Игра обновляется. Пожалуйста, подождите.</translation>
     </message>
     <message>
         <location filename="../updater/w_main.cpp" line="84"/>
         <source>Checking and downloading data:</source>
-        <translation type="unfinished"></translation>
+        <translation>Проверка и загрузка данных:</translation>
     </message>
     <message>
         <location filename="../updater/w_main.cpp" line="84"/>
         <source> files left.</source>
-        <translation type="unfinished"></translation>
+        <translation>файлов осталось.</translation>
     </message>
 </context>
 <context>
@@ -460,27 +462,27 @@
     <message>
         <location filename="../checker/w_modules.ui" line="32"/>
         <source>Modules</source>
-        <translation type="unfinished"></translation>
+        <translation>Модули</translation>
     </message>
     <message>
         <location filename="../checker/w_modules.ui" line="148"/>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Обновить</translation>
     </message>
     <message>
         <location filename="../checker/w_modules.cpp" line="16"/>
         <source>Changes (last 50) :</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменения (последние 50):</translation>
     </message>
     <message>
         <location filename="../checker/w_modules.cpp" line="38"/>
         <source>Local</source>
-        <translation>Местная</translation>
+        <translation>Установленная</translation>
     </message>
     <message>
         <location filename="../checker/w_modules.cpp" line="38"/>
         <source>Remote</source>
-        <translation type="unfinished"></translation>
+        <translation>Доступная к загрузке</translation>
     </message>
 </context>
 <context>
@@ -493,152 +495,152 @@
     <message>
         <location filename="../checker/w_options.ui" line="62"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Mod configuration :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Конфигурация мода :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="69"/>
         <source>Enable formations (more graphical units)</source>
-        <translation type="unfinished"></translation>
+        <translation>Включить формации (больше вариантов отображения юнитов)</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="76"/>
         <source>Enable modern flags (on by default)</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать современные флаги (включено по умолчанию)</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="85"/>
         <source>Change terrain texture set:</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать текстуры  земли:</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="111"/>
         <source>A New Dawn (default)</source>
-        <translation type="unfinished"></translation>
+        <translation>A New Dawn (По умолчанию)</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="116"/>
         <source>Blue Marble</source>
-        <translation type="unfinished"></translation>
+        <translation>Blue Marble</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="121"/>
         <source>Original</source>
-        <translation type="unfinished"></translation>
+        <translation>Обычная Civ4</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="126"/>
         <source>Sparth</source>
-        <translation type="unfinished"></translation>
+        <translation>Sparth</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="131"/>
         <source>Vincentz</source>
-        <translation type="unfinished"></translation>
+        <translation>Vincentz</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="143"/>
         <source>Interface color:</source>
-        <translation type="unfinished"></translation>
+        <translation>Цвет интерфейса:</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="83"/>
         <source>Black</source>
-        <translation type="unfinished"></translation>
+        <translation>Черный</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="85"/>
         <source>Coal</source>
-        <translation>Уголь:Уголь:Угля:Углем:Углю</translation>
+        <translation>Угольный</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="86"/>
         <source>Dark red</source>
-        <translation type="unfinished"></translation>
+        <translation>Темно красный</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="87"/>
         <source>Forest</source>
-        <translation>Лес:Лес:Леса:Лесом:Лесам:Лесов:Лесах</translation>
+        <translation>Лес</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="88"/>
         <source>Purple</source>
-        <translation type="unfinished"></translation>
+        <translation>Фиолетовый</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="89"/>
         <source>Red</source>
-        <translation type="unfinished"></translation>
+        <translation>Красный</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="90"/>
         <source>Silver</source>
-        <translation>Серебро:Серебро:Серебра:Серебром:Серебру</translation>
+        <translation>Серебряный</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="84"/>
         <source>Cerulean</source>
-        <translation type="unfinished"></translation>
+        <translation>Лазурный</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="198"/>
         <source>Game path:</source>
-        <translation type="unfinished"></translation>
+        <translation>Путь к игре:</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="223"/>
         <source>Select game path</source>
-        <translation type="unfinished"></translation>
+        <translation>Указать путь к игре:</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="257"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Launcher configuration :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Настройки программы запуска :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="264"/>
         <source>Close the launcher when game start</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрывать это меню после запуска игры</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="271"/>
         <source>Autostart the mod with the game by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Запускать мод вместе с игрой по умолчанию</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="296"/>
         <source>Exclude files from update</source>
-        <translation type="unfinished"></translation>
+        <translation>Запретить обновление файлов</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="56"/>
         <source>No path specified</source>
-        <translation type="unfinished"></translation>
+        <translation>Путь не указан</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="82"/>
         <source>Dark blue (Default)</source>
-        <translation type="unfinished"></translation>
+        <translation>Темно-синий (по умолчанию)</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="91"/>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>На выбор</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="154"/>
         <source>Find Civ IV executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Найти файл запуска Civ IV</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="158"/>
         <source>The game path has been changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Путь к игре был изменен</translation>
     </message>
     <message>
         <location filename="../checker/w_options.cpp" line="162"/>
         <source>No game path specified.</source>
-        <translation type="unfinished"></translation>
+        <translation>Путь к игре не указан</translation>
     </message>
 </context>
 </TS>
