@@ -352,70 +352,70 @@ void w_main::populate_language_menu(QString code)
     ui->language_en->setText(tr("English"));
     if(code=="fr"){ui->language_fr->setChecked(1);}
     ui->language_fr->setIcon(QIcon("checker/icons/fr.png"));
-    ui->language_fr->setText(tr("French") + " (" + getLanguageProgressFromCode("fr") + "%)");
+    ui->language_fr->setText(tr("French")); // + " (" + getLanguageProgressFromCode("fr") + "%)");
     if(code=="de"){ui->language_de->setChecked(1);}
     ui->language_de->setIcon(QIcon("checker/icons/de.png"));
-    ui->language_de->setText(tr("German") + " (" + getLanguageProgressFromCode("de") + "%)");
+    ui->language_de->setText(tr("German")); // + " (" + getLanguageProgressFromCode("de") + "%)");
     if(code=="it"){ui->language_it->setChecked(1);}
     ui->language_it->setIcon(QIcon("checker/icons/it.png"));
-    ui->language_it->setText(tr("Italian") + " (" + getLanguageProgressFromCode("it") + "%)");
+    ui->language_it->setText(tr("Italian")); // + " (" + getLanguageProgressFromCode("it") + "%)");
     if(code=="es"){ui->language_es->setChecked(1);}
     ui->language_es->setIcon(QIcon("checker/icons/es.png"));
-    ui->language_es->setText(tr("Spanish") + " (" + getLanguageProgressFromCode("es") + "%)");
+    ui->language_es->setText(tr("Spanish")); // + " (" + getLanguageProgressFromCode("es") + "%)");
     if(code=="fi"){ui->language_fi->setChecked(1);}
     ui->language_fi->setIcon(QIcon("checker/icons/fi.png"));
-    ui->language_fi->setText(tr("Finnish") + " (" + getLanguageProgressFromCode("fi") + "%)");
+    ui->language_fi->setText(tr("Finnish")); // + " (" + getLanguageProgressFromCode("fi") + "%)");
     if(code=="hu"){ui->language_hu->setChecked(1);}
     ui->language_hu->setIcon(QIcon("checker/icons/hu.png"));
-    ui->language_hu->setText(tr("Hungarian") + " (" + getLanguageProgressFromCode("hu") + "%)");
+    ui->language_hu->setText(tr("Hungarian")); // + " (" + getLanguageProgressFromCode("hu") + "%)");
     if(code=="pl"){ui->language_pl->setChecked(1);}
     ui->language_pl->setIcon(QIcon("checker/icons/pl.png"));
-    ui->language_pl->setText(tr("Polish") + " (" + getLanguageProgressFromCode("pl") + "%)");
+    ui->language_pl->setText(tr("Polish")); // + " (" + getLanguageProgressFromCode("pl") + "%)");
     if(code=="ru"){ui->language_ru->setChecked(1);}
     ui->language_ru->setIcon(QIcon("checker/icons/ru.png"));
-    ui->language_ru->setText(tr("Russian") + " (" + getLanguageProgressFromCode("ru") + "%)");
+    ui->language_ru->setText(tr("Russian")); // + " (" + getLanguageProgressFromCode("ru") + "%)");
     if(code=="cs"){ui->language_cs->setChecked(1);}
     ui->language_cs->setIcon(QIcon("checker/icons/cs.png"));
-    ui->language_cs->setText(tr("Czech") + " (" + getLanguageProgressFromCode("cs") + "%)");
+    ui->language_cs->setText(tr("Czech")); // + " (" + getLanguageProgressFromCode("cs") + "%)");
     if(code=="da"){ui->language_da->setChecked(1);}
     ui->language_da->setIcon(QIcon("checker/icons/da.png"));
-    ui->language_da->setText(tr("Danish") + " (" + getLanguageProgressFromCode("da") + "%)");
+    ui->language_da->setText(tr("Danish")); // + " (" + getLanguageProgressFromCode("da") + "%)");
     if(code=="ar"){ui->language_ar->setChecked(1);}
     ui->language_ar->setIcon(QIcon("checker/icons/ar.png"));
-    ui->language_ar->setText(tr("Arabic") + " (" + getLanguageProgressFromCode("ar") + "%)");
+    ui->language_ar->setText(tr("Arabic")); // + " (" + getLanguageProgressFromCode("ar") + "%)");
     if(code=="tr"){ui->language_tr->setChecked(1);}
     ui->language_tr->setIcon(QIcon("checker/icons/tr.png"));
-    ui->language_tr->setText(tr("Turkish") + " (" + getLanguageProgressFromCode("tr") + "%)");
+    ui->language_tr->setText(tr("Turkish")); // + " (" + getLanguageProgressFromCode("tr") + "%)");
     if(code=="ko"){ui->language_ko->setChecked(1);}
     ui->language_ko->setIcon(QIcon("checker/icons/ko.png"));
-    ui->language_ko->setText(tr("Korean") + " (" + getLanguageProgressFromCode("ko") + "%)");
+    ui->language_ko->setText(tr("Korean")); // + " (" + getLanguageProgressFromCode("ko") + "%)");
     if(code=="zh_Hans"){ui->language_zh_Hans->setChecked(1);}
     ui->language_zh_Hans->setIcon(QIcon("checker/icons/zh_Hans.png"));
-    ui->language_zh_Hans->setText(tr("Chinese (simplified)") + " (" + getLanguageProgressFromCode("zh_Hans") + "%)");
+    ui->language_zh_Hans->setText(tr("Chinese (simplified)")); // + " (" + getLanguageProgressFromCode("zh_Hans") + "%)");
     if(code=="zh_Hant"){ui->language_zh_Hant->setChecked(1);}
     ui->language_zh_Hant->setIcon(QIcon("checker/icons/zh_Hant.png"));
-    ui->language_zh_Hant->setText(tr("Chinese (traditional)") + " (" + getLanguageProgressFromCode("zh_Hant") + "%)");
+    ui->language_zh_Hant->setText(tr("Chinese (traditional)")); // + " (" + getLanguageProgressFromCode("zh_Hant") + "%)");
     if(code=="ja"){ui->language_ja->setChecked(1);}
     ui->language_ja->setIcon(QIcon("checker/icons/ja.png"));
-    ui->language_ja->setText(tr("Japanese") + " (" + getLanguageProgressFromCode("ja") + "%)");
+    ui->language_ja->setText(tr("Japanese")); // + " (" + getLanguageProgressFromCode("ja") + "%)");
     if(code=="el"){ui->language_el->setChecked(1);}
     ui->language_el->setIcon(QIcon("checker/icons/el.png"));
-    ui->language_el->setText(tr("Greek") + " (" + getLanguageProgressFromCode("el") + "%)");
+    ui->language_el->setText(tr("Greek")); // + " (" + getLanguageProgressFromCode("el") + "%)");
     if(code=="pt"){ui->language_pt->setChecked(1);}
     ui->language_pt->setIcon(QIcon("checker/icons/pt.png"));
-    ui->language_pt->setText(tr("Portuguese") + " (" + getLanguageProgressFromCode("pt") + "%)");
+    ui->language_pt->setText(tr("Portuguese")); // + " (" + getLanguageProgressFromCode("pt") + "%)");
     if(code=="pt_BR"){ui->language_pt_BR->setChecked(1);}
     ui->language_pt_BR->setIcon(QIcon("checker/icons/pt_BR.png"));
-    ui->language_pt_BR->setText(tr("Brazilian") + " (" + getLanguageProgressFromCode("pt_BR") + "%)");
+    ui->language_pt_BR->setText(tr("Brazilian")); // + " (" + getLanguageProgressFromCode("pt_BR") + "%)");
     if(code=="bg"){ui->language_bg->setChecked(1);}
     ui->language_bg->setIcon(QIcon("checker/icons/bg.png"));
-    ui->language_bg->setText(tr("Bulgarian") + " (" + getLanguageProgressFromCode("bg") + "%)");
+    ui->language_bg->setText(tr("Bulgarian")); // + " (" + getLanguageProgressFromCode("bg") + "%)");
     if(code=="ca"){ui->language_ca->setChecked(1);}
     ui->language_ca->setIcon(QIcon("checker/icons/ca.png"));
-    ui->language_ca->setText(tr("Catalan") + " (" + getLanguageProgressFromCode("ca") + "%)");
+    ui->language_ca->setText(tr("Catalan")); // + " (" + getLanguageProgressFromCode("ca") + "%)");
     if(code=="nl"){ui->language_nl->setChecked(1);}
     ui->language_nl->setIcon(QIcon("checker/icons/nl.png"));
-    ui->language_nl->setText(tr("Dutch") + " (" + getLanguageProgressFromCode("nl") + "%)");
+    ui->language_nl->setText(tr("Dutch")); // + " (" + getLanguageProgressFromCode("nl") + "%)");
 
     setGameOption("Language", getLanguageGameNumberFromCode(code));
     if(isLanguageSupported(code)){
