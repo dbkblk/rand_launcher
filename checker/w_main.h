@@ -109,6 +109,8 @@ private slots:
     void on_language_nl_triggered();
     void on_actionWrite_a_review_on_Moddb_triggered();
 
+    void on_language_ua_triggered();
+
 private:
     Ui::w_main *ui;
     w_options *options;

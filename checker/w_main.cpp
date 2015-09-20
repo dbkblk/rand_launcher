@@ -416,6 +416,9 @@ void w_main::populate_language_menu(QString code)
     if(code=="nl"){ui->language_nl->setChecked(1);}
     ui->language_nl->setIcon(QIcon("checker/icons/nl.png"));
     ui->language_nl->setText(tr("Dutch")); // + " (" + getLanguageProgressFromCode("nl") + "%)");
+    if(code=="uk_UA"){ui->language_ua->setChecked(1);}
+    ui->language_ua->setIcon(QIcon("checker/icons/uk_UA.png"));
+    ui->language_ua->setText(tr("Ukrainian")); // + " (" + getLanguageProgressFromCode("uk_UA") + "%)");
 
     setGameOption("Language", getLanguageGameNumberFromCode(code));
     if(isLanguageSupported(code)){
@@ -690,6 +693,14 @@ void w_main::on_language_nl_triggered()
     language_select(lang);
     populate_language_menu(lang);
 }
+
+void w_main::on_language_ua_triggered()
+{
+    QString lang = "uk_UA";
+    language_select(lang);
+    populate_language_menu(lang);
+}
+
 
 
 // Game : Clear the cache

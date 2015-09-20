@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="el" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="el">
 <context>
     <name>QObject</name>
     <message>
@@ -95,22 +97,22 @@
         <translation>Γλώσσα</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="333"/>
+        <location filename="../checker/w_main.ui" line="334"/>
         <source>Exit</source>
         <translation>&apos;Εξοδος</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="341"/>
+        <location filename="../checker/w_main.ui" line="342"/>
         <source>Forum</source>
         <translation>Φόρουμ</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="354"/>
+        <location filename="../checker/w_main.ui" line="355"/>
         <source>About AND Resurrection team (forum)</source>
         <translation>Σχετικά με την ομάδα αναβίωσης του AND (φόρουμ)</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="351"/>
+        <location filename="../checker/w_main.ui" line="352"/>
         <source>History and credits</source>
         <translation>Ιστορία και πιστώσεις</translation>
     </message>
@@ -120,12 +122,12 @@
         <translation>Δείτε τις τελευταίες αλλαγές</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="314"/>
+        <location filename="../checker/w_main.ui" line="315"/>
         <source>Modules</source>
         <translation>Ενότητες</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="318"/>
+        <location filename="../checker/w_main.ui" line="319"/>
         <source>Get modules</source>
         <translation>Λήψη ενοτήτων</translation>
     </message>
@@ -135,224 +137,230 @@
         <translation>Μετάφραση</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="346"/>
+        <location filename="../checker/w_main.ui" line="347"/>
         <source>Report a bug (forum)</source>
         <translation>Αναφορά προβλήματος (φόρουμ)</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="359"/>
+        <location filename="../checker/w_main.ui" line="360"/>
         <source>Open mod folder</source>
         <translation>Άνοιγμα του φακέλου του mod</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="364"/>
+        <location filename="../checker/w_main.ui" line="365"/>
         <source>Translate the mod</source>
         <translation>Μετάφραση του mod</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="369"/>
+        <location filename="../checker/w_main.ui" line="370"/>
         <source>Help for translation (forum)</source>
         <translation>Βοήθεια για την μετάφραση (φόρουμ)</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="380"/>
+        <location filename="../checker/w_main.ui" line="381"/>
         <location filename="../checker/w_main.cpp" line="352"/>
         <source>English</source>
         <translation>Αγγλικά</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="391"/>
+        <location filename="../checker/w_main.ui" line="392"/>
         <location filename="../checker/w_main.cpp" line="355"/>
         <source>French</source>
         <translation>Γαλλικά</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="399"/>
+        <location filename="../checker/w_main.ui" line="400"/>
         <location filename="../checker/w_main.cpp" line="370"/>
         <source>Hungarian</source>
         <translation>Ουγκαρέζικα</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="407"/>
+        <location filename="../checker/w_main.ui" line="408"/>
         <location filename="../checker/w_main.cpp" line="367"/>
         <source>Finnish</source>
         <translation>Φινλανδικά</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="415"/>
+        <location filename="../checker/w_main.ui" line="416"/>
         <location filename="../checker/w_main.cpp" line="373"/>
         <source>Polish</source>
         <translation>Πολωνικά</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="423"/>
+        <location filename="../checker/w_main.ui" line="424"/>
         <location filename="../checker/w_main.cpp" line="361"/>
         <source>Italian</source>
         <translation>Ιταλικά</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="431"/>
+        <location filename="../checker/w_main.ui" line="432"/>
         <location filename="../checker/w_main.cpp" line="364"/>
         <source>Spanish</source>
         <translation>Ισπανικά</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="439"/>
+        <location filename="../checker/w_main.ui" line="440"/>
         <location filename="../checker/w_main.cpp" line="358"/>
         <source>German</source>
         <translation>Γερμανικά</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="447"/>
+        <location filename="../checker/w_main.ui" line="448"/>
         <location filename="../checker/w_main.cpp" line="376"/>
         <source>Russian</source>
         <translation>Ρωσικά</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="452"/>
+        <location filename="../checker/w_main.ui" line="453"/>
         <source>Clear cache</source>
         <translation>Εκκαθάριση προσωρινής μνήμης</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="457"/>
+        <location filename="../checker/w_main.ui" line="458"/>
         <source>Reset mod to default state</source>
         <translation>Επαναφορά του mod στην αρχική κατάσταση</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="462"/>
+        <location filename="../checker/w_main.ui" line="463"/>
         <source>Translate the civilopedia</source>
         <translation>Μεταφράστε την civilopedia</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="467"/>
+        <location filename="../checker/w_main.ui" line="468"/>
         <source>Website</source>
         <translation>Ιστότοπος</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="475"/>
+        <location filename="../checker/w_main.ui" line="476"/>
         <location filename="../checker/w_main.cpp" line="379"/>
         <source>Czech</source>
         <translation>Τσέχικα</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="483"/>
+        <location filename="../checker/w_main.ui" line="484"/>
         <location filename="../checker/w_main.cpp" line="382"/>
         <source>Danish</source>
         <translation>Δανέζικα</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="491"/>
+        <location filename="../checker/w_main.ui" line="492"/>
         <location filename="../checker/w_main.cpp" line="385"/>
         <source>Arabic</source>
         <translation>Αραβικά</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="502"/>
+        <location filename="../checker/w_main.ui" line="503"/>
         <location filename="../checker/w_main.cpp" line="388"/>
         <source>Turkish</source>
         <translation>Τούρκικα</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="510"/>
+        <location filename="../checker/w_main.ui" line="511"/>
+        <location filename="../checker/w_main.cpp" line="421"/>
+        <source>Ukrainian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../checker/w_main.ui" line="519"/>
         <source>Activation status:</source>
         <translation>Κατάσταση ενεργοποίησης:</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="515"/>
+        <location filename="../checker/w_main.ui" line="524"/>
         <source>Give us feedback ! (forum)</source>
         <translation>Δώστε μας σχόλια ! (φόρουμ)</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="520"/>
+        <location filename="../checker/w_main.ui" line="529"/>
         <source>Translate the website</source>
         <translation>Μετάφραση του ιστότοπου</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="525"/>
+        <location filename="../checker/w_main.ui" line="534"/>
         <source>Translate the module &quot;Mega Civ. pack&quot;</source>
         <translation>Μετάφραση της ενότητας &quot;Mega Civ. pack&quot;</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="533"/>
+        <location filename="../checker/w_main.ui" line="542"/>
         <location filename="../checker/w_main.cpp" line="391"/>
         <source>Korean</source>
         <translation>Κορεάτικα</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="541"/>
+        <location filename="../checker/w_main.ui" line="550"/>
         <location filename="../checker/w_main.cpp" line="394"/>
         <source>Chinese (simplified)</source>
         <translation>Κινέζικα (απλοποιημένα)</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="592"/>
+        <location filename="../checker/w_main.ui" line="601"/>
         <location filename="../checker/w_main.cpp" line="397"/>
         <source>Chinese (traditional)</source>
         <translation>Κινέζικα (παραδοσιακά)</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="597"/>
+        <location filename="../checker/w_main.ui" line="606"/>
         <location filename="../checker/w_main.cpp" line="415"/>
         <source>Catalan</source>
         <translation>Καταλανικά</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="602"/>
+        <location filename="../checker/w_main.ui" line="611"/>
         <location filename="../checker/w_main.cpp" line="412"/>
         <source>Bulgarian</source>
         <translation>Βουλγαρικά</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="607"/>
+        <location filename="../checker/w_main.ui" line="616"/>
         <location filename="../checker/w_main.cpp" line="418"/>
         <source>Dutch</source>
         <translation>Ολλανδικά</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="612"/>
+        <location filename="../checker/w_main.ui" line="621"/>
         <source>Write a review on Moddb</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="549"/>
+        <location filename="../checker/w_main.ui" line="558"/>
         <location filename="../checker/w_main.cpp" line="400"/>
         <source>Japanese</source>
         <translation>Γιαπωνέζικα</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="557"/>
+        <location filename="../checker/w_main.ui" line="566"/>
         <source>Development tracker</source>
         <translation>Ανιχνευτής ανάπτυξης </translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="562"/>
+        <location filename="../checker/w_main.ui" line="571"/>
         <source>Apply Asian language patch again</source>
         <translation>Εφαρμόστε ξανά το patch Ασιατικών γλωσσών </translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="567"/>
+        <location filename="../checker/w_main.ui" line="576"/>
         <source>Frequently asked questions</source>
         <translation>Συχνές ερωτήσεις</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="572"/>
+        <location filename="../checker/w_main.ui" line="581"/>
         <location filename="../checker/w_main.cpp" line="403"/>
         <source>Greek</source>
         <translation>Ελληνικά</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="577"/>
+        <location filename="../checker/w_main.ui" line="586"/>
         <location filename="../checker/w_main.cpp" line="406"/>
         <source>Portuguese</source>
         <translation>Πορτογαλικά</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="582"/>
+        <location filename="../checker/w_main.ui" line="591"/>
         <source>Check the files again</source>
         <translation>Ελέγξτε πάλι τα αρχεία </translation>
     </message>
     <message>
-        <location filename="../checker/w_main.ui" line="587"/>
+        <location filename="../checker/w_main.ui" line="596"/>
         <location filename="../checker/w_main.cpp" line="409"/>
         <source>Brazilian</source>
         <translation>Βραζιλιάνικα</translation>
@@ -399,38 +407,38 @@
         <translation>Πρέπει να εφαρμόσετε ένα patch στο βασικό παιχνίδι ώστε η επέκταση να είναι συμβατή με τις Ασιατικές γλώσσες. Η αρχική έκδοση δεν θα τροποποιηθεί. Θα θέλατε να το εφαρμόσετε τώρα;</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="699"/>
+        <location filename="../checker/w_main.cpp" line="710"/>
         <source>Cache</source>
         <translation>Προσωρινή μνήμη</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="699"/>
+        <location filename="../checker/w_main.cpp" line="710"/>
         <source>The cache is now cleared. NOTE: It is already automatically cleared on update.</source>
         <translation>Η προσωρινή μνήμη έχει καθαριστεί. ΣΗΜΕΙΩΣΗ: Αυτή καθαρίζεται αυτόματα με την ενημέρωση.</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="707"/>
+        <location filename="../checker/w_main.cpp" line="718"/>
         <source>Reset mod</source>
         <translation>Επαναφορά του mod</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="708"/>
+        <location filename="../checker/w_main.cpp" line="719"/>
         <source>This will reset the mod to the default state. Any modification or launcher preferences will be removed.</source>
         <translation>Αυτό θα επαναφέρει το mod στην προεπιλεγμένη κατάσταση. Οποιαδήποτε τροποποίηση ή προτιμήσεις του προωθητή θα καταργηθούν.</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="709"/>
-        <location filename="../checker/w_main.cpp" line="732"/>
+        <location filename="../checker/w_main.cpp" line="720"/>
+        <location filename="../checker/w_main.cpp" line="743"/>
         <source>Are you sure to continue ?</source>
         <translation>Είστε βέβαιοι για να συνεχίσετε;</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="730"/>
+        <location filename="../checker/w_main.cpp" line="741"/>
         <source>Check files</source>
         <translation>Ελέγξτε τα αρχεία</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="731"/>
+        <location filename="../checker/w_main.cpp" line="742"/>
         <source>This will check the mod files again without removing your modifications (if they are listed as exclusions) or preferences. If an update is available, this will update the game.</source>
         <translation>Αυτό θα ελέγξει τα αρχεία του mod πάλι χωρίς να αφαιρέσει τις τροποποιήσεις σας (αν αυτές αναφέρονται ως εξαιρέσεις) ή τις προτιμήσεις σας. Αν υπάρχει διαθέσιμη μια ενημέρωση, αυτό θα ενημερώσει το παιχνίδι.</translation>
     </message>
