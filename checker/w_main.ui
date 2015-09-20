@@ -551,7 +551,7 @@
   </action>
   <action name="actionDevelopment_platform">
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="text">
     <string>Development tracker</string>
