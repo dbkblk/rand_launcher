@@ -49,6 +49,10 @@ w_options::w_options(QWidget *parent) :
         ui->checkerBox->setChecked(1);
     }
 
+    if(readCheckerParam("Main/DisableWarning") == "1"){
+        ui->opt_checkbox_disable_warning->setChecked(1);
+    }
+
     // Set default opt_text_path
     qDebug() << "Executable path: " << readCheckerParam("Main/ExecutablePath");
     if(readCheckerParam("Main/ExecutablePath") == "error")
@@ -200,5 +204,17 @@ void w_options::on_opt_checkbox_modern_flags_toggled(bool checked)
     {
         setCheckerParam("Modules/ModernFlags", "0");
         setOptionModernFlags(false);
+    }
+}
+
+void w_options::on_opt_checkbox_disable_warning_toggled(bool checked)
+{ // Disable the warning displayed when using the latest Steam version
+    if(checked)
+    {
+        setCheckerParam("Main/DisableWarning", "1");
+    }
+    else
+    {
+        setCheckerParam("Main/DisableWarning", "0");
     }
 }

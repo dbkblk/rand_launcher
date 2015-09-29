@@ -297,6 +297,14 @@ void w_main::on_bt_launch_clicked()
                 QMessageBox::information(0, "Information", tr("The executable hasn't been found. Please set the game path in the options window. (Options > Select game path)"));
                 return;
             }
+            //qDebug() << "Executable checksum is " << checkMd5(executable);
+            // Warn when the latest Steam version is used
+            if(checkMd5(executable) == "93a64f40d3d4093faeac3e9e626f79de" && readCheckerParam("Main/DisableWarning") != "1")
+            {
+                QMessageBox::information(0, "Information", tr("The game version you are using is known for causing some display problems, like invisible religion icons. Please read the 'note for Steam users' on our website to fix the problem. The website help page will now open.")+ "\n\n" + tr("You can disable this warning in the options."));
+                openURL("http://anewdawn.sourceforge.net/pages/install/");
+                return;
+            }
             launchGame(executable);
         }
 

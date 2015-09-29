@@ -272,6 +272,13 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QCheckBox" name="opt_checkbox_disable_warning">
+      <property name="text">
+       <string>Disable the warning about the wrong game version</string>
+      </property>
+     </widget>
+    </item>
     <item alignment="Qt::AlignRight|Qt::AlignVCenter">
      <widget class="QPushButton" name="bt_exclusions">
       <property name="sizePolicy">

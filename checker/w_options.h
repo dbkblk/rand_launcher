@@ -32,6 +32,8 @@ private slots:
     void on_bt_customColor_clicked();
     void on_opt_checkbox_modern_flags_toggled(bool checked);
 
+    void on_opt_checkbox_disable_warning_toggled(bool checked);
+
 private:
     QCheckBox *startBox;
     QCheckBox *checkerBox;
