@@ -278,6 +278,44 @@ void setOptionEnabledMods(QString mod_name, bool status)
     qDebug() << result;
 }
 
+float getModLocalVersion(QString modName){
+    QString mod = "Assets/Modules/" + modName + "/";
+    float version = 0;
+
+    // If modInfo.xml present, get file list
+    QFile file(mod + "modInfo.xml");
+    if(file.open(QIODevice::ReadOnly)){
+        QDomDocument modxml;
+        modxml.setContent(&file);
+        file.close();
+        QDomElement filexml = modxml.firstChildElement("root").firstChildElement("version");
+        if(!filexml.isNull()){
+            version = QString(filexml.firstChild().nodeValue()).toFloat();
+        }
+    }
+    return version;
+}
+
+QString getModURL(QString modName){
+    QString mod = "Assets/Modules/" + modName + "/";
+    QString url = "";
+
+    // If modInfo.xml present, get file list
+    QFile file(mod + "modInfo.xml");
+    if(file.open(QIODevice::ReadOnly)){
+        QDomDocument modxml;
+        modxml.setContent(&file);
+        file.close();
+        QDomElement filexml = modxml.firstChildElement("root").firstChildElement("infoURL");
+        if(!filexml.isNull()){
+            url = filexml.firstChild().nodeValue();
+        }
+    }
+    return url;
+}
+
+// Audio injection algorythmn
+
 f_injection::f_injection(QObject *parent) :
     QObject(parent)
 {

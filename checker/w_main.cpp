@@ -57,6 +57,7 @@ w_main::w_main(QWidget *parent) :
     modules = new w_modules(this);
     modules->UpdateWindow();
     connect(modules, SIGNAL(exit()), this, SLOT(stopLauncher()));
+    ui->bt_mcpupdate->setVisible(false);
 
     // GUI : Set menu icons
     ui->actionOpen_mod_folder->setIcon(QIcon("checker/icons/open.png"));
@@ -94,10 +95,10 @@ w_main::w_main(QWidget *parent) :
     worker->moveToThread(thread);
     connect(worker, SIGNAL(workRequested()), thread, SLOT(start()));
     connect(thread, SIGNAL(started()), worker, SLOT(CheckForUpdate()));
-    connect(worker, SIGNAL(finished(bool)), thread, SLOT(quit()), Qt::DirectConnection);
-    connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateWindowInfos()), Qt::DirectConnection);
-    connect(worker, SIGNAL(finished(bool)), this, SLOT(UpdateAvailable(bool)));
-    connect(worker, SIGNAL(finished(bool)), modules, SLOT(UpdateWindow()));
+    connect(worker, SIGNAL(finished(bool, bool)), thread, SLOT(quit()), Qt::DirectConnection);
+    connect(worker, SIGNAL(finished(bool, bool)), this, SLOT(UpdateWindowInfos()), Qt::DirectConnection);
+    connect(worker, SIGNAL(finished(bool, bool)), this, SLOT(UpdateAvailable(bool, bool)));
+    connect(worker, SIGNAL(finished(bool, bool)), modules, SLOT(UpdateWindow()));
 
     // Update : Kill the previous background task if any, then start the task
     worker->abort();
@@ -108,7 +109,7 @@ w_main::w_main(QWidget *parent) :
     populate_mod_list();
 
     // GUI : Update the local version and font color
-    UpdateWindowInfos();    
+    UpdateWindowInfos();
 
     // Translations : Reload the GUI with the correct translation
     ui->retranslateUi(this);
@@ -171,13 +172,17 @@ void w_main::RestoreButtonState()
     return;
 }
 
-void w_main::UpdateAvailable(bool update)
+void w_main::UpdateAvailable(bool update, bool mod_update)
 {
-    // GUID : Detect if it's a launcher update or another type then turn the update button to yellow
+    // GUI : Detect if it's a launcher update or another type then turn the update button to yellow
     if(update)
     {
         ui->bt_components->setStyleSheet("background-color: yellow");
         ui->bt_components->setText(tr("Update available !"));
+    }
+    if(mod_update)
+    {
+        ui->bt_mcpupdate->setVisible(true);
     }
     return;
 }
@@ -496,7 +501,7 @@ void w_main::populate_mod_list(){
             file.close();
             name = xml.firstChildElement("root").firstChildElement("name").firstChild().nodeValue();
             version = xml.firstChildElement("root").firstChildElement("version").firstChild().nodeValue();
-            version.prepend("v.");
+            version.prepend("v");
         }
         else{
             name = entry;
@@ -797,4 +802,9 @@ void w_main::on_actionFrequently_asked_questions_triggered()
 void w_main::on_actionWrite_a_review_on_Moddb_triggered()
 {
     openURL("http://www.moddb.com/mods/rise-of-mankind-a-new-dawn");
+}
+
+void w_main::on_bt_mcpupdate_clicked()
+{
+    openURL("https://github.com/dbkblk/civ4_and2_civmegapack/blob/master/README.md");
 }

@@ -51,7 +51,7 @@ void f_check::CheckForUpdate()
     QTimer::singleShot(3000, &loop, SLOT(quit()));
     loop.exec();
 
-    // Begin processing
+    // Begin the check for update
     //qDebug()<<"Starting worker process in Thread "<<thread()->currentThreadId();
     bool update;
     QFile::remove("checker/changelog_last.xml");
@@ -73,6 +73,37 @@ void f_check::CheckForUpdate()
 
     }
 
+    // Check MCP version
+    bool update_mcp = false;
+    QString url = getModURL("Custom_Civilizations_MCP");
+    if(!url.isEmpty())
+    {
+        QString get_address_mod = tools::TOOL_GET + "-O checker/changelog_mod.xml " + url;
+        download.start(get_address_mod);
+
+        if (download.waitForFinished(60000))
+        {
+            // Open the downloaded file and compare version
+            float version = 0;
+            QFile file("checker/changelog_mod.xml");
+            if(file.open(QIODevice::ReadOnly)){
+                QDomDocument modxml;
+                modxml.setContent(&file);
+                file.close();
+                QDomElement filexml = modxml.firstChildElement("root").firstChildElement("version");
+                if(!filexml.isNull()){
+                    version = QString(filexml.firstChild().nodeValue()).toFloat();
+                }
+                if(version != 0 && version > getModLocalVersion("Custom_Civilizations_MCP"))
+                {
+                    // Notify the new update
+                    update_mcp = true;
+                }
+            }
+        }
+    }
+
+
     // Set _working to false, meaning the process can't be aborted anymore.
     mutex.lock();
     _working = false;
@@ -81,7 +112,7 @@ void f_check::CheckForUpdate()
     //qDebug()<<"Worker process finished in Thread "<<thread()->currentThreadId();
     qDebug("Update checking ended...");
     // Finished signal
-    emit finished(update);
+    emit finished(update, update_mcp);
 }
 
 bool f_check::PrepareUpdate()

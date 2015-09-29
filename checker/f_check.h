@@ -41,7 +41,7 @@ private:
 
 signals:
     void workRequested();
-    void finished(bool update);
+    void finished(bool update, bool update_mcp);
     bool work_update_check(bool update);
     void exit();
 

@@ -135,15 +135,21 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="bt_components">
+        <widget class="QPushButton" name="bt_option">
          <property name="minimumSize">
           <size>
            <width>175</width>
            <height>25</height>
           </size>
          </property>
+         <property name="styleSheet">
+          <string notr="true">border-image: none</string>
+         </property>
          <property name="text">
-          <string>See latest changes</string>
+          <string>Options</string>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -178,21 +184,25 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="bt_option">
+        <widget class="QPushButton" name="bt_mcpupdate">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 0);</string>
+         </property>
+         <property name="text">
+          <string>Civ. pack update available</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="bt_components">
          <property name="minimumSize">
           <size>
            <width>175</width>
            <height>25</height>
           </size>
          </property>
-         <property name="styleSheet">
-          <string notr="true">border-image: none</string>
-         </property>
          <property name="text">
-          <string>Options</string>
-         </property>
-         <property name="flat">
-          <bool>false</bool>
+          <string>See latest changes</string>
          </property>
         </widget>
        </item>
@@ -308,13 +318,19 @@
     <addaction name="language_ru"/>
     <addaction name="language_es"/>
     <addaction name="language_tr"/>
-	<addaction name="language_ua"/>
+    <addaction name="language_ua"/>
    </widget>
    <widget class="QMenu" name="menuModules">
     <property name="title">
      <string>Modules</string>
     </property>
     <widget class="QMenu" name="menuModulesList">
+     <property name="font">
+      <font>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
      <property name="title">
       <string>Get modules</string>
      </property>
@@ -503,7 +519,7 @@
     <string>Turkish</string>
    </property>
   </action>
-    <action name="language_ua">
+  <action name="language_ua">
    <property name="checkable">
     <bool>true</bool>
    </property>

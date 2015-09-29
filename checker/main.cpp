@@ -202,6 +202,7 @@ int main(int argc, char *argv[])
     }
 
     else{
+        //qDebug() << "MCP version is " << getModLocalVersion("Custom_Civilizations_MCP");
     // Start the GUI
         w.show();
     }

@@ -11,6 +11,8 @@ void generateModsExclusion();
 void generateModsMLFFile();
 QStringList getOptionEnabledMods();
 void setOptionEnabledMods(QString mod_name, bool status);
+float getModLocalVersion(QString modName);
+QString getModURL(QString modName);
 
 class f_injection : public QObject
 {

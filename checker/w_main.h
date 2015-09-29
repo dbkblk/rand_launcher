@@ -33,7 +33,7 @@ const QString TOOL_UPDATER = "upd_proc";
 #endif
 #ifdef _WIN32
 const QString TOOL_RSYNC = "checker/rsync.exe ";
-const QString TOOL_GET = "checker/wget.exe -t 10 ";
+const QString TOOL_GET = "checker/wget.exe -t 10 --no-check-certificate ";
 const QString TOOL_XZ = "checker/xz.exe -d ";
 const QString TOOL_TAR = "checker/tar.exe -xpf ";
 const QString TOOL_LAUNCHER = "and2_checker.exe";
@@ -63,7 +63,7 @@ private slots:
     void on_bt_option_clicked();
     void UpdateWindowInfos();
     void on_actionOpen_mod_folder_triggered();
-    void UpdateAvailable(bool update);
+    void UpdateAvailable(bool update, bool mod_update);
     void RestoreButtonState();
     void on_bt_components_clicked();
     void on_actionHelp_translate_the_mod_triggered();
@@ -110,6 +110,8 @@ private slots:
     void on_actionWrite_a_review_on_Moddb_triggered();
 
     void on_language_ua_triggered();
+
+    void on_bt_mcpupdate_clicked();
 
 private:
     Ui::w_main *ui;
