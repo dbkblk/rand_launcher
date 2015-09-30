@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ru">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.1">
 <context>
     <name>QObject</name>
     <message>
@@ -141,7 +139,7 @@
     <message>
         <location filename="../checker/w_main.ui" line="192"/>
         <source>Civ. pack update available</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="363"/>
@@ -265,7 +263,7 @@
         <location filename="../checker/w_main.ui" line="527"/>
         <location filename="../checker/w_main.cpp" line="434"/>
         <source>Ukrainian</source>
-        <translation type="unfinished"></translation>
+        <translation>Украинский</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="535"/>
@@ -326,7 +324,7 @@
     <message>
         <location filename="../checker/w_main.ui" line="637"/>
         <source>Write a review on Moddb</source>
-        <translation type="unfinished"></translation>
+        <translation>Написать отзыв на Moddb</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="574"/>
@@ -416,12 +414,12 @@
     <message>
         <location filename="../checker/w_main.cpp" line="309"/>
         <source>The game version you are using is known for causing some display problems, like invisible religion icons. Please read the &apos;note for Steam users&apos; on our website to fix the problem. The website help page will now open.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="309"/>
         <source>You can disable this warning in the options.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="723"/>
@@ -633,7 +631,7 @@
     <message>
         <location filename="../checker/w_options.ui" line="278"/>
         <source>Disable the warning about the wrong game version</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="303"/>
