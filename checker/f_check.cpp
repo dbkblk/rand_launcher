@@ -173,13 +173,16 @@ int f_check::GetLocalVersion()
     {
         // Go to the mod version
         QString line = in_enc.readLine();
-        QString version;
+        int version;
         if(line.contains("modVersion = "))
         {
-            version = line.right(5).left(3);
+            int str_start = line.lastIndexOf("(rev") + 4;
+            int str_end = line.lastIndexOf(")");
+            version = line.mid(str_start, str_end - str_start).toInt();
+
             qDebug() << "Local version : " << version;
-            setCheckerParam("Main/LocalRev",version);
-            return version.toInt();
+            setCheckerParam("Main/LocalRev",QString::number(version));
+            return version;
         }
     }
     file.close();
