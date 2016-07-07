@@ -14,9 +14,6 @@ w_options::w_options(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::w_options)
 {
-    int init;
-    init = 0;
-
     ui->setupUi(this);
 
     // Set custom color button
