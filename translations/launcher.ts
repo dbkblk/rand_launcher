@@ -562,42 +562,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="87"/>
+        <location filename="../checker/w_options.cpp" line="84"/>
         <source>Black</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="89"/>
+        <location filename="../checker/w_options.cpp" line="86"/>
         <source>Coal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="90"/>
+        <location filename="../checker/w_options.cpp" line="87"/>
         <source>Dark red</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="91"/>
+        <location filename="../checker/w_options.cpp" line="88"/>
         <source>Forest</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="92"/>
+        <location filename="../checker/w_options.cpp" line="89"/>
         <source>Purple</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="93"/>
+        <location filename="../checker/w_options.cpp" line="90"/>
         <source>Red</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="94"/>
+        <location filename="../checker/w_options.cpp" line="91"/>
         <source>Silver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="88"/>
+        <location filename="../checker/w_options.cpp" line="85"/>
         <source>Cerulean</source>
         <translation type="unfinished"></translation>
     </message>
@@ -637,32 +637,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="60"/>
+        <location filename="../checker/w_options.cpp" line="57"/>
         <source>No path specified</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="86"/>
+        <location filename="../checker/w_options.cpp" line="83"/>
         <source>Dark blue (Default)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="95"/>
+        <location filename="../checker/w_options.cpp" line="92"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="158"/>
+        <location filename="../checker/w_options.cpp" line="155"/>
         <source>Find Civ IV executable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="162"/>
+        <location filename="../checker/w_options.cpp" line="159"/>
         <source>The game path has been changed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_options.cpp" line="166"/>
+        <location filename="../checker/w_options.cpp" line="163"/>
         <source>No game path specified.</source>
         <translation type="unfinished"></translation>
     </message>

@@ -10,11 +10,13 @@
 
 int main(int argc, char *argv[])
 {
+    // Create the application
     QApplication a(argc, argv);
     w_main *w = new w_main;
     w->show();
     //w.DebugWindow(3000);
 
+    // Arguments
     if(argc > 1)
     {
         QString arg1 = argv[1];
@@ -27,6 +29,7 @@ int main(int argc, char *argv[])
         }
     }
     else{
+    // Start the updater using the standard routine
         w->StartUpdate();
     }
 
