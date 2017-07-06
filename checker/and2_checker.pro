@@ -52,3 +52,15 @@ OTHER_FILES += \
     README.md
 
 DISTFILES +=
+
+Release:DESTDIR = ../build/checker_release
+Release:OBJECTS_DIR = ../build/checker_release/.obj
+Release:MOC_DIR = ../build/checker_release/.moc
+Release:RCC_DIR = ../build/checker_release/.rcc
+Release:UI_DIR = ../build/checker_release/.ui
+
+Debug:DESTDIR = ../build/checker_debug
+Debug:OBJECTS_DIR = ../build/checker_debug/.obj
+Debug:MOC_DIR = ../build/checker_debug/.moc
+Debug:RCC_DIR = ../build/checker_debug/.rcc
+Debug:UI_DIR = ../build/checker_debug/.ui

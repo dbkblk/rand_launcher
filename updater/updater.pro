@@ -27,3 +27,15 @@ FORMS += \
     w_main.ui
 
 RC_FILE = icon.rc
+
+Release:DESTDIR = ../build/updater_release
+Release:OBJECTS_DIR = ../build/updater_release/.obj
+Release:MOC_DIR = ../build/updater_release/.moc
+Release:RCC_DIR = ../build/updater_release/.rcc
+Release:UI_DIR = ../build/updater_release/.ui
+
+Debug:DESTDIR = ../build/updater_debug
+Debug:OBJECTS_DIR = ../build/updater_debug/.obj
+Debug:MOC_DIR = ../build/updater_debug/.moc
+Debug:RCC_DIR = ../build/updater_debug/.rcc
+Debug:UI_DIR = ../build/updater_debug/.ui
