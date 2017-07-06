@@ -8,19 +8,19 @@
         <source>The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:
 - My Documents/My Games/Beyond the Sword/Mods 
 - Game folder installation/Beyond the Sword/Mods</source>
-        <translation>Mod installationen ligger dobbelt. Dette kan medføre uventede problemer. Kontroller for mod-mappen disse to steder, og slet den forkerte:
- - mine dokumenter / My Games/Beyond the Sword/Mods
- - spillet mappen installation/Beyond the Sword/Mods</translation>
+        <translation>Mod installationen blev fundet i dobbelt. Dette kan medføre uventede problemer. Kontroller venligst mod-mappen disse to steder, og slet den forkerte:
+ - Mine Dokumenter /Mine Spil/Beyond the Sword/Mods
+ - Spille mappen installation/Beyond the Sword/Mods</translation>
     </message>
     <message>
         <location filename="../checker/main.cpp" line="111"/>
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
-        <translation>Launcheren er ikke i den rigtige mappe. Det skal være enten i &apos; mine dokumenter / My Games/Beyond sværd/Mods/Rise of Mankind - A New Dawn&apos; eller i &apos; Civilization IV (spillets rodmappen)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</translation>
+        <translation>Launcheren er ikke i den rigtige mappe. Det skal være enten i &apos; Mine Dokumenter / Mine Spil/Beyond The Sword/Mods/Rise of Mankind - A New Dawn&apos; eller i &apos; Civilization IV (Spillets rodmappe)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</translation>
     </message>
     <message>
         <location filename="../checker/main.cpp" line="66"/>
         <source>There seems to be a problem with the previous update. Checking file again.</source>
-        <translation>Der synes at være et problem med den foregående opdatering. Kontrol filer igen.</translation>
+        <translation>Der ser ud til at være et problem med den foregående opdatering. Kontrollerer fil igen.</translation>
     </message>
 </context>
 <context>
@@ -28,7 +28,7 @@
     <message>
         <location filename="../checker/w_exclusion.ui" line="32"/>
         <source>Choose which files to exclude from update</source>
-        <translation>Vælg hvilke filer der skal udelukkes fra updaten</translation>
+        <translation>Vælg hvilke filer der skal ekskluderes fra opdateringen</translation>
     </message>
     <message>
         <location filename="../checker/w_exclusion.ui" line="67"/>
@@ -46,7 +46,7 @@
     <message>
         <location filename="../checker/w_install.ui" line="57"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;A New Dawn : &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;The mod is not installed.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Do you want to download and install it ?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt; &lt;body&gt;&lt;p align=&quot;center&quot;&gt; &lt;span style=&quot;font-size:10pt; font-weight:600;&quot;&gt;A New Dawn :&lt;/span&gt;&lt;/p&gt; &lt;p align=&quot;center&quot;&gt; &lt;span style=&quot;font-size:9pt;&quot;&gt; mod er ikke installeret.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt; &lt;span style=&quot;font-size:9pt;&quot;&gt; ønsker du at hente og installere det?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt; &lt;body&gt;&lt;p align=&quot;center&quot;&gt; &lt;span style=&quot;font-size:10pt; font-weight:600;&quot;&gt;A New Dawn :&lt;/span&gt;&lt;/p&gt; &lt;p align=&quot;center&quot;&gt; &lt;span style=&quot;font-size:9pt;&quot;&gt; Denne mod er ikke installeret.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt; &lt;span style=&quot;font-size:9pt;&quot;&gt; Ønsker du at hente og installere det?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../checker/w_install.cpp" line="13"/>
@@ -139,12 +139,12 @@
     <message>
         <location filename="../checker/w_main.ui" line="192"/>
         <source>Civ. pack update available</source>
-        <translation type="unfinished"></translation>
+        <translation>Civ. Pakke opdatering tilgængelig</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="363"/>
         <source>Report a bug (forum)</source>
-        <translation>Rapport en fejl (forum)</translation>
+        <translation>Rapportér en fejl (forum)</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="376"/>
@@ -154,7 +154,7 @@
     <message>
         <location filename="../checker/w_main.ui" line="381"/>
         <source>Translate the mod</source>
-        <translation>Oversætte moddet</translation>
+        <translation>Oversæt dette mod</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="386"/>
@@ -223,12 +223,12 @@
     <message>
         <location filename="../checker/w_main.ui" line="474"/>
         <source>Reset mod to default state</source>
-        <translation>Nulstille mod til standardtilstand</translation>
+        <translation>Nulstille mod til standard tilstand</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="479"/>
         <source>Translate the civilopedia</source>
-        <translation>Oversætte civilopediaet</translation>
+        <translation>Oversæt civilopediaet</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="484"/>
@@ -263,7 +263,7 @@
         <location filename="../checker/w_main.ui" line="527"/>
         <location filename="../checker/w_main.cpp" line="434"/>
         <source>Ukrainian</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukrainsk</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="535"/>
@@ -409,17 +409,17 @@
     <message>
         <location filename="../checker/w_main.cpp" line="276"/>
         <source>You need to apply a patch on the base game for the extension to be compatible with Asian languages. The original version won&apos;t be modified. Would you like to apply it now ?</source>
-        <translation>Du skal anvende en patch på grundspillet for udvidelsen skal være forenelig med asiatiske sprog. Den oprindelige version vil ikke blive ændret. Ønsker du at anvende den nu?</translation>
+        <translation>Du skal anvende en patch på grundspillet for at udvidelsen kan være kompatibel med asiatiske sprog. Den oprindelige version vil ikke blive modificeret. Ønsker du at anvende den nu?</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="309"/>
         <source>The game version you are using is known for causing some display problems, like invisible religion icons. Please read the &apos;note for Steam users&apos; on our website to fix the problem. The website help page will now open.</source>
-        <translation type="unfinished"></translation>
+        <translation>Den spil version du bruger er kendt for at forårsage skærm problemer, som f.eks usynlige religions ikoner. Venligst læs &quot;Noten for Steam brugere&quot; på vores hjemmeside for at løse problemet. Hjemmesiden&apos;s hjælp side vil nu åbne.</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="309"/>
         <source>You can disable this warning in the options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du kan deaktivere denne advarsel inde under indstillinger.</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="723"/>
@@ -488,7 +488,7 @@
     <message>
         <location filename="../checker/w_modules.ui" line="148"/>
         <source>Update</source>
-        <translation>Opdateringer</translation>
+        <translation>Opdater</translation>
     </message>
     <message>
         <location filename="../checker/w_modules.cpp" line="16"/>
@@ -503,7 +503,7 @@
     <message>
         <location filename="../checker/w_modules.cpp" line="38"/>
         <source>Remote</source>
-        <translation>Remote</translation>
+        <translation>Fjern</translation>
     </message>
 </context>
 <context>
@@ -631,7 +631,7 @@
     <message>
         <location filename="../checker/w_options.ui" line="278"/>
         <source>Disable the warning about the wrong game version</source>
-        <translation type="unfinished"></translation>
+        <translation>Deaktiver advarslen om den forkerte spil version </translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="303"/>
