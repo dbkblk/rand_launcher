@@ -16,7 +16,7 @@ It is automatically installed when you install the mod on your computer.
 ## How to compile (easy way)
 ### Requirements
 - Docker: https://www.docker.com/
-- Autohotkey: https://autohotkey.com/
+- Autohotkey (Windows): https://autohotkey.com/
 
 ### Compilation
 A Dockerfile is created under "project/". If you have Autohotkey installed:
@@ -25,6 +25,7 @@ A Dockerfile is created under "project/". If you have Autohotkey installed:
 - To build the project: execute "project\docker_build_project.ahk" (build will output in "build/" dir).
 - To update the translations: "project\docker_update_translations.ahk" (translations will be copied into your mod directory)
 
+If you don't have Windows to build it, either install Autohotkey with wine, or read the commands and paste them manually in a console. Docker is still needed.
 
 ## How to compile (former way)
 ### Requirements
