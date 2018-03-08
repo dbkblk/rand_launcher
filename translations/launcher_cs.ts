@@ -139,7 +139,7 @@
     <message>
         <location filename="../checker/w_main.ui" line="192"/>
         <source>Civ. pack update available</source>
-        <translation type="unfinished"></translation>
+        <translation>Dostupná aktualizace Civ. pack</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="363"/>
@@ -419,7 +419,7 @@
     <message>
         <location filename="../checker/w_main.cpp" line="309"/>
         <source>You can disable this warning in the options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Toto upozornění můžete zakázat ve volbách.</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="723"/>
@@ -631,7 +631,7 @@
     <message>
         <location filename="../checker/w_options.ui" line="278"/>
         <source>Disable the warning about the wrong game version</source>
-        <translation type="unfinished"></translation>
+        <translation>Zakázat upozornění na špatnou verzi hry</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="303"/>

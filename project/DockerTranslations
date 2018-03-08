@@ -1,0 +1,23 @@
+# Base image
+FROM rand_launcher
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+ADD . /app
+
+# Register the api
+ARG api
+ENV api=${api}
+
+ENTRYPOINT printf "[https://www.transifex.com]\n\
+api_hostname = https://api.transifex.com\n\
+hostname = https://www.transifex.com\n\
+password = ${api}\n\
+username = api\n" >> ~/.transifexrc \
+&& cd translations \
+&& tx pull -a \
+&& cd .. \
+&& lupdate rand_launcher.pro \
+&& lrelease rand_launcher.pro

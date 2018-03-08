@@ -8,12 +8,14 @@
         <source>The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:
 - My Documents/My Games/Beyond the Sword/Mods 
 - Game folder installation/Beyond the Sword/Mods</source>
-        <translation type="unfinished"></translation>
+        <translation>Mod kurulumu çift olarak tespit edildi. Bu, beklenmedik sorunlara neden olabilir. Lütfen bu iki konumdaki mod klasörünü kontrol edin ve yanlış olanı silin:
+- Belgelerim/Oyunlarım/Beyond the Sword/Mods
+- Oyun Klasörü/Beyond the Sword/Mods</translation>
     </message>
     <message>
         <location filename="../checker/main.cpp" line="111"/>
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Başlatıcı doğru dizinde değil. &apos;Belgelerim/Oyunlarım/Beyond the Sword/Mods/Rise of Mankind - A New Dawn&apos; veya &apos;Civilization IV (kök oyun klasörü) /Beyond the Sword/Mods/Rise of Mankind - A New Dawn&apos;ın içinde olmalıdır &apos;</translation>
     </message>
     <message>
         <location filename="../checker/main.cpp" line="66"/>
@@ -407,7 +409,7 @@
     <message>
         <location filename="../checker/w_main.cpp" line="276"/>
         <source>You need to apply a patch on the base game for the extension to be compatible with Asian languages. The original version won&apos;t be modified. Would you like to apply it now ?</source>
-        <translation type="unfinished"></translation>
+        <translation>Uzantının Asya dilleriyle uyumlu olabilmesi için taban oyununda bir yama uygulamanız gerekir. Orijinal sürüm değiştirilmeyecektir. Şimdi uygulamak ister misiniz?</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="309"/>
@@ -549,12 +551,12 @@
     <message>
         <location filename="../checker/w_options.ui" line="126"/>
         <source>Sparth</source>
-        <translation type="unfinished"></translation>
+        <translation>Sparth</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="131"/>
         <source>Vincentz</source>
-        <translation type="unfinished"></translation>
+        <translation>Vincentz</translation>
     </message>
     <message>
         <location filename="../checker/w_options.ui" line="143"/>

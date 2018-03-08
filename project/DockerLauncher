@@ -1,0 +1,10 @@
+FROM rand_launcher
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the parent directory contents into the container at /app
+ADD . /app
+
+# ENTRYPOINT ["cd", "project/"]
+ENTRYPOINT echo "## PREPARING PROJECT ##" && i686-w64-mingw32.static-qmake-qt5 rand_launcher.pro && echo "## COMPILATION ##" && make -j4 && mv build/checker_release/and2_checker.exe build/and2_checker.exe && mv build/updater_release/upd_proc.exe build/upd_proc.exe && echo "## COMPRESSION ##" && upx build/and2_checker.exe && upx build/upd_proc.exe

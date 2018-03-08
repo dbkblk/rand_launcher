@@ -13,7 +13,20 @@ Features:
 ## Installation instructions
 It is automatically installed when you install the mod on your computer.
 
-## How to compile
+## How to compile (easy way)
+### Requirements
+- Docker: https://www.docker.com/
+- Autohotkey: https://autohotkey.com/
+
+### Compilation
+A Dockerfile is created under "project/". If you have Autohotkey installed:
+- Execute "project\docker_prepare_build_machine.ahk" to prepare the build machine.
+- Insert your Transifex API key (for translation update) and your mod path in "project/settings.ahk"
+- To build the project: execute "project\docker_build_project.ahk" (build will output in "build/" dir).
+- To update the translations: "project\docker_update_translations.ahk" (translations will be copied into your mod directory)
+
+
+## How to compile (former way)
 ### Requirements
 - Qt 5.4 with MinGW binaries http://qt.io/
 - Python 3.4
