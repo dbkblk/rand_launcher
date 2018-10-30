@@ -4,7 +4,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../checker/main.cpp" line="103"/>
+        <location filename="../checker/main.cpp" line="109"/>
         <source>The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:
 - My Documents/My Games/Beyond the Sword/Mods 
 - Game folder installation/Beyond the Sword/Mods</source>
@@ -13,9 +13,18 @@
 - φάκελος εγκατάστασης του παιχνιδιού/Beyond the Sword/Mods</translation>
     </message>
     <message>
-        <location filename="../checker/main.cpp" line="111"/>
+        <location filename="../checker/main.cpp" line="117"/>
+        <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../checker/main.cpp" line="117"/>
+        <source>&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
-        <translation>Ο προωθητής δεν είναι στο σωστό φάκελο. Θα πρέπει να είναι είτε στον «τα έγγραφά μου/τα παιχνίδια μου/Beyond the Sword/Mods/Rise of Mankind - A New Dawn» ή στον «Civilization IV (κεντρικός φάκελος του παιχνιδιού)/Beyond the Sword/Mods/Rise of Mankind - A New Dawn»</translation>
+        <translation type="vanished">Ο προωθητής δεν είναι στο σωστό φάκελο. Θα πρέπει να είναι είτε στον «τα έγγραφά μου/τα παιχνίδια μου/Beyond the Sword/Mods/Rise of Mankind - A New Dawn» ή στον «Civilization IV (κεντρικός φάκελος του παιχνιδιού)/Beyond the Sword/Mods/Rise of Mankind - A New Dawn»</translation>
     </message>
     <message>
         <location filename="../checker/main.cpp" line="66"/>

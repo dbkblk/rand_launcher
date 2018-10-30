@@ -4,15 +4,20 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../checker/main.cpp" line="103"/>
+        <location filename="../checker/main.cpp" line="109"/>
         <source>The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:
 - My Documents/My Games/Beyond the Sword/Mods 
 - Game folder installation/Beyond the Sword/Mods</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/main.cpp" line="111"/>
-        <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn&apos;</source>
+        <location filename="../checker/main.cpp" line="117"/>
+        <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../checker/main.cpp" line="117"/>
+        <source>&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -72,7 +77,7 @@
     <message>
         <location filename="../checker/w_main.ui" line="247"/>
         <source>Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>メニュー</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="251"/>
@@ -82,7 +87,7 @@
     <message>
         <location filename="../checker/w_main.ui" line="267"/>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>コミュニティ</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="277"/>
@@ -132,7 +137,7 @@
     <message>
         <location filename="../checker/w_main.ui" line="281"/>
         <source>Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>翻訳</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="192"/>
@@ -231,7 +236,7 @@
     <message>
         <location filename="../checker/w_main.ui" line="484"/>
         <source>Website</source>
-        <translation type="unfinished"></translation>
+        <translation>ウェブサイト</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="492"/>
@@ -386,7 +391,7 @@
     <message>
         <location filename="../checker/w_main.cpp" line="181"/>
         <source>Update available !</source>
-        <translation type="unfinished"></translation>
+        <translation>利用可能な更新 !</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="254"/>
@@ -422,7 +427,7 @@
     <message>
         <location filename="../checker/w_main.cpp" line="723"/>
         <source>Cache</source>
-        <translation type="unfinished"></translation>
+        <translation>キャッシュ</translation>
     </message>
     <message>
         <location filename="../checker/w_main.cpp" line="723"/>
