@@ -54,7 +54,7 @@ void f_check::CheckForUpdate()
     // Check for different mod name
     QString url_check = "http://civ.afforess.com/changelog_last.xml";
     if(readCheckerParam("Main/url_check") != "error"){
-        url_check = readCheckerParam("url_check");
+        url_check = readCheckerParam("Main/url_check");
     }
 
     // Begin the check for update

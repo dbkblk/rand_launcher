@@ -287,7 +287,7 @@ void launchGame(QString executable){
     // Check for different mod name
     QString mod_name = "Rise of Mankind - A New Dawn";
     if(readCheckerParam("Main/mod_name") != "error"){
-        mod_name = readCheckerParam("mod_name");
+        mod_name = readCheckerParam("Main/mod_name");
     }
 
     // Launch executable
