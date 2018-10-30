@@ -6,6 +6,4 @@
 ; A routine to update the translations
 
 SetWorkingDir, ..
-RunWait, %comspec% /c docker build -f .\project\DockerCommon -t rand_launcher . && timeout 10
-RunWait, %comspec% /c docker build -f .\project\DockerLauncher -t rand_launcher_build . && timeout 10
-RunWait, %comspec% /c docker build -f .\project\DockerTranslations -t rand_launcher_translations --build-arg api=%api% . && timeout 10
+RunWait, %comspec% /c docker build -f .\project\ToolsBuilder.docker -t rand_build_tools . && timeout 10

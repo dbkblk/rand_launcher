@@ -283,8 +283,16 @@ bool setColorCustomDefinition(QStringList color_set){
 }
 
 void launchGame(QString executable){
+
+    // Check for different mod name
+    QString mod_name = "Rise of Mankind - A New Dawn";
+    if(readCheckerParam("Main/mod_name") != "error"){
+        mod_name = readCheckerParam("mod_name");
+    }
+
+    // Launch executable
     QStringList arg;
-    arg << "mod=\\Rise of Mankind - A New Dawn";
+    arg << "mod=\\" + mod_name;
     QProcess update;
     update.startDetached(executable, arg);
 }

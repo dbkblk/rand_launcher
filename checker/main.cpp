@@ -98,6 +98,12 @@ int main(int argc, char *argv[])
         }
     }
 
+    // Check for different mod name
+    QString mod_name = "Rise of Mankind - A New Dawn";
+    if(readCheckerParam("Main/mod_name") != "error"){
+        mod_name = readCheckerParam("mod_name");
+    }
+
     // Check for double installation
     if(checkDoubleInstallation()>1){
         QMessageBox::critical(0, "Error", QObject::tr("The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:\n- My Documents/My Games/Beyond the Sword/Mods \n- Game folder installation/Beyond the Sword/Mods"));
@@ -108,7 +114,9 @@ int main(int argc, char *argv[])
     QDir BTS_dir("../../Mods");
     if(!BTS_dir.exists()){
         qDebug() << "Launcher is in a wrong path";
-        QMessageBox::critical(0, "Error", QObject::tr("The launcher isn't in the right directory. It should be either in 'My Documents/My Games/Beyond the sword/Mods/Rise of Mankind - A New Dawn' or in 'Civilization IV (root game folder)/Beyond the sword/Mods/Rise of Mankind - A New Dawn'"));
+        QString msg = QObject::tr("The launcher isn't in the right directory. It should be either in 'My Documents/My Games/Beyond the sword/Mods/") + mod_name + QObject::tr("' or in 'Civilization IV (root game folder)/Beyond the sword/Mods/") + mod_name + "'";
+        QMessageBox::critical(0, "Error", msg);
+//        QMessageBox::critical(0, "Error", QObject::tr("The launcher isn't in the right directory. It should be either in 'My Documents/My Games/Beyond the sword/Mods/" + mod_name + "' or in 'Civilization IV (root game folder)/Beyond the sword/Mods/" + mod_name + "'"));
         return 1;
     }
     #endif

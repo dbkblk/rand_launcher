@@ -44,3 +44,4 @@ updater/ui_w_main.h
 and2_checker.cppcheck
 transifex-stats/UpdateTransifexStats.bat
 .qmake.stash
+project/settings.ahk

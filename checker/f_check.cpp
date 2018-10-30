@@ -51,12 +51,18 @@ void f_check::CheckForUpdate()
     QTimer::singleShot(3000, &loop, SLOT(quit()));
     loop.exec();
 
+    // Check for different mod name
+    QString url_check = "http://civ.afforess.com/changelog_last.xml";
+    if(readCheckerParam("Main/url_check") != "error"){
+        url_check = readCheckerParam("url_check");
+    }
+
     // Begin the check for update
     //qDebug()<<"Starting worker process in Thread "<<thread()->currentThreadId();
     bool update;
     QFile::remove("checker/changelog_last.xml");
     QProcess download;
-    QString get_address = tools::TOOL_GET + "-O checker/changelog_last.xml http://civ.afforess.com/changelog_last.xml";
+    QString get_address = tools::TOOL_GET + "-O checker/changelog_last.xml " + url_check;
     //qDebug() << get_address;
     download.start(get_address);
 
