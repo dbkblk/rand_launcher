@@ -1,0 +1,5 @@
+image: qt:5.11-desktop
+
+Build:
+    - script: qmake rand_launcher.pro
+    - script: mingw32-make

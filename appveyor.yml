@@ -1,7 +1,0 @@
-version: '{build}'
-
-image: Visual Studio 2017
-
-build_script:
-    - qmake rand_launcher.pro
-    - mingw32-make
