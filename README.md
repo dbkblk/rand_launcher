@@ -1,4 +1,7 @@
 # Rise of Mankind - A New Dawn Launcher source code
+
+Last build : [![pipeline status](https://gitlab.com/dbkblk/rand_launcher/badges/master/pipeline.svg)](https://gitlab.com/dbkblk/rand_launcher/commits/master)
+
 ## Description
 This launcher should help to customize and update the mod "Rise of Mankind - A New Dawn" @ http://anewdawn.sf.net
 
