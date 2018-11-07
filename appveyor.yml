@@ -2,10 +2,6 @@ version: '{build}'
 
 image: Visual Studio 2017
 
-install:
-    - set QTDIR=C:\Qt\5.11.1\mingw53_32
-    - set PATH=%PATH%;PATH=%PATH%;%QTDIR%\bin;C:\MinGW\bin
-
 build_script:
-- qmake rand_launcher.pro
-- mingw32-make
+    - qmake rand_launcher.pro
+    - mingw32-make
