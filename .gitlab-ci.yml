@@ -1,5 +1,4 @@
-image: qt:5.11-desktop
+image: rabits/qt:5.11-desktop
 
-Build:
-    - script: qmake rand_launcher.pro
-    - script: mingw32-make
+Launcher:
+    script: qmake rand_launcher.pro && mingw32-make
