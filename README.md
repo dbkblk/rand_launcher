@@ -33,7 +33,7 @@ Terrain=0
 DistantRev=
 ```
 
-If you add the following lines under [Main], it will allow customization:
+If you add the following lines under [Mod], it will allow customization:
 
 ```
 mod_name=Your mod name

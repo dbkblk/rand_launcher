@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
 
     // Check for different mod name
     QString mod_name = "Rise of Mankind - A New Dawn";
-    QString optName = readCheckerParam("Main/mod_name");
+    QString optName = readCheckerParam("Mod/mod_name");
     if(optName != "error"){
         mod_name = optName;
     }

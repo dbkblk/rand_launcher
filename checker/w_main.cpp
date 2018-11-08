@@ -82,9 +82,21 @@ w_main::w_main(QWidget *parent) :
     ui->actionCheck_the_files_again->setIcon(QIcon("checker/icons/cust.png"));
     ui->actionWrite_a_review_on_Moddb->setIcon(QIcon("checker/icons/moddb.png"));
 
-    // GUI : Set title and background
+    // GUI : Set title and special options if the mod is known
+    QString optName = readCheckerParam("Mod/mod_name");
+    if(optName != "error"){
+        // Set title
+        this->setWindowTitle(optName);
 
-    this->setWindowTitle("Civilization IV: A New Dawn");
+        // Disable specific menus
+        ui->menuCommunity->deleteLater();
+        ui->menuTools->deleteLater();
+    }
+    else {
+        this->setWindowTitle("Civilization IV: A New Dawn");
+    }
+
+    // GUI : Set background
     this->setStyleSheet("w_main { background-image: url(checker/and2_background.jpg); background-position: bottom }");
 
     // Update : Prepare a background task to check for update without slowing down the GUI
@@ -337,7 +349,20 @@ void w_main::on_bt_option_clicked()
 void w_main::on_bt_components_clicked()
 // GUI : Modules button
 {
-    modules->show();
+    // If the mod is not the standard one, start and URL
+    if(readCheckerParam("Mod/mod_name") != "error"){
+        QString url = readCheckerParam("Mod/url_check");
+        if(url != "error"){
+            openURL(url);
+        }
+        else {
+            QMessageBox::critical(0, "Error", "Mod URL check is misconfigured");
+        }
+    }
+    else {
+        modules->show();
+    }
+
 }
 
 // GUI : Set all language selector to 0 before to check the correct one
