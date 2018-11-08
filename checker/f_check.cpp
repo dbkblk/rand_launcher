@@ -51,10 +51,10 @@ void f_check::CheckForUpdate()
     QTimer::singleShot(3000, &loop, SLOT(quit()));
     loop.exec();
 
-    // Check for different mod name
+    // Check for different mod name and avoid looking for update if it's not the standard one
     QString url_check = "http://civ.afforess.com/changelog_last.xml";
-    if(readCheckerParam("Main/url_check") != "error"){
-        url_check = readCheckerParam("Main/url_check");
+    if(readCheckerParam("Mod/url_check") != "error"){
+        return;
     }
 
     // Begin the check for update
