@@ -100,8 +100,9 @@ int main(int argc, char *argv[])
 
     // Check for different mod name
     QString mod_name = "Rise of Mankind - A New Dawn";
-    if(readCheckerParam("Main/mod_name") != "error"){
-        mod_name = readCheckerParam("mod_name");
+    QString optName = readCheckerParam("Main/mod_name");
+    if(optName != "error"){
+        mod_name = optName;
     }
 
     // Check for double installation
