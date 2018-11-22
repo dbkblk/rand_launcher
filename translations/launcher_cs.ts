@@ -4,7 +4,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../checker/main.cpp" line="109"/>
+        <location filename="../checker/main.cpp" line="110"/>
         <source>The mod installation was detected in double. This can cause unexpected problems. Please check for the mod folder in these two locations and delete the wrong one:
 - My Documents/My Games/Beyond the Sword/Mods 
 - Game folder installation/Beyond the Sword/Mods</source>
@@ -13,12 +13,12 @@
 - Game folder installation/Beyond the Sword/Mods</translation>
     </message>
     <message>
-        <location filename="../checker/main.cpp" line="117"/>
+        <location filename="../checker/main.cpp" line="118"/>
         <source>The launcher isn&apos;t in the right directory. It should be either in &apos;My Documents/My Games/Beyond the sword/Mods/</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/main.cpp" line="117"/>
+        <location filename="../checker/main.cpp" line="118"/>
         <source>&apos; or in &apos;Civilization IV (root game folder)/Beyond the sword/Mods/</source>
         <translation type="unfinished"></translation>
     </message>
@@ -172,55 +172,55 @@
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="397"/>
-        <location filename="../checker/w_main.cpp" line="365"/>
+        <location filename="../checker/w_main.cpp" line="390"/>
         <source>English</source>
         <translation>Angličtina</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="408"/>
-        <location filename="../checker/w_main.cpp" line="368"/>
+        <location filename="../checker/w_main.cpp" line="393"/>
         <source>French</source>
         <translation>Francouzština</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="416"/>
-        <location filename="../checker/w_main.cpp" line="383"/>
+        <location filename="../checker/w_main.cpp" line="408"/>
         <source>Hungarian</source>
         <translation>Maďarština</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="424"/>
-        <location filename="../checker/w_main.cpp" line="380"/>
+        <location filename="../checker/w_main.cpp" line="405"/>
         <source>Finnish</source>
         <translation>Finština</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="432"/>
-        <location filename="../checker/w_main.cpp" line="386"/>
+        <location filename="../checker/w_main.cpp" line="411"/>
         <source>Polish</source>
         <translation>Polština</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="440"/>
-        <location filename="../checker/w_main.cpp" line="374"/>
+        <location filename="../checker/w_main.cpp" line="399"/>
         <source>Italian</source>
         <translation>Italština</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="448"/>
-        <location filename="../checker/w_main.cpp" line="377"/>
+        <location filename="../checker/w_main.cpp" line="402"/>
         <source>Spanish</source>
         <translation>Španělština</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="456"/>
-        <location filename="../checker/w_main.cpp" line="371"/>
+        <location filename="../checker/w_main.cpp" line="396"/>
         <source>German</source>
         <translation>Němčina</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="464"/>
-        <location filename="../checker/w_main.cpp" line="389"/>
+        <location filename="../checker/w_main.cpp" line="414"/>
         <source>Russian</source>
         <translation>Ruština</translation>
     </message>
@@ -246,31 +246,31 @@
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="492"/>
-        <location filename="../checker/w_main.cpp" line="392"/>
+        <location filename="../checker/w_main.cpp" line="417"/>
         <source>Czech</source>
         <translation>Čeština</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="500"/>
-        <location filename="../checker/w_main.cpp" line="395"/>
+        <location filename="../checker/w_main.cpp" line="420"/>
         <source>Danish</source>
         <translation>Dánština</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="508"/>
-        <location filename="../checker/w_main.cpp" line="398"/>
+        <location filename="../checker/w_main.cpp" line="423"/>
         <source>Arabic</source>
         <translation>Arabština</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="519"/>
-        <location filename="../checker/w_main.cpp" line="401"/>
+        <location filename="../checker/w_main.cpp" line="426"/>
         <source>Turkish</source>
         <translation>Turečtina</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="527"/>
-        <location filename="../checker/w_main.cpp" line="434"/>
+        <location filename="../checker/w_main.cpp" line="459"/>
         <source>Ukrainian</source>
         <translation>Ukrajinština</translation>
     </message>
@@ -296,37 +296,37 @@
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="558"/>
-        <location filename="../checker/w_main.cpp" line="404"/>
+        <location filename="../checker/w_main.cpp" line="429"/>
         <source>Korean</source>
         <translation>Korejština</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="566"/>
-        <location filename="../checker/w_main.cpp" line="407"/>
+        <location filename="../checker/w_main.cpp" line="432"/>
         <source>Chinese (simplified)</source>
         <translation>Čínština (zjednodušená)</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="617"/>
-        <location filename="../checker/w_main.cpp" line="410"/>
+        <location filename="../checker/w_main.cpp" line="435"/>
         <source>Chinese (traditional)</source>
         <translation>Čínština (tradiční)</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="622"/>
-        <location filename="../checker/w_main.cpp" line="428"/>
+        <location filename="../checker/w_main.cpp" line="453"/>
         <source>Catalan</source>
         <translation>Katalánština</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="627"/>
-        <location filename="../checker/w_main.cpp" line="425"/>
+        <location filename="../checker/w_main.cpp" line="450"/>
         <source>Bulgarian</source>
         <translation>Bulharština</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="632"/>
-        <location filename="../checker/w_main.cpp" line="431"/>
+        <location filename="../checker/w_main.cpp" line="456"/>
         <source>Dutch</source>
         <translation>Holandština</translation>
     </message>
@@ -337,7 +337,7 @@
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="574"/>
-        <location filename="../checker/w_main.cpp" line="413"/>
+        <location filename="../checker/w_main.cpp" line="438"/>
         <source>Japanese</source>
         <translation>Japonština</translation>
     </message>
@@ -358,13 +358,13 @@
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="597"/>
-        <location filename="../checker/w_main.cpp" line="416"/>
+        <location filename="../checker/w_main.cpp" line="441"/>
         <source>Greek</source>
         <translation>Řecky</translation>
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="602"/>
-        <location filename="../checker/w_main.cpp" line="419"/>
+        <location filename="../checker/w_main.cpp" line="444"/>
         <source>Portuguese</source>
         <translation>Portugalština</translation>
     </message>
@@ -375,94 +375,94 @@
     </message>
     <message>
         <location filename="../checker/w_main.ui" line="612"/>
-        <location filename="../checker/w_main.cpp" line="422"/>
+        <location filename="../checker/w_main.cpp" line="447"/>
         <source>Brazilian</source>
         <translation>Brazilština</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="133"/>
+        <location filename="../checker/w_main.cpp" line="145"/>
         <source>The executable saved in your settings doesn&apos;t exist. You will be now invited to select the game executable location</source>
         <translation>Spustitelný soubor uložený v nastaveních neexistuje. Budete vyzván ke výběru umístění spustitelného souboru hry.</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="134"/>
+        <location filename="../checker/w_main.cpp" line="146"/>
         <source>Find Civ IV executable</source>
         <translation>Najdi spustitelný Civ IV soubor.</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="171"/>
+        <location filename="../checker/w_main.cpp" line="183"/>
         <source>Check for update</source>
         <translation>Zkontroluj aktualizace.</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="181"/>
+        <location filename="../checker/w_main.cpp" line="193"/>
         <source>Update available !</source>
         <translation>Dostupná aktualizace!</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="254"/>
+        <location filename="../checker/w_main.cpp" line="266"/>
         <source>To be able to launch the game from the launcher, you need to set the game path in the options window. (Options &gt; Select game path)</source>
         <translation>Ke spuštění hry ve spouštěči je třeba nastavit umístění hry v okně možností. (Možnosti &gt; Vybrat umístění hry)</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="268"/>
-        <location filename="../checker/w_main.cpp" line="302"/>
+        <location filename="../checker/w_main.cpp" line="280"/>
+        <location filename="../checker/w_main.cpp" line="314"/>
         <source>The executable hasn&apos;t been found. Please set the game path in the options window. (Options &gt; Select game path)</source>
         <translation>Spustitelný soubor nebyl nalezen. Prosím nastavte umístění hry v okně možností. (Možnosti &gt; Vybrat umístění hry)</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="275"/>
+        <location filename="../checker/w_main.cpp" line="287"/>
         <source>Asian language patch not applied</source>
         <translation>Patch na asijské jazyky není aplikován</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="276"/>
+        <location filename="../checker/w_main.cpp" line="288"/>
         <source>You need to apply a patch on the base game for the extension to be compatible with Asian languages. The original version won&apos;t be modified. Would you like to apply it now ?</source>
         <translation>Je třeba aplikovat patch na základní hru aby bylo rozšíření kompatibilní s asijskými jazyky. Původní verze nebude modifikována. Přejete si jej aplikovat nyní?</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="309"/>
+        <location filename="../checker/w_main.cpp" line="321"/>
         <source>The game version you are using is known for causing some display problems, like invisible religion icons. Please read the &apos;note for Steam users&apos; on our website to fix the problem. The website help page will now open.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="309"/>
+        <location filename="../checker/w_main.cpp" line="321"/>
         <source>You can disable this warning in the options.</source>
         <translation>Toto upozornění můžete zakázat ve volbách.</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="723"/>
+        <location filename="../checker/w_main.cpp" line="748"/>
         <source>Cache</source>
         <translation>Cache</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="723"/>
+        <location filename="../checker/w_main.cpp" line="748"/>
         <source>The cache is now cleared. NOTE: It is already automatically cleared on update.</source>
         <translation>Cache je vyčištěn. POZNÁMKA: Čistí se automaticky spolu s aktualizacemi.</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="731"/>
+        <location filename="../checker/w_main.cpp" line="756"/>
         <source>Reset mod</source>
         <translation>Resetuj mód</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="732"/>
+        <location filename="../checker/w_main.cpp" line="757"/>
         <source>This will reset the mod to the default state. Any modification or launcher preferences will be removed.</source>
         <translation>Toto navrátí mód do původního stavu. Všechny změny nebo předvolby spouštěče budou ztraceny.</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="733"/>
-        <location filename="../checker/w_main.cpp" line="756"/>
+        <location filename="../checker/w_main.cpp" line="758"/>
+        <location filename="../checker/w_main.cpp" line="781"/>
         <source>Are you sure to continue ?</source>
         <translation>Jste si jist, že chcete pokračovat?</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="754"/>
+        <location filename="../checker/w_main.cpp" line="779"/>
         <source>Check files</source>
         <translation>Zkontrolovat soubory</translation>
     </message>
     <message>
-        <location filename="../checker/w_main.cpp" line="755"/>
+        <location filename="../checker/w_main.cpp" line="780"/>
         <source>This will check the mod files again without removing your modifications (if they are listed as exclusions) or preferences. If an update is available, this will update the game.</source>
         <translation>Soubory módu budou znovu zkontrolovány bez odebrání vašich změn (pokud jsou v seznamu vyloučených souborů) nebo předvoleb. Pokud je dostupná aktualizace, bude stažena.</translation>
     </message>
