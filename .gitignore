@@ -46,3 +46,6 @@ transifex-stats/UpdateTransifexStats.bat
 .qmake.stash
 project/settings.ahk
 .vscode/c_cpp_properties.json
+
+project/settings.ahk
+project/settings.sh
