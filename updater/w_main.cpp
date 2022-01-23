@@ -97,17 +97,20 @@ void w_main::restartLauncher()
     // Update interface a last time
     updateInterface(100, 0);
 
+    // Remove the update file
+    qDebug() << "Remove update";
+    QFile::remove("updating");
+
+    // Restart the launcher before to quit
+    QProcess::startDetached(tools::TOOL_LAUNCHER);
+
     // Kill the threads
     qDebug("Kill thread");
     worker->abort();
     thread->wait(10000);
+    thread->exit();
     delete thread;
-    delete worker;
-
-    // Restart the launcher before to quit
-    qDebug() << "Remove update";
-    QFile::remove("updating");
-    QProcess::startDetached(tools::TOOL_LAUNCHER);
+    delete worker;    
 
     // Stop the UI
     qDebug("Kill UI");

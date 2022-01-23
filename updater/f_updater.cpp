@@ -3,6 +3,8 @@
 #include "w_main.h"
 #include <QtXml>
 
+
+
 f_updater::f_updater(QObject *parent) :
     QObject(parent)
 {
@@ -82,6 +84,7 @@ void f_updater::processOutput(){
 
     // Get standard output
     QString output = process->readAllStandardOutput();
+    QRegExp regex ("to-chk=(\\d*)\\/(\\d*)");
     //qDebug() << output;
 
     // Check for errors
@@ -89,19 +92,24 @@ void f_updater::processOutput(){
 
     // Extract percent
     //      75,634,656   2%   10.23MB/s    0:00:07 (xfr#77, to-chk=0/13260)
-    int pos = 0;
-    int bracket = 0;
-    int separator = 0;
+//    int pos = 0;
+//    int bracket = 0;
+//    int separator = 0;
     int value;
     int total;
     int percent = 0;
-    if (output.contains("to-check=")){
-        pos = output.lastIndexOf("to-check=");
-        separator = output.lastIndexOf("/");
-        bracket = output.lastIndexOf(")");
-        value = output.mid((pos+9),(separator-(pos+9))).toInt();
-        qDebug() << "Files to check: " << value;
-        total = output.mid((separator+1),(bracket-(separator+1))).toInt();
+    if (output.contains(regex)){
+        // Formal detection
+//        pos = output.lastIndexOf("to-chk=");
+//        separator = output.lastIndexOf("/");
+//        bracket = output.lastIndexOf(")");
+//        value = output.mid((pos+9),(separator-(pos+9))).toInt();
+//        qDebug() << "Files to check: " << value;
+//        total = output.mid((separator+1),(bracket-(separator+1))).toInt();
+
+        // Regex detection
+        value = regex.cap(1).toInt();
+        total = regex.cap(2).toInt();
         //qDebug() << total;
         // Avoid crash on windows
         if (total >  0){

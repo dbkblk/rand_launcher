@@ -79,12 +79,12 @@ int main(int argc, char *argv[])
             QFile::remove("reset");
             updater.ActionReset();
         }
-        return 0;
+        return 1;
     }
 
     // Go out of update. Remove files which were used during update.
     QStringList files;
-    files << "msys-iconv-2.dll" << "msys-1.0.dll" << "msys-popt-0.dll" << "msys-intl-8.dll" << "rsync.exe" << "upd_proc.exe";
+    files << "msys-2.0.dll" << "msys-crypto-1.1.dll" << "msys-iconv-2.dll" << "msys-lz4-1.dll" << "msys-xxhash-0.dll" << "msys-zstd-1.dll" << "msys-z.dll" << "rsync.exe" << "upd_proc.exe";
     if(QFile::exists("upd_proc.exe") || QFile::exists("rsync.exe"))
     {
         clearCache();
@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
         QString msg = QObject::tr("The launcher isn't in the right directory. It should be either in 'My Documents/My Games/Beyond the sword/Mods/") + mod_name + QObject::tr("' or in 'Civilization IV (root game folder)/Beyond the sword/Mods/") + mod_name + "'";
         QMessageBox::critical(0, "Error", msg);
 //        QMessageBox::critical(0, "Error", QObject::tr("The launcher isn't in the right directory. It should be either in 'My Documents/My Games/Beyond the sword/Mods/" + mod_name + "' or in 'Civilization IV (root game folder)/Beyond the sword/Mods/" + mod_name + "'"));
-        return 1;
+        return 2;
     }
     #endif
     /* End of the windows specific code */
@@ -207,7 +207,7 @@ int main(int argc, char *argv[])
         f_check updater;
         updater.PrepareUpdate();
         updater.ActionUpdate();
-        return 0;
+        return 3;
     }
 
     else{

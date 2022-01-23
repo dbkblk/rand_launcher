@@ -162,6 +162,7 @@ w_main::~w_main()
     delete inj_thread;
     delete inj_worker;
     delete ui;
+    QApplication::exit(0);
 }
 
 void w_main::UpdateWindowInfos()

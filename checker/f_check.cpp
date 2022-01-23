@@ -52,7 +52,7 @@ void f_check::CheckForUpdate()
     loop.exec();
 
     // Check for different mod name and avoid looking for update if it's not the standard one
-    QString url_check = "http://civ.afforess.com/changelog_last.xml";
+    QString url_check = "https://civ.afforess.com/changelog_last.xml";
     if(readCheckerParam("Mod/url_check") != "error"){
         return;
     }
@@ -62,7 +62,7 @@ void f_check::CheckForUpdate()
     bool update;
     QFile::remove("checker/changelog_last.xml");
     QProcess download;
-    QString get_address = tools::TOOL_GET + "-O checker/changelog_last.xml " + url_check;
+    QString get_address = tools::TOOL_GET + " --no-check-certificate -O checker/changelog_last.xml " + url_check;
     //qDebug() << get_address;
     download.start(get_address);
 
@@ -84,7 +84,7 @@ void f_check::CheckForUpdate()
     QString url = getModURL("Custom_Civilizations_MCP");
     if(!url.isEmpty())
     {
-        QString get_address_mod = tools::TOOL_GET + "-O checker/changelog_mod.xml " + url;
+        QString get_address_mod = tools::TOOL_GET + " --no-check-certificate -O checker/changelog_mod.xml " + url;
         download.start(get_address_mod);
 
         if (download.waitForFinished(60000))
@@ -125,7 +125,7 @@ bool f_check::PrepareUpdate()
 {
     #ifdef _WIN32
     QStringList files;
-    files << "msys-iconv-2.dll" << "msys-1.0.dll" << "msys-popt-0.dll" << "msys-intl-8.dll" << "rsync.exe" << "upd_proc.exe";
+    files << "msys-2.0.dll" << "msys-crypto-1.1.dll" << "msys-iconv-2.dll" << "msys-lz4-1.dll" << "msys-xxhash-0.dll" << "msys-zstd-1.dll" << "msys-z.dll" << "rsync.exe" << "upd_proc.exe";
     foreach(QString file, files)
     {
         QFile::remove(file);
@@ -232,7 +232,7 @@ QString f_check::ExtractChangelog(QString filepath)
 
     QString result;
     QDomElement revision = read.firstChildElement("log").firstChildElement("logentry");
-    for(revision;!revision.isNull();revision = revision.nextSiblingElement()){
+    for(;!revision.isNull();revision = revision.nextSiblingElement()){
        // Extracting values
        QString number = revision.attribute("revision");
        QString date = revision.firstChildElement("date").text();
